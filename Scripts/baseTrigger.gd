@@ -1,6 +1,6 @@
-extends Node
+extends Node2D
 
-class_name levelController
+class_name baseTrigger
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

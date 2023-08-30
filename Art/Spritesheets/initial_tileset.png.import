@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ca685mop5kjcb"
-path="res://.godot/imported/copyrightedBidoof.png-38d6a8ce7d06d745557abfcfce472968.ctex"
+uid="uid://vrgbmurtm5pg"
+path="res://.godot/imported/initial_tileset.png-a6835e00d001ad3c585680d8bc283f80.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/copyrightedBidoof.png"
-dest_files=["res://.godot/imported/copyrightedBidoof.png-38d6a8ce7d06d745557abfcfce472968.ctex"]
+source_file="res://Art/Spritesheets/initial_tileset.png"
+dest_files=["res://.godot/imported/initial_tileset.png-a6835e00d001ad3c585680d8bc283f80.ctex"]
 
 [params]
 

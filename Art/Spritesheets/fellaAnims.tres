@@ -1,0 +1,81 @@
+[gd_resource type="SpriteFrames" load_steps=12 format=3 uid="uid://uoxtfmfhh7ft"]
+
+[ext_resource type="Texture2D" uid="uid://cudx8wpx2gmkj" path="res://Art/FellaSheet.png" id="1_hir8l"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vbc5n"]
+atlas = ExtResource("1_hir8l")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0smvw"]
+atlas = ExtResource("1_hir8l")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a7bg5"]
+atlas = ExtResource("1_hir8l")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2q73f"]
+atlas = ExtResource("1_hir8l")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g7yd8"]
+atlas = ExtResource("1_hir8l")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ec5ae"]
+atlas = ExtResource("1_hir8l")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dmamk"]
+atlas = ExtResource("1_hir8l")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j60qm"]
+atlas = ExtResource("1_hir8l")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wvof7"]
+atlas = ExtResource("1_hir8l")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mdi6l"]
+atlas = ExtResource("1_hir8l")
+region = Rect2(288, 0, 32, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vbc5n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0smvw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a7bg5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2q73f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g7yd8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ec5ae")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dmamk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j60qm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wvof7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mdi6l")
+}],
+"loop": true,
+"name": &"crawl",
+"speed": 10.0
+}]

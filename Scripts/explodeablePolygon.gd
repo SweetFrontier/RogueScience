@@ -25,37 +25,44 @@ var imploded = false
 func _ready():
 	randomize()
 
-func explode():
-	#this will let us add more points to our polygon later on
-	var points = polygon
-	for i in range(shard_count):
-		points.append(Vector2(randi()%texture.get_height()+1, randi()%texture.get_width()+1))
-		
-	var delaunay_points = Geometry2D.triangulate_delaunay(points)
-	
-	if not delaunay_points:
-		print("serious error occurred no delaunay points found")
-	
-	#loop over each returned triangle
-	for index in len(delaunay_points) / 3:
-		var shard_pool = PackedVector2Array()
-		
-		# loop over the three points in our triangle
-		for n in range(3):
-			shard_pool.append(points[delaunay_points[(index * 3) + n]])
-		
-		#create a new polygon to give these points to
-		var shard = Polygon2D.new()
-		shard.polygon = shard_pool
-		shard.texture = texture
+func explode_triangles():
+	var shards = generate_triangles()
+	for shard in shards:
 		shard.position = Vector2(x_max_distance, y_max_distance)
 		shard_velocity_map[shard] = Vector2(randi_range(-x_init_velocity,x_init_velocity), randi()%y_init_velocity)
 		add_child(shard)
-		
 	#make original polygon invisible
 	color.a = 0
-		
-func implode():
+
+func explode_squares():
+	var shards = generate_squares()
+	for shard in shards:
+		shard.position = Vector2(x_max_distance, y_max_distance)
+		shard_velocity_map[shard] = Vector2(randi_range(-x_init_velocity,x_init_velocity), randi()%y_init_velocity)
+		add_child(shard)
+	#make original polygon invisible
+	color.a = 0
+
+func implode_triangles():
+	var shards = generate_triangles()
+	for shard in shards:
+		shard.position = Vector2(randi_range(x_min_distance, x_max_distance), randi_range(y_min_distance, y_max_distance))
+		shard_goal_pos_map[shard] = shard.position
+		add_child(shard)
+	elapsed_time = 0.0
+	imploded = true
+
+func implode_squares():
+	var shards = generate_squares()
+	for shard in shards:
+		shard.position = Vector2(randi_range(x_min_distance, x_max_distance), randi_range(y_min_distance, y_max_distance))
+		shard_goal_pos_map[shard] = shard.position
+		add_child(shard)
+	elapsed_time = 0.0
+	imploded = true
+
+func generate_triangles():
+	var shards = []
 	var points = polygon
 	for i in range(shard_count):
 		points.append(Vector2(randi()%texture.get_height()+1, randi()%texture.get_width()+1))
@@ -77,15 +84,39 @@ func implode():
 		var shard = Polygon2D.new()
 		shard.polygon = shard_pool
 		shard.texture = texture
-		shard.position = Vector2(randi_range(x_min_distance, x_max_distance), randi_range(y_min_distance, y_max_distance))
-		shard_goal_pos_map[shard] = shard.position
-		add_child(shard)
-		
-	#make original polygon invisible
-	#color.a = 0
-	elapsed_time = 0.0
-	imploded = true
+		shards.append(shard)
+	return shards
+
+func generate_squares():
+	var shards = []
+	# Get the size of the texture.
+	var texture_size = texture.get_size()
+	var width_divisions = sqrt(shard_count)
+	var height_divisions = shard_count/width_divisions
 	
+	# Calculate the width and height of each rectangle.
+	var rectangle_width = texture_size.x / width_divisions
+	var rectangle_height = texture_size.y / height_divisions
+	
+	for w in range(width_divisions):
+		for h in range(height_divisions):
+			# Calculate the coordinates of the top-left and bottom-right corners of each rectangle.
+			var top_left = Vector2(w * rectangle_width, h * rectangle_height)
+			var bottom_right = Vector2((w + 1) * rectangle_width, (h + 1) * rectangle_height)
+			
+			var section_rectangle = PackedVector2Array()
+			# Append the points of the rectangle to the result array.
+			section_rectangle.append(top_left)
+			section_rectangle.append(Vector2(bottom_right.x, top_left.y))
+			section_rectangle.append(bottom_right)
+			section_rectangle.append(Vector2(top_left.x, bottom_right.y))
+			
+			var shard = Polygon2D.new()
+			shard.polygon = section_rectangle
+			shard.texture = texture
+			shards.append(shard)
+	return shards
+
 func reset():
 	for child in get_children():
 		child.queue_free()

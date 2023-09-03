@@ -6,6 +6,7 @@ class_name levelController
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	randomize_block_keys()
 	pass # Replace with function body.
 
 

@@ -56,6 +56,7 @@ func _input(event):
 	# Check if the associated button is pressed and the trigger is active.
 	if event is InputEventKey and event.keycode == button and event.pressed:
 		react()  # Call the react method when the button is pressed.
+		(get_parent() as levelController).randomize_block_keys()
 
 # Override this method in child classes to define trigger-specific behavior.
 func react():

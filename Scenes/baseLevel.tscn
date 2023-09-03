@@ -159,9 +159,10 @@ tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_lc8m1")
 
-[node name="baseLevel" type="Node2D"]
+[node name="baseLevel" type="Node2D" node_paths=PackedStringArray("triggerBlocks")]
 texture_filter = 1
 script = ExtResource("1_btnfb")
+triggerBlocks = [NodePath("trampolineTrigger"), NodePath("breakableBlock"), NodePath("invisibleBlock")]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_en2gy")
@@ -183,5 +184,5 @@ texture_filter = 0
 position = Vector2(528, 200)
 
 [node name="TransitionField" parent="." instance=ExtResource("7_p1n4v")]
-position = Vector2(812, 600)
+position = Vector2(107, 629)
 scale = Vector2(5, 5)

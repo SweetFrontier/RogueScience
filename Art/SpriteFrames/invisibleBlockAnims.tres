@@ -1,0 +1,14 @@
+[gd_resource type="SpriteFrames" load_steps=2 format=3 uid="uid://bssge778438fn"]
+
+[ext_resource type="Texture2D" uid="uid://chi00qs1iy8dj" path="res://Art/sample32x32.png" id="1_1w535"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_1w535")
+}],
+"loop": true,
+"name": &"InvisibleBlock",
+"speed": 5.0
+}]

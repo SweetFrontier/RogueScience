@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://cl0g2o3284xxy"]
+
+[ext_resource type="Script" path="res://Scripts/invisibleBlock.gd" id="1_f5t0u"]
+[ext_resource type="Texture2D" uid="uid://chi00qs1iy8dj" path="res://Art/sample32x32.png" id="2_ei7f8"]
+[ext_resource type="SpriteFrames" uid="uid://b8gp081t10dc8" path="res://Art/SpriteFrames/keyAnims.tres" id="3_3cuu8"]
+[ext_resource type="Script" path="res://Scripts/explodeablePolygon.gd" id="3_ywgna"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_va747"]
+size = Vector2(32, 32)
+
+[node name="invisibleBlock" type="Node2D" node_paths=PackedStringArray("body", "implodeable_polygon", "TriggerKeySprite")]
+script = ExtResource("1_f5t0u")
+body = NodePath("StaticBody2D")
+implodeable_polygon = NodePath("Polygon2D")
+button = 66
+TriggerKeySprite = NodePath("TriggerKeySprite")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_ei7f8")
+polygon = PackedVector2Array(0, 0, 32, 0, 32, 32, 0, 32)
+script = ExtResource("3_ywgna")
+shard_count = 8
+shard_shrink_rate = 0.99
+min_shard_size = 0.0
+x_init_velocity = 20
+y_init_velocity = 40
+shard_speed = 3.0
+rotation_speed = 0.1
+shard_gravity = 40.0
+x_max_distance = 1000
+x_min_distance = -1000
+y_max_distance = 1000
+y_min_distance = -1000
+time_to_form = 2.0
+
+[node name="TriggerKeySprite" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(16, 64)
+sprite_frames = ExtResource("3_3cuu8")
+animation = &"a"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+visible = false
+shape = SubResource("RectangleShape2D_va747")

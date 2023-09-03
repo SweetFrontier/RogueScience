@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://dnqoj4eg2l7le"]
+
+[ext_resource type="Script" path="res://Scripts/trampolineTrigger.gd" id="1_nuh0k"]
+[ext_resource type="SpriteFrames" uid="uid://82s0kbf8kedv" path="res://Art/SpriteFrames/breakableBlockAnims.tres" id="2_k65r4"]
+[ext_resource type="SpriteFrames" uid="uid://b8gp081t10dc8" path="res://Art/SpriteFrames/keyAnims.tres" id="2_n2yfx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2sohs"]
+size = Vector2(52, 8)
+
+[node name="trampolineTrigger" type="Node2D" node_paths=PackedStringArray("area2D", "BlockSprite", "MoveToPosition", "TriggerKeySprite")]
+script = ExtResource("1_nuh0k")
+area2D = NodePath("BounceArea")
+BlockSprite = NodePath("BlockSprite")
+MoveToPosition = NodePath("MoveToPosition")
+button = 77
+TriggerKeySprite = NodePath("TriggerKeySprite")
+
+[node name="BlockSprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("2_k65r4")
+
+[node name="TriggerKeySprite" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, 48)
+sprite_frames = ExtResource("2_n2yfx")
+animation = &"a"
+
+[node name="BounceArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BounceArea"]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_2sohs")
+
+[node name="MoveToPosition" type="Node2D" parent="."]
+position = Vector2(0, -8)

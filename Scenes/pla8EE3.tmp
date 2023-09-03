@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://b42fe8hyi4bsb"]
+
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_7ytxc"]
+[ext_resource type="SpriteFrames" uid="uid://uoxtfmfhh7ft" path="res://Art/Spritesheets/fellaAnims.tres" id="2_nrbrc"]
+
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("AnimatedSprite", "PlayerCollision")]
+texture_filter = 1
+scale = Vector2(2, 2)
+script = ExtResource("1_7ytxc")
+SPEED = 100.0
+AnimatedSprite = NodePath("PlayerAnimatedSprite")
+PlayerCollision = NodePath("PlayerCollision")
+metadata/_edit_group_ = true
+
+[node name="PlayerAnimatedSprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("2_nrbrc")
+animation = &"crawl"
+autoplay = "crawl"
+frame_progress = 0.275074
+
+[node name="PlayerCollision" type="CollisionPolygon2D" parent="."]
+visible = false
+position = Vector2(6.24999, 4.875)
+scale = Vector2(0.78125, 0.390625)
+polygon = PackedVector2Array(-27.2, 28.48, -27.2, -9.92, -10.56, -9.92, -10.56, 2.88, 4.79999, 18.24, -0.320007, 28.48)

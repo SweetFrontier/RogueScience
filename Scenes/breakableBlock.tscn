@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://dxkklnkpsn70w"]
+
+[ext_resource type="Script" path="res://Scripts/breakableBlock.gd" id="1_j5j6d"]
+[ext_resource type="Texture2D" uid="uid://chi00qs1iy8dj" path="res://Art/sample32x32.png" id="2_aepos"]
+[ext_resource type="Script" path="res://Scripts/explodeablePolygon.gd" id="3_v7l57"]
+[ext_resource type="SpriteFrames" uid="uid://b8gp081t10dc8" path="res://Art/SpriteFrames/keyAnims.tres" id="4_jmd6j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_81igh"]
+size = Vector2(32, 32)
+
+[node name="breakableBlock" type="Node2D" node_paths=PackedStringArray("explodeable_polygon", "body", "TriggerKeySprite")]
+script = ExtResource("1_j5j6d")
+explodeable_polygon = NodePath("Polygon2D")
+body = NodePath("StaticBody2D")
+button = 68
+TriggerKeySprite = NodePath("TriggerKeySprite")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_aepos")
+polygon = PackedVector2Array(0, 0, 32, 0, 32, 32, 0, 32)
+script = ExtResource("3_v7l57")
+shard_count = 8
+shard_shrink_rate = 0.99
+min_shard_size = 0.0
+x_init_velocity = 20
+y_init_velocity = 40
+shard_speed = 3.0
+rotation_speed = 0.1
+shard_gravity = 40.0
+time_to_form = 2.0
+
+[node name="TriggerKeySprite" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(16, 64)
+sprite_frames = ExtResource("4_jmd6j")
+animation = &"a"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+visible = false
+position = Vector2(16, 16)
+shape = SubResource("RectangleShape2D_81igh")

@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://bxwqxbwa8olaa"]
+
+[ext_resource type="Script" path="res://Scripts/breakableBlock.gd" id="1_j5j6d"]
+[ext_resource type="Texture2D" uid="uid://db3w2ruucx7bn" path="res://Art/image0 (2).png" id="3_ns4lx"]
+[ext_resource type="Script" path="res://Scripts/explodeablePolygon.gd" id="3_v7l57"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_81igh"]
+size = Vector2(16, 12)
+
+[node name="breakableBlock" type="Node2D" node_paths=PackedStringArray("body")]
+script = ExtResource("1_j5j6d")
+body = NodePath("StaticBody2D")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+offset = Vector2(-16, -16)
+texture = ExtResource("3_ns4lx")
+texture_offset = Vector2(16, 16)
+texture_scale = Vector2(6.25, 6.25)
+polygon = PackedVector2Array(0, 0, 32, 0, 32, 32, 0, 32)
+script = ExtResource("3_v7l57")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_81igh")

@@ -11,17 +11,24 @@ config_version=5
 [application]
 
 config/name="2023KickOffGamejam"
-run/main_scene="res://Scenes/Main.tscn"
+run/main_scene="res://Scenes/baseLevel.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
+
+[debug]
+
+gdscript/warnings/integer_division=0
 
 [display]
 
 window/size/viewport_width=1280
-window/size/viewport_height=720
+window/size/viewport_height=736
 window/stretch/mode="canvas_items"
-window/stretch/aspect="expand"
 
 [dotnet]
 
 project/assembly_name="2023KickOffGamejam"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0

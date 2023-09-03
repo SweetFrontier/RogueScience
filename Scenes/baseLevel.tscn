@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://1xasoo80ygld"]
+[gd_scene load_steps=10 format=3 uid="uid://1xasoo80ygld"]
 
 [ext_resource type="Script" path="res://Scripts/levelController.gd" id="1_btnfb"]
 [ext_resource type="Texture2D" uid="uid://vrgbmurtm5pg" path="res://Art/Spritesheets/initial_tileset.png" id="2_2o6jt"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cl0g2o3284xxy" path="res://Scenes/invisibleBlock.tscn" id="4_ry4jv"]
 [ext_resource type="PackedScene" uid="uid://dxkklnkpsn70w" path="res://Scenes/breakableBlock.tscn" id="4_uins3"]
 [ext_resource type="PackedScene" uid="uid://dnqoj4eg2l7le" path="res://Scenes/trampolineTrigger.tscn" id="5_gjtac"]
+[ext_resource type="PackedScene" uid="uid://dvbyxsl5e3ol8" path="res://Scenes/Environment/TransitionField.tscn" id="7_p1n4v"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lc8m1"]
 texture = ExtResource("2_2o6jt")
@@ -180,3 +181,7 @@ position = Vector2(432, 176)
 [node name="Player" parent="." instance=ExtResource("3_fesf8")]
 texture_filter = 0
 position = Vector2(528, 200)
+
+[node name="TransitionField" parent="." instance=ExtResource("7_p1n4v")]
+position = Vector2(812, 600)
+scale = Vector2(5, 5)

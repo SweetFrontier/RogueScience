@@ -6,7 +6,11 @@ class_name invisibleBlock
 @export var body : StaticBody2D
 @export var implodeable_polygon: explodeablePolygon
 
+#sound child
+var sound_child : AudioStreamPlayer2D
+
 func _ready():
+	sound_child = get_child(3)
 	super._ready()
 	if(activated):
 		activated = false;
@@ -23,6 +27,8 @@ func react():
 		implodeable_polygon.implode()
 		# Enable collision.
 		body.collision_layer = 1
+		#play the boom sound
+		sound_child.play()
 
 func reset():
 	super.reset()

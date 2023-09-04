@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvxwld4fu1vc0"]
+
+[ext_resource type="Script" path="res://Scripts/Triggers/Trigger_Helpers/lightning.gd" id="1_p7c6a"]
+
+[sub_resource type="Environment" id="Environment_h1llk"]
+background_mode = 3
+glow_enabled = true
+glow_intensity = 1.36
+glow_strength = 1.46
+glow_blend_mode = 0
+glow_hdr_threshold = 2.0
+
+[node name="lightning" type="Node2D" node_paths=PackedStringArray("boltsArray", "fromPos", "toPos")]
+modulate = Color(1.4, 1.4, 1.4, 1)
+script = ExtResource("1_p7c6a")
+boltsArray = [NodePath("Bolt"), NodePath("Bolt2"), NodePath("Bolt3"), NodePath("Bolt4"), NodePath("Bolt5")]
+fromPos = NodePath("")
+toPos = NodePath("")
+jaggedness_max = 6
+jaggedness_min = 3
+jaggedness_scale = 2
+bolt_max_width = 6
+boltColor = Color(0.8, 0.796078, 0.329412, 1)
+
+[node name="Bolt" type="Line2D" parent="."]
+width = 1.0
+texture_mode = 2
+
+[node name="Bolt2" type="Line2D" parent="."]
+width = 1.0
+texture_mode = 2
+
+[node name="Bolt3" type="Line2D" parent="."]
+width = 1.0
+texture_mode = 2
+
+[node name="Bolt4" type="Line2D" parent="."]
+width = 1.0
+texture_mode = 2
+
+[node name="Bolt5" type="Line2D" parent="."]
+width = 1.0
+texture_mode = 2
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_h1llk")

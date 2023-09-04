@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dnqoj4eg2l7le"]
 
-[ext_resource type="Script" path="res://Scripts/trampolineTrigger.gd" id="1_nuh0k"]
+[ext_resource type="Script" path="res://Scripts/Triggers/trampolineTrigger.gd" id="1_nuh0k"]
 [ext_resource type="SpriteFrames" uid="uid://82s0kbf8kedv" path="res://Art/SpriteFrames/breakableBlockAnims.tres" id="2_k65r4"]
 [ext_resource type="SpriteFrames" uid="uid://b8gp081t10dc8" path="res://Art/SpriteFrames/keyAnims.tres" id="2_n2yfx"]
 

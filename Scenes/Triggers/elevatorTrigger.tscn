@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://dm5fdokmgctgr"]
 
-[ext_resource type="Script" path="res://Scripts/elevatorTrigger.gd" id="1_ln3f5"]
+[ext_resource type="Script" path="res://Scripts/Triggers/elevatorTrigger.gd" id="1_ln3f5"]
 [ext_resource type="Texture2D" uid="uid://btfovkwgliucs" path="res://Art/plhElevatorShaftActivated.png" id="2_2a34n"]
 [ext_resource type="Texture2D" uid="uid://dvrsckhysmtqw" path="res://Art/plhElevatorShaft.png" id="3_2efsl"]
 [ext_resource type="SpriteFrames" uid="uid://b8gp081t10dc8" path="res://Art/SpriteFrames/keyAnims.tres" id="3_pfyjx"]

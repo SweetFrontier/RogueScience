@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://cl0g2o3284xxy"]
 
-[ext_resource type="Script" path="res://Scripts/invisibleBlock.gd" id="1_f5t0u"]
+[ext_resource type="Script" path="res://Scripts/Triggers/invisibleBlock.gd" id="1_f5t0u"]
 [ext_resource type="Texture2D" uid="uid://chi00qs1iy8dj" path="res://Art/sample32x32.png" id="2_ei7f8"]
 [ext_resource type="SpriteFrames" uid="uid://b8gp081t10dc8" path="res://Art/SpriteFrames/keyAnims.tres" id="3_3cuu8"]
-[ext_resource type="Script" path="res://Scripts/explodeablePolygon.gd" id="3_ywgna"]
+[ext_resource type="Script" path="res://Scripts/Triggers/Trigger_Helpers/explodeablePolygon.gd" id="3_ywgna"]
 [ext_resource type="AudioStream" uid="uid://ctnkt71vbtt11" path="res://Sounds/invisibleblock.ogg" id="5_qr5rg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_va747"]

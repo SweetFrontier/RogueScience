@@ -72,4 +72,4 @@ func riderReady():
 		ridingBody.apply_impulse(Vector2(0, -jump_force*3))
 	elif ridingBody is Player:
 		ridingBody.velocity = Vector2(0, -jump_force)
-		var player_freeable = false
+		player_freeable = false

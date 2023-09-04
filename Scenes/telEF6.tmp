@@ -1,0 +1,68 @@
+[gd_scene load_steps=6 format=3 uid="uid://cpl8uffd5nbs"]
+
+[ext_resource type="Script" path="res://Scripts/teleporterTrigger.gd" id="1_drekj"]
+[ext_resource type="Texture2D" uid="uid://chi00qs1iy8dj" path="res://Art/sample32x32.png" id="2_kpo24"]
+[ext_resource type="SpriteFrames" uid="uid://b8gp081t10dc8" path="res://Art/SpriteFrames/keyAnims.tres" id="3_nru8g"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_okrmj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_kpo24")
+}],
+"loop": true,
+"name": &"activated",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_kpo24")
+}],
+"loop": true,
+"name": &"deactivated",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sxv0n"]
+
+[node name="teleporterTrigger" type="Node2D" node_paths=PackedStringArray("teleporter1", "teleporterArea1", "teleporter2", "teleporterArea2", "TriggerKeySprite")]
+script = ExtResource("1_drekj")
+teleporter1 = NodePath("Teleporter1")
+teleporterArea1 = NodePath("Teleporter1/TeleporterArea1")
+teleporter2 = NodePath("Teleporter2")
+teleporterArea2 = NodePath("Teleporter2/TeleporterArea2")
+button = 85
+TriggerKeySprite = NodePath("Teleporter1/TriggerKeySprite")
+
+[node name="Teleporter1" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_okrmj")
+animation = &"deactivated"
+metadata/_edit_group_ = true
+
+[node name="TeleporterArea1" type="Area2D" parent="Teleporter1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Teleporter1/TeleporterArea1"]
+shape = SubResource("RectangleShape2D_sxv0n")
+
+[node name="TriggerKeySprite" type="AnimatedSprite2D" parent="Teleporter1"]
+texture_filter = 1
+position = Vector2(0, 48)
+sprite_frames = ExtResource("3_nru8g")
+animation = &"a"
+
+[node name="Teleporter2" type="AnimatedSprite2D" parent="."]
+position = Vector2(144, 0)
+sprite_frames = SubResource("SpriteFrames_okrmj")
+animation = &"deactivated"
+metadata/_edit_group_ = true
+
+[node name="TeleporterArea2" type="Area2D" parent="Teleporter2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Teleporter2/TeleporterArea2"]
+shape = SubResource("RectangleShape2D_sxv0n")
+
+[node name="TriggerKeySprite2" type="AnimatedSprite2D" parent="Teleporter2"]
+texture_filter = 1
+position = Vector2(0, 48)
+sprite_frames = ExtResource("3_nru8g")
+animation = &"a"

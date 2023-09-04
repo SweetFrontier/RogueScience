@@ -1,13 +1,14 @@
-[gd_scene load_steps=12 format=3 uid="uid://1xasoo80ygld"]
+[gd_scene load_steps=13 format=3 uid="uid://1xasoo80ygld"]
 
 [ext_resource type="Script" path="res://Scripts/levelController.gd" id="1_btnfb"]
 [ext_resource type="Texture2D" uid="uid://vrgbmurtm5pg" path="res://Art/Spritesheets/initial_tileset.png" id="2_2o6jt"]
 [ext_resource type="PackedScene" uid="uid://b42fe8hyi4bsb" path="res://Scenes/player.tscn" id="3_fesf8"]
-[ext_resource type="PackedScene" uid="uid://cl0g2o3284xxy" path="res://Scenes/invisibleBlock.tscn" id="4_ry4jv"]
-[ext_resource type="PackedScene" uid="uid://dxkklnkpsn70w" path="res://Scenes/breakableBlock.tscn" id="4_uins3"]
-[ext_resource type="PackedScene" uid="uid://dnqoj4eg2l7le" path="res://Scenes/trampolineTrigger.tscn" id="5_gjtac"]
-[ext_resource type="PackedScene" uid="uid://dm5fdokmgctgr" path="res://Scenes/elevatorTrigger.tscn" id="6_77apn"]
+[ext_resource type="PackedScene" uid="uid://cl0g2o3284xxy" path="res://Scenes/Triggers/invisibleBlock.tscn" id="4_ry4jv"]
+[ext_resource type="PackedScene" uid="uid://dxkklnkpsn70w" path="res://Scenes/Triggers/breakableBlock.tscn" id="4_uins3"]
+[ext_resource type="PackedScene" uid="uid://dnqoj4eg2l7le" path="res://Scenes/Triggers/trampolineTrigger.tscn" id="5_gjtac"]
+[ext_resource type="PackedScene" uid="uid://dm5fdokmgctgr" path="res://Scenes/Triggers/elevatorTrigger.tscn" id="6_77apn"]
 [ext_resource type="Texture2D" uid="uid://chi00qs1iy8dj" path="res://Art/sample32x32.png" id="8_ri3f0"]
+[ext_resource type="PackedScene" uid="uid://cpl8uffd5nbs" path="res://Scenes/Triggers/teleporterTrigger.tscn" id="9_sfpy0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lc8m1"]
 texture = ExtResource("2_2o6jt")
@@ -211,4 +212,14 @@ texture = ExtResource("8_ri3f0")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
 shape = SubResource("CircleShape2D_rabel")
 
+[node name="teleporterTrigger" parent="." instance=ExtResource("9_sfpy0")]
+position = Vector2(366, 238)
+
+[node name="Teleporter1" parent="teleporterTrigger" index="0"]
+position = Vector2(88, 34)
+
+[node name="Teleporter2" parent="teleporterTrigger" index="1"]
+position = Vector2(462, 434)
+
 [editable path="elevatorTrigger"]
+[editable path="teleporterTrigger"]

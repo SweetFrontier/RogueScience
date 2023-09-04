@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://dxkklnkpsn70w"]
 
-[ext_resource type="Script" path="res://Scripts/breakableBlock.gd" id="1_j5j6d"]
+[ext_resource type="Script" path="res://Scripts/Triggers/breakableBlock.gd" id="1_j5j6d"]
 [ext_resource type="Texture2D" uid="uid://chi00qs1iy8dj" path="res://Art/sample32x32.png" id="2_aepos"]
-[ext_resource type="Script" path="res://Scripts/explodeablePolygon.gd" id="3_v7l57"]
+[ext_resource type="Script" path="res://Scripts/Triggers/Trigger_Helpers/explodeablePolygon.gd" id="3_v7l57"]
 [ext_resource type="SpriteFrames" uid="uid://b8gp081t10dc8" path="res://Art/SpriteFrames/keyAnims.tres" id="4_jmd6j"]
 [ext_resource type="AudioStream" uid="uid://bw5e10yu6o64o" path="res://Sounds/blockbreak.ogg" id="5_hraw3"]
 

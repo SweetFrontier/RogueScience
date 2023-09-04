@@ -2,7 +2,10 @@ extends Polygon2D
 
 class_name explodeablePolygon
 
+@export var shard_type = ShardType.SQUARES
 @export var shard_count = 32
+
+@export_group("Triangle Properties")
 @export var shard_shrink_rate: float = 0.95  # Adjust this for shard lifetime
 @export var min_shard_size: float = 0.1  # Adjust this for the minimum shard size (area)
 @export var x_init_velocity: int
@@ -12,6 +15,7 @@ class_name explodeablePolygon
 @export var shard_gravity: float
 var shard_velocity_map = {}
 
+@export_group("Squares Properties")
 @export var x_max_distance: int
 @export var x_min_distance: int
 @export var y_max_distance: int
@@ -21,12 +25,17 @@ var shard_goal_pos_map = {}
 var elapsed_time: float = 0.0
 var imploded = false
 
+enum ShardType {
+	TRIANGLES,
+	SQUARES
+}
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	randomize()
 
-func explode_triangles():
-	var shards = generate_triangles()
+func explode():
+	var shards = generate_triangles() if shard_type == ShardType.TRIANGLES else generate_squares()
 	for shard in shards:
 		shard.position = Vector2(x_max_distance, y_max_distance)
 		shard_velocity_map[shard] = Vector2(randi_range(-x_init_velocity,x_init_velocity), randi()%y_init_velocity)
@@ -34,26 +43,8 @@ func explode_triangles():
 	#make original polygon invisible
 	color.a = 0
 
-func explode_squares():
-	var shards = generate_squares()
-	for shard in shards:
-		shard.position = Vector2(x_max_distance, y_max_distance)
-		shard_velocity_map[shard] = Vector2(randi_range(-x_init_velocity,x_init_velocity), randi()%y_init_velocity)
-		add_child(shard)
-	#make original polygon invisible
-	color.a = 0
-
-func implode_triangles():
-	var shards = generate_triangles()
-	for shard in shards:
-		shard.position = Vector2(randi_range(x_min_distance, x_max_distance), randi_range(y_min_distance, y_max_distance))
-		shard_goal_pos_map[shard] = shard.position
-		add_child(shard)
-	elapsed_time = 0.0
-	imploded = true
-
-func implode_squares():
-	var shards = generate_squares()
+func implode():
+	var shards = generate_triangles() if shard_type == ShardType.TRIANGLES else generate_squares()
 	for shard in shards:
 		shard.position = Vector2(randi_range(x_min_distance, x_max_distance), randi_range(y_min_distance, y_max_distance))
 		shard_goal_pos_map[shard] = shard.position

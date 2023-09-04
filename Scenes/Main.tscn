@@ -3,8 +3,9 @@
 [ext_resource type="Script" path="res://Scripts/gameManager.gd" id="1_rlws3"]
 [ext_resource type="PackedScene" uid="uid://1xasoo80ygld" path="res://Scenes/baseLevel.tscn" id="2_tmkkr"]
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node2D" node_paths=PackedStringArray("Levels")]
 script = ExtResource("1_rlws3")
+Levels = [NodePath("baseLevel")]
 
 [node name="baseLevel" parent="." instance=ExtResource("2_tmkkr")]
 

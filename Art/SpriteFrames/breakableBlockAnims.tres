@@ -1,6 +1,7 @@
-[gd_resource type="SpriteFrames" load_steps=4 format=3 uid="uid://82s0kbf8kedv"]
+[gd_resource type="SpriteFrames" load_steps=7 format=3 uid="uid://82s0kbf8kedv"]
 
 [ext_resource type="Texture2D" uid="uid://b834omv1hjrng" path="res://Art/Spritesheets/Trampoline.png" id="1_57nti"]
+[ext_resource type="Texture2D" uid="uid://crs4xyuqk3t62" path="res://Art/Spritesheets/plhDeactivatedTrampoline.png" id="2_78oks"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wxc7o"]
 atlas = ExtResource("1_57nti")
@@ -8,6 +9,14 @@ region = Rect2(0, 0, 64, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_egorj"]
 atlas = ExtResource("1_57nti")
+region = Rect2(0, 32, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8kow2"]
+atlas = ExtResource("2_78oks")
+region = Rect2(0, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u8ili"]
+atlas = ExtResource("2_78oks")
 region = Rect2(0, 32, 64, 32)
 
 [resource]
@@ -20,6 +29,17 @@ animations = [{
 "texture": SubResource("AtlasTexture_egorj")
 }],
 "loop": true,
-"name": &"default",
+"name": &"activated",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8kow2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u8ili")
+}],
+"loop": true,
+"name": &"deactivated",
 "speed": 5.0
 }]

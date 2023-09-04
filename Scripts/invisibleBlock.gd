@@ -20,8 +20,7 @@ func react():
 	if !activated:
 		activated = true
 		# Explode the Block
-		implodeable_polygon.implode_squares()
-		#implodeable_polygon.implode()
+		implodeable_polygon.implode()
 		# Enable collision.
 		body.collision_layer = 1
 

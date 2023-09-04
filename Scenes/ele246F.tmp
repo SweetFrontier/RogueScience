@@ -1,0 +1,124 @@
+[gd_scene load_steps=13 format=3 uid="uid://dm5fdokmgctgr"]
+
+[ext_resource type="Script" path="res://Scripts/elevatorTrigger.gd" id="1_ln3f5"]
+[ext_resource type="Texture2D" uid="uid://btfovkwgliucs" path="res://Art/plhElevatorShaftActivated.png" id="2_2a34n"]
+[ext_resource type="Texture2D" uid="uid://dvrsckhysmtqw" path="res://Art/plhElevatorShaft.png" id="3_2efsl"]
+[ext_resource type="SpriteFrames" uid="uid://b8gp081t10dc8" path="res://Art/SpriteFrames/keyAnims.tres" id="3_pfyjx"]
+[ext_resource type="Texture2D" uid="uid://bmvu12f51as2u" path="res://Art/plhClosedElevator.png" id="4_kamco"]
+[ext_resource type="Texture2D" uid="uid://bxiu7geo4l8bg" path="res://Art/plhOpenElevator.png" id="5_46lrx"]
+[ext_resource type="Texture2D" uid="uid://bfkajwlr41hjx" path="res://Art/plhElevatorStop.png" id="6_8plq8"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wcsho"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_2a34n")
+}],
+"loop": true,
+"name": &"activated",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_2efsl")
+}],
+"loop": true,
+"name": &"deactivated",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4880q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_8plq8")
+}],
+"loop": true,
+"name": &"elevatorStop",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yseu5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_kamco")
+}],
+"loop": true,
+"name": &"closed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_46lrx")
+}],
+"loop": true,
+"name": &"open",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_50p83"]
+size = Vector2(56, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3bgbq"]
+size = Vector2(64, 2)
+
+[node name="elevatorTrigger" type="Node2D" node_paths=PackedStringArray("ElevatorShaft", "ElevatorBox", "ElevatorArea", "stoppingPoints", "TriggerKeySprite")]
+script = ExtResource("1_ln3f5")
+time_to_change_stops = 3.0
+ElevatorShaft = NodePath("ElevatorShaft")
+ElevatorBox = NodePath("ElevatorBox")
+ElevatorArea = NodePath("ElevatorBox/ElevatorArea")
+time_to_move_to_start = 0.5
+stoppingPoints = [NodePath("ElevatorStops/BottomStop"), NodePath("ElevatorStops/MiddleStop"), NodePath("ElevatorStops/TopStop")]
+button = 81
+TriggerKeySprite = NodePath("TriggerKeySprite")
+
+[node name="ElevatorShaft" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -64)
+sprite_frames = SubResource("SpriteFrames_wcsho")
+animation = &"activated"
+
+[node name="ElevatorStops" type="Node2D" parent="."]
+visible = false
+
+[node name="BottomStop" type="AnimatedSprite2D" parent="ElevatorStops"]
+position = Vector2(0, -16)
+sprite_frames = SubResource("SpriteFrames_4880q")
+animation = &"elevatorStop"
+
+[node name="MiddleStop" type="AnimatedSprite2D" parent="ElevatorStops"]
+position = Vector2(0, -64)
+sprite_frames = SubResource("SpriteFrames_4880q")
+animation = &"elevatorStop"
+
+[node name="TopStop" type="AnimatedSprite2D" parent="ElevatorStops"]
+position = Vector2(0, -112)
+sprite_frames = SubResource("SpriteFrames_4880q")
+animation = &"elevatorStop"
+
+[node name="ElevatorBox" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -16)
+sprite_frames = SubResource("SpriteFrames_yseu5")
+animation = &"open"
+metadata/_edit_group_ = true
+
+[node name="ElevatorArea" type="Area2D" parent="ElevatorBox"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ElevatorBox/ElevatorArea"]
+shape = SubResource("RectangleShape2D_50p83")
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="ElevatorBox"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ElevatorBox/AnimatableBody2D"]
+position = Vector2(0, 17)
+shape = SubResource("RectangleShape2D_3bgbq")
+
+[node name="TriggerKeySprite" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, 48)
+sprite_frames = ExtResource("3_pfyjx")
+animation = &"a"
+
+[node name="MoveToPosition" type="Node2D" parent="."]
+position = Vector2(0, -8)

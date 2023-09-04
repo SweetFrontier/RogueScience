@@ -17,6 +17,7 @@ TriggerKeySprite = NodePath("TriggerKeySprite")
 
 [node name="BlockSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("2_k65r4")
+animation = &"activated"
 
 [node name="TriggerKeySprite" type="AnimatedSprite2D" parent="."]
 texture_filter = 1

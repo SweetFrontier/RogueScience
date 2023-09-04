@@ -13,11 +13,11 @@ AnimatedSprite = NodePath("PlayerAnimatedSprite")
 PlayerCollision = NodePath("PlayerCollision")
 
 [node name="PlayerAnimatedSprite" type="AnimatedSprite2D" parent="."]
-position = Vector2(4, 0)
 sprite_frames = ExtResource("2_ab5rs")
 animation = &"crawl"
 autoplay = "crawl"
 frame_progress = 0.228091
+offset = Vector2(4, 0)
 
 [node name="PlayerCollision" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-26, 16, -26, -14, -2, -14, -2, -4, 26, 8, 10, 16)
+polygon = PackedVector2Array(-26, 8, -4, 2, -4, -4, 4, -4, 4, 2, 26, 8, 10, 16, -10, 16)

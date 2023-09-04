@@ -14,6 +14,7 @@ explodeable_polygon = NodePath("Polygon2D")
 body = NodePath("StaticBody2D")
 button = 68
 TriggerKeySprite = NodePath("TriggerKeySprite")
+fade_duration = null
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 texture_filter = 1
@@ -22,7 +23,7 @@ polygon = PackedVector2Array(0, 0, 32, 0, 32, 32, 0, 32)
 script = ExtResource("3_v7l57")
 shard_count = 64
 shard_shrink_rate = 0.99
-min_shard_size = 0.0
+min_shard_size = 0.01
 x_init_velocity = 20
 y_init_velocity = 40
 shard_speed = 3.0

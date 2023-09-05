@@ -61,7 +61,7 @@ animations = [{
 size = Vector2(56, 24)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3bgbq"]
-size = Vector2(64, 2)
+size = Vector2(64, 1)
 
 [node name="elevatorTrigger" type="Node2D" node_paths=PackedStringArray("ElevatorShaft", "ElevatorBox", "ElevatorArea", "stoppingPoints", "TriggerKeySprite")]
 script = ExtResource("1_ln3f5")
@@ -145,9 +145,10 @@ sprite_frames = SubResource("SpriteFrames_4880q")
 animation = &"elevatorStop"
 
 [node name="ElevatorBox" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -16)
+position = Vector2(-4.17233e-07, -16)
 sprite_frames = SubResource("SpriteFrames_yseu5")
 animation = &"open"
+metadata/_edit_group_ = true
 
 [node name="ElevatorArea" type="Area2D" parent="ElevatorBox"]
 
@@ -155,14 +156,13 @@ animation = &"open"
 shape = SubResource("RectangleShape2D_50p83")
 
 [node name="ElevatorCollision" type="StaticBody2D" parent="ElevatorBox"]
-metadata/_edit_group_ = true
 
 [node name="CollisionBase" type="CollisionShape2D" parent="ElevatorBox/ElevatorCollision"]
-position = Vector2(0, 17)
+position = Vector2(0, 16.5)
 shape = SubResource("RectangleShape2D_3bgbq")
 
 [node name="CollisionRoof" type="CollisionShape2D" parent="ElevatorBox/ElevatorCollision"]
-position = Vector2(0, -15)
+position = Vector2(4.17233e-07, -16.5)
 shape = SubResource("RectangleShape2D_3bgbq")
 
 [node name="TriggerKeySprite" type="AnimatedSprite2D" parent="."]

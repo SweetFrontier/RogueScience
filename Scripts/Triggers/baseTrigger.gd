@@ -104,10 +104,10 @@ func set_button(_button):
 
 func moveRiderToStarting(delta):
 	moveRiderProgress += delta
-	ridingBody.position = (endRiderPos - beginRiderPos) * (moveRiderProgress/moveRiderTime) + beginRiderPos
+	ridingBody.set_body_pos((endRiderPos - beginRiderPos) * (moveRiderProgress/moveRiderTime) + beginRiderPos)
 	# Check if the interpolation is complete.
 	if moveRiderProgress >= moveRiderTime:
-		ridingBody.position = endRiderPos
+		ridingBody.set_body_pos(endRiderPos)
 		riderReady()
 
 func override_movement(body):
@@ -125,6 +125,8 @@ func setupMoveToStart():
 func free_movement():
 	if ridingBody.has_method("free_movement"):
 		ridingBody.free_movement()
-		
+	ridingBody = null
+	occupied = false
+	
 func riderReady():
 	riderInPosition = true

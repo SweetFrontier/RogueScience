@@ -71,3 +71,6 @@ func movement_overwritten(_movement_overrider):
 func free_movement():
 	being_controlled = false
 	movement_overrider = null
+
+func set_body_pos(pos):
+	position = pos

@@ -46,13 +46,17 @@ func _physics_process(delta):
 		moveElevator(delta)
 
 func _on_body_entered(body):
+	if !body is Player and !body is movingObject:
+		return
 	if activated and body != self and !occupied and body != ridingBody:
 		override_movement(body)
 		setupMoveToStart()
+		if body is movingObject:
+				body.set_freed_vel(body.angular_velocity, body.linear_velocity)
 
 func _on_body_exited(body):
 	# Check if the exited body was inside the elevator.
-	if occupied and body == ridingBody:
+	if activated and occupied and body == ridingBody and !moving_elevator:
 		occupied = false
 		ridingBody = null
 
@@ -64,6 +68,8 @@ func setupMoveToStart():
 func riderReady():
 	super.riderReady()
 	setupElevatorStarting()
+	if ridingBody is movingObject:
+		ridingBody.positioningRideEnded(true)
 
 func setupElevatorStarting():
 	elevatingProgress = 0.0
@@ -84,11 +90,11 @@ func setupElevatorStarting():
 func moveElevator(delta):
 	elevatingProgress += delta
 	ElevatorBox.position = (elevatingEndPos - elevatingBeginPos) * (elevatingProgress/time_to_change_stops) + elevatingBeginPos
-	ridingBody.position = ElevatorBox.position + position
+	ridingBody.set_body_pos(ElevatorBox.position + position)
 	# Check if the interpolation is complete.
 	if elevatingProgress >= time_to_change_stops:
 		ElevatorBox.position = elevatingEndPos
-		ridingBody.position = ElevatorBox.position + position
+		ridingBody.set_body_pos(ElevatorBox.position + position)
 		moving_elevator = false
 		reached_stop = true
 		free_movement()

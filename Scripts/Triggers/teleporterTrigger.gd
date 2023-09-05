@@ -12,13 +12,14 @@ class_name teleporterTrigger
 @export var lightning: lightning
 
 var teleporting = false
-var reached_stop = false
 var startingTeleporter: AnimatedSprite2D
 var endingTeleporter: AnimatedSprite2D
 var teleportingProgress: float = 0.0
 var teleporterStartPos: Vector2
 var teleporterEndPos: Vector2
 var lightningProgress = 0.0
+var t1Occupied = false
+var t2Occupied = false
 
 func _ready():
 	super._ready()
@@ -85,21 +86,37 @@ func onT2BodyExited(body):
 	_on_body_exited(body, teleporter2)
 
 func _on_body_entered(body, teleporter):
+	if !body is Player and !body is movingObject:
+		return
+	if t1Occupied or t2Occupied:
+		return
 	if activated and body != self and !occupied and body != ridingBody:
 		startingTeleporter = teleporter
-		endingTeleporter = teleporter2 if(startingTeleporter == teleporter1) else teleporter1
+		if startingTeleporter == teleporter1:
+			t1Occupied = true
+			endingTeleporter = teleporter2
+		else:
+			t2Occupied = true
+			endingTeleporter = teleporter1
 		override_movement(body)
+		if body is movingObject:
+				body.set_freed_vel(body.angular_velocity, body.linear_velocity)
 
 func _on_body_exited(body, teleporter):
+	if !body is Player and !body is movingObject:
+		return
+	if teleporting:
+		return
+	if (t1Occupied and teleporter == teleporter1) or (t2Occupied and teleporter == teleporter2):
+		return
 	# Check if the exited body was inside the elevator.
-	if occupied and body == ridingBody:
-		occupied = false
-		ridingBody = null
+	occupied = false
+	t1Occupied = false
+	t2Occupied = false
 
 func setupMoveToStart():
 	super.setupMoveToStart()
 	endRiderPos = position + startingTeleporter.position
-	reached_stop = false
 
 func riderReady():
 	super.riderReady()
@@ -120,7 +137,7 @@ func teleport(delta):
 	# Check if the time to teleport is complete, then instantly teleport
 	if teleportingProgress >= time_to_teleport:
 		lightning.hide_lightning()
-		ridingBody.position = teleporterEndPos
+		ridingBody.set_body_pos(teleporterEndPos)
 		teleporting = false
-		reached_stop = true
 		free_movement()
+		ridingBody = null

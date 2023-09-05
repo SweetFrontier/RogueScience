@@ -7,7 +7,7 @@ class_name trampolineTrigger
 @export var BlockSprite: AnimatedSprite2D
 @export var MoveToPosition: Node2D
 
-var player_freeable = false
+var rider_freeable = false
 
 func _ready():
 	super._ready()
@@ -39,27 +39,35 @@ func _physics_process(delta):
 			ridingBody.rotate_player_on_arc(delta)
 		moveRiderToStarting(delta)
 	else:
-		if ridingBody.is_on_floor() and player_freeable:
+		if ridingBody.is_on_floor() and rider_freeable:
 			free_movement()
-			ridingBody = null
-			occupied = false
-		else:
+		elif ridingBody is Player:
 			ridingBody.velocity.y += gravity * delta
 			ridingBody.move_and_slide()
 
 func _on_body_entered(body):
-	if activated and body != self and !occupied and body != ridingBody:
+	if !body is Player and !body is movingObject:
+		return
+	if body == ridingBody:
 		override_movement(body)
-		setupMoveToStart()
-		player_freeable = false
-	elif body == ridingBody:
+		body.set_body_pos(position)
 		riderReady()
-		player_freeable = false
+		rider_freeable = false
+	elif activated and !occupied and body != self:
+		override_movement(body)
+		if abs(body.position.x-position.x) <= 5:
+			body.set_body_pos(position)
+			riderReady()
+		else:
+			setupMoveToStart()
+			if body is movingObject:
+				body.set_freed_vel(body.angular_velocity, body.linear_velocity)
+		rider_freeable = false
 
 func _on_body_exited(body):
 	if occupied and body == ridingBody:
 		BlockSprite.frame = 0
-		player_freeable = true
+		rider_freeable = true
 	
 func setupMoveToStart():
 	super.setupMoveToStart()
@@ -68,8 +76,9 @@ func setupMoveToStart():
 
 func riderReady():
 	super.riderReady()
-	if ridingBody is RigidBody2D:
-		ridingBody.apply_impulse(Vector2(0, -jump_force*3))
+	if ridingBody is movingObject:
+		ridingBody.positioningRideEnded(false)
+		ridingBody.add_to_cont_vel(0.0, Vector2(0, -jump_force))
 	elif ridingBody is Player:
 		ridingBody.velocity = Vector2(0, -jump_force)
-		player_freeable = false
+	rider_freeable = false

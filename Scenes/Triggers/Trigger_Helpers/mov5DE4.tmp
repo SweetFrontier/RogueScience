@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://c0eghc3oa7752"]
+
+[ext_resource type="Script" path="res://Scripts/Triggers/Trigger_Helpers/movingObject.gd" id="1_kg8bi"]
+[ext_resource type="Texture2D" uid="uid://cvwqy8wykcvcj" path="res://Art/plhMovingCircle.png" id="2_q51yr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pygtm"]
+radius = 16.0
+
+[node name="movingObject" type="CharacterBody2D"]
+script = ExtResource("1_kg8bi")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_q51yr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_pygtm")

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/gameManager.gd" id="1_rlws3"]
 [ext_resource type="PackedScene" uid="uid://1xasoo80ygld" path="res://Scenes/baseLevel.tscn" id="2_tmkkr"]
-[ext_resource type="AudioStream" uid="uid://124agfr8t34o" path="res://Sounds/Music/Title.ogg" id="3_d4r0j"]
+[ext_resource type="AudioStream" uid="uid://cmhm7pf614y6w" path="res://Sounds/Music/puzzle(calm).ogg" id="3_mfq2v"]
 
 [node name="Main" type="Node2D" node_paths=PackedStringArray("Levels")]
 script = ExtResource("1_rlws3")
@@ -21,5 +21,5 @@ position_smoothing_enabled = true
 position_smoothing_speed = 0.8
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_d4r0j")
+stream = ExtResource("3_mfq2v")
 autoplay = true

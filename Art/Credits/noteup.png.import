@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bm7g5rxbtrots"
-path="res://.godot/imported/noteup.png-e79671e0a3c2c882f4eee2cc3c4ff029.ctex"
+path="res://.godot/imported/noteup.png-3043ae5595e4e3a29a137d896f6b0793.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/CreditsStuff/noteup.png"
-dest_files=["res://.godot/imported/noteup.png-e79671e0a3c2c882f4eee2cc3c4ff029.ctex"]
+source_file="res://Art/Credits/noteup.png"
+dest_files=["res://.godot/imported/noteup.png-3043ae5595e4e3a29a137d896f6b0793.ctex"]
 
 [params]
 

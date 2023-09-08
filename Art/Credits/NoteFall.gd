@@ -25,7 +25,7 @@ func _on_area_2d_area_entered(area):
 	elif (!falling):
 		#if already activated to fall then start falling
 		falling = true
-		apply_force(Vector2(2000, 0))
+		apply_impulse(Vector2(400, 0))
 		gravity_scale = 1
 		linear_damp = 1
 	else:

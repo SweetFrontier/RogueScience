@@ -1,17 +1,19 @@
-[gd_scene load_steps=22 format=3 uid="uid://br4kocrocpr04"]
+[gd_scene load_steps=24 format=3 uid="uid://br4kocrocpr04"]
 
 [ext_resource type="Script" path="res://Scripts/Credits.gd" id="1_0voui"]
 [ext_resource type="AudioStream" uid="uid://bcap6qswalpw8" path="res://Sounds/Music/credits.ogg" id="2_8lwlx"]
-[ext_resource type="Texture2D" uid="uid://lsix3ue1s8oo" path="res://Art/CreditsStuff/joey.png" id="2_liwnl"]
-[ext_resource type="Texture2D" uid="uid://ciay6lf4lhshu" path="res://Art/CreditsStuff/fellaCredits.png" id="2_t74gm"]
-[ext_resource type="Script" path="res://Art/CreditsStuff/CreditsActivation.gd" id="3_d5cc3"]
+[ext_resource type="Texture2D" uid="uid://lsix3ue1s8oo" path="res://Art/Credits/joey.png" id="2_liwnl"]
+[ext_resource type="Texture2D" uid="uid://ciay6lf4lhshu" path="res://Art/Credits/fellaCredits.png" id="2_t74gm"]
+[ext_resource type="Script" path="res://Art/Credits/CreditsActivation.gd" id="3_d5cc3"]
 [ext_resource type="SpriteFrames" uid="uid://uoxtfmfhh7ft" path="res://Art/SpriteFrames/fellaAnims.tres" id="3_wsusb"]
-[ext_resource type="Texture2D" uid="uid://bc2hd4bai5u6y" path="res://Art/CreditsStuff/biteyfellasheet.png" id="5_5xpm1"]
-[ext_resource type="Script" path="res://Art/CreditsStuff/AnimatedFella2.gd" id="6_w5kul"]
-[ext_resource type="PackedScene" uid="uid://cifry0akmdkuv" path="res://Art/CreditsStuff/note.tscn" id="7_1sndo"]
-[ext_resource type="Texture2D" uid="uid://c570ue86suctl" path="res://Art/CreditsStuff/musicsheet.png" id="8_iwybx"]
+[ext_resource type="Texture2D" uid="uid://bnug4556eecrk" path="res://Art/Credits/syringe.png" id="4_g2ve2"]
+[ext_resource type="Texture2D" uid="uid://bc2hd4bai5u6y" path="res://Art/Credits/biteyfellasheet.png" id="5_5xpm1"]
+[ext_resource type="Texture2D" uid="uid://bloxo7d2cbfr" path="res://Art/Credits/bottle.png" id="5_qlkaa"]
+[ext_resource type="Script" path="res://Art/Credits/AnimatedFella2.gd" id="6_w5kul"]
+[ext_resource type="PackedScene" uid="uid://cifry0akmdkuv" path="res://Art/Credits/note.tscn" id="7_1sndo"]
+[ext_resource type="Texture2D" uid="uid://c570ue86suctl" path="res://Art/Credits/musicsheet.png" id="8_iwybx"]
 [ext_resource type="Texture2D" uid="uid://vrgbmurtm5pg" path="res://Art/Spritesheets/initial_tileset.png" id="8_kaac5"]
-[ext_resource type="Texture2D" uid="uid://bvhw1f36m3e1t" path="res://Art/CreditsStuff/Smit.png" id="9_x536s"]
+[ext_resource type="Texture2D" uid="uid://bvhw1f36m3e1t" path="res://Art/Credits/Smit.png" id="9_x536s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h1bf6"]
 size = Vector2(78.6335, 67.0834)
@@ -237,6 +239,22 @@ offset_bottom = 1271.0
 texture = ExtResource("2_t74gm")
 stretch_mode = 2
 
+[node name="FellaConceptArt2" type="TextureRect" parent="ActualCredits"]
+offset_left = 845.0
+offset_top = 1005.0
+offset_right = 995.0
+offset_bottom = 1161.0
+texture = ExtResource("4_g2ve2")
+stretch_mode = 2
+
+[node name="FellaConceptArt3" type="TextureRect" parent="ActualCredits"]
+offset_left = 833.0
+offset_top = 1163.0
+offset_right = 983.0
+offset_bottom = 1319.0
+texture = ExtResource("5_qlkaa")
+stretch_mode = 2
+
 [node name="AnimatedFella" type="AnimatedSprite2D" parent="ActualCredits"]
 position = Vector2(-371, 1893)
 scale = Vector2(3.5, 3.5)
@@ -271,13 +289,19 @@ expand_mode = 4
 [node name="Notes" type="Node" parent="ActualCredits"]
 
 [node name="Note" parent="ActualCredits/Notes" instance=ExtResource("7_1sndo")]
-position = Vector2(320, 2303)
+position = Vector2(202, 2321)
+
+[node name="Note2" parent="ActualCredits/Notes" instance=ExtResource("7_1sndo")]
+position = Vector2(267, 2309)
 
 [node name="Note3" parent="ActualCredits/Notes" instance=ExtResource("7_1sndo")]
-position = Vector2(261, 2343)
+position = Vector2(331, 2300)
 
 [node name="Note4" parent="ActualCredits/Notes" instance=ExtResource("7_1sndo")]
-position = Vector2(381, 2292)
+position = Vector2(404, 2308)
+
+[node name="Note5" parent="ActualCredits/Notes" instance=ExtResource("7_1sndo")]
+position = Vector2(481, 2321)
 
 [node name="AnimatedFella2" type="Sprite2D" parent="ActualCredits"]
 position = Vector2(-181, 2306)
@@ -303,7 +327,6 @@ shape = SubResource("RectangleShape2D_c1jm8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ActualCredits/AnimatedFella2/demusicdestroyer"]
 position = Vector2(4.31373, 0.980408)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_lrmbv")
 
 [node name="joey" type="TextureRect" parent="ActualCredits"]
@@ -322,6 +345,7 @@ texture = ExtResource("9_x536s")
 expand_mode = 2
 
 [node name="CreditsText" type="RichTextLabel" parent="ActualCredits"]
+visible = false
 offset_top = 652.0
 offset_right = 1280.0
 offset_bottom = 3696.0
@@ -383,6 +407,7 @@ fit_content = true
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_8lwlx")
 autoplay = true
+bus = &"Music"
 
 [connection signal="area_entered" from="ActualCredits/AnimatedFella/Area2D" to="ActualCredits/AnimatedFella" method="_on_area_2d_area_entered"]
 [connection signal="area_entered" from="ActualCredits/AnimatedFella2/Area2D" to="ActualCredits/AnimatedFella2" method="_on_area_2d_area_entered"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bc2hd4bai5u6y"
-path="res://.godot/imported/biteyfellasheet.png-5b0dffdaa380538ef4a4a60a7ff004a4.ctex"
+uid="uid://bnug4556eecrk"
+path="res://.godot/imported/syringe.png-ab517974e15db7283be40425bf71937b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/CreditsStuff/biteyfellasheet.png"
-dest_files=["res://.godot/imported/biteyfellasheet.png-5b0dffdaa380538ef4a4a60a7ff004a4.ctex"]
+source_file="res://Art/Credits/syringe.png"
+dest_files=["res://.godot/imported/syringe.png-ab517974e15db7283be40425bf71937b.ctex"]
 
 [params]
 

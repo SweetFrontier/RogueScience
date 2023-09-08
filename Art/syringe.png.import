@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bvhw1f36m3e1t"
-path="res://.godot/imported/Smit.png-be4d0c618b5639e949ddd899f4d86d98.ctex"
+uid="uid://rywumswdci75"
+path="res://.godot/imported/syringe.png-631b840f6af704573c06b5c846b4c76f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/CreditsStuff/Smit.png"
-dest_files=["res://.godot/imported/Smit.png-be4d0c618b5639e949ddd899f4d86d98.ctex"]
+source_file="res://Art/syringe.png"
+dest_files=["res://.godot/imported/syringe.png-631b840f6af704573c06b5c846b4c76f.ctex"]
 
 [params]
 

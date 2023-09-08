@@ -26,7 +26,9 @@ position_smoothing_speed = 0.8
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_mfq2v")
+volume_db = -7.0
 autoplay = true
+bus = &"Music"
 
 [node name="PauseMenu" parent="." instance=ExtResource("4_tnt1f")]
 metadata/_edit_use_anchors_ = true

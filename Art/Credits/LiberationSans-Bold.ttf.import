@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://dcuhbcqxfut46"
-path="res://.godot/imported/LiberationSans-Bold.ttf-2003f048267fd172968dc304bff9399a.fontdata"
+path="res://.godot/imported/LiberationSans-Bold.ttf-009080014a576f0cdc02e9596b61f663.fontdata"
 
 [deps]
 
-source_file="res://Art/CreditsStuff/LiberationSans-Bold.ttf"
-dest_files=["res://.godot/imported/LiberationSans-Bold.ttf-2003f048267fd172968dc304bff9399a.fontdata"]
+source_file="res://Art/Credits/LiberationSans-Bold.ttf"
+dest_files=["res://.godot/imported/LiberationSans-Bold.ttf-009080014a576f0cdc02e9596b61f663.fontdata"]
 
 [params]
 

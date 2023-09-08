@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://lsix3ue1s8oo"
-path="res://.godot/imported/joey.png-04ca8190cdda14e854ea27b034b92dce.ctex"
+uid="uid://bloxo7d2cbfr"
+path="res://.godot/imported/bottle.png-20ba86943a3d4a037201d1796cacbdb3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/CreditsStuff/joey.png"
-dest_files=["res://.godot/imported/joey.png-04ca8190cdda14e854ea27b034b92dce.ctex"]
+source_file="res://Art/Credits/bottle.png"
+dest_files=["res://.godot/imported/bottle.png-20ba86943a3d4a037201d1796cacbdb3.ctex"]
 
 [params]
 

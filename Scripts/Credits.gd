@@ -9,5 +9,5 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	position.y += delta*50
-	if (position.y < -3450):
-		get_tree().change_scene_to_file("res://Scenes/Main.tscn")
+	if (position.y > 3450):
+		get_tree().change_scene_to_file("res://Scenes/MainMenu.tscn")

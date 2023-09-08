@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ciay6lf4lhshu"
-path="res://.godot/imported/fellaCredits.png-93ab8bf33c11bc276875c9178f14a706.ctex"
+uid="uid://bf58iq3vhvxue"
+path="res://.godot/imported/FellaSheet.png-b6bd1108b2ce42e412311035b74372ca.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/CreditsStuff/fellaCredits.png"
-dest_files=["res://.godot/imported/fellaCredits.png-93ab8bf33c11bc276875c9178f14a706.ctex"]
+source_file="res://Art/Credits/FellaSheet.png"
+dest_files=["res://.godot/imported/FellaSheet.png-b6bd1108b2ce42e412311035b74372ca.ctex"]
 
 [params]
 

@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://b42fe8hyi4bsb"]
+[gd_scene load_steps=5 format=3 uid="uid://b42fe8hyi4bsb"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_7ytxc"]
 [ext_resource type="SpriteFrames" uid="uid://uoxtfmfhh7ft" path="res://Art/SpriteFrames/fellaAnims.tres" id="2_ab5rs"]
+[ext_resource type="AudioStream" uid="uid://cof7uu71agsbj" path="res://Sounds/crawl.ogg" id="3_ctrdu"]
+[ext_resource type="AudioStream" uid="uid://cbl8qb0gk6iiq" path="res://Sounds/hitsomething.ogg" id="4_8bd13"]
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("AnimatedSprite", "PlayerCollision")]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("AnimatedSprite", "PlayerCollision", "CrawlSounds", "HitSounds")]
 texture_filter = 1
 script = ExtResource("1_7ytxc")
 speed = 100.0
@@ -11,6 +13,8 @@ time_to_rotate_slope = 0.2
 falling_rotation_speed = 3.0
 AnimatedSprite = NodePath("PlayerAnimatedSprite")
 PlayerCollision = NodePath("PlayerCollision")
+CrawlSounds = NodePath("crawlsounds")
+HitSounds = NodePath("hitsounds")
 
 [node name="PlayerAnimatedSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("2_ab5rs")
@@ -21,3 +25,14 @@ offset = Vector2(4, 0)
 
 [node name="PlayerCollision" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-26, 8, -4, 2, -4, -4, 4, -4, 4, 2, 26, 8, 10, 16, -10, 16)
+
+[node name="crawlsounds" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_ctrdu")
+volume_db = 10.0
+autoplay = true
+bus = &"Sounds"
+
+[node name="hitsounds" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_8bd13")
+volume_db = 10.0
+bus = &"Sounds"

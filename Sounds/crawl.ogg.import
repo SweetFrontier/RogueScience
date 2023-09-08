@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/crawl.ogg-b706c5573f59719ee49d1a0b78e83815.og
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://br4kocrocpr04"]
+[gd_scene load_steps=22 format=3 uid="uid://br4kocrocpr04"]
 
 [ext_resource type="Script" path="res://Scripts/Credits.gd" id="1_0voui"]
 [ext_resource type="AudioStream" uid="uid://bcap6qswalpw8" path="res://Sounds/Music/credits.ogg" id="2_8lwlx"]
@@ -8,8 +8,13 @@
 [ext_resource type="SpriteFrames" uid="uid://uoxtfmfhh7ft" path="res://Art/SpriteFrames/fellaAnims.tres" id="3_wsusb"]
 [ext_resource type="Texture2D" uid="uid://bc2hd4bai5u6y" path="res://Art/CreditsStuff/biteyfellasheet.png" id="5_5xpm1"]
 [ext_resource type="Script" path="res://Art/CreditsStuff/AnimatedFella2.gd" id="6_w5kul"]
+[ext_resource type="PackedScene" uid="uid://cifry0akmdkuv" path="res://Art/CreditsStuff/note.tscn" id="7_1sndo"]
+[ext_resource type="Texture2D" uid="uid://c570ue86suctl" path="res://Art/CreditsStuff/musicsheet.png" id="8_iwybx"]
 [ext_resource type="Texture2D" uid="uid://vrgbmurtm5pg" path="res://Art/Spritesheets/initial_tileset.png" id="8_kaac5"]
 [ext_resource type="Texture2D" uid="uid://bvhw1f36m3e1t" path="res://Art/CreditsStuff/Smit.png" id="9_x536s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h1bf6"]
+size = Vector2(78.6335, 67.0834)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rrnvu"]
 texture = ExtResource("8_kaac5")
@@ -157,8 +162,8 @@ _data = {
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c1jm8"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_h1bf6"]
-size = Vector2(78.6335, 67.0834)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lrmbv"]
+size = Vector2(8.82353, 17.0588)
 
 [node name="Credits" type="Control"]
 layout_mode = 3
@@ -168,7 +173,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="scrollydown" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0voui")
+
+[node name="ColorRect" type="ColorRect" parent="scrollydown"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -177,10 +191,37 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="Scroller" type="Node2D" parent="."]
-script = ExtResource("1_0voui")
+[node name="Camera2D" type="Camera2D" parent="scrollydown"]
+position = Vector2(640, 368)
 
-[node name="TileMap" type="TileMap" parent="Scroller"]
+[node name="ActivationArea" type="Area2D" parent="scrollydown"]
+position = Vector2(-407, 736)
+scale = Vector2(24.4887, 1.2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="scrollydown/ActivationArea"]
+position = Vector2(37.3901, -3.95831)
+shape = SubResource("RectangleShape2D_h1bf6")
+debug_color = Color(0, 1, 0, 0.419608)
+
+[node name="DeactivationArea" type="Area2D" parent="scrollydown"]
+position = Vector2(27, 736)
+scale = Vector2(16.6087, 1.2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="scrollydown/DeactivationArea"]
+position = Vector2(37.3901, -953.333)
+scale = Vector2(1.49613, 1)
+shape = SubResource("RectangleShape2D_h1bf6")
+debug_color = Color(0, 1, 0, 0.419608)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="scrollydown/DeactivationArea"]
+position = Vector2(99.767, -466.667)
+scale = Vector2(0.113243, 14.899)
+shape = SubResource("RectangleShape2D_h1bf6")
+debug_color = Color(0, 1, 0, 0.419608)
+
+[node name="ActualCredits" type="Node2D" parent="."]
+
+[node name="TileMap" type="TileMap" parent="ActualCredits"]
 position = Vector2(643, 1521)
 scale = Vector2(2, 2)
 tile_set = SubResource("TileSet_54v8s")
@@ -188,7 +229,7 @@ cell_quadrant_size = 32
 format = 2
 layer_0/tile_data = PackedInt32Array(196599, 65537, 4, 196600, 196609, 2, 196601, 196609, 2, 196602, 196609, 2, 196603, 196609, 2, 196604, 262145, 0, 196605, 262145, 0, 196606, 262145, 0, 196607, 262145, 0, 131072, 262145, 0, 131073, 262145, 0, 131074, 262145, 0, 131075, 262145, 0, 131076, 196609, 2, 131077, 196609, 2, 131078, 196609, 2, 131079, 196609, 2, 131080, 262145, 1, 262135, 65537, 5, 196616, 262145, 5, 262136, 65537, 5, 262137, 131073, 5, 262138, 196609, 5, 262139, 262145, 5, 262140, 65537, 5, 262141, 131073, 5, 262142, 196609, 5, 262143, 262145, 5, 196608, 65537, 5, 196609, 131073, 5, 196610, 196609, 5, 196611, 262145, 5, 196612, 65537, 5, 196613, 131073, 5, 196614, 196609, 5, 196615, 262145, 5, -65545, 327681, 4, -9, 327681, 4, 65527, 65537, 4, 131063, 65537, 4, -131081, 131073, 1, -131080, 262145, 5, -131079, 262145, 5, -131078, 262145, 5, -131077, 262145, 5, -131076, 262145, 5, -131075, 262145, 5, -131074, 262145, 5, -131073, 262145, 5, -196608, 262145, 5, -196607, 262145, 5, -196606, 262145, 5, -196605, 262145, 5, -196604, 262145, 5, -196603, 262145, 5, -196602, 262145, 5, -196601, 262145, 5, -196600, 131073, 1, -131064, 1, 1, -65528, 1, 2, 8, 262145, 1, 65544, 262145, 1, 65528, 524289, 2, 131064, 524289, 3, 65529, 589825, 2, 131065, 589825, 3, 131066, 655361, 3, 131067, 720897, 3, 65540, 786433, 3, 65541, 851969, 3, 6, 917505, 2, 65542, 917505, 3, 7, 983041, 2, 65543, 983041, 3, 262134, 1, 5, -131082, 1, 2, -65546, 1, 1, -10, 1, 2, 65526, 1, 3, 131062, 1, 4, 196598, 1, 2, 196617, 327681, 5, -131063, 327681, 1, -65527, 327681, 2, 9, 327681, 3, 65545, 327681, 4, 131081, 327681, 4, -196599, 327681, 1, -196618, 1, 0, -196617, 65537, 0, -196616, 131073, 0, -196615, 196609, 0, -196614, 262145, 0, -196613, 65537, 0, -196612, 131073, 0, -196611, 196609, 0, -196610, 262145, 0, -196609, 65537, 0, -262144, 131073, 0, -262143, 196609, 0, -262142, 262145, 0, -262141, 65537, 0, -262140, 131073, 0, -262139, 196609, 0, -262138, 131073, 0, -262137, 196609, 0, -262136, 262145, 0, -262135, 327681, 0)
 
-[node name="FellaConceptArt" type="TextureRect" parent="Scroller"]
+[node name="FellaConceptArt" type="TextureRect" parent="ActualCredits"]
 offset_left = 144.0
 offset_top = 1033.0
 offset_right = 456.0
@@ -196,60 +237,94 @@ offset_bottom = 1271.0
 texture = ExtResource("2_t74gm")
 stretch_mode = 2
 
-[node name="AnimatedFella" type="AnimatedSprite2D" parent="Scroller"]
-position = Vector2(-110, 1893)
+[node name="AnimatedFella" type="AnimatedSprite2D" parent="ActualCredits"]
+position = Vector2(-371, 1893)
 scale = Vector2(3.5, 3.5)
 sprite_frames = ExtResource("3_wsusb")
 animation = &"crawl"
 autoplay = "crawl"
 script = ExtResource("3_d5cc3")
 
-[node name="Area2D" type="Area2D" parent="Scroller/AnimatedFella"]
+[node name="Area2D" type="Area2D" parent="ActualCredits/AnimatedFella"]
 position = Vector2(-1.14441e-05, 1.39996)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Scroller/AnimatedFella/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ActualCredits/AnimatedFella/Area2D"]
 position = Vector2(0, -13)
 shape = SubResource("RectangleShape2D_24ofg")
 
-[node name="AnimatedFella2" type="Sprite2D" parent="Scroller"]
-position = Vector2(-182, 2307)
-scale = Vector2(5, 5)
+[node name="OldFella" type="AnimatedSprite2D" parent="ActualCredits/AnimatedFella"]
+position = Vector2(162.857, 0)
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("3_wsusb")
+animation = &"oldcrawl"
+autoplay = "oldcrawl"
+
+[node name="music" type="TextureRect" parent="ActualCredits"]
+offset_left = -6.0
+offset_top = 2264.0
+offset_right = 34.0
+offset_bottom = 2354.0
+scale = Vector2(33.72, 1)
+texture = ExtResource("8_iwybx")
+expand_mode = 4
+
+[node name="Notes" type="Node" parent="ActualCredits"]
+
+[node name="Note" parent="ActualCredits/Notes" instance=ExtResource("7_1sndo")]
+position = Vector2(320, 2303)
+
+[node name="Note3" parent="ActualCredits/Notes" instance=ExtResource("7_1sndo")]
+position = Vector2(261, 2343)
+
+[node name="Note4" parent="ActualCredits/Notes" instance=ExtResource("7_1sndo")]
+position = Vector2(381, 2292)
+
+[node name="AnimatedFella2" type="Sprite2D" parent="ActualCredits"]
+position = Vector2(-181, 2306)
+scale = Vector2(5.1, 5.1)
 texture = ExtResource("5_5xpm1")
 hframes = 10
 script = ExtResource("6_w5kul")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Scroller/AnimatedFella2"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ActualCredits/AnimatedFella2"]
 autoplay = "bitey"
 libraries = {
 "": SubResource("AnimationLibrary_y8hev")
 }
 
-[node name="Area2D" type="Area2D" parent="Scroller/AnimatedFella2"]
+[node name="Area2D" type="Area2D" parent="ActualCredits/AnimatedFella2"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Scroller/AnimatedFella2/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ActualCredits/AnimatedFella2/Area2D"]
 position = Vector2(-7.28571, -8.71428)
 scale = Vector2(0.545236, 0.705655)
 shape = SubResource("RectangleShape2D_c1jm8")
 
-[node name="joey" type="TextureRect" parent="Scroller"]
+[node name="demusicdestroyer" type="Area2D" parent="ActualCredits/AnimatedFella2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ActualCredits/AnimatedFella2/demusicdestroyer"]
+position = Vector2(4.31373, 0.980408)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_lrmbv")
+
+[node name="joey" type="TextureRect" parent="ActualCredits"]
 offset_left = 363.0
-offset_top = 2539.0
+offset_top = 2865.0
 offset_right = 905.0
-offset_bottom = 2792.0
+offset_bottom = 3118.0
 texture = ExtResource("2_liwnl")
 
-[node name="TextureRect" type="TextureRect" parent="Scroller"]
+[node name="TextureRect" type="TextureRect" parent="ActualCredits"]
 offset_left = 510.0
-offset_top = 2878.0
+offset_top = 2537.0
 offset_right = 766.0
-offset_bottom = 3134.0
+offset_bottom = 2793.0
 texture = ExtResource("9_x536s")
 expand_mode = 2
 
-[node name="CreditsText" type="RichTextLabel" parent="Scroller"]
-offset_top = 650.0
+[node name="CreditsText" type="RichTextLabel" parent="ActualCredits"]
+offset_top = 652.0
 offset_right = 1280.0
-offset_bottom = 3694.0
+offset_bottom = 3696.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_outline_size = 18
 theme_override_constants/outline_size = 20
@@ -268,7 +343,7 @@ Story
 [/font_size]
 
 
-Emily (idk last name)
+Emily Mapp
 [font_size=25]Art
 Lots of Art
 [/font_size]
@@ -289,15 +364,15 @@ idk some art
 [/font_size]
 
 
-Joey Parker
+Smit Sakariya
 [font_size=25]Programming
-Presumably Allowed Use of Likeness
+A lil bit of Programming
 [/font_size]
 
 
-Smit (couldnt find last name written down)
+Joey Parker
 [font_size=25]Programming
-Lots of Programming
+Presumably Allowed Use of Likeness
 [/font_size]
 
 
@@ -309,30 +384,5 @@ fit_content = true
 stream = ExtResource("2_8lwlx")
 autoplay = true
 
-[node name="ActivationArea" type="Area2D" parent="."]
-position = Vector2(-407, 736)
-scale = Vector2(24.4887, 1.2)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ActivationArea"]
-position = Vector2(37.3901, -3.95831)
-shape = SubResource("RectangleShape2D_h1bf6")
-debug_color = Color(0, 1, 0, 0.419608)
-
-[node name="DeactivationArea" type="Area2D" parent="."]
-position = Vector2(27, 736)
-scale = Vector2(16.6087, 1.2)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DeactivationArea"]
-position = Vector2(37.3901, -953.333)
-scale = Vector2(1.49613, 1)
-shape = SubResource("RectangleShape2D_h1bf6")
-debug_color = Color(0, 1, 0, 0.419608)
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="DeactivationArea"]
-position = Vector2(99.767, -466.667)
-scale = Vector2(0.113243, 14.899)
-shape = SubResource("RectangleShape2D_h1bf6")
-debug_color = Color(0, 1, 0, 0.419608)
-
-[connection signal="area_entered" from="Scroller/AnimatedFella/Area2D" to="Scroller/AnimatedFella" method="_on_area_2d_area_entered"]
-[connection signal="area_entered" from="Scroller/AnimatedFella2/Area2D" to="Scroller/AnimatedFella2" method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="ActualCredits/AnimatedFella/Area2D" to="ActualCredits/AnimatedFella" method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="ActualCredits/AnimatedFella2/Area2D" to="ActualCredits/AnimatedFella2" method="_on_area_2d_area_entered"]

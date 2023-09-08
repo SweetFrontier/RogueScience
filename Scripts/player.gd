@@ -7,6 +7,8 @@ extends CharacterBody2D
 # Permanent node children
 @export var AnimatedSprite : AnimatedSprite2D
 @export var PlayerCollision : CollisionPolygon2D
+@export var CrawlSounds : AudioStreamPlayer2D
+@export var HitSounds : AudioStreamPlayer2D
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -16,6 +18,8 @@ var current_direction = Vector2.RIGHT
 var being_controlled = false;
 var movement_overrider
 
+#last_y_velocity for how loud to play the hit sound
+var last_y_velocity
 
 func _physics_process(delta):
 	if being_controlled:
@@ -23,12 +27,26 @@ func _physics_process(delta):
 	#rotate the player
 	if is_on_floor():
 		rotate_player_on_slope(delta)
+		
+		#check if crashing, and if so, play sound
+		if (last_y_velocity > 0):
+			CrawlSounds.play()
+			# play the louder one if fall from high up
+			if (last_y_velocity > 600):
+				HitSounds.stream = load("res://Sounds/hitgroundfromhigh.ogg")
+			else:
+				HitSounds.stream = load("res://Sounds/hitsomething.ogg")
+			last_y_velocity = 0
+			HitSounds.play()
 	else:
 		rotate_player_on_arc(delta)
 		
 	if not is_on_floor():
 		# Add the gravity.
 		velocity.y += gravity * delta
+		last_y_velocity = velocity.y
+		# Get rid of sound
+		CrawlSounds.stop()
 	
 	# Check if there's a wall in the current direction.
 	if is_on_wall():
@@ -36,6 +54,9 @@ func _physics_process(delta):
 		AnimatedSprite.flip_h = !AnimatedSprite.flip_h
 		PlayerCollision.scale.x *= -1
 		AnimatedSprite.offset.x += 8*PlayerCollision.scale.x
+		#play the sound
+		HitSounds.stream = load("res://Sounds/hitsomething.ogg")
+		HitSounds.play()
 		
 	# Move in the current direction.
 	velocity.x = current_direction.x * speed

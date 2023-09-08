@@ -24,6 +24,7 @@ func lightning_strike():
 		create_lightning(bolt, toPos.position)
 
 func show_lightning():
+	get_child(6).play()
 	self.visible = true
 
 func hide_lightning():

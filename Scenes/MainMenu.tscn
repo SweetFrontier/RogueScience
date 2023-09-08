@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://27bpb28umkw5"]
+[gd_scene load_steps=3 format=3 uid="uid://27bpb28umkw5"]
 
 [ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="1_ty1qf"]
+[ext_resource type="AudioStream" uid="uid://124agfr8t34o" path="res://Sounds/Music/Title.ogg" id="2_rji3i"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -30,6 +31,10 @@ text = "Credits"
 [node name="QuitButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "Quit Game"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_rji3i")
+autoplay = true
 
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]

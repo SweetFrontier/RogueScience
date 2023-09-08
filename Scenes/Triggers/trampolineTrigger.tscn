@@ -1,17 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://dnqoj4eg2l7le"]
+[gd_scene load_steps=6 format=3 uid="uid://dnqoj4eg2l7le"]
 
 [ext_resource type="Script" path="res://Scripts/Triggers/trampolineTrigger.gd" id="1_nuh0k"]
 [ext_resource type="SpriteFrames" uid="uid://82s0kbf8kedv" path="res://Art/SpriteFrames/breakableBlockAnims.tres" id="2_k65r4"]
 [ext_resource type="SpriteFrames" uid="uid://b8gp081t10dc8" path="res://Art/SpriteFrames/keyAnims.tres" id="2_n2yfx"]
+[ext_resource type="AudioStream" uid="uid://dvax4m54t4opd" path="res://Sounds/trampoline.ogg" id="4_8qc4l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2sohs"]
 size = Vector2(52, 8)
 
-[node name="trampolineTrigger" type="Node2D" node_paths=PackedStringArray("area2D", "BlockSprite", "MoveToPosition", "TriggerKeySprite")]
+[node name="trampolineTrigger" type="Node2D" node_paths=PackedStringArray("area2D", "BlockSprite", "MoveToPosition", "Sound", "TriggerKeySprite")]
 script = ExtResource("1_nuh0k")
 area2D = NodePath("BounceArea")
 BlockSprite = NodePath("BlockSprite")
 MoveToPosition = NodePath("MoveToPosition")
+Sound = NodePath("TrampolineSounds")
 button = 77
 TriggerKeySprite = NodePath("TriggerKeySprite")
 
@@ -33,3 +35,8 @@ shape = SubResource("RectangleShape2D_2sohs")
 
 [node name="MoveToPosition" type="Node2D" parent="."]
 position = Vector2(0, -8)
+
+[node name="TrampolineSounds" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_8qc4l")
+volume_db = 10.0
+bus = &"Sounds"

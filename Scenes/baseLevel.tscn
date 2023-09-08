@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://1xasoo80ygld"]
+[gd_scene load_steps=7 format=3 uid="uid://1xasoo80ygld"]
 
 [ext_resource type="Script" path="res://Scripts/levelController.gd" id="1_btnfb"]
 [ext_resource type="Texture2D" uid="uid://vrgbmurtm5pg" path="res://Art/Spritesheets/initial_tileset.png" id="2_2o6jt"]
 [ext_resource type="PackedScene" uid="uid://b42fe8hyi4bsb" path="res://Scenes/player.tscn" id="3_fesf8"]
+[ext_resource type="PackedScene" uid="uid://dnqoj4eg2l7le" path="res://Scenes/Triggers/trampolineTrigger.tscn" id="4_0rast"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lc8m1"]
 texture = ExtResource("2_2o6jt")
@@ -167,4 +168,7 @@ layer_0/tile_data = PackedInt32Array(0, 0, 0, 65536, 196608, 1, 131072, 196608, 
 
 [node name="Player" parent="." instance=ExtResource("3_fesf8")]
 texture_filter = 0
-position = Vector2(426, 202)
+position = Vector2(308, 182)
+
+[node name="trampolineTrigger" parent="." instance=ExtResource("4_0rast")]
+position = Vector2(638, 689)

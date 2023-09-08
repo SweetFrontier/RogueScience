@@ -6,6 +6,7 @@ class_name trampolineTrigger
 @export var area2D: Area2D
 @export var BlockSprite: AnimatedSprite2D
 @export var MoveToPosition: Node2D
+@export var Sound: AudioStreamPlayer2D
 
 var rider_freeable = false
 
@@ -76,6 +77,7 @@ func setupMoveToStart():
 
 func riderReady():
 	super.riderReady()
+	Sound.play()
 	if ridingBody is movingObject:
 		ridingBody.positioningRideEnded(false)
 		ridingBody.add_to_cont_vel(0.0, Vector2(0, -jump_force))

@@ -9,7 +9,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if (moving):
-		position.x += delta*70
+		position.x += delta*100
 
 func _on_area_2d_area_entered(area):
 	#if already moving then DELETE

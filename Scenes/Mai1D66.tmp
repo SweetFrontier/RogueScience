@@ -17,6 +17,12 @@ position = Vector2(131, 429)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(640, 368)
+limit_left = 0
+limit_top = 0
+limit_right = 1280
+limit_bottom = 736
+limit_smoothed = true
+position_smoothing_enabled = true
 position_smoothing_speed = 0.8
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
@@ -28,5 +34,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="TransitionField" parent="." instance=ExtResource("5_ou4rj")]
 position = Vector2(1041, 693)
-x_size = 2
-y_size = 2
+x_move = 0
+y_move = null
+x_size = null
+y_size = null

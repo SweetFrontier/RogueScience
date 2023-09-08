@@ -7,18 +7,12 @@ extends Node
 
 @export var player: Player
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	# Connect the input event to the `_input` method.
-	set_process_input(true)
-
-func _input(event: InputEvent) -> void:
-	if event is InputEventKey:
-		if event.pressed and event.keycode == KEY_ESCAPE:
-			# Moves player to start of current level
-			player.position = Levels[current_level].get_node("Start").position
-			# Resets level elements like trigger blocks
-			Levels[current_level].reset()
+func resetLevel() -> void:
+	# Moves player to start of current level
+	$baseLevel/Player.position = Levels[current_level].get_node("Start").position
+	# Resets level elements like trigger blocks
+	Levels[current_level].reset()
+	get_tree().paused = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

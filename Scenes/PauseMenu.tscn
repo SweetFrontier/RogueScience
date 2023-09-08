@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=3 uid="uid://ccwfvydfhyx65"]
+
+[ext_resource type="Script" path="res://Scripts/PauseMenu.gd" id="1_0dfux"]
+[ext_resource type="SpriteFrames" uid="uid://b8gp081t10dc8" path="res://Art/SpriteFrames/keyAnims.tres" id="2_t73bu"]
+
+[node name="PauseMenu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0dfux")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+visible = false
+offset_left = 440.0
+offset_right = 840.0
+offset_bottom = 736.0
+pivot_offset = Vector2(1286, 306)
+alignment = 1
+
+[node name="ResumeButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Resume Game"
+
+[node name="RestartButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Restart Level"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Quit Game"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(30, 30)
+sprite_frames = ExtResource("2_t73bu")
+animation = &"esc"
+
+[connection signal="pressed" from="VBoxContainer/ResumeButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

@@ -1,14 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://vwjnt2j2wbqk"]
+[gd_scene load_steps=5 format=3 uid="uid://vwjnt2j2wbqk"]
 
 [ext_resource type="Script" path="res://Scripts/gameManager.gd" id="1_rlws3"]
 [ext_resource type="PackedScene" uid="uid://1xasoo80ygld" path="res://Scenes/baseLevel.tscn" id="2_tmkkr"]
 [ext_resource type="AudioStream" uid="uid://cmhm7pf614y6w" path="res://Sounds/Music/puzzle(calm).ogg" id="3_mfq2v"]
+[ext_resource type="PackedScene" uid="uid://ccwfvydfhyx65" path="res://Scenes/PauseMenu.tscn" id="4_tnt1f"]
 
 [node name="Main" type="Node2D" node_paths=PackedStringArray("Levels")]
 script = ExtResource("1_rlws3")
 Levels = [NodePath("baseLevel")]
 
 [node name="baseLevel" parent="." instance=ExtResource("2_tmkkr")]
+
+[node name="Start" type="Marker2D" parent="baseLevel"]
+position = Vector2(416, 208)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(634.96, 365.102)
@@ -23,3 +27,6 @@ position_smoothing_speed = 0.8
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_mfq2v")
 autoplay = true
+
+[node name="PauseMenu" parent="." instance=ExtResource("4_tnt1f")]
+metadata/_edit_use_anchors_ = true

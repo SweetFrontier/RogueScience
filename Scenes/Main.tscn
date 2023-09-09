@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/gameManager.gd" id="1_rlws3"]
 [ext_resource type="PackedScene" uid="uid://1xasoo80ygld" path="res://Scenes/baseLevel.tscn" id="2_tmkkr"]
 [ext_resource type="AudioStream" uid="uid://cmhm7pf614y6w" path="res://Sounds/Music/puzzle(calm).ogg" id="3_mfq2v"]
-[ext_resource type="PackedScene" uid="uid://ccwfvydfhyx65" path="res://Scenes/PauseMenu.tscn" id="4_tnt1f"]
+[ext_resource type="PackedScene" uid="uid://ccwfvydfhyx65" path="res://Scenes/Screens/PauseMenu.tscn" id="4_tnt1f"]
 [ext_resource type="PackedScene" uid="uid://dvbyxsl5e3ol8" path="res://Scenes/Environment/TransitionField.tscn" id="5_ou4rj"]
 
 [node name="Main" type="Node2D" node_paths=PackedStringArray("Levels")]

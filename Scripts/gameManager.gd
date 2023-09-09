@@ -14,6 +14,9 @@ func resetLevel() -> void:
 	Levels[current_level].reset()
 	get_tree().paused = false
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func player_death() -> void:
+	$PauseMenu/VBoxContainer.visible = true
+	$PauseMenu/VBoxContainer/ResumeButton.disabled = true
+	$PauseMenu/DeathImage.visible = true
+	$PauseMenu/AnimatedSprite2D.visible = false
+	get_tree().paused = !get_tree().paused

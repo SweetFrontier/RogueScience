@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://ccwfvydfhyx65"]
+[gd_scene load_steps=4 format=3 uid="uid://ccwfvydfhyx65"]
 
 [ext_resource type="Script" path="res://Scripts/PauseMenu.gd" id="1_0dfux"]
 [ext_resource type="SpriteFrames" uid="uid://b8gp081t10dc8" path="res://Art/SpriteFrames/keyAnims.tres" id="2_t73bu"]
+[ext_resource type="Texture2D" uid="uid://b18ii5iyhvcpn" path="res://Art/DeathImage.png" id="3_ew3p7"]
 
 [node name="PauseMenu" type="Control"]
 process_mode = 3
@@ -38,6 +39,15 @@ text = "Quit Game"
 position = Vector2(30, 30)
 sprite_frames = ExtResource("2_t73bu")
 animation = &"esc"
+
+[node name="DeathImage" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 73.0
+offset_top = 79.0
+offset_right = 363.0
+offset_bottom = 224.0
+texture = ExtResource("3_ew3p7")
 
 [connection signal="pressed" from="VBoxContainer/ResumeButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]

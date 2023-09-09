@@ -22,16 +22,12 @@ var t1Occupied = false
 var t2Occupied = false
 
 func _ready():
-	super._ready()
-	if activated:
-		activated = false
-		react()
-	else:
-		reset()
+	reset()
 	teleporterArea1.body_entered.connect(onT1BodyEntered)
 	teleporterArea2.body_entered.connect(onT2BodyEntered)
 	teleporterArea1.body_exited.connect(onT1BodyExited)
 	teleporterArea2.body_exited.connect(onT2BodyExited)
+	reset()
 
 func react():
 	if !(one_shot and activated):
@@ -50,9 +46,26 @@ func reset():
 	TriggerKeySprite2.modulate.a = 1
 	occupied = false
 	ridingBody = null
+	teleporting = false
+	startingTeleporter = null
+	endingTeleporter = null
+	teleportingProgress = 0.0
+	teleporterStartPos = Vector2(0,0)
+	teleporterEndPos = Vector2(0,0)
+	lightningProgress = 0.0
+	lightning.hide_lightning()
+	t1Occupied = false
+	t2Occupied = false	
+	if startActivated:
+		react()
+		button_fade_timer = 0
+		TriggerKeySprite.modulate.a = 0
+		TriggerKeySprite2.modulate.a = 0
 
 func set_button(_button):
 	super.set_button(_button)
+	if activated:
+		return
 	if _button in buttonToAnimation:
 		button = _button
 		TriggerKeySprite2.animation = buttonToAnimation[button]

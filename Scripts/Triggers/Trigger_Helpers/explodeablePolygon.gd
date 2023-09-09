@@ -14,6 +14,7 @@ class_name explodeablePolygon
 @export var rotation_speed: float
 @export var shard_gravity: float
 var shard_velocity_map = {}
+var imploded_shards = []
 
 @export_group("Squares Properties")
 @export var x_max_distance: int
@@ -35,15 +36,17 @@ func _ready():
 	randomize()
 
 func explode():
+	reset()
 	var shards = generate_triangles() if shard_type == ShardType.TRIANGLES else generate_squares()
 	for shard in shards:
-		shard.position = Vector2(x_max_distance, y_max_distance)
+		shard.position = Vector2(0, 0)
 		shard_velocity_map[shard] = Vector2(randi_range(-x_init_velocity,x_init_velocity), randi()%y_init_velocity)
 		add_child(shard)
 	#make original polygon invisible
 	color.a = 0
 
 func implode():
+	reset()
 	var shards = generate_triangles() if shard_type == ShardType.TRIANGLES else generate_squares()
 	for shard in shards:
 		shard.position = Vector2(randi_range(x_min_distance, x_max_distance), randi_range(y_min_distance, y_max_distance))
@@ -113,6 +116,8 @@ func reset():
 		child.queue_free()
 	shard_velocity_map = {}
 	shard_goal_pos_map = {}
+	imploded_shards = []
+	imploded = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
@@ -131,10 +136,12 @@ func _physics_process(delta):
 	elapsed_time += delta
 	if shard_goal_pos_map.is_empty() and imploded:
 		color.a = 1
-		for child in get_children():
+		for child in imploded_shards:
 			child.queue_free()
+		imploded_shards = []
 		imploded = false
 	for child in shard_goal_pos_map.keys():
 		if(child.position == Vector2(0.0,0.0)):
 			shard_goal_pos_map.erase(child)
+			imploded_shards.append(child)
 		child.position = lerp(child.position, Vector2(0,0), clamp(elapsed_time/time_to_form,0,1))

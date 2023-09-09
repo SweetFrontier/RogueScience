@@ -1,19 +1,19 @@
 [gd_scene load_steps=6 format=3 uid="uid://vwjnt2j2wbqk"]
 
 [ext_resource type="Script" path="res://Scripts/gameManager.gd" id="1_rlws3"]
-[ext_resource type="PackedScene" uid="uid://1xasoo80ygld" path="res://Scenes/baseLevel.tscn" id="2_tmkkr"]
+[ext_resource type="PackedScene" uid="uid://1xasoo80ygld" path="res://Scenes/Levels/baseLevel.tscn" id="2_tmkkr"]
 [ext_resource type="AudioStream" uid="uid://cmhm7pf614y6w" path="res://Sounds/Music/puzzle(calm).ogg" id="3_mfq2v"]
 [ext_resource type="PackedScene" uid="uid://ccwfvydfhyx65" path="res://Scenes/Screens/PauseMenu.tscn" id="4_tnt1f"]
 [ext_resource type="PackedScene" uid="uid://mq8lonv11ksd" path="res://Scenes/Screens/OptionsMenu.tscn" id="5_qvib5"]
 
-[node name="Main" type="Node2D" node_paths=PackedStringArray("Levels")]
+[node name="Main" type="Node2D" node_paths=PackedStringArray("Levels", "camera")]
 script = ExtResource("1_rlws3")
-Levels = [NodePath("baseLevel")]
+Levels = [NodePath("Levels/baseLevel")]
+camera = NodePath("Camera2D")
 
-[node name="baseLevel" parent="." instance=ExtResource("2_tmkkr")]
+[node name="Levels" type="Node" parent="."]
 
-[node name="Start" type="Marker2D" parent="baseLevel"]
-position = Vector2(131, 429)
+[node name="baseLevel" parent="Levels" instance=ExtResource("2_tmkkr")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(640, 368)

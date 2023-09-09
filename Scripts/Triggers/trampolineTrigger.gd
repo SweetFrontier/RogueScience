@@ -12,24 +12,26 @@ var rider_freeable = false
 
 func _ready():
 	super._ready()
-	if activated:
-		activated = false
-		react()
-	else:
-		reset()
 	area2D.body_entered.connect(_on_body_entered)
 	area2D.body_exited.connect(_on_body_exited)
+	reset()
 
 func react():
 	super.react()
-	if(!activated):
+	if !activated:
+		area2D.monitoring = true
 		activated = true
-	BlockSprite.animation = "activated"
-	BlockSprite.frame = 0
+		BlockSprite.animation = "activated"
+		BlockSprite.frame = 0
 
 func reset():
 	super.reset()
+	area2D.monitoring = false
 	BlockSprite.animation = "deactivated"
+	if startActivated:
+		react()
+		button_fade_timer = 0
+		TriggerKeySprite.modulate.a = 0
 
 func _physics_process(delta):
 	super._physics_process(delta)

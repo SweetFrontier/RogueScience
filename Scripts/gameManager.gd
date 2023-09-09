@@ -3,14 +3,11 @@ extends Node
 
 # Use @export to make the array editable in the inspector
 @export var Levels: Array[levelController]
+@export var camera: Camera2D
 @export var current_level: int
 
-@export var player: Player
-
 func resetLevel() -> void:
-	# Moves player to start of current level
-	$baseLevel/Player.position = Levels[current_level].get_node("Start").position
-	# Resets level elements like trigger blocks
+	# Resets the entire current level
 	Levels[current_level].reset()
 	get_tree().paused = false
 

@@ -5,18 +5,11 @@ class_name invisibleBlock
 @export var translucent_opacity = 0.3
 @export var body : StaticBody2D
 @export var implodeable_polygon: explodeablePolygon
-
-#sound child
-var sound_child : AudioStreamPlayer2D
+@export var sound_child : AudioStreamPlayer2D
 
 func _ready():
-	sound_child = get_child(3)
 	super._ready()
-	if(activated):
-		activated = false;
-		react()
-	else:
-		reset()
+	reset()
 
 # Override the baseTrigger's react method to toggle visibility and collision.
 func react():
@@ -37,3 +30,7 @@ func reset():
 	implodeable_polygon.color.a = translucent_opacity
 	# Make sure there will be no collisions
 	body.collision_layer = 0
+	if startActivated:
+		react()
+		button_fade_timer = 0
+		TriggerKeySprite.modulate.a = 0

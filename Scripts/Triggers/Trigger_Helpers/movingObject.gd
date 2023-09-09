@@ -3,6 +3,8 @@ class_name movingObject
 
 @export var floorDetector: RayCast2D
 
+var starting_transform
+var just_reset = true
 var being_controlled = false
 var just_started_control = false
 var positioning_finished = false
@@ -15,10 +17,34 @@ var controlled_ang_vel: float = 0.0
 var controlled_lin_vel: Vector2 = Vector2()
 var directPosControl: bool = false
 
+func _ready():
+	starting_transform = get_transform()
+	reset()
+
+func reset():
+	just_reset = true
+	being_controlled = false
+	just_started_control = false
+	positioning_finished = false
+	just_freed = false
+	movement_overrider = null
+	next_pos = Vector2(0,0)
+	once_freed_angular_velocity = 0.0
+	once_freed_linear_velocity = Vector2(0,0)
+	controlled_ang_vel = 0.0
+	controlled_lin_vel = Vector2(0,0)
+	directPosControl = false
+
 func _physics_process(_delta):
 	floorDetector.rotation = -rotation
 
 func _integrate_forces(state):
+	if just_reset:
+		state.set_transform(starting_transform)
+		state.set_linear_velocity(Vector2())
+		state.set_angular_velocity(0.0)
+		just_reset = false
+	
 	if just_started_control:
 		just_started_control = false
 		state.set_linear_velocity(Vector2())

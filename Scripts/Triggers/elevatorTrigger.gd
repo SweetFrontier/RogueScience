@@ -7,32 +7,43 @@ class_name elevatorTrigger
 @export var ElevatorBox: AnimatedSprite2D
 @export var ElevatorArea: Area2D
 @export var stoppingPoints: Array[AnimatedSprite2D]
+@export var startingStop: int = 0
+@export var startingMovingUp: bool = true
 
 var elevatingBeginPos: Vector2
 var elevatingEndPos: Vector2
 var elevatingProgress: float
 var moving_up = true
 var moving_elevator = false
-var curr_stop = 0
 var reached_stop = false
+var curr_stop = 0
 
 func _ready():
 	super._ready()
-	if activated:
-		activated = false
-		react()
-	else:
-		reset()
 	ElevatorArea.body_entered.connect(_on_body_entered)
 	ElevatorArea.body_exited.connect(_on_body_exited)
+	reset()
 
 func react():
 	super.react()
 	if !activated:
 		activated = true
+		
 
 func reset():
 	super.reset()
+	elevatingBeginPos = Vector2(0,0)
+	elevatingEndPos = Vector2(0,0)
+	elevatingProgress = 0.0
+	moving_up = startingMovingUp
+	moving_elevator = false
+	reached_stop = false
+	curr_stop = startingStop
+	ElevatorBox.position = stoppingPoints[curr_stop].position
+	if startActivated:
+		react()
+		button_fade_timer = 0
+		TriggerKeySprite.modulate.a = 0
 
 func _physics_process(delta):
 	super._physics_process(delta)

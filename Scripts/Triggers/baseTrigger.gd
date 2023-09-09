@@ -1,12 +1,16 @@
 extends Node2D
 class_name baseTrigger
 
+signal remove_key_signal(caller:baseTrigger,keyNum:int)
+signal randomize_block_keys_signal
+
 # Exported variables for customization in the editor.
-@export var activated = false  # Whether the trigger is initially active.
+@export var startActivated = false  # Whether the trigger is initially active.
 @export var one_shot = true
 @export var button = KEY_SPACE  # The associated button to activate the trigger.
 @export var TriggerKeySprite: AnimatedSprite2D
 @export var button_fade_duration: float = 2.0  # Adjust the duration as needed
+var activated = false
 var button_fade_timer: float = 0.0
 var buttonToAnimation = {
 	KEY_0: "0",
@@ -65,9 +69,10 @@ func _ready():
 
 func _input(event):
 	# Check if the associated button is pressed and the trigger is active.
-	if event is InputEventKey and event.keycode == button and event.pressed:
+	if event is InputEventKey and event.keycode == button and event.pressed and !activated:
 		react()  # Call the react method when the button is pressed.
-		(get_parent() as levelController).randomize_block_keys()
+		emit_signal("remove_key_signal",self,button)
+		emit_signal("randomize_block_keys_signal")
 
 # Override this method in child classes to define trigger-specific behavior.
 func react():
@@ -86,6 +91,7 @@ func reset():
 	TriggerKeySprite.modulate.a = 1
 	occupied = false
 	ridingBody = null
+	riderInPosition = false
 	
 func _physics_process(delta):
 	if button_fade_timer > 0.0:
@@ -96,6 +102,8 @@ func _physics_process(delta):
 		button_fade_timer -= delta
 
 func set_button(_button):
+	if activated:
+		return
 	if _button in buttonToAnimation:
 		button = _button
 		TriggerKeySprite.animation = buttonToAnimation[button]

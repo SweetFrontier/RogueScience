@@ -5,17 +5,11 @@ class_name breakableBlocks
 @export var invisible_opacity: float = 0.0
 @export var explodeable_polygon: explodeablePolygon
 @export var body: StaticBody2D
-
-var sound_child : AudioStreamPlayer2D
+@export var sound_child : AudioStreamPlayer2D
 
 func _ready():
-	sound_child = get_child(3)
 	super._ready()
-	if activated:
-		activated = false
-		react()
-	else:
-		reset()
+	reset()
 
 # Override the baseTrigger's react method to toggle visibility, collision, and emit particles.
 func react():
@@ -35,3 +29,11 @@ func reset():
 	explodeable_polygon.reset()
 	# Enable collision.
 	body.collision_layer = 1
+	if startActivated:
+		explodeable_polygon.color.a = 1
+		react()
+		button_fade_timer = 0
+		TriggerKeySprite.modulate.a = 0
+	else:
+		explodeable_polygon.color.a = 0
+		explodeable_polygon.implode()

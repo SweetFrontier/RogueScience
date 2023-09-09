@@ -1,6 +1,7 @@
 extends Node2D
 class_name lightning
 @export var boltsArray: Array[Line2D]
+@export var Sound: AudioStreamPlayer2D
 
 @export var fromPos: Node2D
 @export var toPos: Node2D
@@ -24,7 +25,7 @@ func lightning_strike():
 		create_lightning(bolt, toPos.position)
 
 func show_lightning():
-	get_child(6).play()
+	Sound.play()
 	self.visible = true
 
 func hide_lightning():

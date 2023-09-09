@@ -9,10 +9,11 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_81igh"]
 size = Vector2(32, 32)
 
-[node name="breakableBlock" type="Node2D" node_paths=PackedStringArray("explodeable_polygon", "body", "TriggerKeySprite")]
+[node name="breakableBlock" type="Node2D" node_paths=PackedStringArray("explodeable_polygon", "body", "sound_child", "TriggerKeySprite")]
 script = ExtResource("1_j5j6d")
 explodeable_polygon = NodePath("Polygon2D")
 body = NodePath("StaticBody2D")
+sound_child = NodePath("AudioStreamPlayer2D")
 button = 68
 TriggerKeySprite = NodePath("TriggerKeySprite")
 
@@ -29,6 +30,10 @@ y_init_velocity = 40
 shard_speed = 3.0
 rotation_speed = 0.1
 shard_gravity = 40.0
+x_max_distance = 10
+x_min_distance = -10
+y_max_distance = 10
+y_min_distance = -10
 time_to_form = 2.0
 
 [node name="TriggerKeySprite" type="AnimatedSprite2D" parent="."]
@@ -46,4 +51,3 @@ shape = SubResource("RectangleShape2D_81igh")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_hraw3")
-bus = &"Sounds"

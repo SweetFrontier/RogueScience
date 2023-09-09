@@ -4,12 +4,13 @@ extends CharacterBody2D
 @export var speed = 300.0
 @export var time_to_rotate_slope = 0.5 # Adjust this for slope rotation
 @export var falling_rotation_speed = 5.0  # Adjust this for falling rotation
+@export var starting_direction = Vector2.RIGHT
+
 # Permanent node children
 @export var AnimatedSprite : AnimatedSprite2D
 @export var PlayerCollision : CollisionPolygon2D
 @export var CrawlSounds : AudioStreamPlayer2D
 @export var HitSounds : AudioStreamPlayer2D
-
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 # Store the current movement direction.
@@ -17,9 +18,29 @@ var current_direction = Vector2.RIGHT
 
 var being_controlled = false;
 var movement_overrider
+var starting_position
 
 #last_y_velocity for how loud to play the hit sound
 var last_y_velocity
+
+func _ready():
+	starting_position = position
+	reset()
+
+func reset():
+	velocity = Vector2(0,0)
+	position = starting_position
+	current_direction = starting_direction
+	AnimatedSprite.rotation = 0.0
+	if current_direction == Vector2.RIGHT:
+		AnimatedSprite.flip_h = false
+		PlayerCollision.scale.x = abs(PlayerCollision.scale.x)
+		AnimatedSprite.offset.x = 4
+	if current_direction == Vector2.LEFT:
+		AnimatedSprite.flip_h = true
+		PlayerCollision.scale.x = -1 * abs(PlayerCollision.scale.x)
+		AnimatedSprite.offset.x = -4
+	free_movement()
 
 func _physics_process(delta):
 	if being_controlled:

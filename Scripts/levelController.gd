@@ -2,29 +2,45 @@ extends Node
 
 class_name levelController
 
-@export var triggerBlocks : Array[baseTrigger]
+@export var cameraSpot : Marker2D
 
+var triggerBlocks : Array[baseTrigger]
+var movingObjects : Array[movingObject]
+var player : Player
+var remainingTriggerBlocks : Array[baseTrigger]
+var availableKeys : Array
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	randomize_block_keys()
-	pass # Replace with function body.
-
+	for child in get_children():
+		if child is baseTrigger:
+			triggerBlocks.append(child)
+			child.connect("remove_key_signal", remove_key)
+			child.connect("randomize_block_keys_signal", randomize_block_keys)
+		elif child is movingObject:
+			movingObjects.append(child)
+		elif child is Player:
+			player = child
+	reset()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	pass
 	
 func reset():
+	availableKeys = range(48,58)+range(65,91)
+	remainingTriggerBlocks = triggerBlocks.duplicate(true)
 	for block in triggerBlocks:
 		block.reset()
 		randomize_block_keys()
+	for moveO in movingObjects:
+		moveO.reset()
+	player.reset()
+
+func remove_key(caller:baseTrigger,keyNum:int):
+	availableKeys.remove_at(availableKeys.find(keyNum));
+	remainingTriggerBlocks.remove_at(remainingTriggerBlocks.find(caller))
 
 func randomize_block_keys():
-	for block in triggerBlocks:
-		#Get value for 36 possible keys
-		var rand = randi_range(0,35)
-		#Since there are 7 keycodes between number and letter keys
-		if(rand > 9):
-			rand += 7
-		block.set_button(48+rand)
-	pass
+	availableKeys.shuffle()
+	for i in range(remainingTriggerBlocks.size()):
+		remainingTriggerBlocks[i].set_button(availableKeys[i])

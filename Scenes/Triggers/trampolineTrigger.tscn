@@ -39,4 +39,3 @@ position = Vector2(0, -8)
 [node name="TrampolineSounds" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_8qc4l")
 volume_db = 10.0
-bus = &"Sounds"

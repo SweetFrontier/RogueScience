@@ -9,10 +9,11 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_va747"]
 size = Vector2(32, 32)
 
-[node name="invisibleBlock" type="Node2D" node_paths=PackedStringArray("body", "implodeable_polygon", "TriggerKeySprite")]
+[node name="invisibleBlock" type="Node2D" node_paths=PackedStringArray("body", "implodeable_polygon", "sound_child", "TriggerKeySprite")]
 script = ExtResource("1_f5t0u")
 body = NodePath("StaticBody2D")
 implodeable_polygon = NodePath("Polygon2D")
+sound_child = NodePath("AudioStreamPlayer2D")
 button = 66
 TriggerKeySprite = NodePath("TriggerKeySprite")
 
@@ -50,4 +51,3 @@ shape = SubResource("RectangleShape2D_va747")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_qr5rg")
-bus = &"Sounds"

@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://1xasoo80ygld" path="res://Scenes/baseLevel.tscn" id="2_tmkkr"]
 [ext_resource type="AudioStream" uid="uid://cmhm7pf614y6w" path="res://Sounds/Music/puzzle(calm).ogg" id="3_mfq2v"]
 [ext_resource type="PackedScene" uid="uid://ccwfvydfhyx65" path="res://Scenes/Screens/PauseMenu.tscn" id="4_tnt1f"]
-[ext_resource type="PackedScene" uid="uid://dvbyxsl5e3ol8" path="res://Scenes/Environment/TransitionField.tscn" id="5_ou4rj"]
+[ext_resource type="PackedScene" uid="uid://mq8lonv11ksd" path="res://Scenes/Screens/OptionsMenu.tscn" id="5_qvib5"]
 
 [node name="Main" type="Node2D" node_paths=PackedStringArray("Levels")]
 script = ExtResource("1_rlws3")
@@ -20,6 +20,7 @@ position = Vector2(640, 368)
 position_smoothing_speed = 0.8
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+process_mode = 3
 stream = ExtResource("3_mfq2v")
 volume_db = -7.0
 autoplay = true
@@ -28,7 +29,5 @@ bus = &"Music"
 [node name="PauseMenu" parent="." instance=ExtResource("4_tnt1f")]
 metadata/_edit_use_anchors_ = true
 
-[node name="TransitionField" parent="." instance=ExtResource("5_ou4rj")]
-position = Vector2(1041, 693)
-x_size = 2
-y_size = 2
+[node name="OptionsMenu" parent="." instance=ExtResource("5_qvib5")]
+visible = false

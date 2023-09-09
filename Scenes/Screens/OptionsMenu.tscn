@@ -1,0 +1,34 @@
+[gd_scene load_steps=2 format=3 uid="uid://mq8lonv11ksd"]
+
+[ext_resource type="Script" path="res://Scripts/OptionsMenu.gd" id="1_y565l"]
+
+[node name="OptionsMenu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_y565l")
+
+[node name="PauseMenu" type="Button" parent="."]
+layout_mode = 0
+offset_left = 515.0
+offset_top = 180.0
+offset_right = 765.0
+offset_bottom = 244.0
+theme_override_font_sizes/font_size = 30
+text = "Return"
+
+[node name="HSlider" type="HSlider" parent="."]
+layout_mode = 0
+offset_left = 140.0
+offset_top = 540.0
+offset_right = 1140.0
+offset_bottom = 556.0
+min_value = -50.0
+max_value = 50.0
+
+[connection signal="pressed" from="PauseMenu" to="." method="_on_pause_menu_pressed"]
+[connection signal="value_changed" from="HSlider" to="." method="_on_h_slider_value_changed"]

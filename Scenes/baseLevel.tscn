@@ -169,7 +169,7 @@ layer_0/tile_data = PackedInt32Array(0, 0, 0, 65536, 196608, 1, 131072, 196608, 
 
 [node name="Player" parent="." instance=ExtResource("3_fesf8")]
 texture_filter = 0
-position = Vector2(752, 608)
+position = Vector2(103, 433)
 
 [node name="trampolineTrigger" parent="." instance=ExtResource("4_0rast")]
 position = Vector2(638, 689)

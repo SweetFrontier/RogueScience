@@ -17,11 +17,14 @@ func _on_quit_button_pressed():
 	get_tree().quit()
 
 func _input(event: InputEvent) -> void:
-	if event is InputEventKey and !event.is_echo() and !$VBoxContainer/ResumeButton.disabled:
-		if event.keycode == KEY_ESCAPE:
+	if event is InputEventKey and !event.is_echo():
+		if event.keycode == KEY_ESCAPE and !$VBoxContainer/ResumeButton.disabled:
 			if event.pressed:
 				$AnimatedSprite2D.frame = 1
 				$VBoxContainer.visible = !$VBoxContainer.visible
 				get_tree().paused = !get_tree().paused
 			else:
 				$AnimatedSprite2D.frame = 0
+		print(event.keycode)
+		if event.keycode == KEY_QUOTELEFT and event.pressed:
+			_on_restart_button_pressed()

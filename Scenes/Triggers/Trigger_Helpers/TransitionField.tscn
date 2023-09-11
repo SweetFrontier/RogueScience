@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" path="res://Scripts/Triggers/Trigger_Helpers/TransitionField.gd" id="1_n2ifc"]
 
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8v037"]
 
 [node name="TransitionField" type="Area2D"]

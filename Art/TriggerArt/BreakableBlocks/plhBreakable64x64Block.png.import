@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://chi00qs1iy8dj"
-path="res://.godot/imported/sample32x32.png-1eb60670b0ce683af27035cdaf4ef53a.ctex"
+uid="uid://cxeaqlca26gvd"
+path="res://.godot/imported/plhBreakable64x64Block.png-6361edc1827cc1e6249bf1da84137f12.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/sample32x32.png"
-dest_files=["res://.godot/imported/sample32x32.png-1eb60670b0ce683af27035cdaf4ef53a.ctex"]
+source_file="res://Art/TriggerArt/BreakableBlocks/plhBreakable64x64Block.png"
+dest_files=["res://.godot/imported/plhBreakable64x64Block.png-6361edc1827cc1e6249bf1da84137f12.ctex"]
 
 [params]
 

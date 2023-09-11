@@ -63,8 +63,8 @@ func _on_body_entered(body):
 			riderReady()
 		else:
 			setupMoveToStart()
-			if body is movingObject:
-				body.set_freed_vel(body.angular_velocity, body.linear_velocity)
+			#if body is movingObject:
+				#body.set_freed_vel(body.angular_velocity, body.linear_velocity)
 		rider_freeable = false
 
 func _on_body_exited(body):

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bmvu12f51as2u"
-path="res://.godot/imported/plhClosedElevator.png-45acb40dbc49c08b2b6600912285d88e.ctex"
+uid="uid://b67k5q47uq02g"
+path="res://.godot/imported/Trampoline.png-e5b4593ca3567a61684e0897db829944.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/plhClosedElevator.png"
-dest_files=["res://.godot/imported/plhClosedElevator.png-45acb40dbc49c08b2b6600912285d88e.ctex"]
+source_file="res://Art/TriggerArt/Trampoline/Trampoline.png"
+dest_files=["res://.godot/imported/Trampoline.png-e5b4593ca3567a61684e0897db829944.ctex"]
 
 [params]
 

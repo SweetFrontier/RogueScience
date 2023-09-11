@@ -5,15 +5,15 @@ class_name teleporterTrigger
 @export var TriggerKeySprite2: AnimatedSprite2D
 @export var time_to_teleport: float = 1
 @export var lightningCooldown = 0.05
-@export var teleporter1: AnimatedSprite2D
+@export var teleporter1: Node2D
 @export var teleporterArea1: Area2D
-@export var teleporter2: AnimatedSprite2D
+@export var teleporter2: Node2D
 @export var teleporterArea2: Area2D
 @export var lightning: lightning
 
 var teleporting = false
-var startingTeleporter: AnimatedSprite2D
-var endingTeleporter: AnimatedSprite2D
+var startingTeleporter: Node2D
+var endingTeleporter: Node2D
 var teleportingProgress: float = 0.0
 var teleporterStartPos: Vector2
 var teleporterEndPos: Vector2

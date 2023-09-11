@@ -8,6 +8,8 @@ script = ExtResource("1_28gu6")
 TriggerKeySprite = NodePath("TriggerKeySprite")
 
 [node name="TriggerKeySprite" type="AnimatedSprite2D" parent="."]
+z_index = 20
+z_as_relative = false
 texture_filter = 1
 sprite_frames = ExtResource("2_7kq63")
 animation = &"8"

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvwqy8wykcvcj"
-path="res://.godot/imported/plhMovingCircle.png-040ef7ac95e002e1bd32824f407b66cf.ctex"
+uid="uid://tcvmnn8hn06a"
+path="res://.godot/imported/plhDeactivatedTrampoline.png-eda59f49b3f157faf9a8d897e4d63962.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/plhMovingCircle.png"
-dest_files=["res://.godot/imported/plhMovingCircle.png-040ef7ac95e002e1bd32824f407b66cf.ctex"]
+source_file="res://Art/TriggerArt/Trampoline/plhDeactivatedTrampoline.png"
+dest_files=["res://.godot/imported/plhDeactivatedTrampoline.png-eda59f49b3f157faf9a8d897e4d63962.ctex"]
 
 [params]
 

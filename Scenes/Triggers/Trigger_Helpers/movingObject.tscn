@@ -1,20 +1,24 @@
 [gd_scene load_steps=4 format=3 uid="uid://c0eghc3oa7752"]
 
 [ext_resource type="Script" path="res://Scripts/Triggers/Trigger_Helpers/movingObject.gd" id="1_kg8bi"]
-[ext_resource type="Texture2D" uid="uid://cvwqy8wykcvcj" path="res://Art/plhMovingCircle.png" id="2_q51yr"]
+[ext_resource type="Texture2D" uid="uid://ctmsutxkc303g" path="res://Art/TriggerArt/MovingObject/plhMovingCircle.png" id="2_dosey"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pygtm"]
 radius = 16.0
 
-[node name="movingObject" type="RigidBody2D" node_paths=PackedStringArray("floorDetector")]
+[node name="movingObject" type="RigidBody2D" node_paths=PackedStringArray("floorDetector", "sprite")]
 can_sleep = false
 script = ExtResource("1_kg8bi")
 floorDetector = NodePath("RayCast2D")
+sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_q51yr")
+z_index = 9
+z_as_relative = false
+texture = ExtResource("2_dosey")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("CircleShape2D_pygtm")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]

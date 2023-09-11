@@ -2,6 +2,9 @@ extends RigidBody2D
 class_name movingObject
 
 @export var floorDetector: RayCast2D
+@export var sprite: Sprite2D
+
+var levelPlayer : Player
 
 var starting_transform
 var just_reset = true
@@ -37,6 +40,9 @@ func reset():
 
 func _physics_process(_delta):
 	floorDetector.rotation = -rotation
+	if levelPlayer != null:
+		
+		sprite.look_at(levelPlayer.position)
 
 func _integrate_forces(state):
 	if just_reset:
@@ -105,3 +111,6 @@ func clear_cont_vel():
 	
 func is_on_floor():
 	return floorDetector.is_colliding()
+	
+func setPlayer(_player : Player):
+	levelPlayer = _player

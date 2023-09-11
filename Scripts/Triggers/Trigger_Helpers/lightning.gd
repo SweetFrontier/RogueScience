@@ -5,6 +5,7 @@ class_name lightning
 
 @export var fromPos: Node2D
 @export var toPos: Node2D
+@export var lightingYOffset: Vector2
 @export var jaggedness_max = 20
 @export var jaggedness_min = 10
 @export var jaggedness_scale = 3
@@ -22,7 +23,7 @@ func lightning_strike():
 		bolt.default_color = boltColor
 		for child in bolt.get_children().size():
 			bolt.get_child(child).queue_free()
-		create_lightning(bolt, toPos.position)
+		create_lightning(bolt, toPos.position+lightingYOffset)
 
 func show_lightning():
 	Sound.play()
@@ -34,7 +35,7 @@ func hide_lightning():
 func create_lightning(bolt : Line2D, target_pos):
 	var length = target_pos - position 
 	bolt.clear_points()
-	bolt.add_point(fromPos.position)
+	bolt.add_point(fromPos.position+lightingYOffset)
 	bolt.add_point(target_pos - position)
 	
 	var persistance = 1.0

@@ -1,0 +1,52 @@
+[gd_scene load_steps=6 format=3 uid="uid://by8l8mnrr610i"]
+
+[ext_resource type="Script" path="res://Scripts/Triggers/invisibleBlock.gd" id="1_spw1l"]
+[ext_resource type="Texture2D" uid="uid://d8fq84wtq8pp" path="res://Art/TriggerArt/InvisibleBlocks/plhInvisLeftSlope.png" id="2_xpj77"]
+[ext_resource type="Script" path="res://Scripts/Triggers/Trigger_Helpers/explodeablePolygon.gd" id="3_3hsrp"]
+[ext_resource type="SpriteFrames" uid="uid://b8gp081t10dc8" path="res://Art/SpriteFrames/keyAnims.tres" id="4_ds21r"]
+[ext_resource type="AudioStream" uid="uid://ctnkt71vbtt11" path="res://Sounds/invisibleblock.ogg" id="5_nxqdn"]
+
+[node name="LeftSlopeInvisibleBlock" type="Node2D" node_paths=PackedStringArray("body", "implodeable_polygon", "sound_child", "TriggerKeySprite")]
+script = ExtResource("1_spw1l")
+body = NodePath("StaticBody2D")
+implodeable_polygon = NodePath("Polygon2D")
+sound_child = NodePath("AudioStreamPlayer2D")
+TriggerKeySprite = NodePath("TriggerKeySprite")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+z_index = 4
+z_as_relative = false
+texture_filter = 1
+texture = ExtResource("2_xpj77")
+polygon = PackedVector2Array(0, 0, 64, 0, 64, 32, 0, 32)
+script = ExtResource("3_3hsrp")
+shard_count = 64
+shard_shrink_rate = 0.99
+min_shard_size = 0.0
+x_init_velocity = 20
+y_init_velocity = 40
+shard_speed = 3.0
+rotation_speed = 0.1
+shard_gravity = 40.0
+x_max_distance = 1000
+x_min_distance = -1000
+y_max_distance = 1000
+y_min_distance = -1000
+time_to_form = 2.0
+
+[node name="TriggerKeySprite" type="AnimatedSprite2D" parent="."]
+z_index = 20
+z_as_relative = false
+texture_filter = 1
+position = Vector2(32, 64)
+sprite_frames = ExtResource("4_ds21r")
+animation = &"a"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+visible = false
+polygon = PackedVector2Array(0, 0, 64, 32, 0, 32)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_nxqdn")

@@ -1,0 +1,58 @@
+[gd_scene load_steps=9 format=3 uid="uid://bagvjmvnxf64i"]
+
+[ext_resource type="Script" path="res://Scripts/levelController.gd" id="1_ywduj"]
+[ext_resource type="TileSet" uid="uid://bnpggr5480t5q" path="res://Art/TileSets/initialTileSet.tres" id="2_50rai"]
+[ext_resource type="PackedScene" uid="uid://b42fe8hyi4bsb" path="res://Scenes/player.tscn" id="3_g4sl3"]
+[ext_resource type="PackedScene" uid="uid://dxkklnkpsn70w" path="res://Scenes/Triggers/BreakableBlocks/32x32breakableBlock.tscn" id="4_j2lwa"]
+[ext_resource type="PackedScene" uid="uid://c0eghc3oa7752" path="res://Scenes/Triggers/Trigger_Helpers/movingObject.tscn" id="4_ymuru"]
+[ext_resource type="PackedScene" uid="uid://p8wyqr1wis6" path="res://Scenes/Triggers/InvisibleBlocks/64x32InvisibleBlock.tscn" id="5_05taw"]
+[ext_resource type="PackedScene" uid="uid://psrem4kknlu8" path="res://Scenes/Triggers/BreakableBlocks/32x64breakableBlock.tscn" id="5_is3bh"]
+[ext_resource type="PackedScene" uid="uid://djb81orxw62lt" path="res://Scenes/Triggers/BreakableBlocks/64x64breakableBlock.tscn" id="6_046uy"]
+
+[node name="Level4" type="Node2D" node_paths=PackedStringArray("cameraSpot", "player")]
+script = ExtResource("1_ywduj")
+cameraSpot = NodePath("CenterPosition")
+player = NodePath("Player")
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("2_50rai")
+format = 2
+layer_0/tile_data = PackedInt32Array(0, 65536, 1, 65536, 65536, 1, 131072, 65536, 1, 196608, 65536, 1, 262144, 65536, 1, 327680, 65536, 1, 393216, 65536, 1, 458752, 65536, 1, 524288, 65536, 1, 524289, 65536, 1, 524292, 65536, 1, 524293, 65536, 1, 1, 65536, 1, 2, 65536, 1, 3, 65536, 1, 4, 65536, 1, 5, 65536, 1, 6, 65536, 1, 7, 65536, 1, 8, 65536, 1, 9, 65536, 1, 131073, 262144, 1, 131074, 327680, 1, 196611, 262144, 1, 196612, 327680, 1, 262149, 262144, 1, 262150, 327680, 1, 589829, 65536, 1, 589831, 65536, 1, 589836, 65536, 1, 262148, 65536, 1, 262152, 65536, 1, 262153, 65536, 1, 262155, 327680, 1, 262154, 262144, 1, 196617, 327680, 1, 196616, 262144, 1, 131079, 327680, 1, 131078, 262144, 1, 262147, 65536, 1, 262146, 65536, 1, 262145, 65536, 1, 196609, 65536, 1, 196610, 65536, 1, 262157, 65536, 1, 262158, 65536, 1, 262160, 327680, 1, 262159, 262144, 1, 196621, 262144, 1, 131083, 262144, 1, 196622, 327680, 1, 131084, 327680, 1, 10, 65536, 1, 11, 65536, 1, 12, 65536, 1, 13, 65536, 1, 14, 65536, 1, 15, 65536, 1, 16, 65536, 1, 17, 65536, 1, 262162, 65536, 1, 589841, 65536, 1, 589824, 65536, 1, 589825, 65536, 1, 589828, 65536, 1, 327681, 65536, 1, 327682, 65536, 1, 327683, 65536, 1, 327684, 65536, 1, 327685, 65536, 1, 327686, 65536, 1, 327688, 65536, 1, 327689, 65536, 1, 327690, 65536, 1, 327691, 65536, 1, 327693, 65536, 1, 327694, 65536, 1, 327695, 65536, 1, 327696, 65536, 1, 327698, 65536, 1, 196626, 65536, 1, 131090, 65536, 1, 65554, 65536, 1, 18, 65536, 1, 524307, 65536, 1, 524308, 65536, 1, 655360, 65536, 1, 720896, 65536, 1, 786432, 65536, 1, 786433, 65536, 1, 786434, 65536, 1, 786435, 65536, 1, 786436, 65536, 1, 786437, 65536, 1, 327699, 65536, 1, 327700, 65536, 1, 327701, 65536, 1, 393237, 65536, 1, 458773, 65536, 1, 524309, 65536, 1, 786451, 65536, 1, 786450, 65536, 1, 786449, 65536, 1, 786448, 65536, 1, 786447, 65536, 1, 786446, 65536, 1, 786445, 65536, 1, 786444, 65536, 1, 786443, 65536, 1, 786442, 65536, 1, 786441, 65536, 1, 786440, 65536, 1, 786439, 65536, 1, 786438, 65536, 1, 589843, 65536, 1, 655379, 65536, 1, 720915, 65536, 1)
+
+[node name="Player" parent="." instance=ExtResource("3_g4sl3")]
+position = Vector2(64, 240)
+
+[node name="CenterPosition" type="Marker2D" parent="."]
+position = Vector2(352, 208)
+
+[node name="movingObject" parent="." instance=ExtResource("4_ymuru")]
+position = Vector2(48, 48)
+
+[node name="movingObject2" parent="." node_paths=PackedStringArray("floorDetector") instance=ExtResource("4_ymuru")]
+position = Vector2(208, 48)
+floorDetector = NodePath("../movingObject/RayCast2D")
+
+[node name="movingObject3" parent="." node_paths=PackedStringArray("floorDetector") instance=ExtResource("4_ymuru")]
+position = Vector2(368, 48)
+floorDetector = NodePath("../movingObject/RayCast2D")
+
+[node name="invisibleBlock" parent="." instance=ExtResource("5_05taw")]
+position = Vector2(288, 256)
+
+[node name="invisibleBlock2" parent="." instance=ExtResource("5_05taw")]
+position = Vector2(448, 256)
+
+[node name="32x64breakableBlock" parent="." instance=ExtResource("5_is3bh")]
+position = Vector2(160, 192)
+
+[node name="32x32breakableBlock" parent="." instance=ExtResource("4_j2lwa")]
+position = Vector2(224, 192)
+
+[node name="32x32breakableBlock2" parent="." instance=ExtResource("4_j2lwa")]
+position = Vector2(384, 192)
+
+[node name="32x32breakableBlock3" parent="." instance=ExtResource("4_j2lwa")]
+position = Vector2(544, 192)
+
+[node name="64x64breakableBlock" parent="." instance=ExtResource("6_046uy")]
+position = Vector2(64, 256)

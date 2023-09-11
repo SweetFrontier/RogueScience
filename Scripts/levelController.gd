@@ -3,10 +3,10 @@ extends Node
 class_name levelController
 
 @export var cameraSpot : Marker2D
+@export var player : Player
 
 var triggerBlocks : Array[baseTrigger]
 var movingObjects : Array[movingObject]
-var player : Player
 var remainingTriggerBlocks : Array[baseTrigger]
 var availableKeys : Array
 # Called when the node enters the scene tree for the first time.
@@ -18,8 +18,8 @@ func _ready():
 			child.connect("randomize_block_keys_signal", randomize_block_keys)
 		elif child is movingObject:
 			movingObjects.append(child)
-		elif child is Player:
-			player = child
+			if player != null:
+				child.setPlayer(player)
 	reset()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

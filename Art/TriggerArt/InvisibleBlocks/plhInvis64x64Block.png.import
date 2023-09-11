@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bxiu7geo4l8bg"
-path="res://.godot/imported/plhOpenElevator.png-3e2b710c5ab40a57c7c7e40f636f2bea.ctex"
+uid="uid://bl3esh1uwybj1"
+path="res://.godot/imported/plhInvis64x64Block.png-2d74a26f75b6b0abb9ac98a403071507.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/plhOpenElevator.png"
-dest_files=["res://.godot/imported/plhOpenElevator.png-3e2b710c5ab40a57c7c7e40f636f2bea.ctex"]
+source_file="res://Art/TriggerArt/InvisibleBlocks/plhInvis64x64Block.png"
+dest_files=["res://.godot/imported/plhInvis64x64Block.png-2d74a26f75b6b0abb9ac98a403071507.ctex"]
 
 [params]
 

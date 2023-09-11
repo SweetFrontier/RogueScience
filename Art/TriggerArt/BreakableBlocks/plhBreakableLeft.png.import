@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://crs4xyuqk3t62"
-path="res://.godot/imported/plhDeactivatedTrampoline.png-9747a6fdba250a461a37aa5dd9cc8b0c.ctex"
+uid="uid://br63w887vge7r"
+path="res://.godot/imported/plhBreakableLeft.png-e093ab94ca3197d6ef461265c4bea381.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Spritesheets/plhDeactivatedTrampoline.png"
-dest_files=["res://.godot/imported/plhDeactivatedTrampoline.png-9747a6fdba250a461a37aa5dd9cc8b0c.ctex"]
+source_file="res://Art/TriggerArt/BreakableBlocks/plhBreakableLeft.png"
+dest_files=["res://.godot/imported/plhBreakableLeft.png-e093ab94ca3197d6ef461265c4bea381.ctex"]
 
 [params]
 

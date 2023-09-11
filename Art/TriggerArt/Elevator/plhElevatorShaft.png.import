@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://btfovkwgliucs"
-path="res://.godot/imported/plhElevatorShaftActivated.png-f5ef7e67e9cdadd279caf43753e1e5cf.ctex"
+uid="uid://d0s5u5gyhwt4c"
+path="res://.godot/imported/plhElevatorShaft.png-b0d6a1324807613ae083870ab47d8a7f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/plhElevatorShaftActivated.png"
-dest_files=["res://.godot/imported/plhElevatorShaftActivated.png-f5ef7e67e9cdadd279caf43753e1e5cf.ctex"]
+source_file="res://Art/TriggerArt/Elevator/plhElevatorShaft.png"
+dest_files=["res://.godot/imported/plhElevatorShaft.png-b0d6a1324807613ae083870ab47d8a7f.ctex"]
 
 [params]
 

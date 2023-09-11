@@ -1,28 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://cpl8uffd5nbs"]
+[gd_scene load_steps=8 format=3 uid="uid://cpl8uffd5nbs"]
 
 [ext_resource type="Script" path="res://Scripts/Triggers/teleporterTrigger.gd" id="1_drekj"]
-[ext_resource type="Texture2D" uid="uid://chi00qs1iy8dj" path="res://Art/sample32x32.png" id="2_kpo24"]
 [ext_resource type="SpriteFrames" uid="uid://b8gp081t10dc8" path="res://Art/SpriteFrames/keyAnims.tres" id="3_nru8g"]
 [ext_resource type="PackedScene" uid="uid://bvxwld4fu1vc0" path="res://Scenes/Triggers/Trigger_Helpers/lightning.tscn" id="4_m0xrp"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_okrmj"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_kpo24")
-}],
-"loop": true,
-"name": &"activated",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_kpo24")
-}],
-"loop": true,
-"name": &"deactivated",
-"speed": 5.0
-}]
+[ext_resource type="SpriteFrames" uid="uid://dnwwwpgjbwklm" path="res://Art/TriggerArt/Teleporter/backingFrames.tres" id="5_qhjfq"]
+[ext_resource type="SpriteFrames" uid="uid://bvdhyjx44ynaj" path="res://Art/TriggerArt/Teleporter/frontingFrames.tres" id="6_oy3qe"]
+[ext_resource type="SpriteFrames" uid="uid://bfi6haoil4yyk" path="res://Art/TriggerArt/Teleporter/rodFrames.tres" id="7_smeh8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sxv0n"]
 size = Vector2(32, 32)
@@ -38,39 +21,88 @@ lightning = NodePath("lightning")
 button = 85
 TriggerKeySprite = NodePath("Teleporter1/TriggerKeySprite")
 
-[node name="Teleporter1" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_okrmj")
-animation = &"deactivated"
+[node name="Teleporter1" type="Node2D" parent="."]
 metadata/_edit_group_ = true
+
+[node name="BackingSpriteAnim" type="AnimatedSprite2D" parent="Teleporter1"]
+z_index = 6
+z_as_relative = false
+sprite_frames = ExtResource("5_qhjfq")
+
+[node name="FrontingSpriteAnim" type="AnimatedSprite2D" parent="Teleporter1"]
+z_index = 12
+z_as_relative = false
+position = Vector2(-3.55393e-06, -3.11434e-06)
+scale = Vector2(1, 1)
+sprite_frames = ExtResource("6_oy3qe")
+animation = &"activated"
+frame = 2
+frame_progress = 0.669144
+
+[node name="RodSpriteAnim" type="AnimatedSprite2D" parent="Teleporter1"]
+z_index = 7
+z_as_relative = false
+position = Vector2(0, -24)
+sprite_frames = ExtResource("7_smeh8")
+animation = &"deactivated"
 
 [node name="TeleporterArea1" type="Area2D" parent="Teleporter1"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Teleporter1/TeleporterArea1"]
+visible = false
 shape = SubResource("RectangleShape2D_sxv0n")
 
 [node name="TriggerKeySprite" type="AnimatedSprite2D" parent="Teleporter1"]
+z_index = 20
+z_as_relative = false
 texture_filter = 1
 position = Vector2(0, 48)
 sprite_frames = ExtResource("3_nru8g")
 animation = &"a"
 
-[node name="Teleporter2" type="AnimatedSprite2D" parent="."]
-position = Vector2(144, 0)
-sprite_frames = SubResource("SpriteFrames_okrmj")
-animation = &"deactivated"
+[node name="Teleporter2" type="Node2D" parent="."]
+position = Vector2(80, 0)
 metadata/_edit_group_ = true
+
+[node name="BackingSpriteAnim" type="AnimatedSprite2D" parent="Teleporter2"]
+z_index = 6
+z_as_relative = false
+sprite_frames = ExtResource("5_qhjfq")
+
+[node name="FrontingSpriteAnim" type="AnimatedSprite2D" parent="Teleporter2"]
+z_index = 12
+z_as_relative = false
+position = Vector2(-3.55393e-06, -3.11434e-06)
+scale = Vector2(1, 1)
+sprite_frames = ExtResource("6_oy3qe")
+animation = &"activated"
+frame = 2
+frame_progress = 0.669144
+
+[node name="RodSpriteAnim" type="AnimatedSprite2D" parent="Teleporter2"]
+z_index = 7
+z_as_relative = false
+position = Vector2(0, -24)
+sprite_frames = ExtResource("7_smeh8")
+animation = &"deactivated"
 
 [node name="TeleporterArea2" type="Area2D" parent="Teleporter2"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Teleporter2/TeleporterArea2"]
+visible = false
 shape = SubResource("RectangleShape2D_sxv0n")
 
 [node name="TriggerKeySprite2" type="AnimatedSprite2D" parent="Teleporter2"]
+z_index = 20
+z_as_relative = false
 texture_filter = 1
 position = Vector2(0, 48)
 sprite_frames = ExtResource("3_nru8g")
 animation = &"a"
 
 [node name="lightning" parent="." node_paths=PackedStringArray("fromPos", "toPos") instance=ExtResource("4_m0xrp")]
+z_index = 17
+z_as_relative = false
 fromPos = NodePath("../Teleporter1")
 toPos = NodePath("../Teleporter2")
+lightingYOffset = Vector2(0, -28)

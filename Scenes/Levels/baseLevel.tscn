@@ -3,11 +3,13 @@
 [ext_resource type="Script" path="res://Scripts/levelController.gd" id="1_btnfb"]
 [ext_resource type="TileSet" uid="uid://bnpggr5480t5q" path="res://Art/TileSets/initialTileSet.tres" id="2_esq4l"]
 [ext_resource type="PackedScene" uid="uid://b42fe8hyi4bsb" path="res://Scenes/player.tscn" id="3_fesf8"]
-[ext_resource type="PackedScene" uid="uid://dxkklnkpsn70w" path="res://Scenes/Triggers/breakableBlock.tscn" id="4_oq5cy"]
+[ext_resource type="PackedScene" uid="uid://dxkklnkpsn70w" path="res://Scenes/Triggers/BreakableBlocks/32x32breakableBlock.tscn" id="4_oq5cy"]
 
-[node name="baseLevel" type="Node2D"]
+[node name="baseLevel" type="Node2D" node_paths=PackedStringArray("cameraSpot", "player")]
 texture_filter = 1
 script = ExtResource("1_btnfb")
+cameraSpot = NodePath("Marker2D")
+player = NodePath("Player")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("2_esq4l")

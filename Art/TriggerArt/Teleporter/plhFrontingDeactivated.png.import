@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bfkajwlr41hjx"
-path="res://.godot/imported/plhElevatorStop.png-61f2db9a66dfbf1b1936ab494161aed8.ctex"
+uid="uid://bnhwcte1yvfh8"
+path="res://.godot/imported/plhFrontingDeactivated.png-f2199b82966a230759b6f13dbffe42c2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/plhElevatorStop.png"
-dest_files=["res://.godot/imported/plhElevatorStop.png-61f2db9a66dfbf1b1936ab494161aed8.ctex"]
+source_file="res://Art/TriggerArt/Teleporter/plhFrontingDeactivated.png"
+dest_files=["res://.godot/imported/plhFrontingDeactivated.png-f2199b82966a230759b6f13dbffe42c2.ctex"]
 
 [params]
 

@@ -1,0 +1,32 @@
+[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://dnwwwpgjbwklm"]
+
+[ext_resource type="Texture2D" uid="uid://qbu3a6q7670u" path="res://Art/TriggerArt/Teleporter/plhBacking.png" id="1_j2g5l"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_afgqg"]
+atlas = ExtResource("1_j2g5l")
+region = Rect2(0, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_djgvy"]
+atlas = ExtResource("1_j2g5l")
+region = Rect2(0, 32, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_66f8d"]
+atlas = ExtResource("1_j2g5l")
+region = Rect2(0, 64, 64, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_afgqg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_djgvy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_66f8d")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

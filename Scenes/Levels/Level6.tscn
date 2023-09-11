@@ -1,0 +1,84 @@
+[gd_scene load_steps=9 format=3 uid="uid://ecmrb7wec1d6"]
+
+[ext_resource type="Script" path="res://Scripts/levelController.gd" id="1_y60ga"]
+[ext_resource type="TileSet" uid="uid://bnpggr5480t5q" path="res://Art/TileSets/initialTileSet.tres" id="2_adbuu"]
+[ext_resource type="PackedScene" uid="uid://b42fe8hyi4bsb" path="res://Scenes/player.tscn" id="3_k6kxb"]
+[ext_resource type="PackedScene" uid="uid://dxkklnkpsn70w" path="res://Scenes/Triggers/BreakableBlocks/32x32breakableBlock.tscn" id="4_o2q5l"]
+[ext_resource type="PackedScene" uid="uid://dnqoj4eg2l7le" path="res://Scenes/Triggers/trampolineTrigger.tscn" id="4_uv66a"]
+[ext_resource type="PackedScene" uid="uid://p8wyqr1wis6" path="res://Scenes/Triggers/InvisibleBlocks/64x32InvisibleBlock.tscn" id="5_3emsp"]
+[ext_resource type="PackedScene" uid="uid://djb81orxw62lt" path="res://Scenes/Triggers/BreakableBlocks/64x64breakableBlock.tscn" id="6_n0cwp"]
+[ext_resource type="PackedScene" uid="uid://c0eghc3oa7752" path="res://Scenes/Triggers/Trigger_Helpers/movingObject.tscn" id="6_wbdfw"]
+
+[node name="Level6" type="Node2D" node_paths=PackedStringArray("cameraSpot", "player")]
+script = ExtResource("1_y60ga")
+cameraSpot = NodePath("CenterPosition")
+player = NodePath("Player")
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("2_adbuu")
+format = 2
+layer_0/tile_data = PackedInt32Array(0, 65536, 1, 65536, 65536, 1, 131072, 65536, 1, 196608, 65536, 1, 262144, 65536, 1, 327680, 65536, 1, 393216, 65536, 1, 458752, 65536, 1, 524288, 65536, 1, 589824, 65536, 1, 655360, 65536, 1, 720896, 65536, 1, 786432, 65536, 1, 786433, 65536, 1, 786434, 65536, 1, 786435, 65536, 1, 786436, 65536, 1, 786441, 65536, 1, 458757, 65536, 1, 917509, 65536, 1, 917510, 65536, 1, 917511, 65536, 1, 917512, 65536, 1, 851972, 65536, 1, 917508, 65536, 1, 851977, 65536, 1, 917513, 65536, 1, 458756, 65536, 1, 458755, 65536, 1, 458754, 65536, 1, 458760, 65536, 1, 458761, 65536, 1, 458753, 65536, 1, 524297, 65536, 1, 589833, 65536, 1, 655369, 65536, 1, 720905, 65536, 1, 393221, 65536, 1, 327685, 65536, 1, 262149, 65536, 1, 262150, 65536, 1, 262151, 65536, 1, 262152, 65536, 1, 262153, 65536, 1, 262154, 65536, 1, 65541, 65536, 1, 131077, 65536, 1, 196613, 65536, 1, 5, 65536, 1, 458762, 65536, 1, 524298, 65536, 1, 589834, 65536, 1, 655370, 65536, 1, 720906, 65536, 1, 786442, 65536, 1, 786443, 65536, 1, 786444, 65536, 1, 786445, 65536, 1, 786446, 65536, 1, 786447, 65536, 1, 786448, 65536, 1, 786449, 65536, 1, 786450, 65536, 1, 786451, 65536, 1, -65531, 65536, 1, -131067, 65536, 1, -131068, 65536, 1, -131069, 65536, 1, -131070, 65536, 1, -131071, 65536, 1, -131072, 65536, 1, -65536, 65536, 1, 458765, 65536, 1, 458768, 65536, 1, 720915, 65536, 1, 655379, 65536, 1, 589843, 65536, 1, 524307, 65536, 1, 458771, 65536, 1, 458773, 65536, 1, 458772, 65536, 1, 262155, 65536, 1, 262156, 65536, 1, 262157, 65536, 1, 262158, 65536, 1, 262159, 65536, 1, 262160, 65536, 1, 262161, 65536, 1, 262163, 65536, 1, 262162, 65536, 1, 262164, 65536, 1, 262165, 65536, 1, 262166, 65536, 1, 458774, 65536, 1, 327702, 65536, 1, 393238, 65536, 1)
+
+[node name="Player" parent="." instance=ExtResource("3_k6kxb")]
+position = Vector2(64, 368)
+
+[node name="CenterPosition" type="Marker2D" parent="."]
+position = Vector2(320, 256)
+
+[node name="64x64breakableBlock" parent="." instance=ExtResource("6_n0cwp")]
+position = Vector2(288, 160)
+
+[node name="invisibleBlock" parent="." instance=ExtResource("5_3emsp")]
+position = Vector2(192, 224)
+
+[node name="movingObject" parent="." instance=ExtResource("6_wbdfw")]
+position = Vector2(64, 64)
+
+[node name="movingObject2" parent="." instance=ExtResource("6_wbdfw")]
+position = Vector2(128, 144)
+
+[node name="movingObject3" parent="." instance=ExtResource("6_wbdfw")]
+position = Vector2(384, 272)
+
+[node name="movingObject4" parent="." instance=ExtResource("6_wbdfw")]
+position = Vector2(480, 272)
+
+[node name="movingObject5" parent="." instance=ExtResource("6_wbdfw")]
+position = Vector2(576, 272)
+
+[node name="trampolineTrigger" parent="." instance=ExtResource("4_uv66a")]
+position = Vector2(224, 432)
+
+[node name="trampolineTrigger2" parent="." instance=ExtResource("4_uv66a")]
+position = Vector2(64, 208)
+jump_force = 500.0
+startActivated = true
+
+[node name="trampolineTrigger3" parent="." instance=ExtResource("4_uv66a")]
+position = Vector2(128, 208)
+jump_force = 500.0
+startActivated = true
+
+[node name="trampolineTrigger4" parent="." instance=ExtResource("4_uv66a")]
+position = Vector2(384, 368)
+jump_force = 550.0
+startActivated = true
+
+[node name="trampolineTrigger5" parent="." instance=ExtResource("4_uv66a")]
+position = Vector2(480, 368)
+jump_force = 550.0
+startActivated = true
+
+[node name="trampolineTrigger6" parent="." instance=ExtResource("4_uv66a")]
+position = Vector2(576, 368)
+jump_force = 550.0
+startActivated = true
+
+[node name="32x32breakableBlock" parent="." instance=ExtResource("4_o2q5l")]
+position = Vector2(368, 288)
+
+[node name="32x32breakableBlock2" parent="." instance=ExtResource("4_o2q5l")]
+position = Vector2(464, 288)
+
+[node name="32x32breakableBlock3" parent="." instance=ExtResource("4_o2q5l")]
+position = Vector2(560, 288)

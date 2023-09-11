@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b834omv1hjrng"
-path="res://.godot/imported/Trampoline.png-278dd716ed4f651bf2b482cde4da9859.ctex"
+uid="uid://bxxhtuyadw5a6"
+path="res://.godot/imported/plhInvisRightSlope.png-3278201a24c674bfaf38c24303d7c290.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Spritesheets/Trampoline.png"
-dest_files=["res://.godot/imported/Trampoline.png-278dd716ed4f651bf2b482cde4da9859.ctex"]
+source_file="res://Art/TriggerArt/InvisibleBlocks/plhInvisRightSlope.png"
+dest_files=["res://.godot/imported/plhInvisRightSlope.png-3278201a24c674bfaf38c24303d7c290.ctex"]
 
 [params]
 

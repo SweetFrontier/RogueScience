@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dl2are1byex1o"]
+
+[ext_resource type="Script" path="res://Scripts/levelController.gd" id="1_3t313"]
+[ext_resource type="PackedScene" uid="uid://b42fe8hyi4bsb" path="res://Scenes/player.tscn" id="3_8jmb8"]
+
+[node name="Level8" type="Node2D" node_paths=PackedStringArray("cameraSpot", "player")]
+script = ExtResource("1_3t313")
+cameraSpot = NodePath("CenterPosition")
+player = NodePath("Player")
+
+[node name="Player" parent="." instance=ExtResource("3_8jmb8")]
+position = Vector2(22, -64)
+
+[node name="CenterPosition" type="Marker2D" parent="."]
+position = Vector2(240, 128)

@@ -3,6 +3,7 @@ extends Node
 class_name levelController
 
 @export var cameraSpot : Marker2D
+@export var cameraSize : Vector2
 @export var player : Player
 
 var triggerBlocks : Array[baseTrigger]

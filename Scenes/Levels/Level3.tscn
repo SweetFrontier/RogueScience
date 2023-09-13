@@ -13,6 +13,7 @@
 [node name="Level3" type="Node" node_paths=PackedStringArray("cameraSpot", "player")]
 script = ExtResource("1_ek5l7")
 cameraSpot = NodePath("CenterPosition")
+cameraSize = Vector2(736, 448)
 player = NodePath("Player")
 
 [node name="TileMap" type="TileMap" parent="."]

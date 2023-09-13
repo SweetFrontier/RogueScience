@@ -15,6 +15,7 @@
 [node name="Level7" type="Node2D" node_paths=PackedStringArray("cameraSpot", "player")]
 script = ExtResource("1_6ruj2")
 cameraSpot = NodePath("CenterPosition")
+cameraSize = Vector2(768, 736)
 player = NodePath("Player")
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -28,8 +29,6 @@ position = Vector2(64, 352)
 [node name="CenterPosition" type="Marker2D" parent="."]
 position = Vector2(320, 112)
 metadata/_edit_group_ = true
-
-[node name="Camera2D" type="Camera2D" parent="CenterPosition"]
 
 [node name="trampolineTrigger" parent="." instance=ExtResource("4_c3rfj")]
 position = Vector2(288, 176)

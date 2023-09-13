@@ -10,6 +10,7 @@
 [node name="Level1" type="Node2D" node_paths=PackedStringArray("cameraSpot", "player")]
 script = ExtResource("1_7dtyw")
 cameraSpot = NodePath("CenterPosition")
+cameraSize = Vector2(480, 256)
 player = NodePath("Player")
 
 [node name="TileMap" type="TileMap" parent="."]

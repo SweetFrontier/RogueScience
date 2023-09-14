@@ -5,7 +5,6 @@ extends Control
 
 func _on_h_slider_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(0, value)
-	print(AudioServer.get_bus_volume_db(0))
 
 
 func _on_pause_menu_pressed() -> void:

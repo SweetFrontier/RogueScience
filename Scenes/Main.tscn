@@ -1,22 +1,32 @@
-[gd_scene load_steps=6 format=3 uid="uid://vwjnt2j2wbqk"]
+[gd_scene load_steps=8 format=3 uid="uid://vwjnt2j2wbqk"]
 
 [ext_resource type="Script" path="res://Scripts/gameManager.gd" id="1_rlws3"]
-[ext_resource type="PackedScene" uid="uid://1xasoo80ygld" path="res://Scenes/Levels/baseLevel.tscn" id="2_tmkkr"]
+[ext_resource type="PackedScene" uid="uid://cp1xr265ye340" path="res://Scenes/Levels/Level1.tscn" id="3_cm24v"]
 [ext_resource type="AudioStream" uid="uid://cmhm7pf614y6w" path="res://Sounds/Music/puzzle(calm).ogg" id="3_mfq2v"]
+[ext_resource type="PackedScene" uid="uid://c8uldnq5xgsmq" path="res://Scenes/Levels/Level2.tscn" id="3_q6jj7"]
 [ext_resource type="PackedScene" uid="uid://ccwfvydfhyx65" path="res://Scenes/Screens/PauseMenu.tscn" id="4_tnt1f"]
 [ext_resource type="PackedScene" uid="uid://mq8lonv11ksd" path="res://Scenes/Screens/OptionsMenu.tscn" id="5_qvib5"]
+[ext_resource type="PackedScene" uid="uid://dvbyxsl5e3ol8" path="res://Scenes/Triggers/Trigger_Helpers/TransitionField.tscn" id="7_octxl"]
 
 [node name="Main" type="Node2D" node_paths=PackedStringArray("Levels", "camera")]
 script = ExtResource("1_rlws3")
-Levels = [NodePath("Levels/baseLevel")]
+Levels = [NodePath("Levels/Level1"), NodePath("Levels/Level2")]
 camera = NodePath("Camera2D")
 
 [node name="Levels" type="Node" parent="."]
+process_mode = 4
 
-[node name="baseLevel" parent="Levels" instance=ExtResource("2_tmkkr")]
+[node name="Level1" parent="Levels" instance=ExtResource("3_cm24v")]
+
+[node name="TransitionField" parent="Levels/Level1" instance=ExtResource("7_octxl")]
+position = Vector2(431, 175)
+
+[node name="Level2" parent="Levels" instance=ExtResource("3_q6jj7")]
+position = Vector2(448, 32)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(640, 368)
+position = Vector2(240, 128)
+zoom = Vector2(2.667, 2.875)
 position_smoothing_speed = 0.8
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
@@ -26,8 +36,10 @@ volume_db = -7.0
 autoplay = true
 bus = &"Music"
 
-[node name="PauseMenu" parent="." instance=ExtResource("4_tnt1f")]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("4_tnt1f")]
 metadata/_edit_use_anchors_ = true
 
-[node name="OptionsMenu" parent="." instance=ExtResource("5_qvib5")]
+[node name="OptionsMenu" parent="CanvasLayer" instance=ExtResource("5_qvib5")]
 visible = false

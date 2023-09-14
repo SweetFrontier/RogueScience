@@ -47,11 +47,11 @@ func create_lightning(bolt : Line2D, target_pos):
 			var end = local_array[point + 1]
 			var mid = (end - start) / 2
 			var vec = (end - start).normalized()
-			var normal = Vector2(vec.y, -vec.x)
+			var normal = Vector2(-abs(vec.y), abs(vec.x))
 			
 			var rand_scale = randf_range(jaggedness_min, jaggedness_max) * random_pos_or_neg()
-			var new_point = start  + mid + (rand_scale * jaggedness_scale * (length / bolt_length_factor) * persistance * normal)
-			persistance *= 0.8
+			var new_point = start + mid + (rand_scale * jaggedness_scale * (length / bolt_length_factor) * persistance * normal)
+			persistance *= 0.95
 			bolt.add_point(new_point, (point * 2) + 1)
 	
 func random_pos_or_neg():

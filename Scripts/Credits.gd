@@ -1,6 +1,7 @@
 extends Control
 
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -10,4 +11,8 @@ func _ready():
 func _process(delta):
 	position.y += delta*50
 	if (position.y > 3450):
-		get_tree().change_scene_to_file("res://Scenes/MainMenu.tscn")
+		get_tree().change_scene_to_file("res://Scenes/Screens/MainMenu.tscn")
+
+
+func _on_skip_button_pressed():
+	get_tree().change_scene_to_file("res://Scenes/Screens/MainMenu.tscn")

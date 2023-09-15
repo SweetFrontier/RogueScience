@@ -4,6 +4,9 @@ var active : bool = false
 var falling : bool = false
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+@export
+var my_texture : TextureRect
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	linear_damp = 1
@@ -12,9 +15,14 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if (falling):
-		get_child(0).rotation_degrees += delta*10
-		if (linear_velocity.y > 10):
-			pass
+		# vertical velocity over 1000 means delete
+		if (linear_velocity.y > 1500):
+			for n in get_children():
+				n.queue_free()
+				queue_free()
+		else:
+			# otherwise do a fancy texture rotation
+			my_texture.rotation_degrees += delta*15
 
 
 
@@ -25,11 +33,6 @@ func _on_area_2d_area_entered(area):
 	elif (!falling):
 		#if already activated to fall then start falling
 		falling = true
-		apply_impulse(Vector2(400, 0))
-		gravity_scale = 1
+		apply_impulse(Vector2(200, 0))
+		gravity_scale = 1.8
 		linear_damp = 1
-	else:
-		#third time means delete self now
-		for n in get_children():
-			n.queue_free()
-		queue_free()

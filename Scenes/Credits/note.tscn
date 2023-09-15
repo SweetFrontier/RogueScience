@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://cifry0akmdkuv"]
+[gd_scene load_steps=3 format=3 uid="uid://cifry0akmdkuv"]
 
-[ext_resource type="Script" path="res://Art/Credits/NoteFall.gd" id="1_tq61x"]
-[ext_resource type="Texture2D" uid="uid://bm7g5rxbtrots" path="res://Art/Credits/noteup.png" id="2_r2hu3"]
+[ext_resource type="Script" path="res://Scripts/Credits/NoteFall.gd" id="1_tq61x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vgt1e"]
 size = Vector2(11.2684, 11)
@@ -10,14 +9,6 @@ size = Vector2(11.2684, 11)
 position = Vector2(314, 2303)
 gravity_scale = 0.0
 script = ExtResource("1_tq61x")
-
-[node name="NoteTexture" type="TextureRect" parent="."]
-offset_left = -11.0
-offset_top = -58.0
-offset_right = 29.0
-offset_bottom = 8.0
-texture = ExtResource("2_r2hu3")
-stretch_mode = 2
 
 [node name="Area2D" type="Area2D" parent="."]
 

@@ -93,20 +93,11 @@ position = Vector2(448, 128)
 [node name="LeftSlopeInvisibleBlock6" parent="." instance=ExtResource("7_ovrog")]
 position = Vector2(512, 32)
 
-[node name="LeftSlopebreakableBlock" parent="." instance=ExtResource("9_j3cr0")]
-position = Vector2(256, -96)
-
 [node name="RightSlopebreakableBlock" parent="." instance=ExtResource("10_l64ce")]
 position = Vector2(320, 0)
 
-[node name="LeftSlopebreakableBlock2" parent="." instance=ExtResource("9_j3cr0")]
-position = Vector2(320, 128)
-
 [node name="LeftSlopebreakableBlock3" parent="." instance=ExtResource("9_j3cr0")]
 position = Vector2(448, 64)
-
-[node name="RightSlopebreakableBlock4" parent="." instance=ExtResource("10_l64ce")]
-position = Vector2(576, 0)
 
 [node name="64x64breakableBlock" parent="." instance=ExtResource("6_u78qg")]
 position = Vector2(160, 320)

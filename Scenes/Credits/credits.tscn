@@ -247,6 +247,7 @@ debug_color = Color(0, 1, 0, 0.419608)
 
 [node name="SkipButton" type="Button" parent="scrollydown"]
 z_as_relative = false
+layout_mode = 0
 offset_left = 1079.0
 offset_top = 605.0
 offset_right = 1179.0

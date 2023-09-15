@@ -26,7 +26,7 @@ func _process(delta):
 		else:
 			#turn light on
 			texture = ResourceLoader.load("res://Art/Backgrounds/title.png")
-			audioPlayer.volume_db = -10
+			audioPlayer.volume_db = 0
 			lightIsOn = true
 			
 			#randomize wait between flickers between 2 and 5 seconds

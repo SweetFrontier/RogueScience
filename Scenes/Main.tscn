@@ -32,7 +32,6 @@ position_smoothing_speed = 0.8
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 process_mode = 3
 stream = ExtResource("3_mfq2v")
-volume_db = -7.0
 autoplay = true
 bus = &"Music"
 

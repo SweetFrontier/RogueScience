@@ -4,6 +4,7 @@
 [ext_resource type="SpriteFrames" uid="uid://b8gp081t10dc8" path="res://Art/SpriteFrames/keyAnims.tres" id="2_t73bu"]
 [ext_resource type="Texture2D" uid="uid://b18ii5iyhvcpn" path="res://Art/DeathImage.png" id="3_ew3p7"]
 
+
 [node name="PauseMenu" type="Control"]
 process_mode = 3
 layout_mode = 3

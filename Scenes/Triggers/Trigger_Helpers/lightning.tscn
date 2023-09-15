@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/Triggers/Trigger_Helpers/lightning.gd" id="1_p7c6a"]
 [ext_resource type="AudioStream" uid="uid://dt8j5wewaihi3" path="res://Sounds/teleportation.ogg" id="2_tg7fi"]
 
+
 [sub_resource type="Environment" id="Environment_h1llk"]
 background_mode = 3
 glow_enabled = true

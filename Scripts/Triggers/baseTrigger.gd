@@ -126,7 +126,7 @@ func override_movement(body):
 	setupMoveToStart()
 
 func setupMoveToStart():
-	beginRiderPos = ridingBody.position
+	beginRiderPos = ridingBody.global_position
 	riderInPosition = false
 	moveRiderProgress = 0.0
 

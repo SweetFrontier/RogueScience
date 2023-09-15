@@ -6,6 +6,7 @@
 [ext_resource type="SpriteFrames" uid="uid://b8gp081t10dc8" path="res://Art/SpriteFrames/keyAnims.tres" id="4_2iaag"]
 [ext_resource type="AudioStream" uid="uid://bw5e10yu6o64o" path="res://Sounds/blockbreak.ogg" id="5_5j66g"]
 
+
 [node name="RightSlopebreakableBlock" type="Node2D" node_paths=PackedStringArray("explodeable_polygon", "body", "sound_child", "TriggerKeySprite")]
 script = ExtResource("1_hbmyy")
 explodeable_polygon = NodePath("Polygon2D")

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/Credits/NoteFall.gd" id="1_tq61x"]
 
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vgt1e"]
 size = Vector2(11.2684, 11)
 

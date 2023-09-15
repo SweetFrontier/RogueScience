@@ -24,12 +24,12 @@ var starting_position
 var last_y_velocity
 
 func _ready():
-	starting_position = position
+	starting_position = global_position
 	reset()
 
 func reset():
 	velocity = Vector2(0,0)
-	position = starting_position
+	global_position = starting_position
 	current_direction = starting_direction
 	AnimatedSprite.rotation = 0.0
 	if current_direction == Vector2.RIGHT:
@@ -115,4 +115,4 @@ func free_movement():
 	movement_overrider = null
 
 func set_body_pos(pos):
-	position = pos
+	global_position = pos

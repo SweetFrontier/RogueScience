@@ -129,7 +129,8 @@ func _on_body_exited(body, teleporter):
 
 func setupMoveToStart():
 	super.setupMoveToStart()
-	endRiderPos = position + startingTeleporter.position
+	#endRiderPos = position + startingTeleporter.position
+	endRiderPos = startingTeleporter.global_position
 
 func riderReady():
 	super.riderReady()
@@ -137,7 +138,8 @@ func riderReady():
 
 func setupTeleporterStarting():
 	teleportingProgress = 0.0
-	teleporterEndPos = endingTeleporter.position + position
+	#teleporterEndPos = endingTeleporter.position + position
+	teleporterEndPos = endingTeleporter.global_position
 	teleporting = true
 	lightning.show_lightning()
 

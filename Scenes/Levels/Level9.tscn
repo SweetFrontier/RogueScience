@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bpsr342b2aa3u"]
+[gd_scene load_steps=8 format=3 uid="uid://bpsr342b2aa3u"]
 
 [ext_resource type="Script" path="res://Scripts/levelController.gd" id="1_y40eh"]
 [ext_resource type="TileSet" uid="uid://bnpggr5480t5q" path="res://Art/TileSets/initialTileSet.tres" id="2_18jr0"]
@@ -6,12 +6,14 @@
 [ext_resource type="PackedScene" uid="uid://cpl8uffd5nbs" path="res://Scenes/Triggers/teleporterTrigger.tscn" id="4_4bqca"]
 [ext_resource type="PackedScene" uid="uid://dnqoj4eg2l7le" path="res://Scenes/Triggers/trampolineTrigger.tscn" id="5_8pte6"]
 [ext_resource type="PackedScene" uid="uid://c0eghc3oa7752" path="res://Scenes/Triggers/Trigger_Helpers/movingObject.tscn" id="6_wusk5"]
+[ext_resource type="PackedScene" uid="uid://dvbyxsl5e3ol8" path="res://Scenes/Triggers/Trigger_Helpers/TransitionField.tscn" id="7_37tg4"]
 
-[node name="Level9" type="Node2D" node_paths=PackedStringArray("cameraSpot", "player")]
+[node name="Level9" type="Node2D" node_paths=PackedStringArray("cameraSpot", "player", "transitionField")]
 script = ExtResource("1_y40eh")
 cameraSpot = NodePath("CenterPosition")
 cameraSize = Vector2(544, 512)
 player = NodePath("Player")
+transitionField = NodePath("TransitionField")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("2_18jr0")
@@ -23,6 +25,9 @@ position = Vector2(160, 176)
 
 [node name="CenterPosition" type="Marker2D" parent="."]
 position = Vector2(272, 256)
+
+[node name="TransitionField" parent="." instance=ExtResource("7_37tg4")]
+position = Vector2(400, 272)
 
 [node name="teleporterTrigger" parent="." instance=ExtResource("4_4bqca")]
 position = Vector2(160, 240)

@@ -53,13 +53,13 @@ func _on_body_entered(body):
 		return
 	if body == ridingBody:
 		override_movement(body)
-		body.set_body_pos(position)
+		body.set_body_pos(global_position)
 		riderReady()
 		rider_freeable = false
 	elif activated and !occupied and body != self:
 		override_movement(body)
-		if abs(body.position.x-position.x) <= 5:
-			body.set_body_pos(position)
+		if abs(body.global_position.x-global_position.x) <= 5:
+			body.set_body_pos(global_position)
 			riderReady()
 		else:
 			setupMoveToStart()
@@ -74,7 +74,8 @@ func _on_body_exited(body):
 	
 func setupMoveToStart():
 	super.setupMoveToStart()
-	endRiderPos = position + MoveToPosition.position
+	#endRiderPos = position + MoveToPosition.global_position
+	endRiderPos = MoveToPosition.global_position
 	BlockSprite.frame = 1
 
 func riderReady():

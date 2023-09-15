@@ -1,19 +1,21 @@
-[gd_scene load_steps=9 format=3 uid="uid://ecmrb7wec1d6"]
+[gd_scene load_steps=10 format=3 uid="uid://ecmrb7wec1d6"]
 
 [ext_resource type="Script" path="res://Scripts/levelController.gd" id="1_y60ga"]
 [ext_resource type="TileSet" uid="uid://bnpggr5480t5q" path="res://Art/TileSets/initialTileSet.tres" id="2_adbuu"]
 [ext_resource type="PackedScene" uid="uid://b42fe8hyi4bsb" path="res://Scenes/player.tscn" id="3_k6kxb"]
+[ext_resource type="PackedScene" uid="uid://dvbyxsl5e3ol8" path="res://Scenes/Triggers/Trigger_Helpers/TransitionField.tscn" id="4_7bh3v"]
 [ext_resource type="PackedScene" uid="uid://dxkklnkpsn70w" path="res://Scenes/Triggers/BreakableBlocks/32x32breakableBlock.tscn" id="4_o2q5l"]
 [ext_resource type="PackedScene" uid="uid://dnqoj4eg2l7le" path="res://Scenes/Triggers/trampolineTrigger.tscn" id="4_uv66a"]
 [ext_resource type="PackedScene" uid="uid://p8wyqr1wis6" path="res://Scenes/Triggers/InvisibleBlocks/64x32InvisibleBlock.tscn" id="5_3emsp"]
 [ext_resource type="PackedScene" uid="uid://djb81orxw62lt" path="res://Scenes/Triggers/BreakableBlocks/64x64breakableBlock.tscn" id="6_n0cwp"]
 [ext_resource type="PackedScene" uid="uid://c0eghc3oa7752" path="res://Scenes/Triggers/Trigger_Helpers/movingObject.tscn" id="6_wbdfw"]
 
-[node name="Level6" type="Node2D" node_paths=PackedStringArray("cameraSpot", "player")]
+[node name="Level6" type="Node2D" node_paths=PackedStringArray("cameraSpot", "player", "transitionField")]
 script = ExtResource("1_y60ga")
 cameraSpot = NodePath("CenterPosition")
-cameraSize = Vector2(640, 448)
+cameraSize = Vector2(640, 512)
 player = NodePath("Player")
+transitionField = NodePath("TransitionField")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("2_adbuu")
@@ -25,6 +27,9 @@ position = Vector2(64, 368)
 
 [node name="CenterPosition" type="Marker2D" parent="."]
 position = Vector2(320, 256)
+
+[node name="TransitionField" parent="." instance=ExtResource("4_7bh3v")]
+position = Vector2(688, 208)
 
 [node name="64x64breakableBlock" parent="." instance=ExtResource("6_n0cwp")]
 position = Vector2(288, 160)

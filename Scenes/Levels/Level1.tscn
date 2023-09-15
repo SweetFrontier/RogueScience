@@ -1,17 +1,19 @@
-[gd_scene load_steps=7 format=3 uid="uid://cp1xr265ye340"]
+[gd_scene load_steps=8 format=3 uid="uid://cp1xr265ye340"]
 
 [ext_resource type="Script" path="res://Scripts/levelController.gd" id="1_7dtyw"]
 [ext_resource type="TileSet" uid="uid://bnpggr5480t5q" path="res://Art/TileSets/initialTileSet.tres" id="2_ds2dq"]
 [ext_resource type="PackedScene" uid="uid://b42fe8hyi4bsb" path="res://Scenes/player.tscn" id="3_aw6vi"]
 [ext_resource type="PackedScene" uid="uid://dxkklnkpsn70w" path="res://Scenes/Triggers/BreakableBlocks/32x32breakableBlock.tscn" id="4_i6tag"]
 [ext_resource type="PackedScene" uid="uid://psrem4kknlu8" path="res://Scenes/Triggers/BreakableBlocks/32x64breakableBlock.tscn" id="5_jpdd4"]
+[ext_resource type="PackedScene" uid="uid://dvbyxsl5e3ol8" path="res://Scenes/Triggers/Trigger_Helpers/TransitionField.tscn" id="7_4rqfc"]
 [ext_resource type="PackedScene" uid="uid://djb81orxw62lt" path="res://Scenes/Triggers/BreakableBlocks/64x64breakableBlock.tscn" id="7_imu43"]
 
-[node name="Level1" type="Node2D" node_paths=PackedStringArray("cameraSpot", "player")]
+[node name="Level1" type="Node2D" node_paths=PackedStringArray("cameraSpot", "player", "transitionField")]
 script = ExtResource("1_7dtyw")
 cameraSpot = NodePath("CenterPosition")
 cameraSize = Vector2(480, 256)
 player = NodePath("Player")
+transitionField = NodePath("TransitionField")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("2_ds2dq")
@@ -23,6 +25,9 @@ position = Vector2(64, 176)
 
 [node name="CenterPosition" type="Marker2D" parent="."]
 position = Vector2(240, 128)
+
+[node name="TransitionField" parent="." instance=ExtResource("7_4rqfc")]
+position = Vector2(432, 176)
 
 [node name="32x32breakableBlock" parent="." instance=ExtResource("4_i6tag")]
 position = Vector2(160, 160)

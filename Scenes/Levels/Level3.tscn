@@ -1,20 +1,22 @@
-[gd_scene load_steps=10 format=3 uid="uid://b205eu3laorb7"]
+[gd_scene load_steps=11 format=3 uid="uid://b205eu3laorb7"]
 
 [ext_resource type="Script" path="res://Scripts/levelController.gd" id="1_ek5l7"]
 [ext_resource type="TileSet" uid="uid://bnpggr5480t5q" path="res://Art/TileSets/initialTileSet.tres" id="2_cqa2j"]
 [ext_resource type="PackedScene" uid="uid://b42fe8hyi4bsb" path="res://Scenes/player.tscn" id="3_qe7if"]
 [ext_resource type="PackedScene" uid="uid://cl0g2o3284xxy" path="res://Scenes/Triggers/InvisibleBlocks/32x32InvisibleBlock.tscn" id="4_87fqe"]
+[ext_resource type="PackedScene" uid="uid://dvbyxsl5e3ol8" path="res://Scenes/Triggers/Trigger_Helpers/TransitionField.tscn" id="4_qx127"]
 [ext_resource type="PackedScene" uid="uid://dxkklnkpsn70w" path="res://Scenes/Triggers/BreakableBlocks/32x32breakableBlock.tscn" id="5_m4mp0"]
 [ext_resource type="PackedScene" uid="uid://by8l8mnrr610i" path="res://Scenes/Triggers/InvisibleBlocks/LeftSlopeInvisibleBlock.tscn" id="6_olbqg"]
 [ext_resource type="PackedScene" uid="uid://6g21fyk11mro" path="res://Scenes/Triggers/InvisibleBlocks/RightSlopeInvisibleBlock.tscn" id="7_d66ng"]
 [ext_resource type="PackedScene" uid="uid://b653ep4goj6pf" path="res://Scenes/Triggers/InvisibleBlocks/32x64InvisibleBlock.tscn" id="8_be2vh"]
 [ext_resource type="PackedScene" uid="uid://psrem4kknlu8" path="res://Scenes/Triggers/BreakableBlocks/32x64breakableBlock.tscn" id="9_r2c32"]
 
-[node name="Level3" type="Node" node_paths=PackedStringArray("cameraSpot", "player")]
+[node name="Level3" type="Node2D" node_paths=PackedStringArray("cameraSpot", "player", "transitionField")]
 script = ExtResource("1_ek5l7")
 cameraSpot = NodePath("CenterPosition")
-cameraSize = Vector2(736, 448)
+cameraSize = Vector2(736, 480)
 player = NodePath("Player")
+transitionField = NodePath("TransitionField")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("2_cqa2j")
@@ -25,7 +27,10 @@ layer_0/tile_data = PackedInt32Array(0, 65536, 1, 65536, 65536, 1, 131072, 65536
 position = Vector2(64, 80)
 
 [node name="CenterPosition" type="Marker2D" parent="."]
-position = Vector2(144, 224)
+position = Vector2(144, 240)
+
+[node name="TransitionField" parent="." instance=ExtResource("4_qx127")]
+position = Vector2(304, 368)
 
 [node name="invisibleBlock" parent="." instance=ExtResource("4_87fqe")]
 position = Vector2(224, 96)

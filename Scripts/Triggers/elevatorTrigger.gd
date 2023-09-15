@@ -39,7 +39,7 @@ func reset():
 	moving_elevator = false
 	reached_stop = false
 	curr_stop = startingStop
-	ElevatorBox.position = stoppingPoints[curr_stop].position
+	ElevatorBox.position = stoppingPoints[curr_stop].global_position
 	if startActivated:
 		react()
 		button_fade_timer = 0
@@ -73,7 +73,8 @@ func _on_body_exited(body):
 
 func setupMoveToStart():
 	super.setupMoveToStart()
-	endRiderPos = position + ElevatorBox.position
+	#endRiderPos = position + ElevatorBox.position
+	endRiderPos = ElevatorBox.global_position
 	reached_stop = false
 
 func riderReady():
@@ -84,28 +85,30 @@ func riderReady():
 
 func setupElevatorStarting():
 	elevatingProgress = 0.0
-	elevatingBeginPos = stoppingPoints[curr_stop].position
+	elevatingBeginPos = stoppingPoints[curr_stop].global_position
 	if curr_stop == 0:
 		moving_up = true
 	elif curr_stop == stoppingPoints.size()-1:
 		moving_up = false
 	
 	if moving_up:
-		elevatingEndPos = stoppingPoints[curr_stop+1].position
+		elevatingEndPos = stoppingPoints[curr_stop+1].global_position
 		curr_stop += 1
 	else:
-		elevatingEndPos = stoppingPoints[curr_stop-1].position
+		elevatingEndPos = stoppingPoints[curr_stop-1].global_position
 		curr_stop -= 1
 	moving_elevator = true
 
 func moveElevator(delta):
 	elevatingProgress += delta
 	ElevatorBox.position = (elevatingEndPos - elevatingBeginPos) * (elevatingProgress/time_to_change_stops) + elevatingBeginPos
-	ridingBody.set_body_pos(ElevatorBox.position + position)
+	#ridingBody.set_body_pos(ElevatorBox.position + position)
+	ridingBody.set_body_pos(ElevatorBox.global_position)
 	# Check if the interpolation is complete.
 	if elevatingProgress >= time_to_change_stops:
 		ElevatorBox.position = elevatingEndPos
-		ridingBody.set_body_pos(ElevatorBox.position + position)
+		#ridingBody.set_body_pos(ElevatorBox.position + position)
+		ridingBody.set_body_pos(ElevatorBox.global_position)
 		moving_elevator = false
 		reached_stop = true
 		free_movement()

@@ -6,6 +6,7 @@
 [ext_resource type="SpriteFrames" uid="uid://b8gp081t10dc8" path="res://Art/SpriteFrames/keyAnims.tres" id="4_n1uwn"]
 [ext_resource type="AudioStream" uid="uid://bw5e10yu6o64o" path="res://Sounds/blockbreak.ogg" id="5_2to8h"]
 
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kuhko"]
 size = Vector2(32, 64)
 

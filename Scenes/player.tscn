@@ -5,6 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://cof7uu71agsbj" path="res://Sounds/crawl.ogg" id="3_ctrdu"]
 [ext_resource type="AudioStream" uid="uid://cbl8qb0gk6iiq" path="res://Sounds/hitsomething.ogg" id="4_8bd13"]
 
+
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("AnimatedSprite", "PlayerCollision", "CrawlSounds", "HitSounds")]
 texture_filter = 1
 script = ExtResource("1_7ytxc")

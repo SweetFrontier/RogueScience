@@ -7,6 +7,7 @@
 [ext_resource type="SpriteFrames" uid="uid://bvdhyjx44ynaj" path="res://Art/TriggerArt/Teleporter/frontingFrames.tres" id="6_oy3qe"]
 [ext_resource type="SpriteFrames" uid="uid://bfi6haoil4yyk" path="res://Art/TriggerArt/Teleporter/rodFrames.tres" id="7_smeh8"]
 
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sxv0n"]
 size = Vector2(32, 32)
 

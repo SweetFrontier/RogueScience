@@ -5,6 +5,7 @@
 [ext_resource type="SpriteFrames" uid="uid://b8gp081t10dc8" path="res://Art/SpriteFrames/keyAnims.tres" id="2_n2yfx"]
 [ext_resource type="AudioStream" uid="uid://dvax4m54t4opd" path="res://Sounds/trampoline.ogg" id="4_8qc4l"]
 
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2sohs"]
 size = Vector2(52, 8)
 

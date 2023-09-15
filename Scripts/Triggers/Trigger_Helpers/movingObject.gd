@@ -21,7 +21,7 @@ var controlled_lin_vel: Vector2 = Vector2()
 var directPosControl: bool = false
 
 func _ready():
-	starting_transform = get_transform()
+	starting_transform = get_global_transform()
 	reset()
 
 func reset():
@@ -41,8 +41,7 @@ func reset():
 func _physics_process(_delta):
 	floorDetector.rotation = -rotation
 	if levelPlayer != null:
-		
-		sprite.look_at(levelPlayer.position)
+		sprite.look_at(levelPlayer.global_position)
 
 func _integrate_forces(state):
 	if just_reset:

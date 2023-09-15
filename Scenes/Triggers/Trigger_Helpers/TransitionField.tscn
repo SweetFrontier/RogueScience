@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dvbyxsl5e3ol8"]
+[gd_scene load_steps=4 format=3 uid="uid://dvbyxsl5e3ol8"]
 
 [ext_resource type="Script" path="res://Scripts/Triggers/Trigger_Helpers/TransitionField.gd" id="1_n2ifc"]
+[ext_resource type="Texture2D" uid="uid://dfdi7m28rpy08" path="res://Art/Ice.png" id="2_xqb80"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8v037"]
 
@@ -9,5 +10,10 @@ script = ExtResource("1_n2ifc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_8v037")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 0, 1)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_xqb80")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -19,7 +19,7 @@ func react():
 		# Explode the Block
 		implodeable_polygon.implode()
 		# Enable collision.
-		body.collision_layer = 1
+		body.enable()
 		#play the boom sound
 		sound_child.play()
 
@@ -29,7 +29,7 @@ func reset():
 	# Make the block translucent
 	implodeable_polygon.color.a = translucent_opacity
 	# Make sure there will be no collisions
-	body.collision_layer = 0
+	body.disable()
 	if startActivated:
 		react()
 		button_fade_timer = 0

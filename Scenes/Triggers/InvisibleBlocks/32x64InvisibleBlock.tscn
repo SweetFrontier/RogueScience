@@ -1,10 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://b653ep4goj6pf"]
+[gd_scene load_steps=9 format=3 uid="uid://b653ep4goj6pf"]
 
 [ext_resource type="Script" path="res://Scripts/Triggers/invisibleBlock.gd" id="1_hnjxw"]
 [ext_resource type="Texture2D" uid="uid://e146wxfx58ip" path="res://Art/TriggerArt/InvisibleBlocks/Invis32x64Block.png" id="2_550pp"]
 [ext_resource type="Script" path="res://Scripts/Triggers/Trigger_Helpers/explodeablePolygon.gd" id="3_kbbgb"]
 [ext_resource type="PackedScene" path="res://Scenes/Triggers/Trigger_Helpers/triggerKey.tscn" id="4_07cs6"]
 [ext_resource type="AudioStream" uid="uid://ctnkt71vbtt11" path="res://Sounds/invisibleblock.ogg" id="5_3aqr7"]
+[ext_resource type="Script" path="res://Scripts/Triggers/invisiblockCollision.gd" id="5_ecxh2"]
+[ext_resource type="Texture2D" uid="uid://bchc4y5k6xbyy" path="res://Art/TriggerArt/InvisibleBlocks/Invis32x64Load.png" id="6_g3c1a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wrifo"]
 size = Vector2(32, 64)
@@ -41,12 +43,16 @@ time_to_form = 2.0
 [node name="TriggerKeySprite" parent="." instance=ExtResource("4_07cs6")]
 position = Vector2(16, 96)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="." node_paths=PackedStringArray("collisionShape")]
+script = ExtResource("5_ecxh2")
+collisionShape = NodePath("CollisionShape2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-visible = false
 position = Vector2(16, 32)
 shape = SubResource("RectangleShape2D_wrifo")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D/CollisionShape2D"]
+texture = ExtResource("6_g3c1a")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_3aqr7")

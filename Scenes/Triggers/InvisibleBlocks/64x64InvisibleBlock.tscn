@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/Triggers/invisibleBlock.gd" id="1_4vpbv"]
 [ext_resource type="Texture2D" uid="uid://deiumxr7fjbdx" path="res://Art/TriggerArt/InvisibleBlocks/Invis64x64Block.png" id="2_t5un0"]
 [ext_resource type="Script" path="res://Scripts/Triggers/Trigger_Helpers/explodeablePolygon.gd" id="3_iwk6u"]
-[ext_resource type="PackedScene" uid="uid://8mi1n26r4n1i" path="res://Scenes/Triggers/Trigger_Helpers/triggerKey.tscn" id="4_2i5u6"]
+[ext_resource type="PackedScene" path="res://Scenes/Triggers/Trigger_Helpers/triggerKey.tscn" id="4_2i5u6"]
 [ext_resource type="AudioStream" uid="uid://ctnkt71vbtt11" path="res://Sounds/invisibleblock.ogg" id="5_454qc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8v1on"]
@@ -50,3 +50,4 @@ shape = SubResource("RectangleShape2D_8v1on")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_454qc")
+bus = &"Sound Effects"

@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/Triggers/invisibleBlock.gd" id="1_v38uq"]
 [ext_resource type="Texture2D" uid="uid://by4l3lc5boy4" path="res://Art/TriggerArt/InvisibleBlocks/InvisRightSlope.png" id="2_fcxug"]
 [ext_resource type="Script" path="res://Scripts/Triggers/Trigger_Helpers/explodeablePolygon.gd" id="3_cdidx"]
-[ext_resource type="PackedScene" uid="uid://8mi1n26r4n1i" path="res://Scenes/Triggers/Trigger_Helpers/triggerKey.tscn" id="4_vw5c8"]
+[ext_resource type="PackedScene" path="res://Scenes/Triggers/Trigger_Helpers/triggerKey.tscn" id="4_vw5c8"]
 [ext_resource type="AudioStream" uid="uid://ctnkt71vbtt11" path="res://Sounds/invisibleblock.ogg" id="5_my3ul"]
 
 [node name="RightSlopeInvisibleBlock" type="Node2D" node_paths=PackedStringArray("body", "implodeable_polygon", "sound_child", "TriggerKeySprite")]
@@ -45,3 +45,4 @@ polygon = PackedVector2Array(64, 0, 64, 32, 0, 32)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_my3ul")
+bus = &"Sound Effects"

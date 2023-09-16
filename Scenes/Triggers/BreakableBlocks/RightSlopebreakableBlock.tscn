@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/Triggers/breakableBlock.gd" id="1_hbmyy"]
 [ext_resource type="Texture2D" uid="uid://bu0ppw8o1jng0" path="res://Art/TriggerArt/BreakableBlocks/BreakableRight.png" id="2_t1ys8"]
 [ext_resource type="Script" path="res://Scripts/Triggers/Trigger_Helpers/explodeablePolygon.gd" id="3_vaovw"]
-[ext_resource type="PackedScene" uid="uid://8mi1n26r4n1i" path="res://Scenes/Triggers/Trigger_Helpers/triggerKey.tscn" id="4_a3krc"]
+[ext_resource type="PackedScene" path="res://Scenes/Triggers/Trigger_Helpers/triggerKey.tscn" id="4_a3krc"]
 [ext_resource type="AudioStream" uid="uid://bw5e10yu6o64o" path="res://Sounds/blockbreak.ogg" id="5_5j66g"]
 
 [node name="RightSlopebreakableBlock" type="Node2D" node_paths=PackedStringArray("explodeable_polygon", "body", "sound_child", "TriggerKeySprite")]
@@ -46,3 +46,4 @@ polygon = PackedVector2Array(64, 0, 0, 32, 64, 32)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_5j66g")
+bus = &"Sound Effects"

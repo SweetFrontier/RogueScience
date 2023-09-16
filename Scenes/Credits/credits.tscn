@@ -27,7 +27,6 @@
 [ext_resource type="Texture2D" uid="uid://cl7c7sa3inurr" path="res://Art/Credits/notes/quartdowndotmid.png" id="18_ryfxr"]
 [ext_resource type="Texture2D" uid="uid://d0hxiqu30afkg" path="res://Art/Credits/notes/halfdowndot.png" id="19_0yrot"]
 
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h1bf6"]
 size = Vector2(78.6335, 67.0834)
 

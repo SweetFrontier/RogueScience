@@ -1,8 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://mq8lonv11ksd"]
+[gd_scene load_steps=3 format=3 uid="uid://mq8lonv11ksd"]
 
 [ext_resource type="Script" path="res://Scripts/OptionsMenu.gd" id="1_y565l"]
+[ext_resource type="AudioStream" uid="uid://bw5e10yu6o64o" path="res://Sounds/blockbreak.ogg" id="2_lw3oh"]
 
-[node name="OptionsMenu" type="Control" node_paths=PackedStringArray("soundSlider", "musicSlider")]
+[node name="OptionsMenu" type="Control" node_paths=PackedStringArray("soundSlider", "soundPlayer", "musicSlider")]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15
@@ -12,6 +13,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_y565l")
 soundSlider = NodePath("VBoxContainer/SoundSlider")
+soundPlayer = NodePath("VBoxContainer/SoundSlider/SoundPlayer")
 musicSlider = NodePath("VBoxContainer/MusicSlider")
 
 [node name="PauseMenu" type="Button" parent="."]
@@ -38,7 +40,7 @@ horizontal_alignment = 1
 
 [node name="MusicSlider" type="HSlider" parent="VBoxContainer"]
 layout_mode = 2
-max_value = 1.3
+max_value = 0.8
 step = 0.05
 
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
@@ -53,8 +55,13 @@ horizontal_alignment = 1
 
 [node name="SoundSlider" type="HSlider" parent="VBoxContainer"]
 layout_mode = 2
-max_value = 1.3
+max_value = 0.8
 step = 0.05
+
+[node name="SoundPlayer" type="AudioStreamPlayer" parent="VBoxContainer/SoundSlider"]
+stream = ExtResource("2_lw3oh")
+volume_db = -80.0
+bus = &"Sound Effects"
 
 [connection signal="pressed" from="PauseMenu" to="." method="_on_pause_menu_pressed"]
 [connection signal="value_changed" from="VBoxContainer/MusicSlider" to="." method="_on_h_slider_value_changed"]

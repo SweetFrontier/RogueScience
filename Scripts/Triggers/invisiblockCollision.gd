@@ -5,6 +5,8 @@ var timer : float = 0
 
 #collision shape
 @export var collisionShape : Node2D
+#number in seconds in which one way collision is deactivated
+@export var oneWayTimer : float = 0.6
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -29,7 +31,7 @@ func enable():
 	#enable collision
 	collision_layer = 1
 	#start timer for one way collisions
-	timer = 0.6
+	timer = oneWayTimer
 	collisionShape.one_way_collision = true
 	collisionShape.one_way_collision_margin = 10
 	#make expand texture visible

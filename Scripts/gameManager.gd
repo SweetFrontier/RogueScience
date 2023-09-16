@@ -42,7 +42,7 @@ func _process(delta):
 
 	if (not(moving or zooming)):
 		Levels[current_level-1].process_mode = Node.PROCESS_MODE_DISABLED
-		Levels[current_level].process_mode = Node.PROCESS_MODE_ALWAYS
+		Levels[current_level].process_mode = Node.PROCESS_MODE_PAUSABLE
 
 func increase_level() -> void:
 	current_level += 1

@@ -1,11 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://by8l8mnrr610i"]
 
 [ext_resource type="Script" path="res://Scripts/Triggers/invisibleBlock.gd" id="1_spw1l"]
-[ext_resource type="Texture2D" uid="uid://d8fq84wtq8pp" path="res://Art/TriggerArt/InvisibleBlocks/plhInvisLeftSlope.png" id="2_xpj77"]
+[ext_resource type="Texture2D" uid="uid://do7rulxuhhjne" path="res://Art/TriggerArt/InvisibleBlocks/InvisLeftSlope.png" id="2_3noy5"]
 [ext_resource type="Script" path="res://Scripts/Triggers/Trigger_Helpers/explodeablePolygon.gd" id="3_3hsrp"]
-[ext_resource type="SpriteFrames" uid="uid://b8gp081t10dc8" path="res://Art/SpriteFrames/keyAnims.tres" id="4_ds21r"]
+[ext_resource type="PackedScene" uid="uid://8mi1n26r4n1i" path="res://Scenes/Triggers/Trigger_Helpers/triggerKey.tscn" id="4_uqyms"]
 [ext_resource type="AudioStream" uid="uid://ctnkt71vbtt11" path="res://Sounds/invisibleblock.ogg" id="5_nxqdn"]
-
 
 [node name="LeftSlopeInvisibleBlock" type="Node2D" node_paths=PackedStringArray("body", "implodeable_polygon", "sound_child", "TriggerKeySprite")]
 script = ExtResource("1_spw1l")
@@ -18,7 +17,7 @@ TriggerKeySprite = NodePath("TriggerKeySprite")
 z_index = 4
 z_as_relative = false
 texture_filter = 1
-texture = ExtResource("2_xpj77")
+texture = ExtResource("2_3noy5")
 polygon = PackedVector2Array(0, 0, 64, 0, 64, 32, 0, 32)
 script = ExtResource("3_3hsrp")
 shard_count = 64
@@ -35,13 +34,8 @@ y_max_distance = 1000
 y_min_distance = -1000
 time_to_form = 2.0
 
-[node name="TriggerKeySprite" type="AnimatedSprite2D" parent="."]
-z_index = 20
-z_as_relative = false
-texture_filter = 1
+[node name="TriggerKeySprite" parent="." instance=ExtResource("4_uqyms")]
 position = Vector2(32, 64)
-sprite_frames = ExtResource("4_ds21r")
-animation = &"a"
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 

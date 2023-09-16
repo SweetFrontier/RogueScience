@@ -1,32 +1,32 @@
 [gd_resource type="SpriteFrames" load_steps=7 format=3 uid="uid://82s0kbf8kedv"]
 
-[ext_resource type="Texture2D" uid="uid://b67k5q47uq02g" path="res://Art/TriggerArt/Trampoline/Trampoline.png" id="1_a33dc"]
-[ext_resource type="Texture2D" uid="uid://tcvmnn8hn06a" path="res://Art/TriggerArt/Trampoline/plhDeactivatedTrampoline.png" id="2_tm0st"]
+[ext_resource type="Texture2D" uid="uid://dv3vbnvmilqfv" path="res://Art/TriggerArt/Trampoline/ActivatedTrampoline.png" id="1_vx2m8"]
+[ext_resource type="Texture2D" uid="uid://c4fkw0rdmgd2p" path="res://Art/TriggerArt/Trampoline/DeactivatedTrampoline.png" id="2_44t2b"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_o02u1"]
-atlas = ExtResource("1_a33dc")
+[sub_resource type="AtlasTexture" id="AtlasTexture_llavl"]
+atlas = ExtResource("1_vx2m8")
 region = Rect2(0, 0, 64, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3q6f5"]
-atlas = ExtResource("1_a33dc")
+[sub_resource type="AtlasTexture" id="AtlasTexture_hdcx0"]
+atlas = ExtResource("1_vx2m8")
 region = Rect2(0, 32, 64, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2ltu3"]
-atlas = ExtResource("2_tm0st")
+[sub_resource type="AtlasTexture" id="AtlasTexture_6vvkw"]
+atlas = ExtResource("2_44t2b")
 region = Rect2(0, 0, 64, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_w4ed4"]
-atlas = ExtResource("2_tm0st")
+[sub_resource type="AtlasTexture" id="AtlasTexture_bmfff"]
+atlas = ExtResource("2_44t2b")
 region = Rect2(0, 32, 64, 32)
 
 [resource]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_o02u1")
+"texture": SubResource("AtlasTexture_llavl")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3q6f5")
+"texture": SubResource("AtlasTexture_hdcx0")
 }],
 "loop": true,
 "name": &"activated",
@@ -34,10 +34,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_2ltu3")
+"texture": SubResource("AtlasTexture_6vvkw")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_w4ed4")
+"texture": SubResource("AtlasTexture_bmfff")
 }],
 "loop": true,
 "name": &"deactivated",

@@ -11,6 +11,7 @@ signal randomize_block_keys_signal
 @export var TriggerKeySprite: AnimatedSprite2D
 @export var button_fade_duration: float = 2.0  # Adjust the duration as needed
 var activated = false
+var startingTranslucency = 0.85
 var button_fade_timer: float = 0.0
 var buttonToAnimation = {
 	KEY_0: "0",
@@ -88,7 +89,7 @@ func reset():
 	TriggerKeySprite.frame = 0
 	# Reset the fade timer and opacity.
 	button_fade_timer = 0.0
-	TriggerKeySprite.modulate.a = 1
+	TriggerKeySprite.modulate.a = startingTranslucency
 	occupied = false
 	ridingBody = null
 	riderInPosition = false
@@ -96,7 +97,7 @@ func reset():
 func _physics_process(delta):
 	if button_fade_timer > 0.0:
 		# Calculate the new opacity based on the elapsed time and fade duration.
-		var new_opacity = lerp(1, 0, 1.0 - (button_fade_timer / button_fade_duration))
+		var new_opacity = lerpf(startingTranslucency, 0, 1.0 - (button_fade_timer / button_fade_duration))
 		TriggerKeySprite.modulate.a = new_opacity
 		# Decrease the fade timer.
 		button_fade_timer -= delta

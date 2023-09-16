@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://8mi1n26r4n1i"]
+
+[ext_resource type="SpriteFrames" uid="uid://b8gp081t10dc8" path="res://Art/SpriteFrames/keyAnims.tres" id="1_3ymhd"]
+
+[node name="TriggerKeySprite" type="AnimatedSprite2D"]
+z_index = 20
+z_as_relative = false
+texture_filter = 1
+sprite_frames = ExtResource("1_3ymhd")
+animation = &"a"

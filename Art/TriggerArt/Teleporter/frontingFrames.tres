@@ -1,43 +1,21 @@
-[gd_resource type="SpriteFrames" load_steps=9 format=3 uid="uid://bvdhyjx44ynaj"]
+[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://bvdhyjx44ynaj"]
 
-[ext_resource type="Texture2D" uid="uid://bdhjtvy4xycux" path="res://Art/TriggerArt/Teleporter/plhFrontingActivated.png" id="1_ncvxf"]
-[ext_resource type="Texture2D" uid="uid://bnhwcte1yvfh8" path="res://Art/TriggerArt/Teleporter/plhFrontingDeactivated.png" id="2_b0h5y"]
+[ext_resource type="Texture2D" uid="uid://sua8ol2q0rks" path="res://Art/TriggerArt/Teleporter/FrontingActivated.png" id="1_3bsw1"]
+[ext_resource type="Texture2D" uid="uid://ck2vgsnllri47" path="res://Art/TriggerArt/Teleporter/FrontingDeactivated.png" id="2_e5it7"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2tpkt"]
-atlas = ExtResource("1_ncvxf")
+[sub_resource type="AtlasTexture" id="AtlasTexture_uou8l"]
+atlas = ExtResource("1_3bsw1")
 region = Rect2(0, 0, 64, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_f4egv"]
-atlas = ExtResource("1_ncvxf")
-region = Rect2(0, 32, 64, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_funec"]
-atlas = ExtResource("1_ncvxf")
-region = Rect2(0, 64, 64, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2qbgn"]
-atlas = ExtResource("2_b0h5y")
+[sub_resource type="AtlasTexture" id="AtlasTexture_mndvv"]
+atlas = ExtResource("2_e5it7")
 region = Rect2(0, 0, 64, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6s74m"]
-atlas = ExtResource("2_b0h5y")
-region = Rect2(0, 32, 64, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_h78vr"]
-atlas = ExtResource("2_b0h5y")
-region = Rect2(0, 64, 64, 32)
 
 [resource]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_2tpkt")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_f4egv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_funec")
+"texture": SubResource("AtlasTexture_uou8l")
 }],
 "loop": true,
 "name": &"activated",
@@ -45,13 +23,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_2qbgn")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6s74m")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_h78vr")
+"texture": SubResource("AtlasTexture_mndvv")
 }],
 "loop": true,
 "name": &"deactivated",

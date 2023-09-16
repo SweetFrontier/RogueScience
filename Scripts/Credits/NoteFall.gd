@@ -26,7 +26,7 @@ func _process(delta):
 
 
 
-func _on_area_2d_area_entered(area):
+func _on_area_2d_area_entered(_area):
 	if (!active):
 		#if not activated to fall then set that
 		active = true

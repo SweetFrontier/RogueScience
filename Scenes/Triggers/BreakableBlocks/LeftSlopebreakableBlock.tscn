@@ -1,11 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://lo15rijnwjdn"]
 
 [ext_resource type="Script" path="res://Scripts/Triggers/breakableBlock.gd" id="1_vbe8b"]
-[ext_resource type="Texture2D" uid="uid://br63w887vge7r" path="res://Art/TriggerArt/BreakableBlocks/plhBreakableLeft.png" id="2_508pv"]
+[ext_resource type="Texture2D" uid="uid://l6bnabq6ejo" path="res://Art/TriggerArt/BreakableBlocks/BreakableLeft.png" id="2_ye28c"]
 [ext_resource type="Script" path="res://Scripts/Triggers/Trigger_Helpers/explodeablePolygon.gd" id="3_wd1dk"]
-[ext_resource type="SpriteFrames" uid="uid://b8gp081t10dc8" path="res://Art/SpriteFrames/keyAnims.tres" id="4_e8ugq"]
+[ext_resource type="PackedScene" uid="uid://8mi1n26r4n1i" path="res://Scenes/Triggers/Trigger_Helpers/triggerKey.tscn" id="4_p352m"]
 [ext_resource type="AudioStream" uid="uid://bw5e10yu6o64o" path="res://Sounds/blockbreak.ogg" id="5_2gnw0"]
-
 
 [node name="LeftSlopebreakableBlock" type="Node2D" node_paths=PackedStringArray("explodeable_polygon", "body", "sound_child", "TriggerKeySprite")]
 script = ExtResource("1_vbe8b")
@@ -19,12 +18,12 @@ TriggerKeySprite = NodePath("TriggerKeySprite")
 z_index = 3
 z_as_relative = false
 texture_filter = 1
-texture = ExtResource("2_508pv")
+texture = ExtResource("2_ye28c")
 polygon = PackedVector2Array(0, 0, 64, 0, 64, 32, 0, 32)
 script = ExtResource("3_wd1dk")
 shard_count = 64
 shard_shrink_rate = 0.99
-min_shard_size = 0.01
+min_shard_size = 0.05
 x_init_velocity = 20
 y_init_velocity = 40
 shard_speed = 3.0
@@ -36,13 +35,8 @@ y_max_distance = 10
 y_min_distance = -10
 time_to_form = 2.0
 
-[node name="TriggerKeySprite" type="AnimatedSprite2D" parent="."]
-z_index = 20
-z_as_relative = false
-texture_filter = 1
+[node name="TriggerKeySprite" parent="." instance=ExtResource("4_p352m")]
 position = Vector2(32, 64)
-sprite_frames = ExtResource("4_e8ugq")
-animation = &"a"
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 

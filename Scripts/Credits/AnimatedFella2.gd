@@ -22,7 +22,7 @@ func pull():
 		horizspd = 100;
 
 
-func _on_area_2d_area_entered(area):
+func _on_area_2d_area_entered(_area):
 	#if already moving then DELETE
 	if (moving):
 		for n in get_children():

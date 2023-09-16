@@ -7,37 +7,48 @@ extends Node
 @export var current_level: int
 
 var moving : bool = true
+var movingTime : float = 1
+var movingProgress : float = 0
+var movingStart : Vector2
+var movingGoal : Vector2
 var zooming : bool = true
+var zoomingTime : float = 1
+var zoomingProgress : float = 0
+var zoomingStart : Vector2
+var zoomingGoal : Vector2
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Levels[current_level].process_mode = Node.PROCESS_MODE_ALWAYS
+	movingStart = camera.global_position
+	movingGoal = Levels[current_level].cameraSpot.global_position
+	var min_zoom_size : Vector2 =  Levels[current_level].cameraSize
+	var final_zoom_size = minf(1280/min_zoom_size.x,736/min_zoom_size.y)
+	zoomingStart = camera.zoom
+	zoomingGoal = Vector2(final_zoom_size,final_zoom_size)
 	set_process(true)
 	for level in Levels:
 		level.transitionField.connect("increase_level_signal", increase_level)
 
 func _process(delta):
 	if (moving):
-		# Smooth movement towards new level center
-		var final_pos : Vector2 = Levels[current_level].cameraSpot.global_position
-		var smooth_move_x = lerp(camera.position.x, final_pos.x, 3 * delta)
-		var smooth_move_y = lerp(camera.position.y, final_pos.y, 3 * delta)
-		if abs(smooth_move_x - final_pos.x) > 1 or abs(smooth_move_y - final_pos.y) > 1:
-			camera.position = Vector2(smooth_move_x, smooth_move_y)
-		else:
-			camera.position = final_pos
+		movingProgress += delta
+		var move_time = smoothstep(0,1,movingProgress/movingTime)
+		var smooth_move_x = lerp(movingStart.x, movingGoal.x, move_time)
+		var smooth_move_y = lerp(movingStart.y, movingGoal.y, move_time)
+		camera.position = Vector2(smooth_move_x,smooth_move_y)
+		if movingProgress >= movingTime:
+			camera.position = movingGoal
 			moving = false
 		
 	if (zooming):
-		var final_zoom : Vector2 =  Levels[current_level].cameraSize
-		final_zoom.x = 1280/final_zoom.x
-		final_zoom.y = 736/final_zoom.y
-		var smooth_zoom_x = lerp(camera.zoom.x, final_zoom.x, 3 * delta)
-		var smooth_zoom_y = lerp(camera.zoom.y, final_zoom.y, 3 * delta)
-		if abs(smooth_zoom_x - final_zoom.x) > 0.01 or abs(smooth_zoom_y - final_zoom.y) > 0.01:
-			camera.set_zoom(Vector2(smooth_zoom_x, smooth_zoom_y))
-		else:
-			camera.set_zoom(final_zoom)
+		zoomingProgress += delta
+		var zoom_time = smoothstep(0,1,zoomingProgress/zoomingTime)
+		var smooth_zoom_x = lerp(zoomingStart.x, zoomingGoal.x, zoom_time)
+		var smooth_zoom_y = lerp(zoomingStart.y, zoomingGoal.y, zoom_time)
+		camera.set_zoom(Vector2(smooth_zoom_x, smooth_zoom_y))
+		if zoomingProgress >= zoomingTime:
+			camera.set_zoom(zoomingGoal)
 			zooming = false
 
 	if (not(moving or zooming)):
@@ -49,7 +60,15 @@ func increase_level() -> void:
 	if(current_level >= Levels.size()):
 		get_tree().change_scene_to_file("res://Scenes/Credits/credits.tscn")
 	moving = true
+	movingProgress = 0
+	movingStart = camera.global_position
+	movingGoal = Levels[current_level].cameraSpot.global_position
 	zooming = true
+	zoomingProgress = 0
+	zoomingStart = camera.zoom
+	var min_zoom_size : Vector2 =  Levels[current_level].cameraSize
+	var final_zoom_size = minf(1280/min_zoom_size.x,736/min_zoom_size.y)
+	zoomingGoal = Vector2(final_zoom_size,final_zoom_size)
 
 func resetLevel() -> void:
 	# Resets the entire current level

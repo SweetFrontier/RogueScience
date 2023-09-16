@@ -23,11 +23,9 @@ camera = NodePath("Camera2D")
 process_mode = 4
 
 [node name="Level1" parent="Levels" instance=ExtResource("3_cm24v")]
-metadata/_edit_lock_ = true
 
 [node name="Level2" parent="Levels" instance=ExtResource("3_q6jj7")]
 position = Vector2(448, -192)
-metadata/_edit_lock_ = true
 
 [node name="Level3" parent="Levels" instance=ExtResource("4_tfitk")]
 position = Vector2(448, 128)

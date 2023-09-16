@@ -1,16 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://cgjy5x05wbked"]
 
 [ext_resource type="Script" path="res://Scripts/Triggers/baseTrigger.gd" id="1_28gu6"]
-[ext_resource type="SpriteFrames" uid="uid://b8gp081t10dc8" path="res://Art/SpriteFrames/keyAnims.tres" id="2_7kq63"]
-
+[ext_resource type="PackedScene" uid="uid://8mi1n26r4n1i" path="res://Scenes/Triggers/Trigger_Helpers/triggerKey.tscn" id="2_udw2x"]
 
 [node name="baseTrigger" type="Node2D" node_paths=PackedStringArray("TriggerKeySprite")]
 script = ExtResource("1_28gu6")
 TriggerKeySprite = NodePath("TriggerKeySprite")
 
-[node name="TriggerKeySprite" type="AnimatedSprite2D" parent="."]
-z_index = 20
-z_as_relative = false
-texture_filter = 1
-sprite_frames = ExtResource("2_7kq63")
-animation = &"8"
+[node name="TriggerKeySprite" parent="." instance=ExtResource("2_udw2x")]

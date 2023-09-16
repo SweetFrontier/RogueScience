@@ -85,7 +85,7 @@ position = Vector2(224, 480)
 
 [node name="trampolineTrigger8" parent="." instance=ExtResource("4_3tcme")]
 position = Vector2(64, 848)
-jump_force = 1250.0
+jump_force = 1350.0
 startActivated = true
 
 [node name="64x64breakableBlock" parent="." instance=ExtResource("10_oe481")]

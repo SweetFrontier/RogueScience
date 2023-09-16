@@ -1,30 +1,16 @@
-[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://dnwwwpgjbwklm"]
+[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://dnwwwpgjbwklm"]
 
-[ext_resource type="Texture2D" uid="uid://qbu3a6q7670u" path="res://Art/TriggerArt/Teleporter/plhBacking.png" id="1_j2g5l"]
+[ext_resource type="Texture2D" uid="uid://ct7x3gkfp4xcn" path="res://Art/TriggerArt/Teleporter/Backing.png" id="1_dcarj"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_afgqg"]
-atlas = ExtResource("1_j2g5l")
+[sub_resource type="AtlasTexture" id="AtlasTexture_oi3iu"]
+atlas = ExtResource("1_dcarj")
 region = Rect2(0, 0, 64, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_djgvy"]
-atlas = ExtResource("1_j2g5l")
-region = Rect2(0, 32, 64, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_66f8d"]
-atlas = ExtResource("1_j2g5l")
-region = Rect2(0, 64, 64, 32)
 
 [resource]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_afgqg")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_djgvy")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_66f8d")
+"texture": SubResource("AtlasTexture_oi3iu")
 }],
 "loop": true,
 "name": &"default",

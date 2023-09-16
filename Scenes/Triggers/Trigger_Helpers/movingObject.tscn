@@ -3,7 +3,6 @@
 [ext_resource type="Script" path="res://Scripts/Triggers/Trigger_Helpers/movingObject.gd" id="1_kg8bi"]
 [ext_resource type="Texture2D" uid="uid://ctmsutxkc303g" path="res://Art/TriggerArt/MovingObject/plhMovingCircle.png" id="2_dosey"]
 
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_pygtm"]
 radius = 16.0
 

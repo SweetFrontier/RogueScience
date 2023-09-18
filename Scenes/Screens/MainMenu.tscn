@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://27bpb28umkw5"]
+[gd_scene load_steps=9 format=3 uid="uid://27bpb28umkw5"]
 
 [ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="1_ty1qf"]
 [ext_resource type="Texture2D" uid="uid://dunnspau7ty43" path="res://Art/Backgrounds/title.png" id="2_molfq"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://d32atkld3jy2" path="res://Art/title.png" id="4_38wxp"]
 [ext_resource type="AudioStream" uid="uid://dbia3eibmvcuq" path="res://Sounds/title_buzz.ogg" id="5_0h3hb"]
 [ext_resource type="PackedScene" uid="uid://mq8lonv11ksd" path="res://Scenes/Screens/OptionsMenu.tscn" id="5_66mro"]
+[ext_resource type="Texture2D" uid="uid://dkwjo723fg2en" path="res://Art/Keys/MenuButton.png" id="5_x5no4"]
 
 [node name="MainMenu" type="Control" node_paths=PackedStringArray("soundSettings", "titleScreen")]
 layout_mode = 3
@@ -55,21 +56,65 @@ offset_bottom = 736.0
 pivot_offset = Vector2(1286, 306)
 alignment = 1
 
-[node name="StartButton" type="Button" parent="TitleScreen/VBoxContainer"]
+[node name="StartButton" type="TextureButton" parent="TitleScreen/VBoxContainer"]
 layout_mode = 2
+texture_normal = ExtResource("5_x5no4")
+
+[node name="Label" type="Label" parent="TitleScreen/VBoxContainer/StartButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "Start Game"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="CreditsButton" type="Button" parent="TitleScreen/VBoxContainer"]
+[node name="CreditsButton" type="TextureButton" parent="TitleScreen/VBoxContainer"]
 layout_mode = 2
+texture_normal = ExtResource("5_x5no4")
+
+[node name="Label" type="Label" parent="TitleScreen/VBoxContainer/CreditsButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "Credits"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="SettingsButton" type="Button" parent="TitleScreen/VBoxContainer"]
+[node name="SettingsButton" type="TextureButton" parent="TitleScreen/VBoxContainer"]
 layout_mode = 2
+texture_normal = ExtResource("5_x5no4")
+
+[node name="Label" type="Label" parent="TitleScreen/VBoxContainer/SettingsButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "Settings"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="QuitButton" type="Button" parent="TitleScreen/VBoxContainer"]
+[node name="QuitButton" type="TextureButton" parent="TitleScreen/VBoxContainer"]
 layout_mode = 2
+texture_normal = ExtResource("5_x5no4")
+
+[node name="Label" type="Label" parent="TitleScreen/VBoxContainer/QuitButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "Quit Game"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="OptionsMenu" parent="." instance=ExtResource("5_66mro")]
 visible = false

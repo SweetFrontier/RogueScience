@@ -1,0 +1,48 @@
+[gd_scene load_steps=10 format=3 uid="uid://bdgas6nqpy5ft"]
+
+[ext_resource type="Script" path="res://Scripts/levelController.gd" id="1_1dsie"]
+[ext_resource type="TileSet" uid="uid://bnpggr5480t5q" path="res://Art/TileSets/initialTileSet.tres" id="2_15acw"]
+[ext_resource type="PackedScene" uid="uid://b42fe8hyi4bsb" path="res://Scenes/player.tscn" id="3_cfhxm"]
+[ext_resource type="PackedScene" uid="uid://dvbyxsl5e3ol8" path="res://Scenes/Triggers/Trigger_Helpers/TransitionField.tscn" id="4_bpejy"]
+[ext_resource type="PackedScene" uid="uid://dnqoj4eg2l7le" path="res://Scenes/Triggers/trampolineTrigger.tscn" id="5_yud61"]
+[ext_resource type="PackedScene" uid="uid://by8l8mnrr610i" path="res://Scenes/Triggers/InvisibleBlocks/LeftSlopeInvisibleBlock.tscn" id="6_5dqyo"]
+[ext_resource type="PackedScene" uid="uid://c0eghc3oa7752" path="res://Scenes/Triggers/Trigger_Helpers/movingObject.tscn" id="8_gog26"]
+[ext_resource type="PackedScene" uid="uid://dm5fdokmgctgr" path="res://Scenes/Triggers/elevatorTrigger.tscn" id="8_kcpry"]
+[ext_resource type="PackedScene" uid="uid://dxkklnkpsn70w" path="res://Scenes/Triggers/BreakableBlocks/32x32breakableBlock.tscn" id="9_7nr6o"]
+
+[node name="Leveltest" type="Node2D" node_paths=PackedStringArray("cameraSpot", "player", "transitionField")]
+script = ExtResource("1_1dsie")
+cameraSpot = NodePath("CenterPosition")
+cameraSize = Vector2(480, 256)
+player = NodePath("player")
+transitionField = NodePath("TransitionField")
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("2_15acw")
+format = 2
+layer_0/tile_data = PackedInt32Array(0, 0, 1, 65536, 196608, 1, 131072, 196608, 1, 196608, 196608, 1, 262144, 196608, 1, 327680, 196608, 1, 1, 65536, 2, 2, 65536, 2, 3, 65536, 2, 4, 65536, 2, 5, 65536, 2, 6, 65536, 2, 7, 65536, 2, 8, 65536, 2, 9, 65536, 2, 10, 65536, 2, 11, 65536, 2, 12, 65536, 2, 13, 65536, 2, 458766, 0, 1, 393230, 0, 1, 327694, 0, 1, 262158, 0, 1, 196622, 0, 1, 131086, 0, 1, 65550, 0, 1, 14, 65536, 1, 393216, 196608, 1, 458752, 196608, 1, 524288, 196608, 1, 589824, 196608, 1, 655360, 0, 1, 720896, 0, 1, 720910, 0, 1, 655374, 0, 1, 589838, 0, 1, 524302, 0, 1, 786432, 0, 1, 786433, 65536, 1, 786434, 65536, 1, 786435, 65536, 1, 786436, 65536, 4, 786437, 65536, 0, 786438, 65536, 0, 786439, 65536, 0, 786440, 65536, 0, 786441, 65536, 0, 786442, 0, 4, 786443, 65536, 4, 786444, 65536, 0, 786445, 65536, 0, 786446, 262144, 4, 851968, 0, 2, 851969, 65536, 2, 851970, 65536, 2, 851971, 65536, 2, 851972, 65536, 2, 851973, 65536, 2, 851974, 65536, 2, 851975, 65536, 2, 851976, 65536, 2, 851977, 65536, 2, 851978, 65536, 2, 851979, 65536, 2, 851980, 65536, 2, 851981, 65536, 2, 851982, 131072, 2, 720900, 327680, 1, 720899, 262144, 1, 655362, 327680, 1, 655361, 262144, 1, 720897, 65536, 1, 720898, 65536, 4, 786447, 458752, 4, 786448, 327680, 0, 786449, 393216, 4, 786450, 196608, 4, 786451, 327680, 0, 720911, 131072, 1, 655375, 131072, 1, 589839, 131072, 1, 524303, 131072, 1, 458767, 131072, 1, 393231, 131072, 1, 327695, 131072, 1, 262159, 131072, 1, 196623, 131072, 1, 131087, 131072, 1, 65551, 131072, 1, 720913, 327680, 2, 786452, 327680, 0, 786453, 327680, 0, 786454, 327680, 0, 786455, 327680, 0, 720914, 262144, 4, 655379, 262144, 4, 589844, 65536, 0, 720915, 262144, 3, 655380, 262144, 3, 655378, 327680, 2, 589843, 327680, 2, 589845, 327680, 0, 589846, 327680, 0, 589847, 327680, 0, 15, 131072, 1, 720906, 393216, 1, 720907, 458752, 1)
+
+[node name="player" parent="." instance=ExtResource("3_cfhxm")]
+position = Vector2(64, 176)
+
+[node name="CenterPosition" type="Marker2D" parent="."]
+position = Vector2(240, 128)
+
+[node name="TransitionField" parent="." instance=ExtResource("4_bpejy")]
+position = Vector2(432, 176)
+
+[node name="trampolineTrigger" parent="." instance=ExtResource("5_yud61")]
+position = Vector2(417, 369)
+
+[node name="LeftSlopeInvisibleBlock" parent="." instance=ExtResource("6_5dqyo")]
+position = Vector2(314, 158)
+
+[node name="movingObject" parent="." instance=ExtResource("8_gog26")]
+position = Vector2(222, 271)
+
+[node name="elevatorTrigger" parent="." instance=ExtResource("8_kcpry")]
+position = Vector2(287, 384)
+startActivated = true
+
+[node name="32x32breakableBlock" parent="." instance=ExtResource("9_7nr6o")]
+position = Vector2(204, 291)

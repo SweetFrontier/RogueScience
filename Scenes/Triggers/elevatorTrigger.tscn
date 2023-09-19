@@ -1,11 +1,11 @@
 [gd_scene load_steps=10 format=3 uid="uid://dm5fdokmgctgr"]
 
 [ext_resource type="Script" path="res://Scripts/Triggers/elevatorTrigger.gd" id="1_ln3f5"]
-[ext_resource type="SpriteFrames" uid="uid://bv2igx6upv3hu" path="res://Art/TriggerArt/Elevator/ElevatorShaftAnims.tres" id="3_0w7dp"]
-[ext_resource type="SpriteFrames" uid="uid://dvgxwacxskk4f" path="res://Art/TriggerArt/Elevator/ElevatorStopAnims.tres" id="4_tg6iu"]
+[ext_resource type="SpriteFrames" uid="uid://dsmkqxp44vj85" path="res://Art/TriggerArt/Elevator/ElevatorShaftAnims.tres" id="3_0w7dp"]
+[ext_resource type="SpriteFrames" uid="uid://bopj1b1glrksm" path="res://Art/TriggerArt/Elevator/ElevatorStopAnims.tres" id="4_tg6iu"]
 [ext_resource type="Texture2D" uid="uid://b5ojnmutsoe1q" path="res://Art/TriggerArt/Elevator/plhClosedElevator.png" id="5_u8uiy"]
 [ext_resource type="Texture2D" uid="uid://cqlwr6b5xeq68" path="res://Art/TriggerArt/Elevator/plhOpenElevator.png" id="6_lwf10"]
-[ext_resource type="PackedScene" uid="uid://8mi1n26r4n1i" path="res://Scenes/Triggers/Trigger_Helpers/triggerKey.tscn" id="7_g3rex"]
+[ext_resource type="PackedScene" uid="uid://djjr177758y2h" path="res://Scenes/Triggers/Trigger_Helpers/triggerKey.tscn" id="7_g3rex"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_yseu5"]
 animations = [{

@@ -46,6 +46,7 @@ func reset():
 		TriggerKeySprite.modulate.a = 0
 
 func _physics_process(delta):
+	print_debug(ElevatorArea.position.y)
 	super._physics_process(delta)
 	if !occupied or reached_stop:
 		return

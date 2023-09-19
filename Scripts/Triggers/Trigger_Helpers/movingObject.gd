@@ -1,7 +1,7 @@
 extends RigidBody2D
 class_name movingObject
 
-@export var floorDetector: RayCast2D
+@export var floorDetector: RayCast2D	
 @export var sprite: Sprite2D
 
 var levelPlayer : Player
@@ -109,7 +109,9 @@ func clear_cont_vel():
 	controlled_lin_vel = Vector2()
 	
 func is_on_floor():
-	return floorDetector.is_colliding()
-	
+	if (linear_velocity.y >= 0):
+		return floorDetector.is_colliding()
+	return false
+
 func setPlayer(_player : Player):
 	levelPlayer = _player

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://27bpb28umkw5"]
+[gd_scene load_steps=11 format=3 uid="uid://27bpb28umkw5"]
 
 [ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="1_ty1qf"]
 [ext_resource type="Texture2D" uid="uid://dunnspau7ty43" path="res://Art/Backgrounds/title.png" id="2_molfq"]
@@ -8,8 +8,10 @@
 [ext_resource type="AudioStream" uid="uid://dbia3eibmvcuq" path="res://Sounds/title_buzz.ogg" id="5_0h3hb"]
 [ext_resource type="PackedScene" uid="uid://mq8lonv11ksd" path="res://Scenes/Screens/OptionsMenu.tscn" id="5_66mro"]
 [ext_resource type="Texture2D" uid="uid://dkwjo723fg2en" path="res://Art/Keys/MenuButton.png" id="5_x5no4"]
+[ext_resource type="Texture2D" uid="uid://co6yo5mcnxsq1" path="res://Art/Keys/MenuButtonSelected.png" id="6_mf5g2"]
+[ext_resource type="AudioStream" uid="uid://rbyp8q8q34ew" path="res://Sounds/UI/buttonpress.ogg" id="9_pdbac"]
 
-[node name="MainMenu" type="Control" node_paths=PackedStringArray("soundSettings", "titleScreen")]
+[node name="MainMenu" type="Control" node_paths=PackedStringArray("soundSettings", "titleScreen", "buttonSound")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -19,6 +21,7 @@ grow_vertical = 2
 script = ExtResource("1_ty1qf")
 soundSettings = NodePath("OptionsMenu")
 titleScreen = NodePath("TitleScreen")
+buttonSound = NodePath("ButtonPlayer")
 
 [node name="Background" type="TextureRect" parent="." node_paths=PackedStringArray("audioPlayer")]
 layout_mode = 1
@@ -59,6 +62,7 @@ alignment = 1
 [node name="StartButton" type="TextureButton" parent="TitleScreen/VBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("5_x5no4")
+texture_hover = ExtResource("6_mf5g2")
 
 [node name="Label" type="Label" parent="TitleScreen/VBoxContainer/StartButton"]
 layout_mode = 1
@@ -74,6 +78,7 @@ vertical_alignment = 1
 [node name="CreditsButton" type="TextureButton" parent="TitleScreen/VBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("5_x5no4")
+texture_hover = ExtResource("6_mf5g2")
 
 [node name="Label" type="Label" parent="TitleScreen/VBoxContainer/CreditsButton"]
 layout_mode = 1
@@ -89,6 +94,7 @@ vertical_alignment = 1
 [node name="SettingsButton" type="TextureButton" parent="TitleScreen/VBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("5_x5no4")
+texture_hover = ExtResource("6_mf5g2")
 
 [node name="Label" type="Label" parent="TitleScreen/VBoxContainer/SettingsButton"]
 layout_mode = 1
@@ -104,6 +110,7 @@ vertical_alignment = 1
 [node name="QuitButton" type="TextureButton" parent="TitleScreen/VBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("5_x5no4")
+texture_hover = ExtResource("6_mf5g2")
 
 [node name="Label" type="Label" parent="TitleScreen/VBoxContainer/QuitButton"]
 layout_mode = 1
@@ -129,6 +136,10 @@ bus = &"Music"
 [node name="SoundPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_0h3hb")
 autoplay = true
+bus = &"Sound Effects"
+
+[node name="ButtonPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_pdbac")
 bus = &"Sound Effects"
 
 [connection signal="pressed" from="TitleScreen/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]

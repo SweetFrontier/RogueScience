@@ -84,6 +84,6 @@ func riderReady():
 	if ridingBody is movingObject:
 		ridingBody.positioningRideEnded(false)
 		ridingBody.add_to_cont_vel(0.0, Vector2(0, -jump_force))
-	elif ridingBody is Player:
+	else:
 		ridingBody.velocity = Vector2(0, -jump_force)
 	rider_freeable = false

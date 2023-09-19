@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://8mi1n26r4n1i"]
+[gd_scene load_steps=2 format=3 uid="uid://djjr177758y2h"]
 
 [ext_resource type="SpriteFrames" uid="uid://b8gp081t10dc8" path="res://Art/SpriteFrames/keyAnims.tres" id="1_3ymhd"]
 
@@ -8,3 +8,4 @@ z_as_relative = false
 texture_filter = 1
 sprite_frames = ExtResource("1_3ymhd")
 animation = &"a"
+offset = Vector2(0, -18)

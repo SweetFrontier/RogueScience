@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://vwjnt2j2wbqk"]
+[gd_scene load_steps=18 format=3 uid="uid://vwjnt2j2wbqk"]
 
 [ext_resource type="Script" path="res://Scripts/gameManager.gd" id="1_rlws3"]
 [ext_resource type="PackedScene" uid="uid://cp1xr265ye340" path="res://Scenes/Levels/Level1.tscn" id="3_cm24v"]
@@ -13,11 +13,34 @@
 [ext_resource type="PackedScene" uid="uid://capobeay08c0e" path="res://Scenes/Levels/Level7.tscn" id="8_6oibd"]
 [ext_resource type="PackedScene" uid="uid://dl2are1byex1o" path="res://Scenes/Levels/Level8.tscn" id="9_o2f4e"]
 [ext_resource type="PackedScene" uid="uid://bpsr342b2aa3u" path="res://Scenes/Levels/Level9.tscn" id="10_dk1u2"]
+[ext_resource type="Texture2D" uid="uid://ch7u0c5stgewm" path="res://Art/Backgrounds/background.png" id="11_rpaq4"]
+[ext_resource type="Script" path="res://Scripts/MusicPlayer.gd" id="12_tas4r"]
 
-[node name="Main" type="Node2D" node_paths=PackedStringArray("Levels", "camera")]
+[sub_resource type="Animation" id="Animation_gwjdm"]
+resource_name = "fadeOut"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:volume_db")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(3.36358, 1.18921),
+"update": 0,
+"values": [0.0, -80.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_c5a32"]
+_data = {
+"fadeOut": SubResource("Animation_gwjdm")
+}
+
+[node name="Main" type="Node2D" node_paths=PackedStringArray("Levels", "camera", "musicPlayer")]
 script = ExtResource("1_rlws3")
 Levels = [NodePath("Levels/Level1"), NodePath("Levels/Level2"), NodePath("Levels/Level3"), NodePath("Levels/Level4"), NodePath("Levels/Level5"), NodePath("Levels/Level6"), NodePath("Levels/Level7"), NodePath("Levels/Level8"), NodePath("Levels/Level9")]
 camera = NodePath("Camera2D")
+musicPlayer = NodePath("MusicPlayer")
 
 [node name="Levels" type="Node" parent="."]
 process_mode = 4
@@ -53,11 +76,22 @@ position = Vector2(240, 128)
 zoom = Vector2(2.667, 2.875)
 position_smoothing_speed = 0.8
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("11_rpaq4")
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="." node_paths=PackedStringArray("animationPlayer")]
 process_mode = 3
 stream = ExtResource("3_mfq2v")
 autoplay = true
 bus = &"Music"
+script = ExtResource("12_tas4r")
+animationPlayer = NodePath("AnimationPlayer")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MusicPlayer"]
+libraries = {
+"": SubResource("AnimationLibrary_c5a32")
+}
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

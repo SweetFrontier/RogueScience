@@ -5,6 +5,7 @@ extends Node
 @export var Levels: Array[levelController]
 @export var camera: Camera2D
 @export var current_level: int
+@export var musicPlayer: AudioStreamPlayer
 
 var moving : bool = true
 var movingTime : float = 1
@@ -69,6 +70,11 @@ func increase_level() -> void:
 	var min_zoom_size : Vector2 =  Levels[current_level].cameraSize
 	var final_zoom_size = minf(1280/min_zoom_size.x,736/min_zoom_size.y)
 	zoomingGoal = Vector2(final_zoom_size,final_zoom_size)
+	# set music
+	if (current_level == 2):
+		musicPlayer.changeMusic("midlevels");
+	elif (current_level == 4):
+		musicPlayer.changeMusic("intense");
 
 func resetLevel() -> void:
 	# Resets the entire current level

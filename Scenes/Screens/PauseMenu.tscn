@@ -1,9 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://ccwfvydfhyx65"]
+[gd_scene load_steps=6 format=3 uid="uid://ccwfvydfhyx65"]
 
 [ext_resource type="Script" path="res://Scripts/PauseMenu.gd" id="1_0dfux"]
+[ext_resource type="Texture2D" uid="uid://dkwjo723fg2en" path="res://Art/Keys/MenuButton.png" id="2_5s3rv"]
 [ext_resource type="SpriteFrames" uid="uid://b8gp081t10dc8" path="res://Art/SpriteFrames/keyAnims.tres" id="2_t73bu"]
 [ext_resource type="Texture2D" uid="uid://b18ii5iyhvcpn" path="res://Art/DeathImage.png" id="3_ew3p7"]
-
+[ext_resource type="Texture2D" uid="uid://co6yo5mcnxsq1" path="res://Art/Keys/MenuButtonSelected.png" id="3_xutbv"]
 
 [node name="PauseMenu" type="Control"]
 process_mode = 3
@@ -24,21 +25,73 @@ offset_bottom = 736.0
 pivot_offset = Vector2(1286, 306)
 alignment = 1
 
-[node name="ResumeButton" type="Button" parent="VBoxContainer"]
+[node name="ResumeButton" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
+texture_normal = ExtResource("2_5s3rv")
+texture_hover = ExtResource("3_xutbv")
+
+[node name="Label" type="Label" parent="VBoxContainer/ResumeButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 8.0
+offset_bottom = 34.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "Resume Game"
+horizontal_alignment = 1
 
-[node name="RestartButton" type="Button" parent="VBoxContainer"]
+[node name="RestartButton" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
+texture_normal = ExtResource("2_5s3rv")
+texture_hover = ExtResource("3_xutbv")
+
+[node name="Label" type="Label" parent="VBoxContainer/RestartButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "Restart Level"
+horizontal_alignment = 1
 
-[node name="SettingsButton" type="Button" parent="VBoxContainer"]
+[node name="SettingsButton" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
-text = "View Settings"
+texture_normal = ExtResource("2_5s3rv")
+texture_hover = ExtResource("3_xutbv")
 
-[node name="QuitButton" type="Button" parent="VBoxContainer"]
+[node name="Label" type="Label" parent="VBoxContainer/SettingsButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Settings"
+horizontal_alignment = 1
+
+[node name="QuitButton" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
-text = "Quit Game"
+texture_normal = ExtResource("2_5s3rv")
+texture_hover = ExtResource("3_xutbv")
+
+[node name="Label" type="Label" parent="VBoxContainer/QuitButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Exit to Main Menu"
+horizontal_alignment = 1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(30, 30)
@@ -57,4 +110,5 @@ texture = ExtResource("3_ew3p7")
 [connection signal="pressed" from="VBoxContainer/ResumeButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

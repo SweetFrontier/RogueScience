@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://bv2igx6upv3hu"]
+[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://dsmkqxp44vj85"]
 
 [ext_resource type="Texture2D" uid="uid://dr2sppxoculrm" path="res://Art/TriggerArt/Elevator/ElevatorShaftActivated.png" id="1_fqcod"]
 [ext_resource type="Texture2D" uid="uid://dtcybpu6bin50" path="res://Art/TriggerArt/Elevator/ElevatorShaftDeactivated.png" id="2_qtgdl"]

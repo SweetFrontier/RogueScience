@@ -18,7 +18,8 @@ func _on_settings_button_pressed() -> void:
 	visible = false
 
 func _on_quit_button_pressed():
-	get_tree().quit()
+	get_tree().paused = false
+	get_tree().change_scene_to_file("res://Scenes/Screens/MainMenu.tscn")
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey and !event.is_echo():

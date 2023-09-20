@@ -1,0 +1,23 @@
+[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://bxx3m14mnmyro"]
+
+[ext_resource type="Texture2D" uid="uid://b5ojnmutsoe1q" path="res://Art/TriggerArt/Elevator/plhClosedElevator.png" id="1_towve"]
+[ext_resource type="Texture2D" uid="uid://cqlwr6b5xeq68" path="res://Art/TriggerArt/Elevator/plhOpenElevator.png" id="2_fv6ao"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_towve")
+}],
+"loop": true,
+"name": &"closed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_fv6ao")
+}],
+"loop": true,
+"name": &"open",
+"speed": 5.0
+}]

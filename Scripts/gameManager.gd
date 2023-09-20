@@ -58,7 +58,7 @@ func _process(delta):
 
 func increase_level() -> void:
 	current_level += 1
-	if(current_level >= Levels.size()):
+	if(current_level >= Levels.size()-1):
 		get_tree().change_scene_to_file("res://Scenes/Credits/credits.tscn")
 	moving = true
 	movingProgress = 0

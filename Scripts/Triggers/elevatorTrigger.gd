@@ -39,14 +39,13 @@ func reset():
 	moving_elevator = false
 	reached_stop = false
 	curr_stop = startingStop
-	ElevatorBox.position = stoppingPoints[curr_stop].global_position
+	ElevatorBox.global_position = stoppingPoints[curr_stop].global_position
 	if startActivated:
 		react()
 		button_fade_timer = 0
 		TriggerKeySprite.modulate.a = 0
 
 func _physics_process(delta):
-	print_debug(ElevatorArea.position.y)
 	super._physics_process(delta)
 	if !occupied or reached_stop:
 		return
@@ -74,7 +73,6 @@ func _on_body_exited(body):
 
 func setupMoveToStart():
 	super.setupMoveToStart()
-	#endRiderPos = position + ElevatorBox.position
 	endRiderPos = ElevatorBox.global_position
 	reached_stop = false
 
@@ -102,13 +100,11 @@ func setupElevatorStarting():
 
 func moveElevator(delta):
 	elevatingProgress += delta
-	ElevatorBox.position = (elevatingEndPos - elevatingBeginPos) * (elevatingProgress/time_to_change_stops) + elevatingBeginPos
-	#ridingBody.set_body_pos(ElevatorBox.position + position)
+	ElevatorBox.global_position = (elevatingEndPos - elevatingBeginPos) * (elevatingProgress/time_to_change_stops)  + elevatingBeginPos
 	ridingBody.set_body_pos(ElevatorBox.global_position)
 	# Check if the interpolation is complete.
 	if elevatingProgress >= time_to_change_stops:
-		ElevatorBox.position = elevatingEndPos
-		#ridingBody.set_body_pos(ElevatorBox.position + position)
+		ElevatorBox.global_position = elevatingEndPos
 		ridingBody.set_body_pos(ElevatorBox.global_position)
 		moving_elevator = false
 		reached_stop = true

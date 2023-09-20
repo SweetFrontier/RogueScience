@@ -2,14 +2,15 @@ extends Control
 
 
 signal close_settings
-#settingUp variable so when loading, doesn't play sounds
-var settingUp : bool = true
-var timer : float = 0
 
 @export var sound_slider_stop_time := 0.5
 @export var soundSlider : HSlider
 @export var soundPlayer : AudioStreamPlayer
 @export var musicSlider : HSlider
+
+#settingUp variable so when loading, doesn't play sounds
+var settingUp : bool = true
+var timer : float = 0
 
 func _ready():
 	#make music and sound variables
@@ -34,10 +35,7 @@ func _on_h_slider_2_value_changed(value: float):
 		soundPlayer.play()
 
 func _on_pause_menu_pressed() -> void:
-	if (get_tree().current_scene.name == "Main"):
-		get_parent().get_node("PauseMenu").visible = true
-	else:
-		emit_signal("close_settings")
+	emit_signal("close_settings")
 	visible = false
 
 func _process(delta):

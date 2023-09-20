@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://vwjnt2j2wbqk"]
+[gd_scene load_steps=19 format=3 uid="uid://vwjnt2j2wbqk"]
 
 [ext_resource type="Script" path="res://Scripts/gameManager.gd" id="1_rlws3"]
 [ext_resource type="PackedScene" uid="uid://cp1xr265ye340" path="res://Scenes/Levels/Level1.tscn" id="3_cm24v"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://bpsr342b2aa3u" path="res://Scenes/Levels/Level9.tscn" id="10_dk1u2"]
 [ext_resource type="Texture2D" uid="uid://ch7u0c5stgewm" path="res://Art/Backgrounds/background.png" id="11_rpaq4"]
 [ext_resource type="Script" path="res://Scripts/MusicPlayer.gd" id="12_tas4r"]
+[ext_resource type="AudioStream" uid="uid://rbyp8q8q34ew" path="res://Sounds/UI/buttonpress.ogg" id="16_4q38v"]
 
 [sub_resource type="Animation" id="Animation_gwjdm"]
 resource_name = "fadeOut"
@@ -102,3 +103,8 @@ metadata/_edit_lock_ = true
 [node name="OptionsMenu" parent="CanvasLayer" instance=ExtResource("5_qvib5")]
 visible = false
 metadata/_edit_lock_ = true
+
+[node name="ButtonSound" type="AudioStreamPlayer" parent="CanvasLayer"]
+process_mode = 3
+stream = ExtResource("16_4q38v")
+bus = &"Sound Effects"

@@ -81,6 +81,7 @@ func resetLevel() -> void:
 	Levels[current_level].reset()
 	get_tree().paused = false
 
+#wat? player_death? no restart? nah. ima do my own thing.
 func player_death() -> void:
 	$PauseMenu/VBoxContainer.visible = true
 	$PauseMenu/VBoxContainer/ResumeButton.disabled = true

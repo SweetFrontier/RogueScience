@@ -10,10 +10,6 @@ region = Rect2(0, 0, 320, 184)
 atlas = ExtResource("1_y24yd")
 region = Rect2(320, 0, 320, 184)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_j4uj2"]
-atlas = ExtResource("1_y24yd")
-region = Rect2(640, 0, 320, 184)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_dp8am"]
 atlas = ExtResource("1_y24yd")
 region = Rect2(960, 0, 320, 184)
@@ -41,6 +37,10 @@ region = Rect2(2560, 0, 320, 184)
 [sub_resource type="AtlasTexture" id="AtlasTexture_10igl"]
 atlas = ExtResource("1_y24yd")
 region = Rect2(2880, 0, 320, 184)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j4uj2"]
+atlas = ExtResource("1_y24yd")
+region = Rect2(640, 0, 320, 184)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xydpe"]
 atlas = ExtResource("1_y24yd")
@@ -636,9 +636,6 @@ animations = [{
 "texture": SubResource("AtlasTexture_8atxc")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_j4uj2")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_dp8am")
 }, {
 "duration": 1.0,
@@ -658,6 +655,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_10igl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j4uj2")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_xydpe")
@@ -1108,8 +1108,10 @@ animations = [{
 }]
 
 [node name="AnimatedTransition" type="AnimatedSprite2D"]
-position = Vector2(640, 368)
+position = Vector2(641, 368)
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_rd7vs")
 animation = &"CoverScreen"
 autoplay = "CoverScreen"
+frame = 62
+frame_progress = 1.0

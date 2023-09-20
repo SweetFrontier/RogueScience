@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://ccwfvydfhyx65"]
+[gd_scene load_steps=8 format=3 uid="uid://ccwfvydfhyx65"]
 
 [ext_resource type="Script" path="res://Scripts/PauseMenu.gd" id="1_0dfux"]
 [ext_resource type="Texture2D" uid="uid://dkwjo723fg2en" path="res://Art/Keys/MenuButton.png" id="2_5s3rv"]
 [ext_resource type="SpriteFrames" uid="uid://b8gp081t10dc8" path="res://Art/SpriteFrames/keyAnims.tres" id="2_t73bu"]
 [ext_resource type="Texture2D" uid="uid://b18ii5iyhvcpn" path="res://Art/DeathImage.png" id="3_ew3p7"]
 [ext_resource type="Texture2D" uid="uid://co6yo5mcnxsq1" path="res://Art/Keys/MenuButtonSelected.png" id="3_xutbv"]
+[ext_resource type="Texture2D" uid="uid://qxxnxc6pcfhh" path="res://Art/RestartLevelLabel.png" id="6_38bdw"]
+[ext_resource type="Texture2D" uid="uid://bvkvwbdk0o2m7" path="res://Art/PauseGameLabel.png" id="6_eijt6"]
 
 [node name="PauseMenu" type="Control"]
 process_mode = 3
@@ -93,10 +95,33 @@ grow_vertical = 2
 text = "Exit to Main Menu"
 horizontal_alignment = 1
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(30, 30)
+[node name="EscAnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(27, 30)
+scale = Vector2(1.03125, 1.03125)
 sprite_frames = ExtResource("2_t73bu")
 animation = &"esc"
+
+[node name="PauseGameLabel" type="TextureRect" parent="EscAnimatedSprite2D"]
+offset_left = 19.3939
+offset_top = -14.5455
+offset_right = 119.394
+offset_bottom = 1.45454
+scale = Vector2(1.93939, 1.93939)
+texture = ExtResource("6_eijt6")
+
+[node name="BackQuoteAnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(27, 66)
+scale = Vector2(1.031, 1.05294)
+sprite_frames = ExtResource("2_t73bu")
+animation = &"back_quote"
+
+[node name="PauseGameLabel" type="TextureRect" parent="BackQuoteAnimatedSprite2D"]
+offset_left = 19.3939
+offset_top = -14.5455
+offset_right = 119.394
+offset_bottom = 1.45454
+scale = Vector2(1.93939, 1.93939)
+texture = ExtResource("6_38bdw")
 
 [node name="DeathImage" type="TextureRect" parent="."]
 visible = false
@@ -110,5 +135,5 @@ texture = ExtResource("3_ew3p7")
 [connection signal="pressed" from="VBoxContainer/ResumeButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_settings_button_pressed"]

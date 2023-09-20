@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=115 format=3 uid="uid://b8gp081t10dc8"]
+[gd_resource type="SpriteFrames" load_steps=118 format=3 uid="uid://b8gp081t10dc8"]
 
 [ext_resource type="Texture2D" uid="uid://dsrigw260xi1v" path="res://Art/Keys/keys_0.png" id="1_81mjw"]
 [ext_resource type="Texture2D" uid="uid://800vd3um8gaa" path="res://Art/Keys/keys_b.png" id="2_5g1vs"]
@@ -24,6 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://bco1vdcvnm7ij" path="res://Art/Keys/keys_k.png" id="11_f8pt0"]
 [ext_resource type="Texture2D" uid="uid://cadh8s4kuh4mw" path="res://Art/Keys/keys_l.png" id="12_oj7yo"]
 [ext_resource type="Texture2D" uid="uid://3up7ggqes0ga" path="res://Art/Keys/keys_m.png" id="13_731vu"]
+[ext_resource type="Texture2D" uid="uid://dvawcm3g8auvm" path="res://Art/Keys/keys_`.png" id="13_dvalq"]
 [ext_resource type="Texture2D" uid="uid://bxv25oc5l4q6n" path="res://Art/Keys/keys_n.png" id="14_1rkgw"]
 [ext_resource type="Texture2D" uid="uid://dnu4ulyddwf8s" path="res://Art/Keys/keys_o.png" id="15_srhay"]
 [ext_resource type="Texture2D" uid="uid://bug5pb6c080ax" path="res://Art/Keys/keys_p.png" id="16_5tx7k"]
@@ -133,6 +134,14 @@ region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_80ojw"]
 atlas = ExtResource("2_5g1vs")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4b2f4"]
+atlas = ExtResource("13_dvalq")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iengt"]
+atlas = ExtResource("13_dvalq")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_anstg"]
@@ -475,6 +484,17 @@ animations = [{
 }],
 "loop": true,
 "name": &"b",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4b2f4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iengt")
+}],
+"loop": true,
+"name": &"back_quote",
 "speed": 5.0
 }, {
 "frames": [{

@@ -16,7 +16,8 @@ func _on_restart_button_pressed():
 	sound.play()
 	$VBoxContainer.visible = false
 	$DeathImage.visible = false
-	$AnimatedSprite2D.visible = true
+	$EscAnimatedSprite2D.visible = true
+	$BackQuoteAnimatedSprite2D.visible = true
 	$VBoxContainer/ResumeButton.disabled = false
 	main.resetLevel()
 
@@ -35,7 +36,7 @@ func _input(event: InputEvent) -> void:
 		if event.keycode == KEY_ESCAPE and !$VBoxContainer/ResumeButton.disabled:
 			if event.pressed:
 				sound.play()
-				$AnimatedSprite2D.frame = 1
+				$EscAnimatedSprite2D.frame = 1
 				$VBoxContainer.visible = !$VBoxContainer.visible
 				get_tree().paused = !get_tree().paused
 				
@@ -44,9 +45,12 @@ func _input(event: InputEvent) -> void:
 					visible = true
 					optionsMenu.visible = false
 			else:
-				$AnimatedSprite2D.frame = 0
+				$EscAnimatedSprite2D.frame = 0
 		if event.keycode == KEY_QUOTELEFT and event.pressed:
+			$BackQuoteAnimatedSprite2D.frame = 1
 			_on_restart_button_pressed()
+		else:
+			$BackQuoteAnimatedSprite2D.frame = 0
 
 func close_sound_settings():
 	sound.play()

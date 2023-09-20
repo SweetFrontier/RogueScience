@@ -22,8 +22,6 @@ stoppingPoints = [NodePath("ElevatorStops/Stop0"), NodePath("ElevatorStops/Stop1
 button = 81
 TriggerKeySprite = NodePath("TriggerKeySprite")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-
 [node name="TriggerKeySprite" parent="." instance=ExtResource("7_g3rex")]
 position = Vector2(0, 32)
 

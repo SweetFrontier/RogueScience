@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://ccs22qkiaiv6t"]
+
+[ext_resource type="VideoStream" path="res://Art/Splashscreen/Splashscreen.ogv" id="1_jkyml"]
+[ext_resource type="Script" path="res://Scripts/splashscreen.gd" id="1_s0hym"]
+
+[node name="splashscreen" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_s0hym")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1280.0
+offset_bottom = 736.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("1_jkyml")
+autoplay = true
+expand = true
+bus = &"Sound Effects"
+
+[connection signal="finished" from="VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]

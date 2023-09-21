@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://1xasoo80ygld"]
+
+[ext_resource type="Script" path="res://Scripts/levelController.gd" id="1_btnfb"]
+[ext_resource type="TileSet" uid="uid://bnpggr5480t5q" path="res://Art/TileSets/initialTileSet.tres" id="2_esq4l"]
+[ext_resource type="PackedScene" uid="uid://b42fe8hyi4bsb" path="res://Scenes/player.tscn" id="3_fesf8"]
+[ext_resource type="PackedScene" uid="uid://dxkklnkpsn70w" path="res://Scenes/Triggers/BreakableBlocks/32x32breakableBlock.tscn" id="4_oq5cy"]
+[ext_resource type="PackedScene" uid="uid://cysodiay27ikj" path="res://Scenes/rigidPlayer.tscn" id="5_lth03"]
+
+[node name="baseLevel" type="Node2D" node_paths=PackedStringArray("cameraSpot", "player")]
+texture_filter = 1
+script = ExtResource("1_btnfb")
+cameraSpot = NodePath("Marker2D")
+player = NodePath("Player")
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("2_esq4l")
+cell_quadrant_size = 32
+format = 2
+layer_0/tile_data = PackedInt32Array(0, 0, 0, 65536, 196608, 1, 131072, 196608, 1, 196608, 196608, 1, 262144, 196608, 1, 327680, 196608, 1, 1, 327680, 0, 2, 327680, 0, 3, 327680, 0, 4, 327680, 0, 5, 327680, 0, 6, 327680, 0, 7, 327680, 0, 8, 327680, 0, 9, 327680, 0, 10, 327680, 0, 11, 327680, 0, 12, 327680, 0, 13, 327680, 0, 14, 327680, 0, 15, 327680, 0, 393216, 196608, 1, 458752, 196608, 1, 16, 327680, 0, 17, 327680, 0, 18, 327680, 0, 19, 327680, 0, 20, 327680, 0, 21, 327680, 0, 22, 327680, 0, 23, 327680, 0, 24, 327680, 0, 25, 327680, 0, 26, 327680, 0, 27, 327680, 0, 28, 327680, 0, 29, 327680, 0, 30, 327680, 0, 31, 327680, 0, 32, 327680, 0, 33, 327680, 0, 34, 327680, 0, 35, 327680, 0, 36, 327680, 0, 37, 327680, 0, 38, 327680, 0, 39, 131072, 0, 65575, 196608, 1, 131111, 196608, 1, 196647, 196608, 1, 458791, 196608, 1, 524327, 196608, 1, 589863, 196608, 1, 655399, 196608, 1, 1441830, 327680, 0, 1441831, 131072, 2, 1376295, 196608, 1, 1310759, 196608, 1, 1245223, 196608, 1, 1179687, 196608, 1, 1114151, 196608, 1, 1048615, 196608, 1, 983079, 196608, 1, 917543, 196608, 1, 852007, 196608, 1, 786471, 196608, 1, 720935, 196608, 1, 393255, 196608, 1, 327719, 196608, 1, 262183, 196608, 1, 1441829, 327680, 0, 1441828, 327680, 0, 1441827, 327680, 0, 1441826, 327680, 0, 1441825, 327680, 0, 1441824, 327680, 0, 1441823, 327680, 0, 1441822, 327680, 0, 1441821, 327680, 0, 1441820, 327680, 0, 1441819, 327680, 0, 1441818, 327680, 0, 1441817, 327680, 0, 1441816, 327680, 0, 1441815, 327680, 0, 1441814, 327680, 0, 1441813, 327680, 0, 1441812, 327680, 0, 1441811, 327680, 0, 1441810, 327680, 0, 1441809, 327680, 0, 1441808, 327680, 0, 1441807, 327680, 0, 1441806, 327680, 0, 1441805, 327680, 0, 1441804, 327680, 0, 1441803, 327680, 0, 1441802, 327680, 0, 1441801, 327680, 0, 1441800, 327680, 0, 1441799, 327680, 0, 1441798, 327680, 0, 1441797, 327680, 0, 1441796, 327680, 0, 1441795, 327680, 0, 1441794, 327680, 0, 1441793, 327680, 0, 1376256, 196608, 1, 1310720, 196608, 1, 1245184, 196608, 1, 1179648, 196608, 1, 524288, 196608, 1, 589824, 196608, 1, 655360, 196608, 1, 720896, 196608, 1, 786432, 196608, 1, 851968, 196608, 1, 917504, 196608, 1, 983040, 196608, 1, 1048576, 196608, 1, 1114112, 196608, 1, 1441792, 0, 2, 851979, 262144, 1, 917516, 327680, 1, 851980, 327680, 1, 1048590, 262144, 2, 983053, 262144, 2, 1114127, 262144, 2)
+
+[node name="Player" parent="." instance=ExtResource("3_fesf8")]
+position = Vector2(2368, 208)
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(640, 368)
+
+[node name="breakableBlock" parent="." instance=ExtResource("4_oq5cy")]
+position = Vector2(32, 32)
+
+[node name="breakableBlock2" parent="." instance=ExtResource("4_oq5cy")]
+position = Vector2(80, 48)
+
+[node name="breakableBlock3" parent="." instance=ExtResource("4_oq5cy")]
+position = Vector2(144, 64)
+
+[node name="breakableBlock4" parent="." instance=ExtResource("4_oq5cy")]
+position = Vector2(208, 112)
+
+[node name="breakableBlock5" parent="." instance=ExtResource("4_oq5cy")]
+position = Vector2(272, 160)
+
+[node name="Player2" parent="." instance=ExtResource("5_lth03")]
+position = Vector2(384, 160)

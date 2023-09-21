@@ -10,8 +10,8 @@ config_version=5
 
 [application]
 
-config/name="2023KickOffGamejam"
-run/main_scene="res://Scenes/Other/splashscreen.tscn"
+config/name="Rouge Science"
+run/main_scene="res://Scenes/Screens/MainMenu.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
 

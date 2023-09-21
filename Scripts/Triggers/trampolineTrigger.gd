@@ -49,7 +49,7 @@ func _physics_process(delta):
 			ridingBody.move_and_slide()
 
 func _on_body_entered(body):
-	if !body is Player and !body is movingObject:
+	if !body is Player and !body is movingObject and !body is rigidPlayer:
 		return
 	if body == ridingBody:
 		override_movement(body)
@@ -81,7 +81,7 @@ func setupMoveToStart():
 func riderReady():
 	super.riderReady()
 	Sound.play()
-	if ridingBody is movingObject:
+	if ridingBody is movingObject or ridingBody is rigidPlayer:
 		ridingBody.positioningRideEnded(false)
 		ridingBody.add_to_cont_vel(0.0, Vector2(0, -jump_force))
 	else:

@@ -1,0 +1,70 @@
+[gd_scene load_steps=6 format=3 uid="uid://cysodiay27ikj"]
+
+[ext_resource type="Script" path="res://Scripts/rigidPlayer.gd" id="1_tevo1"]
+[ext_resource type="SpriteFrames" uid="uid://uoxtfmfhh7ft" path="res://Art/SpriteFrames/fellaAnims.tres" id="2_b4cfh"]
+[ext_resource type="AudioStream" uid="uid://cof7uu71agsbj" path="res://Sounds/crawl.ogg" id="3_2cu8q"]
+[ext_resource type="AudioStream" uid="uid://cbl8qb0gk6iiq" path="res://Sounds/hitsomething.ogg" id="4_h2nkj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f553v"]
+size = Vector2(20, 1)
+
+[node name="rigidPlayer" type="RigidBody2D" node_paths=PackedStringArray("AnimatedSprite", "PlayerCollision", "CrawlSounds", "HitSounds", "floorCollisionArea", "wallCollisionArea", "raycast")]
+texture_filter = 1
+can_sleep = false
+lock_rotation = true
+script = ExtResource("1_tevo1")
+speed = 100.0
+time_to_rotate_slope = 0.2
+falling_rotation_speed = 3.0
+AnimatedSprite = NodePath("PlayerAnimatedSprite")
+PlayerCollision = NodePath("PlayerCollision")
+CrawlSounds = NodePath("crawlsounds")
+HitSounds = NodePath("hitsounds")
+floorCollisionArea = NodePath("floorCollisionArea")
+wallCollisionArea = NodePath("wallCollisionArea")
+raycast = NodePath("RayCast2D")
+
+[node name="PlayerAnimatedSprite" type="AnimatedSprite2D" parent="."]
+z_index = 10
+z_as_relative = false
+sprite_frames = ExtResource("2_b4cfh")
+animation = &"crawl"
+autoplay = "crawl"
+frame_progress = 0.228091
+offset = Vector2(4, 0)
+
+[node name="PlayerCollision" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-26, 8, -4, 2, -4, -4, 4, -4, 4, 2, 26, 8, 10, 16, -10, 16)
+
+[node name="floorCollisionArea" type="Area2D" parent="."]
+position = Vector2(0, 15.5)
+
+[node name="floorCollisionShape" type="CollisionShape2D" parent="floorCollisionArea"]
+shape = SubResource("RectangleShape2D_f553v")
+
+[node name="wallCollisionArea" type="Area2D" parent="."]
+
+[node name="wallCollisionShape" type="CollisionPolygon2D" parent="wallCollisionArea"]
+polygon = PackedVector2Array(26, 8, 24, 9, 22, 7)
+
+[node name="crawlsounds" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_2cu8q")
+volume_db = 10.0
+autoplay = true
+bus = &"Sound Effects"
+metadata/_edit_lock_ = true
+
+[node name="hitsounds" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_h2nkj")
+volume_db = 10.0
+bus = &"Sound Effects"
+metadata/_edit_lock_ = true
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(0, 16)
+hit_from_inside = true
+
+[connection signal="body_entered" from="floorCollisionArea" to="." method="_on_floor_collision_area_body_entered"]
+[connection signal="body_exited" from="floorCollisionArea" to="." method="_on_floor_collision_area_body_exited"]
+[connection signal="body_entered" from="wallCollisionArea" to="." method="_on_wall_collision_area_body_entered"]
+[connection signal="body_exited" from="wallCollisionArea" to="." method="_on_wall_collision_area_body_exited"]

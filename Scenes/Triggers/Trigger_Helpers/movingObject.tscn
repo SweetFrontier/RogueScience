@@ -18,7 +18,6 @@ z_as_relative = false
 texture = ExtResource("2_6v5ui")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource("CircleShape2D_pygtm")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]

@@ -57,7 +57,7 @@ func _physics_process(delta):
 		moveElevator(delta)
 
 func _on_body_entered(body):
-	if !body is Player and !body is movingObject:
+	if !body is Player and !body is movingObject and !body is rigidPlayer:
 		return
 	if activated and body != self and !occupied and body != ridingBody:
 		override_movement(body)
@@ -79,7 +79,7 @@ func setupMoveToStart():
 func riderReady():
 	super.riderReady()
 	setupElevatorStarting()
-	if ridingBody is movingObject:
+	if ridingBody is movingObject or ridingBody is rigidPlayer:
 		ridingBody.positioningRideEnded(true)
 
 func setupElevatorStarting():

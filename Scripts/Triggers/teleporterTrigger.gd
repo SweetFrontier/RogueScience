@@ -99,7 +99,7 @@ func onT2BodyExited(body):
 	_on_body_exited(body, teleporter2)
 
 func _on_body_entered(body, teleporter):
-	if !body is Player and !body is movingObject:
+	if !body is Player and !body is movingObject and !body is rigidPlayer:
 		return
 	if t1Occupied or t2Occupied:
 		return
@@ -112,11 +112,11 @@ func _on_body_entered(body, teleporter):
 			t2Occupied = true
 			endingTeleporter = teleporter1
 		override_movement(body)
-		if body is movingObject:
+		if body is movingObject or body is rigidPlayer:
 				body.set_freed_vel(body.angular_velocity, body.linear_velocity)
 
 func _on_body_exited(body, teleporter):
-	if !body is Player and !body is movingObject:
+	if !body is Player and !body is movingObject and !body is rigidPlayer:
 		return
 	if teleporting:
 		return

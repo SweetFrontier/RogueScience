@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://br4kocrocpr04"]
+[gd_scene load_steps=39 format=3 uid="uid://br4kocrocpr04"]
 
 [ext_resource type="Script" path="res://Scripts/Credits.gd" id="1_1h74e"]
 [ext_resource type="Texture2D" uid="uid://vrgbmurtm5pg" path="res://Art/Spritesheets/initial_tileset.png" id="2_7pkn5"]
@@ -15,7 +15,6 @@
 [ext_resource type="Texture2D" uid="uid://c4a878cbppoq" path="res://Art/Credits/notes/ne.png" id="11_j0ewt"]
 [ext_resource type="Script" path="res://Scripts/Credits/AnimatedFella2.gd" id="11_tuxxw"]
 [ext_resource type="Texture2D" uid="uid://c8icxhqg66752" path="res://Art/Credits/notes/ver.png" id="12_ghnot"]
-[ext_resource type="Texture2D" uid="uid://lsix3ue1s8oo" path="res://Art/Credits/joey.png" id="12_r8twq"]
 [ext_resource type="Texture2D" uid="uid://bvhw1f36m3e1t" path="res://Art/Credits/Smit.png" id="13_52eus"]
 [ext_resource type="Texture2D" uid="uid://b6yd1hloawbgf" path="res://Art/Credits/notes/gon.png" id="13_akha7"]
 [ext_resource type="AudioStream" uid="uid://bcap6qswalpw8" path="res://Sounds/Music/credits.ogg" id="14_n8wxv"]
@@ -26,6 +25,10 @@
 [ext_resource type="Texture2D" uid="uid://g1yj2aujwg3h" path="res://Art/Credits/notes/na2.png" id="17_iorus"]
 [ext_resource type="Texture2D" uid="uid://cl7c7sa3inurr" path="res://Art/Credits/notes/quartdowndotmid.png" id="18_ryfxr"]
 [ext_resource type="Texture2D" uid="uid://d0hxiqu30afkg" path="res://Art/Credits/notes/halfdowndot.png" id="19_0yrot"]
+[ext_resource type="TileSet" uid="uid://bnpggr5480t5q" path="res://Art/TileSets/initialTileSet.tres" id="25_mwrte"]
+[ext_resource type="PackedScene" uid="uid://cpl8uffd5nbs" path="res://Scenes/Triggers/teleporterTrigger.tscn" id="27_3rs8i"]
+[ext_resource type="PackedScene" uid="uid://dnqoj4eg2l7le" path="res://Scenes/Triggers/trampolineTrigger.tscn" id="28_5i22p"]
+[ext_resource type="PackedScene" uid="uid://c0eghc3oa7752" path="res://Scenes/Triggers/Trigger_Helpers/movingObject.tscn" id="29_fr8pj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h1bf6"]
 size = Vector2(78.6335, 67.0834)
@@ -40,14 +43,6 @@ texture = ExtResource("2_7pkn5")
 5:0/0 = 0
 6:0/0 = 0
 7:0/0 = 0
-8:0/0 = 0
-9:0/0 = 0
-10:0/0 = 0
-11:0/0 = 0
-12:0/0 = 0
-13:0/0 = 0
-14:0/0 = 0
-15:0/0 = 0
 0:1/0 = 0
 1:1/0 = 0
 2:1/0 = 0
@@ -56,14 +51,6 @@ texture = ExtResource("2_7pkn5")
 5:1/0 = 0
 6:1/0 = 0
 7:1/0 = 0
-8:1/0 = 0
-9:1/0 = 0
-10:1/0 = 0
-11:1/0 = 0
-12:1/0 = 0
-13:1/0 = 0
-14:1/0 = 0
-15:1/0 = 0
 0:2/0 = 0
 1:2/0 = 0
 2:2/0 = 0
@@ -72,10 +59,6 @@ texture = ExtResource("2_7pkn5")
 5:2/0 = 0
 6:2/0 = 0
 7:2/0 = 0
-8:2/0 = 0
-9:2/0 = 0
-14:2/0 = 0
-15:2/0 = 0
 0:3/0 = 0
 1:3/0 = 0
 2:3/0 = 0
@@ -84,14 +67,6 @@ texture = ExtResource("2_7pkn5")
 5:3/0 = 0
 6:3/0 = 0
 7:3/0 = 0
-8:3/0 = 0
-9:3/0 = 0
-10:3/0 = 0
-11:3/0 = 0
-12:3/0 = 0
-13:3/0 = 0
-14:3/0 = 0
-15:3/0 = 0
 0:4/0 = 0
 1:4/0 = 0
 2:4/0 = 0
@@ -100,10 +75,6 @@ texture = ExtResource("2_7pkn5")
 5:4/0 = 0
 6:4/0 = 0
 7:4/0 = 0
-8:4/0 = 0
-11:4/0 = 0
-12:4/0 = 0
-13:4/0 = 0
 0:5/0 = 0
 1:5/0 = 0
 2:5/0 = 0
@@ -112,6 +83,38 @@ texture = ExtResource("2_7pkn5")
 5:5/0 = 0
 6:5/0 = 0
 7:5/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+10:0/0 = 0
+11:0/0 = 0
+12:0/0 = 0
+13:0/0 = 0
+14:0/0 = 0
+15:0/0 = 0
+8:1/0 = 0
+9:1/0 = 0
+10:1/0 = 0
+11:1/0 = 0
+12:1/0 = 0
+13:1/0 = 0
+14:1/0 = 0
+15:1/0 = 0
+8:2/0 = 0
+9:2/0 = 0
+14:2/0 = 0
+15:2/0 = 0
+8:3/0 = 0
+9:3/0 = 0
+10:3/0 = 0
+11:3/0 = 0
+12:3/0 = 0
+13:3/0 = 0
+14:3/0 = 0
+15:3/0 = 0
+8:4/0 = 0
+11:4/0 = 0
+12:4/0 = 0
+13:4/0 = 0
 8:5/0 = 0
 9:5/0 = 0
 10:5/0 = 0
@@ -523,13 +526,6 @@ position = Vector2(-0.980396, 9.15527e-05)
 position = Vector2(4.31373, 0.980408)
 shape = SubResource("RectangleShape2D_lrmbv")
 
-[node name="joey" type="TextureRect" parent="ActualCredits"]
-offset_left = 363.0
-offset_top = 2865.0
-offset_right = 905.0
-offset_bottom = 3118.0
-texture = ExtResource("12_r8twq")
-
 [node name="TextureRect" type="TextureRect" parent="ActualCredits"]
 offset_left = 510.0
 offset_top = 2537.0
@@ -589,8 +585,9 @@ Menus
 
 
 Joey Parker
-[font_size=25]Programming
-Presumably Allowed Use of Likeness
+[font_size=25]Lots of Programming
+Level Design
+Project Manager
 [/font_size]
 
 
@@ -598,11 +595,34 @@ Presumably Allowed Use of Likeness
 Thank You So Much A-For-To Playing Our Game!"
 fit_content = true
 
+[node name="TileMap2" type="TileMap" parent="ActualCredits"]
+tile_set = ExtResource("25_mwrte")
+format = 2
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_n8wxv")
 autoplay = true
 bus = &"Music"
 
+[node name="teleporterTrigger" parent="." instance=ExtResource("27_3rs8i")]
+position = Vector2(433, 3074)
+startActivated = true
+
+[node name="Teleporter1" parent="teleporterTrigger" index="0"]
+position = Vector2(0, -114)
+
+[node name="Teleporter2" parent="teleporterTrigger" index="1"]
+position = Vector2(415, 14)
+
+[node name="trampolineTrigger" parent="." instance=ExtResource("28_5i22p")]
+position = Vector2(432, 3104)
+startActivated = true
+
+[node name="movingObject" parent="." instance=ExtResource("29_fr8pj")]
+position = Vector2(432, 3072)
+
 [connection signal="pressed" from="scrollydown/SkipButton" to="scrollydown" method="_on_skip_button_pressed"]
 [connection signal="area_entered" from="ActualCredits/AnimatedFella/Area2D" to="ActualCredits/AnimatedFella" method="_on_area_2d_area_entered"]
 [connection signal="area_entered" from="ActualCredits/munchyFella/Area2D" to="ActualCredits/munchyFella" method="_on_area_2d_area_entered"]
+
+[editable path="teleporterTrigger"]

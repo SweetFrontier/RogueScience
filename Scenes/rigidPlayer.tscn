@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://dd6l6fhpuajke"]
+[gd_scene load_steps=9 format=3 uid="uid://dd6l6fhpuajke"]
 
 [ext_resource type="Script" path="res://Scripts/rigidPlayer.gd" id="1_tevo1"]
 [ext_resource type="SpriteFrames" uid="uid://uoxtfmfhh7ft" path="res://Art/SpriteFrames/fellaAnims.tres" id="2_b4cfh"]
 [ext_resource type="AudioStream" uid="uid://cof7uu71agsbj" path="res://Sounds/crawl.ogg" id="3_2cu8q"]
 [ext_resource type="AudioStream" uid="uid://cbl8qb0gk6iiq" path="res://Sounds/hitsomething.ogg" id="4_h2nkj"]
+[ext_resource type="Script" path="res://Scripts/Triggers/Trigger_Helpers/explodeablePolygon.gd" id="5_57jm6"]
+[ext_resource type="Texture2D" uid="uid://du38jg7n11pol" path="res://Art/deadfella.png" id="5_ld6tc"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2kvdi"]
 friction = 0.15
@@ -11,7 +13,7 @@ friction = 0.15
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f553v"]
 size = Vector2(20, 1)
 
-[node name="rigidPlayer" type="RigidBody2D" node_paths=PackedStringArray("AnimatedSprite", "PlayerCollision", "CrawlSounds", "HitSounds", "floorCollisionArea", "floorCast", "wallCast")]
+[node name="rigidPlayer" type="RigidBody2D" node_paths=PackedStringArray("AnimatedSprite", "PlayerCollision", "CrawlSounds", "HitSounds", "floorCollisionArea", "floorCast", "wallCast", "deathExplosion")]
 texture_filter = 1
 physics_material_override = SubResource("PhysicsMaterial_2kvdi")
 can_sleep = false
@@ -27,6 +29,7 @@ HitSounds = NodePath("hitsounds")
 floorCollisionArea = NodePath("floorCollisionArea")
 floorCast = NodePath("floorCast2D")
 wallCast = NodePath("wallCast2D")
+deathExplosion = NodePath("Polygon2D")
 
 [node name="PlayerAnimatedSprite" type="AnimatedSprite2D" parent="."]
 z_index = 10
@@ -67,6 +70,26 @@ hit_from_inside = true
 position = Vector2(0, 8)
 target_position = Vector2(26, 0)
 hit_from_inside = true
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+visible = false
+texture = ExtResource("5_ld6tc")
+texture_offset = Vector2(27, 16)
+polygon = PackedVector2Array(-28, -16, 0, -16, 27, -16, 27, 3, 27, 16, -28, 16)
+script = ExtResource("5_57jm6")
+shard_count = 128
+shard_shrink_rate = 0.99
+min_shard_size = 0.05
+x_init_velocity = 20
+y_init_velocity = 40
+shard_speed = 12.0
+rotation_speed = 0.1
+shard_gravity = 40.0
+x_max_distance = 10
+x_min_distance = -10
+y_max_distance = 10
+y_min_distance = -10
+time_to_form = 2.0
 
 [connection signal="body_entered" from="floorCollisionArea" to="." method="_on_floor_collision_area_body_entered"]
 [connection signal="body_exited" from="floorCollisionArea" to="." method="_on_floor_collision_area_body_exited"]

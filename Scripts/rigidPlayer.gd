@@ -16,6 +16,9 @@ class_name rigidPlayer
 @export var floorCast: RayCast2D
 @export var wallCast: RayCast2D
 
+@export var deathExplosion : Polygon2D
+@export var deathBounceRequirement : int = 5; # number of frames in a row must turn before explode
+
 var current_direction = Vector2.RIGHT
 
 var starting_transform
@@ -32,12 +35,16 @@ var controlled_lin_vel: Vector2 = Vector2()
 var directPosControl: bool = false
 var floorCollisions: int = 0
 var setBodyPos: bool = false
+var deathCounter = 0
+var dead : bool = false
 
 func _ready():
+	dead = false
 	starting_transform = get_global_transform()
 	reset()
 
 func reset():
+	AnimatedSprite.show()
 	current_direction = starting_direction
 	AnimatedSprite.rotation = 0.0
 	if current_direction == Vector2.RIGHT:
@@ -51,6 +58,7 @@ func reset():
 	wallCast.scale.x = PlayerCollision.scale.x
 	
 	just_reset = true
+	dead = false
 	being_controlled = false
 	just_started_control = false
 	positioning_finished = false
@@ -69,7 +77,7 @@ func _integrate_forces(state):
 		state.set_angular_velocity(0.0)
 		just_reset = false
 	
-	if !being_controlled:
+	if !being_controlled && !dead:
 		state.set_linear_velocity(Vector2(current_direction.x * speed, state.get_linear_velocity().y))
 	
 	if just_started_control:
@@ -91,22 +99,36 @@ func _integrate_forces(state):
 			clear_cont_vel()
 
 func _physics_process(delta):
-	if is_on_floor():
-		rotate_player_on_slope(delta)
-	else:
-		rotate_player_on_arc(delta)
-		
-	if being_controlled:
-		return
-	if is_on_wall():
-		current_direction = -current_direction
-		AnimatedSprite.flip_h = !AnimatedSprite.flip_h
-		PlayerCollision.scale.x *= -1
-		wallCast.scale *= -1
-		AnimatedSprite.offset.x += 8*PlayerCollision.scale.x
-		#play the sound
-		HitSounds.stream = load("res://Sounds/hitsomething.ogg")
-		HitSounds.play()
+	if !dead:
+		if is_on_floor():
+			rotate_player_on_slope(delta)
+		else:
+			rotate_player_on_arc(delta)
+			
+		if being_controlled:
+			return
+		if is_on_wall():
+			deathCounter += 1
+			current_direction = -current_direction
+			AnimatedSprite.flip_h = !AnimatedSprite.flip_h
+			PlayerCollision.scale.x *= -1
+			wallCast.scale *= -1
+			AnimatedSprite.offset.x += 8*PlayerCollision.scale.x
+			#play the sound
+			HitSounds.stream = load("res://Sounds/hitsomething.ogg")
+			HitSounds.play()
+			
+			if (deathCounter >= deathBounceRequirement):
+				deathCounter = 0
+				dead = true
+				AnimatedSprite.hide()
+				deathExplosion.show()
+				deathExplosion.explode()
+				
+				HitSounds.stream = load("res://Sounds/death.ogg")
+				HitSounds.play()
+		else:
+			deathCounter = 0
 	
 func rotate_player_on_arc(delta):
 	if being_controlled:

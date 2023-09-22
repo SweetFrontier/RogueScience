@@ -53,7 +53,7 @@ func _process(delta):
 			camera.set_zoom(zoomingGoal)
 			zooming = false
 
-	if (not(moving or zooming)):
+	if (Transition.animation_finished):
 		Levels[current_level-1].process_mode = Node.PROCESS_MODE_DISABLED
 		Levels[current_level].process_mode = Node.PROCESS_MODE_PAUSABLE
 
@@ -76,11 +76,15 @@ func increase_level() -> void:
 	Transition.play("CoverScreen")
 	Transition.get_child(0).play()
 	
+	
 	await(Transition.animation_finished)
 	
 	#move camera and change zoom
 	camera.position = Levels[current_level].cameraSpot.global_position
 	camera.set_zoom(Vector2(final_zoom_size, final_zoom_size))
+	Levels[current_level-1].levelEnded()
+	
+	#uncover screen
 	Transition.play("UncoverScreen");
 	
 	# set music

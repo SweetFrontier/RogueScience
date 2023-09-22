@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/Triggers/breakableBlock.gd" id="1_7wbfl"]
 [ext_resource type="Texture2D" uid="uid://b12biuqnvr58c" path="res://Art/TriggerArt/BreakableBlocks/Breakable64x32Block.png" id="2_dfidr"]
 [ext_resource type="Script" path="res://Scripts/Triggers/Trigger_Helpers/explodeablePolygon.gd" id="3_pj47p"]
-[ext_resource type="PackedScene" path="res://Scenes/Triggers/Trigger_Helpers/triggerKey.tscn" id="4_0arju"]
+[ext_resource type="PackedScene" uid="uid://djjr177758y2h" path="res://Scenes/Triggers/Trigger_Helpers/triggerKey.tscn" id="4_0arju"]
 [ext_resource type="AudioStream" uid="uid://bw5e10yu6o64o" path="res://Sounds/blockbreak.ogg" id="5_vqjsn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kuhko"]

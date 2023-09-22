@@ -113,8 +113,10 @@ stream = ExtResource("16_4q38v")
 bus = &"Sound Effects"
 
 [node name="AnimatedTransition" parent="CanvasLayer" instance=ExtResource("12_gan4l")]
-visible = false
-autoplay = ""
+animation = &"UncoverScreen"
+autoplay = "UncoverScreen"
+frame = 0
+frame_progress = 0.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CanvasLayer/AnimatedTransition"]
 stream = ExtResource("18_tk5rk")

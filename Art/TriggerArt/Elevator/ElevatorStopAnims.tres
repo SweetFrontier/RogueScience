@@ -1,10 +1,10 @@
 [gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://bopj1b1glrksm"]
 
-[ext_resource type="Texture2D" uid="uid://b8mw8alqthcw4" path="res://Art/TriggerArt/Elevator/ElevatorStopActivated.png" id="1_hem2s"]
+[ext_resource type="Texture2D" uid="uid://dghnyxs6bxj41" path="res://Art/TriggerArt/Elevator/plhElevatorStopActivated.png" id="1_owhhi"]
 [ext_resource type="Texture2D" uid="uid://slr4klxql6mk" path="res://Art/TriggerArt/Elevator/ElevatorStopDeactivated.png" id="2_y01an"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ei4c1"]
-atlas = ExtResource("1_hem2s")
+[sub_resource type="AtlasTexture" id="AtlasTexture_skq3h"]
+atlas = ExtResource("1_owhhi")
 region = Rect2(0, 0, 64, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ov7cb"]
@@ -15,7 +15,7 @@ region = Rect2(0, 0, 64, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ei4c1")
+"texture": SubResource("AtlasTexture_skq3h")
 }],
 "loop": true,
 "name": &"elevatorStopActivated",

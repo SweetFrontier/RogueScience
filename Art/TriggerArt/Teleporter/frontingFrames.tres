@@ -1,11 +1,11 @@
 [gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://bvdhyjx44ynaj"]
 
-[ext_resource type="Texture2D" uid="uid://sua8ol2q0rks" path="res://Art/TriggerArt/Teleporter/FrontingActivated.png" id="1_3bsw1"]
+[ext_resource type="Texture2D" uid="uid://cmlw5xc888vgw" path="res://Art/TriggerArt/Teleporter/FrontingActivated2.png" id="1_kge22"]
 [ext_resource type="Texture2D" uid="uid://ck2vgsnllri47" path="res://Art/TriggerArt/Teleporter/FrontingDeactivated.png" id="2_e5it7"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_uou8l"]
-atlas = ExtResource("1_3bsw1")
-region = Rect2(0, 0, 64, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_igu8s"]
+atlas = ExtResource("1_kge22")
+region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mndvv"]
 atlas = ExtResource("2_e5it7")
@@ -15,7 +15,7 @@ region = Rect2(0, 0, 64, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_uou8l")
+"texture": SubResource("AtlasTexture_igu8s")
 }],
 "loop": true,
 "name": &"activated",

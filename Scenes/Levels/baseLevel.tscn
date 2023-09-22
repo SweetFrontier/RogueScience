@@ -1,10 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://1xasoo80ygld"]
+[gd_scene load_steps=6 format=3 uid="uid://1xasoo80ygld"]
 
 [ext_resource type="Script" path="res://Scripts/levelController.gd" id="1_btnfb"]
 [ext_resource type="TileSet" uid="uid://bnpggr5480t5q" path="res://Art/TileSets/initialTileSet.tres" id="2_esq4l"]
 [ext_resource type="PackedScene" uid="uid://dvbyxsl5e3ol8" path="res://Scenes/Triggers/Trigger_Helpers/TransitionField.tscn" id="4_go5s3"]
 [ext_resource type="PackedScene" uid="uid://dm5fdokmgctgr" path="res://Scenes/Triggers/elevatorTrigger.tscn" id="5_8for7"]
-[ext_resource type="PackedScene" uid="uid://cpl8uffd5nbs" path="res://Scenes/Triggers/teleporterTrigger.tscn" id="6_i0ng4"]
 [ext_resource type="PackedScene" uid="uid://u10litobhps7" path="res://Scenes/rigidPlayer.tscn" id="6_jf1j1"]
 
 [node name="baseLevel" type="Node2D" node_paths=PackedStringArray("cameraSpot", "player", "transitionField")]
@@ -31,13 +30,19 @@ position = Vector2(736, 32)
 [node name="rigidPlayer" parent="." instance=ExtResource("6_jf1j1")]
 position = Vector2(260, 176)
 
-[node name="teleporterTrigger" parent="." instance=ExtResource("6_i0ng4")]
-position = Vector2(512, 304)
+[node name="elevatorTrigger2" parent="." node_paths=PackedStringArray("stoppingPoints") instance=ExtResource("5_8for7")]
+position = Vector2(640, 448)
+stoppingPoints = [NodePath("ElevatorStops/Stop0"), NodePath("ElevatorStops/Stop1"), NodePath("ElevatorStops/Stop10")]
 
-[node name="Teleporter1" parent="teleporterTrigger" index="0"]
-position = Vector2(80, 128)
+[node name="ElevatorShaft" parent="elevatorTrigger2" index="1"]
+position = Vector2(0, -128)
+scale = Vector2(1, 4)
 
-[node name="Teleporter2" parent="teleporterTrigger" index="1"]
-position = Vector2(-128, -120)
+[node name="Stop1" parent="elevatorTrigger2/ElevatorStops" index="1"]
+visible = true
+position = Vector2(0, -144)
 
-[editable path="teleporterTrigger"]
+[node name="Stop10" parent="elevatorTrigger2/ElevatorStops" index="10"]
+position = Vector2(0, -240)
+
+[editable path="elevatorTrigger2"]

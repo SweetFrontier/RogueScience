@@ -1,18 +1,31 @@
-[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://dnwwwpgjbwklm"]
+[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://dnwwwpgjbwklm"]
 
 [ext_resource type="Texture2D" uid="uid://ct7x3gkfp4xcn" path="res://Art/TriggerArt/Teleporter/Backing.png" id="1_dcarj"]
+[ext_resource type="Texture2D" uid="uid://cs4e5y3v5s7wn" path="res://Art/TriggerArt/Teleporter/BackingActivated.png" id="1_pru8d"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_oi3iu"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ld00"]
+atlas = ExtResource("1_pru8d")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s6uy0"]
 atlas = ExtResource("1_dcarj")
-region = Rect2(0, 0, 64, 32)
+region = Rect2(0, 0, 64, 64)
 
 [resource]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_oi3iu")
+"texture": SubResource("AtlasTexture_0ld00")
 }],
 "loop": true,
-"name": &"default",
+"name": &"activated",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s6uy0")
+}],
+"loop": true,
+"name": &"deactivated",
 "speed": 5.0
 }]

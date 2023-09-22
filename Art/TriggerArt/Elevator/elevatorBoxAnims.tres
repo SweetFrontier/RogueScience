@@ -1,13 +1,20 @@
-[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://bxx3m14mnmyro"]
+[gd_resource type="SpriteFrames" load_steps=4 format=3 uid="uid://bxx3m14mnmyro"]
 
-[ext_resource type="Texture2D" uid="uid://b5ojnmutsoe1q" path="res://Art/TriggerArt/Elevator/plhClosedElevator.png" id="1_towve"]
-[ext_resource type="Texture2D" uid="uid://cqlwr6b5xeq68" path="res://Art/TriggerArt/Elevator/plhOpenElevator.png" id="2_fv6ao"]
+[ext_resource type="Texture2D" uid="uid://dl0ct0nufagla" path="res://Art/TriggerArt/Elevator/OpenElevator.png" id="1_yimn5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vnvw5"]
+atlas = ExtResource("1_yimn5")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ggbyu"]
+atlas = ExtResource("1_yimn5")
+region = Rect2(0, 0, 64, 64)
 
 [resource]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_towve")
+"texture": SubResource("AtlasTexture_vnvw5")
 }],
 "loop": true,
 "name": &"closed",
@@ -15,7 +22,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_fv6ao")
+"texture": SubResource("AtlasTexture_ggbyu")
 }],
 "loop": true,
 "name": &"open",

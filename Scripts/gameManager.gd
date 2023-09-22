@@ -62,8 +62,6 @@ func _process(delta):
 
 func increase_level() -> void:
 	current_level += 1
-	print(current_level)
-	print(Levels.size())
 	if(current_level >= Levels.size()):
 		get_tree().change_scene_to_file("res://Scenes/Credits/credits.tscn")
 		return

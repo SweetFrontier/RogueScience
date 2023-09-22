@@ -102,11 +102,12 @@ sprite_frames = ExtResource("4_tg6iu")
 animation = &"elevatorStopActivated"
 
 [node name="ElevatorBox" type="AnimatedSprite2D" parent="."]
-z_index = 11
+z_index = 8
 z_as_relative = false
 position = Vector2(0, -16)
 sprite_frames = ExtResource("5_k5lso")
-animation = &"closed"
+animation = &"open"
+offset = Vector2(0, 12)
 metadata/_edit_group_ = true
 
 [node name="ElevatorArea" type="Area2D" parent="ElevatorBox"]

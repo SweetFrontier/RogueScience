@@ -8,7 +8,7 @@
 [ext_resource type="SpriteFrames" uid="uid://bfi6haoil4yyk" path="res://Art/TriggerArt/Teleporter/rodFrames.tres" id="7_smeh8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sxv0n"]
-size = Vector2(32, 32)
+size = Vector2(44, 54)
 
 [node name="teleporterTrigger" type="Node2D" node_paths=PackedStringArray("TriggerKeySprite2", "teleporter1", "teleporterArea1", "teleporter2", "teleporterArea2", "lightning", "TriggerKeySprite")]
 script = ExtResource("1_drekj")
@@ -28,30 +28,32 @@ metadata/_edit_group_ = true
 z_index = 6
 z_as_relative = false
 sprite_frames = ExtResource("5_qhjfq")
+animation = &"deactivated"
 
 [node name="FrontingSpriteAnim" type="AnimatedSprite2D" parent="Teleporter1"]
+visible = false
 z_index = 12
 z_as_relative = false
 position = Vector2(-3.55393e-06, -3.11434e-06)
 sprite_frames = ExtResource("6_oy3qe")
 animation = &"activated"
-frame_progress = 0.669144
 
 [node name="RodSpriteAnim" type="AnimatedSprite2D" parent="Teleporter1"]
 z_index = 7
 z_as_relative = false
-position = Vector2(0, -24)
+position = Vector2(0, -40)
 sprite_frames = ExtResource("7_smeh8")
 animation = &"deactivatedRed"
+frame_progress = 0.733609
 
 [node name="TeleporterArea1" type="Area2D" parent="Teleporter1"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Teleporter1/TeleporterArea1"]
-visible = false
+position = Vector2(0, 5)
 shape = SubResource("RectangleShape2D_sxv0n")
 
 [node name="TriggerKeySprite" parent="Teleporter1" instance=ExtResource("5_jhnb2")]
-position = Vector2(0, 48)
+position = Vector2(0, 64)
 
 [node name="Teleporter2" type="Node2D" parent="."]
 position = Vector2(80, 0)
@@ -61,30 +63,31 @@ metadata/_edit_group_ = true
 z_index = 6
 z_as_relative = false
 sprite_frames = ExtResource("5_qhjfq")
+animation = &"deactivated"
 
 [node name="FrontingSpriteAnim" type="AnimatedSprite2D" parent="Teleporter2"]
+visible = false
 z_index = 12
 z_as_relative = false
 position = Vector2(-3.55393e-06, -3.11434e-06)
 sprite_frames = ExtResource("6_oy3qe")
 animation = &"activated"
-frame_progress = 0.669144
 
 [node name="RodSpriteAnim" type="AnimatedSprite2D" parent="Teleporter2"]
 z_index = 7
 z_as_relative = false
-position = Vector2(0, -24)
+position = Vector2(0, -40)
 sprite_frames = ExtResource("7_smeh8")
 animation = &"deactivatedRed"
 
 [node name="TeleporterArea2" type="Area2D" parent="Teleporter2"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Teleporter2/TeleporterArea2"]
-visible = false
+position = Vector2(0, 5)
 shape = SubResource("RectangleShape2D_sxv0n")
 
 [node name="TriggerKeySprite" parent="Teleporter2" instance=ExtResource("5_jhnb2")]
-position = Vector2(0, 48)
+position = Vector2(0, 64)
 
 [node name="lightning" parent="." node_paths=PackedStringArray("fromPos", "toPos") instance=ExtResource("4_m0xrp")]
 z_index = 17

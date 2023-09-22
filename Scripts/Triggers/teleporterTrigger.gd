@@ -22,7 +22,6 @@ var t1Occupied = false
 var t2Occupied = false
 
 func _ready():
-	reset()
 	teleporterArea1.body_entered.connect(onT1BodyEntered)
 	teleporterArea2.body_entered.connect(onT2BodyEntered)
 	teleporterArea1.body_exited.connect(onT1BodyExited)

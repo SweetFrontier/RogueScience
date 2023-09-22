@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://u10litobhps7"]
+[gd_scene load_steps=7 format=3 uid="uid://cysodiay27ikj"]
 
 [ext_resource type="Script" path="res://Scripts/rigidPlayer.gd" id="1_tevo1"]
 [ext_resource type="SpriteFrames" uid="uid://uoxtfmfhh7ft" path="res://Art/SpriteFrames/fellaAnims.tres" id="2_b4cfh"]

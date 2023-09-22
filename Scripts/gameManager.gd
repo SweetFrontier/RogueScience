@@ -25,12 +25,6 @@ func _ready() -> void:
 	var final_zoom_size = minf(1280/min_zoom_size.x,736/min_zoom_size.y)
 	camera.global_position = Levels[current_level].cameraSpot.global_position
 	camera.zoom = Vector2(final_zoom_size,final_zoom_size)
-	#movingStart = camera.global_position
-	#movingGoal = Levels[current_level].cameraSpot.global_position
-	#var min_zoom_size : Vector2 =  Levels[current_level].cameraSize
-	#var final_zoom_size = minf(1280/min_zoom_size.x,736/min_zoom_size.y)
-	#zoomingStart = camera.zoom
-	#zoomingGoal = Vector2(final_zoom_size,final_zoom_size)
 	set_process(true)
 	for level in Levels:
 		level.transitionField.connect("increase_level_signal", increase_level)
@@ -65,6 +59,7 @@ func increase_level() -> void:
 	if(current_level >= Levels.size()):
 		get_tree().change_scene_to_file("res://Scenes/Credits/credits.tscn")
 		return
+	Levels[current_level-1].levelEnded()
 	moving = true
 	movingProgress = 0
 	movingStart = camera.global_position

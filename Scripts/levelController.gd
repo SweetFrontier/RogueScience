@@ -38,6 +38,14 @@ func reset():
 		moveO.reset()
 	player.reset()
 
+func levelEnded():
+	player.queue_free();
+	for child in get_children():
+		if child is breakableBlocks:
+			child.explodeable_polygon.reset();
+		elif child is invisibleBlock:
+			child.implodeable_polygon.reset();
+
 func remove_key(caller:baseTrigger,keyNum:int):
 	availableKeys.remove_at(availableKeys.find(keyNum));
 	remainingTriggerBlocks.remove_at(remainingTriggerBlocks.find(caller))

@@ -69,7 +69,7 @@ func _integrate_forces(state):
 		just_reset = false
 	
 	if !being_controlled:
-		state.set_linear_velocity(Vector2(current_direction.x * speed, linear_velocity.y))
+		state.set_linear_velocity(Vector2(current_direction.x * speed, state.get_linear_velocity().y))
 	
 	if just_started_control:
 		just_started_control = false

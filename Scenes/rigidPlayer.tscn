@@ -1,15 +1,19 @@
-[gd_scene load_steps=6 format=3 uid="uid://cysodiay27ikj"]
+[gd_scene load_steps=7 format=3 uid="uid://cysodiay27ikj"]
 
 [ext_resource type="Script" path="res://Scripts/rigidPlayer.gd" id="1_tevo1"]
 [ext_resource type="SpriteFrames" uid="uid://uoxtfmfhh7ft" path="res://Art/SpriteFrames/fellaAnims.tres" id="2_b4cfh"]
 [ext_resource type="AudioStream" uid="uid://cof7uu71agsbj" path="res://Sounds/crawl.ogg" id="3_2cu8q"]
 [ext_resource type="AudioStream" uid="uid://cbl8qb0gk6iiq" path="res://Sounds/hitsomething.ogg" id="4_h2nkj"]
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2kvdi"]
+friction = 0.0
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f553v"]
 size = Vector2(20, 1)
 
 [node name="rigidPlayer" type="RigidBody2D" node_paths=PackedStringArray("AnimatedSprite", "PlayerCollision", "CrawlSounds", "HitSounds", "floorCollisionArea", "floorCast", "wallCast")]
 texture_filter = 1
+physics_material_override = SubResource("PhysicsMaterial_2kvdi")
 can_sleep = false
 lock_rotation = true
 script = ExtResource("1_tevo1")

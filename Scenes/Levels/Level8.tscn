@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/levelController.gd" id="1_3t313"]
 [ext_resource type="TileSet" uid="uid://bnpggr5480t5q" path="res://Art/TileSets/initialTileSet.tres" id="2_0eobn"]
-[ext_resource type="PackedScene" uid="uid://cysodiay27ikj" path="res://Scenes/rigidPlayer.tscn" id="3_cwwk1"]
+[ext_resource type="PackedScene" uid="uid://u10litobhps7" path="res://Scenes/rigidPlayer.tscn" id="3_cwwk1"]
 [ext_resource type="PackedScene" uid="uid://dnqoj4eg2l7le" path="res://Scenes/Triggers/trampolineTrigger.tscn" id="4_3tcme"]
 [ext_resource type="PackedScene" uid="uid://dvbyxsl5e3ol8" path="res://Scenes/Triggers/Trigger_Helpers/TransitionField.tscn" id="4_s8a7s"]
 [ext_resource type="PackedScene" uid="uid://ci05tj7j8an3w" path="res://Scenes/Triggers/BreakableBlocks/64x32breakableBlock.tscn" id="5_etfin"]
@@ -85,7 +85,7 @@ position = Vector2(224, 480)
 
 [node name="trampolineTrigger8" parent="." instance=ExtResource("4_3tcme")]
 position = Vector2(64, 848)
-jump_force = 1350.0
+jump_force = 1400.0
 startActivated = true
 
 [node name="64x64breakableBlock" parent="." instance=ExtResource("10_oe481")]

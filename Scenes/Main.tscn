@@ -41,7 +41,6 @@ _data = {
 script = ExtResource("1_rlws3")
 Levels = [NodePath("Levels/Level1"), NodePath("Levels/Level2"), NodePath("Levels/Level3"), NodePath("Levels/Level4"), NodePath("Levels/Level5"), NodePath("Levels/Level6"), NodePath("Levels/Level7"), NodePath("Levels/Level8"), NodePath("Levels/Level9")]
 camera = NodePath("Camera2D")
-current_level = 7
 musicPlayer = NodePath("MusicPlayer")
 
 [node name="Levels" type="Node" parent="."]

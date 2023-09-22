@@ -7,12 +7,12 @@ extends Node
 @export var current_level: int
 @export var musicPlayer: AudioStreamPlayer
 
-var moving : bool = true
+var moving : bool = false
 var movingTime : float = 1
 var movingProgress : float = 0
 var movingStart : Vector2
 var movingGoal : Vector2
-var zooming : bool = true
+var zooming : bool = false
 var zoomingTime : float = 1
 var zoomingProgress : float = 0
 var zoomingStart : Vector2
@@ -21,12 +21,16 @@ var zoomingGoal : Vector2
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Levels[current_level].process_mode = Node.PROCESS_MODE_ALWAYS
-	movingStart = camera.global_position
-	movingGoal = Levels[current_level].cameraSpot.global_position
 	var min_zoom_size : Vector2 =  Levels[current_level].cameraSize
 	var final_zoom_size = minf(1280/min_zoom_size.x,736/min_zoom_size.y)
-	zoomingStart = camera.zoom
-	zoomingGoal = Vector2(final_zoom_size,final_zoom_size)
+	camera.global_position = Levels[current_level].cameraSpot.global_position
+	camera.zoom = Vector2(final_zoom_size,final_zoom_size)
+	#movingStart = camera.global_position
+	#movingGoal = Levels[current_level].cameraSpot.global_position
+	#var min_zoom_size : Vector2 =  Levels[current_level].cameraSize
+	#var final_zoom_size = minf(1280/min_zoom_size.x,736/min_zoom_size.y)
+	#zoomingStart = camera.zoom
+	#zoomingGoal = Vector2(final_zoom_size,final_zoom_size)
 	set_process(true)
 	for level in Levels:
 		level.transitionField.connect("increase_level_signal", increase_level)
@@ -58,8 +62,11 @@ func _process(delta):
 
 func increase_level() -> void:
 	current_level += 1
-	if(current_level >= Levels.size()-1):
+	print(current_level)
+	print(Levels.size())
+	if(current_level >= Levels.size()):
 		get_tree().change_scene_to_file("res://Scenes/Credits/credits.tscn")
+		return
 	moving = true
 	movingProgress = 0
 	movingStart = camera.global_position

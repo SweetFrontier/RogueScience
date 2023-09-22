@@ -31,6 +31,7 @@ var controlled_ang_vel: float = 0.0
 var controlled_lin_vel: Vector2 = Vector2()
 var directPosControl: bool = false
 var floorCollisions: int = 0
+var setBodyPos: bool = false
 
 func _ready():
 	starting_transform = get_global_transform()
@@ -75,13 +76,15 @@ func _integrate_forces(state):
 		just_started_control = false
 		state.set_linear_velocity(Vector2())
 		state.set_angular_velocity(0.0)
-	if being_controlled:
-		if !positioning_finished or directPosControl:
+	if being_controlled or setBodyPos:
+		if !positioning_finished or directPosControl or setBodyPos:
 			var new_transform = state.get_transform()
 			new_transform.origin = next_pos
 			state.set_transform(new_transform)
 			state.set_linear_velocity(Vector2())
 			state.set_angular_velocity(0.0)
+			if setBodyPos:
+				setBodyPos = false
 		else:
 			state.set_linear_velocity(controlled_lin_vel + state.get_linear_velocity())
 			state.set_angular_velocity(controlled_ang_vel + state.get_angular_velocity())
@@ -93,6 +96,8 @@ func _physics_process(delta):
 	else:
 		rotate_player_on_arc(delta)
 		
+	if being_controlled:
+		return
 	if is_on_wall():
 		current_direction = -current_direction
 		AnimatedSprite.flip_h = !AnimatedSprite.flip_h
@@ -137,6 +142,7 @@ func free_movement():
 
 func set_body_pos(pos):
 	next_pos = pos
+	setBodyPos = true
 
 func positioningRideEnded(_directPosControl):
 	positioning_finished = true

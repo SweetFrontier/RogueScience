@@ -13,8 +13,8 @@ class_name rigidPlayer
 @export var HitSounds : AudioStreamPlayer2D
 
 @export var floorCollisionArea: Area2D
-@export var wallCollisionArea: Area2D
-@export var raycast: RayCast2D
+@export var floorCast: RayCast2D
+@export var wallCast: RayCast2D
 
 var current_direction = Vector2.RIGHT
 
@@ -31,7 +31,6 @@ var controlled_ang_vel: float = 0.0
 var controlled_lin_vel: Vector2 = Vector2()
 var directPosControl: bool = false
 var floorCollisions: int = 0
-var wallCollisions: int = 0
 
 func _ready():
 	starting_transform = get_global_transform()
@@ -43,13 +42,12 @@ func reset():
 	if current_direction == Vector2.RIGHT:
 		AnimatedSprite.flip_h = false
 		PlayerCollision.scale.x = abs(PlayerCollision.scale.x)
-		wallCollisionArea.scale.x = PlayerCollision.scale.x
 		AnimatedSprite.offset.x = 4
 	if current_direction == Vector2.LEFT:
 		AnimatedSprite.flip_h = true
 		PlayerCollision.scale.x = -1 * abs(PlayerCollision.scale.x)
-		wallCollisionArea.scale.x = PlayerCollision.scale.x
 		AnimatedSprite.offset.x = -4
+	wallCast.scale.x = PlayerCollision.scale.x
 	
 	just_reset = true
 	being_controlled = false
@@ -99,7 +97,7 @@ func _physics_process(delta):
 		current_direction = -current_direction
 		AnimatedSprite.flip_h = !AnimatedSprite.flip_h
 		PlayerCollision.scale.x *= -1
-		wallCollisionArea.scale.x *= -1
+		wallCast.scale *= -1
 		AnimatedSprite.offset.x += 8*PlayerCollision.scale.x
 		#play the sound
 		HitSounds.stream = load("res://Sounds/hitsomething.ogg")
@@ -123,8 +121,8 @@ func rotate_player_on_arc(delta):
 
 func rotate_player_on_slope(delta):
 	if is_on_floor() and linear_velocity.x != 0:
-		raycast.get_collision_normal()
-		var slope_angle = Vector2.UP.angle_to(raycast.get_collision_normal())
+		floorCast.get_collision_normal()
+		var slope_angle = Vector2.UP.angle_to(floorCast.get_collision_normal())
 		AnimatedSprite.rotation += (slope_angle - AnimatedSprite.rotation) / time_to_rotate_slope * delta
 
 func movement_overwritten(_movement_overrider):
@@ -168,7 +166,11 @@ func is_on_floor():
 	return floorCollisions != 0
 
 func is_on_wall():
-	return wallCollisions != 0
+	if wallCast.is_colliding():
+		var wallNormal = wallCast.get_collision_normal()
+		if(abs(rad_to_deg(atan2(wallNormal.x, wallNormal.y))) < 135):
+			return true
+	return false
 
 func _on_floor_collision_area_body_entered(body):
 	if(body == self):
@@ -179,13 +181,3 @@ func _on_floor_collision_area_body_exited(body):
 	if(body == self):
 		return
 	floorCollisions -= 1
-
-func _on_wall_collision_area_body_entered(body):
-	if(body == self):
-		return
-	wallCollisions += 1
-
-func _on_wall_collision_area_body_exited(body):
-	if(body == self):
-		return
-	wallCollisions -= 1

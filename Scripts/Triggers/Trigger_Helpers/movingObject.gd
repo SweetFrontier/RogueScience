@@ -4,7 +4,7 @@ class_name movingObject
 @export var floorDetector: RayCast2D	
 @export var sprite: Sprite2D
 
-var levelPlayer : Player
+var levelPlayer : rigidPlayer
 
 var starting_transform
 var just_reset = true
@@ -113,5 +113,5 @@ func is_on_floor():
 		return floorDetector.is_colliding()
 	return false
 
-func setPlayer(_player : Player):
+func setPlayer(_player : rigidPlayer):
 	levelPlayer = _player

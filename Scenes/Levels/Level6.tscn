@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/levelController.gd" id="1_y60ga"]
 [ext_resource type="TileSet" uid="uid://bnpggr5480t5q" path="res://Art/TileSets/initialTileSet.tres" id="2_adbuu"]
-[ext_resource type="PackedScene" uid="uid://b42fe8hyi4bsb" path="res://Scenes/player.tscn" id="3_k6kxb"]
+[ext_resource type="PackedScene" uid="uid://cysodiay27ikj" path="res://Scenes/rigidPlayer.tscn" id="3_8i7g3"]
 [ext_resource type="PackedScene" uid="uid://dvbyxsl5e3ol8" path="res://Scenes/Triggers/Trigger_Helpers/TransitionField.tscn" id="4_7bh3v"]
 [ext_resource type="PackedScene" uid="uid://dxkklnkpsn70w" path="res://Scenes/Triggers/BreakableBlocks/32x32breakableBlock.tscn" id="4_o2q5l"]
 [ext_resource type="PackedScene" uid="uid://dnqoj4eg2l7le" path="res://Scenes/Triggers/trampolineTrigger.tscn" id="4_uv66a"]
@@ -14,7 +14,7 @@
 script = ExtResource("1_y60ga")
 cameraSpot = NodePath("CenterPosition")
 cameraSize = Vector2(640, 512)
-player = NodePath("Player")
+player = NodePath("rigidPlayer")
 transitionField = NodePath("TransitionField")
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -22,9 +22,8 @@ tile_set = ExtResource("2_adbuu")
 format = 2
 layer_0/tile_data = PackedInt32Array(0, 65536, 1, 65536, 65536, 1, 131072, 65536, 1, 196608, 65536, 1, 262144, 65536, 1, 327680, 65536, 1, 393216, 65536, 1, 458752, 65536, 1, 524288, 65536, 1, 589824, 65536, 1, 655360, 65536, 1, 720896, 65536, 1, 786432, 65536, 1, 786433, 65536, 1, 786434, 65536, 1, 786435, 65536, 1, 786436, 65536, 1, 786441, 65536, 1, 458757, 65536, 1, 917509, 65536, 1, 917510, 65536, 1, 917511, 65536, 1, 917512, 65536, 1, 851972, 65536, 1, 917508, 65536, 1, 851977, 65536, 1, 917513, 65536, 1, 458756, 65536, 1, 458755, 65536, 1, 458754, 65536, 1, 458760, 65536, 1, 458761, 65536, 1, 458753, 65536, 1, 524297, 65536, 1, 589833, 65536, 1, 655369, 65536, 1, 720905, 65536, 1, 393221, 65536, 1, 327685, 65536, 1, 262149, 65536, 1, 262150, 65536, 1, 262151, 65536, 1, 262152, 65536, 1, 262153, 65536, 1, 262154, 65536, 1, 65541, 65536, 1, 131077, 65536, 1, 196613, 65536, 1, 5, 65536, 1, 458762, 65536, 1, 524298, 65536, 1, 589834, 65536, 1, 655370, 65536, 1, 720906, 65536, 1, 786442, 65536, 1, 786443, 65536, 1, 786444, 65536, 1, 786445, 65536, 1, 786446, 65536, 1, 786447, 65536, 1, 786448, 65536, 1, 786449, 65536, 1, 786450, 65536, 1, 786451, 65536, 1, -65531, 65536, 1, -131067, 65536, 1, -131068, 65536, 1, -131069, 65536, 1, -131070, 65536, 1, -131071, 65536, 1, -131072, 65536, 1, -65536, 65536, 1, 458765, 65536, 1, 458768, 65536, 1, 720915, 65536, 1, 655379, 65536, 1, 589843, 65536, 1, 524307, 65536, 1, 458771, 65536, 1, 458773, 65536, 1, 458772, 65536, 1, 262155, 65536, 1, 262156, 65536, 1, 262157, 65536, 1, 262158, 65536, 1, 262159, 65536, 1, 262160, 65536, 1, 262161, 65536, 1, 262163, 65536, 1, 262162, 65536, 1, 262164, 65536, 1, 262165, 65536, 1, 262166, 65536, 1, 458774, 65536, 1, 327702, 65536, 1, 393238, 65536, 1)
 
-[node name="Player" parent="." instance=ExtResource("3_k6kxb")]
+[node name="rigidPlayer" parent="." instance=ExtResource("3_8i7g3")]
 position = Vector2(64, 368)
-starting_direction = null
 
 [node name="CenterPosition" type="Marker2D" parent="."]
 position = Vector2(320, 256)

@@ -4,7 +4,7 @@ class_name levelController
 
 @export var cameraSpot : Marker2D
 @export var cameraSize : Vector2
-@export var player : Player
+@export var player : rigidPlayer
 @export var transitionField : TransitionField
 
 var triggerBlocks : Array[baseTrigger]

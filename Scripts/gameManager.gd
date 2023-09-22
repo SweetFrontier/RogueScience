@@ -6,13 +6,14 @@ extends Node
 @export var camera: Camera2D
 @export var current_level: int
 @export var musicPlayer: AudioStreamPlayer
+@export var Transition : AnimatedSprite2D
 
-var moving : bool = false
+var moving : bool = true
 var movingTime : float = 1
 var movingProgress : float = 0
 var movingStart : Vector2
 var movingGoal : Vector2
-var zooming : bool = false
+var zooming : bool = true
 var zoomingTime : float = 1
 var zoomingProgress : float = 0
 var zoomingStart : Vector2
@@ -21,10 +22,12 @@ var zoomingGoal : Vector2
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Levels[current_level].process_mode = Node.PROCESS_MODE_ALWAYS
+	movingStart = camera.global_position
+	movingGoal = Levels[current_level].cameraSpot.global_position
 	var min_zoom_size : Vector2 =  Levels[current_level].cameraSize
 	var final_zoom_size = minf(1280/min_zoom_size.x,736/min_zoom_size.y)
-	camera.global_position = Levels[current_level].cameraSpot.global_position
-	camera.zoom = Vector2(final_zoom_size,final_zoom_size)
+	zoomingStart = camera.zoom
+	zoomingGoal = Vector2(final_zoom_size,final_zoom_size)
 	set_process(true)
 	for level in Levels:
 		level.transitionField.connect("increase_level_signal", increase_level)
@@ -56,25 +59,38 @@ func _process(delta):
 
 func increase_level() -> void:
 	current_level += 1
-	if(current_level >= Levels.size()):
+	if(current_level >= Levels.size()-1):
 		get_tree().change_scene_to_file("res://Scenes/Credits/credits.tscn")
-		return
-	Levels[current_level-1].levelEnded()
-	moving = true
-	movingProgress = 0
-	movingStart = camera.global_position
-	movingGoal = Levels[current_level].cameraSpot.global_position
-	zooming = true
-	zoomingProgress = 0
-	zoomingStart = camera.zoom
+	#moving = true
+	#movingProgress = 0
+	#movingStart = camera.global_position
+	#movingGoal = Levels[current_level].cameraSpot.global_position
+	#zooming = true
+	#zoomingProgress = 0
+	#zoomingStart = camera.zoom
 	var min_zoom_size : Vector2 =  Levels[current_level].cameraSize
 	var final_zoom_size = minf(1280/min_zoom_size.x,736/min_zoom_size.y)
-	zoomingGoal = Vector2(final_zoom_size,final_zoom_size)
+	#zoomingGoal = Vector2(final_zoom_size,final_zoom_size)
+	
+	Transition.show()
+	Transition.play("CoverScreen")
+	Transition.get_child(0).play()
+	
+	await(Transition.animation_finished)
+	
+	#move camera and change zoom
+	camera.position = Levels[current_level].cameraSpot.global_position
+	camera.set_zoom(Vector2(final_zoom_size, final_zoom_size))
+	Transition.play("UncoverScreen");
+	
 	# set music
 	if (current_level == 2):
 		musicPlayer.changeMusic("midlevels");
 	elif (current_level == 4):
 		musicPlayer.changeMusic("intense");
+	
+	await(Transition.animation_finished)
+	Transition.hide()
 
 func resetLevel() -> void:
 	# Resets the entire current level

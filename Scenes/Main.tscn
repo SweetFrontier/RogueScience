@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://vwjnt2j2wbqk"]
+[gd_scene load_steps=21 format=3 uid="uid://vwjnt2j2wbqk"]
 
 [ext_resource type="Script" path="res://Scripts/gameManager.gd" id="1_rlws3"]
 [ext_resource type="PackedScene" uid="uid://cp1xr265ye340" path="res://Scenes/Levels/Level1.tscn" id="3_cm24v"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://sfyvalykml4p" path="res://Scenes/Screens/animatedTransition.tscn" id="12_gan4l"]
 [ext_resource type="Script" path="res://Scripts/MusicPlayer.gd" id="12_tas4r"]
 [ext_resource type="AudioStream" uid="uid://rbyp8q8q34ew" path="res://Sounds/UI/buttonpress.ogg" id="16_4q38v"]
+[ext_resource type="AudioStream" uid="uid://b8niwi0iven0c" path="res://Sounds/levelLoad.mp3" id="18_tk5rk"]
 
 [sub_resource type="Animation" id="Animation_gwjdm"]
 resource_name = "fadeOut"
@@ -43,7 +44,7 @@ script = ExtResource("1_rlws3")
 Levels = [NodePath("Levels/Level1"), NodePath("Levels/Level2"), NodePath("Levels/Level3"), NodePath("Levels/Level4"), NodePath("Levels/Level5"), NodePath("Levels/Level6"), NodePath("Levels/Level7"), NodePath("Levels/Level8"), NodePath("Levels/Level9")]
 camera = NodePath("Camera2D")
 musicPlayer = NodePath("MusicPlayer")
-Transition = NodePath("Camera2D/AnimatedTransition")
+Transition = NodePath("CanvasLayer/AnimatedTransition")
 
 [node name="Levels" type="Node" parent="."]
 process_mode = 4
@@ -83,10 +84,6 @@ position_smoothing_speed = 0.8
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("11_rpaq4")
 
-[node name="AnimatedTransition" parent="Camera2D" instance=ExtResource("12_gan4l")]
-visible = false
-position = Vector2(0, 0)
-
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="." node_paths=PackedStringArray("animationPlayer")]
 process_mode = 3
 stream = ExtResource("3_mfq2v")
@@ -113,4 +110,13 @@ metadata/_edit_lock_ = true
 [node name="ButtonSound" type="AudioStreamPlayer" parent="CanvasLayer"]
 process_mode = 3
 stream = ExtResource("16_4q38v")
+bus = &"Sound Effects"
+
+[node name="AnimatedTransition" parent="CanvasLayer" instance=ExtResource("12_gan4l")]
+visible = false
+autoplay = ""
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CanvasLayer/AnimatedTransition"]
+stream = ExtResource("18_tk5rk")
+pitch_scale = 0.8
 bus = &"Sound Effects"

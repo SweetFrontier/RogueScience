@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://27bpb28umkw5"]
+[gd_scene load_steps=12 format=3 uid="uid://27bpb28umkw5"]
 
 [ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="1_ty1qf"]
 [ext_resource type="Texture2D" uid="uid://dunnspau7ty43" path="res://Art/Backgrounds/title.png" id="2_molfq"]
@@ -10,8 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://dkwjo723fg2en" path="res://Art/Keys/MenuButton.png" id="5_x5no4"]
 [ext_resource type="Texture2D" uid="uid://co6yo5mcnxsq1" path="res://Art/Keys/MenuButtonSelected.png" id="6_mf5g2"]
 [ext_resource type="AudioStream" uid="uid://rbyp8q8q34ew" path="res://Sounds/UI/buttonpress.ogg" id="9_pdbac"]
+[ext_resource type="PackedScene" uid="uid://e5eji38ijxv2" path="res://Scenes/Screens/titleTransition.tscn" id="11_jyoxk"]
 
-[node name="MainMenu" type="Control" node_paths=PackedStringArray("soundSettings", "titleScreen", "buttonSound")]
+[node name="MainMenu" type="Control" node_paths=PackedStringArray("soundSettings", "titleScreen", "buttonSound", "transition")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -22,6 +23,7 @@ script = ExtResource("1_ty1qf")
 soundSettings = NodePath("OptionsMenu")
 titleScreen = NodePath("TitleScreen")
 buttonSound = NodePath("ButtonPlayer")
+transition = NodePath("AnimatedTransition")
 
 [node name="Background" type="TextureRect" parent="." node_paths=PackedStringArray("audioPlayer")]
 layout_mode = 1
@@ -141,6 +143,10 @@ bus = &"Sound Effects"
 [node name="ButtonPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_pdbac")
 bus = &"Sound Effects"
+
+[node name="AnimatedTransition" parent="." instance=ExtResource("11_jyoxk")]
+visible = false
+position = Vector2(640, 368)
 
 [connection signal="pressed" from="TitleScreen/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="TitleScreen/VBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bagvjmvnxf64i"]
+[gd_scene load_steps=10 format=3 uid="uid://b14fjjfdofdlf"]
 
 [ext_resource type="Script" path="res://Scripts/levelController.gd" id="1_ywduj"]
 [ext_resource type="TileSet" uid="uid://bnpggr5480t5q" path="res://Art/TileSets/initialTileSet.tres" id="2_50rai"]
@@ -6,59 +6,48 @@
 [ext_resource type="PackedScene" uid="uid://dvbyxsl5e3ol8" path="res://Scenes/Triggers/Trigger_Helpers/TransitionField.tscn" id="4_1jh67"]
 [ext_resource type="PackedScene" uid="uid://dxkklnkpsn70w" path="res://Scenes/Triggers/BreakableBlocks/32x32breakableBlock.tscn" id="4_j2lwa"]
 [ext_resource type="PackedScene" uid="uid://c0eghc3oa7752" path="res://Scenes/Triggers/Trigger_Helpers/movingObject.tscn" id="4_ymuru"]
-[ext_resource type="PackedScene" uid="uid://p8wyqr1wis6" path="res://Scenes/Triggers/InvisibleBlocks/64x32InvisibleBlock.tscn" id="5_05taw"]
-[ext_resource type="PackedScene" uid="uid://psrem4kknlu8" path="res://Scenes/Triggers/BreakableBlocks/32x64breakableBlock.tscn" id="5_is3bh"]
-[ext_resource type="PackedScene" uid="uid://djb81orxw62lt" path="res://Scenes/Triggers/BreakableBlocks/64x64breakableBlock.tscn" id="6_046uy"]
+[ext_resource type="PackedScene" uid="uid://cchja6n6j78ob" path="res://Scenes/playerDeathExplosion.tscn" id="7_u8lhh"]
+[ext_resource type="PackedScene" uid="uid://ci05tj7j8an3w" path="res://Scenes/Triggers/BreakableBlocks/64x32breakableBlock.tscn" id="8_exuim"]
+[ext_resource type="PackedScene" uid="uid://dpeaoe3ad3ahy" path="res://Scenes/Triggers/Trigger_Helpers/brokenVat.tscn" id="9_m60ml"]
 
 [node name="Level4" type="Node2D" node_paths=PackedStringArray("cameraSpot", "player", "transitionField")]
 script = ExtResource("1_ywduj")
 cameraSpot = NodePath("CenterPosition")
-cameraSize = Vector2(704, 416)
+cameraSize = Vector2(304, 576)
 player = NodePath("rigidPlayer")
 transitionField = NodePath("TransitionField")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("2_50rai")
 format = 2
-layer_0/tile_data = PackedInt32Array(0, 3, 0, 65536, 196611, 1, 131072, 3, 1, 196608, 196611, 1, 262144, 196611, 1, 327680, 196611, 1, 393216, 196611, 1, 458752, 196611, 1, 524288, 3, 1, 524289, 131075, 0, 524292, 3, 0, 524293, 131075, 0, 1, 327683, 0, 2, 327683, 0, 3, 327683, 0, 4, 327683, 0, 5, 327683, 0, 6, 327683, 0, 7, 327683, 0, 8, 327683, 0, 9, 327683, 0, 131073, 458755, 6, 131074, 65539, 3, 196611, 458755, 6, 196612, 65539, 3, 262149, 458755, 6, 262150, 65539, 3, 589829, 131075, 2, 589831, 458755, 0, 589836, 458755, 0, 262148, 393219, 6, 262153, 393219, 6, 262155, 65539, 3, 262154, 458755, 6, 196617, 65539, 3, 196616, 458755, 6, 131079, 65539, 3, 131078, 458755, 7, 262147, 393219, 4, 196609, 393219, 4, 196610, 393219, 6, 262158, 393219, 6, 262160, 65539, 3, 262159, 458755, 6, 196621, 458755, 6, 131083, 458755, 7, 196622, 65539, 3, 131084, 65539, 3, 10, 327683, 0, 11, 327683, 0, 12, 327683, 0, 13, 327683, 0, 14, 327683, 0, 15, 327683, 0, 16, 327683, 0, 17, 327683, 0, 262162, 196611, 1, 589841, 262147, 0, 589824, 3, 1, 589825, 131075, 2, 589828, 3, 2, 327685, 393219, 4, 327686, 262147, 5, 327691, 262147, 5, 327696, 262147, 5, 327698, 3, 2, 196626, 196611, 1, 131090, 196611, 1, 65554, 196611, 1, 18, 131075, 0, 655360, 196611, 1, 720896, 196611, 1, 786432, 3, 2, 786433, 327683, 0, 786434, 327683, 0, 786435, 327683, 0, 786436, 327683, 0, 786437, 327683, 0, 786450, 131075, 2, 786449, 327683, 0, 786448, 327683, 0, 786447, 327683, 0, 786446, 327683, 0, 786445, 327683, 0, 786444, 327683, 0, 786443, 327683, 0, 786442, 327683, 0, 786441, 327683, 0, 786440, 327683, 0, 786439, 327683, 0, 786438, 327683, 0, 720914, 196611, 1, 655381, 131075, 2, 655380, 327683, 0, 655379, 327683, 0, 655378, 3, 1, 589842, 131075, 1, 524306, 196611, 0, 589845, 196611, 1, 524309, 196611, 1, 458773, 196611, 1, 393237, 196611, 1, 327701, 131075, 0, 327700, 327683, 0, 327699, 327683, 0, 196615, 393219, 6, 327690, 393219, 4, 262152, 393219, 4, 196614, 393219, 4, 196620, 393219, 6, 262157, 393219, 4, 327695, 393219, 4, 196619, 393219, 4, 327688, 458755, 0, 327693, 458755, 0)
+layer_0/tile_data = PackedInt32Array(0, 65539, 0, 196608, 65539, 1, 262144, 65539, 1, 327680, 131075, 1, 1, 65539, 0, 2, 65539, 0, 3, 65539, 0, 393216, 131075, 1, 458752, 65539, 1, 524288, 65539, 1, 589824, 65539, 1, 655360, 65539, 1, 720896, 65539, 1, 786432, 131075, 1, 851968, 65539, 1, 65536, 65539, 1, 131072, 65539, 1, 262145, 196611, 4, 262146, 262147, 4, 196611, 65539, 2, 196610, 262147, 3, 196609, 65539, 1, 65537, 65539, 1, 131073, 65539, 1, 65538, 65539, 1, 131074, 65539, 1, 131075, 65539, 1, 65539, 65539, 1, 458753, 65539, 0, 524289, 262147, 3, 524290, 196611, 4, 458754, 65539, 0, 458755, 65539, 0, 983040, 65539, 1, 917504, 65539, 1, 1048577, 65539, 1, 1048578, 65539, 1, 1048579, 65539, 1, 1048576, 65539, 1, 1114112, 65539, 2, 1114113, 65539, 2, 1114114, 65539, 2, 1114115, 65539, 2, 65535, 3, 0, 131071, 3, 1, 196607, 3, 1, 262143, 3, 1, 327679, 3, 1, 458751, 3, 1, 393215, 3, 1, 1179647, 3, 2, 1114111, 3, 1, 1048575, 3, 1, 983039, 3, 1, 917503, 3, 1, 851967, 3, 1, 786431, 3, 1, 720895, 3, 1, 655359, 3, 1, 589823, 3, 1, 524287, 3, 1, 983041, 65539, 1, 983042, 65539, 1, 983043, 65539, 4, 851969, 393219, 1, 917506, 3, 3, 917507, 65539, 3, 917505, 393219, 2, 6, 65539, 0, 65542, 65539, 1, 131078, 65539, 1, 196614, 65539, 2, 458758, 327683, 0, 720902, 327683, 0, 983046, 65539, 0, 1048582, 65539, 1, 1114118, 65539, 2, 7, 65539, 0, 1048583, 65539, 1, 1114119, 65539, 2, 8, 65539, 0, 65544, 131075, 1, 131080, 131075, 1, 196616, 131075, 2, 1048584, 65539, 1, 1114120, 65539, 2, 9, 327683, 0, 1048585, 65539, 0, 1114121, 65539, 2, 10, 65539, 0, 65546, 3, 1, 131082, 3, 1, 196618, 3, 2, 1048586, 65539, 0, 1114122, 65539, 2, 11, 65539, 0, 65547, 65539, 1, 131083, 65539, 1, 196619, 65539, 2, 458763, 262147, 0, 720907, 262147, 0, 983051, 3, 0, 1048587, 65539, 1, 1114123, 65539, 2, 12, 65539, 0, 65548, 65539, 1, 131084, 65539, 1, 196620, 65539, 2, 720908, 327683, 0, 983052, 65539, 0, 1048588, 65539, 1, 1114124, 65539, 2, 13, 65539, 0, 65549, 65539, 1, 131085, 65539, 1, 196621, 65539, 2, 720909, 65539, 0, 786445, 393219, 4, 983053, 65539, 0, 1048589, 65539, 1, 1114125, 65539, 2, 14, 65539, 0, 65550, 65539, 1, 131086, 65539, 1, 196622, 393219, 3, 262158, 393219, 4, 655374, 131075, 3, 720910, 131075, 4, 786446, 458755, 4, 983054, 131075, 0, 1048590, 131075, 1, 1114126, 65539, 2, 15, 65539, 0, 65551, 65539, 1, 131087, 65539, 1, 196623, 65539, 1, 262159, 458755, 4, 655375, 196611, 3, 720911, 65539, 1, 786447, 65539, 2, 1114127, 327683, 0, 65543, 65539, 1, 131079, 65539, 1, 196615, 65539, 2, 458759, 327683, 0, 720903, 327683, 0, 983047, 65539, 0, 458760, 393219, 0, 720904, 393219, 0, 983048, 131075, 0, 458764, 327683, 0, 458765, 393219, 0, 16, 65539, 0, 65552, 65539, 1, 131088, 65539, 1, 196624, 65539, 1, 262160, 393219, 3, 327696, 3, 1, 393232, 3, 1, 458768, 3, 1, 524304, 3, 1, 589840, 3, 1, 655376, 65539, 1, 720912, 65539, 1, 786448, 65539, 2, 1114128, 327683, 0, 17, 131075, 0, 65553, 131075, 1, 131089, 131075, 1, 196625, 131075, 1, 262161, 131075, 1, 327697, 131075, 1, 393233, 131075, 1, 458769, 131075, 1, 524305, 131075, 1, 589841, 131075, 1, 655377, 131075, 1, 720913, 131075, 1, 786449, 131075, 1, 851985, 196611, 1, 917521, 196611, 1, 983057, 196611, 1, 1048593, 196611, 1, 1114129, 131075, 2, 720900, 262147, 0, 720901, 327683, 0, 983044, 65539, 0, 1048580, 65539, 1, 983045, 65539, 0, 1048581, 65539, 1, 1114116, 65539, 2, 1114117, 65539, 2, 458756, 327683, 0, 458757, 327683, 0, 196612, 65539, 2, 196613, 65539, 2, 131077, 65539, 1, 131076, 65539, 1, 65540, 65539, 1, 65541, 65539, 1, 5, 65539, 0, 4, 65539, 0, 589825, 131075, 1, 655361, 131075, 1, 720897, 131075, 2, 524291, 262147, 4)
 
 [node name="rigidPlayer" parent="." instance=ExtResource("3_6ew51")]
-position = Vector2(64, 240)
+position = Vector2(62, 208)
 
 [node name="CenterPosition" type="Marker2D" parent="."]
-position = Vector2(352, 208)
+position = Vector2(272, 288)
 
 [node name="TransitionField" parent="." instance=ExtResource("4_1jh67")]
-position = Vector2(640, 288)
+position = Vector2(512, 512)
 
 [node name="movingObject" parent="." instance=ExtResource("4_ymuru")]
-position = Vector2(48, 48)
-
-[node name="movingObject2" parent="." node_paths=PackedStringArray("floorDetector") instance=ExtResource("4_ymuru")]
-position = Vector2(208, 48)
-floorDetector = NodePath("../movingObject/RayCast2D")
-
-[node name="movingObject3" parent="." node_paths=PackedStringArray("floorDetector") instance=ExtResource("4_ymuru")]
-position = Vector2(368, 48)
-floorDetector = NodePath("../movingObject/RayCast2D")
-
-[node name="invisibleBlock" parent="." instance=ExtResource("5_05taw")]
-position = Vector2(288, 256)
-
-[node name="invisibleBlock2" parent="." instance=ExtResource("5_05taw")]
-position = Vector2(448, 256)
-
-[node name="32x64breakableBlock" parent="." instance=ExtResource("5_is3bh")]
-position = Vector2(160, 192)
+position = Vector2(304, 80)
 
 [node name="32x32breakableBlock" parent="." instance=ExtResource("4_j2lwa")]
-position = Vector2(224, 192)
+position = Vector2(288, 96)
+
+[node name="PlayerDeathExplosion" parent="." instance=ExtResource("7_u8lhh")]
+position = Vector2(231, 181)
 
 [node name="32x32breakableBlock2" parent="." instance=ExtResource("4_j2lwa")]
-position = Vector2(384, 192)
+position = Vector2(176, 192)
 
-[node name="32x32breakableBlock3" parent="." instance=ExtResource("4_j2lwa")]
-position = Vector2(544, 192)
+[node name="64x32breakableBlock" parent="." instance=ExtResource("8_exuim")]
+position = Vector2(288, 224)
 
-[node name="64x64breakableBlock" parent="." instance=ExtResource("6_046uy")]
-position = Vector2(64, 256)
+[node name="64x32breakableBlock2" parent="." instance=ExtResource("8_exuim")]
+position = Vector2(288, 352)
+
+[node name="brokenVat" parent="." instance=ExtResource("9_m60ml")]
+position = Vector2(64, 192)

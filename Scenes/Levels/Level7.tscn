@@ -1,107 +1,85 @@
-[gd_scene load_steps=14 format=3 uid="uid://capobeay08c0e"]
+[gd_scene load_steps=10 format=3 uid="uid://ecmrb7wec1d6"]
 
 [ext_resource type="Script" path="res://Scripts/levelController.gd" id="1_6ruj2"]
 [ext_resource type="TileSet" uid="uid://bnpggr5480t5q" path="res://Art/TileSets/initialTileSet.tres" id="2_vqwjc"]
 [ext_resource type="PackedScene" uid="uid://dd6l6fhpuajke" path="res://Scenes/rigidPlayer.tscn" id="3_2s5f4"]
-[ext_resource type="PackedScene" uid="uid://dxkklnkpsn70w" path="res://Scenes/Triggers/BreakableBlocks/32x32breakableBlock.tscn" id="4_5kryx"]
 [ext_resource type="PackedScene" uid="uid://dnqoj4eg2l7le" path="res://Scenes/Triggers/trampolineTrigger.tscn" id="4_c3rfj"]
+[ext_resource type="PackedScene" uid="uid://p8wyqr1wis6" path="res://Scenes/Triggers/InvisibleBlocks/64x32InvisibleBlock.tscn" id="6_4hvpr"]
 [ext_resource type="PackedScene" uid="uid://c0eghc3oa7752" path="res://Scenes/Triggers/Trigger_Helpers/movingObject.tscn" id="6_82q2y"]
 [ext_resource type="PackedScene" uid="uid://djb81orxw62lt" path="res://Scenes/Triggers/BreakableBlocks/64x64breakableBlock.tscn" id="6_u78qg"]
-[ext_resource type="PackedScene" uid="uid://by8l8mnrr610i" path="res://Scenes/Triggers/InvisibleBlocks/LeftSlopeInvisibleBlock.tscn" id="7_ovrog"]
-[ext_resource type="PackedScene" uid="uid://6g21fyk11mro" path="res://Scenes/Triggers/InvisibleBlocks/RightSlopeInvisibleBlock.tscn" id="8_am4qc"]
-[ext_resource type="PackedScene" uid="uid://lo15rijnwjdn" path="res://Scenes/Triggers/BreakableBlocks/LeftSlopebreakableBlock.tscn" id="9_j3cr0"]
-[ext_resource type="PackedScene" uid="uid://dgkh4na3ckdg2" path="res://Scenes/Triggers/BreakableBlocks/RightSlopebreakableBlock.tscn" id="10_l64ce"]
 [ext_resource type="PackedScene" uid="uid://dvbyxsl5e3ol8" path="res://Scenes/Triggers/Trigger_Helpers/TransitionField.tscn" id="12_t7nlu"]
 [ext_resource type="PackedScene" uid="uid://dpeaoe3ad3ahy" path="res://Scenes/Triggers/Trigger_Helpers/brokenVat.tscn" id="13_d6xrk"]
 
 [node name="Level7" type="Node2D" node_paths=PackedStringArray("cameraSpot", "player", "transitionField")]
 script = ExtResource("1_6ruj2")
 cameraSpot = NodePath("CenterPosition")
-cameraSize = Vector2(768, 704)
+cameraSize = Vector2(640, 512)
 player = NodePath("rigidPlayer")
 transitionField = NodePath("TransitionField")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("2_vqwjc")
 format = 2
-layer_0/tile_data = PackedInt32Array(524288, 327683, 0, 524289, 327683, 0, 524290, 327683, 0, 524291, 327683, 0, 524292, 65539, 2, 65541, 458755, 7, 458756, 524291, 5, 524294, 65539, 4, 524295, 327683, 0, 524296, 327683, 0, 524297, 327683, 0, 524298, 327683, 0, 524299, 327683, 0, 524300, 327683, 0, 524301, 327683, 0, 524302, 327683, 0, 524303, 327683, 0, 524304, 327683, 0, 524305, 327683, 0, 524306, 327683, 0, 524307, 131075, 2, 524309, 196611, 1, 458773, 196611, 1, 393237, 196611, 1, 327701, 196611, 1, 262165, 196611, 1, 196629, 196611, 1, 131093, 196611, 1, 65557, 196611, 1, 21, 196611, 1, 524293, 65539, 1, 65542, 65539, 3, 458771, 3, 7, 655380, 196611, 3, 589845, 196611, 1, 655381, 131075, 1, 720914, 196611, 3, 458757, 3, 3, 458758, 65539, 3, 393220, 524291, 3, 851985, 65539, 0, 851982, 131075, 0, 720913, 131075, 3, 655379, 131075, 3, 917521, 65539, 1, 917520, 65539, 1, 917519, 65539, 0, 917518, 65539, 1, 917517, 65539, 1, 917516, 65539, 0, 917515, 65539, 1, 851979, 196611, 0, 851976, 65539, 7, 851975, 65539, 1, 917511, 65539, 1, 917512, 65539, 1, 851981, 3, 0, 851984, 3, 0, 851974, 65539, 1, 851973, 65539, 1, 851972, 65539, 1, 851971, 131075, 4, 851970, 65539, 0, 851969, 65539, 0, 851968, 65539, 4, 917503, 65539, 1, 786432, 65539, 3, 786436, 196611, 3, 786437, 65539, 0, 851967, 3, 3, 589823, 327683, 0, 786439, 3, 3, 786440, 65539, 3, 786438, 65539, 0, 589830, 131075, 2, 851986, 131075, 0, 851989, 196611, 1, 720917, 196611, 1, 786453, 196611, 1, -131051, 196611, 1, -65515, 196611, 1, -196587, 131075, 0, -196609, 3, 0, -131074, 3, 0, -2, 196611, 1, -65538, 196611, 1, 65534, 196611, 1, 131070, 196611, 1, 196606, 196611, 1, 262142, 196611, 1, 327678, 196611, 1, 393214, 196611, 1, 458750, 196611, 1, 524286, 196611, 1, 589822, 3, 1, 655358, 196611, 1, 720894, 196611, 1, 786430, 196611, 1, 851966, 3, 1, 917502, 3, 1, 786435, 131075, 3, 589829, 3, 2, 917513, 65539, 0, 917514, 65539, 0, 983038, 3, 1, 983039, 65539, 1, 917504, 65539, 1, 917505, 65539, 1, 917506, 65539, 1, 917507, 65539, 1, 917508, 65539, 1, 917509, 65539, 1, 917510, 65539, 1, 983061, 131075, 2, 1048574, 3, 2, 1048575, 65539, 2, 983040, 65539, 2, 983041, 65539, 2, 983042, 65539, 2, 983043, 65539, 2, 983044, 65539, 2, 983045, 65539, 2, 983046, 65539, 2, 983047, 65539, 2, 983048, 65539, 2, 983049, 65539, 2, 983050, 65539, 2, 983051, 65539, 2, 983052, 65539, 2, 983053, 65539, 2, 983054, 65539, 2, 983055, 65539, 2, 983056, 65539, 2, 983057, 65539, 2, 983058, 65539, 2, 983059, 327683, 0, 983060, 327683, 0, 917525, 196611, 1, 917522, 131075, 1, 131077, 393219, 4, 131078, 262147, 5, -327680, 3, 0, -393215, 3, 0, -458750, 3, 0, -131073, 131075, 2, -262144, 131075, 2, -327679, 131075, 2, -393214, 131075, 2, -196588, 3, 2, -262124, 131075, 0, -327661, 131075, 0, -262125, 3, 2, -393198, 131075, 0, -327662, 3, 2, -458735, 131075, 0, -393199, 3, 2, -458749, 327683, 0, -458748, 327683, 0, -458747, 327683, 0, -458746, 327683, 0, -458745, 327683, 0, -458744, 327683, 0, -458743, 327683, 0, -458742, 327683, 0, -458741, 327683, 0, -458740, 327683, 0, -458739, 327683, 0, -458738, 327683, 0, -458737, 327683, 0, -458736, 327683, 0, 720915, 262147, 6, 720916, 262147, 4)
+layer_0/tile_data = PackedInt32Array(0, 196611, 1, 65536, 196611, 1, 131072, 196611, 1, 196608, 196611, 1, 262144, 196611, 1, 327680, 196611, 1, 393216, 196611, 1, 458752, 3, 1, 524288, 196611, 1, 589824, 196611, 1, 655360, 196611, 1, 720896, 196611, 1, 786432, 3, 2, 786433, 327683, 0, 786434, 327683, 0, 786435, 327683, 0, 786436, 131075, 0, 786441, 3, 1, 458757, 131075, 2, 917509, 327683, 0, 917510, 327683, 0, 917511, 327683, 0, 917512, 327683, 0, 851972, 196611, 1, 917508, 3, 2, 851977, 196611, 1, 917513, 131075, 2, 458756, 327683, 0, 458755, 327683, 0, 458754, 327683, 0, 458760, 262147, 0, 458761, 65539, 0, 458753, 327683, 0, 524297, 3, 1, 589833, 3, 1, 655369, 3, 1, 720905, 3, 1, 393221, 196611, 1, 327685, 196611, 1, 262149, 3, 1, 262150, 327683, 0, 262151, 327683, 0, 262152, 327683, 0, 262153, 327683, 0, 262154, 327683, 0, 65541, 196611, 1, 131077, 196611, 1, 196613, 196611, 1, 5, 196611, 1, 458762, 131075, 0, 524298, 131075, 1, 589834, 131075, 1, 655370, 131075, 1, 720906, 131075, 1, 786442, 65539, 2, 786443, 327683, 0, 786444, 327683, 0, 786445, 327683, 0, 786446, 327683, 0, 786447, 327683, 0, 786448, 327683, 0, 786449, 327683, 0, 786450, 327683, 0, 786451, 131075, 2, -65531, 196611, 1, -131067, 131075, 0, -131068, 327683, 0, -131069, 327683, 0, -131070, 327683, 0, -131071, 327683, 0, -131072, 3, 0, -65536, 196611, 1, 458765, 458755, 0, 458768, 458755, 0, 720915, 196611, 1, 655379, 196611, 1, 589843, 3, 1, 524307, 196611, 1, 458771, 196611, 0, 262155, 327683, 0, 262156, 327683, 0, 262157, 327683, 0, 262158, 327683, 0, 262159, 327683, 0, 262160, 327683, 0, 262161, 327683, 0, 262163, 327683, 0, 262162, 327683, 0, 262164, 327683, 0, 262165, 327683, 0, 262166, 131075, 0, 458774, 196611, 1, 327702, 196611, 1, 393238, 196611, 1, 524310, 196611, 1, 589846, 131075, 2, 589845, 327683, 0, 589844, 327683, 0)
 
 [node name="rigidPlayer" parent="." instance=ExtResource("3_2s5f4")]
-position = Vector2(64, 400)
+position = Vector2(64, 368)
 
 [node name="CenterPosition" type="Marker2D" parent="."]
-position = Vector2(320, 144)
-metadata/_edit_group_ = true
+position = Vector2(320, 256)
 
 [node name="TransitionField" parent="." instance=ExtResource("12_t7nlu")]
-position = Vector2(640, 448)
-
-[node name="trampolineTrigger" parent="." instance=ExtResource("4_c3rfj")]
-position = Vector2(288, 176)
-startActivated = true
-
-[node name="32x32breakableBlock" parent="." instance=ExtResource("4_5kryx")]
-position = Vector2(160, 0)
-
-[node name="movingObject" parent="." instance=ExtResource("6_82q2y")]
-position = Vector2(176, -16)
-
-[node name="LeftSlopeInvisibleBlock" parent="." instance=ExtResource("7_ovrog")]
-position = Vector2(256, -32)
-
-[node name="trampolineTrigger2" parent="." instance=ExtResource("4_c3rfj")]
-position = Vector2(416, 176)
-startActivated = true
-
-[node name="RightSlopeInvisibleBlock" parent="." instance=ExtResource("8_am4qc")]
-position = Vector2(256, 64)
-
-[node name="RightSlopeInvisibleBlock2" parent="." instance=ExtResource("8_am4qc")]
-position = Vector2(352, 32)
-
-[node name="LeftSlopeInvisibleBlock2" parent="." instance=ExtResource("7_ovrog")]
-position = Vector2(384, 64)
-
-[node name="movingObject2" parent="." instance=ExtResource("6_82q2y")]
-position = Vector2(288, -176)
-
-[node name="32x32breakableBlock2" parent="." instance=ExtResource("4_5kryx")]
-position = Vector2(272, -160)
-
-[node name="32x32breakableBlock3" parent="." instance=ExtResource("4_5kryx")]
-position = Vector2(160, -64)
-
-[node name="movingObject3" parent="." instance=ExtResource("6_82q2y")]
-position = Vector2(176, -80)
-
-[node name="trampolineTrigger3" parent="." instance=ExtResource("4_c3rfj")]
-position = Vector2(544, 176)
-startActivated = true
-
-[node name="LeftSlopeInvisibleBlock3" parent="." instance=ExtResource("7_ovrog")]
-position = Vector2(512, -32)
-
-[node name="trampolineTrigger4" parent="." instance=ExtResource("4_c3rfj")]
-position = Vector2(480, 240)
-startActivated = true
-
-[node name="LeftSlopeInvisibleBlock4" parent="." instance=ExtResource("7_ovrog")]
-position = Vector2(512, 96)
-
-[node name="LeftSlopeInvisibleBlock5" parent="." instance=ExtResource("7_ovrog")]
-position = Vector2(448, 128)
-
-[node name="LeftSlopeInvisibleBlock6" parent="." instance=ExtResource("7_ovrog")]
-position = Vector2(512, 32)
-
-[node name="RightSlopebreakableBlock" parent="." instance=ExtResource("10_l64ce")]
-position = Vector2(320, 0)
-
-[node name="LeftSlopebreakableBlock3" parent="." instance=ExtResource("9_j3cr0")]
-position = Vector2(448, 64)
+position = Vector2(672, 256)
 
 [node name="64x64breakableBlock" parent="." instance=ExtResource("6_u78qg")]
-position = Vector2(160, 320)
+position = Vector2(288, 160)
+
+[node name="invisibleBlock" parent="." instance=ExtResource("6_4hvpr")]
+position = Vector2(192, 224)
+
+[node name="movingObject" parent="." instance=ExtResource("6_82q2y")]
+position = Vector2(64, 48)
+
+[node name="movingObject2" parent="." instance=ExtResource("6_82q2y")]
+position = Vector2(128, -16)
+
+[node name="movingObject3" parent="." instance=ExtResource("6_82q2y")]
+position = Vector2(384, 336)
+
+[node name="movingObject4" parent="." instance=ExtResource("6_82q2y")]
+position = Vector2(480, 304)
+
+[node name="movingObject5" parent="." instance=ExtResource("6_82q2y")]
+position = Vector2(576, 272)
+
+[node name="trampolineTrigger" parent="." instance=ExtResource("4_c3rfj")]
+position = Vector2(224, 432)
+jump_force = 750.0
+
+[node name="trampolineTrigger2" parent="." instance=ExtResource("4_c3rfj")]
+position = Vector2(64, 208)
+jump_force = 500.0
+startActivated = true
+
+[node name="trampolineTrigger3" parent="." instance=ExtResource("4_c3rfj")]
+position = Vector2(128, 208)
+jump_force = 500.0
+startActivated = true
+
+[node name="trampolineTrigger4" parent="." instance=ExtResource("4_c3rfj")]
+position = Vector2(384, 368)
+jump_force = 530.0
+startActivated = true
+
+[node name="trampolineTrigger5" parent="." instance=ExtResource("4_c3rfj")]
+position = Vector2(480, 368)
+jump_force = 530.0
+startActivated = true
+
+[node name="trampolineTrigger6" parent="." instance=ExtResource("4_c3rfj")]
+position = Vector2(576, 368)
+jump_force = 530.0
+startActivated = true
 
 [node name="brokenVat" parent="." instance=ExtResource("13_d6xrk")]
-position = Vector2(64, 384)
+position = Vector2(64, 352)

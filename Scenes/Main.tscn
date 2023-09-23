@@ -6,13 +6,13 @@
 [ext_resource type="PackedScene" uid="uid://c8uldnq5xgsmq" path="res://Scenes/Levels/Level2.tscn" id="3_q6jj7"]
 [ext_resource type="PackedScene" uid="uid://b205eu3laorb7" path="res://Scenes/Levels/Level3.tscn" id="4_tfitk"]
 [ext_resource type="PackedScene" uid="uid://ccwfvydfhyx65" path="res://Scenes/Screens/PauseMenu.tscn" id="4_tnt1f"]
-[ext_resource type="PackedScene" uid="uid://bagvjmvnxf64i" path="res://Scenes/Levels/Level4.tscn" id="5_hsxwe"]
+[ext_resource type="PackedScene" uid="uid://bagvjmvnxf64i" path="res://Scenes/Levels/Level5.tscn" id="5_hsxwe"]
 [ext_resource type="PackedScene" uid="uid://mq8lonv11ksd" path="res://Scenes/Screens/OptionsMenu.tscn" id="5_qvib5"]
-[ext_resource type="PackedScene" uid="uid://b6l8bjdbkmou6" path="res://Scenes/Levels/Level5.tscn" id="6_46lch"]
-[ext_resource type="PackedScene" uid="uid://ecmrb7wec1d6" path="res://Scenes/Levels/Level6.tscn" id="7_amafv"]
-[ext_resource type="PackedScene" uid="uid://capobeay08c0e" path="res://Scenes/Levels/Level7.tscn" id="8_6oibd"]
-[ext_resource type="PackedScene" uid="uid://dl2are1byex1o" path="res://Scenes/Levels/Level8.tscn" id="9_o2f4e"]
-[ext_resource type="PackedScene" uid="uid://bpsr342b2aa3u" path="res://Scenes/Levels/Level9.tscn" id="10_dk1u2"]
+[ext_resource type="PackedScene" uid="uid://b6l8bjdbkmou6" path="res://Scenes/Levels/Level6.tscn" id="6_46lch"]
+[ext_resource type="PackedScene" uid="uid://ecmrb7wec1d6" path="res://Scenes/Levels/Level7.tscn" id="7_amafv"]
+[ext_resource type="PackedScene" uid="uid://capobeay08c0e" path="res://Scenes/Levels/Level8.tscn" id="8_6oibd"]
+[ext_resource type="PackedScene" uid="uid://dl2are1byex1o" path="res://Scenes/Levels/Level9.tscn" id="9_o2f4e"]
+[ext_resource type="PackedScene" uid="uid://bpsr342b2aa3u" path="res://Scenes/Levels/Level10.tscn" id="10_dk1u2"]
 [ext_resource type="Texture2D" uid="uid://ch7u0c5stgewm" path="res://Art/Backgrounds/background.png" id="11_rpaq4"]
 [ext_resource type="PackedScene" uid="uid://sfyvalykml4p" path="res://Scenes/Screens/animatedTransition.tscn" id="12_gan4l"]
 [ext_resource type="Script" path="res://Scripts/MusicPlayer.gd" id="12_tas4r"]
@@ -172,8 +172,6 @@ bus = &"Sound Effects"
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 1280.0
-offset_right = 1280.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)

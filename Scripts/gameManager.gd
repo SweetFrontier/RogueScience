@@ -24,10 +24,6 @@ var deathTimer : float = -1
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	#connect player with death
-	for rigidPlayer in Levels:
-		rigidPlayer.connect("player_death_signal", player_death)
-	#Levels[current_level].process_mode = Node.PROCESS_MODE_PAUSABLE
 	movingStart = camera.global_position
 	movingGoal = Levels[current_level].cameraSpot.global_position
 	var min_zoom_size : Vector2 =  Levels[current_level].cameraSize
@@ -37,6 +33,8 @@ func _ready() -> void:
 	set_process(true)
 	for level in Levels:
 		level.transitionField.connect("increase_level_signal", increase_level)
+		level.player.connect("player_death_signal", player_death)
+	Levels[current_level].process_mode = Node.PROCESS_MODE_PAUSABLE
 
 func _process(delta):
 	if (moving):
@@ -48,6 +46,7 @@ func _process(delta):
 		if movingProgress >= movingTime:
 			camera.position = movingGoal
 			moving = false
+	print_debug(current_level)
 		
 	if (zooming):
 		zoomingProgress += delta
@@ -60,9 +59,9 @@ func _process(delta):
 			zooming = false
 	
 	#this seems kinda unoptimized but it works
-	if (Transition.animation_finished):
-		Levels[current_level-1].process_mode = Node.PROCESS_MODE_DISABLED
-		Levels[current_level].process_mode = Node.PROCESS_MODE_PAUSABLE
+	#if (Transition.animation_finished):
+		#Levels[current_level-1].process_mode = Node.PROCESS_MODE_DISABLED
+		#Levels[current_level].process_mode = Node.PROCESS_MODE_PAUSABLE
 	
 	if (deathTimer >= 0):
 		deathTimer += delta
@@ -71,6 +70,9 @@ func _process(delta):
 			resetLevel()
 
 func increase_level() -> void:
+	#FREEZE
+	Levels[current_level].process_mode = Node.PROCESS_MODE_DISABLED
+	#Next level
 	current_level += 1
 	if(current_level >= Levels.size()):
 		get_tree().change_scene_to_file("res://Scenes/Credits/credits.tscn")
@@ -89,7 +91,6 @@ func increase_level() -> void:
 	Transition.show()
 	Transition.play("CoverScreen")
 	Transition.get_child(0).play()
-	
 	
 	await(Transition.animation_finished)
 	

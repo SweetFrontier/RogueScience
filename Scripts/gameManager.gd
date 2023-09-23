@@ -46,7 +46,6 @@ func _process(delta):
 		if movingProgress >= movingTime:
 			camera.position = movingGoal
 			moving = false
-	print_debug(current_level)
 		
 	if (zooming):
 		zoomingProgress += delta
@@ -118,5 +117,4 @@ func resetLevel() -> void:
 	get_tree().paused = false
 
 func player_death() -> void:
-	print_debug("receivedsignal")
 	deathTimer = 0

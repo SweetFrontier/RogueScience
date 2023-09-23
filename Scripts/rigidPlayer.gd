@@ -132,7 +132,6 @@ func _physics_process(delta):
 				HitSounds.play()
 				CrawlSounds.stop()
 				emit_signal("player_death_signal")
-				print_debug(player_death_signal)
 		else:
 			deathCounter = 0
 	

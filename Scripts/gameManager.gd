@@ -5,10 +5,12 @@ extends Node
 @export var Levels: Array[levelController]
 @export var camera: Camera2D
 @export var current_level: int
+@export var pauseMenu : Control
 @export var musicPlayer: AudioStreamPlayer
 @export var Transition : AnimatedSprite2D
 @export var resetWipeTransition : AnimationPlayer
-@export var deathTimerForReset : float = 2
+@export var resetWipeTransitionContoller : ColorRect
+@export var deathTimerForReset : float = 1
 
 var moving : bool = true
 var movingTime : float = 1
@@ -24,6 +26,7 @@ var deathTimer : float = -1
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	resetWipeTransitionContoller.connect("screenCovered", screen_wipe_covered)
 	movingStart = camera.global_position
 	movingGoal = Levels[current_level].cameraSpot.global_position
 	var min_zoom_size : Vector2 =  Levels[current_level].cameraSize
@@ -34,7 +37,9 @@ func _ready() -> void:
 	for level in Levels:
 		level.transitionField.connect("increase_level_signal", increase_level)
 		level.player.connect("player_death_signal", player_death)
+	await(resetWipeTransition.animation_finished)
 	Levels[current_level].process_mode = Node.PROCESS_MODE_PAUSABLE
+	pauseMenu.set_pausability(true)
 
 func _process(delta):
 	if (moving):
@@ -65,16 +70,16 @@ func _process(delta):
 	if (deathTimer >= 0):
 		deathTimer += delta
 		if (deathTimer > deathTimerForReset):
-			deathTimer = -1
-			resetLevel()
+			deathTimer = -2 #death timer being -2 means just died
+			resetWipeTransitionContoller.cover_screen()
 
 func increase_level() -> void:
-	#FREEZE
-	Levels[current_level].process_mode = Node.PROCESS_MODE_DISABLED
 	#Next level
 	current_level += 1
 	if(current_level >= Levels.size()):
-		get_tree().change_scene_to_file("res://Scenes/Credits/credits.tscn")
+		pauseMenu.set_pausability(false)
+		musicPlayer.fadeOut()
+		resetWipeTransitionContoller.cover_screen()
 		return
 	#moving = true
 	#movingProgress = 0
@@ -87,11 +92,16 @@ func increase_level() -> void:
 	var final_zoom_size = minf(1280/min_zoom_size.x,736/min_zoom_size.y)
 	#zoomingGoal = Vector2(final_zoom_size,final_zoom_size)
 	
+	pauseMenu.set_pausability(false)
+	
 	Transition.show()
 	Transition.play("CoverScreen")
 	Transition.get_child(0).play()
 	
 	await(Transition.animation_finished)
+	
+	#freeze prev level
+	Levels[current_level-1].process_mode = Node.PROCESS_MODE_DISABLED
 	
 	#move camera and change zoom
 	camera.position = Levels[current_level].cameraSpot.global_position
@@ -110,6 +120,7 @@ func increase_level() -> void:
 	await(Transition.animation_finished)
 	Transition.hide()
 	Levels[current_level].process_mode = Node.PROCESS_MODE_PAUSABLE
+	pauseMenu.set_pausability(true)
 
 func resetLevel() -> void:
 	# Resets the entire current level
@@ -118,3 +129,14 @@ func resetLevel() -> void:
 
 func player_death() -> void:
 	deathTimer = 0
+	pauseMenu.set_pausability(false)
+
+func screen_wipe_covered():
+	if (deathTimer == -2):
+		deathTimer = -1 #reset to -1
+		resetLevel()
+		resetWipeTransitionContoller.uncover_screen()
+		pauseMenu.set_pausability(true)
+	if (current_level >= Levels.size()):
+		get_tree().change_scene_to_file("res://Scenes/Credits/credits.tscn")
+		pauseMenu.set_pausability(false)

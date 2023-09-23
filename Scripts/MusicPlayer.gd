@@ -19,6 +19,6 @@ func changeMusic(musicName : String):
 	play()
 
 func fadeOut():
-	animationPlayer.play('fadeOut')
+	animationPlayer.play('fastFade')
 	await animationPlayer.animation_finished
 	stop()

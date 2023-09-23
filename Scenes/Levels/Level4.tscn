@@ -40,10 +40,10 @@ position = Vector2(288, 96)
 position = Vector2(176, 192)
 
 [node name="64x32breakableBlock" parent="." instance=ExtResource("8_exuim")]
-position = Vector2(288, 224)
+position = Vector2(288, 253)
 
 [node name="64x32breakableBlock2" parent="." instance=ExtResource("8_exuim")]
-position = Vector2(288, 352)
+position = Vector2(289, 381)
 
 [node name="brokenVat" parent="." instance=ExtResource("9_m60ml")]
 position = Vector2(64, 192)

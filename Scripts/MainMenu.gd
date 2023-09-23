@@ -47,6 +47,8 @@ func _on_settings_button_pressed() -> void:
 
 func _on_quit_button_pressed():
 	buttonSound.play()
+	musicPlayer.fadeOut()
+	noisePlayer.fadeOut()
 	#transition
 	transition.play("SlideToBlack")
 	await(transition.animation_finished)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://27bpb28umkw5"]
+[gd_scene load_steps=17 format=3 uid="uid://27bpb28umkw5"]
 
 [ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="1_ty1qf"]
 [ext_resource type="Texture2D" uid="uid://dunnspau7ty43" path="res://Art/Backgrounds/title.png" id="2_molfq"]
@@ -13,7 +13,7 @@
 [ext_resource type="AudioStream" uid="uid://rbyp8q8q34ew" path="res://Sounds/UI/buttonpress.ogg" id="9_pdbac"]
 
 [sub_resource type="Animation" id="Animation_owlrv"]
-resource_name = "FadeOut"
+resource_name = "fastFade"
 length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -30,7 +30,23 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_iqaxi"]
 _data = {
-"fadeOut": SubResource("Animation_owlrv")
+"fastFade": SubResource("Animation_owlrv")
+}
+
+[sub_resource type="Animation" id="Animation_ohdmr"]
+resource_name = "SlideFromBlack"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 2.14355),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-1281, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_o6crs"]
@@ -51,6 +67,7 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7lgs6"]
 _data = {
+"SlideFromBlack": SubResource("Animation_ohdmr"),
 "SlideToBlack": SubResource("Animation_o6crs")
 }
 
@@ -208,13 +225,12 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 1280.0
-offset_right = 1280.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="TransitionToBlack"]
+autoplay = "SlideFromBlack"
 libraries = {
 "": SubResource("AnimationLibrary_7lgs6")
 }

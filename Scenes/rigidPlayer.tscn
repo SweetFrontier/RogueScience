@@ -72,6 +72,7 @@ target_position = Vector2(26, 0)
 hit_from_inside = true
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
+process_mode = 3
 visible = false
 texture = ExtResource("5_ld6tc")
 texture_offset = Vector2(27, 16)

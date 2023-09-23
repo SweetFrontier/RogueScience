@@ -61,6 +61,7 @@ func reset():
 	
 	just_reset = true
 	dead = false
+	set_process(PROCESS_MODE_INHERIT)
 	being_controlled = false
 	just_started_control = false
 	positioning_finished = false
@@ -127,6 +128,7 @@ func _physics_process(delta):
 				AnimatedSprite.hide()
 				deathExplosion.show()
 				deathExplosion.explode()
+				set_process(PROCESS_MODE_DISABLED)
 				#play sound
 				HitSounds.stream = load("res://Sounds/death.ogg")
 				HitSounds.play()

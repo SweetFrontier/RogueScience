@@ -19,6 +19,8 @@ class_name rigidPlayer
 @export var deathExplosion : Polygon2D
 @export var deathBounceRequirement : int = 5; # number of frames in a row must turn before explode
 
+signal player_death_signal
+
 var current_direction = Vector2.RIGHT
 
 var starting_transform
@@ -119,14 +121,18 @@ func _physics_process(delta):
 			HitSounds.play()
 			
 			if (deathCounter >= deathBounceRequirement):
+				#make dead
 				deathCounter = 0
 				dead = true
 				AnimatedSprite.hide()
 				deathExplosion.show()
 				deathExplosion.explode()
-				
+				#play sound
 				HitSounds.stream = load("res://Sounds/death.ogg")
 				HitSounds.play()
+				CrawlSounds.stop()
+				emit_signal("player_death_signal")
+				print_debug(player_death_signal)
 		else:
 			deathCounter = 0
 	

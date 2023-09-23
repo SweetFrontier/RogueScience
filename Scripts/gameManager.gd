@@ -7,6 +7,8 @@ extends Node
 @export var current_level: int
 @export var musicPlayer: AudioStreamPlayer
 @export var Transition : AnimatedSprite2D
+@export var resetWipeTransition : AnimationPlayer
+@export var deathTimerForReset : float = 2
 
 var moving : bool = true
 var movingTime : float = 1
@@ -18,10 +20,14 @@ var zoomingTime : float = 1
 var zoomingProgress : float = 0
 var zoomingStart : Vector2
 var zoomingGoal : Vector2
+var deathTimer : float = -1
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	Levels[current_level].process_mode = Node.PROCESS_MODE_ALWAYS
+	#connect player with death
+	for rigidPlayer in Levels:
+		rigidPlayer.connect("player_death_signal", player_death)
+	#Levels[current_level].process_mode = Node.PROCESS_MODE_PAUSABLE
 	movingStart = camera.global_position
 	movingGoal = Levels[current_level].cameraSpot.global_position
 	var min_zoom_size : Vector2 =  Levels[current_level].cameraSize
@@ -52,10 +58,17 @@ func _process(delta):
 		if zoomingProgress >= zoomingTime:
 			camera.set_zoom(zoomingGoal)
 			zooming = false
-
+	
+	#this seems kinda unoptimized but it works
 	if (Transition.animation_finished):
 		Levels[current_level-1].process_mode = Node.PROCESS_MODE_DISABLED
 		Levels[current_level].process_mode = Node.PROCESS_MODE_PAUSABLE
+	
+	if (deathTimer >= 0):
+		deathTimer += delta
+		if (deathTimer > deathTimerForReset):
+			deathTimer = -1
+			resetLevel()
 
 func increase_level() -> void:
 	current_level += 1
@@ -96,16 +109,13 @@ func increase_level() -> void:
 	
 	await(Transition.animation_finished)
 	Transition.hide()
+	Levels[current_level].process_mode = Node.PROCESS_MODE_PAUSABLE
 
 func resetLevel() -> void:
 	# Resets the entire current level
 	Levels[current_level].reset()
 	get_tree().paused = false
 
-#wat? player_death? no restart? nah. ima do my own thing.
 func player_death() -> void:
-	$PauseMenu/VBoxContainer.visible = true
-	$PauseMenu/VBoxContainer/ResumeButton.disabled = true
-	$PauseMenu/DeathImage.visible = true
-	$PauseMenu/AnimatedSprite2D.visible = false
-	get_tree().paused = !get_tree().paused
+	print_debug("receivedsignal")
+	deathTimer = 0

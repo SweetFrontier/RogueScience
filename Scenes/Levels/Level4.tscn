@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b14fjjfdofdlf"]
+[gd_scene load_steps=9 format=3 uid="uid://1ms6vswxg33p"]
 
 [ext_resource type="Script" path="res://Scripts/levelController.gd" id="1_ywduj"]
 [ext_resource type="TileSet" uid="uid://bnpggr5480t5q" path="res://Art/TileSets/initialTileSet.tres" id="2_50rai"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://dvbyxsl5e3ol8" path="res://Scenes/Triggers/Trigger_Helpers/TransitionField.tscn" id="4_1jh67"]
 [ext_resource type="PackedScene" uid="uid://dxkklnkpsn70w" path="res://Scenes/Triggers/BreakableBlocks/32x32breakableBlock.tscn" id="4_j2lwa"]
 [ext_resource type="PackedScene" uid="uid://c0eghc3oa7752" path="res://Scenes/Triggers/Trigger_Helpers/movingObject.tscn" id="4_ymuru"]
-[ext_resource type="PackedScene" uid="uid://cchja6n6j78ob" path="res://Scenes/playerDeathExplosion.tscn" id="7_u8lhh"]
 [ext_resource type="PackedScene" uid="uid://ci05tj7j8an3w" path="res://Scenes/Triggers/BreakableBlocks/64x32breakableBlock.tscn" id="8_exuim"]
 [ext_resource type="PackedScene" uid="uid://dpeaoe3ad3ahy" path="res://Scenes/Triggers/Trigger_Helpers/brokenVat.tscn" id="9_m60ml"]
 
@@ -36,9 +35,6 @@ position = Vector2(304, 80)
 
 [node name="32x32breakableBlock" parent="." instance=ExtResource("4_j2lwa")]
 position = Vector2(288, 96)
-
-[node name="PlayerDeathExplosion" parent="." instance=ExtResource("7_u8lhh")]
-position = Vector2(231, 181)
 
 [node name="32x32breakableBlock2" parent="." instance=ExtResource("4_j2lwa")]
 position = Vector2(176, 192)

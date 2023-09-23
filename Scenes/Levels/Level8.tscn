@@ -17,7 +17,7 @@
 [node name="Level8" type="Node2D" node_paths=PackedStringArray("cameraSpot", "player", "transitionField")]
 script = ExtResource("1_6ruj2")
 cameraSpot = NodePath("CenterPosition")
-cameraSize = Vector2(768, 704)
+cameraSize = Vector2(768, 736)
 player = NodePath("rigidPlayer")
 transitionField = NodePath("TransitionField")
 

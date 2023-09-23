@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://vwjnt2j2wbqk"]
+[gd_scene load_steps=29 format=3 uid="uid://vwjnt2j2wbqk"]
 
 [ext_resource type="Script" path="res://Scripts/gameManager.gd" id="1_rlws3"]
 [ext_resource type="PackedScene" uid="uid://cp1xr265ye340" path="res://Scenes/Levels/Level1.tscn" id="3_cm24v"]
@@ -92,8 +92,25 @@ tracks/0/keys = {
 "values": [Vector2(1280, 0), Vector2(0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_k6vcr"]
+resource_name = "FadeFromBlack"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1.51571, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-1280, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vs7dw"]
 _data = {
+"FadeFastFromBlack": SubResource("Animation_k6vcr"),
 "FadeFromBlack": SubResource("Animation_b7yoc"),
 "FadeToBlack": SubResource("Animation_ohoh7")
 }
@@ -197,12 +214,9 @@ bus = &"Sound Effects"
 
 [node name="TransitionToBlack" type="ColorRect" parent="CanvasLayer" node_paths=PackedStringArray("animationPlayer")]
 process_mode = 3
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -398.971
-offset_right = -398.971
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)

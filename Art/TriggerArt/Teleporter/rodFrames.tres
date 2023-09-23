@@ -225,7 +225,6 @@ atlas = ExtResource("2_q8bxp")
 region = Rect2(208, 0, 8, 16)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_r6uvx"]
-load_path = "res://.godot/imported/RodActivated.png-0f96e28d2c1c0e0c9d31893846db0833.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wpkgr"]
 atlas = SubResource("CompressedTexture2D_r6uvx")

@@ -21,6 +21,6 @@ func cover_screen():
 
 func uncover_screen():
 	show()
-	animationPlayer.play("FadeFromBlack")
+	animationPlayer.play("FadeFastFromBlack")
 	await(animationPlayer.animation_finished)
 	hide()

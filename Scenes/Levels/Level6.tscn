@@ -2,13 +2,13 @@
 
 [ext_resource type="Script" path="res://Scripts/levelController.gd" id="1_y60ga"]
 [ext_resource type="TileSet" uid="uid://bnpggr5480t5q" path="res://Art/TileSets/initialTileSet.tres" id="2_adbuu"]
-[ext_resource type="PackedScene" uid="uid://u10litobhps7" path="res://Scenes/rigidPlayer.tscn" id="3_8i7g3"]
+[ext_resource type="PackedScene" uid="uid://dd6l6fhpuajke" path="res://Scenes/rigidPlayer.tscn" id="3_8i7g3"]
 [ext_resource type="PackedScene" uid="uid://dvbyxsl5e3ol8" path="res://Scenes/Triggers/Trigger_Helpers/TransitionField.tscn" id="4_7bh3v"]
-[ext_resource type="PackedScene" uid="uid://dxkklnkpsn70w" path="res://Scenes/Triggers/BreakableBlocks/32x32breakableBlock.tscn" id="4_o2q5l"]
 [ext_resource type="PackedScene" uid="uid://dnqoj4eg2l7le" path="res://Scenes/Triggers/trampolineTrigger.tscn" id="4_uv66a"]
 [ext_resource type="PackedScene" uid="uid://p8wyqr1wis6" path="res://Scenes/Triggers/InvisibleBlocks/64x32InvisibleBlock.tscn" id="5_3emsp"]
 [ext_resource type="PackedScene" uid="uid://djb81orxw62lt" path="res://Scenes/Triggers/BreakableBlocks/64x64breakableBlock.tscn" id="6_n0cwp"]
 [ext_resource type="PackedScene" uid="uid://c0eghc3oa7752" path="res://Scenes/Triggers/Trigger_Helpers/movingObject.tscn" id="6_wbdfw"]
+[ext_resource type="PackedScene" uid="uid://dpeaoe3ad3ahy" path="res://Scenes/Triggers/Trigger_Helpers/brokenVat.tscn" id="10_8hllf"]
 
 [node name="Level6" type="Node2D" node_paths=PackedStringArray("cameraSpot", "player", "transitionField")]
 script = ExtResource("1_y60ga")
@@ -20,7 +20,7 @@ transitionField = NodePath("TransitionField")
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("2_adbuu")
 format = 2
-layer_0/tile_data = PackedInt32Array(0, 65536, 1, 65536, 65536, 1, 131072, 65536, 1, 196608, 65536, 1, 262144, 65536, 1, 327680, 65536, 1, 393216, 65536, 1, 458752, 65536, 1, 524288, 65536, 1, 589824, 65536, 1, 655360, 65536, 1, 720896, 65536, 1, 786432, 65536, 1, 786433, 65536, 1, 786434, 65536, 1, 786435, 65536, 1, 786436, 65536, 1, 786441, 65536, 1, 458757, 65536, 1, 917509, 65536, 1, 917510, 65536, 1, 917511, 65536, 1, 917512, 65536, 1, 851972, 65536, 1, 917508, 65536, 1, 851977, 65536, 1, 917513, 65536, 1, 458756, 65536, 1, 458755, 65536, 1, 458754, 65536, 1, 458760, 65536, 1, 458761, 65536, 1, 458753, 65536, 1, 524297, 65536, 1, 589833, 65536, 1, 655369, 65536, 1, 720905, 65536, 1, 393221, 65536, 1, 327685, 65536, 1, 262149, 65536, 1, 262150, 65536, 1, 262151, 65536, 1, 262152, 65536, 1, 262153, 65536, 1, 262154, 65536, 1, 65541, 65536, 1, 131077, 65536, 1, 196613, 65536, 1, 5, 65536, 1, 458762, 65536, 1, 524298, 65536, 1, 589834, 65536, 1, 655370, 65536, 1, 720906, 65536, 1, 786442, 65536, 1, 786443, 65536, 1, 786444, 65536, 1, 786445, 65536, 1, 786446, 65536, 1, 786447, 65536, 1, 786448, 65536, 1, 786449, 65536, 1, 786450, 65536, 1, 786451, 65536, 1, -65531, 65536, 1, -131067, 65536, 1, -131068, 65536, 1, -131069, 65536, 1, -131070, 65536, 1, -131071, 65536, 1, -131072, 65536, 1, -65536, 65536, 1, 458765, 65536, 1, 458768, 65536, 1, 720915, 65536, 1, 655379, 65536, 1, 589843, 65536, 1, 524307, 65536, 1, 458771, 65536, 1, 458773, 65536, 1, 458772, 65536, 1, 262155, 65536, 1, 262156, 65536, 1, 262157, 65536, 1, 262158, 65536, 1, 262159, 65536, 1, 262160, 65536, 1, 262161, 65536, 1, 262163, 65536, 1, 262162, 65536, 1, 262164, 65536, 1, 262165, 65536, 1, 262166, 65536, 1, 458774, 65536, 1, 327702, 65536, 1, 393238, 65536, 1)
+layer_0/tile_data = PackedInt32Array(0, 196611, 1, 65536, 196611, 1, 131072, 196611, 1, 196608, 196611, 1, 262144, 196611, 1, 327680, 196611, 1, 393216, 196611, 1, 458752, 3, 1, 524288, 196611, 1, 589824, 196611, 1, 655360, 196611, 1, 720896, 196611, 1, 786432, 3, 2, 786433, 327683, 0, 786434, 327683, 0, 786435, 327683, 0, 786436, 131075, 0, 786441, 3, 1, 458757, 131075, 2, 917509, 327683, 0, 917510, 327683, 0, 917511, 327683, 0, 917512, 327683, 0, 851972, 196611, 1, 917508, 3, 2, 851977, 196611, 1, 917513, 131075, 2, 458756, 327683, 0, 458755, 327683, 0, 458754, 327683, 0, 458760, 262147, 0, 458761, 65539, 0, 458753, 327683, 0, 524297, 3, 1, 589833, 3, 1, 655369, 3, 1, 720905, 3, 1, 393221, 196611, 1, 327685, 196611, 1, 262149, 3, 1, 262150, 327683, 0, 262151, 327683, 0, 262152, 327683, 0, 262153, 327683, 0, 262154, 327683, 0, 65541, 196611, 1, 131077, 196611, 1, 196613, 196611, 1, 5, 196611, 1, 458762, 131075, 0, 524298, 131075, 1, 589834, 131075, 1, 655370, 131075, 1, 720906, 131075, 1, 786442, 65539, 2, 786443, 327683, 0, 786444, 327683, 0, 786445, 327683, 0, 786446, 327683, 0, 786447, 327683, 0, 786448, 327683, 0, 786449, 327683, 0, 786450, 327683, 0, 786451, 131075, 2, -65531, 196611, 1, -131067, 131075, 0, -131068, 327683, 0, -131069, 327683, 0, -131070, 327683, 0, -131071, 327683, 0, -131072, 3, 0, -65536, 196611, 1, 458765, 458755, 0, 458768, 458755, 0, 720915, 196611, 1, 655379, 196611, 1, 589843, 3, 1, 524307, 196611, 1, 458771, 196611, 0, 262155, 327683, 0, 262156, 327683, 0, 262157, 327683, 0, 262158, 327683, 0, 262159, 327683, 0, 262160, 327683, 0, 262161, 327683, 0, 262163, 327683, 0, 262162, 327683, 0, 262164, 327683, 0, 262165, 327683, 0, 262166, 131075, 0, 458774, 196611, 1, 327702, 196611, 1, 393238, 196611, 1, 524310, 196611, 1, 589846, 131075, 2, 589845, 327683, 0, 589844, 327683, 0)
 
 [node name="rigidPlayer" parent="." instance=ExtResource("3_8i7g3")]
 position = Vector2(64, 368)
@@ -29,7 +29,7 @@ position = Vector2(64, 368)
 position = Vector2(320, 256)
 
 [node name="TransitionField" parent="." instance=ExtResource("4_7bh3v")]
-position = Vector2(688, 208)
+position = Vector2(672, 256)
 
 [node name="64x64breakableBlock" parent="." instance=ExtResource("6_n0cwp")]
 position = Vector2(288, 160)
@@ -38,16 +38,16 @@ position = Vector2(288, 160)
 position = Vector2(192, 224)
 
 [node name="movingObject" parent="." instance=ExtResource("6_wbdfw")]
-position = Vector2(64, 64)
+position = Vector2(64, 48)
 
 [node name="movingObject2" parent="." instance=ExtResource("6_wbdfw")]
-position = Vector2(128, 144)
+position = Vector2(128, -16)
 
 [node name="movingObject3" parent="." instance=ExtResource("6_wbdfw")]
-position = Vector2(384, 272)
+position = Vector2(384, 336)
 
 [node name="movingObject4" parent="." instance=ExtResource("6_wbdfw")]
-position = Vector2(480, 272)
+position = Vector2(480, 304)
 
 [node name="movingObject5" parent="." instance=ExtResource("6_wbdfw")]
 position = Vector2(576, 272)
@@ -81,11 +81,5 @@ position = Vector2(576, 368)
 jump_force = 530.0
 startActivated = true
 
-[node name="32x32breakableBlock" parent="." instance=ExtResource("4_o2q5l")]
-position = Vector2(368, 288)
-
-[node name="32x32breakableBlock2" parent="." instance=ExtResource("4_o2q5l")]
-position = Vector2(464, 288)
-
-[node name="32x32breakableBlock3" parent="." instance=ExtResource("4_o2q5l")]
-position = Vector2(560, 288)
+[node name="brokenVat" parent="." instance=ExtResource("10_8hllf")]
+position = Vector2(64, 352)

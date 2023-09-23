@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dpotew68t0cpd"
-path="res://.godot/imported/RodActivated.png-0f96e28d2c1c0e0c9d31893846db0833.ctex"
+uid="uid://8xutmblcuy3c"
+path="res://.godot/imported/plhVatFrame.png-bf64c76f1057f9c276440806cc0992b3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/TriggerArt/Teleporter/RodActivated.png"
-dest_files=["res://.godot/imported/RodActivated.png-0f96e28d2c1c0e0c9d31893846db0833.ctex"]
+source_file="res://Art/TriggerArt/GooVat/plhVatFrame.png"
+dest_files=["res://.godot/imported/plhVatFrame.png-bf64c76f1057f9c276440806cc0992b3.ctex"]
 
 [params]
 

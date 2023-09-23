@@ -7,7 +7,6 @@
 [ext_resource type="SpriteFrames" uid="uid://bvdhyjx44ynaj" path="res://Art/TriggerArt/Teleporter/frontingFrames.tres" id="6_oy3qe"]
 [ext_resource type="SpriteFrames" uid="uid://bfi6haoil4yyk" path="res://Art/TriggerArt/Teleporter/rodFrames.tres" id="7_smeh8"]
 
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sxv0n"]
 size = Vector2(44, 54)
 
@@ -79,7 +78,9 @@ z_index = 7
 z_as_relative = false
 position = Vector2(0, -40)
 sprite_frames = ExtResource("7_smeh8")
-animation = &"deactivatedRed"
+animation = &"activatedBlue"
+frame_progress = 0.164132
+speed_scale = 6.0
 
 [node name="TeleporterArea2" type="Area2D" parent="Teleporter2"]
 

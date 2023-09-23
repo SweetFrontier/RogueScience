@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cp1xr265ye340"]
+[gd_scene load_steps=9 format=3 uid="uid://cp1xr265ye340"]
 
 [ext_resource type="Script" path="res://Scripts/levelController.gd" id="1_7dtyw"]
 [ext_resource type="TileSet" uid="uid://bnpggr5480t5q" path="res://Art/TileSets/initialTileSet.tres" id="2_ds2dq"]
@@ -7,27 +7,28 @@
 [ext_resource type="PackedScene" uid="uid://psrem4kknlu8" path="res://Scenes/Triggers/BreakableBlocks/32x64breakableBlock.tscn" id="5_jpdd4"]
 [ext_resource type="PackedScene" uid="uid://dvbyxsl5e3ol8" path="res://Scenes/Triggers/Trigger_Helpers/TransitionField.tscn" id="7_4rqfc"]
 [ext_resource type="PackedScene" uid="uid://djb81orxw62lt" path="res://Scenes/Triggers/BreakableBlocks/64x64breakableBlock.tscn" id="7_imu43"]
+[ext_resource type="PackedScene" uid="uid://dpeaoe3ad3ahy" path="res://Scenes/Triggers/Trigger_Helpers/brokenVat.tscn" id="8_66k2i"]
 
 [node name="Level1" type="Node2D" node_paths=PackedStringArray("cameraSpot", "player", "transitionField")]
 script = ExtResource("1_7dtyw")
 cameraSpot = NodePath("CenterPosition")
-cameraSize = Vector2(480, 256)
+cameraSize = Vector2(480, 288)
 player = NodePath("rigidPlayer")
 transitionField = NodePath("TransitionField")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("2_ds2dq")
 format = 2
-layer_0/tile_data = PackedInt32Array(0, 3, 0, 65536, 196611, 1, 131072, 196611, 1, 196608, 196611, 1, 262144, 196611, 1, 327680, 196611, 1, 393216, 3, 1, 1, 327683, 0, 2, 327683, 0, 3, 327683, 0, 4, 327683, 0, 5, 327683, 0, 6, 327683, 0, 7, 327683, 0, 8, 327683, 0, 9, 327683, 0, 10, 327683, 0, 11, 327683, 0, 12, 327683, 0, 13, 327683, 0, 458765, 65539, 2, 458764, 65539, 2, 458763, 65539, 2, 458762, 65539, 2, 458761, 65539, 2, 458760, 65539, 2, 458759, 65539, 2, 458758, 65539, 2, 458757, 65539, 2, 458756, 65539, 2, 458755, 65539, 2, 458754, 65539, 2, 458753, 65539, 2, 458752, 3, 2, 458766, 131075, 2, 393230, 131075, 1, 327694, 196611, 1, 262158, 196611, 1, 196622, 196611, 1, 131086, 196611, 1, 65550, 196611, 1, 14, 131075, 0, 393229, 65539, 0, 393228, 65539, 0, 393227, 65539, 0, 393226, 65539, 0, 393225, 65539, 0, 393224, 65539, 0, 393223, 65539, 0, 393222, 65539, 0, 393221, 65539, 0, 393220, 65539, 0, 393219, 65539, 0, 393218, 65539, 0, 393217, 65539, 0)
+layer_0/tile_data = PackedInt32Array(0, 3, 0, 65536, 196611, 1, 131072, 196611, 1, 196608, 196611, 1, 262144, 196611, 1, 327680, 196611, 1, 393216, 3, 1, 1, 327683, 0, 2, 327683, 0, 3, 327683, 0, 4, 327683, 0, 5, 327683, 0, 6, 327683, 0, 7, 327683, 0, 8, 327683, 0, 9, 327683, 0, 10, 327683, 0, 11, 327683, 0, 12, 327683, 0, 13, 327683, 0, 458763, 131075, 1, 458762, 65539, 1, 458761, 65539, 1, 458760, 65539, 1, 458759, 65539, 1, 458758, 65539, 1, 458757, 65539, 1, 458756, 65539, 1, 458755, 65539, 1, 458754, 65539, 1, 458753, 65539, 1, 458752, 3, 1, 458766, 196611, 1, 393230, 196611, 1, 327694, 196611, 1, 262158, 196611, 1, 196622, 196611, 1, 131086, 196611, 1, 65550, 196611, 1, 14, 131075, 0, 393227, 131075, 0, 393226, 65539, 0, 393225, 65539, 0, 393224, 65539, 0, 393223, 65539, 0, 393222, 65539, 0, 393221, 65539, 0, 393220, 65539, 0, 393219, 65539, 0, 393218, 65539, 0, 393217, 65539, 0, 524299, 65539, 2, 524302, 131075, 2, 524300, 327683, 0, 524301, 327683, 0, 524288, 3, 2, 524289, 65539, 2, 524290, 65539, 2, 524291, 65539, 2, 524292, 65539, 2, 524293, 65539, 2, 524294, 65539, 2, 524295, 65539, 2, 524296, 65539, 2, 524297, 65539, 2, 524298, 65539, 2)
 
 [node name="rigidPlayer" parent="." instance=ExtResource("3_wrirf")]
 position = Vector2(64, 176)
 
 [node name="CenterPosition" type="Marker2D" parent="."]
-position = Vector2(240, 128)
+position = Vector2(240, 144)
 
 [node name="TransitionField" parent="." instance=ExtResource("7_4rqfc")]
-position = Vector2(432, 176)
+position = Vector2(416, 224)
 
 [node name="32x32breakableBlock" parent="." instance=ExtResource("4_i6tag")]
 position = Vector2(160, 160)
@@ -37,3 +38,6 @@ position = Vector2(224, 128)
 
 [node name="64x64breakableBlock" parent="." instance=ExtResource("7_imu43")]
 position = Vector2(288, 128)
+
+[node name="brokenVat" parent="." instance=ExtResource("8_66k2i")]
+position = Vector2(64, 160)

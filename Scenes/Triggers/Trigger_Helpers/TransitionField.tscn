@@ -1,9 +1,75 @@
-[gd_scene load_steps=4 format=3 uid="uid://dvbyxsl5e3ol8"]
+[gd_scene load_steps=15 format=3 uid="uid://dvbyxsl5e3ol8"]
 
 [ext_resource type="Script" path="res://Scripts/Triggers/Trigger_Helpers/TransitionField.gd" id="1_n2ifc"]
-[ext_resource type="Texture2D" uid="uid://dfdi7m28rpy08" path="res://Art/Ice.png" id="2_xqb80"]
+[ext_resource type="Texture2D" uid="uid://cfgdius8p2kok" path="res://Art/TriggerArt/GooVat/plhVatGooSpilled.png" id="2_dmkuc"]
+[ext_resource type="Texture2D" uid="uid://d2xgfn6gtr3jt" path="res://Art/TriggerArt/GooVat/plhVatGoo.png" id="3_p2suj"]
+[ext_resource type="Texture2D" uid="uid://jpu527egq8o1" path="res://Art/TriggerArt/GooVat/GooTank64x64.png" id="3_s5how"]
+[ext_resource type="Texture2D" uid="uid://b00etgk7pv0fo" path="res://Art/TriggerArt/GooVat/plhVatFrameBroken.png" id="4_lq4eh"]
+[ext_resource type="Texture2D" uid="uid://8xutmblcuy3c" path="res://Art/TriggerArt/GooVat/plhVatFrame.png" id="5_63pm0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8v037"]
+size = Vector2(32, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7yxyw"]
+atlas = ExtResource("4_lq4eh")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kcrsk"]
+atlas = ExtResource("3_s5how")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f53nh"]
+atlas = ExtResource("5_63pm0")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ur5bg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7yxyw")
+}],
+"loop": true,
+"name": &"broken",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kcrsk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f53nh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u1sm0"]
+atlas = ExtResource("2_dmkuc")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sgbne"]
+atlas = ExtResource("3_p2suj")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_og4x1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u1sm0")
+}],
+"loop": true,
+"name": &"broken",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sgbne")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="TransitionField" type="Area2D"]
 script = ExtResource("1_n2ifc")
@@ -11,9 +77,23 @@ script = ExtResource("1_n2ifc")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_8v037")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 0, 1)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_xqb80")
+[node name="VatFrame" type="AnimatedSprite2D" parent="."]
+z_index = 14
+z_as_relative = false
+scale = Vector2(1, 1)
+sprite_frames = SubResource("SpriteFrames_ur5bg")
+
+[node name="VatGoo" type="AnimatedSprite2D" parent="."]
+visible = false
+z_index = 13
+z_as_relative = false
+scale = Vector2(1, 1)
+sprite_frames = SubResource("SpriteFrames_og4x1")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+visible = false
+polygon = PackedVector2Array(-32, -32, -32, 32, 32, 32, 32, -32, 29, -32, 29, 22, -29, 22, -29, -32)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

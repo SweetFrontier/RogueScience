@@ -3,6 +3,7 @@ class_name movingObject
 
 @export var floorDetector: RayCast2D	
 @export var sprite: Sprite2D
+@export var soundPlayer: AudioStreamPlayer2D
 
 var levelPlayer : rigidPlayer
 
@@ -19,6 +20,8 @@ var once_freed_linear_velocity: Vector2
 var controlled_ang_vel: float = 0.0
 var controlled_lin_vel: Vector2 = Vector2()
 var directPosControl: bool = false
+var last_vel_x : float = 0
+var last_vel_y : float = 0
 
 func _ready():
 	starting_transform = get_global_transform()
@@ -69,6 +72,18 @@ func _integrate_forces(state):
 		just_freed = false
 		state.set_linear_velocity(once_freed_linear_velocity)
 		state.set_angular_velocity(once_freed_angular_velocity)
+	
+	if (max(last_vel_x - linear_velocity.x, last_vel_y - linear_velocity.y) > 40):
+		print_debug(linear_velocity.y)
+		if (linear_velocity.y > -600):
+			soundPlayer.volume_db = linear_to_db(max(last_vel_x - linear_velocity.x, last_vel_y - linear_velocity.y)/100)
+			soundPlayer.play()
+		last_vel_x = linear_velocity.x
+		last_vel_y = linear_velocity.y
+	if (!being_controlled):
+		last_vel_x = linear_velocity.x
+		last_vel_y = linear_velocity.y
+	
 
 func movement_overwritten(_movement_overrider):
 	being_controlled = true

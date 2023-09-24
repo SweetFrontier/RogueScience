@@ -74,6 +74,8 @@ func _process(delta):
 			resetWipeTransitionContoller.cover_screen()
 
 func increase_level() -> void:
+	#tell player to shut up
+	Levels[current_level].player.won_level_shut_up()
 	#Next level
 	current_level += 1
 	if(current_level >= Levels.size()):

@@ -37,10 +37,13 @@ var controlled_lin_vel: Vector2 = Vector2()
 var directPosControl: bool = false
 var floorCollisions: int = 0
 var setBodyPos: bool = false
+var last_y_velocity : float = 0 #last_y_velocity for how loud to play the hit sound
 var deathCounter = 0
 var dead : bool = false
+var won_level : bool = false
 
 func _ready():
+	last_y_velocity = 0
 	dead = false
 	starting_transform = get_global_transform()
 	reset()
@@ -72,6 +75,7 @@ func reset():
 	controlled_ang_vel = 0.0
 	controlled_lin_vel = Vector2(0,0)
 	directPosControl = false
+	last_y_velocity = 0
 
 func _integrate_forces(state):
 	if just_reset:
@@ -105,12 +109,27 @@ func _physics_process(delta):
 	if !dead:
 		if is_on_floor():
 			rotate_player_on_slope(delta)
+			#check if crashing, and if so, play sound
+			if (last_y_velocity > 40 && !won_level):
+				CrawlSounds.play()
+				# play the louder one if fall from high up
+				if (last_y_velocity > 600):
+					HitSounds.stream = load("res://Sounds/hitgroundfromhigh.ogg")
+				else:
+					HitSounds.stream = load("res://Sounds/hitsomething.ogg")
+				print_debug(last_y_velocity)
+				last_y_velocity = 0
+				HitSounds.play()
 		else:
 			rotate_player_on_arc(delta)
+			if (linear_velocity.y > 40):
+				CrawlSounds.stop()
+				last_y_velocity = linear_velocity.y
+		
 			
 		if being_controlled:
 			return
-		if is_on_wall():
+		if is_on_wall() and !won_level:
 			deathCounter += 1
 			current_direction = -current_direction
 			AnimatedSprite.flip_h = !AnimatedSprite.flip_h
@@ -216,3 +235,7 @@ func _on_floor_collision_area_body_exited(body):
 	if(body == self):
 		return
 	floorCollisions -= 1
+
+func won_level_shut_up():
+	won_level = true
+	CrawlSounds.stop()

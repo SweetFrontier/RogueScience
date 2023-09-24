@@ -1,25 +1,110 @@
-[gd_scene load_steps=3 format=3 uid="uid://ccs22qkiaiv6t"]
+[gd_scene load_steps=8 format=3 uid="uid://ccs22qkiaiv6t"]
 
 [ext_resource type="VideoStream" path="res://Art/Splashscreen/Splashscreen.ogv" id="1_jkyml"]
 [ext_resource type="Script" path="res://Scripts/splashscreen.gd" id="1_s0hym"]
+[ext_resource type="AudioStream" uid="uid://rbyp8q8q34ew" path="res://Sounds/UI/buttonpress.ogg" id="3_k3pnq"]
 
-[node name="splashscreen" type="Control"]
+[sub_resource type="Animation" id="Animation_k6vcr"]
+resource_name = "FadeFromBlack"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1.51571, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-1280, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_b7yoc"]
+resource_name = "FadeFromBlack"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 0.5),
+"transitions": PackedFloat32Array(1.68179, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-1280, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ohoh7"]
+resource_name = "FadeToBlack"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(0.32, 1),
+"update": 0,
+"values": [Vector2(1280, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vs7dw"]
+_data = {
+"FadeFastFromBlack": SubResource("Animation_k6vcr"),
+"FadeFromBlack": SubResource("Animation_b7yoc"),
+"FadeToBlack": SubResource("Animation_ohoh7")
+}
+
+[node name="splashscreen" type="Control" node_paths=PackedStringArray("splashscreenVideo", "transitionToBlack", "buttonSound")]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_s0hym")
+splashscreenVideo = NodePath("VideoStreamPlayer")
+transitionToBlack = NodePath("TransitionToBlack/AnimationPlayer")
+buttonSound = NodePath("TransitionToBlack/AudioStreamPlayer")
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+texture_filter = 2
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 1280.0
-offset_bottom = 736.0
 grow_horizontal = 2
 grow_vertical = 2
 stream = ExtResource("1_jkyml")
+volume_db = 2.0
 autoplay = true
 expand = true
+bus = &"Sound Effects"
+
+[node name="TransitionToBlack" type="ColorRect" parent="."]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1280.0
+offset_right = 1280.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TransitionToBlack"]
+process_mode = 3
+libraries = {
+"": SubResource("AnimationLibrary_vs7dw")
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="TransitionToBlack"]
+stream = ExtResource("3_k3pnq")
 bus = &"Sound Effects"
 
 [connection signal="finished" from="VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]

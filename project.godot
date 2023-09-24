@@ -11,9 +11,10 @@ config_version=5
 [application]
 
 config/name="Rouge Science"
-run/main_scene="res://Scenes/Screens/MainMenu.tscn"
+run/main_scene="res://Scenes/Other/splashscreen.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
+boot_splash/minimum_display_time=3000
 
 [audio]
 

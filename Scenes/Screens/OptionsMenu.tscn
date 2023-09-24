@@ -16,6 +16,22 @@ soundSlider = NodePath("VBoxContainer/SoundSlider")
 soundPlayer = NodePath("VBoxContainer/SoundSlider/SoundPlayer")
 musicSlider = NodePath("VBoxContainer/MusicSlider")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 390.0
+offset_top = 129.0
+offset_right = 890.0
+offset_bottom = 609.0
+color = Color(0.211765, 0.2, 0.321569, 0.686275)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 400.0
+offset_top = 139.0
+offset_right = 880.0
+offset_bottom = 599.0
+color = Color(0.133333, 0.12549, 0.203922, 0.952941)
+
 [node name="PauseMenu" type="Button" parent="."]
 layout_mode = 0
 offset_left = 515.0

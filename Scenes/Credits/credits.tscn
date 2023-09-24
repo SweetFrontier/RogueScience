@@ -727,13 +727,23 @@ offset_bottom = 2793.0
 texture = ExtResource("13_52eus")
 expand_mode = 2
 
+[node name="TileMap2" type="TileMap" parent="ActualCredits"]
+position = Vector2(0, -15)
+tile_set = ExtResource("25_mwrte")
+format = 2
+layer_0/tile_data = PackedInt32Array(6422540, 327683, 0, 6422541, 327683, 0, 6422542, 327683, 0, 6422543, 393219, 0, 6422544, 65539, 6, 6422545, 65539, 1, 6422546, 65539, 1, 6422539, 262147, 0, 6422547, 65539, 1, 6422548, 65539, 1, 6422549, 65539, 1, 6422550, 65539, 1, 6422551, 3, 6, 6422552, 262147, 0, 6422553, 327683, 0, 6422554, 327683, 0, 6422555, 327683, 0, 6422556, 393219, 0, 6488079, 393219, 4, 6488080, 458755, 4, 6488087, 196611, 4, 6488088, 262147, 4, 6488081, 65539, 2, 6488082, 65539, 2, 6488083, 65539, 2, 6488084, 65539, 2, 6488085, 65539, 2, 6488086, 65539, 2)
+
 [node name="CreditsText" type="RichTextLabel" parent="ActualCredits"]
-offset_top = 652.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 654.0
 offset_right = 1280.0
-offset_bottom = 3696.0
+offset_bottom = 4486.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_outline_size = 18
 theme_override_constants/outline_size = 20
 theme_override_font_sizes/normal_font_size = 50
 bbcode_enabled = true
@@ -786,13 +796,6 @@ Project Manager
 
 
 Thank You So Much A-For-To Playing Our Game!"
-fit_content = true
-
-[node name="TileMap2" type="TileMap" parent="ActualCredits"]
-position = Vector2(0, -15)
-tile_set = ExtResource("25_mwrte")
-format = 2
-layer_0/tile_data = PackedInt32Array(6422540, 327683, 0, 6422541, 327683, 0, 6422542, 327683, 0, 6422543, 393219, 0, 6422544, 65539, 6, 6422545, 65539, 1, 6422546, 65539, 1, 6422539, 262147, 0, 6422547, 65539, 1, 6422548, 65539, 1, 6422549, 65539, 1, 6422550, 65539, 1, 6422551, 3, 6, 6422552, 262147, 0, 6422553, 327683, 0, 6422554, 327683, 0, 6422555, 327683, 0, 6422556, 393219, 0, 6488079, 393219, 4, 6488080, 458755, 4, 6488087, 196611, 4, 6488088, 262147, 4, 6488081, 65539, 2, 6488082, 65539, 2, 6488083, 65539, 2, 6488084, 65539, 2, 6488085, 65539, 2, 6488086, 65539, 2)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_n8wxv")

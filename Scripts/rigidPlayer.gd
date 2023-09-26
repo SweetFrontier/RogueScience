@@ -117,7 +117,6 @@ func _physics_process(delta):
 					HitSounds.stream = load("res://Sounds/hitgroundfromhigh.ogg")
 				else:
 					HitSounds.stream = load("res://Sounds/hitsomething.ogg")
-				print_debug(last_y_velocity)
 				last_y_velocity = 0
 				HitSounds.play()
 		else:

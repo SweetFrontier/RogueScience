@@ -74,7 +74,6 @@ func _integrate_forces(state):
 		state.set_angular_velocity(once_freed_angular_velocity)
 	
 	if (max(last_vel_x - linear_velocity.x, last_vel_y - linear_velocity.y) > 40):
-		print_debug(linear_velocity.y)
 		if (linear_velocity.y > -600):
 			soundPlayer.volume_db = linear_to_db(max(last_vel_x - linear_velocity.x, last_vel_y - linear_velocity.y)/100)
 			soundPlayer.play()

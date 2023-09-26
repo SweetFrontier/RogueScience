@@ -19,7 +19,7 @@
 [ext_resource type="Script" path="res://Scripts/MusicPlayer.gd" id="12_tas4r"]
 [ext_resource type="AudioStream" uid="uid://rbyp8q8q34ew" path="res://Sounds/UI/buttonpress.ogg" id="16_4q38v"]
 [ext_resource type="AudioStream" uid="uid://b8niwi0iven0c" path="res://Sounds/levelLoad.mp3" id="18_tk5rk"]
-[ext_resource type="Script" path="res://Scenes/TransitionToBlack.gd" id="19_7brjc"]
+[ext_resource type="Script" path="res://Scripts/TransitionToBlack.gd" id="19_7brjc"]
 [ext_resource type="TileSet" uid="uid://bnpggr5480t5q" path="res://Art/TileSets/initialTileSet.tres" id="19_t5xx0"]
 
 [sub_resource type="Animation" id="Animation_gwjdm"]

@@ -73,7 +73,6 @@ hit_from_inside = true
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 process_mode = 3
-visible = false
 texture = ExtResource("5_ld6tc")
 texture_offset = Vector2(27, 16)
 polygon = PackedVector2Array(-28, -16, 0, -16, 27, -16, 27, 3, 27, 16, -28, 16)
@@ -90,6 +89,7 @@ x_min_distance = -10
 y_max_distance = 10
 y_min_distance = -10
 time_to_form = 2.0
+metadata/_edit_group_ = true
 
 [connection signal="body_entered" from="floorCollisionArea" to="." method="_on_floor_collision_area_body_entered"]
 [connection signal="body_exited" from="floorCollisionArea" to="." method="_on_floor_collision_area_body_exited"]

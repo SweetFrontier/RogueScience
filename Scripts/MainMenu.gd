@@ -11,6 +11,8 @@ extends Control
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	soundSettings.connect("close_settings", close_settings)
+	if (OS.get_name() == "Web"):
+		$TitleScreen/VBoxContainer/QuitButton.queue_free()
 
 func close_settings() -> void:
 	titleScreen.visible = true

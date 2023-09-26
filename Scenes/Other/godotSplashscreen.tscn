@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://lf75pcv3t3aa"]
+[gd_scene load_steps=30 format=3 uid="uid://lf75pcv3t3aa"]
 
 [ext_resource type="Script" path="res://Scripts/godotSplashscreen.gd" id="1_ong2s"]
 [ext_resource type="Texture2D" uid="uid://gldj8262l7lx" path="res://Art/Splashscreen/godot_eyeless.png" id="2_qtmda"]
@@ -255,6 +255,44 @@ background_mode = 3
 glow_enabled = true
 glow_blend_mode = 0
 
+[sub_resource type="Animation" id="Animation_5k3gu"]
+resource_name = "skipAppear"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_sq7ib"]
+resource_name = "skipDisappear"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pckcx"]
+_data = {
+"skipAppear": SubResource("Animation_5k3gu"),
+"skipDisappear": SubResource("Animation_sq7ib")
+}
+
 [sub_resource type="Gradient" id="Gradient_rpars"]
 colors = PackedColorArray(1, 1, 1, 1, 0.145098, 0.145098, 0.145098, 1)
 
@@ -316,7 +354,7 @@ _data = {
 "FadeToBlack": SubResource("Animation_ohoh7")
 }
 
-[node name="godotSplashscreen" type="Control" node_paths=PackedStringArray("transitionToBlack", "buttonSound")]
+[node name="godotSplashscreen" type="Control" node_paths=PackedStringArray("transitionToBlack", "buttonSound", "SkipButton")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -326,6 +364,7 @@ grow_vertical = 2
 script = ExtResource("1_ong2s")
 transitionToBlack = NodePath("TransitionToGray/ToGrayAnimation")
 buttonSound = NodePath("TransitionToGray/AudioStreamPlayer")
+SkipButton = NodePath("DoubleClick/MakeSkipAppear")
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 1
@@ -358,7 +397,7 @@ layout_mode = 0
 offset_left = 155.0
 offset_top = 62.0
 offset_right = 173.0
-offset_bottom = 80.0011
+offset_bottom = 80.001
 texture = ExtResource("3_32pka")
 stretch_mode = 2
 
@@ -367,7 +406,7 @@ layout_mode = 0
 offset_left = 95.0
 offset_top = 62.0
 offset_right = 113.0
-offset_bottom = 80.0009
+offset_bottom = 80.0008
 texture = ExtResource("3_32pka")
 stretch_mode = 2
 
@@ -453,6 +492,21 @@ libraries = {
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ucrry")
+
+[node name="DoubleClick" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 826.0
+offset_top = 622.0
+offset_right = 1204.0
+offset_bottom = 680.0
+theme_override_font_sizes/font_size = 40
+text = "Double Click to Skip"
+
+[node name="MakeSkipAppear" type="AnimationPlayer" parent="DoubleClick"]
+libraries = {
+"": SubResource("AnimationLibrary_pckcx")
+}
 
 [node name="TransitionToGray" type="ColorRect" parent="."]
 process_mode = 3

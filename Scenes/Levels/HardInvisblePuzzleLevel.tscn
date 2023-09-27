@@ -43,11 +43,17 @@ startActivated = true
 [node name="32x32breakableBlock" parent="." instance=ExtResource("6_v1xip")]
 position = Vector2(160, 0)
 
+[node name="TriggerKeySprite" parent="32x32breakableBlock" index="1"]
+position = Vector2(-8, 36)
+
 [node name="movingObject" parent="." instance=ExtResource("7_5a28q")]
 position = Vector2(176, -16)
 
 [node name="LeftSlopeInvisibleBlock" parent="." instance=ExtResource("8_voa7j")]
 position = Vector2(256, -32)
+
+[node name="TriggerKeySprite" parent="LeftSlopeInvisibleBlock" index="1"]
+position = Vector2(6, 50)
 
 [node name="trampolineTrigger2" parent="." instance=ExtResource("5_ah3c4")]
 position = Vector2(416, 176)
@@ -56,11 +62,20 @@ startActivated = true
 [node name="RightSlopeInvisibleBlock" parent="." instance=ExtResource("9_08w2f")]
 position = Vector2(256, 64)
 
+[node name="TriggerKeySprite" parent="RightSlopeInvisibleBlock" index="1"]
+position = Vector2(6, 33)
+
 [node name="RightSlopeInvisibleBlock2" parent="." instance=ExtResource("9_08w2f")]
 position = Vector2(352, 32)
 
+[node name="TriggerKeySprite" parent="RightSlopeInvisibleBlock2" index="1"]
+position = Vector2(6, 33)
+
 [node name="LeftSlopeInvisibleBlock2" parent="." instance=ExtResource("8_voa7j")]
 position = Vector2(384, 64)
+
+[node name="TriggerKeySprite" parent="LeftSlopeInvisibleBlock2" index="1"]
+position = Vector2(2, 35)
 
 [node name="movingObject2" parent="." instance=ExtResource("7_5a28q")]
 position = Vector2(288, -176)
@@ -68,8 +83,14 @@ position = Vector2(288, -176)
 [node name="32x32breakableBlock2" parent="." instance=ExtResource("6_v1xip")]
 position = Vector2(272, -160)
 
+[node name="TriggerKeySprite" parent="32x32breakableBlock2" index="1"]
+position = Vector2(-7, 45)
+
 [node name="32x32breakableBlock3" parent="." instance=ExtResource("6_v1xip")]
 position = Vector2(160, -64)
+
+[node name="TriggerKeySprite" parent="32x32breakableBlock3" index="1"]
+position = Vector2(-10, 37)
 
 [node name="movingObject3" parent="." instance=ExtResource("7_5a28q")]
 position = Vector2(176, -80)
@@ -81,6 +102,9 @@ startActivated = true
 [node name="LeftSlopeInvisibleBlock3" parent="." instance=ExtResource("8_voa7j")]
 position = Vector2(512, -32)
 
+[node name="TriggerKeySprite" parent="LeftSlopeInvisibleBlock3" index="1"]
+position = Vector2(1, 32)
+
 [node name="trampolineTrigger4" parent="." instance=ExtResource("5_ah3c4")]
 position = Vector2(480, 240)
 startActivated = true
@@ -88,20 +112,49 @@ startActivated = true
 [node name="LeftSlopeInvisibleBlock4" parent="." instance=ExtResource("8_voa7j")]
 position = Vector2(512, 96)
 
+[node name="TriggerKeySprite" parent="LeftSlopeInvisibleBlock4" index="1"]
+position = Vector2(5, 37)
+
 [node name="LeftSlopeInvisibleBlock5" parent="." instance=ExtResource("8_voa7j")]
 position = Vector2(448, 128)
+
+[node name="TriggerKeySprite" parent="LeftSlopeInvisibleBlock5" index="1"]
+position = Vector2(2, 32)
 
 [node name="LeftSlopeInvisibleBlock6" parent="." instance=ExtResource("8_voa7j")]
 position = Vector2(512, 32)
 
+[node name="TriggerKeySprite" parent="LeftSlopeInvisibleBlock6" index="1"]
+position = Vector2(5, 33)
+
 [node name="RightSlopebreakableBlock" parent="." instance=ExtResource("10_pp5v4")]
 position = Vector2(320, 0)
 
+[node name="TriggerKeySprite" parent="RightSlopebreakableBlock" index="1"]
+position = Vector2(5, 31)
+
 [node name="LeftSlopebreakableBlock3" parent="." instance=ExtResource("11_51i2m")]
 position = Vector2(448, 64)
+
+[node name="TriggerKeySprite" parent="LeftSlopebreakableBlock3" index="1"]
+position = Vector2(3, 34)
 
 [node name="64x64breakableBlock" parent="." instance=ExtResource("12_mdt0u")]
 position = Vector2(160, 320)
 
 [node name="brokenVat" parent="." instance=ExtResource("13_iolt7")]
 position = Vector2(64, 384)
+
+[editable path="32x32breakableBlock"]
+[editable path="LeftSlopeInvisibleBlock"]
+[editable path="RightSlopeInvisibleBlock"]
+[editable path="RightSlopeInvisibleBlock2"]
+[editable path="LeftSlopeInvisibleBlock2"]
+[editable path="32x32breakableBlock2"]
+[editable path="32x32breakableBlock3"]
+[editable path="LeftSlopeInvisibleBlock3"]
+[editable path="LeftSlopeInvisibleBlock4"]
+[editable path="LeftSlopeInvisibleBlock5"]
+[editable path="LeftSlopeInvisibleBlock6"]
+[editable path="RightSlopebreakableBlock"]
+[editable path="LeftSlopebreakableBlock3"]

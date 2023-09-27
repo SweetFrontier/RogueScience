@@ -423,7 +423,7 @@ layout_mode = 0
 offset_left = 155.0
 offset_top = 62.0
 offset_right = 173.0
-offset_bottom = 80.0009
+offset_bottom = 80.0007
 texture = ExtResource("3_32pka")
 stretch_mode = 2
 
@@ -432,7 +432,7 @@ layout_mode = 0
 offset_left = 95.0
 offset_top = 62.0
 offset_right = 113.0
-offset_bottom = 80.0006
+offset_bottom = 80.0005
 texture = ExtResource("3_32pka")
 stretch_mode = 2
 
@@ -469,7 +469,7 @@ layout_mode = 0
 offset_left = 781.0
 offset_top = -151.0
 offset_right = 924.0
-offset_bottom = -4.99881
+offset_bottom = -4.99884
 texture = ExtResource("4_mn2gs")
 stretch_mode = 2
 

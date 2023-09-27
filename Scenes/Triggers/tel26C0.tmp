@@ -1,10 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://cpl8uffd5nbs"]
+[gd_scene load_steps=8 format=3 uid="uid://cpl8uffd5nbs"]
 
 [ext_resource type="Script" path="res://Scripts/Triggers/teleporterTrigger.gd" id="1_drekj"]
 [ext_resource type="PackedScene" uid="uid://bvxwld4fu1vc0" path="res://Scenes/Triggers/Trigger_Helpers/lightning.tscn" id="4_m0xrp"]
 [ext_resource type="PackedScene" uid="uid://djjr177758y2h" path="res://Scenes/Triggers/Trigger_Helpers/triggerKey.tscn" id="5_jhnb2"]
 [ext_resource type="SpriteFrames" uid="uid://b5qbnotrsguuc" path="res://Art/TriggerArt/Teleporter/backingFrames.tres" id="5_qhjfq"]
-[ext_resource type="AudioStream" uid="uid://dhs3la5rgojcx" path="res://Sounds/activate.ogg" id="6_0wt0s"]
 [ext_resource type="SpriteFrames" uid="uid://cq54c25v0bvqk" path="res://Art/TriggerArt/Teleporter/frontingFrames.tres" id="6_oy3qe"]
 [ext_resource type="SpriteFrames" uid="uid://dyhil6vih37qt" path="res://Art/TriggerArt/Teleporter/rodFrames.tres" id="7_smeh8"]
 
@@ -20,7 +19,7 @@ teleporterArea1 = NodePath("Teleporter1/TeleporterArea1")
 teleporter2 = NodePath("Teleporter2")
 teleporterArea2 = NodePath("Teleporter2/TeleporterArea2")
 lightning = NodePath("lightning")
-activateSound = NodePath("AudioStreamPlayer")
+activateSound = [NodePath("Teleporter1/Teleporter1Audio"), NodePath("Teleporter2/Teleporter2Audio")]
 button = 85
 TriggerKeySprite = NodePath("Teleporter1/TriggerKeySprite")
 
@@ -56,6 +55,8 @@ shape = SubResource("RectangleShape2D_sxv0n")
 [node name="TriggerKeySprite" parent="Teleporter1" instance=ExtResource("5_jhnb2")]
 position = Vector2(0, 64)
 
+[node name="Teleporter1Audio" type="AudioStreamPlayer2D" parent="Teleporter1"]
+
 [node name="Teleporter2" type="Node2D" parent="."]
 position = Vector2(80, 0)
 metadata/_edit_group_ = true
@@ -89,6 +90,9 @@ shape = SubResource("RectangleShape2D_sxv0n")
 [node name="TriggerKeySprite" parent="Teleporter2" instance=ExtResource("5_jhnb2")]
 position = Vector2(0, 64)
 
+[node name="Teleporter2Audio" type="AudioStreamPlayer2D" parent="Teleporter2"]
+position = Vector2(-80, 0)
+
 [node name="lightning" parent="." node_paths=PackedStringArray("fromPos", "toPos") instance=ExtResource("4_m0xrp")]
 z_index = 17
 z_as_relative = false
@@ -96,9 +100,5 @@ fromPos = NodePath("../Teleporter1")
 toPos = NodePath("../Teleporter2")
 lightingYOffset = Vector2(0, -28)
 boltColor = Color(1, 0.141176, 0.172549, 1)
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_0wt0s")
-volume_db = -8.0
 
 [connection signal="animation_finished" from="Teleporter1/FrontingSpriteAnim" to="." method="doorsAnimFinished"]

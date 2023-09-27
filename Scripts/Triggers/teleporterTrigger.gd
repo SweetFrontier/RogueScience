@@ -18,6 +18,7 @@ enum teleporterColor {
 @export var teleporter2: Node2D
 @export var teleporterArea2: Area2D
 @export var lightning: lightning
+@export var activateSound : AudioStreamPlayer
 
 var teleporting = false
 var startingTeleporter: Node2D
@@ -63,6 +64,9 @@ func react():
 		$Teleporter2/RodSpriteAnim.play()
 	if !activated:
 		activated = true
+		#play the sounds
+		if (!startActivated):
+			activateSound.play()
 
 func reset():
 	super.reset()

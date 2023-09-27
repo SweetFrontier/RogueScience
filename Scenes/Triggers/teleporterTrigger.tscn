@@ -95,6 +95,4 @@ toPos = NodePath("../Teleporter2")
 lightingYOffset = Vector2(0, -28)
 boltColor = Color(1, 0.141176, 0.172549, 1)
 
-[node name="Camera2D" type="Camera2D" parent="."]
-
 [connection signal="animation_finished" from="Teleporter1/FrontingSpriteAnim" to="." method="doorsAnimFinished"]

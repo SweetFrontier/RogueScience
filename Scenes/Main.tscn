@@ -119,7 +119,6 @@ _data = {
 script = ExtResource("1_rlws3")
 Levels = [NodePath("Levels/Level1"), NodePath("Levels/Level2"), NodePath("Levels/Level3"), NodePath("Levels/Level5"), NodePath("Levels/Level4"), NodePath("Levels/Level6"), NodePath("Levels/Level7"), NodePath("Levels/Level9"), NodePath("Levels/Level10"), NodePath("Levels/Level8")]
 camera = NodePath("Camera2D")
-current_level = 8
 pauseMenu = NodePath("CanvasLayer/PauseMenu")
 musicPlayer = NodePath("MusicPlayer")
 Transition = NodePath("CanvasLayer/AnimatedTransition")

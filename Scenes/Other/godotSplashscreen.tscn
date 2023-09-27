@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://lf75pcv3t3aa"]
+[gd_scene load_steps=31 format=3 uid="uid://lf75pcv3t3aa"]
 
 [ext_resource type="Script" path="res://Scripts/godotSplashscreen.gd" id="1_ong2s"]
 [ext_resource type="Texture2D" uid="uid://gldj8262l7lx" path="res://Art/Splashscreen/godot_eyeless.png" id="2_qtmda"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://lx3ic30oc3yu" path="res://Art/Splashscreen/evil_burn.png" id="6_b817f"]
 [ext_resource type="AudioStream" uid="uid://btcmrr04rsb5n" path="res://Sounds/Music/coffeecover.mp3" id="6_q033h"]
 [ext_resource type="Script" path="res://Scripts/Triggers/Trigger_Helpers/explodeablePolygon.gd" id="7_smohn"]
+[ext_resource type="Texture2D" uid="uid://dl7lwq6461xns" path="res://Art/Splashscreen/lasereyes.png" id="8_a32kc"]
 [ext_resource type="AudioStream" uid="uid://dm7ppfanqrrcv" path="res://Sounds/Splashscreen/lasers.mp3" id="8_xicqp"]
 [ext_resource type="AudioStream" uid="uid://dcn6o3odgnepm" path="res://Sounds/hitgroundfromhigh.ogg" id="8_xq3eg"]
 [ext_resource type="AudioStream" uid="uid://c6ybjdj5xr2g8" path="res://Sounds/Splashscreen/godotAppear.ogg" id="10_0igv8"]
@@ -169,10 +170,10 @@ tracks/11/path = NodePath("../../Lasers:modulate")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
-"times": PackedFloat32Array(2.7, 2.75, 2.8, 3.45, 3.6, 3.65),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(2.7, 2.75, 2.8, 3.55, 3.65),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 0), Color(4, 2, 2, 1), Color(2, 2, 2, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+"values": [Color(1, 1, 1, 0), Color(4, 2, 2, 1), Color(2, 2, 2, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 tracks/12/type = "value"
 tracks/12/imported = false
@@ -181,7 +182,7 @@ tracks/12/path = NodePath("eyeL:modulate")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
-"times": PackedFloat32Array(2.6, 2.7, 3.6, 3.65),
+"times": PackedFloat32Array(2.6, 2.7, 3.6, 3.75),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(4, 0.392157, 0.392157, 1), Color(4, 0.392157, 0.392157, 1), Color(1, 1, 1, 1)]
@@ -193,7 +194,7 @@ tracks/13/path = NodePath("eyeR:modulate")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
-"times": PackedFloat32Array(2.6, 2.7, 3.6, 3.65),
+"times": PackedFloat32Array(2.6, 2.7, 3.6, 3.75),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(4, 0.39, 0.39, 1), Color(4, 0.39, 0.39, 1), Color(1, 1, 1, 1)]
@@ -240,6 +241,18 @@ tracks/15/keys = {
 "times": PackedFloat32Array(0.5, 2.6, 3.5)
 }
 tracks/15/use_blend = true
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("../../Lasers/Lasereyes:modulate")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(3.5, 3.65),
+"transitions": PackedFloat32Array(2, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_6oxbs"]
 length = 0.001
@@ -397,7 +410,7 @@ layout_mode = 0
 offset_left = 155.0
 offset_top = 62.0
 offset_right = 173.0
-offset_bottom = 80.001
+offset_bottom = 80.0011
 texture = ExtResource("3_32pka")
 stretch_mode = 2
 
@@ -433,7 +446,7 @@ layout_mode = 0
 offset_left = 781.0
 offset_top = -151.0
 offset_right = 924.0
-offset_bottom = -4.99951
+offset_bottom = -4.9989
 texture = ExtResource("4_mn2gs")
 stretch_mode = 2
 
@@ -482,6 +495,10 @@ offset_bottom = 63.9999
 rotation = 0.109119
 scale = Vector2(6.20875, 0.155578)
 texture = SubResource("GradientTexture2D_a5gwt")
+
+[node name="Lasereyes" type="Sprite2D" parent="Lasers"]
+position = Vector2(128, 16)
+texture = ExtResource("8_a32kc")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../GodotController/Godot")

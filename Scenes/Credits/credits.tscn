@@ -492,6 +492,8 @@ scale = Vector2(3.5, 3.5)
 sprite_frames = ExtResource("6_ae0ev")
 animation = &"crawl"
 autoplay = "crawl"
+frame = 5
+frame_progress = 0.480188
 script = ExtResource("7_1tdw6")
 
 [node name="Area2D" type="Area2D" parent="ActualCredits/AnimatedFella"]
@@ -502,11 +504,19 @@ position = Vector2(0, -13)
 shape = SubResource("RectangleShape2D_24ofg")
 
 [node name="OldFella" type="AnimatedSprite2D" parent="ActualCredits/AnimatedFella"]
-position = Vector2(162.857, 0)
-scale = Vector2(2, 2)
+position = Vector2(101.714, 0)
 sprite_frames = ExtResource("6_ae0ev")
 animation = &"oldcrawl"
 autoplay = "oldcrawl"
+
+[node name="OrigFella" type="AnimatedSprite2D" parent="ActualCredits/AnimatedFella"]
+position = Vector2(204.4, 0)
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("6_ae0ev")
+animation = &"origcrawl"
+autoplay = "origcrawl"
+frame = 7
+frame_progress = 0.561384
 
 [node name="music" type="TextureRect" parent="ActualCredits"]
 offset_left = -6.0

@@ -31,8 +31,9 @@ func _on_h_slider_2_value_changed(value: float):
 		settingUp = false
 	else:
 		timer = sound_slider_stop_time
-		soundPlayer.volume_db = 2;
-		soundPlayer.play()
+		soundPlayer.volume_db = 16;
+		if (!soundPlayer.playing):
+			soundPlayer.play()
 
 func _on_pause_menu_pressed() -> void:
 	emit_signal("close_settings")

@@ -26,6 +26,11 @@ func _on_restart_button_pressed():
 	$BackQuoteAnimatedSprite2D.visible = true
 	$VBoxContainer/ResumeButton.disabled = false
 	main.resetLevel()
+	
+	#if unpausing then close the optionsmenu and open this menu for the next time paused
+	if (!get_tree().paused):
+		visible = true
+		optionsMenu.visible = false
 
 func _on_settings_button_pressed() -> void:
 	sound.play()

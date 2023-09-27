@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/Triggers/breakableBlock.gd" id="1_j5j6d"]
 [ext_resource type="Texture2D" uid="uid://cgrp6r7pvdife" path="res://Art/TriggerArt/BreakableBlocks/Breakable32x32Block.png" id="2_i1kkf"]
 [ext_resource type="Script" path="res://Scripts/Triggers/Trigger_Helpers/explodeablePolygon.gd" id="3_v7l57"]
-[ext_resource type="PackedScene" path="res://Scenes/Triggers/Trigger_Helpers/triggerKey.tscn" id="4_444g5"]
+[ext_resource type="PackedScene" uid="uid://djjr177758y2h" path="res://Scenes/Triggers/Trigger_Helpers/triggerKey.tscn" id="4_444g5"]
 [ext_resource type="AudioStream" uid="uid://bw5e10yu6o64o" path="res://Sounds/blockbreak.ogg" id="5_hraw3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_81igh"]
@@ -36,7 +36,7 @@ x_max_distance = 10
 x_min_distance = -10
 y_max_distance = 10
 y_min_distance = -10
-time_to_form = 2.0
+time_to_form = 0.5
 
 [node name="TriggerKeySprite" parent="." instance=ExtResource("4_444g5")]
 position = Vector2(16, 64)

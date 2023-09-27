@@ -3,15 +3,16 @@
 [ext_resource type="Script" path="res://Scripts/Triggers/teleporterTrigger.gd" id="1_drekj"]
 [ext_resource type="PackedScene" uid="uid://bvxwld4fu1vc0" path="res://Scenes/Triggers/Trigger_Helpers/lightning.tscn" id="4_m0xrp"]
 [ext_resource type="PackedScene" uid="uid://djjr177758y2h" path="res://Scenes/Triggers/Trigger_Helpers/triggerKey.tscn" id="5_jhnb2"]
-[ext_resource type="SpriteFrames" uid="uid://dnwwwpgjbwklm" path="res://Art/TriggerArt/Teleporter/backingFrames.tres" id="5_qhjfq"]
-[ext_resource type="SpriteFrames" uid="uid://bvdhyjx44ynaj" path="res://Art/TriggerArt/Teleporter/frontingFrames.tres" id="6_oy3qe"]
-[ext_resource type="SpriteFrames" uid="uid://bfi6haoil4yyk" path="res://Art/TriggerArt/Teleporter/rodFrames.tres" id="7_smeh8"]
+[ext_resource type="SpriteFrames" uid="uid://b5qbnotrsguuc" path="res://Art/TriggerArt/Teleporter/backingFrames.tres" id="5_qhjfq"]
+[ext_resource type="SpriteFrames" uid="uid://cq54c25v0bvqk" path="res://Art/TriggerArt/Teleporter/frontingFrames.tres" id="6_oy3qe"]
+[ext_resource type="SpriteFrames" uid="uid://dyhil6vih37qt" path="res://Art/TriggerArt/Teleporter/rodFrames.tres" id="7_smeh8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sxv0n"]
 size = Vector2(44, 54)
 
 [node name="teleporterTrigger" type="Node2D" node_paths=PackedStringArray("TriggerKeySprite2", "teleporter1", "teleporterArea1", "teleporter2", "teleporterArea2", "lightning", "TriggerKeySprite")]
 script = ExtResource("1_drekj")
+color = 3
 TriggerKeySprite2 = NodePath("Teleporter2/TriggerKeySprite")
 teleporter1 = NodePath("Teleporter1")
 teleporterArea1 = NodePath("Teleporter1/TeleporterArea1")
@@ -28,23 +29,21 @@ metadata/_edit_group_ = true
 z_index = 6
 z_as_relative = false
 sprite_frames = ExtResource("5_qhjfq")
-animation = &"deactivated"
+animation = &"deactivatedBlue"
 
 [node name="FrontingSpriteAnim" type="AnimatedSprite2D" parent="Teleporter1"]
-visible = false
 z_index = 12
 z_as_relative = false
 position = Vector2(-3.55393e-06, -3.11434e-06)
 sprite_frames = ExtResource("6_oy3qe")
-animation = &"activated"
+animation = &"activatedBlue"
 
 [node name="RodSpriteAnim" type="AnimatedSprite2D" parent="Teleporter1"]
 z_index = 7
 z_as_relative = false
 position = Vector2(0, -40)
 sprite_frames = ExtResource("7_smeh8")
-animation = &"deactivatedRed"
-frame_progress = 0.733609
+animation = &"deactivatedBlue"
 
 [node name="TeleporterArea1" type="Area2D" parent="Teleporter1"]
 
@@ -63,24 +62,21 @@ metadata/_edit_group_ = true
 z_index = 6
 z_as_relative = false
 sprite_frames = ExtResource("5_qhjfq")
-animation = &"deactivated"
+animation = &"deactivatedBlue"
 
 [node name="FrontingSpriteAnim" type="AnimatedSprite2D" parent="Teleporter2"]
-visible = false
 z_index = 12
 z_as_relative = false
 position = Vector2(-3.55393e-06, -3.11434e-06)
 sprite_frames = ExtResource("6_oy3qe")
-animation = &"activated"
+animation = &"activatedBlue"
 
 [node name="RodSpriteAnim" type="AnimatedSprite2D" parent="Teleporter2"]
 z_index = 7
 z_as_relative = false
 position = Vector2(0, -40)
 sprite_frames = ExtResource("7_smeh8")
-animation = &"activatedBlue"
-frame_progress = 0.164132
-speed_scale = 6.0
+animation = &"deactivatedBlue"
 
 [node name="TeleporterArea2" type="Area2D" parent="Teleporter2"]
 
@@ -97,3 +93,8 @@ z_as_relative = false
 fromPos = NodePath("../Teleporter1")
 toPos = NodePath("../Teleporter2")
 lightingYOffset = Vector2(0, -28)
+boltColor = Color(1, 0.141176, 0.172549, 1)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[connection signal="animation_finished" from="Teleporter1/FrontingSpriteAnim" to="." method="doorsAnimFinished"]

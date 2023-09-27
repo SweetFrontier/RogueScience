@@ -1,31 +1,77 @@
-[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://dnwwwpgjbwklm"]
+[gd_resource type="SpriteFrames" load_steps=9 format=3 uid="uid://b5qbnotrsguuc"]
 
-[ext_resource type="Texture2D" uid="uid://ct7x3gkfp4xcn" path="res://Art/TriggerArt/Teleporter/Backing.png" id="1_dcarj"]
-[ext_resource type="Texture2D" uid="uid://cs4e5y3v5s7wn" path="res://Art/TriggerArt/Teleporter/BackingActivated.png" id="1_pru8d"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0ld00"]
-atlas = ExtResource("1_pru8d")
-region = Rect2(0, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_s6uy0"]
-atlas = ExtResource("1_dcarj")
-region = Rect2(0, 0, 64, 64)
+[ext_resource type="Texture2D" uid="uid://ds351347f3etr" path="res://Art/TriggerArt/Teleporter/BackingActivatedBlue.png" id="1_q2jro"]
+[ext_resource type="Texture2D" uid="uid://b2h4hfhvbuqrj" path="res://Art/TriggerArt/Teleporter/BackingActivatedPurple.png" id="2_nhhyq"]
+[ext_resource type="Texture2D" uid="uid://jwy2gqsu8tym" path="res://Art/TriggerArt/Teleporter/BackingActivatedRed.png" id="3_etuhm"]
+[ext_resource type="Texture2D" uid="uid://b7225jbc8qja6" path="res://Art/TriggerArt/Teleporter/BackingActivatedYellow.png" id="4_qclkn"]
+[ext_resource type="Texture2D" uid="uid://ca1aambp8vwyv" path="res://Art/TriggerArt/Teleporter/BackingDeactivatedBlue.png" id="5_cqceg"]
+[ext_resource type="Texture2D" uid="uid://d4k0jgoe5qhws" path="res://Art/TriggerArt/Teleporter/BackingDeactivatedPurple.png" id="6_tcenr"]
+[ext_resource type="Texture2D" uid="uid://dny5382xpe3xx" path="res://Art/TriggerArt/Teleporter/BackingDeactivatedRed.png" id="7_sq1x1"]
+[ext_resource type="Texture2D" uid="uid://cyloymrt53ai8" path="res://Art/TriggerArt/Teleporter/BackingDeactivatedYellow.png" id="8_n8b8o"]
 
 [resource]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_0ld00")
+"texture": ExtResource("1_q2jro")
 }],
 "loop": true,
-"name": &"activated",
+"name": &"activatedBlue",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_s6uy0")
+"texture": ExtResource("2_nhhyq")
 }],
 "loop": true,
-"name": &"deactivated",
+"name": &"activatedPurple",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_etuhm")
+}],
+"loop": true,
+"name": &"activatedRed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_qclkn")
+}],
+"loop": true,
+"name": &"activatedYellow",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_cqceg")
+}],
+"loop": true,
+"name": &"deactivatedBlue",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_tcenr")
+}],
+"loop": true,
+"name": &"deactivatedPurple",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_sq1x1")
+}],
+"loop": true,
+"name": &"deactivatedRed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_n8b8o")
+}],
+"loop": true,
+"name": &"deactivatedYellow",
 "speed": 5.0
 }]

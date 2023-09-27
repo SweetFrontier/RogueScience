@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dnqoj4eg2l7le"]
 
 [ext_resource type="Script" path="res://Scripts/Triggers/trampolineTrigger.gd" id="1_nuh0k"]
-[ext_resource type="SpriteFrames" uid="uid://82s0kbf8kedv" path="res://Art/SpriteFrames/breakableBlockAnims.tres" id="2_k65r4"]
+[ext_resource type="SpriteFrames" uid="uid://82s0kbf8kedv" path="res://Art/SpriteFrames/trampolineAnims.tres" id="2_k65r4"]
 [ext_resource type="AudioStream" uid="uid://dvax4m54t4opd" path="res://Sounds/trampoline.ogg" id="4_8qc4l"]
 [ext_resource type="PackedScene" uid="uid://djjr177758y2h" path="res://Scenes/Triggers/Trigger_Helpers/triggerKey.tscn" id="4_w7rx4"]
 

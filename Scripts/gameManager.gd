@@ -62,11 +62,6 @@ func _process(delta):
 			camera.set_zoom(zoomingGoal)
 			zooming = false
 	
-	#this seems kinda unoptimized but it works
-	#if (Transition.animation_finished):
-		#Levels[current_level-1].process_mode = Node.PROCESS_MODE_DISABLED
-		#Levels[current_level].process_mode = Node.PROCESS_MODE_PAUSABLE
-	
 	if (deathTimer >= 0):
 		deathTimer += delta
 		if (deathTimer > deathTimerForReset):
@@ -75,7 +70,7 @@ func _process(delta):
 
 func increase_level() -> void:
 	#tell player to shut up
-	Levels[current_level].player.won_level_shut_up()
+	Levels[current_level].player.won_level_silence()
 	#Next level
 	current_level += 1
 	if(current_level >= Levels.size()):
@@ -83,16 +78,8 @@ func increase_level() -> void:
 		musicPlayer.fadeOut()
 		resetWipeTransitionContoller.cover_screen()
 		return
-	#moving = true
-	#movingProgress = 0
-	#movingStart = camera.global_position
-	#movingGoal = Levels[current_level].cameraSpot.global_position
-	#zooming = true
-	#zoomingProgress = 0
-	#zoomingStart = camera.zoom
 	var min_zoom_size : Vector2 =  Levels[current_level].cameraSize
 	var final_zoom_size = minf(1280/min_zoom_size.x,736/min_zoom_size.y)
-	#zoomingGoal = Vector2(final_zoom_size,final_zoom_size)
 	
 	pauseMenu.set_pausability(false)
 	

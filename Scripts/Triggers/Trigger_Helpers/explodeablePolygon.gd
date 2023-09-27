@@ -2,8 +2,11 @@ extends Polygon2D
 
 class_name explodeablePolygon
 
+signal finished_imploding_signal
+
 @export var shard_type = ShardType.SQUARES
 @export var shard_count = 32
+@export var invisible = false
 
 @export_group("Triangle Properties")
 @export var shard_shrink_rate: float = 0.95  # Adjust this for shard lifetime
@@ -140,8 +143,14 @@ func _physics_process(delta):
 			child.queue_free()
 		imploded_shards = []
 		imploded = false
+		emit_signal("finished_imploding_signal")
 	for child in shard_goal_pos_map.keys():
 		if(child.position == Vector2(0.0,0.0)):
 			shard_goal_pos_map.erase(child)
 			imploded_shards.append(child)
-		child.position = lerp(child.position, Vector2(0,0), clamp(elapsed_time/time_to_form,0,1))
+			continue
+		if invisible:
+			child.position = lerp(child.position, Vector2(0,0), clamp(elapsed_time/time_to_form,0,1))
+		else:
+			child.position = lerp(child.position, Vector2(0,0), clamp(1-sqrt(1-(elapsed_time/time_to_form)*(elapsed_time/time_to_form)),0,1))
+

@@ -126,6 +126,7 @@ bus = &"Sound Effects"
 
 [node name="DoubleClick" type="Label" parent="."]
 modulate = Color(1, 1, 1, 0)
+layout_mode = 0
 offset_left = 826.0
 offset_top = 622.0
 offset_right = 1204.0

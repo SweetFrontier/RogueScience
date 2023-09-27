@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dpotew68t0cpd"
-path="res://.godot/imported/RodActivatedRed.png-f8246615da79d5de186ca0ee8f019980.ctex"
+uid="uid://ds351347f3etr"
+path="res://.godot/imported/BackingActivatedBlue.png-d1334d5c99c310d0268feb59e8ea95fd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/TriggerArt/Teleporter/RodActivatedRed.png"
-dest_files=["res://.godot/imported/RodActivatedRed.png-f8246615da79d5de186ca0ee8f019980.ctex"]
+source_file="res://Art/TriggerArt/Teleporter/BackingActivatedBlue.png"
+dest_files=["res://.godot/imported/BackingActivatedBlue.png-d1334d5c99c310d0268feb59e8ea95fd.ctex"]
 
 [params]
 

@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=122 format=3 uid="uid://bfi6haoil4yyk"]
+[gd_resource type="SpriteFrames" load_steps=122 format=3 uid="uid://dyhil6vih37qt"]
 
 [ext_resource type="Texture2D" uid="uid://ja6fqpyxb3jg" path="res://Art/TriggerArt/Teleporter/RodActivatedBlue.png" id="1_k1hgh"]
 [ext_resource type="Texture2D" uid="uid://sfenbg6hoslg" path="res://Art/TriggerArt/Teleporter/RodActivatedYellow.png" id="2_bnen6"]
@@ -547,7 +547,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"activatedBlue",
-"speed": 15.0
+"speed": 60.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -633,7 +633,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"activatedPurple",
-"speed": 15.0
+"speed": 60.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -719,7 +719,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"activatedRed",
-"speed": 15.0
+"speed": 60.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -808,7 +808,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"activatedYellow",
-"speed": 15.0
+"speed": 60.0
 }, {
 "frames": [{
 "duration": 1.0,

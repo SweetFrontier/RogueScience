@@ -22,6 +22,7 @@ enum teleporterColor {
 var teleporting = false
 var startingTeleporter: Node2D
 var endingTeleporter: Node2D
+var isDoorsClosed = false
 var teleportingProgress: float = 0.0
 var teleporterStartPos: Vector2
 var teleporterEndPos: Vector2
@@ -36,6 +37,15 @@ func _ready():
 	teleporterArea1.body_exited.connect(onT1BodyExited)
 	teleporterArea2.body_exited.connect(onT2BodyExited)
 	colorString = teleporterColor.keys()[color]
+	match (colorString):
+		"Blue":
+			lightning.boltColor = Color("0FA7FF")
+		"Yellow":
+			lightning.boltColor = Color("DECF35")
+		"Red":
+			lightning.boltColor = Color("FF0712")
+		"Purple":
+			lightning.boltColor = Color("B95DFF")
 	reset()
 
 func react():
@@ -61,6 +71,7 @@ func reset():
 	TriggerKeySprite2.modulate.a = 1
 	occupied = false
 	ridingBody = null
+	isDoorsClosed = false
 	teleporting = false
 	startingTeleporter = null
 	endingTeleporter = null
@@ -155,16 +166,23 @@ func setupMoveToStart():
 
 func riderReady():
 	super.riderReady()
-	setupTeleporterStarting()
+	closeDoors()
 
-func setupTeleporterStarting():
-	teleportingProgress = 0.0
-	#teleporterEndPos = endingTeleporter.position + position
-	teleporterEndPos = endingTeleporter.global_position
-	teleporting = true
-	lightning.show_lightning()
+func closeDoors():
+	isDoorsClosed = true
 	$Teleporter1/FrontingSpriteAnim.play()
 	$Teleporter2/FrontingSpriteAnim.play()
+
+func doorsAnimFinished():
+	if isDoorsClosed:
+		isDoorsClosed = false
+		teleportingProgress = 0.0
+		#teleporterEndPos = endingTeleporter.position + position
+		teleporterEndPos = endingTeleporter.global_position
+		teleporting = true
+		ridingBody.visible = false
+		lightning.show_lightning()
+		
 
 func teleport(delta):
 	teleportingProgress += delta
@@ -176,6 +194,7 @@ func teleport(delta):
 	if teleportingProgress >= time_to_teleport:
 		lightning.hide_lightning()
 		ridingBody.set_body_pos(teleporterEndPos)
+		ridingBody.visible = true
 		$Teleporter1/FrontingSpriteAnim.play_backwards()
 		$Teleporter2/FrontingSpriteAnim.play_backwards()
 		teleporting = false

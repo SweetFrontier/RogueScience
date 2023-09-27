@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://lf75pcv3t3aa"]
+[gd_scene load_steps=32 format=3 uid="uid://lf75pcv3t3aa"]
 
 [ext_resource type="Script" path="res://Scripts/godotSplashscreen.gd" id="1_ong2s"]
 [ext_resource type="Texture2D" uid="uid://gldj8262l7lx" path="res://Art/Splashscreen/godot_eyeless.png" id="2_qtmda"]
@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://rbyp8q8q34ew" path="res://Sounds/UI/buttonpress.ogg" id="3_fa4y6"]
 [ext_resource type="Texture2D" uid="uid://br2l7yie5x2hu" path="res://Art/Splashscreen/explosion.png" id="4_kishx"]
 [ext_resource type="Texture2D" uid="uid://bclhm8o2j5iu7" path="res://Art/Splashscreen/evil.png" id="4_mn2gs"]
+[ext_resource type="Texture2D" uid="uid://nvpauxarwxxy" path="res://Art/Splashscreen/exploglow.png" id="5_0bmx0"]
 [ext_resource type="Texture2D" uid="uid://lx3ic30oc3yu" path="res://Art/Splashscreen/evil_burn.png" id="6_b817f"]
 [ext_resource type="AudioStream" uid="uid://btcmrr04rsb5n" path="res://Sounds/Music/coffeecover.mp3" id="6_q033h"]
 [ext_resource type="Script" path="res://Scripts/Triggers/Trigger_Helpers/explodeablePolygon.gd" id="7_smohn"]
@@ -134,10 +135,10 @@ tracks/8/path = NodePath("../../Boom:scale")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(3.45, 7),
-"transitions": PackedFloat32Array(0.12, 0.5),
+"times": PackedFloat32Array(3.45, 3.7, 7),
+"transitions": PackedFloat32Array(0.633364, 0.4, 0.2),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(1.4, 1.4)]
+"values": [Vector2(0, 0), Vector2(0.6382, 0.6382), Vector2(1.8, 1.8)]
 }
 tracks/9/type = "value"
 tracks/9/imported = false
@@ -158,7 +159,7 @@ tracks/10/path = NodePath("../../Boom:modulate")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
-"times": PackedFloat32Array(5.25, 6.25, 6.85),
+"times": PackedFloat32Array(4.85, 5.75, 6.65),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(0.462745, 0.462745, 0.462745, 1), Color(0.345098, 0.345098, 0.345098, 0)]
@@ -249,6 +250,18 @@ tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/keys = {
 "times": PackedFloat32Array(3.5, 3.65),
+"transitions": PackedFloat32Array(2, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("../../Boom/BoomGlow:modulate")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(4.25, 6.05),
 "transitions": PackedFloat32Array(2, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -410,7 +423,7 @@ layout_mode = 0
 offset_left = 155.0
 offset_top = 62.0
 offset_right = 173.0
-offset_bottom = 80.0011
+offset_bottom = 80.0007
 texture = ExtResource("3_32pka")
 stretch_mode = 2
 
@@ -419,7 +432,7 @@ layout_mode = 0
 offset_left = 95.0
 offset_top = 62.0
 offset_right = 113.0
-offset_bottom = 80.0008
+offset_bottom = 80.0005
 texture = ExtResource("3_32pka")
 stretch_mode = 2
 
@@ -441,12 +454,22 @@ scale = Vector2(0.500001, 0.500001)
 texture = ExtResource("4_kishx")
 expand_mode = 3
 
+[node name="BoomGlow" type="TextureRect" parent="Boom"]
+layout_mode = 0
+offset_left = -446.667
+offset_top = -468.195
+offset_right = 1340.0
+offset_bottom = 731.805
+scale = Vector2(0.500001, 0.500001)
+texture = ExtResource("5_0bmx0")
+expand_mode = 3
+
 [node name="Evil" type="TextureRect" parent="."]
 layout_mode = 0
 offset_left = 781.0
 offset_top = -151.0
 offset_right = 924.0
-offset_bottom = -4.9989
+offset_bottom = -4.99884
 texture = ExtResource("4_mn2gs")
 stretch_mode = 2
 

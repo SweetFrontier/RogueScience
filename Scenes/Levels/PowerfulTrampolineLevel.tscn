@@ -38,11 +38,20 @@ position = Vector2(704, 672)
 [node name="trampolineTrigger" parent="." instance=ExtResource("5_bbeal")]
 position = Vector2(336, 176)
 
+[node name="TriggerKeySprite" parent="trampolineTrigger" index="1"]
+position = Vector2(-32, 35)
+
 [node name="invisibleBlock" parent="." instance=ExtResource("6_nwt6b")]
 position = Vector2(320, 96)
 
+[node name="TriggerKeySprite" parent="invisibleBlock" index="1"]
+position = Vector2(-3, 37)
+
 [node name="invisibleBlock2" parent="." instance=ExtResource("7_vw7dc")]
 position = Vector2(576, 192)
+
+[node name="TriggerKeySprite" parent="invisibleBlock2" index="1"]
+position = Vector2(-3, 33)
 
 [node name="trampolineTrigger2" parent="." instance=ExtResource("5_bbeal")]
 position = Vector2(608, 656)
@@ -51,8 +60,14 @@ startActivated = true
 [node name="invisibleBlock3" parent="." instance=ExtResource("7_vw7dc")]
 position = Vector2(576, 512)
 
+[node name="TriggerKeySprite" parent="invisibleBlock3" index="1"]
+position = Vector2(4, 34)
+
 [node name="invisibleBlock4" parent="." instance=ExtResource("7_vw7dc")]
 position = Vector2(512, 352)
+
+[node name="TriggerKeySprite" parent="invisibleBlock4" index="1"]
+position = Vector2(9, 39)
 
 [node name="trampolineTrigger3" parent="." instance=ExtResource("5_bbeal")]
 position = Vector2(544, 496)
@@ -65,18 +80,33 @@ startActivated = true
 [node name="32x32breakableBlock" parent="." instance=ExtResource("8_ybyt7")]
 position = Vector2(480, 320)
 
+[node name="TriggerKeySprite" parent="32x32breakableBlock" index="1"]
+position = Vector2(1, 40)
+
 [node name="trampolineTrigger5" parent="." instance=ExtResource("5_bbeal")]
 position = Vector2(384, 656)
+
+[node name="TriggerKeySprite" parent="trampolineTrigger5" index="1"]
+position = Vector2(-31, 32)
 
 [node name="trampolineTrigger6" parent="." instance=ExtResource("5_bbeal")]
 position = Vector2(160, 656)
 startActivated = true
 
+[node name="TriggerKeySprite" parent="trampolineTrigger6" index="1"]
+position = Vector2(-26, 32)
+
 [node name="invisibleBlock5" parent="." instance=ExtResource("7_vw7dc")]
 position = Vector2(128, 576)
 
+[node name="TriggerKeySprite" parent="invisibleBlock5" index="1"]
+position = Vector2(5, 39)
+
 [node name="invisibleBlock6" parent="." instance=ExtResource("9_71icb")]
 position = Vector2(128, 480)
+
+[node name="TriggerKeySprite" parent="invisibleBlock6" index="1"]
+position = Vector2(7, 56)
 
 [node name="trampolineTrigger7" parent="." instance=ExtResource("5_bbeal")]
 position = Vector2(256, 560)
@@ -84,6 +114,9 @@ startActivated = true
 
 [node name="64x32breakableBlock" parent="." instance=ExtResource("10_qqoyw")]
 position = Vector2(224, 480)
+
+[node name="TriggerKeySprite" parent="64x32breakableBlock" index="1"]
+position = Vector2(6, 33)
 
 [node name="trampolineTrigger8" parent="." instance=ExtResource("5_bbeal")]
 position = Vector2(64, 848)
@@ -93,8 +126,14 @@ startActivated = true
 [node name="64x64breakableBlock" parent="." instance=ExtResource("11_7yre7")]
 position = Vector2(32, 512)
 
+[node name="TriggerKeySprite" parent="64x64breakableBlock" index="2"]
+position = Vector2(9, 58)
+
 [node name="invisibleBlock7" parent="." instance=ExtResource("7_vw7dc")]
 position = Vector2(192, 192)
+
+[node name="TriggerKeySprite" parent="invisibleBlock7" index="1"]
+position = Vector2(3, 34)
 
 [node name="trampolineTrigger9" parent="." instance=ExtResource("5_bbeal")]
 position = Vector2(224, 304)
@@ -107,12 +146,38 @@ startActivated = true
 [node name="invisibleBlock8" parent="." instance=ExtResource("7_vw7dc")]
 position = Vector2(224, 416)
 
+[node name="TriggerKeySprite" parent="invisibleBlock8" index="1"]
+position = Vector2(3, 32)
+
 [node name="invisibleBlock9" parent="." instance=ExtResource("7_vw7dc")]
 position = Vector2(128, 320)
+
+[node name="TriggerKeySprite" parent="invisibleBlock9" index="1"]
+position = Vector2(3, 35)
 
 [node name="invisibleBlock10" parent="." instance=ExtResource("7_vw7dc")]
 position = Vector2(32, 0)
 
+[node name="TriggerKeySprite" parent="invisibleBlock10" index="1"]
+position = Vector2(1, 34)
+
 [node name="brokenVat" parent="." instance=ExtResource("12_5ak38")]
 position = Vector2(224, 640)
 metadata/_edit_lock_ = true
+
+[editable path="trampolineTrigger"]
+[editable path="invisibleBlock"]
+[editable path="invisibleBlock2"]
+[editable path="invisibleBlock3"]
+[editable path="invisibleBlock4"]
+[editable path="32x32breakableBlock"]
+[editable path="trampolineTrigger5"]
+[editable path="trampolineTrigger6"]
+[editable path="invisibleBlock5"]
+[editable path="invisibleBlock6"]
+[editable path="64x32breakableBlock"]
+[editable path="64x64breakableBlock"]
+[editable path="invisibleBlock7"]
+[editable path="invisibleBlock8"]
+[editable path="invisibleBlock9"]
+[editable path="invisibleBlock10"]

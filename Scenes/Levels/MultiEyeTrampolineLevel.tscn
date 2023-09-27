@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://ci05tj7j8an3w" path="res://Scenes/Triggers/BreakableBlocks/64x32breakableBlock.tscn" id="9_6p4ml"]
 [ext_resource type="PackedScene" uid="uid://dnqoj4eg2l7le" path="res://Scenes/Triggers/trampolineTrigger.tscn" id="10_xtsu4"]
 
-[node name="LevelTrampoline" type="Node2D" node_paths=PackedStringArray("cameraSpot", "player", "transitionField")]
+[node name="MultiEyeTrampoline" type="Node2D" node_paths=PackedStringArray("cameraSpot", "player", "transitionField")]
 script = ExtResource("1_kchyp")
 cameraSpot = NodePath("CenterPosition")
 cameraSize = Vector2(480, 288)

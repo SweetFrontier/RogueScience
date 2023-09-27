@@ -41,8 +41,10 @@ var last_y_velocity : float = 0 #last_y_velocity for how loud to play the hit so
 var deathCounter = 0
 var dead : bool = false
 var won_level : bool = false
+var animBackwards = false
 
 func _ready():
+	AnimatedSprite.animation = "crawl"
 	last_y_velocity = 0
 	dead = false
 	starting_transform = get_global_transform()
@@ -181,11 +183,38 @@ func movement_overwritten(_movement_overrider):
 	being_controlled = true
 	just_started_control = true
 	positioning_finished = false
+	AnimatedSprite.play("walkedIntoTrigger")
+	animBackwards = false
 	movement_overrider = _movement_overrider
 	
 func free_movement():
+	AnimatedSprite.play_backwards("walkedIntoTrigger")
+	animBackwards = true
 	being_controlled = false
 	movement_overrider = null
+
+func player_anim_finished():
+	if AnimatedSprite.animation == "walkedIntoTrigger" and !being_controlled:
+		AnimatedSprite.play("crawl")
+		animBackwards = false
+	elif being_controlled:
+		if linear_velocity == Vector2(0,0):
+			AnimatedSprite.play("chillinInTrigger")
+			animBackwards = false
+		elif linear_velocity.y < 0:
+			if (AnimatedSprite.animation == "changingVerticalDirection" and animBackwards == false) or AnimatedSprite.animation == "rising":
+				AnimatedSprite.play("rising")
+				animBackwards = false
+			else:
+				AnimatedSprite.play("changingVerticalDirection")
+				animBackwards = false
+		elif  linear_velocity.y > 0:
+			if (AnimatedSprite.animation == "changingVerticalDirection" and animBackwards == true) or AnimatedSprite.animation == "falling":
+				AnimatedSprite.play("falling")
+				animBackwards = false
+			else:
+				AnimatedSprite.play_backwards("changingVerticalDirection")
+				animBackwards = true
 
 func set_body_pos(pos):
 	next_pos = pos

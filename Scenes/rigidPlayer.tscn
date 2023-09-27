@@ -37,7 +37,6 @@ z_as_relative = false
 sprite_frames = ExtResource("2_b4cfh")
 animation = &"crawl"
 autoplay = "crawl"
-frame_progress = 0.228091
 offset = Vector2(4, 0)
 
 [node name="PlayerCollision" type="CollisionPolygon2D" parent="."]
@@ -92,5 +91,6 @@ y_min_distance = -10
 time_to_form = 2.0
 metadata/_edit_group_ = true
 
+[connection signal="animation_finished" from="PlayerAnimatedSprite" to="." method="player_anim_finished"]
 [connection signal="body_entered" from="floorCollisionArea" to="." method="_on_floor_collision_area_body_entered"]
 [connection signal="body_exited" from="floorCollisionArea" to="." method="_on_floor_collision_area_body_exited"]

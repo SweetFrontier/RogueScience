@@ -36,7 +36,7 @@ x_max_distance = 10
 x_min_distance = -10
 y_max_distance = 10
 y_min_distance = -10
-time_to_form = 2.0
+time_to_form = 0.5
 
 [node name="TriggerKeySprite" parent="." instance=ExtResource("4_0arju")]
 position = Vector2(32, 64)

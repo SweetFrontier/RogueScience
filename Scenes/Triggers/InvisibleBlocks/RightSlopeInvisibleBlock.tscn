@@ -23,6 +23,7 @@ texture = ExtResource("2_fcxug")
 polygon = PackedVector2Array(0, 0, 64, 0, 64, 32, 0, 32)
 script = ExtResource("3_cdidx")
 shard_count = 64
+invisible = true
 shard_shrink_rate = 0.99
 min_shard_size = 0.0
 x_init_velocity = 20

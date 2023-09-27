@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/Triggers/invisibleBlock.gd" id="1_spw1l"]
 [ext_resource type="Texture2D" uid="uid://do7rulxuhhjne" path="res://Art/TriggerArt/InvisibleBlocks/InvisLeftSlope.png" id="2_3noy5"]
 [ext_resource type="Script" path="res://Scripts/Triggers/Trigger_Helpers/explodeablePolygon.gd" id="3_3hsrp"]
-[ext_resource type="PackedScene" path="res://Scenes/Triggers/Trigger_Helpers/triggerKey.tscn" id="4_uqyms"]
+[ext_resource type="PackedScene" uid="uid://djjr177758y2h" path="res://Scenes/Triggers/Trigger_Helpers/triggerKey.tscn" id="4_uqyms"]
 [ext_resource type="Texture2D" uid="uid://dpqgyipr2o053" path="res://Art/TriggerArt/InvisibleBlocks/InvisSlopeLoad.png" id="5_8jbbm"]
 [ext_resource type="Script" path="res://Scripts/Triggers/invisiblockCollision.gd" id="5_33vq5"]
 [ext_resource type="AudioStream" uid="uid://ctnkt71vbtt11" path="res://Sounds/invisibleblock.ogg" id="5_nxqdn"]
@@ -23,6 +23,7 @@ texture = ExtResource("2_3noy5")
 polygon = PackedVector2Array(0, 0, 64, 0, 64, 32, 0, 32)
 script = ExtResource("3_3hsrp")
 shard_count = 64
+invisible = true
 shard_shrink_rate = 0.99
 min_shard_size = 0.0
 x_init_velocity = 20

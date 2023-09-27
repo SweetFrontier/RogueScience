@@ -1,7 +1,15 @@
 extends baseTrigger
 class_name teleporterTrigger
 
+enum teleporterColor {
+	Red,
+	Blue,
+	Purple,
+	Yellow
+}
+
 # Exported variable for controlling the suction force.
+@export var color : teleporterColor
 @export var TriggerKeySprite2: AnimatedSprite2D
 @export var time_to_teleport: float = 1
 @export var lightningCooldown = 0.05
@@ -20,12 +28,14 @@ var teleporterEndPos: Vector2
 var lightningProgress = 0.0
 var t1Occupied = false
 var t2Occupied = false
+var colorString : String
 
 func _ready():
 	teleporterArea1.body_entered.connect(onT1BodyEntered)
 	teleporterArea2.body_entered.connect(onT2BodyEntered)
 	teleporterArea1.body_exited.connect(onT1BodyExited)
 	teleporterArea2.body_exited.connect(onT2BodyExited)
+	colorString = teleporterColor.keys()[color]
 	reset()
 
 func react():
@@ -35,6 +45,12 @@ func react():
 		TriggerKeySprite2.frame = 1
 		# Start the fade timer.
 		button_fade_timer = button_fade_duration
+		#change all of the animatedsprites to activated
+		for child in teleporter1.get_children()+teleporter2.get_children():
+			if child is AnimatedSprite2D and child.name != "TriggerKeySprite":
+				child.animation = "activated" + colorString
+		$Teleporter1/RodSpriteAnim.play()
+		$Teleporter2/RodSpriteAnim.play()
 	if !activated:
 		activated = true
 
@@ -55,6 +71,12 @@ func reset():
 	lightning.hide_lightning()
 	t1Occupied = false
 	t2Occupied = false	
+	
+	#make sure everything is deactivated
+	for child in teleporter1.get_children()+teleporter2.get_children():
+		if child is AnimatedSprite2D and child.name != "TriggerKeySprite":
+			child.animation = "deactivated" + colorString
+	
 	if startActivated:
 		react()
 		button_fade_timer = 0
@@ -141,6 +163,8 @@ func setupTeleporterStarting():
 	teleporterEndPos = endingTeleporter.global_position
 	teleporting = true
 	lightning.show_lightning()
+	$Teleporter1/FrontingSpriteAnim.play()
+	$Teleporter2/FrontingSpriteAnim.play()
 
 func teleport(delta):
 	teleportingProgress += delta
@@ -152,6 +176,8 @@ func teleport(delta):
 	if teleportingProgress >= time_to_teleport:
 		lightning.hide_lightning()
 		ridingBody.set_body_pos(teleporterEndPos)
+		$Teleporter1/FrontingSpriteAnim.play_backwards()
+		$Teleporter2/FrontingSpriteAnim.play_backwards()
 		teleporting = false
 		free_movement()
 		ridingBody = null

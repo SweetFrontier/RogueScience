@@ -3,11 +3,11 @@
 [ext_resource type="Texture2D" uid="uid://ct7x3gkfp4xcn" path="res://Art/TriggerArt/Teleporter/Backing.png" id="1_dcarj"]
 [ext_resource type="Texture2D" uid="uid://cs4e5y3v5s7wn" path="res://Art/TriggerArt/Teleporter/BackingActivated.png" id="1_pru8d"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0ld00"]
-atlas = ExtResource("1_pru8d")
+[sub_resource type="AtlasTexture" id="AtlasTexture_vup2j"]
+atlas = ExtResource("1_dcarj")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_s6uy0"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ew4aa"]
 atlas = ExtResource("1_dcarj")
 region = Rect2(0, 0, 64, 64)
 
@@ -15,17 +15,65 @@ region = Rect2(0, 0, 64, 64)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_0ld00")
+"texture": ExtResource("1_pru8d")
 }],
 "loop": true,
-"name": &"activated",
+"name": &"activatedBlue",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_s6uy0")
+"texture": ExtResource("1_pru8d")
 }],
 "loop": true,
-"name": &"deactivated",
+"name": &"activatedPurple",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_pru8d")
+}],
+"loop": true,
+"name": &"activatedRed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_pru8d")
+}],
+"loop": true,
+"name": &"activatedYellow",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vup2j")
+}],
+"loop": true,
+"name": &"deactivatedBlue",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ew4aa")
+}],
+"loop": true,
+"name": &"deactivatedPurple",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_dcarj")
+}],
+"loop": true,
+"name": &"deactivatedRed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_dcarj")
+}],
+"loop": true,
+"name": &"deactivatedYellow",
 "speed": 5.0
 }]

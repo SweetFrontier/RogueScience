@@ -235,6 +235,6 @@ func _on_floor_collision_area_body_exited(body):
 		return
 	floorCollisions -= 1
 
-func won_level_shut_up():
+func won_level_silence():
 	won_level = true
 	CrawlSounds.stop()

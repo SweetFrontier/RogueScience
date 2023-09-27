@@ -12,6 +12,7 @@ size = Vector2(44, 54)
 
 [node name="teleporterTrigger" type="Node2D" node_paths=PackedStringArray("TriggerKeySprite2", "teleporter1", "teleporterArea1", "teleporter2", "teleporterArea2", "lightning", "TriggerKeySprite")]
 script = ExtResource("1_drekj")
+color = 3
 TriggerKeySprite2 = NodePath("Teleporter2/TriggerKeySprite")
 teleporter1 = NodePath("Teleporter1")
 teleporterArea1 = NodePath("Teleporter1/TeleporterArea1")
@@ -28,23 +29,21 @@ metadata/_edit_group_ = true
 z_index = 6
 z_as_relative = false
 sprite_frames = ExtResource("5_qhjfq")
-animation = &"deactivated"
+animation = &"activatedYellow"
 
 [node name="FrontingSpriteAnim" type="AnimatedSprite2D" parent="Teleporter1"]
-visible = false
 z_index = 12
 z_as_relative = false
 position = Vector2(-3.55393e-06, -3.11434e-06)
 sprite_frames = ExtResource("6_oy3qe")
-animation = &"activated"
+animation = &"deactivatedPurple"
 
 [node name="RodSpriteAnim" type="AnimatedSprite2D" parent="Teleporter1"]
 z_index = 7
 z_as_relative = false
 position = Vector2(0, -40)
 sprite_frames = ExtResource("7_smeh8")
-animation = &"deactivatedRed"
-frame_progress = 0.733609
+animation = &"activatedBlue"
 
 [node name="TeleporterArea1" type="Area2D" parent="Teleporter1"]
 
@@ -63,24 +62,21 @@ metadata/_edit_group_ = true
 z_index = 6
 z_as_relative = false
 sprite_frames = ExtResource("5_qhjfq")
-animation = &"deactivated"
+animation = &"activatedBlue"
 
 [node name="FrontingSpriteAnim" type="AnimatedSprite2D" parent="Teleporter2"]
-visible = false
 z_index = 12
 z_as_relative = false
 position = Vector2(-3.55393e-06, -3.11434e-06)
 sprite_frames = ExtResource("6_oy3qe")
-animation = &"activated"
+animation = &"activatedBlue"
 
 [node name="RodSpriteAnim" type="AnimatedSprite2D" parent="Teleporter2"]
 z_index = 7
 z_as_relative = false
 position = Vector2(0, -40)
 sprite_frames = ExtResource("7_smeh8")
-animation = &"activatedBlue"
-frame_progress = 0.164132
-speed_scale = 6.0
+animation = &"activatedRed"
 
 [node name="TeleporterArea2" type="Area2D" parent="Teleporter2"]
 
@@ -97,3 +93,5 @@ z_as_relative = false
 fromPos = NodePath("../Teleporter1")
 toPos = NodePath("../Teleporter2")
 lightingYOffset = Vector2(0, -28)
+
+[node name="Camera2D" type="Camera2D" parent="."]

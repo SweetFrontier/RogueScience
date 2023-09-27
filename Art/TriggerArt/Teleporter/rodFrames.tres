@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://ja6fqpyxb3jg" path="res://Art/TriggerArt/Teleporter/RodActivatedBlue.png" id="1_k1hgh"]
 [ext_resource type="Texture2D" uid="uid://sfenbg6hoslg" path="res://Art/TriggerArt/Teleporter/RodActivatedYellow.png" id="2_bnen6"]
 [ext_resource type="Texture2D" uid="uid://du11akcj4qy2b" path="res://Art/TriggerArt/Teleporter/RodActivatedPurple.png" id="2_q8bxp"]
-[ext_resource type="Texture2D" uid="uid://6h27cyncic65" path="res://Art/TriggerArt/Teleporter/RodActivatedRed.png" id="3_4ncxb"]
+[ext_resource type="Texture2D" uid="uid://dpotew68t0cpd" path="res://Art/TriggerArt/Teleporter/RodActivatedRed.png" id="3_4ncxb"]
 [ext_resource type="Texture2D" uid="uid://dquo0da1fmvuv" path="res://Art/TriggerArt/Teleporter/RodDeactivatedBlue.png" id="6_m76ts"]
 [ext_resource type="Texture2D" uid="uid://daiatw3f8ac8x" path="res://Art/TriggerArt/Teleporter/RodDeactivatedPurple.png" id="7_kkg22"]
 [ext_resource type="Texture2D" uid="uid://bewixs8y42u87" path="res://Art/TriggerArt/Teleporter/RodDeactivatedRed.png" id="8_imep3"]

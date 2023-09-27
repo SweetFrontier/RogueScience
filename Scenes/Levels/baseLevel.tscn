@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://1xasoo80ygld"]
+[gd_scene load_steps=7 format=3 uid="uid://1xasoo80ygld"]
 
 [ext_resource type="Script" path="res://Scripts/levelController.gd" id="1_btnfb"]
 [ext_resource type="TileSet" uid="uid://bnpggr5480t5q" path="res://Art/TileSets/initialTileSet.tres" id="2_esq4l"]
 [ext_resource type="PackedScene" uid="uid://dvbyxsl5e3ol8" path="res://Scenes/Triggers/Trigger_Helpers/TransitionField.tscn" id="4_go5s3"]
 [ext_resource type="PackedScene" uid="uid://dm5fdokmgctgr" path="res://Scenes/Triggers/elevatorTrigger.tscn" id="5_8for7"]
+[ext_resource type="PackedScene" uid="uid://dnqoj4eg2l7le" path="res://Scenes/Triggers/trampolineTrigger.tscn" id="6_0y03v"]
 [ext_resource type="PackedScene" uid="uid://dd6l6fhpuajke" path="res://Scenes/rigidPlayer.tscn" id="6_jf1j1"]
 
 [node name="baseLevel" type="Node2D" node_paths=PackedStringArray("cameraSpot", "player", "transitionField")]
@@ -44,5 +45,29 @@ position = Vector2(0, -144)
 
 [node name="Stop10" parent="elevatorTrigger2/ElevatorStops" index="10"]
 position = Vector2(0, -240)
+
+[node name="trampolineTrigger" parent="." instance=ExtResource("6_0y03v")]
+position = Vector2(512, 432)
+startActivated = true
+
+[node name="trampolineTrigger2" parent="." instance=ExtResource("6_0y03v")]
+position = Vector2(512, 368)
+startActivated = true
+
+[node name="trampolineTrigger3" parent="." instance=ExtResource("6_0y03v")]
+position = Vector2(512, 288)
+startActivated = true
+
+[node name="trampolineTrigger4" parent="." instance=ExtResource("6_0y03v")]
+position = Vector2(512, 208)
+startActivated = true
+
+[node name="trampolineTrigger5" parent="." instance=ExtResource("6_0y03v")]
+position = Vector2(512, 80)
+startActivated = true
+
+[node name="trampolineTrigger6" parent="." instance=ExtResource("6_0y03v")]
+position = Vector2(512, 144)
+startActivated = true
 
 [editable path="elevatorTrigger2"]

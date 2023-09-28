@@ -194,28 +194,27 @@ func free_movement():
 	movement_overrider = null
 
 func player_anim_finished():
-	print(AnimatedSprite.animation)
 	if AnimatedSprite.animation == "walkedIntoTrigger" and !being_controlled:
 		AnimatedSprite.play("crawl")
 		animBackwards = false
 	elif being_controlled:
-		if AnimatedSprite.animation == "walkedIntoTrigger" or linear_velocity == Vector2(0,0):
-			AnimatedSprite.play("rising")
+		if !positioning_finished:
+			AnimatedSprite.play("chillinInTrigger")
 			animBackwards = false
 		elif linear_velocity.y < 0:
-			if (AnimatedSprite.animation == "changingVerticalDirection" and animBackwards == false) or AnimatedSprite.animation == "rising":
+			if (AnimatedSprite.animation == "changingVerticalDirection" and animBackwards == true) or AnimatedSprite.animation == "rising" or AnimatedSprite.animation == "walkedIntoTrigger":
 				AnimatedSprite.play("rising")
-				animBackwards = false
-			else:
-				AnimatedSprite.play("changingVerticalDirection")
-				animBackwards = false
-		elif  linear_velocity.y > 0:
-			if (AnimatedSprite.animation == "changingVerticalDirection" and animBackwards == true) or AnimatedSprite.animation == "falling":
-				AnimatedSprite.play("falling")
 				animBackwards = false
 			else:
 				AnimatedSprite.play_backwards("changingVerticalDirection")
 				animBackwards = true
+		elif  linear_velocity.y > 0:
+			if (AnimatedSprite.animation == "changingVerticalDirection" and animBackwards == false) or AnimatedSprite.animation == "falling" or AnimatedSprite.animation == "walkedIntoTrigger":
+				AnimatedSprite.play("falling")
+				animBackwards = false
+			else:
+				AnimatedSprite.play("changingVerticalDirection")
+				animBackwards = false
 
 func set_body_pos(pos):
 	next_pos = pos

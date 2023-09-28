@@ -135,6 +135,7 @@ stream = ExtResource("6_716nk")
 [node name="BuzzingPlayer" type="AudioStreamPlayer2D" parent="ElevatorBox"]
 position = Vector2(0, 16)
 stream = ExtResource("7_8vhrq")
+volume_db = -7.0
 
 [node name="MoveToPosition" type="Node2D" parent="."]
 position = Vector2(0, -8)

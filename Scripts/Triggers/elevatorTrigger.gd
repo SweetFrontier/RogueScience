@@ -28,7 +28,10 @@ func react():
 	super.react()
 	if !activated:
 		activated = true
-		
+		for child in $ElevatorStops.get_children():
+			child.play("activated")
+		ElevatorShaft.play("activated")
+		ElevatorBox.play("activated")
 
 func reset():
 	super.reset()
@@ -40,6 +43,13 @@ func reset():
 	reached_stop = false
 	curr_stop = startingStop
 	ElevatorBox.global_position = stoppingPoints[curr_stop].global_position
+	#make sure everything is deactivated
+	
+	for child in $ElevatorStops.get_children():
+		child.animation = "deactivated"
+	ElevatorShaft.animation = "deactivated"
+	ElevatorBox.animation = "deactivated"
+	
 	if startActivated:
 		react()
 		button_fade_timer = 0

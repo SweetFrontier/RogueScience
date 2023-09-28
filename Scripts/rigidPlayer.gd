@@ -194,12 +194,13 @@ func free_movement():
 	movement_overrider = null
 
 func player_anim_finished():
+	print(AnimatedSprite.animation)
 	if AnimatedSprite.animation == "walkedIntoTrigger" and !being_controlled:
 		AnimatedSprite.play("crawl")
 		animBackwards = false
 	elif being_controlled:
-		if linear_velocity == Vector2(0,0):
-			AnimatedSprite.play("chillinInTrigger")
+		if AnimatedSprite.animation == "walkedIntoTrigger" or linear_velocity == Vector2(0,0):
+			AnimatedSprite.play("rising")
 			animBackwards = false
 		elif linear_velocity.y < 0:
 			if (AnimatedSprite.animation == "changingVerticalDirection" and animBackwards == false) or AnimatedSprite.animation == "rising":

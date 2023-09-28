@@ -158,7 +158,7 @@ func _physics_process(delta):
 			deathCounter = 0
 	
 func rotate_player_on_arc(delta):
-	if being_controlled:
+	if being_controlled and false:
 		# Calculate the angle between the player's current rotation and the target rotation (0 degrees).
 		var target_angle = 0
 		var current_angle = AnimatedSprite.rotation

@@ -14,6 +14,7 @@ func _ready():
 	super._ready()
 	area2D.body_entered.connect(_on_body_entered)
 	area2D.body_exited.connect(_on_body_exited)
+	TriggerKeySprite.rotation_degrees = -rotation_degrees
 	reset()
 
 func react():
@@ -37,9 +38,11 @@ func _physics_process(delta):
 	super._physics_process(delta)
 	if !occupied:
 		return
+	if ridingBody is rigidPlayer:
+		ridingBody.rotate_player_on_arc(delta)
 	if !riderInPosition:
-		if ridingBody is Player:
-			ridingBody.rotate_player_on_arc(delta)
+		#if ridingBody is rigidPlayer:
+		#	ridingBody.rotate_player_on_arc(delta)
 		moveRiderToStarting(delta)
 	else:
 		if ridingBody.is_on_floor() and rider_freeable:
@@ -83,7 +86,7 @@ func riderReady():
 	Sound.play()
 	if ridingBody is movingObject or ridingBody is rigidPlayer:
 		ridingBody.positioningRideEnded(false)
-		ridingBody.add_to_cont_vel(0.0, Vector2(0, -jump_force))
+		ridingBody.add_to_cont_vel(0.0, Vector2(0, -jump_force).rotated(deg_to_rad(rotation_degrees)))
 	else:
 		ridingBody.velocity = Vector2(0, -jump_force)
 	rider_freeable = false

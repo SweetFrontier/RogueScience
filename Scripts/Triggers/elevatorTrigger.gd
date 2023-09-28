@@ -55,6 +55,7 @@ func reset():
 	ElevatorShaft.animation = "deactivated"
 	ElevatorBox.animation = "deactivated"
 	BuzzSound.stop()
+	ActivateSound.stream = load("res://Sounds/activate.ogg")
 	if startActivated:
 		react()
 		button_fade_timer = 0
@@ -77,6 +78,8 @@ func _on_body_entered(body):
 	if activated and body != self and !occupied and body != ridingBody:
 		override_movement(body)
 		setupMoveToStart()
+		#load the moving sound
+		ActivateSound.stream = load("res://Sounds/movingElevator.ogg")
 		if body is movingObject:
 			body.set_freed_vel(body.angular_velocity, body.linear_velocity)
 
@@ -114,11 +117,14 @@ func setupElevatorStarting():
 	moving_elevator = true
 
 func moveElevator(delta):
+	if (!ActivateSound.playing):
+		ActivateSound.play()
 	elevatingProgress += delta
 	ElevatorBox.global_position = (elevatingEndPos - elevatingBeginPos) * (elevatingProgress/time_to_change_stops)  + elevatingBeginPos
 	ridingBody.set_body_pos(ElevatorBox.global_position)
 	# Check if the interpolation is complete.
 	if elevatingProgress >= time_to_change_stops:
+		ActivateSound.stop()
 		ElevatorBox.global_position = elevatingEndPos
 		ridingBody.set_body_pos(ElevatorBox.global_position)
 		moving_elevator = false

@@ -116,10 +116,7 @@ position = Vector2(256, 512)
 position = Vector2(14, 82)
 
 [node name="invisibleBlock2" parent="." instance=ExtResource("14_c0pil")]
-position = Vector2(320, 512)
-
-[node name="TriggerKeySprite" parent="invisibleBlock2" index="1"]
-position = Vector2(14, 82)
+position = Vector2(576, 32)
 
 [node name="64x32breakableBlock" parent="." instance=ExtResource("15_qobvf")]
 position = Vector2(864, 417)
@@ -130,4 +127,3 @@ position = Vector2(864, 417)
 [editable path="teleporterTrigger2"]
 [editable path="invisibleBlock"]
 [editable path="64x64breakableBlock"]
-[editable path="invisibleBlock2"]

@@ -1,19 +1,21 @@
-[gd_scene load_steps=31 format=3 uid="uid://vwjnt2j2wbqk"]
+[gd_scene load_steps=33 format=3 uid="uid://vwjnt2j2wbqk"]
 
 [ext_resource type="Script" path="res://Scripts/gameManager.gd" id="1_rlws3"]
-[ext_resource type="PackedScene" uid="uid://cp1xr265ye340" path="res://Scenes/Levels/BreakableIntroLevel.tscn" id="3_cm24v"]
+[ext_resource type="PackedScene" path="res://Scenes/Levels/BreakableIntroLevel.tscn" id="3_cm24v"]
 [ext_resource type="AudioStream" uid="uid://cmhm7pf614y6w" path="res://Sounds/Music/puzzle(calm).ogg" id="3_mfq2v"]
-[ext_resource type="PackedScene" uid="uid://c8uldnq5xgsmq" path="res://Scenes/Levels/InvisibleIntroLevel.tscn" id="3_q6jj7"]
-[ext_resource type="PackedScene" uid="uid://b205eu3laorb7" path="res://Scenes/Levels/BreakableStepsLevel.tscn" id="4_tfitk"]
+[ext_resource type="PackedScene" path="res://Scenes/Levels/InvisibleIntroLevel.tscn" id="3_q6jj7"]
+[ext_resource type="PackedScene" path="res://Scenes/Levels/BreakableStepsLevel.tscn" id="4_tfitk"]
 [ext_resource type="PackedScene" uid="uid://ccwfvydfhyx65" path="res://Scenes/Screens/PauseMenu.tscn" id="4_tnt1f"]
-[ext_resource type="PackedScene" uid="uid://1ms6vswxg33p" path="res://Scenes/Levels/MovingObjectIntroLevel.tscn" id="5_11hyy"]
-[ext_resource type="PackedScene" uid="uid://bagvjmvnxf64i" path="res://Scenes/Levels/ThreeFallingEyesLevel.tscn" id="5_hsxwe"]
+[ext_resource type="PackedScene" path="res://Scenes/Levels/MovingObjectIntroLevel.tscn" id="5_11hyy"]
+[ext_resource type="PackedScene" path="res://Scenes/Levels/ThreeFallingEyesLevel.tscn" id="5_hsxwe"]
 [ext_resource type="PackedScene" uid="uid://mq8lonv11ksd" path="res://Scenes/Screens/OptionsMenu.tscn" id="5_qvib5"]
-[ext_resource type="PackedScene" uid="uid://cw113orlft8ku" path="res://Scenes/Levels/FourEyesFallingLevel.tscn" id="6_46lch"]
+[ext_resource type="PackedScene" path="res://Scenes/Levels/FourEyesFallingLevel.tscn" id="6_46lch"]
 [ext_resource type="PackedScene" uid="uid://cgi2dkwtqq62u" path="res://Scenes/Levels/JumpingPathLevel.tscn" id="7_amafv"]
 [ext_resource type="PackedScene" uid="uid://capobeay08c0e" path="res://Scenes/Levels/HardInvisblePuzzleLevel.tscn" id="8_6oibd"]
 [ext_resource type="PackedScene" uid="uid://dl2are1byex1o" path="res://Scenes/Levels/PowerfulTrampolineLevel.tscn" id="9_o2f4e"]
-[ext_resource type="PackedScene" uid="uid://bpsr342b2aa3u" path="res://Scenes/Levels/TeleportIntroLevel.tscn" id="10_dk1u2"]
+[ext_resource type="PackedScene" path="res://Scenes/Levels/TeleportIntroLevel.tscn" id="10_dk1u2"]
+[ext_resource type="PackedScene" uid="uid://dv7d0xp75tlyp" path="res://Scenes/Levels/BouncyLevel.tscn" id="10_y0l6i"]
+[ext_resource type="PackedScene" uid="uid://l121h34k2n5v" path="res://Scenes/Levels/BouncyLevel2.tscn" id="11_2or5i"]
 [ext_resource type="Texture2D" uid="uid://ch7u0c5stgewm" path="res://Art/Backgrounds/background.png" id="11_rpaq4"]
 [ext_resource type="PackedScene" uid="uid://sfyvalykml4p" path="res://Scenes/Screens/animatedTransition.tscn" id="12_gan4l"]
 [ext_resource type="Script" path="res://Scripts/MusicPlayer.gd" id="12_tas4r"]
@@ -119,7 +121,7 @@ _data = {
 
 [node name="Main" type="Node2D" node_paths=PackedStringArray("Levels", "camera", "pauseMenu", "musicPlayer", "Transition", "resetWipeTransition", "resetWipeTransitionContoller")]
 script = ExtResource("1_rlws3")
-Levels = [NodePath("Levels/BreakableIntro"), NodePath("Levels/InvisibleIntro"), NodePath("Levels/BreakableSteps"), NodePath("Levels/ThreeEyesFalling"), NodePath("Levels/MovingObjectIntro"), NodePath("Levels/FourEyesFalling"), NodePath("Levels/JumpingPath"), NodePath("Levels/MultiEyeTrampoline"), NodePath("Levels/PowerfulTrampoline"), NodePath("Levels/TeleportIntro"), NodePath("Levels/YeetTheBall"), NodePath("Levels/HardInvisible")]
+Levels = [NodePath("Levels/BreakableIntro"), NodePath("Levels/InvisibleIntro"), NodePath("Levels/BreakableSteps"), NodePath("Levels/ThreeEyesFalling"), NodePath("Levels/MovingObjectIntro"), NodePath("Levels/FourEyesFalling"), NodePath("Levels/JumpingPath"), NodePath("Levels/MultiEyeTrampoline"), NodePath("Levels/PowerfulTrampoline"), NodePath("Levels/TeleportIntro"), NodePath("Levels/YeetTheBall"), NodePath("Levels/bouncyLevel"), NodePath("Levels/bouncyLevel2"), NodePath("Levels/HardInvisible")]
 camera = NodePath("Camera2D")
 pauseMenu = NodePath("CanvasLayer/PauseMenu")
 musicPlayer = NodePath("MusicPlayer")
@@ -152,6 +154,12 @@ position = Vector2(-608, 704)
 
 [node name="FourEyesFalling" parent="Levels" instance=ExtResource("6_46lch")]
 position = Vector2(1216, 320)
+
+[node name="bouncyLevel" parent="Levels" instance=ExtResource("10_y0l6i")]
+position = Vector2(1888, -256)
+
+[node name="bouncyLevel2" parent="Levels" instance=ExtResource("11_2or5i")]
+position = Vector2(2944, -224)
 
 [node name="HardInvisible" parent="Levels" instance=ExtResource("8_6oibd")]
 position = Vector2(32, 928)

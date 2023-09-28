@@ -123,7 +123,7 @@ func _physics_process(delta):
 				HitSounds.play()
 		else:
 			rotate_player_on_arc(delta)
-			if (linear_velocity.y > 40):
+			if (linear_velocity.y > 160):
 				CrawlSounds.stop()
 				last_y_velocity = linear_velocity.y
 		

@@ -25,8 +25,9 @@ position = Vector2(240, 128)
 [node name="TransitionField" parent="." instance=ExtResource("4_go5s3")]
 position = Vector2(432, 176)
 
-[node name="elevatorTrigger" parent="." instance=ExtResource("5_8for7")]
+[node name="elevatorTrigger" parent="." node_paths=PackedStringArray("stoppingPoints") instance=ExtResource("5_8for7")]
 position = Vector2(736, 32)
+stoppingPoints = [NodePath("ElevatorStops/Stop0")]
 
 [node name="rigidPlayer" parent="." instance=ExtResource("6_jf1j1")]
 position = Vector2(260, 176)
@@ -65,4 +66,5 @@ rotation = 0.785398
 position = Vector2(960, 288)
 rotation = -0.785398
 
+[editable path="elevatorTrigger"]
 [editable path="elevatorTrigger2"]

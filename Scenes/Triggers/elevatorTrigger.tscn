@@ -1,11 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://dm5fdokmgctgr"]
+[gd_scene load_steps=9 format=3 uid="uid://dm5fdokmgctgr"]
 
 [ext_resource type="Script" path="res://Scripts/Triggers/elevatorTrigger.gd" id="1_ln3f5"]
 [ext_resource type="SpriteFrames" uid="uid://dsmkqxp44vj85" path="res://Art/TriggerArt/Elevator/ElevatorShaftAnims.tres" id="3_0w7dp"]
 [ext_resource type="SpriteFrames" uid="uid://bopj1b1glrksm" path="res://Art/TriggerArt/Elevator/ElevatorStopAnims.tres" id="4_tg6iu"]
 [ext_resource type="SpriteFrames" uid="uid://cfnbhwab8cpnp" path="res://Art/TriggerArt/Elevator/elevatorBoxAnims.tres" id="5_k5lso"]
 [ext_resource type="AudioStream" uid="uid://dhs3la5rgojcx" path="res://Sounds/activate.ogg" id="6_716nk"]
-[ext_resource type="AudioStream" uid="uid://b6r4oxcy4torm" path="res://Sounds/elevator_buzz.ogg" id="7_8vhrq"]
 [ext_resource type="PackedScene" uid="uid://djjr177758y2h" path="res://Scenes/Triggers/Trigger_Helpers/triggerKey.tscn" id="7_g3rex"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jpt4m"]
@@ -14,14 +13,13 @@ size = Vector2(56, 24)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lgas3"]
 size = Vector2(64, 1)
 
-[node name="elevatorTrigger" type="Node2D" node_paths=PackedStringArray("ElevatorShaft", "ElevatorBox", "ElevatorArea", "ActivateSound", "BuzzSound", "TriggerKeySprite")]
+[node name="elevatorTrigger" type="Node2D" node_paths=PackedStringArray("ElevatorShaft", "ElevatorBox", "ElevatorArea", "ActivateSound", "TriggerKeySprite")]
 position = Vector2(0, 48)
 script = ExtResource("1_ln3f5")
 ElevatorShaft = NodePath("ElevatorShaft")
 ElevatorBox = NodePath("ElevatorBox")
 ElevatorArea = NodePath("ElevatorBox/ElevatorArea")
 ActivateSound = NodePath("ElevatorBox/ActivateSoundPlayer")
-BuzzSound = NodePath("ElevatorBox/BuzzingPlayer")
 button = 81
 TriggerKeySprite = NodePath("TriggerKeySprite")
 
@@ -131,11 +129,6 @@ shape = SubResource("RectangleShape2D_lgas3")
 [node name="ActivateSoundPlayer" type="AudioStreamPlayer2D" parent="ElevatorBox"]
 position = Vector2(0, 16)
 stream = ExtResource("6_716nk")
-
-[node name="BuzzingPlayer" type="AudioStreamPlayer2D" parent="ElevatorBox"]
-position = Vector2(0, 16)
-stream = ExtResource("7_8vhrq")
-volume_db = -7.0
 
 [node name="MoveToPosition" type="Node2D" parent="."]
 position = Vector2(0, -8)

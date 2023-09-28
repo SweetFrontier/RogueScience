@@ -51,9 +51,6 @@ position = Vector2(0, -144)
 [node name="Stop10" parent="elevatorTrigger2/ElevatorStops" index="10"]
 position = Vector2(0, -240)
 
-[node name="BuzzingPlayer" parent="elevatorTrigger2/ElevatorBox" index="3"]
-volume_db = -7.0
-
 [node name="trampolineTrigger" parent="." instance=ExtResource("6_0y03v")]
 position = Vector2(512, 432)
 

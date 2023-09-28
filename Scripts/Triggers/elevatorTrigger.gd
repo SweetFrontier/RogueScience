@@ -8,7 +8,6 @@ class_name elevatorTrigger
 @export var ElevatorArea: Area2D
 @export var stoppingPoints: Array[AnimatedSprite2D]
 @export var ActivateSound: AudioStreamPlayer2D
-@export var BuzzSound: AudioStreamPlayer2D
 @export var startingStop: int = 0
 @export var startingMovingUp: bool = true
 
@@ -35,7 +34,6 @@ func react():
 			child.play("activated")
 		ElevatorShaft.play("activated")
 		ElevatorBox.play("activated")
-		BuzzSound.play()
 		ActivateSound.play()
 
 func reset():
@@ -54,7 +52,6 @@ func reset():
 		child.animation = "deactivated"
 	ElevatorShaft.animation = "deactivated"
 	ElevatorBox.animation = "deactivated"
-	BuzzSound.stop()
 	ActivateSound.stream = load("res://Sounds/activate.ogg")
 	if startActivated:
 		react()

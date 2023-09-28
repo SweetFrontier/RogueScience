@@ -54,20 +54,12 @@ startActivated = true
 position = Vector2(512, 368)
 startActivated = true
 
-[node name="trampolineTrigger3" parent="." instance=ExtResource("6_0y03v")]
-position = Vector2(512, 288)
-startActivated = true
-
-[node name="trampolineTrigger4" parent="." instance=ExtResource("6_0y03v")]
-position = Vector2(512, 208)
-startActivated = true
-
 [node name="trampolineTrigger5" parent="." instance=ExtResource("6_0y03v")]
-position = Vector2(512, 80)
-startActivated = true
+position = Vector2(512, 288)
+rotation = 0.785398
 
-[node name="trampolineTrigger6" parent="." instance=ExtResource("6_0y03v")]
-position = Vector2(512, 144)
-startActivated = true
+[node name="trampolineTrigger3" parent="." instance=ExtResource("6_0y03v")]
+position = Vector2(960, 288)
+rotation = -0.785398
 
 [editable path="elevatorTrigger2"]

@@ -30,6 +30,7 @@ func react():
 	super.react()
 	if !activated:
 		activated = true
+		ElevatorArea.monitoring = true
 		for child in $ElevatorStops.get_children():
 			child.play("activated")
 		ElevatorShaft.play("activated")
@@ -39,6 +40,7 @@ func react():
 
 func reset():
 	super.reset()
+	ElevatorArea.monitoring = false
 	elevatingBeginPos = Vector2(0,0)
 	elevatingEndPos = Vector2(0,0)
 	elevatingProgress = 0.0

@@ -1,11 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://bbfr58nt1tvg8"]
+[gd_scene load_steps=8 format=3 uid="uid://bbfr58nt1tvg8"]
 
 [ext_resource type="Script" path="res://Scripts/levelController.gd" id="1_vajt7"]
 [ext_resource type="TileSet" uid="uid://bnpggr5480t5q" path="res://Art/TileSets/initialTileSet.tres" id="2_bsslw"]
 [ext_resource type="PackedScene" uid="uid://dvbyxsl5e3ol8" path="res://Scenes/Triggers/Trigger_Helpers/TransitionField.tscn" id="3_nastr"]
 [ext_resource type="PackedScene" uid="uid://dd6l6fhpuajke" path="res://Scenes/rigidPlayer.tscn" id="5_l042d"]
 [ext_resource type="PackedScene" uid="uid://dpeaoe3ad3ahy" path="res://Scenes/Triggers/Trigger_Helpers/brokenVat.tscn" id="6_l2tls"]
-[ext_resource type="PackedScene" uid="uid://dnqoj4eg2l7le" path="res://Scenes/Triggers/trampolineTrigger.tscn" id="6_oh20b"]
+[ext_resource type="PackedScene" uid="uid://dm5fdokmgctgr" path="res://Scenes/Triggers/elevatorTrigger.tscn" id="6_lpfl6"]
+[ext_resource type="PackedScene" uid="uid://cpl8uffd5nbs" path="res://Scenes/Triggers/teleporterTrigger.tscn" id="7_ob1of"]
 
 [node name="yetunnamed" type="Node2D" node_paths=PackedStringArray("cameraSpot", "player", "transitionField")]
 texture_filter = 1
@@ -28,23 +29,14 @@ position = Vector2(416, 256)
 [node name="rigidPlayer" parent="." instance=ExtResource("5_l042d")]
 position = Vector2(64, 208)
 
-[node name="trampolineTrigger" parent="." instance=ExtResource("6_oh20b")]
-position = Vector2(208, 208)
-startActivated = true
-
-[node name="trampolineTrigger2" parent="." instance=ExtResource("6_oh20b")]
-position = Vector2(208, 64)
-rotation = 2.35619
-startActivated = true
-
 [node name="brokenVat" parent="." instance=ExtResource("6_l2tls")]
 position = Vector2(32, 192)
 
-[node name="trampolineTrigger3" parent="." instance=ExtResource("6_oh20b")]
-position = Vector2(336, 208)
-startActivated = true
+[node name="elevatorTrigger" parent="." node_paths=PackedStringArray("stoppingPoints") instance=ExtResource("6_lpfl6")]
+position = Vector2(224, 224)
+stoppingPoints = [NodePath("ElevatorStops/Stop0"), NodePath("ElevatorStops/Stop10")]
 
-[node name="trampolineTrigger4" parent="." instance=ExtResource("6_oh20b")]
-position = Vector2(336, 64)
-rotation = -2.35619
-startActivated = true
+[node name="teleporterTrigger" parent="." instance=ExtResource("7_ob1of")]
+position = Vector2(160, 192)
+
+[editable path="elevatorTrigger"]

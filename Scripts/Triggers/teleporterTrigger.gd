@@ -51,6 +51,8 @@ func _ready():
 
 func react():
 	if !(one_shot and activated):
+		$Teleporter1/TeleporterArea1.monitoring = true
+		$Teleporter2/TeleporterArea2.monitoring = true
 		# Set the key to the "pressed state"
 		TriggerKeySprite.frame = 1
 		TriggerKeySprite2.frame = 1
@@ -70,6 +72,8 @@ func react():
 
 func reset():
 	super.reset()
+	$Teleporter1/TeleporterArea1.monitoring = false
+	$Teleporter2/TeleporterArea2.monitoring = false
 	# Set the key to the "unpressed state"
 	TriggerKeySprite2.frame = 0
 	TriggerKeySprite2.modulate.a = 1

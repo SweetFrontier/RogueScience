@@ -87,6 +87,12 @@ func riderReady():
 	if ridingBody is movingObject or ridingBody is rigidPlayer:
 		ridingBody.positioningRideEnded(false)
 		ridingBody.add_to_cont_vel(0.0, Vector2(0, -jump_force).rotated(deg_to_rad(rotation_degrees)))
+		if ridingBody is rigidPlayer and rotation_degrees*ridingBody.current_direction.x < 0:
+			ridingBody.current_direction = -ridingBody.current_direction
+			ridingBody.AnimatedSprite.flip_h = !ridingBody.AnimatedSprite.flip_h
+			ridingBody.PlayerCollision.scale.x *= -1
+			ridingBody.wallCast.scale *= -1
+			ridingBody.AnimatedSprite.offset.x += 8*ridingBody.PlayerCollision.scale.x
 	else:
 		ridingBody.velocity = Vector2(0, -jump_force)
 	rider_freeable = false

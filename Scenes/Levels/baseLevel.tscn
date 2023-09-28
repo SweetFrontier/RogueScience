@@ -58,4 +58,8 @@ startActivated = true
 position = Vector2(512, 288)
 rotation = 0.785398
 
+[node name="trampolineTrigger3" parent="." instance=ExtResource("6_0y03v")]
+position = Vector2(960, 288)
+rotation = -0.785398
+
 [editable path="elevatorTrigger2"]

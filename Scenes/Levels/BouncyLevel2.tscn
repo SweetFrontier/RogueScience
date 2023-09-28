@@ -54,6 +54,7 @@ position = Vector2(881, 491)
 
 [node name="teleporterTrigger" parent="." instance=ExtResource("11_fykqo")]
 position = Vector2(96, 478)
+color = 0
 
 [node name="Teleporter2" parent="teleporterTrigger" index="1"]
 position = Vector2(623, -287)
@@ -62,9 +63,11 @@ position = Vector2(623, -287)
 position = Vector2(366, 74)
 rotation = 0.785398
 jump_force = 500.0
+moveRiderTime = 0.2
 
 [node name="teleporterTrigger3" parent="." instance=ExtResource("11_fykqo")]
 position = Vector2(288, 127)
+color = 2
 
 [node name="Teleporter2" parent="teleporterTrigger3" index="1"]
 position = Vector2(96, 480)
@@ -82,6 +85,7 @@ startActivated = true
 
 [node name="teleporterTrigger2" parent="." instance=ExtResource("11_fykqo")]
 position = Vector2(601, 451)
+color = 1
 
 [node name="Teleporter1" parent="teleporterTrigger2" index="0"]
 position = Vector2(0, -3)

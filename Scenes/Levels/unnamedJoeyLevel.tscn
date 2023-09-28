@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=3 uid="uid://bbfr58nt1tvg8"]
+
+[ext_resource type="Script" path="res://Scripts/levelController.gd" id="1_vajt7"]
+[ext_resource type="TileSet" uid="uid://bnpggr5480t5q" path="res://Art/TileSets/initialTileSet.tres" id="2_bsslw"]
+[ext_resource type="PackedScene" uid="uid://dvbyxsl5e3ol8" path="res://Scenes/Triggers/Trigger_Helpers/TransitionField.tscn" id="3_nastr"]
+[ext_resource type="PackedScene" uid="uid://dd6l6fhpuajke" path="res://Scenes/rigidPlayer.tscn" id="5_l042d"]
+[ext_resource type="PackedScene" uid="uid://dpeaoe3ad3ahy" path="res://Scenes/Triggers/Trigger_Helpers/brokenVat.tscn" id="6_l2tls"]
+[ext_resource type="PackedScene" uid="uid://dnqoj4eg2l7le" path="res://Scenes/Triggers/trampolineTrigger.tscn" id="6_oh20b"]
+
+[node name="yetunnamed" type="Node2D" node_paths=PackedStringArray("cameraSpot", "player", "transitionField")]
+texture_filter = 1
+script = ExtResource("1_vajt7")
+cameraSpot = NodePath("CenterPosition")
+player = NodePath("rigidPlayer")
+transitionField = NodePath("TransitionField")
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("2_bsslw")
+format = 2
+layer_0/tile_data = PackedInt32Array(458752, 65536, 1, 458753, 65536, 1, 458754, 65536, 1, 458755, 65536, 1, 458756, 65536, 1, 458757, 65536, 1, 458758, 65536, 1, 458759, 65536, 1, 458760, 65536, 1, 458761, 65536, 1, 458762, 65536, 1, 458763, 65536, 1)
+
+[node name="CenterPosition" type="Marker2D" parent="."]
+position = Vector2(240, 128)
+
+[node name="TransitionField" parent="." instance=ExtResource("3_nastr")]
+position = Vector2(416, 256)
+
+[node name="rigidPlayer" parent="." instance=ExtResource("5_l042d")]
+position = Vector2(64, 208)
+
+[node name="trampolineTrigger" parent="." instance=ExtResource("6_oh20b")]
+position = Vector2(208, 208)
+startActivated = true
+
+[node name="trampolineTrigger2" parent="." instance=ExtResource("6_oh20b")]
+position = Vector2(208, 64)
+rotation = 2.35619
+startActivated = true
+
+[node name="brokenVat" parent="." instance=ExtResource("6_l2tls")]
+position = Vector2(32, 192)
+
+[node name="trampolineTrigger3" parent="." instance=ExtResource("6_oh20b")]
+position = Vector2(336, 208)
+startActivated = true
+
+[node name="trampolineTrigger4" parent="." instance=ExtResource("6_oh20b")]
+position = Vector2(336, 64)
+rotation = -2.35619
+startActivated = true

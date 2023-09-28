@@ -360,7 +360,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"origcrawl",
-"speed": 15.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -377,7 +377,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"rising",
-"speed": 5.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,

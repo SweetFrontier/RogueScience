@@ -38,6 +38,10 @@ stoppingPoints = [NodePath("ElevatorStops/Stop0"), NodePath("ElevatorStops/Stop1
 [node name="ElevatorShaft" parent="elevatorTrigger2" index="1"]
 position = Vector2(0, -128)
 scale = Vector2(1, 4)
+animation = &"activated"
+
+[node name="Stop0" parent="elevatorTrigger2/ElevatorStops" index="0"]
+animation = &"activated"
 
 [node name="Stop1" parent="elevatorTrigger2/ElevatorStops" index="1"]
 visible = true
@@ -48,7 +52,6 @@ position = Vector2(0, -240)
 
 [node name="trampolineTrigger" parent="." instance=ExtResource("6_0y03v")]
 position = Vector2(512, 432)
-startActivated = true
 
 [node name="trampolineTrigger2" parent="." instance=ExtResource("6_0y03v")]
 position = Vector2(512, 368)

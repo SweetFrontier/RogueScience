@@ -16,10 +16,16 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_xv4om")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xv4om")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oixjs")
 }],
 "loop": true,
 "name": &"activated",
-"speed": 5.0
+"speed": 2.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -27,5 +33,5 @@ animations = [{
 }],
 "loop": true,
 "name": &"deactivated",
-"speed": 5.0
+"speed": 2.0
 }]

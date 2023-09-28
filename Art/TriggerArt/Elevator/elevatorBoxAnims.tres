@@ -1,30 +1,37 @@
-[gd_resource type="SpriteFrames" load_steps=4 format=3 uid="uid://cfnbhwab8cpnp"]
+[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://cfnbhwab8cpnp"]
 
-[ext_resource type="Texture2D" uid="uid://dl0ct0nufagla" path="res://Art/TriggerArt/Elevator/OpenElevator.png" id="1_yimn5"]
+[ext_resource type="Texture2D" uid="uid://d2xk348orqon6" path="res://Art/TriggerArt/Elevator/ElevatorBaseDeactivated64x64.png" id="1_as5vc"]
+[ext_resource type="Texture2D" uid="uid://bec2xixm4xbxf" path="res://Art/TriggerArt/Elevator/ElevatorBaseActivated64x64.png" id="2_fqfno"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vnvw5"]
-atlas = ExtResource("1_yimn5")
+[sub_resource type="AtlasTexture" id="AtlasTexture_bigsw"]
+atlas = ExtResource("2_fqfno")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ggbyu"]
-atlas = ExtResource("1_yimn5")
+[sub_resource type="AtlasTexture" id="AtlasTexture_a0rvp"]
+atlas = ExtResource("1_as5vc")
 region = Rect2(0, 0, 64, 64)
 
 [resource]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_vnvw5")
+"texture": SubResource("AtlasTexture_bigsw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bigsw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a0rvp")
 }],
 "loop": true,
-"name": &"closed",
-"speed": 5.0
+"name": &"activated",
+"speed": 2.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ggbyu")
+"texture": SubResource("AtlasTexture_a0rvp")
 }],
 "loop": true,
-"name": &"open",
-"speed": 5.0
+"name": &"deactivated",
+"speed": 2.0
 }]

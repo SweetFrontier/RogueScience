@@ -137,14 +137,13 @@ resetWipeTransitionContoller = NodePath("CanvasLayer/TransitionToBlack")
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(0.27, 0.05)
-motion_offset = Vector2(0, 250)
+motion_scale = Vector2(0.27, 0.2)
+motion_offset = Vector2(-128, 250)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2(2500, 110)
+position = Vector2(2432, 47)
 scale = Vector2(0.95, 0.95)
 texture = ExtResource("11_rpaq4")
-metadata/_edit_lock_ = true
 
 [node name="Levels" type="Node" parent="."]
 process_mode = 4

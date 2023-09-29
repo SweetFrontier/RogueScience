@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://c0eghc3oa7752" path="res://Scenes/Triggers/Trigger_Helpers/movingObject.tscn" id="9_wdjhr"]
 [ext_resource type="PackedScene" uid="uid://djb81orxw62lt" path="res://Scenes/Triggers/BreakableBlocks/64x64breakableBlock.tscn" id="10_n7os7"]
 
-[node name="yetunnamed" type="Node2D" node_paths=PackedStringArray("cameraSpot", "player", "transitionField")]
+[node name="ElevatorIntro" type="Node2D" node_paths=PackedStringArray("cameraSpot", "player", "transitionField")]
 texture_filter = 1
 script = ExtResource("1_vajt7")
 cameraSpot = NodePath("CenterPosition")

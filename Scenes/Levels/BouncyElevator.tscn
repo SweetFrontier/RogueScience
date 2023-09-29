@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=3 uid="uid://dg8bukpi7prtq"]
+
+[ext_resource type="Script" path="res://Scripts/levelController.gd" id="1_4guic"]
+[ext_resource type="TileSet" uid="uid://bnpggr5480t5q" path="res://Art/TileSets/initialTileSet.tres" id="2_kaean"]
+[ext_resource type="PackedScene" uid="uid://dvbyxsl5e3ol8" path="res://Scenes/Triggers/Trigger_Helpers/TransitionField.tscn" id="3_7pnmh"]
+[ext_resource type="PackedScene" uid="uid://dd6l6fhpuajke" path="res://Scenes/rigidPlayer.tscn" id="4_g53a3"]
+[ext_resource type="PackedScene" uid="uid://dpeaoe3ad3ahy" path="res://Scenes/Triggers/Trigger_Helpers/brokenVat.tscn" id="5_4t63u"]
+[ext_resource type="PackedScene" uid="uid://dm5fdokmgctgr" path="res://Scenes/Triggers/elevatorTrigger.tscn" id="6_1ixu7"]
+
+[node name="yetunnamed" type="Node2D" node_paths=PackedStringArray("cameraSpot", "player", "transitionField")]
+texture_filter = 1
+script = ExtResource("1_4guic")
+cameraSpot = NodePath("CenterPosition")
+cameraSize = Vector2(1120, 544)
+player = NodePath("rigidPlayer")
+transitionField = NodePath("TransitionField")
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("2_kaean")
+format = 2
+layer_0/tile_data = PackedInt32Array(851965, 3, 2, 786429, 196611, 1, 720893, 196611, 1, 655357, 196611, 1, 589821, 196611, 1, 524285, 196611, 1, 458749, 196611, 1, 393213, 196611, 1, 327677, 196611, 1, 262141, 196611, 1, 196605, 196611, 1, 131069, 196611, 1, 65533, 196611, 1, -3, 196611, 1, -65539, 196611, 1, -131075, 196611, 1, -196611, 3, 0, -196610, 327683, 0, -196609, 327683, 0, -262144, 327683, 0, -262143, 327683, 0, -262142, 327683, 0, -262141, 327683, 0, -262140, 327683, 0, -262139, 327683, 0, -262137, 327683, 0, -262138, 327683, 0, -262136, 327683, 0, -262135, 327683, 0, -262134, 327683, 0, -262133, 327683, 0, -262132, 327683, 0, -262131, 327683, 0, -262130, 327683, 0, -262129, 327683, 0, -262128, 327683, 0, -262127, 327683, 0, -262126, 327683, 0, -262125, 327683, 0, -262124, 327683, 0, -262123, 327683, 0, -262122, 327683, 0, -262121, 327683, 0, -262120, 327683, 0, -262119, 327683, 0, -262118, 327683, 0, -262117, 327683, 0, -262116, 327683, 0, -262115, 131075, 0)
+
+[node name="CenterPosition" type="Marker2D" parent="."]
+position = Vector2(464, 144)
+metadata/_edit_group_ = true
+
+[node name="TransitionField" parent="." instance=ExtResource("3_7pnmh")]
+position = Vector2(960, 288)
+
+[node name="rigidPlayer" parent="." instance=ExtResource("4_g53a3")]
+position = Vector2(64, 272)
+
+[node name="brokenVat" parent="." instance=ExtResource("5_4t63u")]
+position = Vector2(64, 265)
+metadata/_edit_lock_ = true
+
+[node name="elevatorTrigger" parent="." node_paths=PackedStringArray("stoppingPoints") instance=ExtResource("6_1ixu7")]
+position = Vector2(224, 256)
+time_to_change_stops = 0.55
+stoppingPoints = [NodePath("ElevatorStops/Stop0"), NodePath("ElevatorStops/Stop10")]
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="ElevatorShaft" parent="elevatorTrigger" index="1"]
+position = Vector2(0, -80)
+scale = Vector2(1, 2.5)
+
+[node name="Stop10" parent="elevatorTrigger/ElevatorStops" index="10"]
+position = Vector2(0, -144)
+
+[editable path="elevatorTrigger"]

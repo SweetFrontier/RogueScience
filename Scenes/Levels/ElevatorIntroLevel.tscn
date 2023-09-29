@@ -29,8 +29,6 @@ layer_0/tile_data = PackedInt32Array(0, 65539, 1, 65536, 65539, 1, 131072, 65539
 position = Vector2(464, 144)
 metadata/_edit_group_ = true
 
-[node name="Camera2D" type="Camera2D" parent="CenterPosition"]
-
 [node name="TransitionField" parent="." instance=ExtResource("3_nastr")]
 position = Vector2(960, 288)
 

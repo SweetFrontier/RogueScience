@@ -80,14 +80,12 @@ shape = SubResource("RectangleShape2D_8v037")
 [node name="VatFrame" type="AnimatedSprite2D" parent="."]
 z_index = 14
 z_as_relative = false
-scale = Vector2(1, 1)
 sprite_frames = SubResource("SpriteFrames_ur5bg")
 
 [node name="VatGoo" type="AnimatedSprite2D" parent="."]
 visible = false
 z_index = 13
 z_as_relative = false
-scale = Vector2(1, 1)
 sprite_frames = SubResource("SpriteFrames_og4x1")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]

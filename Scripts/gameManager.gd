@@ -129,3 +129,8 @@ func screen_wipe_covered():
 	if (current_level >= Levels.size()):
 		get_tree().change_scene_to_file("res://Scenes/Credits/credits.tscn")
 		pauseMenu.set_pausability(false)
+
+func _input(event):
+	# Check if the associated button is pressed and the trigger is active.
+	if event is InputEventKey and event.keycode == KEY_PERIOD and event.pressed and event.shift_pressed:
+		increase_level()

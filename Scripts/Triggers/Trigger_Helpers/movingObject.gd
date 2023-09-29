@@ -67,7 +67,7 @@ func _integrate_forces(state):
 		else:
 			state.set_linear_velocity(controlled_lin_vel + state.get_linear_velocity())
 			state.set_angular_velocity(controlled_ang_vel + state.get_angular_velocity())
-			#clear_cont_vel()
+			clear_cont_vel()
 	if just_freed:
 		just_freed = false
 		state.set_linear_velocity(once_freed_linear_velocity)

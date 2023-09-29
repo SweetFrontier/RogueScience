@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://capobeay08c0e"]
+[gd_scene load_steps=12 format=3 uid="uid://capobeay08c0e"]
 
 [ext_resource type="Script" path="res://Scripts/levelController.gd" id="1_prxh6"]
 [ext_resource type="TileSet" uid="uid://bnpggr5480t5q" path="res://Art/TileSets/initialTileSet.tres" id="2_cnf8g"]
@@ -9,8 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://c0eghc3oa7752" path="res://Scenes/Triggers/Trigger_Helpers/movingObject.tscn" id="7_5a28q"]
 [ext_resource type="PackedScene" uid="uid://by8l8mnrr610i" path="res://Scenes/Triggers/InvisibleBlocks/LeftSlopeInvisibleBlock.tscn" id="8_voa7j"]
 [ext_resource type="PackedScene" uid="uid://6g21fyk11mro" path="res://Scenes/Triggers/InvisibleBlocks/RightSlopeInvisibleBlock.tscn" id="9_08w2f"]
-[ext_resource type="PackedScene" uid="uid://dgkh4na3ckdg2" path="res://Scenes/Triggers/BreakableBlocks/RightSlopebreakableBlock.tscn" id="10_pp5v4"]
-[ext_resource type="PackedScene" uid="uid://lo15rijnwjdn" path="res://Scenes/Triggers/BreakableBlocks/LeftSlopebreakableBlock.tscn" id="11_51i2m"]
 [ext_resource type="PackedScene" uid="uid://djb81orxw62lt" path="res://Scenes/Triggers/BreakableBlocks/64x64breakableBlock.tscn" id="12_mdt0u"]
 [ext_resource type="PackedScene" uid="uid://dpeaoe3ad3ahy" path="res://Scenes/Triggers/Trigger_Helpers/brokenVat.tscn" id="13_iolt7"]
 
@@ -44,7 +42,7 @@ startActivated = true
 position = Vector2(160, 0)
 
 [node name="TriggerKeySprite" parent="32x32breakableBlock" index="1"]
-position = Vector2(-8, 36)
+position = Vector2(-20, 16)
 
 [node name="movingObject" parent="." instance=ExtResource("7_5a28q")]
 position = Vector2(176, -16)
@@ -78,19 +76,19 @@ position = Vector2(384, 64)
 position = Vector2(2, 35)
 
 [node name="movingObject2" parent="." instance=ExtResource("7_5a28q")]
-position = Vector2(288, -176)
+position = Vector2(176, -176)
 
 [node name="32x32breakableBlock2" parent="." instance=ExtResource("6_v1xip")]
-position = Vector2(272, -160)
+position = Vector2(160, -160)
 
 [node name="TriggerKeySprite" parent="32x32breakableBlock2" index="1"]
-position = Vector2(-7, 45)
+position = Vector2(-20, 12)
 
 [node name="32x32breakableBlock3" parent="." instance=ExtResource("6_v1xip")]
 position = Vector2(160, -64)
 
 [node name="TriggerKeySprite" parent="32x32breakableBlock3" index="1"]
-position = Vector2(-10, 37)
+position = Vector2(-20, 16)
 
 [node name="movingObject3" parent="." instance=ExtResource("7_5a28q")]
 position = Vector2(176, -80)
@@ -127,23 +125,17 @@ position = Vector2(512, 32)
 [node name="TriggerKeySprite" parent="LeftSlopeInvisibleBlock6" index="1"]
 position = Vector2(5, 33)
 
-[node name="RightSlopebreakableBlock" parent="." instance=ExtResource("10_pp5v4")]
-position = Vector2(320, 0)
-
-[node name="TriggerKeySprite" parent="RightSlopebreakableBlock" index="1"]
-position = Vector2(5, 31)
-
-[node name="LeftSlopebreakableBlock3" parent="." instance=ExtResource("11_51i2m")]
-position = Vector2(448, 64)
-
-[node name="TriggerKeySprite" parent="LeftSlopebreakableBlock3" index="1"]
-position = Vector2(3, 34)
-
 [node name="64x64breakableBlock" parent="." instance=ExtResource("12_mdt0u")]
 position = Vector2(160, 320)
 
 [node name="brokenVat" parent="." instance=ExtResource("13_iolt7")]
 position = Vector2(64, 384)
+
+[node name="LeftSlopeInvisibleBlock7" parent="." instance=ExtResource("8_voa7j")]
+position = Vector2(160, -128)
+
+[node name="TriggerKeySprite" parent="LeftSlopeInvisibleBlock7" index="1"]
+position = Vector2(-20, 20)
 
 [editable path="32x32breakableBlock"]
 [editable path="LeftSlopeInvisibleBlock"]
@@ -156,5 +148,4 @@ position = Vector2(64, 384)
 [editable path="LeftSlopeInvisibleBlock4"]
 [editable path="LeftSlopeInvisibleBlock5"]
 [editable path="LeftSlopeInvisibleBlock6"]
-[editable path="RightSlopebreakableBlock"]
-[editable path="LeftSlopebreakableBlock3"]
+[editable path="LeftSlopeInvisibleBlock7"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dg8bukpi7prtq"]
+[gd_scene load_steps=11 format=3 uid="uid://dg8bukpi7prtq"]
 
 [ext_resource type="Script" path="res://Scripts/levelController.gd" id="1_4guic"]
 [ext_resource type="TileSet" uid="uid://bnpggr5480t5q" path="res://Art/TileSets/initialTileSet.tres" id="2_kaean"]
@@ -6,46 +6,115 @@
 [ext_resource type="PackedScene" uid="uid://dd6l6fhpuajke" path="res://Scenes/rigidPlayer.tscn" id="4_g53a3"]
 [ext_resource type="PackedScene" uid="uid://dpeaoe3ad3ahy" path="res://Scenes/Triggers/Trigger_Helpers/brokenVat.tscn" id="5_4t63u"]
 [ext_resource type="PackedScene" uid="uid://dm5fdokmgctgr" path="res://Scenes/Triggers/elevatorTrigger.tscn" id="6_1ixu7"]
+[ext_resource type="PackedScene" uid="uid://dnqoj4eg2l7le" path="res://Scenes/Triggers/trampolineTrigger.tscn" id="7_6dxvr"]
+[ext_resource type="PackedScene" uid="uid://bvijr68wg2fbf" path="res://Scenes/Triggers/InvisibleBlocks/64x64InvisibleBlock.tscn" id="8_4ovtr"]
+[ext_resource type="PackedScene" uid="uid://by8l8mnrr610i" path="res://Scenes/Triggers/InvisibleBlocks/LeftSlopeInvisibleBlock.tscn" id="9_61sk7"]
+[ext_resource type="PackedScene" uid="uid://b653ep4goj6pf" path="res://Scenes/Triggers/InvisibleBlocks/32x64InvisibleBlock.tscn" id="10_y72w6"]
 
-[node name="yetunnamed" type="Node2D" node_paths=PackedStringArray("cameraSpot", "player", "transitionField")]
+[node name="BouncyElevator" type="Node2D" node_paths=PackedStringArray("cameraSpot", "player", "transitionField")]
 texture_filter = 1
 script = ExtResource("1_4guic")
 cameraSpot = NodePath("CenterPosition")
-cameraSize = Vector2(1120, 544)
+cameraSize = Vector2(864, 672)
 player = NodePath("rigidPlayer")
 transitionField = NodePath("TransitionField")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("2_kaean")
 format = 2
-layer_0/tile_data = PackedInt32Array(851965, 3, 2, 786429, 196611, 1, 720893, 196611, 1, 655357, 196611, 1, 589821, 196611, 1, 524285, 196611, 1, 458749, 196611, 1, 393213, 196611, 1, 327677, 196611, 1, 262141, 196611, 1, 196605, 196611, 1, 131069, 196611, 1, 65533, 196611, 1, -3, 196611, 1, -65539, 196611, 1, -131075, 196611, 1, -196611, 3, 0, -196610, 327683, 0, -196609, 327683, 0, -262144, 327683, 0, -262143, 327683, 0, -262142, 327683, 0, -262141, 327683, 0, -262140, 327683, 0, -262139, 327683, 0, -262137, 327683, 0, -262138, 327683, 0, -262136, 327683, 0, -262135, 327683, 0, -262134, 327683, 0, -262133, 327683, 0, -262132, 327683, 0, -262131, 327683, 0, -262130, 327683, 0, -262129, 327683, 0, -262128, 327683, 0, -262127, 327683, 0, -262126, 327683, 0, -262125, 327683, 0, -262124, 327683, 0, -262123, 327683, 0, -262122, 327683, 0, -262121, 327683, 0, -262120, 327683, 0, -262119, 327683, 0, -262118, 327683, 0, -262117, 327683, 0, -262116, 327683, 0, -262115, 131075, 0)
+layer_0/tile_data = PackedInt32Array(983046, 3, 2, 983047, 65539, 2, 983048, 65539, 2, 983049, 65539, 2, 983050, 65539, 2, 983051, 65539, 2, 983052, 65539, 2, 983053, 65539, 2, 983054, 327683, 0, 983055, 327683, 0, 983056, 327683, 0, 983057, 327683, 0, 983058, 327683, 0, 983059, 327683, 0, 983060, 65539, 2, 917510, 3, 1, 851974, 3, 1, 786438, 3, 1, 720902, 3, 1, 655366, 3, 1, 589830, 3, 1, 524294, 3, 1, 458758, 3, 0, 917524, 196611, 1, 851988, 196611, 1, 786452, 196611, 1, 720916, 196611, 1, 655380, 196611, 1, 589844, 196611, 1, 524308, 196611, 1, 458772, 131075, 0, 720903, 65539, 1, 655367, 3, 6, 589831, 131075, 1, 524295, 65539, 1, 458759, 65539, 0, 458761, 65539, 0, 458762, 65539, 0, 786439, 65539, 1, 851975, 65539, 1, 917511, 65539, 1, 458766, 327683, 0, 458767, 327683, 0, 458768, 327683, 0, 458769, 327683, 0, 458770, 327683, 0, 458771, 327683, 0, 458760, 65539, 0, 524296, 65539, 2, 655368, 65539, 0, 720904, 65539, 1, 786440, 65539, 1, 851976, 65539, 1, 917512, 65539, 1, 524297, 65539, 2, 655369, 65539, 0, 720905, 65539, 1, 786441, 65539, 1, 851977, 65539, 1, 917513, 65539, 1, 524298, 65539, 2, 655370, 131075, 0, 720906, 131075, 1, 786442, 131075, 1, 851978, 131075, 1, 917514, 131075, 1, 655374, 65539, 0, 655375, 327683, 0, 655376, 327683, 0, 524301, 262147, 4, 655373, 65539, 0, 786450, 262147, 0, 786451, 327683, 0, 655377, 393219, 0, 786445, 262147, 2, 720910, 262147, 2, 720909, 65539, 1, 458765, 65539, 0, 1245211, 3, 1, 1179675, 3, 1, 1114139, 3, 1, 1048603, 3, 1, 983067, 3, 1, 917531, 3, 1, 851995, 3, 1, 786459, 3, 1, 720923, 3, 1, 655387, 3, 1, 589851, 3, 1, 524315, 3, 1, 458779, 3, 1, 393243, 3, 1, 327707, 3, 1, 262171, 3, 1, 196635, 3, 1, 131099, 3, 1, 65563, 3, 1, 0, 65539, 0, 1, 65539, 0, 2, 65539, 0, 3, 65539, 0, 4, 65539, 0, 5, 65539, 0, 6, 65539, 0, 7, 65539, 0, 8, 65539, 0, 9, 65539, 0, 10, 65539, 0, 11, 65539, 0, 12, 65539, 0, 13, 65539, 0, 14, 65539, 0, 15, 65539, 0, 16, 65539, 0, 17, 65539, 0, 18, 65539, 0, 19, 65539, 0, 20, 65539, 0, 21, 65539, 0, 22, 65539, 0, 23, 65539, 0, 24, 65539, 0, 25, 65539, 0, 26, 65539, 0, 27, 65539, 0, 1376256, 3, 2, 1376257, 327683, 0, 1376258, 327683, 0, 1376259, 327683, 0, 1376260, 327683, 0, 1376261, 327683, 0, 1376262, 327683, 0, 1376263, 327683, 0, 1376264, 327683, 0, 1376265, 327683, 0, 1376266, 327683, 0, 1376267, 327683, 0, 1376268, 327683, 0, 1376269, 327683, 0, 1376270, 327683, 0, 1376271, 327683, 0, 1376272, 327683, 0, 1376273, 327683, 0, 1376274, 327683, 0, 1376275, 327683, 0, 1376276, 327683, 0, 1376277, 327683, 0, 1376278, 327683, 0, 1376279, 327683, 0, 1376280, 327683, 0, 1376281, 327683, 0, 1376282, 327683, 0, 1310747, 3, 1, 1376283, 131075, 2, 1310720, 196611, 1, 1245184, 196611, 1, 1179648, 196611, 1, 1114112, 196611, 1, 1048576, 196611, 1, 983040, 196611, 1, 917504, 196611, 1, 851968, 196611, 1, 786432, 196611, 1, 720896, 196611, 1, 655360, 196611, 1, 589824, 196611, 1, 524288, 196611, 1, 458752, 196611, 1, 393216, 196611, 1, 327680, 196611, 1, 262144, 196611, 1, 196608, 196611, 1, 131072, 196611, 1, 65536, 196611, 1)
 
 [node name="CenterPosition" type="Marker2D" parent="."]
-position = Vector2(464, 144)
+position = Vector2(432, 336)
 metadata/_edit_group_ = true
 
 [node name="TransitionField" parent="." instance=ExtResource("3_7pnmh")]
-position = Vector2(960, 288)
+position = Vector2(608, 350)
 
 [node name="rigidPlayer" parent="." instance=ExtResource("4_g53a3")]
-position = Vector2(64, 272)
+position = Vector2(559, 450)
 
 [node name="brokenVat" parent="." instance=ExtResource("5_4t63u")]
-position = Vector2(64, 265)
-metadata/_edit_lock_ = true
+position = Vector2(572, 447)
 
 [node name="elevatorTrigger" parent="." node_paths=PackedStringArray("stoppingPoints") instance=ExtResource("6_1ixu7")]
-position = Vector2(224, 256)
+position = Vector2(384, 479)
 time_to_change_stops = 0.55
-stoppingPoints = [NodePath("ElevatorStops/Stop0"), NodePath("ElevatorStops/Stop10")]
-metadata/_edit_lock_ = true
+stoppingPoints = [NodePath("ElevatorStops/Stop0"), NodePath("ElevatorStops/Stop1"), NodePath("ElevatorStops/Stop10")]
 metadata/_edit_group_ = true
 
 [node name="ElevatorShaft" parent="elevatorTrigger" index="1"]
-position = Vector2(0, -80)
-scale = Vector2(1, 2.5)
+position = Vector2(0, -145)
+scale = Vector2(1, 4.53125)
+
+[node name="Stop1" parent="elevatorTrigger/ElevatorStops" index="1"]
+visible = true
+position = Vector2(0, -175)
 
 [node name="Stop10" parent="elevatorTrigger/ElevatorStops" index="10"]
-position = Vector2(0, -144)
+position = Vector2(0, -273)
+
+[node name="trampolineTrigger" parent="." instance=ExtResource("7_6dxvr")]
+position = Vector2(111, 119)
+rotation = 0.785398
+jump_force = 600.0
+startActivated = true
+moveRiderTime = 0.2
+
+[node name="trampolineTrigger2" parent="." instance=ExtResource("7_6dxvr")]
+position = Vector2(459, 638)
+rotation = -0.785398
+jump_force = 600.0
+startActivated = true
+moveRiderTime = 0.2
+
+[node name="trampolineTrigger3" parent="." instance=ExtResource("7_6dxvr")]
+position = Vector2(107, 641)
+startActivated = true
+moveRiderTime = 0.1
+
+[node name="trampolineTrigger4" parent="." instance=ExtResource("7_6dxvr")]
+position = Vector2(94, 440)
+startActivated = true
+moveRiderTime = 0.2
+
+[node name="trampolineTrigger5" parent="." instance=ExtResource("7_6dxvr")]
+position = Vector2(441, 118)
+rotation = 0.785398
+jump_force = 600.0
+startActivated = true
+moveRiderTime = 0.2
+
+[node name="trampolineTrigger6" parent="." instance=ExtResource("7_6dxvr")]
+position = Vector2(790, 122)
+rotation = 0.785398
+jump_force = 300.0
+startActivated = true
+moveRiderTime = 0.2
+
+[node name="trampolineTrigger7" parent="." instance=ExtResource("7_6dxvr")]
+position = Vector2(843, 627)
+rotation = -0.785398
+jump_force = 650.0
+startActivated = true
+moveRiderTime = 0.2
+
+[node name="trampolineTrigger8" parent="." instance=ExtResource("7_6dxvr")]
+position = Vector2(92, 276)
+startActivated = true
+moveRiderTime = 0.2
+
+[node name="trampolineTrigger9" parent="." instance=ExtResource("7_6dxvr")]
+position = Vector2(448, 208)
+startActivated = true
+
+[node name="invisibleBlock" parent="." instance=ExtResource("8_4ovtr")]
+position = Vector2(268, 31)
+
+[node name="LeftSlopeInvisibleBlock" parent="." instance=ExtResource("9_61sk7")]
+position = Vector2(579, 31)
+
+[node name="invisibleBlock2" parent="." instance=ExtResource("10_y72w6")]
+position = Vector2(252, 512)
 
 [editable path="elevatorTrigger"]

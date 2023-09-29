@@ -101,9 +101,9 @@ func increase_level() -> void:
 	Transition.play("UncoverScreen");
 	
 	# set music
-	if (current_level == 2):
+	if (current_level == 8):
 		musicPlayer.changeMusic("midlevels");
-	elif (current_level == 4):
+	elif (current_level == 14):
 		musicPlayer.changeMusic("intense");
 	
 	await(Transition.animation_finished)

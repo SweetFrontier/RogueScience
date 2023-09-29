@@ -8,6 +8,7 @@ class_name elevatorTrigger
 @export var ElevatorArea: Area2D
 @export var stoppingPoints: Array[AnimatedSprite2D]
 @export var ActivateSound: AudioStreamPlayer2D
+@export var BuzzSound: AudioStreamPlayer2D
 @export var startingStop: int = 0
 @export var startingMovingUp: bool = true
 
@@ -52,7 +53,6 @@ func reset():
 		child.animation = "deactivated"
 	ElevatorShaft.animation = "deactivated"
 	ElevatorBox.animation = "deactivated"
-	ActivateSound.stream = load("res://Sounds/activate.ogg")
 	if startActivated:
 		react()
 		button_fade_timer = 0
@@ -75,8 +75,6 @@ func _on_body_entered(body):
 	if activated and body != self and !occupied and body != ridingBody:
 		override_movement(body)
 		setupMoveToStart()
-		#load the moving sound
-		ActivateSound.stream = load("res://Sounds/movingElevator.ogg")
 		if body is movingObject:
 			body.set_freed_vel(body.angular_velocity, body.linear_velocity)
 
@@ -114,14 +112,14 @@ func setupElevatorStarting():
 	moving_elevator = true
 
 func moveElevator(delta):
-	if (!ActivateSound.playing):
-		ActivateSound.play()
+	if (!BuzzSound.playing):
+		BuzzSound.play()
 	elevatingProgress += delta
 	ElevatorBox.global_position = (elevatingEndPos - elevatingBeginPos) * (elevatingProgress/time_to_change_stops)  + elevatingBeginPos
 	ridingBody.set_body_pos(ElevatorBox.global_position)
 	# Check if the interpolation is complete.
 	if elevatingProgress >= time_to_change_stops:
-		ActivateSound.stop()
+		BuzzSound.stop()
 		ElevatorBox.global_position = elevatingEndPos
 		ridingBody.set_body_pos(ElevatorBox.global_position)
 		moving_elevator = false

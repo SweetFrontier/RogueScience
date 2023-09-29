@@ -72,6 +72,7 @@ func _integrate_forces(state):
 		just_freed = false
 		state.set_linear_velocity(once_freed_linear_velocity)
 		state.set_angular_velocity(once_freed_angular_velocity)
+		clear_freed_velocity()
 	
 	if (max(last_vel_x - linear_velocity.x, last_vel_y - linear_velocity.y) > 40):
 		if (linear_velocity.y > -600):

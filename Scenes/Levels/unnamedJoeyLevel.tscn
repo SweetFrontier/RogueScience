@@ -103,6 +103,7 @@ startActivated = true
 
 [node name="elevatorTrigger3" parent="." node_paths=PackedStringArray("stoppingPoints") instance=ExtResource("6_lpfl6")]
 position = Vector2(736, 352)
+time_to_change_stops = 0.5
 stoppingPoints = [NodePath("ElevatorStops/Stop0"), NodePath("ElevatorStops/Stop10")]
 startingStop = 1
 

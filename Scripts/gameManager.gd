@@ -30,6 +30,13 @@ func _ready() -> void:
 	#REMOVE THIS IF STATEMENT BEFORE UPLOAD TO ITCH. THIS IS FOR DEBUGGING PURPOSES ONLY
 	if current_level < 1:
 		current_level = GlobalVariables.currentLevel-1
+	#set music
+	if (current_level > 13):
+		musicPlayer.set_stream(load("res://Sounds/Music/puzzle(intense).ogg"))
+	elif (current_level > 7):
+		musicPlayer.set_stream(load("res://Sounds/Music/puzzle(midlevels).ogg"))
+	#play music
+	musicPlayer.play()
 	
 	resetWipeTransitionContoller.connect("screenCovered", screen_wipe_covered)
 	movingStart = camera.global_position

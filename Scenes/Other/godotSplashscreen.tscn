@@ -403,11 +403,10 @@ color = Color(0.141176, 0.141176, 0.141176, 1)
 
 [node name="GodotController" type="Control" parent="."]
 anchors_preset = 0
-offset_left = 640.0
+offset_left = 493.0
 offset_top = 368.0
-offset_right = 680.0
+offset_right = 533.0
 offset_bottom = 408.0
-scale = Vector2(1e-05, 1e-05)
 
 [node name="Godot" type="TextureRect" parent="GodotController"]
 layout_mode = 0
@@ -419,20 +418,22 @@ texture = ExtResource("2_qtmda")
 expand_mode = 4
 
 [node name="eyeL" type="TextureRect" parent="GodotController/Godot"]
+modulate = Color(4, 0.392157, 0.392157, 1)
 layout_mode = 0
-offset_left = 155.0
-offset_top = 62.0
-offset_right = 173.0
-offset_bottom = 80.0007
+offset_left = 160.0
+offset_top = 61.0
+offset_right = 178.0
+offset_bottom = 79.0007
 texture = ExtResource("3_32pka")
 stretch_mode = 2
 
 [node name="eyeR" type="TextureRect" parent="GodotController/Godot"]
+modulate = Color(4, 0.39, 0.39, 1)
 layout_mode = 0
-offset_left = 95.0
-offset_top = 62.0
-offset_right = 113.0
-offset_bottom = 80.0005
+offset_left = 97.0
+offset_top = 61.0
+offset_right = 115.0
+offset_bottom = 79.0005
 texture = ExtResource("3_32pka")
 stretch_mode = 2
 
@@ -467,18 +468,18 @@ expand_mode = 3
 [node name="Evil" type="TextureRect" parent="."]
 layout_mode = 0
 offset_left = 781.0
-offset_top = -151.0
+offset_top = 268.0
 offset_right = 924.0
-offset_bottom = -4.99884
+offset_bottom = 414.001
 texture = ExtResource("4_mn2gs")
 stretch_mode = 2
 
 [node name="explodeablePolygon" type="Polygon2D" parent="."]
 position = Vector2(781, 268)
-color = Color(1, 1, 1, 0)
+color = Color(1, 1, 1, 0.75)
 offset = Vector2(87, 60)
 texture = ExtResource("6_b817f")
-polygon = PackedVector2Array(-38, -43, 41, -65, 62, 8, 43, 90, -36, 68, -89, 13)
+polygon = PackedVector2Array(-38, -43, 31, -61, 40, -61, 57, -6, 57, 35, 42, 87, 32.232, 87.0013, -36, 68, -89, 13)
 script = ExtResource("7_smohn")
 shard_count = 64
 shard_shrink_rate = 0.99
@@ -494,7 +495,7 @@ y_min_distance = -10
 time_to_form = 2.0
 
 [node name="Lasers" type="Control" parent="."]
-modulate = Color(1, 1, 1, 0)
+modulate = Color(1.53333, 1.53333, 1.53333, 1)
 anchors_preset = 0
 offset_left = 529.0
 offset_top = 291.0

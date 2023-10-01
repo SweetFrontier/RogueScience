@@ -85,9 +85,11 @@ func increase_level() -> void:
 	Levels[current_level].player.won_level_silence()
 	#Next level
 	current_level += 1
+	GlobalVariables.currentLevel = current_level+1
 	#set global unlocked levels to up to this one
 	if (GlobalVariables.unlockedLevel < current_level):
 		GlobalVariables.unlockedLevel = current_level
+		give_free_cookies()
 	
 	if(current_level >= Levels.size()):
 		pauseMenu.set_pausability(false)

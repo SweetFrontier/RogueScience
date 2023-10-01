@@ -124,9 +124,8 @@ _data = {
 "FadeToBlack": SubResource("Animation_ohoh7")
 }
 
-[node name="Main" type="Node2D" node_paths=PackedStringArray("Levels", "camera", "pauseMenu", "musicPlayer", "Transition", "resetWipeTransition", "resetWipeTransitionContoller")]
+[node name="Main" type="Node2D" node_paths=PackedStringArray("camera", "pauseMenu", "musicPlayer", "Transition", "resetWipeTransition", "resetWipeTransitionContoller")]
 script = ExtResource("1_rlws3")
-Levels = [NodePath("Levels/BreakableIntro"), NodePath("Levels/InvisibleIntro"), NodePath("Levels/BreakableSteps"), NodePath("Levels/ThreeEyesFalling"), NodePath("Levels/MovingObjectIntro"), NodePath("Levels/FourEyesFalling"), NodePath("Levels/JumpingPath"), NodePath("Levels/MultiEyeTrampoline"), NodePath("Levels/bouncyLevel"), NodePath("Levels/PowerfulTrampoline"), NodePath("Levels/HardInvisible"), NodePath("Levels/TeleportIntro"), NodePath("Levels/YeetTheBall"), NodePath("Levels/ElevatorsIntro"), NodePath("Levels/bouncyLevel2"), NodePath("Levels/BouncyElevator"), NodePath("Levels/TallElevator"), NodePath("Levels/bouncyLevel3"), NodePath("Levels/bouncyLevel4")]
 camera = NodePath("Camera2D")
 pauseMenu = NodePath("CanvasLayer/PauseMenu")
 musicPlayer = NodePath("MusicPlayer")
@@ -149,7 +148,7 @@ texture = ExtResource("11_rpaq4")
 process_mode = 4
 
 [node name="BreakableIntro" parent="Levels" instance=ExtResource("3_cm24v")]
-position = Vector2(-60, -259)
+position = Vector2(-60, -256)
 
 [node name="InvisibleIntro" parent="Levels" instance=ExtResource("3_q6jj7")]
 position = Vector2(-60, 61)

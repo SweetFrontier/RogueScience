@@ -89,7 +89,7 @@ func increase_level() -> void:
 	#set global unlocked levels to up to this one
 	if (GlobalVariables.unlockedLevel < current_level):
 		GlobalVariables.unlockedLevel = current_level
-		give_free_cookies()
+		GlobalVariables.give_free_cookies()
 	
 	if(current_level >= Levels.size()):
 		pauseMenu.set_pausability(false)

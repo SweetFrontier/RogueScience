@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://6g21fyk11mro"]
+[gd_scene load_steps=9 format=3 uid="uid://6g21fyk11mro"]
 
 [ext_resource type="Script" path="res://Scripts/Triggers/invisibleBlock.gd" id="1_v38uq"]
 [ext_resource type="Texture2D" uid="uid://by4l3lc5boy4" path="res://Art/TriggerArt/InvisibleBlocks/InvisRightSlope.png" id="2_fcxug"]
@@ -7,6 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://dpqgyipr2o053" path="res://Art/TriggerArt/InvisibleBlocks/InvisSlopeLoad.png" id="5_2h7dv"]
 [ext_resource type="Script" path="res://Scripts/Triggers/invisiblockCollision.gd" id="5_l2685"]
 [ext_resource type="AudioStream" uid="uid://ctnkt71vbtt11" path="res://Sounds/invisibleblock.ogg" id="5_my3ul"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dysos"]
+size = Vector2(14.5, 60.9988)
 
 [node name="RightSlopeInvisibleBlock" type="Node2D" node_paths=PackedStringArray("body", "implodeable_polygon", "sound_child", "TriggerKeySprite")]
 script = ExtResource("1_v38uq")
@@ -40,9 +43,10 @@ time_to_form = 2.0
 [node name="TriggerKeySprite" parent="." instance=ExtResource("4_vw5c8")]
 position = Vector2(32, 64)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." node_paths=PackedStringArray("collisionShape")]
+[node name="StaticBody2D" type="StaticBody2D" parent="." node_paths=PackedStringArray("collisionShape", "tempOneWayShapes")]
 script = ExtResource("5_l2685")
 collisionShape = NodePath("CollisionPolygon2D")
+tempOneWayShapes = [NodePath("LeftSide"), NodePath("RightSide")]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 position = Vector2(64, 32)
@@ -52,6 +56,20 @@ polygon = PackedVector2Array(0, -32, 0, 0, -64, 0)
 position = Vector2(-32, -16)
 texture = ExtResource("5_2h7dv")
 flip_h = true
+
+[node name="LeftSide" type="StaticBody2D" parent="StaticBody2D"]
+collision_layer = 8
+
+[node name="RightSide" type="StaticBody2D" parent="StaticBody2D"]
+position = Vector2(61, 0)
+collision_layer = 4
+
+[node name="CollisionShapeR" type="CollisionShape2D" parent="StaticBody2D/RightSide"]
+position = Vector2(-0.0999985, 17.5)
+rotation = 1.5708
+scale = Vector2(2, 0.1)
+shape = SubResource("RectangleShape2D_dysos")
+one_way_collision = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_my3ul")

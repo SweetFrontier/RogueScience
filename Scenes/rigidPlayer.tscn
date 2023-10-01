@@ -68,6 +68,7 @@ hit_from_inside = true
 [node name="wallCast2D" type="RayCast2D" parent="."]
 position = Vector2(0, 8)
 target_position = Vector2(26, 0)
+collision_mask = 13
 hit_from_inside = true
 
 [node name="Polygon2D" type="Polygon2D" parent="."]

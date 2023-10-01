@@ -55,3 +55,15 @@ func _on_quit_button_pressed():
 	transition.play("SlideToBlack")
 	await(transition.animation_finished)
 	get_tree().quit()
+
+
+func _on_level_select_button_pressed():
+	#play sound and make music and sounds fade out
+	buttonSound.play()
+	musicPlayer.fadeOut()
+	noisePlayer.fadeOut()
+	#transition
+	transition.play("SlideToBlack")
+	await(transition.animation_finished)
+	#change scene
+	get_tree().change_scene_to_file("res://Scenes/Screens/LevelSelect.tscn")

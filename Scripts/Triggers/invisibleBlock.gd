@@ -16,7 +16,7 @@ func react():
 	super.react()
 	if !activated:
 		activated = true
-		# Explode the Block
+		# Implode the Block
 		implodeable_polygon.implode()
 		# Enable collision.
 		body.enable()

@@ -13,7 +13,7 @@ size = Vector2(32, 64)
 
 [node name="invisibleBlock" type="Node2D" node_paths=PackedStringArray("body", "implodeable_polygon", "sound_child", "TriggerKeySprite")]
 script = ExtResource("1_hnjxw")
-body = NodePath("StaticBody2D")
+body = NodePath("MainBody")
 implodeable_polygon = NodePath("Polygon2D")
 sound_child = NodePath("AudioStreamPlayer2D")
 button = 66
@@ -44,29 +44,37 @@ time_to_form = 2.0
 [node name="TriggerKeySprite" parent="." instance=ExtResource("4_07cs6")]
 position = Vector2(16, 96)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." node_paths=PackedStringArray("collisionShape", "tempOneWayShapes")]
+[node name="MainBody" type="StaticBody2D" parent="." node_paths=PackedStringArray("collisionShape", "tempOneWayShapes")]
+collision_layer = 8
 script = ExtResource("5_ecxh2")
 collisionShape = NodePath("CollisionShape2D")
-tempOneWayShapes = [NodePath("CollisionShapeR"), NodePath("CollisionShapeL")]
+tempOneWayShapes = [NodePath("../LeftSide"), NodePath("../RightSide")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MainBody"]
 position = Vector2(16, 32)
 shape = SubResource("RectangleShape2D_wrifo")
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D/CollisionShape2D"]
+[node name="Sprite2D" type="Sprite2D" parent="MainBody/CollisionShape2D"]
 texture = ExtResource("6_g3c1a")
 
-[node name="CollisionShapeR" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(16, 32)
+[node name="LeftSide" type="StaticBody2D" parent="."]
+collision_layer = 8
+
+[node name="CollisionShapeL" type="CollisionShape2D" parent="LeftSide"]
+position = Vector2(1.6, 32)
 rotation = -1.5708
-scale = Vector2(2, 0.5)
+scale = Vector2(2, 0.05)
 shape = SubResource("RectangleShape2D_wrifo")
 one_way_collision = true
 
-[node name="CollisionShapeL" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(16, 32)
+[node name="RightSide" type="StaticBody2D" parent="."]
+visible = false
+collision_layer = 4
+
+[node name="CollisionShapeR" type="CollisionShape2D" parent="RightSide"]
+position = Vector2(30, 32)
 rotation = 1.5708
-scale = Vector2(2, 0.5)
+scale = Vector2(2, 0.05)
 shape = SubResource("RectangleShape2D_wrifo")
 one_way_collision = true
 

@@ -21,6 +21,10 @@ config/windows_native_icon="res://icon.ico"
 
 buses/default_bus_layout="res://Sounds/default_bus_layout.tres"
 
+[autoload]
+
+GlobalVariables="*res://Scripts/GlobalVariables.gd"
+
 [debug]
 
 gdscript/warnings/integer_division=0
@@ -34,6 +38,13 @@ window/stretch/mode="canvas_items"
 [dotnet]
 
 project/assembly_name="2023KickOffGamejam"
+
+[layer_names]
+
+2d_physics/layer_1="RegularCollision"
+2d_physics/layer_2="OneWayFloor"
+2d_physics/layer_3="OneWayRHS"
+2d_physics/layer_4="OneWayLHS"
 
 [rendering]
 

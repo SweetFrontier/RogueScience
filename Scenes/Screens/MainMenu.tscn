@@ -138,6 +138,22 @@ text = "Start Game"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="LevelSelectButton" type="TextureButton" parent="TitleScreen/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("5_x5no4")
+texture_hover = ExtResource("6_mf5g2")
+
+[node name="Label" type="Label" parent="TitleScreen/VBoxContainer/LevelSelectButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Level Select"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="CreditsButton" type="TextureButton" parent="TitleScreen/VBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("5_x5no4")
@@ -236,6 +252,7 @@ libraries = {
 }
 
 [connection signal="pressed" from="TitleScreen/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="TitleScreen/VBoxContainer/LevelSelectButton" to="." method="_on_level_select_button_pressed"]
 [connection signal="pressed" from="TitleScreen/VBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="TitleScreen/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="TitleScreen/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

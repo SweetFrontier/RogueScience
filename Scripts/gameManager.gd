@@ -26,6 +26,11 @@ var deathTimer : float = -1
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	#set current level to global current level
+	#REMOVE THIS IF STATEMENT BEFORE UPLOAD TO ITCH. THIS IS FOR DEBUGGING PURPOSES ONLY
+	if current_level < 1:
+		current_level = GlobalVariables.currentLevel-1
+	
 	resetWipeTransitionContoller.connect("screenCovered", screen_wipe_covered)
 	movingStart = camera.global_position
 	movingGoal = Levels[current_level].cameraSpot.global_position
@@ -73,6 +78,10 @@ func increase_level() -> void:
 	Levels[current_level].player.won_level_silence()
 	#Next level
 	current_level += 1
+	#set global unlocked levels to up to this one
+	if (GlobalVariables.unlockedLevel < current_level):
+		GlobalVariables.unlockedLevel = current_level
+	
 	if(current_level >= Levels.size()):
 		pauseMenu.set_pausability(false)
 		musicPlayer.fadeOut()

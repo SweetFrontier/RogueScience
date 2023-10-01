@@ -35,7 +35,8 @@ func react():
 			child.play("activated")
 		ElevatorShaft.play("activated")
 		ElevatorBox.play("activated")
-		ActivateSound.play()
+		if (!startActivated):
+			ActivateSound.play()
 
 func reset():
 	super.reset()

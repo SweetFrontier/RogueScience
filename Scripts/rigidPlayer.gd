@@ -15,6 +15,7 @@ class_name rigidPlayer
 @export var floorCollisionArea: Area2D
 @export var floorCast: RayCast2D
 @export var wallCast: RayCast2D
+@export var fallingThreshold : int = 160
 
 @export var deathExplosion : Polygon2D
 @export var deathBounceRequirement : int = 5; # number of frames in a row must turn before explode
@@ -58,11 +59,18 @@ func reset():
 		AnimatedSprite.flip_h = false
 		PlayerCollision.scale.x = abs(PlayerCollision.scale.x)
 		AnimatedSprite.offset.x = 4
+		#start facing right, wallcast can collide with left side of blocks
+		wallCast.set_collision_mask_value(3, false) # 3 is oneWayBlockRHS
+		wallCast.set_collision_mask_value(4, true) # 4 is oneWayBlockLHS
 	if current_direction == Vector2.LEFT:
 		AnimatedSprite.flip_h = true
 		PlayerCollision.scale.x = -1 * abs(PlayerCollision.scale.x)
 		AnimatedSprite.offset.x = -4
+		#start facing left, wallcast can collide with right side of blocks
+		wallCast.set_collision_mask_value(3, true) # 3 is oneWayBlockRHS
+		wallCast.set_collision_mask_value(4, false) # 4 is oneWayBlockLHS
 	wallCast.scale.x = PlayerCollision.scale.x
+	CrawlSounds.play()
 	
 	just_reset = true
 	dead = false
@@ -81,6 +89,8 @@ func reset():
 
 func _integrate_forces(state):
 	if just_reset:
+		#debug line, force to show again because of a glitch
+		AnimatedSprite.show()
 		state.set_transform(starting_transform)
 		state.set_linear_velocity(Vector2())
 		state.set_angular_velocity(0.0)
@@ -111,25 +121,29 @@ func _physics_process(delta):
 	if !dead:
 		if is_on_floor():
 			rotate_player_on_slope(delta)
-			#check if crashing, and if so, play sound
-			if (last_y_velocity > 40 && !won_level):
-				CrawlSounds.play()
-				# play the louder one if fall from high up
-				if (last_y_velocity > 600):
-					HitSounds.stream = load("res://Sounds/hitgroundfromhigh.ogg")
-				else:
-					HitSounds.stream = load("res://Sounds/hitsomething.ogg")
-				last_y_velocity = 0
-				HitSounds.play()
+			if !won_level:
+				#if on ground then play crawling sound again
+				if (!CrawlSounds.playing && is_on_floor() && !being_controlled):
+					CrawlSounds.play()
+				#check if crashing, and if so, play sound
+				if (last_y_velocity > 40):
+					# play the louder one if fall from high up
+					if (last_y_velocity > 600):
+						HitSounds.stream = load("res://Sounds/hitgroundfromhigh.ogg")
+					else:
+						HitSounds.stream = load("res://Sounds/hitsomething.ogg")
+					last_y_velocity = 0
+					HitSounds.play()
 		else:
 			rotate_player_on_arc(delta)
-			if (linear_velocity.y > 160):
+			if (linear_velocity.y > fallingThreshold):
 				CrawlSounds.stop()
 				last_y_velocity = linear_velocity.y
-		
-			
+	
 		if being_controlled:
+			CrawlSounds.stop()
 			return
+		
 		if is_on_wall() and !won_level:
 			deathCounter += 1
 			current_direction = -current_direction
@@ -140,6 +154,15 @@ func _physics_process(delta):
 			#play the sound
 			HitSounds.stream = load("res://Sounds/hitsomething.ogg")
 			HitSounds.play()
+			#set wallcast to current direction
+			if (current_direction.x < 0):
+				#facing left, wallcast can collide with right side of blocks
+				wallCast.set_collision_mask_value(3, true) # 3 is oneWayBlockRHS
+				wallCast.set_collision_mask_value(4, false) # 4 is oneWayBlockLHS
+			else:
+				#facing right, wallcast can collide with left side of blocks
+				wallCast.set_collision_mask_value(3, false) # 3 is oneWayBlockRHS
+				wallCast.set_collision_mask_value(4, true) # 4 is oneWayBlockLHS
 			
 			if (deathCounter >= deathBounceRequirement):
 				#make dead
@@ -156,6 +179,21 @@ func _physics_process(delta):
 				emit_signal("player_death_signal")
 		else:
 			deathCounter = 0
+	
+	#set current L/R collision mask
+	if (linear_velocity.x > 0):
+		# if moving right, collide with only left walls
+		set_collision_mask_value(3, false) # 3 is oneWayBlockRHS
+		set_collision_mask_value(4, true) # 4 is oneWayBlockLHS
+	else:
+		# if moving left, collide with only right walls
+		set_collision_mask_value(3, true) # 3 is oneWayBlockRHS
+		set_collision_mask_value(4, false) # 4 is oneWayBlockLHS
+	#set oneWay collision mask
+	if (linear_velocity.y > -fallingThreshold):
+		set_collision_mask_value(2, true) # 2 is vertical oneWayBlock
+	else:
+		set_collision_mask_value(2, false) # 2 is vertical oneWayBlock
 	
 func rotate_player_on_arc(delta):
 	if being_controlled and not positioning_finished:

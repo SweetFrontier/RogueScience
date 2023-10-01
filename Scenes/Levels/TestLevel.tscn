@@ -1,0 +1,54 @@
+[gd_scene load_steps=8 format=3 uid="uid://dyjhpxnp67oes"]
+
+[ext_resource type="Script" path="res://Scripts/levelController.gd" id="1_y7gnq"]
+[ext_resource type="TileSet" uid="uid://bnpggr5480t5q" path="res://Art/TileSets/initialTileSet.tres" id="2_tgqei"]
+[ext_resource type="PackedScene" uid="uid://dvbyxsl5e3ol8" path="res://Scenes/Triggers/Trigger_Helpers/TransitionField.tscn" id="3_rit15"]
+[ext_resource type="PackedScene" uid="uid://dd6l6fhpuajke" path="res://Scenes/rigidPlayer.tscn" id="4_cdp46"]
+[ext_resource type="PackedScene" uid="uid://b653ep4goj6pf" path="res://Scenes/Triggers/InvisibleBlocks/32x64InvisibleBlock.tscn" id="6_e27i7"]
+[ext_resource type="PackedScene" uid="uid://by8l8mnrr610i" path="res://Scenes/Triggers/InvisibleBlocks/LeftSlopeInvisibleBlock.tscn" id="7_2sair"]
+[ext_resource type="PackedScene" uid="uid://ci05tj7j8an3w" path="res://Scenes/Triggers/BreakableBlocks/64x32breakableBlock.tscn" id="7_v1xsb"]
+
+[node name="baseLevel" type="Node2D" node_paths=PackedStringArray("cameraSpot", "player", "transitionField")]
+texture_filter = 1
+script = ExtResource("1_y7gnq")
+cameraSpot = NodePath("CenterPosition")
+player = NodePath("rigidPlayer")
+transitionField = NodePath("TransitionField")
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("2_tgqei")
+format = 2
+layer_0/tile_data = PackedInt32Array(1114115, 3, 1, 1179651, 3, 1, 1245187, 3, 2, 1114116, 65539, 0, 1179652, 65539, 1, 1245188, 65539, 2, 1114117, 65539, 0, 1179653, 65539, 1, 1245189, 65539, 2, 1114118, 65539, 0, 1179654, 65539, 1, 1245190, 65539, 2, 1114119, 65539, 0, 1179655, 65539, 1, 1245191, 65539, 2, 1114120, 65539, 0, 1179656, 65539, 1, 1245192, 65539, 2, 1114121, 65539, 0, 1179657, 65539, 1, 1245193, 65539, 2, 1114122, 65539, 0, 1179658, 65539, 1, 1245194, 65539, 2, 1114123, 65539, 0, 1179659, 65539, 1, 1245195, 65539, 2, 1114124, 65539, 0, 1179660, 65539, 1, 1245196, 65539, 2, 1114125, 65539, 0, 1179661, 65539, 1, 1245197, 65539, 2, 1114126, 65539, 0, 1179662, 65539, 1, 1245198, 65539, 2, 1114127, 65539, 0, 1179663, 65539, 1, 1245199, 65539, 2, 1114128, 65539, 0, 1179664, 65539, 1, 1245200, 65539, 2, 1114129, 65539, 0, 1179665, 65539, 1, 1245201, 65539, 2, 1114130, 65539, 0, 1179666, 65539, 1, 1245202, 65539, 2, 1114131, 65539, 0, 1179667, 65539, 1, 1245203, 65539, 2, 1114132, 65539, 0, 1179668, 65539, 1, 1245204, 65539, 2, 1114133, 65539, 0, 1179669, 65539, 1, 1245205, 65539, 2, 1114134, 65539, 0, 1179670, 65539, 1, 1245206, 65539, 2, 1114135, 65539, 0, 1179671, 65539, 1, 1245207, 65539, 2, 1114136, 65539, 0, 1179672, 65539, 1, 1245208, 65539, 2, 1114137, 65539, 0, 1179673, 65539, 1, 1245209, 65539, 2, 1114138, 65539, 0, 1179674, 65539, 1, 1245210, 65539, 2, 1114139, 65539, 0, 1179675, 65539, 1, 1245211, 65539, 2, 1114140, 65539, 0, 1179676, 65539, 1, 1245212, 65539, 2, 1114141, 65539, 0, 1179677, 65539, 1, 1245213, 65539, 2, 1114142, 65539, 0, 1179678, 65539, 1, 1245214, 65539, 2, 1114143, 65539, 0, 1179679, 65539, 1, 1245215, 65539, 2, 1114144, 65539, 0, 1179680, 65539, 1, 1245216, 65539, 2, 1114145, 65539, 0, 1179681, 65539, 1, 1245217, 65539, 2, 1114146, 65539, 0, 1179682, 65539, 1, 1245218, 65539, 2, 1114147, 131075, 1, 1179683, 131075, 1, 1245219, 131075, 2, 983075, 196611, 0, 1048611, 196611, 1, 983043, 196611, 0, 1048579, 196611, 1)
+
+[node name="CenterPosition" type="Marker2D" parent="."]
+position = Vector2(240, 128)
+
+[node name="TransitionField" parent="." instance=ExtResource("3_rit15")]
+position = Vector2(0, 240)
+
+[node name="rigidPlayer" parent="." instance=ExtResource("4_cdp46")]
+position = Vector2(640, 528)
+
+[node name="64x32breakableBlock" parent="." instance=ExtResource("7_v1xsb")]
+position = Vector2(608, 448)
+
+[node name="invisibleBlock" parent="." instance=ExtResource("6_e27i7")]
+position = Vector2(946, 479)
+
+[node name="MainBody" parent="invisibleBlock" index="2"]
+position = Vector2(44, 1)
+
+[node name="invisibleBlock2" parent="." instance=ExtResource("6_e27i7")]
+position = Vector2(729, 480)
+
+[node name="invisibleBlock3" parent="." instance=ExtResource("6_e27i7")]
+position = Vector2(495, 479)
+
+[node name="invisibleBlock4" parent="." instance=ExtResource("6_e27i7")]
+position = Vector2(280, 480)
+
+[node name="LeftSlopeInvisibleBlock" parent="." instance=ExtResource("7_2sair")]
+position = Vector2(809, 511)
+
+[editable path="invisibleBlock"]
+[editable path="LeftSlopeInvisibleBlock"]

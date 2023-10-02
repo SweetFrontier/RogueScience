@@ -19,6 +19,7 @@ class_name rigidPlayer
 
 @export var deathExplosion : Polygon2D
 @export var deathBounceRequirement : int = 5; # number of frames in a row must turn before explode
+@export var won_level : bool = false
 
 signal player_death_signal
 
@@ -41,7 +42,6 @@ var setBodyPos: bool = false
 var last_y_velocity : float = 0 #last_y_velocity for how loud to play the hit sound
 var deathCounter = 0
 var dead : bool = false
-var won_level : bool = false
 var animBackwards = false
 
 func _ready():

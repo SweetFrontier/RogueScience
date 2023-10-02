@@ -4,6 +4,8 @@ extends Control
 @export var titleScreen : Control
 @export var buttonSound : AudioStreamPlayer
 @export var transition : AnimationPlayer
+@export var quickCreditsPlayer : AnimationPlayer
+@export var quickCreditsMenu : Control
 
 @export var musicPlayer : AudioStreamPlayer
 @export var noisePlayer : AudioStreamPlayer
@@ -37,6 +39,25 @@ func _on_credits_button_pressed():
 	#transition
 	transition.play("SlideToBlack")
 	await(transition.animation_finished)
+	quickCreditsMenu.show()
+	quickCreditsPlayer.play("SlideToBlack")
+
+#QuickCreditsMenu back to title button
+func _on_quick_credits_back_pressed():
+	buttonSound.play()
+	#make sound fade back in
+	musicPlayer.fadeBackIn()
+	noisePlayer.fadeBackIn()
+	quickCreditsPlayer.play("SlideFromBlack")
+	transition.play("SlideFromBlack")
+	await quickCreditsPlayer.animation_finished
+	quickCreditsMenu.hide()
+#QuickCreditsMenu skip to credits button
+func _on_skip_to_credits_pressed():
+	buttonSound.play()
+	quickCreditsMenu.show()
+	quickCreditsPlayer.play("SlideFromBlack")
+	await quickCreditsPlayer.animation_finished
 	#change scene
 	get_tree().change_scene_to_file("res://Scenes/Credits/credits.tscn")
 
@@ -48,6 +69,7 @@ func _on_settings_button_pressed() -> void:
 	soundSettings.visible = true
 
 func _on_quit_button_pressed():
+	#play sound and make music fade out
 	buttonSound.play()
 	musicPlayer.fadeOut()
 	noisePlayer.fadeOut()

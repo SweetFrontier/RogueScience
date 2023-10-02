@@ -495,10 +495,10 @@ Level Design
 
 
 Jus Liu
-[font_size=25]Music
+[font_size=25]Art
+Music
 Sounds
-Some Programming
-Some Art
+Programming
 [/font_size]
 
 
@@ -577,6 +577,9 @@ position = Vector2(640, 3584)
 speed = 0.0
 deathBounceRequirement = 2
 
+[node name="crawlsounds" parent="rigidPlayer" index="3"]
+volume_db = -80.0
+
 [node name="trampolineTrigger3" parent="." instance=ExtResource("28_5i22p")]
 position = Vector2(608, 3328)
 rotation = 0.785398
@@ -613,3 +616,4 @@ button = 70
 
 [editable path="teleporterTrigger2"]
 [editable path="teleporterTrigger"]
+[editable path="rigidPlayer"]

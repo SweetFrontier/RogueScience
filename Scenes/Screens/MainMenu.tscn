@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://27bpb28umkw5"]
+[gd_scene load_steps=23 format=3 uid="uid://27bpb28umkw5"]
 
 [ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="1_ty1qf"]
 [ext_resource type="Texture2D" uid="uid://dunnspau7ty43" path="res://Art/Backgrounds/title.png" id="2_molfq"]
@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://co6yo5mcnxsq1" path="res://Art/Keys/MenuButtonSelected.png" id="6_mf5g2"]
 [ext_resource type="Script" path="res://Scripts/MusicPlayer.gd" id="9_6cn6a"]
 [ext_resource type="AudioStream" uid="uid://rbyp8q8q34ew" path="res://Sounds/UI/buttonpress.ogg" id="9_pdbac"]
+[ext_resource type="Texture2D" uid="uid://duqupkc8wi66f" path="res://Art/Credits/QuickCreditsMenu.png" id="12_6lp3w"]
+[ext_resource type="Texture2D" uid="uid://dlmvsqc7krms7" path="res://Art/Credits/QuickCreditsText.png" id="13_mm2y6"]
 
 [sub_resource type="Animation" id="Animation_owlrv"]
 resource_name = "fastFade"
@@ -28,12 +30,29 @@ tracks/0/keys = {
 "values": [-7.0, -80.0]
 }
 
+[sub_resource type="Animation" id="Animation_c73li"]
+resource_name = "fadeBackIn"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(2, 1),
+"update": 0,
+"values": [-80.0, -7.0]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_iqaxi"]
 _data = {
+"fadeBackIn": SubResource("Animation_c73li"),
 "fastFade": SubResource("Animation_owlrv")
 }
 
-[sub_resource type="Animation" id="Animation_ohdmr"]
+[sub_resource type="Animation" id="Animation_sfcc1"]
 resource_name = "SlideFromBlack"
 length = 0.4
 tracks/0/type = "value"
@@ -44,14 +63,111 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 2.14355),
+"transitions": PackedFloat32Array(2, 1),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(-1281, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_fwbnv"]
+resource_name = "SlideToBlack"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector2(1281, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xunlf"]
+_data = {
+"SlideFromBlack": SubResource("Animation_sfcc1"),
+"SlideToBlack": SubResource("Animation_fwbnv")
+}
+
+[sub_resource type="Animation" id="Animation_ohdmr"]
+resource_name = "SlideFromBlack"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.2, 0.6),
+"transitions": PackedFloat32Array(2, 2.14355),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-1281, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../CREDITS:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(2, 1),
+"update": 0,
+"values": [Vector2(479, 40), Vector2(479, -81)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../BackToTitle:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(2, 1),
+"update": 0,
+"values": [Vector2(100, 636), Vector2(100, 738)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../SkipToEnd:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(2, 1),
+"update": 0,
+"values": [Vector2(780, 636), Vector2(780, 738)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../BackToTitle:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../SkipToEnd:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
 [sub_resource type="Animation" id="Animation_o6crs"]
 resource_name = "SlideToBlack"
-length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -64,6 +180,66 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(1280, 0), Vector2(0, 0)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../CREDITS:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 2.14355, 1),
+"update": 0,
+"values": [Vector2(479, -81), Vector2(479, -81), Vector2(479, 40)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../BackToTitle:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.4, 0.7, 1),
+"transitions": PackedFloat32Array(2, 0.5, 1),
+"update": 0,
+"values": [Vector2(100, 738), Vector2(100, 697.2), Vector2(100, 636)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../SkipToEnd:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.4, 0.7, 1),
+"transitions": PackedFloat32Array(2, 0.5, 1),
+"update": 0,
+"values": [Vector2(780, 738), Vector2(780, 697.2), Vector2(780, 636)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../BackToTitle:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../SkipToEnd:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7lgs6"]
 _data = {
@@ -71,7 +247,7 @@ _data = {
 "SlideToBlack": SubResource("Animation_o6crs")
 }
 
-[node name="MainMenu" type="Control" node_paths=PackedStringArray("soundSettings", "titleScreen", "buttonSound", "transition", "musicPlayer", "noisePlayer")]
+[node name="MainMenu" type="Control" node_paths=PackedStringArray("soundSettings", "titleScreen", "buttonSound", "transition", "quickCreditsPlayer", "quickCreditsMenu", "musicPlayer", "noisePlayer")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -83,6 +259,8 @@ soundSettings = NodePath("OptionsMenu")
 titleScreen = NodePath("TitleScreen")
 buttonSound = NodePath("ButtonPlayer")
 transition = NodePath("TransitionToBlack/AnimationPlayer")
+quickCreditsPlayer = NodePath("QuickCredits/names/CreditsPlayer")
+quickCreditsMenu = NodePath("QuickCredits")
 musicPlayer = NodePath("MusicPlayer")
 noisePlayer = NodePath("SoundPlayer")
 
@@ -166,7 +344,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Skip to Credits"
+text = "Credits"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -241,6 +419,7 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -0.000732422
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
@@ -248,11 +427,79 @@ color = Color(0, 0, 0, 1)
 [node name="AnimationPlayer" type="AnimationPlayer" parent="TransitionToBlack"]
 autoplay = "SlideFromBlack"
 libraries = {
+"": SubResource("AnimationLibrary_xunlf")
+}
+
+[node name="QuickCredits" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="names" type="TextureRect" parent="QuickCredits"]
+layout_mode = 0
+offset_left = -1281.0
+offset_right = -0.998535
+offset_bottom = 736.0
+texture = ExtResource("12_6lp3w")
+
+[node name="CreditsPlayer" type="AnimationPlayer" parent="QuickCredits/names"]
+libraries = {
 "": SubResource("AnimationLibrary_7lgs6")
 }
+
+[node name="CREDITS" type="TextureRect" parent="QuickCredits"]
+layout_mode = 0
+offset_left = 479.0
+offset_top = -81.0
+offset_right = 640.0
+offset_bottom = -41.0
+scale = Vector2(2, 2)
+texture = ExtResource("13_mm2y6")
+
+[node name="BackToTitle" type="TextureButton" parent="QuickCredits"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 738.0
+offset_right = 500.0
+offset_bottom = 778.0
+disabled = true
+texture_normal = ExtResource("5_x5no4")
+texture_hover = ExtResource("6_mf5g2")
+
+[node name="Label" type="Label" parent="QuickCredits/BackToTitle"]
+layout_mode = 0
+offset_top = 6.0
+offset_right = 400.0
+offset_bottom = 32.0
+text = "Back to Title Screen"
+horizontal_alignment = 1
+
+[node name="SkipToEnd" type="TextureButton" parent="QuickCredits"]
+layout_mode = 0
+offset_left = 780.0
+offset_top = 738.0
+offset_right = 1180.0
+offset_bottom = 778.0
+disabled = true
+texture_normal = ExtResource("5_x5no4")
+texture_hover = ExtResource("6_mf5g2")
+
+[node name="Label" type="Label" parent="QuickCredits/SkipToEnd"]
+layout_mode = 0
+offset_top = 6.0
+offset_right = 400.0
+offset_bottom = 32.0
+text = "Skip to End Credits"
+horizontal_alignment = 1
 
 [connection signal="pressed" from="TitleScreen/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="TitleScreen/VBoxContainer/LevelSelectButton" to="." method="_on_level_select_button_pressed"]
 [connection signal="pressed" from="TitleScreen/VBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="TitleScreen/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="TitleScreen/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="QuickCredits/BackToTitle" to="." method="_on_quick_credits_back_pressed"]
+[connection signal="pressed" from="QuickCredits/SkipToEnd" to="." method="_on_skip_to_credits_pressed"]

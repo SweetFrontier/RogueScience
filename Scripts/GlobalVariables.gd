@@ -10,6 +10,8 @@ func _ready():
 	if (save_file != null):
 		unlockedLevel = save_file.get_as_text().to_int()
 		currentLevel = unlockedLevel+1
+		if currentLevel > 19:
+			currentLevel = 19
 
 func give_free_cookies():
 	var save_file = FileAccess.open("user://rogue_science.save", FileAccess.WRITE)

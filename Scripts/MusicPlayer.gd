@@ -22,3 +22,8 @@ func fadeOut():
 	animationPlayer.play('fastFade')
 	await animationPlayer.animation_finished
 	stop()
+
+func fadeBackIn():
+	volume_db = -80
+	play()
+	animationPlayer.play('fadeBackIn')

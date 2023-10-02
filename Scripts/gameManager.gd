@@ -52,6 +52,7 @@ func _ready() -> void:
 	await(resetWipeTransition.animation_finished)
 	Levels[current_level].process_mode = Node.PROCESS_MODE_PAUSABLE
 	pauseMenu.set_pausability(true)
+	Levels[current_level].reset()
 
 func _process(delta):
 	if (moving):
@@ -81,7 +82,7 @@ func _process(delta):
 			resetWipeTransitionContoller.cover_screen()
 
 func increase_level() -> void:
-	#tell player to shut up
+	#tell player to be silent
 	Levels[current_level].player.won_level_silence()
 	#Next level
 	current_level += 1
@@ -107,13 +108,15 @@ func increase_level() -> void:
 	
 	await(Transition.animation_finished)
 	
+	#tell prev leve it ended
+	Levels[current_level-1].levelEnded()
+	
 	#freeze prev level
 	Levels[current_level-1].process_mode = Node.PROCESS_MODE_DISABLED
 	
 	#move camera and change zoom
 	camera.position = Levels[current_level].cameraSpot.global_position
 	camera.set_zoom(Vector2(final_zoom_size, final_zoom_size))
-	Levels[current_level-1].levelEnded()
 	
 	#uncover screen
 	Transition.play("UncoverScreen");
@@ -128,6 +131,7 @@ func increase_level() -> void:
 	Transition.hide()
 	Levels[current_level].process_mode = Node.PROCESS_MODE_PAUSABLE
 	pauseMenu.set_pausability(true)
+	Levels[current_level].reset()
 
 func resetLevel() -> void:
 	# Resets the entire current level

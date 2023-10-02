@@ -68,6 +68,9 @@ func _ready():
 	set_process_input(true)
 	set_button(button)
 
+func hide_key():
+	TriggerKeySprite.hide()
+
 func _input(event):
 	# Check if the associated button is pressed and the trigger is active.
 	if event is InputEventKey and event.keycode == button and event.pressed and !activated:
@@ -84,6 +87,7 @@ func react():
 		button_fade_timer = button_fade_duration
 
 func reset():
+	TriggerKeySprite.show()
 	activated = false
 	# Set the key to the "unpressed state"
 	TriggerKeySprite.frame = 0

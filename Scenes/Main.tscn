@@ -1,6 +1,7 @@
 [gd_scene load_steps=38 format=3 uid="uid://vwjnt2j2wbqk"]
 
 [ext_resource type="Script" path="res://Scripts/gameManager.gd" id="1_rlws3"]
+[ext_resource type="Texture2D" uid="uid://bh66sgahohr8e" path="res://Art/Backgrounds/newBackground.png" id="2_wacfr"]
 [ext_resource type="PackedScene" uid="uid://cp1xr265ye340" path="res://Scenes/Levels/BreakableIntroLevel.tscn" id="3_cm24v"]
 [ext_resource type="AudioStream" uid="uid://cmhm7pf614y6w" path="res://Sounds/Music/puzzle(calm).ogg" id="3_mfq2v"]
 [ext_resource type="PackedScene" uid="uid://c8uldnq5xgsmq" path="res://Scenes/Levels/InvisibleIntroLevel.tscn" id="3_q6jj7"]
@@ -16,7 +17,6 @@
 [ext_resource type="PackedScene" uid="uid://bpsr342b2aa3u" path="res://Scenes/Levels/TeleportIntroLevel.tscn" id="10_dk1u2"]
 [ext_resource type="PackedScene" uid="uid://dv7d0xp75tlyp" path="res://Scenes/Levels/BouncyLevel.tscn" id="10_y0l6i"]
 [ext_resource type="PackedScene" uid="uid://l121h34k2n5v" path="res://Scenes/Levels/BouncyLevel2.tscn" id="11_2or5i"]
-[ext_resource type="Texture2D" uid="uid://ch7u0c5stgewm" path="res://Art/Backgrounds/background.png" id="11_rpaq4"]
 [ext_resource type="PackedScene" uid="uid://sfyvalykml4p" path="res://Scenes/Screens/animatedTransition.tscn" id="12_gan4l"]
 [ext_resource type="Script" path="res://Scripts/MusicPlayer.gd" id="12_tas4r"]
 [ext_resource type="PackedScene" uid="uid://bfkkhh8xtlehi" path="res://Scenes/Levels/YeetTheBallLevel.tscn" id="13_6661y"]
@@ -137,13 +137,12 @@ resetWipeTransitionContoller = NodePath("CanvasLayer/TransitionToBlack")
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(0.31, 0.2)
+motion_scale = Vector2(0.32, 0.4)
 motion_offset = Vector2(-128, 250)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2(2432, 47)
-scale = Vector2(1.1, 1.15)
-texture = ExtResource("11_rpaq4")
+position = Vector2(2688, 0)
+texture = ExtResource("2_wacfr")
 
 [node name="Levels" type="Node" parent="."]
 process_mode = 4

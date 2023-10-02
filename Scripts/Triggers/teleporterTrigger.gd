@@ -49,6 +49,10 @@ func _ready():
 			lightning.boltColor = Color("B95DFF")
 	reset()
 
+func hide_key():
+	TriggerKeySprite.hide()
+	TriggerKeySprite2.hide()
+
 func react():
 	if !(one_shot and activated):
 		$Teleporter1/TeleporterArea1.monitoring = true
@@ -72,6 +76,8 @@ func react():
 
 func reset():
 	super.reset()
+	#show the triggerkeysprites (parent shows first one)
+	TriggerKeySprite2.show()
 	$Teleporter1/TeleporterArea1.monitoring = false
 	$Teleporter2/TeleporterArea2.monitoring = false
 	# Set the key to the "unpressed state"

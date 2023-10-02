@@ -11,36 +11,47 @@ var triggerBlocks : Array[baseTrigger]
 var movingObjects : Array[movingObject]
 var remainingTriggerBlocks : Array[baseTrigger]
 var availableKeys : Array
+var isCurrentLevel : bool = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	#hide the player until the level starts
+	player.hide()
 	for child in get_children():
 		if child is baseTrigger:
+			child.hide_key()
 			triggerBlocks.append(child)
 			child.connect("remove_key_signal", remove_key)
 			child.connect("randomize_block_keys_signal", randomize_block_keys)
 		elif child is movingObject:
+			child.hide()
 			movingObjects.append(child)
 			if player != null:
 				child.setPlayer(player)
-	reset()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	pass
-	
+
 func reset():
+	isCurrentLevel = true
 	availableKeys = range(48,58)+range(65,91)
 	remainingTriggerBlocks = triggerBlocks.duplicate(true)
 	for block in triggerBlocks:
 		block.reset()
 		randomize_block_keys()
 	for moveO in movingObjects:
+		moveO.show()
 		moveO.reset()
 	player.reset()
+	#show the player
+	player.show()
 
 func levelEnded():
+	isCurrentLevel = false
 	player.queue_free();
-	for child in get_children():
+	for child in triggerBlocks:
+		child.hide_key()
 		if child is breakableBlocks:
 			child.explodeable_polygon.reset();
 		elif child is invisibleBlock:

@@ -7,6 +7,7 @@ extends Control
 
 var skipTimer : float = 0;
 var skipVisible : bool = false
+var skipping : bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -25,6 +26,8 @@ func _on_animation_player_animation_finished(_anim_name):
 
 func _input(event : InputEvent):
 	if (event is InputEventKey and event.keycode == KEY_ESCAPE) or (event is InputEventMouseButton and event.is_double_click()):
+		if (!skipping):
+			skipping = true
 			transitionToBlack.play("FadeToBlack")
 			buttonSound.play()
 			await transitionToBlack.animation_finished

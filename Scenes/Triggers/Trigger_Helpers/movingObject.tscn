@@ -25,7 +25,7 @@ texture = ExtResource("2_6v5ui")
 shape = SubResource("CircleShape2D_pygtm")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
-target_position = Vector2(0, 16)
+target_position = Vector2(0, 17)
 collision_mask = 3
 hit_from_inside = true
 

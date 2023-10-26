@@ -45,13 +45,13 @@ var dead : bool = false
 var animBackwards = false
 
 func _ready():
-	AnimatedSprite.animation = "crawl"
 	last_y_velocity = 0
 	dead = false
 	starting_transform = get_global_transform()
 	reset()
 
 func reset():
+	AnimatedSprite.animation = "crawl"
 	AnimatedSprite.show()
 	current_direction = starting_direction
 	AnimatedSprite.rotation = 0.0

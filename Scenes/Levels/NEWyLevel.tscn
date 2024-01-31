@@ -1,0 +1,80 @@
+[gd_scene load_steps=11 format=3 uid="uid://bbxhif1pbtwpr"]
+
+[ext_resource type="Script" path="res://Scripts/levelController.gd" id="1_mwmqh"]
+[ext_resource type="TileSet" uid="uid://bnpggr5480t5q" path="res://Art/TileSets/initialTileSet.tres" id="2_gppii"]
+[ext_resource type="PackedScene" uid="uid://dvbyxsl5e3ol8" path="res://Scenes/Triggers/Trigger_Helpers/TransitionField.tscn" id="3_xxp8b"]
+[ext_resource type="PackedScene" uid="uid://dd6l6fhpuajke" path="res://Scenes/rigidPlayer.tscn" id="4_eg32o"]
+[ext_resource type="PackedScene" uid="uid://dpeaoe3ad3ahy" path="res://Scenes/Triggers/Trigger_Helpers/brokenVat.tscn" id="6_nfr4j"]
+[ext_resource type="PackedScene" uid="uid://djb81orxw62lt" path="res://Scenes/Triggers/BreakableBlocks/64x64breakableBlock.tscn" id="6_uups7"]
+[ext_resource type="PackedScene" uid="uid://dxkklnkpsn70w" path="res://Scenes/Triggers/BreakableBlocks/32x32breakableBlock.tscn" id="7_ekhtv"]
+[ext_resource type="PackedScene" uid="uid://c0eghc3oa7752" path="res://Scenes/Triggers/Trigger_Helpers/movingObject.tscn" id="8_i07aw"]
+[ext_resource type="PackedScene" uid="uid://dm5fdokmgctgr" path="res://Scenes/Triggers/elevatorTrigger.tscn" id="9_7vgcj"]
+[ext_resource type="PackedScene" uid="uid://p8wyqr1wis6" path="res://Scenes/Triggers/InvisibleBlocks/64x32InvisibleBlock.tscn" id="10_bolw3"]
+
+[node name="bouncyLevel" type="Node2D" node_paths=PackedStringArray("cameraSpot", "player", "transitionField")]
+texture_filter = 1
+script = ExtResource("1_mwmqh")
+cameraSpot = NodePath("CenterPosition")
+cameraSize = Vector2(1024, 576)
+player = NodePath("rigidPlayer")
+transitionField = NodePath("TransitionField")
+DEBUG_MODE = true
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2(1, 0)
+tile_set = ExtResource("2_gppii")
+format = 2
+layer_0/tile_data = PackedInt32Array(131073, 3, 3, 196609, 393219, 3, 262145, 393219, 4, 393217, 3, 3, 458753, 393219, 3, 524289, 393219, 4, 655361, 3, 3, 720897, 393219, 3, 786433, 393219, 4, 196610, 65539, 4, 262146, 458755, 4, 458754, 65539, 4, 524290, 458755, 4, 720898, 65539, 4, 786434, 458755, 4, 196611, 3, 3, 262147, 393219, 3, 327683, 393219, 4, 458755, 3, 3, 524291, 393219, 3, 589827, 393219, 4, 720899, 3, 3, 786435, 393219, 3, 851971, 393219, 4, 131074, 65539, 3, 393218, 65539, 3, 655362, 65539, 3, 196612, 65539, 3, 262148, 65539, 7, 327684, 262147, 4, 458756, 65539, 3, 524292, 65539, 4, 589828, 458755, 4, 720900, 65539, 3, 786436, 65539, 7, 851972, 262147, 4, 851968, 131075, 1, 786432, 131075, 1, 720896, 131075, 1, 655360, 131075, 1, 589824, 131075, 1, 524288, 131075, 1, 458752, 131075, 1, 393216, 131075, 1, 327680, 131075, 1, 262144, 131075, 1, 196608, 131075, 1, 131072, 131075, 1, 65536, 131075, 1, 0, 3, 5, 1, 65539, 2, 2, 65539, 2, 3, 65539, 2, 4, 65539, 2, 5, 65539, 2, 6, 65539, 2, 7, 65539, 2, 8, 65539, 2, 9, 65539, 2, 10, 65539, 2, 11, 65539, 2, 12, 65539, 2, 13, 65539, 2, 14, 65539, 2, 15, 65539, 2, 1114122, 65539, 0, 1114123, 65539, 0, 1114124, 65539, 0, 1114125, 65539, 0, 1114126, 65539, 0, 1114127, 65539, 0, 1114128, 65539, 0, 1114129, 65539, 0, 1114130, 65539, 0, 1114131, 65539, 0, 917504, 131075, 1, 983040, 131075, 1, 1048576, 3, 6, 1048577, 65539, 0, 1048578, 65539, 0, 1048579, 65539, 0, 1048580, 65539, 0, 1048581, 65539, 0, 1048582, 65539, 0, 1048583, 3, 3, 1048584, 65539, 3, 1114120, 65539, 4, 1114121, 65539, 0, 1114112, 65539, 1, 1114113, 65539, 1, 1114114, 65539, 1, 1114115, 65539, 1, 1114116, 65539, 1, 1114117, 65539, 1, 1114118, 65539, 1, 1114119, 65539, 1, 524297, 65539, 3, 589833, 65539, 4, 589834, 131075, 0, 655370, 131075, 2, 655369, 458755, 4, 524293, 65539, 0, 524294, 131075, 0, 589830, 131075, 2, 589829, 65539, 2, 589837, 3, 0, 589838, 65539, 0, 589839, 65539, 0, 589840, 65539, 0, 655373, 3, 2, 655374, 65539, 2, 655375, 65539, 2, 655376, 65539, 2, 196621, 65539, 2, 196619, 65539, 2, 196620, 65539, 2, 196618, 65539, 2, 196617, 65539, 2, 131079, 393219, 3, 196615, 393219, 4, 196616, 458755, 4, 65541, 393219, 3, 131077, 393219, 4, 131078, 458755, 4, 65540, 458755, 4, 65539, 393219, 4, 65542, 65539, 1, 65543, 65539, 1, 65544, 65539, 1, 65545, 65539, 1, 131080, 65539, 1, 131081, 65539, 1, 131082, 65539, 1, 131083, 65539, 1, 131084, 65539, 1, 131085, 65539, 1, 65548, 65539, 1, 65547, 65539, 1, 65546, 65539, 1, 65549, 65539, 1, 65550, 65539, 1, 131086, 65539, 1, 196622, 65539, 2, 393229, 65539, 0, 393230, 65539, 0)
+
+[node name="CenterPosition" type="Marker2D" parent="."]
+position = Vector2(544, 288)
+
+[node name="TransitionField" parent="." instance=ExtResource("3_xxp8b")]
+position = Vector2(896, 416)
+
+[node name="rigidPlayer" parent="." instance=ExtResource("4_eg32o")]
+position = Vector2(99, 495)
+
+[node name="brokenVat" parent="." instance=ExtResource("6_nfr4j")]
+position = Vector2(64, 480)
+
+[node name="64x64breakableBlock" parent="." instance=ExtResource("6_uups7")]
+position = Vector2(160, 448)
+
+[node name="32x32breakableBlock" parent="." instance=ExtResource("7_ekhtv")]
+position = Vector2(128, 351)
+
+[node name="32x32breakableBlock2" parent="." instance=ExtResource("7_ekhtv")]
+position = Vector2(128, 223)
+
+[node name="32x32breakableBlock3" parent="." instance=ExtResource("7_ekhtv")]
+position = Vector2(128, 95)
+
+[node name="movingObject" parent="." instance=ExtResource("8_i07aw")]
+position = Vector2(123, 89)
+
+[node name="movingObject2" parent="." instance=ExtResource("8_i07aw")]
+position = Vector2(122, 218)
+
+[node name="movingObject3" parent="." instance=ExtResource("8_i07aw")]
+position = Vector2(121, 346)
+
+[node name="elevatorTrigger" parent="." node_paths=PackedStringArray("stoppingPoints") instance=ExtResource("9_7vgcj")]
+position = Vector2(385, 542)
+stoppingPoints = [NodePath("ElevatorStops/Stop0"), NodePath("ElevatorStops/Stop10")]
+
+[node name="ElevatorShaft" parent="elevatorTrigger" index="1"]
+position = Vector2(0, -207)
+scale = Vector2(1, 6.46875)
+
+[node name="Stop1" parent="elevatorTrigger/ElevatorStops" index="1"]
+visible = true
+position = Vector2(0, -127)
+
+[node name="Stop10" parent="elevatorTrigger/ElevatorStops" index="10"]
+position = Vector2(0, -389)
+
+[node name="invisibleBlock2" parent="." instance=ExtResource("10_bolw3")]
+position = Vector2(225, 256)
+
+[editable path="elevatorTrigger"]

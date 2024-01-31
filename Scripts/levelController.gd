@@ -6,6 +6,7 @@ class_name levelController
 @export var cameraSize : Vector2
 @export var player : rigidPlayer
 @export var transitionField : TransitionField
+@export var DEBUG_MODE:bool = false
 
 var triggerBlocks : Array[baseTrigger]
 var movingObjects : Array[movingObject]
@@ -15,19 +16,29 @@ var isCurrentLevel : bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	#hide the player until the level starts
-	player.hide()
-	for child in get_children():
-		if child is baseTrigger:
-			child.hide_key()
-			triggerBlocks.append(child)
-			child.connect("remove_key_signal", remove_key)
-			child.connect("randomize_block_keys_signal", randomize_block_keys)
-		elif child is movingObject:
-			child.hide()
-			movingObjects.append(child)
-			if player != null:
-				child.setPlayer(player)
+	if (DEBUG_MODE):
+		for child in get_children():
+			if child is baseTrigger:
+				triggerBlocks.append(child)
+				child.connect("remove_key_signal", remove_key)
+				child.connect("randomize_block_keys_signal", randomize_block_keys)
+			elif child is movingObject:
+				movingObjects.append(child)
+		reset();
+	else:
+		#hide the player until the level starts
+		player.hide()
+		for child in get_children():
+			if child is baseTrigger:
+				child.hide_key()
+				triggerBlocks.append(child)
+				child.connect("remove_key_signal", remove_key)
+				child.connect("randomize_block_keys_signal", randomize_block_keys)
+			elif child is movingObject:
+				child.hide()
+				movingObjects.append(child)
+				if player != null:
+					child.setPlayer(player)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):

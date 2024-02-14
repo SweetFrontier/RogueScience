@@ -26,6 +26,8 @@ var deathTimer : float = -1
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	#Set the number of levels in the game to be the number of numbers in Main
+	GlobalVariables.numLevels = Levels.size()
 	#set current level to global current level
 	#REMOVE THIS IF STATEMENT BEFORE UPLOAD TO ITCH. THIS IS FOR DEBUGGING PURPOSES ONLY
 	if current_level < 1:
@@ -39,12 +41,16 @@ func _ready() -> void:
 	musicPlayer.play()
 	
 	resetWipeTransitionContoller.connect("screenCovered", screen_wipe_covered)
-	movingStart = camera.global_position
+	#movingStart = camera.global_position
+	#movingGoal = Levels[current_level].cameraSpot.global_position
 	movingGoal = Levels[current_level].cameraSpot.global_position
+	movingStart = movingGoal
 	var min_zoom_size : Vector2 =  Levels[current_level].cameraSize
 	var final_zoom_size = minf(1280/min_zoom_size.x,736/min_zoom_size.y)
-	zoomingStart = camera.zoom
+	#zoomingStart = camera.zoom
+	#zoomingGoal = Vector2(final_zoom_size,final_zoom_size)
 	zoomingGoal = Vector2(final_zoom_size,final_zoom_size)
+	zoomingStart = zoomingGoal
 	set_process(true)
 	for level in Levels:
 		level.transitionField.connect("increase_level_signal", increase_level)
@@ -118,20 +124,20 @@ func increase_level() -> void:
 	camera.position = Levels[current_level].cameraSpot.global_position
 	camera.set_zoom(Vector2(final_zoom_size, final_zoom_size))
 	
-	#uncover screen
-	Transition.play("UncoverScreen");
-	
 	# set music
 	if (current_level == 8):
 		musicPlayer.changeMusic("midlevels");
 	elif (current_level == 14):
 		musicPlayer.changeMusic("intense");
 	
-	await(Transition.animation_finished)
-	Transition.hide()
 	Levels[current_level].process_mode = Node.PROCESS_MODE_PAUSABLE
 	pauseMenu.set_pausability(true)
 	Levels[current_level].reset()
+	
+	#uncover screen
+	Transition.play("UncoverScreen");
+	await(Transition.animation_finished)
+	Transition.hide()
 
 func resetLevel() -> void:
 	# Resets the entire current level

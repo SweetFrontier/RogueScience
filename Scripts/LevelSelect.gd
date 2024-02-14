@@ -10,12 +10,6 @@ func _ready():
 		if (i > GlobalVariables.unlockedLevel):
 			levelButtons[i].hide()
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-
 func _on_level_button_pressed(level):
 	buttonSounds.play()
 	transition.play("FadeToBlack")

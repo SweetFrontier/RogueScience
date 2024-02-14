@@ -1,67 +1,67 @@
-[gd_scene load_steps=12 format=3 uid="uid://cjdhgausjynd1"]
+[gd_scene load_steps=12 format=3 uid="uid://coa5is6citjjb"]
 
-[ext_resource type="Script" path="res://Scripts/levelController.gd" id="1_770u4"]
-[ext_resource type="TileSet" uid="uid://bnpggr5480t5q" path="res://Art/TileSets/initialTileSet.tres" id="2_5yyu1"]
-[ext_resource type="PackedScene" uid="uid://dd6l6fhpuajke" path="res://Scenes/rigidPlayer.tscn" id="3_ss7qi"]
-[ext_resource type="PackedScene" uid="uid://dvbyxsl5e3ol8" path="res://Scenes/Triggers/Trigger_Helpers/TransitionField.tscn" id="4_13hal"]
-[ext_resource type="PackedScene" uid="uid://cl0g2o3284xxy" path="res://Scenes/Triggers/InvisibleBlocks/32x32InvisibleBlock.tscn" id="5_qpjna"]
-[ext_resource type="PackedScene" uid="uid://dxkklnkpsn70w" path="res://Scenes/Triggers/BreakableBlocks/32x32breakableBlock.tscn" id="6_dt5kl"]
-[ext_resource type="PackedScene" uid="uid://by8l8mnrr610i" path="res://Scenes/Triggers/InvisibleBlocks/LeftSlopeInvisibleBlock.tscn" id="7_ml245"]
-[ext_resource type="PackedScene" uid="uid://6g21fyk11mro" path="res://Scenes/Triggers/InvisibleBlocks/RightSlopeInvisibleBlock.tscn" id="8_35sac"]
-[ext_resource type="PackedScene" uid="uid://b653ep4goj6pf" path="res://Scenes/Triggers/InvisibleBlocks/32x64InvisibleBlock.tscn" id="9_lhtxv"]
-[ext_resource type="PackedScene" uid="uid://psrem4kknlu8" path="res://Scenes/Triggers/BreakableBlocks/32x64breakableBlock.tscn" id="10_gtbj7"]
-[ext_resource type="PackedScene" uid="uid://dpeaoe3ad3ahy" path="res://Scenes/Triggers/Trigger_Helpers/brokenVat.tscn" id="11_fql3c"]
+[ext_resource type="Script" path="res://Scripts/levelController.gd" id="1_1ktmg"]
+[ext_resource type="TileSet" uid="uid://bnpggr5480t5q" path="res://Art/TileSets/initialTileSet.tres" id="2_7kkqc"]
+[ext_resource type="PackedScene" uid="uid://dd6l6fhpuajke" path="res://Scenes/rigidPlayer.tscn" id="3_qou6e"]
+[ext_resource type="PackedScene" uid="uid://dvbyxsl5e3ol8" path="res://Scenes/Triggers/Trigger_Helpers/TransitionField.tscn" id="4_hng3r"]
+[ext_resource type="PackedScene" uid="uid://cl0g2o3284xxy" path="res://Scenes/Triggers/InvisibleBlocks/32x32InvisibleBlock.tscn" id="5_rugg8"]
+[ext_resource type="PackedScene" uid="uid://dxkklnkpsn70w" path="res://Scenes/Triggers/BreakableBlocks/32x32breakableBlock.tscn" id="6_s04mi"]
+[ext_resource type="PackedScene" uid="uid://by8l8mnrr610i" path="res://Scenes/Triggers/InvisibleBlocks/LeftSlopeInvisibleBlock.tscn" id="7_nm8xu"]
+[ext_resource type="PackedScene" uid="uid://6g21fyk11mro" path="res://Scenes/Triggers/InvisibleBlocks/RightSlopeInvisibleBlock.tscn" id="8_pxmic"]
+[ext_resource type="PackedScene" uid="uid://b653ep4goj6pf" path="res://Scenes/Triggers/InvisibleBlocks/32x64InvisibleBlock.tscn" id="9_uh62f"]
+[ext_resource type="PackedScene" uid="uid://psrem4kknlu8" path="res://Scenes/Triggers/BreakableBlocks/32x64breakableBlock.tscn" id="10_acnig"]
+[ext_resource type="PackedScene" uid="uid://dpeaoe3ad3ahy" path="res://Scenes/Triggers/Trigger_Helpers/brokenVat.tscn" id="11_5007j"]
 
-[node name="BreakableSteps" type="Node2D" node_paths=PackedStringArray("cameraSpot", "player", "transitionField")]
-script = ExtResource("1_770u4")
+[node name="1-3_BreakableSteps" type="Node2D" node_paths=PackedStringArray("cameraSpot", "player", "transitionField")]
+script = ExtResource("1_1ktmg")
 cameraSpot = NodePath("CenterPosition")
 cameraSize = Vector2(736, 480)
 player = NodePath("rigidPlayer")
 transitionField = NodePath("TransitionField")
 
 [node name="TileMap" type="TileMap" parent="."]
-tile_set = ExtResource("2_5yyu1")
+tile_set = ExtResource("2_7kkqc")
 format = 2
 layer_0/tile_data = PackedInt32Array(0, 3, 0, 65536, 196611, 1, 131072, 196611, 1, 196608, 65539, 1, 1, 327683, 0, 2, 327683, 0, 3, 327683, 0, 4, 327683, 0, 5, 327683, 0, 6, 327683, 0, 7, 327683, 0, 8, 327683, 0, 9, 327683, 0, 10, 327683, 0, 196618, 196611, 0, 262154, 3, 1, 458752, 196611, 0, 524288, 3, 1, 589824, 3, 2, 196609, 65539, 0, 196610, 65539, 0, 196611, 327683, 0, 196612, 327683, 0, 196613, 327683, 0, 196614, 327683, 0, 327690, 196611, 1, 393226, 131075, 1, 393225, 65539, 0, 393224, 65539, 0, 393223, 65539, 0, 393222, 65539, 0, 393221, 327683, 0, 393220, 262147, 0, 589825, 65539, 2, 589826, 65539, 2, 589827, 327683, 0, 589828, 327683, 0, 589829, 327683, 0, 589830, 327683, 0, 458762, 131075, 1, 524298, 131075, 1, 589834, 131075, 1, 655370, 196611, 1, 720906, 196611, 1, 13, 65539, 0, 12, 327683, 0, 11, 327683, 0, 589831, 65539, 2, 262143, 65539, 0, 262142, 65539, 0, 262141, 3, 0, 327677, 3, 1, 393213, 3, 1, 458749, 196611, 1, 524285, 196611, 1, 589821, 196611, 1, 655357, 131075, 2, 851965, 3, 0, 851966, 327683, 0, 851967, 327683, 0, 786432, 327683, 0, 786433, 327683, 0, 786434, 327683, 0, 786435, 327683, 0, 786436, 327683, 0, 786437, 327683, 0, 786438, 327683, 0, 786439, 131075, 0, 786442, 196611, 1, 655356, 327683, 0, 655355, 327683, 0, 655354, 65539, 0, 655353, 3, 0, 720889, 3, 1, 786425, 196611, 1, 851961, 196611, 1, 917497, 3, 2, 917498, 327683, 0, 917499, 327683, 0, 917500, 327683, 0, 917501, 131075, 2, 262155, 327683, 0, 262156, 327683, 0, 262157, 327683, 0, 14, 65539, 0, 262158, 327683, 0, 15, 131075, 0, 262159, 131075, 2, 65551, 131075, 1, 131087, 196611, 1, 196623, 196611, 1, 327680, 65539, 2, 262144, 65539, 1, 524289, 65539, 0, 524290, 65539, 0, 458759, 327683, 1, 524295, 3, 1, 458760, 65539, 1, 524296, 65539, 1, 458761, 65539, 1, 524297, 65539, 1, 851975, 196611, 1, 917511, 3, 2, 917512, 327683, 0, 917513, 327683, 0, 917514, 131075, 2, 851978, 196611, 1, 65549, 393219, 4, 65550, 458755, 4, 458758, 327683, 2, 262145, 262147, 1, 327681, 262147, 2, 262146, 262147, 2, 393215, 65539, 2, 458750, 262147, 4, 393214, 262147, 3, 327678, 65539, 1, 327679, 65539, 1, 720890, 262147, 2, 589832, 262147, 2, 589833, 327683, 2)
 
-[node name="rigidPlayer" parent="." instance=ExtResource("3_ss7qi")]
+[node name="rigidPlayer" parent="." instance=ExtResource("3_qou6e")]
 position = Vector2(64, 80)
 
 [node name="CenterPosition" type="Marker2D" parent="."]
 position = Vector2(144, 240)
 
-[node name="TransitionField" parent="." instance=ExtResource("4_13hal")]
+[node name="TransitionField" parent="." instance=ExtResource("4_hng3r")]
 position = Vector2(288, 416)
 
-[node name="invisibleBlock" parent="." instance=ExtResource("5_qpjna")]
+[node name="invisibleBlock" parent="." instance=ExtResource("5_rugg8")]
 position = Vector2(224, 96)
 
-[node name="breakableBlock" parent="." instance=ExtResource("6_dt5kl")]
+[node name="breakableBlock" parent="." instance=ExtResource("6_s04mi")]
 position = Vector2(256, 96)
 
-[node name="invisibleBlock2" parent="." instance=ExtResource("5_qpjna")]
+[node name="invisibleBlock2" parent="." instance=ExtResource("5_rugg8")]
 position = Vector2(288, 96)
 
-[node name="LeftSlopeInvisibleBlock" parent="." instance=ExtResource("7_ml245")]
+[node name="LeftSlopeInvisibleBlock" parent="." instance=ExtResource("7_nm8xu")]
 position = Vector2(352, 96)
 
-[node name="breakableBlock2" parent="." instance=ExtResource("6_dt5kl")]
+[node name="breakableBlock2" parent="." instance=ExtResource("6_s04mi")]
 position = Vector2(0, 192)
 
-[node name="LeftSlopeInvisibleBlock2" parent="." instance=ExtResource("7_ml245")]
+[node name="LeftSlopeInvisibleBlock2" parent="." instance=ExtResource("7_nm8xu")]
 position = Vector2(32, 224)
 
-[node name="LeftSlopeInvisibleBlock3" parent="." instance=ExtResource("7_ml245")]
+[node name="LeftSlopeInvisibleBlock3" parent="." instance=ExtResource("7_nm8xu")]
 position = Vector2(96, 256)
 
-[node name="LeftSlopeInvisibleBlock4" parent="." instance=ExtResource("8_35sac")]
+[node name="LeftSlopeInvisibleBlock4" parent="." instance=ExtResource("8_pxmic")]
 position = Vector2(-160, 384)
 
-[node name="invisibleBlock3" parent="." instance=ExtResource("9_lhtxv")]
+[node name="invisibleBlock3" parent="." instance=ExtResource("9_uh62f")]
 position = Vector2(32, 320)
 
-[node name="32x64breakableBlock" parent="." instance=ExtResource("10_gtbj7")]
+[node name="32x64breakableBlock" parent="." instance=ExtResource("10_acnig")]
 position = Vector2(0, 320)
 
-[node name="brokenVat" parent="." instance=ExtResource("11_fql3c")]
+[node name="brokenVat" parent="." instance=ExtResource("11_5007j")]
 position = Vector2(64, 64)

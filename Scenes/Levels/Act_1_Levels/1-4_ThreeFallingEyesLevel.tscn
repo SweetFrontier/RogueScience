@@ -1,64 +1,64 @@
-[gd_scene load_steps=10 format=3 uid="uid://bagvjmvnxf64i"]
+[gd_scene load_steps=10 format=3 uid="uid://cqidg1783n37c"]
 
-[ext_resource type="Script" path="res://Scripts/levelController.gd" id="1_x0e6t"]
-[ext_resource type="TileSet" uid="uid://bnpggr5480t5q" path="res://Art/TileSets/initialTileSet.tres" id="2_womlg"]
-[ext_resource type="PackedScene" uid="uid://dd6l6fhpuajke" path="res://Scenes/rigidPlayer.tscn" id="3_prauh"]
-[ext_resource type="PackedScene" uid="uid://dvbyxsl5e3ol8" path="res://Scenes/Triggers/Trigger_Helpers/TransitionField.tscn" id="4_21am4"]
-[ext_resource type="PackedScene" uid="uid://c0eghc3oa7752" path="res://Scenes/Triggers/Trigger_Helpers/movingObject.tscn" id="5_754b3"]
-[ext_resource type="PackedScene" uid="uid://p8wyqr1wis6" path="res://Scenes/Triggers/InvisibleBlocks/64x32InvisibleBlock.tscn" id="6_lnhu7"]
-[ext_resource type="PackedScene" uid="uid://psrem4kknlu8" path="res://Scenes/Triggers/BreakableBlocks/32x64breakableBlock.tscn" id="7_6m78e"]
-[ext_resource type="PackedScene" uid="uid://dxkklnkpsn70w" path="res://Scenes/Triggers/BreakableBlocks/32x32breakableBlock.tscn" id="8_5aekl"]
-[ext_resource type="PackedScene" uid="uid://djb81orxw62lt" path="res://Scenes/Triggers/BreakableBlocks/64x64breakableBlock.tscn" id="9_lpo6y"]
+[ext_resource type="Script" path="res://Scripts/levelController.gd" id="1_gtpbe"]
+[ext_resource type="TileSet" uid="uid://bnpggr5480t5q" path="res://Art/TileSets/initialTileSet.tres" id="2_y03k5"]
+[ext_resource type="PackedScene" uid="uid://dd6l6fhpuajke" path="res://Scenes/rigidPlayer.tscn" id="3_453n5"]
+[ext_resource type="PackedScene" uid="uid://dvbyxsl5e3ol8" path="res://Scenes/Triggers/Trigger_Helpers/TransitionField.tscn" id="4_yw42j"]
+[ext_resource type="PackedScene" uid="uid://c0eghc3oa7752" path="res://Scenes/Triggers/Trigger_Helpers/movingObject.tscn" id="5_8cpod"]
+[ext_resource type="PackedScene" uid="uid://p8wyqr1wis6" path="res://Scenes/Triggers/InvisibleBlocks/64x32InvisibleBlock.tscn" id="6_hwo75"]
+[ext_resource type="PackedScene" uid="uid://psrem4kknlu8" path="res://Scenes/Triggers/BreakableBlocks/32x64breakableBlock.tscn" id="7_8pttq"]
+[ext_resource type="PackedScene" uid="uid://dxkklnkpsn70w" path="res://Scenes/Triggers/BreakableBlocks/32x32breakableBlock.tscn" id="8_whlu5"]
+[ext_resource type="PackedScene" uid="uid://djb81orxw62lt" path="res://Scenes/Triggers/BreakableBlocks/64x64breakableBlock.tscn" id="9_ykwp7"]
 
-[node name="ThreeFallingEyesLevel" type="Node2D" node_paths=PackedStringArray("cameraSpot", "player", "transitionField")]
-script = ExtResource("1_x0e6t")
+[node name="1-4_ThreeFallingEyesLevel" type="Node2D" node_paths=PackedStringArray("cameraSpot", "player", "transitionField")]
+script = ExtResource("1_gtpbe")
 cameraSpot = NodePath("CenterPosition")
 cameraSize = Vector2(704, 416)
 player = NodePath("rigidPlayer")
 transitionField = NodePath("TransitionField")
 
 [node name="TileMap" type="TileMap" parent="."]
-tile_set = ExtResource("2_womlg")
+tile_set = ExtResource("2_y03k5")
 format = 2
 layer_0/tile_data = PackedInt32Array(0, 3, 0, 65536, 196611, 1, 131072, 3, 1, 196608, 196611, 1, 262144, 196611, 1, 327680, 196611, 1, 393216, 196611, 1, 458752, 196611, 1, 524288, 3, 1, 524289, 131075, 0, 524292, 3, 0, 524293, 131075, 0, 1, 327683, 0, 2, 327683, 0, 3, 327683, 0, 4, 65539, 0, 5, 65539, 0, 6, 327683, 0, 7, 327683, 0, 8, 327683, 0, 9, 327683, 0, 131073, 458755, 6, 131074, 65539, 3, 196611, 458755, 6, 196612, 65539, 3, 262149, 458755, 6, 262150, 65539, 3, 589829, 131075, 2, 589831, 458755, 0, 589836, 458755, 0, 262148, 393219, 6, 262153, 393219, 6, 262155, 65539, 3, 262154, 458755, 6, 196617, 65539, 3, 196616, 458755, 6, 131079, 65539, 3, 131078, 3, 3, 262147, 393219, 4, 196609, 393219, 4, 196610, 393219, 6, 262158, 393219, 6, 262160, 65539, 3, 262159, 458755, 6, 196621, 458755, 6, 131083, 458755, 7, 196622, 65539, 3, 131084, 65539, 3, 10, 327683, 0, 11, 327683, 0, 12, 327683, 0, 13, 327683, 0, 14, 327683, 0, 15, 327683, 0, 16, 327683, 0, 17, 65539, 0, 262162, 196611, 1, 589841, 262147, 0, 589824, 3, 1, 589825, 131075, 2, 589828, 3, 2, 327685, 393219, 4, 327686, 262147, 5, 327691, 262147, 5, 327696, 262147, 5, 327698, 3, 2, 196626, 196611, 1, 131090, 196611, 1, 65554, 131075, 1, 18, 131075, 0, 655360, 196611, 1, 720896, 196611, 1, 786432, 3, 2, 786433, 327683, 0, 786434, 327683, 0, 786435, 327683, 0, 786436, 327683, 0, 786437, 327683, 0, 786450, 131075, 2, 786449, 327683, 0, 786448, 327683, 0, 786447, 327683, 0, 786446, 327683, 0, 786445, 327683, 0, 786444, 327683, 0, 786443, 327683, 0, 786442, 327683, 0, 786441, 327683, 0, 786440, 327683, 0, 786439, 327683, 0, 786438, 327683, 0, 720914, 196611, 1, 655381, 131075, 2, 655380, 327683, 0, 655379, 327683, 0, 655378, 3, 1, 589842, 131075, 1, 524306, 196611, 0, 589845, 196611, 1, 524309, 196611, 1, 458773, 196611, 1, 393237, 196611, 1, 327701, 131075, 0, 327700, 327683, 0, 327699, 327683, 0, 196615, 393219, 6, 327690, 393219, 4, 262152, 393219, 4, 196614, 393219, 4, 196620, 393219, 6, 262157, 393219, 4, 327695, 393219, 4, 196619, 393219, 4, 327688, 458755, 0, 327693, 458755, 0, 65541, 131075, 1, 131077, 327683, 2, 65540, 327683, 2, 65553, 327683, 2)
 
-[node name="rigidPlayer" parent="." instance=ExtResource("3_prauh")]
+[node name="rigidPlayer" parent="." instance=ExtResource("3_453n5")]
 position = Vector2(64, 240)
 
 [node name="CenterPosition" type="Marker2D" parent="."]
 position = Vector2(352, 208)
 
-[node name="TransitionField" parent="." instance=ExtResource("4_21am4")]
+[node name="TransitionField" parent="." instance=ExtResource("4_yw42j")]
 position = Vector2(640, 288)
 
-[node name="movingObject" parent="." instance=ExtResource("5_754b3")]
+[node name="movingObject" parent="." instance=ExtResource("5_8cpod")]
 position = Vector2(48, 48)
 
-[node name="movingObject2" parent="." node_paths=PackedStringArray("floorDetector") instance=ExtResource("5_754b3")]
+[node name="movingObject2" parent="." node_paths=PackedStringArray("floorDetector") instance=ExtResource("5_8cpod")]
 position = Vector2(208, 48)
 floorDetector = NodePath("../movingObject/RayCast2D")
 
-[node name="movingObject3" parent="." node_paths=PackedStringArray("floorDetector") instance=ExtResource("5_754b3")]
+[node name="movingObject3" parent="." node_paths=PackedStringArray("floorDetector") instance=ExtResource("5_8cpod")]
 position = Vector2(368, 48)
 floorDetector = NodePath("../movingObject/RayCast2D")
 
-[node name="invisibleBlock" parent="." instance=ExtResource("6_lnhu7")]
+[node name="invisibleBlock" parent="." instance=ExtResource("6_hwo75")]
 position = Vector2(288, 256)
 
-[node name="invisibleBlock2" parent="." instance=ExtResource("6_lnhu7")]
+[node name="invisibleBlock2" parent="." instance=ExtResource("6_hwo75")]
 position = Vector2(448, 256)
 
-[node name="32x64breakableBlock" parent="." instance=ExtResource("7_6m78e")]
+[node name="32x64breakableBlock" parent="." instance=ExtResource("7_8pttq")]
 position = Vector2(160, 192)
 
-[node name="32x32breakableBlock" parent="." instance=ExtResource("8_5aekl")]
+[node name="32x32breakableBlock" parent="." instance=ExtResource("8_whlu5")]
 position = Vector2(224, 192)
 
-[node name="32x32breakableBlock2" parent="." instance=ExtResource("8_5aekl")]
+[node name="32x32breakableBlock2" parent="." instance=ExtResource("8_whlu5")]
 position = Vector2(384, 192)
 
-[node name="32x32breakableBlock3" parent="." instance=ExtResource("8_5aekl")]
+[node name="32x32breakableBlock3" parent="." instance=ExtResource("8_whlu5")]
 position = Vector2(544, 192)
 
-[node name="64x64breakableBlock" parent="." instance=ExtResource("9_lpo6y")]
+[node name="64x64breakableBlock" parent="." instance=ExtResource("9_ykwp7")]
 position = Vector2(64, 256)

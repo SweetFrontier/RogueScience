@@ -1,70 +1,70 @@
-[gd_scene load_steps=12 format=3 uid="uid://cw113orlft8ku"]
+[gd_scene load_steps=12 format=3 uid="uid://dn5a606vv4xre"]
 
-[ext_resource type="Script" path="res://Scripts/levelController.gd" id="1_hl142"]
-[ext_resource type="TileSet" uid="uid://bnpggr5480t5q" path="res://Art/TileSets/initialTileSet.tres" id="2_a1mvu"]
-[ext_resource type="PackedScene" uid="uid://dd6l6fhpuajke" path="res://Scenes/rigidPlayer.tscn" id="3_s2exc"]
-[ext_resource type="PackedScene" uid="uid://dvbyxsl5e3ol8" path="res://Scenes/Triggers/Trigger_Helpers/TransitionField.tscn" id="4_v0238"]
-[ext_resource type="PackedScene" uid="uid://c0eghc3oa7752" path="res://Scenes/Triggers/Trigger_Helpers/movingObject.tscn" id="5_ox1pn"]
-[ext_resource type="PackedScene" uid="uid://ci05tj7j8an3w" path="res://Scenes/Triggers/BreakableBlocks/64x32breakableBlock.tscn" id="6_24dtd"]
-[ext_resource type="PackedScene" uid="uid://6g21fyk11mro" path="res://Scenes/Triggers/InvisibleBlocks/RightSlopeInvisibleBlock.tscn" id="7_gv7wl"]
-[ext_resource type="PackedScene" uid="uid://dgkh4na3ckdg2" path="res://Scenes/Triggers/BreakableBlocks/RightSlopebreakableBlock.tscn" id="8_sahjq"]
-[ext_resource type="PackedScene" uid="uid://dxkklnkpsn70w" path="res://Scenes/Triggers/BreakableBlocks/32x32breakableBlock.tscn" id="9_jyhht"]
-[ext_resource type="PackedScene" uid="uid://psrem4kknlu8" path="res://Scenes/Triggers/BreakableBlocks/32x64breakableBlock.tscn" id="10_3ht1r"]
-[ext_resource type="PackedScene" uid="uid://dpeaoe3ad3ahy" path="res://Scenes/Triggers/Trigger_Helpers/brokenVat.tscn" id="11_0joei"]
+[ext_resource type="Script" path="res://Scripts/levelController.gd" id="1_op34x"]
+[ext_resource type="TileSet" uid="uid://bnpggr5480t5q" path="res://Art/TileSets/initialTileSet.tres" id="2_tit7j"]
+[ext_resource type="PackedScene" uid="uid://dd6l6fhpuajke" path="res://Scenes/rigidPlayer.tscn" id="3_hqxf5"]
+[ext_resource type="PackedScene" uid="uid://dvbyxsl5e3ol8" path="res://Scenes/Triggers/Trigger_Helpers/TransitionField.tscn" id="4_juxs4"]
+[ext_resource type="PackedScene" uid="uid://c0eghc3oa7752" path="res://Scenes/Triggers/Trigger_Helpers/movingObject.tscn" id="5_x73ap"]
+[ext_resource type="PackedScene" uid="uid://ci05tj7j8an3w" path="res://Scenes/Triggers/BreakableBlocks/64x32breakableBlock.tscn" id="6_0s0kf"]
+[ext_resource type="PackedScene" uid="uid://6g21fyk11mro" path="res://Scenes/Triggers/InvisibleBlocks/RightSlopeInvisibleBlock.tscn" id="7_kyur7"]
+[ext_resource type="PackedScene" uid="uid://dgkh4na3ckdg2" path="res://Scenes/Triggers/BreakableBlocks/RightSlopebreakableBlock.tscn" id="8_ccf7f"]
+[ext_resource type="PackedScene" uid="uid://dxkklnkpsn70w" path="res://Scenes/Triggers/BreakableBlocks/32x32breakableBlock.tscn" id="9_akyrh"]
+[ext_resource type="PackedScene" uid="uid://psrem4kknlu8" path="res://Scenes/Triggers/BreakableBlocks/32x64breakableBlock.tscn" id="10_0imu8"]
+[ext_resource type="PackedScene" uid="uid://dpeaoe3ad3ahy" path="res://Scenes/Triggers/Trigger_Helpers/brokenVat.tscn" id="11_uoi4t"]
 
-[node name="FourFallingEyes" type="Node2D" node_paths=PackedStringArray("cameraSpot", "player", "transitionField")]
-script = ExtResource("1_hl142")
+[node name="1-5_FourFallingEyes" type="Node2D" node_paths=PackedStringArray("cameraSpot", "player", "transitionField")]
+script = ExtResource("1_op34x")
 cameraSpot = NodePath("CenterPosition")
 cameraSize = Vector2(1024, 576)
 player = NodePath("rigidPlayer")
 transitionField = NodePath("TransitionField")
 
 [node name="TileMap" type="TileMap" parent="."]
-tile_set = ExtResource("2_a1mvu")
+tile_set = ExtResource("2_tit7j")
 format = 2
 layer_0/tile_data = PackedInt32Array(262151, 589827, 1, 327686, 589827, 4, 262152, 524291, 1, 327689, 524291, 1, 327683, 524291, 3, 393220, 524291, 1, 458757, 524291, 1, 524294, 524291, 1, 393226, 524291, 1, 458763, 458755, 9, 589836, 589827, 3, 655371, 589827, 1, 589831, 524291, 1, 655368, 458755, 9, 720906, 589827, 1, 786441, 589827, 4, 1048583, 65539, 0, 1048582, 65539, 0, 1048581, 3, 6, 1048580, 65539, 1, 1048579, 131075, 4, 983044, 196611, 3, 1179646, 131075, 0, 1179645, 65539, 0, 1179644, 65539, 0, 1179643, 65539, 4, 983043, 131075, 3, 1048578, 196611, 3, 1048577, 131075, 3, 1114113, 131075, 7, 1179649, 65539, 2, 1179648, 327683, 0, 1245183, 327683, 0, 1245182, 65539, 2, 1048584, 65539, 0, 458767, 131075, 3, 983038, 196611, 2, 917502, 196611, 1, 851966, 196611, 1, 720894, 196611, 1, 655358, 196611, 1, 589822, 196611, 1, 458750, 196611, 1, 393214, 65539, 6, 327678, 3, 1, 262142, 3, 1, 131070, 65539, 0, 131071, 65539, 0, 65536, 65539, 0, 65537, 65539, 0, 65538, 65539, 0, 65539, 65539, 0, 65540, 65539, 0, 65541, 327683, 0, 65542, 327683, 0, 65543, 327683, 0, 65544, 327683, 0, 65545, 327683, 0, 65546, 327683, 0, 65547, 327683, 0, 65548, 327683, 0, 65549, 327683, 0, 196606, 3, 1, 131069, 327683, 0, 131068, 327683, 0, 131067, 327683, 0, 983049, 458755, 7, 1048587, 65539, 0, 983050, 65539, 3, 1048588, 131075, 0, 1048586, 65539, 4, 1048585, 65539, 6, 1114121, 65539, 1, 1114120, 65539, 1, 1179656, 65539, 2, 1179655, 65539, 2, 1114118, 65539, 1, 1114117, 65539, 1, 1114116, 65539, 1, 1114115, 65539, 1, 1179651, 65539, 2, 1179650, 65539, 2, 1114114, 65539, 1, 1179652, 65539, 2, 1179653, 65539, 2, 1114119, 65539, 1, 1179657, 65539, 2, 1179654, 65539, 2, 1114122, 65539, 1, 1114123, 65539, 1, 1179659, 65539, 2, 1179658, 65539, 2, 1114124, 3, 6, 1179660, 65539, 2, 1179661, 65539, 2, 1179662, 65539, 2, 1179663, 65539, 2, 1114127, 65539, 6, 720912, 196611, 6, 720911, 131075, 3, 655378, 196611, 6, 655377, 131075, 3, 851980, 196611, 7, 851979, 131075, 3, 65550, 327683, 0, 65551, 327683, 0, 65552, 327683, 0, 65553, 65539, 0, 65554, 65539, 0, 65555, 131075, 0, 131091, 131075, 1, 196627, 131075, 1, 262163, 196611, 1, 327699, 196611, 1, 393235, 196611, 1, 458771, 196611, 1, 524307, 196611, 1, 589843, 196611, 1, 655379, 131075, 1, 720915, 196611, 1, 786451, 196611, 1, 851987, 196611, 1, 917523, 196611, 1, 983059, 196611, 1, 1048595, 196611, 1, 1114131, 196611, 1, 1114128, 131075, 1, 1179664, 65539, 2, 1179665, 327683, 0, 1179666, 327683, 0, 1179667, 131075, 2, 983045, 131075, 0, 524286, 196611, 1, 786430, 131075, 1, 1179642, 65539, 1, 1179641, 65539, 1, 1179640, 65539, 1, 1179639, 3, 1, 1114103, 3, 1, 1048567, 3, 1, 983031, 196611, 1, 917495, 196611, 1, 851959, 196611, 1, 786423, 3, 1, 720887, 196611, 1, 655351, 196611, 1, 589815, 196611, 1, 524279, 196611, 1, 458743, 196611, 1, 393207, 65539, 0, 393208, 262147, 6, 131066, 327683, 0, 131065, 327683, 0, 131064, 327683, 0, 131063, 327683, 0, 393206, 327683, 0, 393205, 327683, 0, 393204, 3, 2, 327668, 196611, 1, 262132, 196611, 1, 196596, 196611, 1, 131061, 327683, 0, 131062, 327683, 0, 131060, 3, 0, 327672, 131075, 3, 327673, 196611, 6, 262139, 196611, 8, 262138, 131075, 3, 327674, 262147, 6, 327675, 262147, 4, 393209, 262147, 4, 393213, 196611, 3, 458747, 196611, 6, 458746, 131075, 3, 393212, 131075, 3, 458748, 262147, 6, 524282, 262147, 7, 458749, 262147, 4, 524283, 262147, 4, 655354, 131075, 3, 655355, 196611, 8, 720888, 131075, 3, 720889, 196611, 6, 851962, 131075, 3, 851963, 196611, 6, 786428, 131075, 3, 786429, 196611, 6, 851964, 262147, 6, 720890, 262147, 6, 786424, 262147, 6, 786425, 262147, 4, 720891, 262147, 4, 851965, 262147, 4, 917499, 262147, 4, 917498, 262147, 7, 1114106, 3, 3, 1114107, 65539, 3, 1048568, 3, 3, 1048569, 65539, 3, 1114105, 65539, 4, 1114104, 65539, 1, 1245181, 65539, 2, 1245180, 65539, 2, 1245179, 65539, 2, 1245178, 65539, 2, 1245177, 65539, 2, 1245176, 65539, 2, 1245175, 3, 2, 1114125, 65539, 0, 1114126, 65539, 0, 1048591, 3, 0, 1048592, 131075, 0, 720907, 589827, 2, 655372, 589827, 2, 786442, 589827, 2, 327688, 524291, 2, 393225, 524291, 2, 458762, 524291, 2, 327687, 589827, 2, 393219, 524291, 2, 458756, 524291, 2, 524293, 524291, 2, 589830, 524291, 2, 655367, 524291, 2, 720913, 262147, 6, 720914, 262147, 4, 786447, 262147, 7, 786448, 262147, 4, 917516, 262147, 4, 917515, 393219, 5, 524303, 393219, 5, 458768, 196611, 7, 524304, 262147, 4, 393215, 262147, 2, 327679, 262147, 1, 262143, 65539, 1, 196607, 65539, 1, 131072, 65539, 1, 131073, 65539, 1, 131074, 262147, 3, 196609, 196611, 4, 196608, 262147, 1, 262144, 262147, 2, 196610, 262147, 4, 131075, 196611, 4, 131076, 262147, 4, 131090, 327683, 1, 196626, 327683, 2, 131089, 327683, 2)
 
-[node name="rigidPlayer" parent="." instance=ExtResource("3_s2exc")]
+[node name="rigidPlayer" parent="." instance=ExtResource("3_hqxf5")]
 position = Vector2(-320, 144)
 
 [node name="CenterPosition" type="Marker2D" parent="."]
 position = Vector2(128, 320)
 
-[node name="TransitionField" parent="." instance=ExtResource("4_v0238")]
+[node name="TransitionField" parent="." instance=ExtResource("4_juxs4")]
 position = Vector2(576, 544)
 
-[node name="movingObject" parent="." instance=ExtResource("5_ox1pn")]
+[node name="movingObject" parent="." instance=ExtResource("5_x73ap")]
 position = Vector2(240, 80)
 
-[node name="movingObject2" parent="." instance=ExtResource("5_ox1pn")]
+[node name="movingObject2" parent="." instance=ExtResource("5_x73ap")]
 position = Vector2(272, 80)
 
-[node name="64x32breakableBlock" parent="." instance=ExtResource("6_24dtd")]
+[node name="64x32breakableBlock" parent="." instance=ExtResource("6_0s0kf")]
 position = Vector2(224, 96)
 
-[node name="RightSlopeInvisibleBlock" parent="." instance=ExtResource("7_gv7wl")]
+[node name="RightSlopeInvisibleBlock" parent="." instance=ExtResource("7_kyur7")]
 position = Vector2(416, 256)
 
-[node name="RightSlopebreakableBlock" parent="." instance=ExtResource("8_sahjq")]
+[node name="RightSlopebreakableBlock" parent="." instance=ExtResource("8_ccf7f")]
 position = Vector2(224, 416)
 
-[node name="movingObject3" parent="." instance=ExtResource("5_ox1pn")]
+[node name="movingObject3" parent="." instance=ExtResource("5_x73ap")]
 position = Vector2(464, 80)
 
-[node name="movingObject4" parent="." instance=ExtResource("5_ox1pn")]
+[node name="movingObject4" parent="." instance=ExtResource("5_x73ap")]
 position = Vector2(432, 80)
 
-[node name="32x32breakableBlock" parent="." instance=ExtResource("9_jyhht")]
+[node name="32x32breakableBlock" parent="." instance=ExtResource("9_akyrh")]
 position = Vector2(416, 96)
 
-[node name="32x32breakableBlock2" parent="." instance=ExtResource("9_jyhht")]
+[node name="32x32breakableBlock2" parent="." instance=ExtResource("9_akyrh")]
 position = Vector2(448, 96)
 
-[node name="RightSlopeInvisibleBlock2" parent="." instance=ExtResource("7_gv7wl")]
+[node name="RightSlopeInvisibleBlock2" parent="." instance=ExtResource("7_kyur7")]
 position = Vector2(416, 384)
 
-[node name="32x64breakableBlock" parent="." instance=ExtResource("10_3ht1r")]
+[node name="32x64breakableBlock" parent="." instance=ExtResource("10_0imu8")]
 position = Vector2(-64, 480)
 
-[node name="brokenVat" parent="." instance=ExtResource("11_0joei")]
+[node name="brokenVat" parent="." instance=ExtResource("11_uoi4t")]
 position = Vector2(-320, 128)

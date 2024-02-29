@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://coa5is6citjjb"]
+[gd_scene load_steps=12 format=3 uid="uid://coa5is6citjjb"]
 
 [ext_resource type="Script" path="res://Scripts/levelController.gd" id="1_1ktmg"]
 [ext_resource type="TileSet" uid="uid://bnpggr5480t5q" path="res://Art/TileSets/initialTileSet.tres" id="2_7kkqc"]
@@ -11,7 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://b653ep4goj6pf" path="res://Scenes/Triggers/InvisibleBlocks/32x64InvisibleBlock.tscn" id="9_uh62f"]
 [ext_resource type="PackedScene" uid="uid://psrem4kknlu8" path="res://Scenes/Triggers/BreakableBlocks/32x64breakableBlock.tscn" id="10_acnig"]
 [ext_resource type="PackedScene" uid="uid://dpeaoe3ad3ahy" path="res://Scenes/Triggers/Trigger_Helpers/brokenVat.tscn" id="11_5007j"]
-[ext_resource type="Texture2D" uid="uid://dcbmh2s2iuwbd" path="res://Art/Backgrounds/mimzyAndTubbs.jpg" id="12_umpmd"]
 
 [node name="1-3_BreakableSteps" type="Node2D" node_paths=PackedStringArray("cameraSpot", "player", "transitionField")]
 script = ExtResource("1_1ktmg")
@@ -66,9 +65,3 @@ position = Vector2(0, 320)
 
 [node name="brokenVat" parent="." instance=ExtResource("11_5007j")]
 position = Vector2(64, 64)
-
-[node name="MimzyAndTubbs" type="Sprite2D" parent="."]
-z_index = -100
-position = Vector2(115, 0)
-scale = Vector2(0.245768, 0.245768)
-texture = ExtResource("12_umpmd")

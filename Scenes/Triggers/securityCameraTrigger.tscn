@@ -1,0 +1,52 @@
+[gd_scene load_steps=6 format=3 uid="uid://dcf8fjp1cyb11"]
+
+[ext_resource type="PackedScene" uid="uid://cgjy5x05wbked" path="res://Scenes/Triggers/baseTrigger.tscn" id="1_ouqpb"]
+[ext_resource type="Script" path="res://Scripts/Triggers/securityCameraTrigger.gd" id="2_trp4r"]
+[ext_resource type="SpriteFrames" uid="uid://c8sqx1xvrnvlr" path="res://Art/SpriteFrames/securityCameraAnims.tres" id="3_fkkyl"]
+[ext_resource type="SpriteFrames" uid="uid://n6voywyb5m04" path="res://Art/SpriteFrames/securityGunAnims.tres" id="4_beff6"]
+[ext_resource type="PackedScene" uid="uid://bjl1j5sws2hp2" path="res://Scenes/Triggers/Trigger_Helpers/bullet.tscn" id="5_vit4w"]
+
+[node name="securityCameraTrigger" node_paths=PackedStringArray("cameraView", "cameraSprite", "gunSprite") instance=ExtResource("1_ouqpb")]
+script = ExtResource("2_trp4r")
+secondsToSetup = 1.0
+cameraView = NodePath("CameraPivotPoint/CameraView")
+cameraSprite = NodePath("CameraPivotPoint/CameraSprite")
+gunSprite = NodePath("GunSprite")
+one_shot = false
+
+[node name="CameraPivotPoint" type="Marker2D" parent="." index="0"]
+
+[node name="CameraSprite" type="AnimatedSprite2D" parent="CameraPivotPoint" index="0"]
+z_index = 15
+z_as_relative = false
+position = Vector2(-8, 0)
+sprite_frames = ExtResource("3_fkkyl")
+animation = &"activated"
+
+[node name="CameraView" type="Area2D" parent="CameraPivotPoint" index="1"]
+position = Vector2(-16, 0)
+collision_layer = 0
+collision_mask = 256
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CameraPivotPoint/CameraView" index="0"]
+visible = false
+polygon = PackedVector2Array(0, 0, -160, -64, -160, 64)
+
+[node name="Polygon2D" type="Polygon2D" parent="CameraPivotPoint/CameraView" index="1"]
+color = Color(1, 0, 0, 0.258824)
+polygon = PackedVector2Array(-160, -64, -160, 64, 0, 0)
+
+[node name="GunSprite" type="AnimatedSprite2D" parent="." index="1"]
+z_index = -1
+position = Vector2(0, 24)
+sprite_frames = ExtResource("4_beff6")
+animation = &"shooting"
+
+[node name="Bullet" parent="GunSprite" index="0" instance=ExtResource("5_vit4w")]
+position = Vector2(-8, 0)
+rotation = -3.14159
+MAX_ROTATION_SPEED = 3
+BULLET_SPEED = 200000.0
+
+[node name="TriggerKeySprite" parent="." index="2"]
+position = Vector2(0, 48)

@@ -45,6 +45,7 @@ project/assembly_name="2023KickOffGamejam"
 2d_physics/layer_2="OneWayFloor"
 2d_physics/layer_3="OneWayRHS"
 2d_physics/layer_4="OneWayLHS"
+2d_physics/layer_9="LivingObject"
 
 [rendering]
 

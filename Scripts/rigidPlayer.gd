@@ -165,18 +165,8 @@ func _physics_process(delta):
 				wallCast.set_collision_mask_value(4, true) # 4 is oneWayBlockLHS
 			
 			if (deathCounter >= deathBounceRequirement):
+				killFella()
 				#make dead
-				deathCounter = 0
-				dead = true
-				AnimatedSprite.hide()
-				deathExplosion.show()
-				deathExplosion.explode()
-				set_process(PROCESS_MODE_DISABLED)
-				#play sound
-				HitSounds.stream = load("res://Sounds/death.ogg")
-				HitSounds.play()
-				CrawlSounds.stop()
-				emit_signal("player_death_signal")
 		else:
 			deathCounter = 0
 	
@@ -194,7 +184,20 @@ func _physics_process(delta):
 		set_collision_mask_value(2, true) # 2 is vertical oneWayBlock
 	else:
 		set_collision_mask_value(2, false) # 2 is vertical oneWayBlock
-	
+
+func killFella():
+	deathCounter = 0
+	dead = true
+	AnimatedSprite.hide()
+	deathExplosion.show()
+	deathExplosion.explode()
+	set_process(PROCESS_MODE_DISABLED)
+	#play sound
+	HitSounds.stream = load("res://Sounds/death.ogg")
+	HitSounds.play()
+	CrawlSounds.stop()
+	emit_signal("player_death_signal")
+
 func rotate_player_on_arc(delta):
 	if being_controlled and not positioning_finished:
 		# Calculate the angle between the player's current rotation and the target rotation (0 degrees).

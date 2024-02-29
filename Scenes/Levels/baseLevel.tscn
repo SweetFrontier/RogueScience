@@ -1,12 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://1xasoo80ygld"]
+[gd_scene load_steps=10 format=3 uid="uid://1xasoo80ygld"]
 
 [ext_resource type="Script" path="res://Scripts/levelController.gd" id="1_btnfb"]
 [ext_resource type="TileSet" uid="uid://bnpggr5480t5q" path="res://Art/TileSets/initialTileSet.tres" id="2_esq4l"]
 [ext_resource type="PackedScene" uid="uid://dvbyxsl5e3ol8" path="res://Scenes/Triggers/Trigger_Helpers/TransitionField.tscn" id="4_go5s3"]
 [ext_resource type="PackedScene" uid="uid://dnqoj4eg2l7le" path="res://Scenes/Triggers/trampolineTrigger.tscn" id="6_0y03v"]
 [ext_resource type="PackedScene" uid="uid://dd6l6fhpuajke" path="res://Scenes/rigidPlayer.tscn" id="6_jf1j1"]
-[ext_resource type="PackedScene" uid="uid://ci05tj7j8an3w" path="res://Scenes/Triggers/BreakableBlocks/64x32breakableBlock.tscn" id="7_fvhqi"]
+[ext_resource type="PackedScene" uid="uid://dcf8fjp1cyb11" path="res://Scenes/Triggers/securityCameraTrigger.tscn" id="6_ywm17"]
 [ext_resource type="PackedScene" uid="uid://c0eghc3oa7752" path="res://Scenes/Triggers/Trigger_Helpers/movingObject.tscn" id="7_g7rdw"]
+[ext_resource type="PackedScene" uid="uid://b653ep4goj6pf" path="res://Scenes/Triggers/InvisibleBlocks/32x64InvisibleBlock.tscn" id="8_v56lq"]
+[ext_resource type="PackedScene" uid="uid://psrem4kknlu8" path="res://Scenes/Triggers/BreakableBlocks/32x64breakableBlock.tscn" id="9_dcwt3"]
 
 [node name="baseLevel" type="Node2D" node_paths=PackedStringArray("cameraSpot", "player", "transitionField")]
 texture_filter = 1
@@ -14,6 +16,7 @@ script = ExtResource("1_btnfb")
 cameraSpot = NodePath("CenterPosition")
 player = NodePath("rigidPlayer")
 transitionField = NodePath("TransitionField")
+DEBUG_MODE = true
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("2_esq4l")
@@ -24,49 +27,33 @@ layer_0/tile_data = PackedInt32Array(983050, 262147, 0, 983051, 327683, 0, 98305
 position = Vector2(240, 128)
 
 [node name="TransitionField" parent="." instance=ExtResource("4_go5s3")]
-position = Vector2(0, 240)
+position = Vector2(-96, 288)
 
 [node name="rigidPlayer" parent="." instance=ExtResource("6_jf1j1")]
-position = Vector2(640, 528)
-speed = 0.0
-
-[node name="movingObject" parent="." instance=ExtResource("7_g7rdw")]
-position = Vector2(880, 64)
+position = Vector2(672, 480)
 
 [node name="trampolineTrigger" parent="." instance=ExtResource("6_0y03v")]
-position = Vector2(880, 448)
-rotation = -0.785398
-jump_force = 800.0
+position = Vector2(576, 384)
+rotation = 0.47822
 
-[node name="trampolineTrigger2" parent="." instance=ExtResource("6_0y03v")]
-position = Vector2(144, 640)
-rotation = 1.0472
-startActivated = true
+[node name="movingObject" parent="." instance=ExtResource("7_g7rdw")]
+position = Vector2(458, 64)
 
-[node name="trampolineTrigger3" parent="." instance=ExtResource("6_0y03v")]
-position = Vector2(608, 704)
-rotation = 0.785398
-startActivated = true
-moveRiderTime = 0.1
+[node name="invisibleBlock2" parent="." instance=ExtResource("8_v56lq")]
+position = Vector2(320, 416)
 
-[node name="trampolineTrigger4" parent="." instance=ExtResource("6_0y03v")]
-position = Vector2(1040, 656)
-jump_force = 800.0
-startActivated = true
-moveRiderTime = 0.1
+[node name="32x64breakableBlock" parent="." instance=ExtResource("9_dcwt3")]
+position = Vector2(864, 416)
 
-[node name="trampolineTrigger5" parent="." instance=ExtResource("6_0y03v")]
-position = Vector2(1040, 384)
-rotation = -0.785398
-jump_force = 800.0
-startActivated = true
+[node name="securityCameraTrigger" parent="." instance=ExtResource("6_ywm17")]
+position = Vector2(968, 416)
 
-[node name="trampolineTrigger6" parent="." instance=ExtResource("6_0y03v")]
-position = Vector2(416, 432)
-rotation = 0.698132
-jump_force = 500.0
-startActivated = true
-moveRiderTime = 0.1
+[node name="GunSprite" parent="securityCameraTrigger" index="1"]
+position = Vector2(184, -128)
+rotation = -0.420624
+metadata/_edit_group_ = true
 
-[node name="64x32breakableBlock" parent="." instance=ExtResource("7_fvhqi")]
-position = Vector2(608, 448)
+[node name="Bullet" parent="securityCameraTrigger/GunSprite" index="0"]
+MAX_ROTATION_SPEED = 4
+
+[editable path="securityCameraTrigger"]

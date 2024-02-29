@@ -1,0 +1,72 @@
+[gd_scene load_steps=11 format=3 uid="uid://bjl1j5sws2hp2"]
+
+[ext_resource type="SpriteFrames" uid="uid://bc6sgulgn2k5" path="res://Art/SpriteFrames/bulletAnims.tres" id="1_wu2f4"]
+[ext_resource type="Script" path="res://Scripts/Triggers/Trigger_Helpers/bullet.gd" id="2_ucb8p"]
+[ext_resource type="Texture2D" uid="uid://bmsh7ew73lmoi" path="res://Art/TriggerArt/SecurityCamera/Red Effect Bullet Impact Explosion 32x32.png" id="3_rfjv7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u0vxs"]
+radius = 4.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pnfm5"]
+atlas = ExtResource("3_rfjv7")
+region = Rect2(512, 384, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dhutx"]
+atlas = ExtResource("3_rfjv7")
+region = Rect2(544, 384, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_poleq"]
+atlas = ExtResource("3_rfjv7")
+region = Rect2(576, 384, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xaux3"]
+atlas = ExtResource("3_rfjv7")
+region = Rect2(608, 384, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6wmgc"]
+atlas = ExtResource("3_rfjv7")
+region = Rect2(0, 480, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i1i5g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pnfm5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dhutx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_poleq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xaux3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6wmgc")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Bullet" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 257
+script = ExtResource("2_ucb8p")
+
+[node name="BulletSprite" type="AnimatedSprite2D" parent="."]
+z_index = -3
+sprite_frames = ExtResource("1_wu2f4")
+frame_progress = 0.957232
+offset = Vector2(-10, 0)
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 0)
+shape = SubResource("CircleShape2D_u0vxs")
+
+[node name="Explosion" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_i1i5g")
+frame = 4
+frame_progress = 1.0

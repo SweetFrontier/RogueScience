@@ -1,0 +1,32 @@
+[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://bc6sgulgn2k5"]
+
+[ext_resource type="Texture2D" uid="uid://7nalm5ak8r74" path="res://Art/TriggerArt/SecurityCamera/plhBulletFrames.png" id="1_7kws8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vas0j"]
+atlas = ExtResource("1_7kws8")
+region = Rect2(0, 0, 28, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ry77w"]
+atlas = ExtResource("1_7kws8")
+region = Rect2(0, 8, 28, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_keg5x"]
+atlas = ExtResource("1_7kws8")
+region = Rect2(0, 16, 28, 8)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vas0j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ry77w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_keg5x")
+}],
+"loop": true,
+"name": &"default",
+"speed": 20.0
+}]

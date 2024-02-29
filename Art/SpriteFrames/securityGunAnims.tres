@@ -1,0 +1,23 @@
+[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://n6voywyb5m04"]
+
+[ext_resource type="Texture2D" uid="uid://cvjrms7h8i8ma" path="res://Art/TriggerArt/SecurityCamera/plhGunDeactivated.png" id="1_5lkxc"]
+[ext_resource type="Texture2D" uid="uid://sixcjn8o4n6b" path="res://Art/TriggerArt/SecurityCamera/plhGunActivated.png" id="2_7c1yg"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_5lkxc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_7c1yg")
+}],
+"loop": true,
+"name": &"shooting",
+"speed": 5.0
+}]

@@ -15,6 +15,8 @@ size = Vector2(20, 1)
 
 [node name="rigidPlayer" type="RigidBody2D" node_paths=PackedStringArray("AnimatedSprite", "PlayerCollision", "CrawlSounds", "HitSounds", "floorCollisionArea", "floorCast", "wallCast", "deathExplosion")]
 texture_filter = 1
+collision_layer = 257
+collision_mask = 257
 physics_material_override = SubResource("PhysicsMaterial_2kvdi")
 can_sleep = false
 lock_rotation = true
@@ -44,6 +46,7 @@ polygon = PackedVector2Array(-26, 8, -8, 3, -8, -4, 8, -4, 8, 3, 26, 8, 13, 15, 
 
 [node name="floorCollisionArea" type="Area2D" parent="."]
 position = Vector2(0, 15.5)
+collision_layer = 257
 collision_mask = 3
 
 [node name="floorCollisionShape" type="CollisionShape2D" parent="floorCollisionArea"]

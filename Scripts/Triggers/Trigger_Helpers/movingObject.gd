@@ -3,10 +3,14 @@ class_name movingObject
 
 @export var floorDetector: RayCast2D	
 @export var sprite: Sprite2D
+@export var collisionShape: CollisionShape2D
 @export var soundPlayer: AudioStreamPlayer2D
+@export var deathExplosion : Polygon2D
 
 var levelPlayer : rigidPlayer
 
+var just_destroyed = false
+var destroyed = false
 var starting_transform
 var just_reset = true
 var being_controlled = false
@@ -40,6 +44,24 @@ func reset():
 	controlled_ang_vel = 0.0
 	controlled_lin_vel = Vector2(0,0)
 	directPosControl = false
+	
+	just_destroyed = false
+	destroyed = false
+	sprite.show()
+	deathExplosion.hide()
+	collisionShape.set_deferred("disabled", false)
+
+func destroy():
+	just_destroyed = true
+	destroyed = true
+	sprite.hide()
+	deathExplosion.show()
+	deathExplosion.explode()
+	collisionShape.set_deferred("disabled", true)
+	#play sound
+	#HitSounds.stream = load("res://Sounds/death.ogg")
+	#HitSounds.play()
+	#CrawlSounds.stop()
 
 func _physics_process(_delta):
 	floorDetector.rotation = -rotation
@@ -47,6 +69,11 @@ func _physics_process(_delta):
 		sprite.look_at(levelPlayer.global_position)
 
 func _integrate_forces(state):
+	if just_destroyed:
+		#state.set_linear_velocity(Vector2())
+		state.set_angular_velocity(0.0)
+		just_destroyed = false
+	
 	if just_reset:
 		state.set_transform(starting_transform)
 		state.set_linear_velocity(Vector2())

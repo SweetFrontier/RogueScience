@@ -52,7 +52,12 @@ func reset():
 	cameraSprite.animation = "deactivated"
 	gunSprite.animation = "default"
 	gunSprite.frame = 0
+	pivotProgress = 0
+	$CameraPivotPoint.rotation_degrees = 270
+	$CameraPivotPoint/CameraView/Polygon2D.visible = false
+	targetIdentified = false
 	$GunSprite/Bullet.reset()
+	currState = SecurityCameraState.INACTIVE
 	if startActivated:
 		currState = SecurityCameraState.INPOSITION
 		react()

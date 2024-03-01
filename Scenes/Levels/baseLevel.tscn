@@ -14,6 +14,7 @@
 texture_filter = 1
 script = ExtResource("1_btnfb")
 cameraSpot = NodePath("CenterPosition")
+cameraSize = Vector2(1920, 1080)
 player = NodePath("rigidPlayer")
 transitionField = NodePath("TransitionField")
 DEBUG_MODE = true
@@ -21,7 +22,7 @@ DEBUG_MODE = true
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("2_esq4l")
 format = 2
-layer_0/tile_data = PackedInt32Array(983050, 262147, 0, 983051, 327683, 0, 983052, 327683, 0, 983053, 327683, 0, 983054, 327683, 0, 983055, 3, 3, 983056, 65539, 3, 983063, 131075, 3, 983064, 196611, 3, 983065, 327683, 0, 983066, 327683, 0, 983067, 327683, 0, 983068, 327683, 0, 983069, 393219, 0, 1048591, 393219, 4, 1048592, 393219, 6, 1048593, 3, 3, 1048594, 65539, 3, 1048597, 131075, 3, 1048598, 196611, 3, 1048599, 262147, 6, 1114129, 393219, 4, 1114130, 393219, 6, 1114131, 458755, 9, 1114132, 196611, 9, 1114133, 262147, 6, 1114134, 262147, 4, 1048600, 262147, 4)
+layer_0/tile_data = PackedInt32Array(983050, 262147, 0, 983051, 327683, 0, 983052, 327683, 0, 983053, 327683, 0, 983054, 327683, 0, 983065, 327683, 0, 983066, 327683, 0, 983067, 327683, 0, 983068, 327683, 0, 983069, 393219, 0, 917528, 65539, 3, 851990, 65539, 3, 786452, 65539, 3, 720914, 65539, 3, 917527, 3, 3, 851989, 3, 3, 786451, 3, 3, 720913, 3, 3, 655375, 3, 3, 655376, 65539, 3, 589837, 3, 3, 589838, 65539, 3, 524299, 3, 3, 524300, 65539, 3, 458761, 3, 3, 458762, 65539, 3)
 
 [node name="CenterPosition" type="Marker2D" parent="."]
 position = Vector2(240, 128)
@@ -30,20 +31,20 @@ position = Vector2(240, 128)
 position = Vector2(-96, 288)
 
 [node name="rigidPlayer" parent="." instance=ExtResource("6_jf1j1")]
-position = Vector2(672, 480)
+position = Vector2(-96, 96)
 
 [node name="trampolineTrigger" parent="." instance=ExtResource("6_0y03v")]
-position = Vector2(576, 384)
+position = Vector2(1000, 480)
 rotation = 0.47822
 
 [node name="movingObject" parent="." instance=ExtResource("7_g7rdw")]
-position = Vector2(458, 64)
+position = Vector2(448, 288)
 
 [node name="invisibleBlock2" parent="." instance=ExtResource("8_v56lq")]
 position = Vector2(320, 416)
 
 [node name="32x64breakableBlock" parent="." instance=ExtResource("9_dcwt3")]
-position = Vector2(864, 416)
+position = Vector2(800, 576)
 
 [node name="securityCameraTrigger" parent="." instance=ExtResource("6_ywm17")]
 position = Vector2(968, 416)
@@ -52,8 +53,5 @@ position = Vector2(968, 416)
 position = Vector2(184, -128)
 rotation = -0.420624
 metadata/_edit_group_ = true
-
-[node name="Bullet" parent="securityCameraTrigger/GunSprite" index="0"]
-MAX_ROTATION_SPEED = 4
 
 [editable path="securityCameraTrigger"]

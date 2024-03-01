@@ -45,7 +45,7 @@ animation = &"shooting"
 [node name="Bullet" parent="GunSprite" index="0" instance=ExtResource("5_vit4w")]
 position = Vector2(-8, 0)
 rotation = -3.14159
-MAX_ROTATION_SPEED = 3
+MAX_ROTATION_SPEED = 15
 BULLET_SPEED = 200000.0
 
 [node name="TriggerKeySprite" parent="." index="2"]

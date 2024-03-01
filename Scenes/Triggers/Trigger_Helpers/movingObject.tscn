@@ -1,13 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://c0eghc3oa7752"]
+[gd_scene load_steps=6 format=3 uid="uid://c0eghc3oa7752"]
 
 [ext_resource type="Script" path="res://Scripts/Triggers/Trigger_Helpers/movingObject.gd" id="1_kg8bi"]
 [ext_resource type="Texture2D" uid="uid://d07soj2hvu8u3" path="res://Art/TriggerArt/MovingObject/MovingEye.png" id="2_6v5ui"]
 [ext_resource type="AudioStream" uid="uid://cbl8qb0gk6iiq" path="res://Sounds/hitsomething.ogg" id="3_lawhx"]
+[ext_resource type="Script" path="res://Scripts/Triggers/Trigger_Helpers/explodeablePolygon.gd" id="4_dtmf2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pygtm"]
 radius = 16.0
 
-[node name="movingObject" type="RigidBody2D" node_paths=PackedStringArray("floorDetector", "sprite", "soundPlayer")]
+[node name="movingObject" type="RigidBody2D" node_paths=PackedStringArray("floorDetector", "sprite", "collisionShape", "soundPlayer", "deathExplosion")]
 collision_layer = 257
 collision_mask = 3
 mass = 10000.0
@@ -15,7 +16,9 @@ can_sleep = false
 script = ExtResource("1_kg8bi")
 floorDetector = NodePath("RayCast2D")
 sprite = NodePath("Sprite2D")
+collisionShape = NodePath("CollisionShape2D")
 soundPlayer = NodePath("hittingSounds")
+deathExplosion = NodePath("DeathExplosion")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 9
@@ -34,3 +37,24 @@ hit_from_inside = true
 stream = ExtResource("3_lawhx")
 pitch_scale = 0.5
 bus = &"Sound Effects"
+
+[node name="DeathExplosion" type="Polygon2D" parent="."]
+process_mode = 3
+visible = false
+texture = ExtResource("2_6v5ui")
+texture_offset = Vector2(16, 16)
+polygon = PackedVector2Array(16, -16, 16, 16, -16, 16, -16, -16)
+script = ExtResource("4_dtmf2")
+shard_count = 256
+shard_shrink_rate = 0.99
+x_init_velocity = 20
+y_init_velocity = 40
+shard_speed = 12.0
+rotation_speed = 0.1
+shard_gravity = 40.0
+x_max_distance = 10
+x_min_distance = -10
+y_max_distance = 10
+y_min_distance = -10
+time_to_form = 2.0
+metadata/_edit_group_ = true

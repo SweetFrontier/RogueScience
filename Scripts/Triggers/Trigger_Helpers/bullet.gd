@@ -39,7 +39,7 @@ func launch():
 func _process(delta):
 	match(bulletState):
 		BulletState.FLYING:
-			global_rotation = lerp_angle(global_rotation, (target_node.position - global_position).angle(), delta * MAX_ROTATION_SPEED)
+			global_rotation = lerp_angle(global_rotation, (target_node.global_position - global_position).angle(), delta * MAX_ROTATION_SPEED)
 			velocity = (Vector2(1,0) * BULLET_SPEED * delta).rotated(global_rotation)
 			move_and_slide()
 			
@@ -54,7 +54,7 @@ func _process(delta):
 					player.killFella()
 				var mObject : movingObject = collider as movingObject
 				if(mObject):
-					pass
+					mObject.destroy()
 				bulletState = BulletState.EXPLODING
 				$BulletSprite.visible = false
 				$CollisionShape2D.set_deferred("disabled", true)

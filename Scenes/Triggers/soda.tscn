@@ -1,0 +1,130 @@
+[gd_scene load_steps=20 format=3 uid="uid://diaq1g0u7ny5d"]
+
+[ext_resource type="PackedScene" uid="uid://cgjy5x05wbked" path="res://Scenes/Triggers/baseTrigger.tscn" id="1_ud7se"]
+[ext_resource type="Script" path="res://Scripts/Triggers/sodaTrigger.gd" id="2_w7a00"]
+[ext_resource type="PackedScene" uid="uid://dctdthqv8shx3" path="res://Scenes/Triggers/Trigger_Helpers/SPLAT.tscn" id="3_n6q00"]
+[ext_resource type="Texture2D" uid="uid://b8rlls4rmtjge" path="res://Art/TriggerArt/Soda/plhSodaEmpty.png" id="3_rbrhq"]
+[ext_resource type="Texture2D" uid="uid://pqcefoadi06g" path="res://Art/TriggerArt/Soda/plhSodaFull.png" id="4_mf6rx"]
+[ext_resource type="Texture2D" uid="uid://r0ah8shlqfvj" path="res://Art/TriggerArt/Soda/plhSodaExploding.png" id="5_gdniv"]
+[ext_resource type="Texture2D" uid="uid://cat53lsnivf36" path="res://Art/TriggerArt/Soda/plhSpew.png" id="6_myc4p"]
+[ext_resource type="PackedScene" uid="uid://jtv8ch5vvx1d" path="res://Scenes/Triggers/Trigger_Helpers/sodaBall.tscn" id="7_bn3nb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_arm8v"]
+atlas = ExtResource("3_rbrhq")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l1yci"]
+atlas = ExtResource("4_mf6rx")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dukgx"]
+atlas = ExtResource("5_gdniv")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yur6w"]
+atlas = ExtResource("5_gdniv")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dpt56"]
+atlas = ExtResource("5_gdniv")
+region = Rect2(64, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ylk42"]
+atlas = ExtResource("5_gdniv")
+region = Rect2(96, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p1b4q"]
+atlas = ExtResource("5_gdniv")
+region = Rect2(128, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_btwry"]
+atlas = ExtResource("5_gdniv")
+region = Rect2(160, 0, 32, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_654dx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_arm8v")
+}],
+"loop": true,
+"name": &"empty",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l1yci")
+}],
+"loop": true,
+"name": &"full",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dukgx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yur6w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dpt56")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ylk42")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p1b4q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_btwry")
+}],
+"loop": false,
+"name": &"spewing",
+"speed": 3.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ubw0"]
+atlas = ExtResource("6_myc4p")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jtjnx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ubw0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="sodaTrigger" node_paths=PackedStringArray("bottleSprite", "spewSprite", "sodaBall") instance=ExtResource("1_ud7se")]
+script = ExtResource("2_w7a00")
+explosionThreshold = 40.0
+shakeStrength = 5.0
+shakeDecay = 0.0167
+launch_speed = 0.0
+bottleSprite = NodePath("BottleSprite")
+spewSprite = NodePath("BottleSprite/SpewSprite")
+sodaBall = NodePath("SodaBall")
+SPLAT_PACKEDSCENE = ExtResource("3_n6q00")
+
+[node name="BottleSprite" type="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_654dx")
+animation = &"full"
+
+[node name="SpewSprite" type="AnimatedSprite2D" parent="BottleSprite" index="0"]
+visible = false
+z_index = -2
+position = Vector2(0, -40)
+sprite_frames = SubResource("SpriteFrames_jtjnx")
+
+[node name="SodaBall" parent="." index="1" instance=ExtResource("7_bn3nb")]
+z_index = -1
+LAUNCH_SPEED = 1000.0
+SPLAT_INTERVAL = 6
+
+[node name="TriggerKeySprite" parent="." index="2"]
+position = Vector2(0, 64)
+
+[connection signal="SPLATTED" from="SodaBall" to="." method="recieve_splat"]

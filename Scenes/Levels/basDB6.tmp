@@ -47,6 +47,7 @@ position = Vector2(320, 416)
 position = Vector2(800, 576)
 
 [node name="sodaTrigger" parent="." instance=ExtResource("9_v1e5y")]
-position = Vector2(984, 400)
-rotation = -0.174533
+position = Vector2(912, 392)
+rotation = -1.07687
 launch_speed = 1000.0
+SPLAT_PACKEDSCENE = null

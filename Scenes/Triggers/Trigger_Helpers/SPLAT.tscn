@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://dctdthqv8shx3"]
+
+[ext_resource type="Script" path="res://Scripts/Triggers/Trigger_Helpers/SPLAT.gd" id="1_ntv8x"]
+[ext_resource type="Texture2D" uid="uid://bwnxv7183qn74" path="res://Art/TriggerArt/Soda/plhSPLAT.png" id="2_8our8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cniky"]
+atlas = ExtResource("2_8our8")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q3gk8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cniky")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="SPLAT" type="Node2D"]
+script = ExtResource("1_ntv8x")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_q3gk8")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 257
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]

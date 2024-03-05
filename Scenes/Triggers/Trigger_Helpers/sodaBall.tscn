@@ -1,0 +1,103 @@
+[gd_scene load_steps=15 format=3 uid="uid://jtv8ch5vvx1d"]
+
+[ext_resource type="Script" path="res://Scripts/Triggers/Trigger_Helpers/sodaBall.gd" id="1_eo3ja"]
+[ext_resource type="Texture2D" uid="uid://xoywetyr51pd" path="res://Art/TriggerArt/Soda/plhSodaBall.png" id="2_u231g"]
+[ext_resource type="Texture2D" uid="uid://bmsh7ew73lmoi" path="res://Art/TriggerArt/SecurityCamera/Red Effect Bullet Impact Explosion 32x32.png" id="3_kxd6g"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gp5yx"]
+atlas = ExtResource("2_u231g")
+region = Rect2(0, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a21yi"]
+atlas = ExtResource("2_u231g")
+region = Rect2(16, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nl0sj"]
+atlas = ExtResource("2_u231g")
+region = Rect2(32, 0, 16, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nvmlt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gp5yx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a21yi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nl0sj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tao6c"]
+radius = 8.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pnfm5"]
+atlas = ExtResource("3_kxd6g")
+region = Rect2(512, 384, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dhutx"]
+atlas = ExtResource("3_kxd6g")
+region = Rect2(544, 384, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_poleq"]
+atlas = ExtResource("3_kxd6g")
+region = Rect2(576, 384, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xaux3"]
+atlas = ExtResource("3_kxd6g")
+region = Rect2(608, 384, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6wmgc"]
+atlas = ExtResource("3_kxd6g")
+region = Rect2(0, 480, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c4p4p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pnfm5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dhutx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_poleq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xaux3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6wmgc")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="SodaBall" type="RigidBody2D"]
+collision_layer = 0
+collision_mask = 257
+mass = 0.01
+max_contacts_reported = 1
+contact_monitor = true
+can_sleep = false
+script = ExtResource("1_eo3ja")
+
+[node name="SodaBallSprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_nvmlt")
+frame_progress = 0.761559
+offset = Vector2(0, 4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CircleShape2D_tao6c")
+
+[node name="Explosion" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_c4p4p")
+frame = 4
+frame_progress = 1.0

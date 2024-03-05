@@ -122,7 +122,7 @@ sprite_frames = SubResource("SpriteFrames_jtjnx")
 [node name="SodaBall" parent="." index="1" instance=ExtResource("7_bn3nb")]
 z_index = -1
 LAUNCH_SPEED = 1000.0
-SPLAT_INTERVAL = 6
+SPLAT_INTERVAL = 2
 
 [node name="TriggerKeySprite" parent="." index="2"]
 position = Vector2(0, 64)

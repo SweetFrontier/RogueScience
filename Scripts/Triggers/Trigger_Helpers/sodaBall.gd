@@ -48,18 +48,24 @@ func _integrate_forces(state):
 		currState = SodaBallState.IDLE
 		
 	if currState == SodaBallState.LAUNCHING:
-		state.set_linear_velocity(Vector2(0,-1).rotated(global_rotation)*LAUNCH_SPEED)
+		#only change transform when ball is not moving
+		if(state.linear_velocity != Vector2() or state.angular_velocity != 0):
+			state.set_linear_velocity(Vector2())
+			state.set_angular_velocity(0.0)
+			gravity_scale = 0
+			$SodaBallSprite.visible = false
+			return
+		state.set_transform(startingTransform)
+		state.set_linear_velocity(Vector2(0,-1).rotated(get_parent().global_rotation)*LAUNCH_SPEED)
 		state.set_angular_velocity(0.0)
 		gravity_scale = 1
 		$CollisionShape2D.set_deferred("disabled", false)
 		$SodaBallSprite.visible = true
+		splatProgress = 0
 		currState = SodaBallState.FLYING
 		
 	if currState == SodaBallState.FLYING:
 		splatProgress += 1
-		if splatProgress >= SPLAT_INTERVAL:
-			splatProgress = 0
-			splat()
 		for collider in get_colliding_bodies():
 			print("collided")
 			#check if collided with player
@@ -76,3 +82,8 @@ func _integrate_forces(state):
 			$SodaBallSprite.visible = false
 			$CollisionShape2D.set_deferred("disabled", true)
 			$Explosion.play()
+			return
+		if splatProgress >= SPLAT_INTERVAL:
+			splatProgress = 0
+			splat()
+	rotation = state.linear_velocity.angle()+deg_to_rad(90)

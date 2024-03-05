@@ -16,6 +16,7 @@ var startingPosition : Vector2
 var shakeAmount: float = 0
 var shakeProgress: float = 0
 var splatList : Array = []
+var timeSinceReset : float = 0
 
 enum SodaState
 {
@@ -43,8 +44,9 @@ func _input(event):
 
 
 func react():
-	emit_signal("remove_key_signal",self,button)
-	emit_signal("randomize_block_keys_signal")
+	if !startActivated:
+		emit_signal("remove_key_signal",self,button)
+		emit_signal("randomize_block_keys_signal")
 	if !(one_shot and activated):
 		# Set the key to the "pressed state"
 		TriggerKeySprite.frame = 1
@@ -62,26 +64,40 @@ func react():
 func reset():
 	super.reset()
 	currState = SodaState.FULL
+	sodaBall.reset()
 	bottleSprite.position = startingPosition
 	bottleSprite.animation = "full"
 	bottleSprite.frame = 0
 	spewSprite.visible = false
 	shakeAmount = 0
 	shakeProgress = 0
+	timeSinceReset = 0
+	
+	var nextSplat = splatList.pop_back()
+	while (nextSplat != null):
+		nextSplat.queue_free()
+		nextSplat = splatList.pop_back()
+	
 	if startActivated:
 		react()
 		button_fade_timer = 0
 		TriggerKeySprite.modulate.a = 0
+		shakeAmount = explosionThreshold
 
 func recieve_splat(gTransform : Transform2D):
+	#Don't splat if the room just reset
+	#This check is due to delay in recieving splat signal
+	if(timeSinceReset < 0.0167):
+		return
 	var newSplat = SPLAT_PACKEDSCENE.instantiate()
 	add_child(newSplat)
-	#call_deferred("add_child",newSplat)
 	newSplat.global_transform = gTransform
-	print(newSplat.global_transform)
+	newSplat.global_position.x = roundf(newSplat.global_position.x/32.0)*32
+	newSplat.global_position.y = roundf(newSplat.global_position.y/32.0)*32
 	splatList.append(newSplat)
 
 func _process(delta):
+	timeSinceReset += delta
 	match(currState):
 		SodaState.SHAKING:
 			shakeAmount = max(shakeAmount - shakeDecay, 0)

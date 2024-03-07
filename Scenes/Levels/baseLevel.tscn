@@ -53,8 +53,7 @@ position = Vector2(320, 416)
 position = Vector2(800, 576)
 
 [node name="sodaTrigger" parent="." instance=ExtResource("9_v1e5y")]
-position = Vector2(192, 196)
-rotation = -1.5708
+position = Vector2(448, 264)
 metadata/_edit_group_ = true
 
 [node name="securityCameraTrigger" parent="." instance=ExtResource("10_dl7pq")]

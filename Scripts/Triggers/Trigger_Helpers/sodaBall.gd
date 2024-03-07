@@ -75,12 +75,10 @@ func _on_body_entered(collider):
 			player.GiveSodaShield()
 		elif(collider is movingObject):
 			var mObject = collider as movingObject
-			print_debug("mObject.GiveSodaShield() not implemented")
-			#mObject.GiveSodaShield()
-		elif(collider is securityCameraTrigger):
-			var sCT = collider as securityCameraTrigger
-			print_debug("sCT.CoverInSoda() not implemented")
-			#sCT.CoverInSoda()
+			mObject.GiveSodaShield()
+		elif(collider is StaticBody2D):
+			var sCT = collider.get_parent().get_parent().get_parent() as securityCameraTrigger
+			sCT.CoverInSoda()
 		else:
 			#default - cover surrounding tiles in goo
 			for r in range(-SPLAT_RADIUS, SPLAT_RADIUS+1):

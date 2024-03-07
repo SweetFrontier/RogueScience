@@ -1,14 +1,30 @@
-[gd_scene load_steps=6 format=3 uid="uid://c0eghc3oa7752"]
+[gd_scene load_steps=9 format=3 uid="uid://c0eghc3oa7752"]
 
 [ext_resource type="Script" path="res://Scripts/Triggers/Trigger_Helpers/movingObject.gd" id="1_kg8bi"]
 [ext_resource type="Texture2D" uid="uid://d07soj2hvu8u3" path="res://Art/TriggerArt/MovingObject/MovingEye.png" id="2_6v5ui"]
 [ext_resource type="AudioStream" uid="uid://cbl8qb0gk6iiq" path="res://Sounds/hitsomething.ogg" id="3_lawhx"]
+[ext_resource type="Texture2D" uid="uid://bctxuq8plm2r2" path="res://Art/TriggerArt/MovingObject/plhSodaShield.png" id="3_p14n0"]
 [ext_resource type="Script" path="res://Scripts/Triggers/Trigger_Helpers/explodeablePolygon.gd" id="4_dtmf2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m0v1t"]
+atlas = ExtResource("3_p14n0")
+region = Rect2(0, 0, 38, 38)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qe4re"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m0v1t")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pygtm"]
 radius = 16.0
 
-[node name="movingObject" type="RigidBody2D" node_paths=PackedStringArray("floorDetector", "sprite", "collisionShape", "soundPlayer", "deathExplosion")]
+[node name="movingObject" type="RigidBody2D" node_paths=PackedStringArray("floorDetector", "sprite", "SodaShield", "collisionShape", "soundPlayer", "deathExplosion")]
 collision_layer = 257
 collision_mask = 3
 mass = 10000.0
@@ -16,6 +32,7 @@ can_sleep = false
 script = ExtResource("1_kg8bi")
 floorDetector = NodePath("RayCast2D")
 sprite = NodePath("Sprite2D")
+SodaShield = NodePath("SodaShield")
 collisionShape = NodePath("CollisionShape2D")
 soundPlayer = NodePath("hittingSounds")
 deathExplosion = NodePath("DeathExplosion")
@@ -24,6 +41,10 @@ deathExplosion = NodePath("DeathExplosion")
 z_index = 9
 z_as_relative = false
 texture = ExtResource("2_6v5ui")
+
+[node name="SodaShield" type="AnimatedSprite2D" parent="."]
+z_index = 9
+sprite_frames = SubResource("SpriteFrames_qe4re")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_pygtm")

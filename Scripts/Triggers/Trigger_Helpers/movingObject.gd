@@ -4,6 +4,7 @@ class_name movingObject
 @export var stickyMultiplier = 0.8
 @export var floorDetector: RayCast2D	
 @export var sprite: Sprite2D
+@export var SodaShield: AnimatedSprite2D
 @export var collisionShape: CollisionShape2D
 @export var soundPlayer: AudioStreamPlayer2D
 @export var deathExplosion : Polygon2D
@@ -28,6 +29,7 @@ var directPosControl: bool = false
 var last_vel_x : float = 0
 var last_vel_y : float = 0
 var inSoda : int = 0
+var isShielded : bool = false
 
 func _ready():
 	starting_transform = get_global_transform()
@@ -47,6 +49,8 @@ func reset():
 	controlled_lin_vel = Vector2(0,0)
 	directPosControl = false
 	inSoda = 0
+	isShielded = false
+	SodaShield.visible = false
 	
 	just_destroyed = false
 	destroyed = false
@@ -55,6 +59,10 @@ func reset():
 	collisionShape.set_deferred("disabled", false)
 
 func destroy():
+	if(isShielded):
+		isShielded = false
+		SodaShield.visible = false
+		return
 	just_destroyed = true
 	destroyed = true
 	sprite.hide()
@@ -65,6 +73,10 @@ func destroy():
 	#HitSounds.stream = load("res://Sounds/death.ogg")
 	#HitSounds.play()
 	#CrawlSounds.stop()
+
+func GiveSodaShield():
+	isShielded = true
+	SodaShield.visible = true
 
 func _physics_process(_delta):
 	floorDetector.rotation = -rotation

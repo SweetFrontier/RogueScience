@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://dcf8fjp1cyb11"]
+[gd_scene load_steps=7 format=3 uid="uid://dcf8fjp1cyb11"]
 
 [ext_resource type="PackedScene" uid="uid://cgjy5x05wbked" path="res://Scenes/Triggers/baseTrigger.tscn" id="1_ouqpb"]
 [ext_resource type="Script" path="res://Scripts/Triggers/securityCameraTrigger.gd" id="2_trp4r"]
 [ext_resource type="SpriteFrames" uid="uid://c8sqx1xvrnvlr" path="res://Art/SpriteFrames/securityCameraAnims.tres" id="3_fkkyl"]
 [ext_resource type="SpriteFrames" uid="uid://n6voywyb5m04" path="res://Art/SpriteFrames/securityGunAnims.tres" id="4_beff6"]
 [ext_resource type="PackedScene" uid="uid://bjl1j5sws2hp2" path="res://Scenes/Triggers/Trigger_Helpers/bullet.tscn" id="5_vit4w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w2cvd"]
+size = Vector2(16, 16)
 
 [node name="securityCameraTrigger" node_paths=PackedStringArray("cameraView", "cameraSprite", "gunSprite") instance=ExtResource("1_ouqpb")]
 script = ExtResource("2_trp4r")
@@ -21,7 +24,15 @@ z_index = 15
 z_as_relative = false
 position = Vector2(-8, 0)
 sprite_frames = ExtResource("3_fkkyl")
-animation = &"activated"
+animation = &"covered"
+
+[node name="CameraLens" type="StaticBody2D" parent="CameraPivotPoint/CameraSprite" index="0"]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraPivotPoint/CameraSprite/CameraLens" index="0"]
+position = Vector2(-8, 0)
+shape = SubResource("RectangleShape2D_w2cvd")
 
 [node name="CameraView" type="Area2D" parent="CameraPivotPoint" index="1"]
 position = Vector2(-16, 0)
@@ -45,8 +56,8 @@ animation = &"shooting"
 [node name="Bullet" parent="GunSprite" index="0" instance=ExtResource("5_vit4w")]
 position = Vector2(-8, 0)
 rotation = -3.14159
-MAX_ROTATION_SPEED = 15
-BULLET_SPEED = 200000.0
+MAX_ROTATION_SPEED = 45
+BULLET_SPEED = 1500.0
 
 [node name="TriggerKeySprite" parent="." index="2"]
 position = Vector2(0, 48)

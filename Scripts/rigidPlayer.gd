@@ -2,6 +2,7 @@ extends RigidBody2D
 class_name rigidPlayer
 
 @export var speed = 300.0
+@export var stickyMultiplier = 0.5
 @export var time_to_rotate_slope = 0.5 # Adjust this for slope rotation
 @export var falling_rotation_speed = 5.0  # Adjust this for falling rotation
 @export var starting_direction = Vector2.RIGHT
@@ -9,6 +10,7 @@ class_name rigidPlayer
 # Permanent node children
 @export var AnimatedSprite : AnimatedSprite2D
 @export var PlayerCollision : CollisionPolygon2D
+@export var SodaShield : AnimatedSprite2D
 @export var CrawlSounds : AudioStreamPlayer2D
 @export var HitSounds : AudioStreamPlayer2D
 
@@ -43,6 +45,8 @@ var last_y_velocity : float = 0 #last_y_velocity for how loud to play the hit so
 var deathCounter = 0
 var dead : bool = false
 var animBackwards = false
+var inSoda : int = 0
+var isShielded : bool = false
 
 func _ready():
 	last_y_velocity = 0
@@ -71,6 +75,9 @@ func reset():
 		wallCast.set_collision_mask_value(4, false) # 4 is oneWayBlockLHS
 	wallCast.scale.x = PlayerCollision.scale.x
 	CrawlSounds.play()
+	SodaShield.visible = false
+	isShielded = false
+	
 	
 	just_reset = true
 	dead = false
@@ -86,8 +93,15 @@ func reset():
 	controlled_lin_vel = Vector2(0,0)
 	directPosControl = false
 	last_y_velocity = 0
+	inSoda = false
 
 func _integrate_forces(state):
+	#reset gravity scale
+	gravity_scale = 1.0
+	if inSoda < 0:
+		inSoda = 0
+	elif inSoda >= 1:
+		gravity_scale = stickyMultiplier
 	if just_reset:
 		#debug line, force to show again because of a glitch
 		AnimatedSprite.show()
@@ -97,7 +111,7 @@ func _integrate_forces(state):
 		just_reset = false
 	
 	if !being_controlled && !dead:
-		state.set_linear_velocity(Vector2(current_direction.x * speed, state.get_linear_velocity().y))
+		state.set_linear_velocity(Vector2(current_direction.x * speed * gravity_scale, state.get_linear_velocity().y))
 	
 	if just_started_control:
 		just_started_control = false
@@ -185,7 +199,16 @@ func _physics_process(delta):
 	else:
 		set_collision_mask_value(2, false) # 2 is vertical oneWayBlock
 
+func GiveSodaShield():
+	isShielded = true
+	SodaShield.visible = true
+
 func killFella():
+	if(isShielded):
+		isShielded = false
+		SodaShield.visible = false
+		deathCounter = 0
+		return
 	deathCounter = 0
 	dead = true
 	AnimatedSprite.hide()

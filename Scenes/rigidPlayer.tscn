@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://dd6l6fhpuajke"]
+[gd_scene load_steps=12 format=3 uid="uid://dd6l6fhpuajke"]
 
 [ext_resource type="Script" path="res://Scripts/rigidPlayer.gd" id="1_tevo1"]
 [ext_resource type="SpriteFrames" uid="uid://uoxtfmfhh7ft" path="res://Art/SpriteFrames/fellaAnims.tres" id="2_b4cfh"]
 [ext_resource type="AudioStream" uid="uid://cof7uu71agsbj" path="res://Sounds/crawl.ogg" id="3_2cu8q"]
+[ext_resource type="Texture2D" uid="uid://cuo7640hvi8jb" path="res://Art/plhFellaShield.png" id="3_govog"]
 [ext_resource type="AudioStream" uid="uid://cbl8qb0gk6iiq" path="res://Sounds/hitsomething.ogg" id="4_h2nkj"]
 [ext_resource type="Script" path="res://Scripts/Triggers/Trigger_Helpers/explodeablePolygon.gd" id="5_57jm6"]
 [ext_resource type="Texture2D" uid="uid://du38jg7n11pol" path="res://Art/deadfella.png" id="5_ld6tc"]
@@ -10,10 +11,25 @@
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2kvdi"]
 friction = 0.15
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_g07l5"]
+atlas = ExtResource("3_govog")
+region = Rect2(0, 0, 72, 40)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rrdhf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g07l5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f553v"]
 size = Vector2(20, 1)
 
-[node name="rigidPlayer" type="RigidBody2D" node_paths=PackedStringArray("AnimatedSprite", "PlayerCollision", "CrawlSounds", "HitSounds", "floorCollisionArea", "floorCast", "wallCast", "deathExplosion")]
+[node name="rigidPlayer" type="RigidBody2D" node_paths=PackedStringArray("AnimatedSprite", "PlayerCollision", "SodaShield", "CrawlSounds", "HitSounds", "floorCollisionArea", "floorCast", "wallCast", "deathExplosion")]
 texture_filter = 1
 collision_layer = 257
 collision_mask = 257
@@ -26,6 +42,7 @@ time_to_rotate_slope = 0.2
 falling_rotation_speed = 3.0
 AnimatedSprite = NodePath("PlayerAnimatedSprite")
 PlayerCollision = NodePath("PlayerCollision")
+SodaShield = NodePath("SodaShield")
 CrawlSounds = NodePath("crawlsounds")
 HitSounds = NodePath("hitsounds")
 floorCollisionArea = NodePath("floorCollisionArea")
@@ -43,6 +60,11 @@ offset = Vector2(4, 0)
 
 [node name="PlayerCollision" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-26, 8, -8, 3, -8, -4, 8, -4, 8, 3, 26, 8, 13, 15, 10, 16, -10, 16, -13, 15)
+
+[node name="SodaShield" type="AnimatedSprite2D" parent="."]
+visible = false
+z_index = 200
+sprite_frames = SubResource("SpriteFrames_rrdhf")
 
 [node name="floorCollisionArea" type="Area2D" parent="."]
 position = Vector2(0, 15.5)

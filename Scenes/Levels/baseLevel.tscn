@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://1xasoo80ygld"]
+[gd_scene load_steps=11 format=3 uid="uid://1xasoo80ygld"]
 
 [ext_resource type="Script" path="res://Scripts/levelController.gd" id="1_btnfb"]
 [ext_resource type="TileSet" uid="uid://bnpggr5480t5q" path="res://Art/TileSets/initialTileSet.tres" id="2_esq4l"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://b653ep4goj6pf" path="res://Scenes/Triggers/InvisibleBlocks/32x64InvisibleBlock.tscn" id="8_v56lq"]
 [ext_resource type="PackedScene" uid="uid://psrem4kknlu8" path="res://Scenes/Triggers/BreakableBlocks/32x64breakableBlock.tscn" id="9_dcwt3"]
 [ext_resource type="PackedScene" uid="uid://diaq1g0u7ny5d" path="res://Scenes/Triggers/soda.tscn" id="9_v1e5y"]
+[ext_resource type="PackedScene" uid="uid://dcf8fjp1cyb11" path="res://Scenes/Triggers/securityCameraTrigger.tscn" id="10_dl7pq"]
 
 [node name="baseLevel" type="Node2D" node_paths=PackedStringArray("cameraSpot", "player", "transitionField")]
 texture_filter = 1
@@ -27,7 +28,7 @@ layer_0/tile_data = PackedInt32Array(720925, 65537, 1, 655390, 65537, 1, 589855,
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("2_esq4l")
 format = 2
-layer_0/tile_data = PackedInt32Array(983050, 262147, 0, 983051, 327683, 0, 983052, 327683, 0, 983053, 327683, 0, 983054, 327683, 0, 983065, 327683, 0, 983066, 327683, 0, 983067, 327683, 0, 983068, 327683, 0, 983069, 393219, 0, 917528, 65539, 3, 851990, 65539, 3, 786452, 65539, 3, 720914, 65539, 3, 917527, 3, 3, 851989, 3, 3, 786451, 3, 3, 720913, 3, 3, 655375, 3, 3, 655376, 65539, 3, 589837, 3, 3, 589838, 65539, 3, 524299, 3, 3, 524300, 65539, 3, 458761, 3, 3, 458762, 65539, 3)
+layer_0/tile_data = PackedInt32Array(983050, 262147, 0, 983051, 327683, 0, 983052, 327683, 0, 983053, 327683, 0, 983054, 327683, 0, 983065, 327683, 0, 983066, 327683, 0, 983067, 327683, 0, 983068, 327683, 0, 983069, 393219, 0, 917528, 65539, 3, 851990, 65539, 3, 786452, 65539, 3, 720914, 65539, 3, 917527, 3, 3, 851989, 3, 3, 786451, 3, 3, 720913, 3, 3, 655375, 3, 3, 655376, 65539, 3, 589837, 3, 3, 589838, 65539, 3, 524299, 3, 3, 524300, 65539, 3, 458761, 3, 3, 458762, 65539, 3, 458760, 65539, 1, 458759, 65539, 1, 458758, 65539, 1, 458757, 65539, 1, 458756, 65539, 1, 458755, 65539, 1, 458754, 65539, 1, 458753, 65539, 1, 458752, 65539, 1)
 
 [node name="CenterPosition" type="Marker2D" parent="."]
 position = Vector2(240, 128)
@@ -36,14 +37,14 @@ position = Vector2(240, 128)
 position = Vector2(-96, 288)
 
 [node name="rigidPlayer" parent="." instance=ExtResource("6_jf1j1")]
-position = Vector2(-96, 96)
+position = Vector2(72, 176)
 
 [node name="trampolineTrigger" parent="." instance=ExtResource("6_0y03v")]
 position = Vector2(1000, 480)
 rotation = 0.47822
 
 [node name="movingObject" parent="." instance=ExtResource("7_g7rdw")]
-position = Vector2(448, 288)
+position = Vector2(296, 128)
 
 [node name="invisibleBlock2" parent="." instance=ExtResource("8_v56lq")]
 position = Vector2(320, 416)
@@ -52,7 +53,26 @@ position = Vector2(320, 416)
 position = Vector2(800, 576)
 
 [node name="sodaTrigger" parent="." instance=ExtResource("9_v1e5y")]
-position = Vector2(984, 400)
-rotation = -0.174533
-launch_speed = 1000.0
-startActivated = true
+position = Vector2(192, 196)
+rotation = -1.5708
+metadata/_edit_group_ = true
+
+[node name="securityCameraTrigger" parent="." instance=ExtResource("10_dl7pq")]
+position = Vector2(952, 440)
+
+[node name="CameraPivotPoint" parent="securityCameraTrigger" index="0"]
+position = Vector2(-488, -272)
+metadata/_edit_group_ = true
+
+[node name="GunSprite" parent="securityCameraTrigger" index="1"]
+position = Vector2(240, -160)
+metadata/_edit_group_ = true
+
+[node name="32x64breakableBlock2" parent="." instance=ExtResource("9_dcwt3")]
+position = Vector2(272, 160)
+
+[node name="32x64breakableBlock3" parent="." instance=ExtResource("9_dcwt3")]
+position = Vector2(-8, 160)
+
+[editable path="sodaTrigger"]
+[editable path="securityCameraTrigger"]

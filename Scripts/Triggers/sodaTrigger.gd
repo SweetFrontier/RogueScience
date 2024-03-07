@@ -28,6 +28,7 @@ enum SodaState
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	TriggerKeySprite.rotation_degrees = -rotation_degrees
 	currState = SodaState.FULL
 	startingPosition = bottleSprite.get_position()
 	$SodaBall.rotation = rotation
@@ -84,14 +85,14 @@ func reset():
 		TriggerKeySprite.modulate.a = 0
 		shakeAmount = explosionThreshold
 
-func recieve_splat(gTransform : Transform2D):
+func recieve_splat(gPosition : Vector2):
 	#Don't splat if the room just reset
 	#This check is due to delay in recieving splat signal
 	if(timeSinceReset < 0.0167):
 		return
 	var newSplat = SPLAT_PACKEDSCENE.instantiate()
 	add_child(newSplat)
-	newSplat.global_transform = gTransform
+	newSplat.global_position = gPosition
 	newSplat.global_position.x = roundf(newSplat.global_position.x/32.0)*32
 	newSplat.global_position.y = roundf(newSplat.global_position.y/32.0)*32
 	splatList.append(newSplat)

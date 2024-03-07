@@ -2,6 +2,7 @@ extends CharacterBody2D
 class_name Bullet
 
 # Constants
+@export var stickyMultiplier = 0.5
 @export var MAX_ROTATION_SPEED = 30
 @export var BULLET_SPEED = 10.0
 
@@ -9,6 +10,7 @@ class_name Bullet
 var target_node : Node2D = null
 
 var startingTransform : Transform2D
+var inSoda : int = 0
 
 enum BulletState
 {
@@ -28,6 +30,7 @@ func reset():
 	bulletState = BulletState.IDLE
 	transform = startingTransform
 	velocity = Vector2(0,0)
+	inSoda = 0
 	$CollisionShape2D.set_deferred("disabled", false)
 
 func setTarget(target: Node2D):
@@ -39,8 +42,13 @@ func launch():
 func _process(delta):
 	match(bulletState):
 		BulletState.FLYING:
-			global_rotation = lerp_angle(global_rotation, (target_node.global_position - global_position).angle(), delta * MAX_ROTATION_SPEED)
-			velocity = (Vector2(1,0) * BULLET_SPEED * delta).rotated(global_rotation)
+			var gravity_scale = 1.0
+			if inSoda < 0:
+				inSoda = 0
+			elif inSoda >= 1:
+				gravity_scale = stickyMultiplier
+			global_rotation = lerp_angle(global_rotation, (target_node.global_position - global_position).angle(), delta * MAX_ROTATION_SPEED * stickyMultiplier)
+			velocity = (Vector2(1,0) * BULLET_SPEED * delta * gravity_scale).rotated(global_rotation)
 			move_and_slide()
 			
 			#if collided with something
@@ -59,8 +67,6 @@ func _process(delta):
 				$BulletSprite.visible = false
 				$CollisionShape2D.set_deferred("disabled", true)
 				$Explosion.play()
-		_:
-			pass
 
 func explosionFinished():
 	bulletState = BulletState.EXPLODED

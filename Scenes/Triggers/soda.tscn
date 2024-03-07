@@ -103,7 +103,7 @@ script = ExtResource("2_w7a00")
 explosionThreshold = 40.0
 shakeStrength = 5.0
 shakeDecay = 0.0167
-launch_speed = 0.0
+launch_speed = 1000.0
 bottleSprite = NodePath("BottleSprite")
 spewSprite = NodePath("BottleSprite/SpewSprite")
 sodaBall = NodePath("SodaBall")
@@ -123,6 +123,7 @@ sprite_frames = SubResource("SpriteFrames_jtjnx")
 z_index = -1
 LAUNCH_SPEED = 1000.0
 SPLAT_INTERVAL = 2
+SPLAT_RADIUS = 3
 
 [node name="TriggerKeySprite" parent="." index="2"]
 position = Vector2(0, 64)

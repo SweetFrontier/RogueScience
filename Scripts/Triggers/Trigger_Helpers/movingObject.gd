@@ -1,6 +1,7 @@
 extends RigidBody2D
 class_name movingObject
 
+@export var stickyMultiplier = 0.8
 @export var floorDetector: RayCast2D	
 @export var sprite: Sprite2D
 @export var collisionShape: CollisionShape2D
@@ -26,6 +27,7 @@ var controlled_lin_vel: Vector2 = Vector2()
 var directPosControl: bool = false
 var last_vel_x : float = 0
 var last_vel_y : float = 0
+var inSoda : int = 0
 
 func _ready():
 	starting_transform = get_global_transform()
@@ -44,6 +46,7 @@ func reset():
 	controlled_ang_vel = 0.0
 	controlled_lin_vel = Vector2(0,0)
 	directPosControl = false
+	inSoda = 0
 	
 	just_destroyed = false
 	destroyed = false
@@ -69,6 +72,15 @@ func _physics_process(_delta):
 		sprite.look_at(levelPlayer.global_position)
 
 func _integrate_forces(state):
+	#reset gravity scale
+	gravity_scale = 1.0
+	if inSoda < 0:
+		inSoda = 0
+	elif inSoda >= 1:
+		gravity_scale = stickyMultiplier
+	state.set_linear_velocity(state.linear_velocity * gravity_scale)
+	state.set_angular_velocity(state.angular_velocity * gravity_scale)
+	
 	if just_destroyed:
 		#state.set_linear_velocity(Vector2())
 		state.set_angular_velocity(0.0)
@@ -92,13 +104,13 @@ func _integrate_forces(state):
 			state.set_linear_velocity(Vector2())
 			state.set_angular_velocity(0.0)
 		else:
-			state.set_linear_velocity(controlled_lin_vel + state.get_linear_velocity())
-			state.set_angular_velocity(controlled_ang_vel + state.get_angular_velocity())
+			state.set_linear_velocity((controlled_lin_vel + state.get_linear_velocity()) * gravity_scale)
+			state.set_angular_velocity((controlled_ang_vel + state.get_angular_velocity()) * gravity_scale)
 			clear_cont_vel()
 	if just_freed:
 		just_freed = false
-		state.set_linear_velocity(once_freed_linear_velocity)
-		state.set_angular_velocity(once_freed_angular_velocity)
+		state.set_linear_velocity(once_freed_linear_velocity * gravity_scale)
+		state.set_angular_velocity(once_freed_angular_velocity * gravity_scale)
 		#clear_freed_velocity()
 	
 	if (max(last_vel_x - linear_velocity.x, last_vel_y - linear_velocity.y) > 40):

@@ -24,6 +24,7 @@ enum SecurityCameraState
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	cameraView.body_entered.connect(_on_camera_caught)
+	TriggerKeySprite.rotation_degrees = -rotation_degrees
 	startingPivotRotation = $CameraPivotPoint.rotation_degrees
 	$CameraPivotPoint/CameraView/Polygon2D.visible = false
 	$CameraPivotPoint.rotation_degrees = 270

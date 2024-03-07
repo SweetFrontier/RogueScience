@@ -1,16 +1,19 @@
-extends RigidBody2D
+extends Area2D
 class_name SodaBall
 
-signal SPLATTED(gTransform : Transform2D)
+signal SPLATTED(gPosition : Vector2)
 
 # Constants
 @export var LAUNCH_SPEED: float
 @export var SPLAT_INTERVAL: int
+@export var SPLAT_RADIUS: int
 
 var currState : SodaBallState = SodaBallState.IDLE
 var startingTransform : Transform2D
 var splatProgress : int = 0
 var parent
+var velocity : Vector2 = Vector2()
+var gravity_scale = 0
 
 enum SodaBallState
 {
@@ -36,28 +39,19 @@ func reset():
 func launch():
 	currState = SodaBallState.LAUNCHING
 
-func splat():
-	SPLATTED.emit(get_global_transform())
+func splat(gPosition : Vector2):
+	SPLATTED.emit(gPosition)
 
-func _integrate_forces(state):
+func _physics_process(delta):
 	if currState == SodaBallState.RESETTING:
+		global_transform = startingTransform
+		velocity = Vector2()
 		gravity_scale = 0
-		state.set_transform(startingTransform)
-		state.set_linear_velocity(Vector2())
-		state.set_angular_velocity(0.0)
 		currState = SodaBallState.IDLE
 		
 	if currState == SodaBallState.LAUNCHING:
-		#only change transform when ball is not moving
-		if(state.linear_velocity != Vector2() or state.angular_velocity != 0):
-			state.set_linear_velocity(Vector2())
-			state.set_angular_velocity(0.0)
-			gravity_scale = 0
-			$SodaBallSprite.visible = false
-			return
-		state.set_transform(startingTransform)
-		state.set_linear_velocity(Vector2(0,-1).rotated(get_parent().global_rotation)*LAUNCH_SPEED)
-		state.set_angular_velocity(0.0)
+		global_transform = startingTransform
+		velocity = Vector2(0,-1).rotated(get_parent().global_rotation)*LAUNCH_SPEED
 		gravity_scale = 1
 		$CollisionShape2D.set_deferred("disabled", false)
 		$SodaBallSprite.visible = true
@@ -66,24 +60,36 @@ func _integrate_forces(state):
 		
 	if currState == SodaBallState.FLYING:
 		splatProgress += 1
-		for collider in get_colliding_bodies():
-			print("collided")
-			#check if collided with player
-			var player : rigidPlayer = collider as rigidPlayer
-			if(player):
-				player.killFella()
-			var mObject : movingObject = collider as movingObject
-			if(mObject):
-				mObject.destroy()
-			currState = SodaBallState.EXPLODING
-			gravity_scale = 0
-			state.set_linear_velocity(Vector2())
-			state.set_angular_velocity(0.0)
-			$SodaBallSprite.visible = false
-			$CollisionShape2D.set_deferred("disabled", true)
-			$Explosion.play()
-			return
 		if splatProgress >= SPLAT_INTERVAL:
 			splatProgress = 0
-			splat()
-	rotation = state.linear_velocity.angle()+deg_to_rad(90)
+			splat(get_global_position())
+	velocity.y += gravity * gravity_scale * delta
+	global_position += velocity * delta
+	rotation = velocity.angle()+deg_to_rad(90)
+
+func _on_body_entered(collider):
+	if currState == SodaBallState.FLYING:
+		#check if collided with player
+		if(collider is rigidPlayer):
+			var player = collider as rigidPlayer
+			player.GiveSodaShield()
+		elif(collider is movingObject):
+			var mObject = collider as movingObject
+			print_debug("mObject.GiveSodaShield() not implemented")
+			#mObject.GiveSodaShield()
+		elif(collider is securityCameraTrigger):
+			var sCT = collider as securityCameraTrigger
+			print_debug("sCT.CoverInSoda() not implemented")
+			#sCT.CoverInSoda()
+		else:
+			#default - cover surrounding tiles in goo
+			for r in range(-SPLAT_RADIUS, SPLAT_RADIUS+1):
+				for c in range(-SPLAT_RADIUS, SPLAT_RADIUS+1):
+					if r*r+c*c <= SPLAT_RADIUS*SPLAT_RADIUS:
+						splat(get_global_position()+Vector2(r,c)*32)
+		currState = SodaBallState.EXPLODING
+		gravity_scale = 0
+		velocity = Vector2()
+		$SodaBallSprite.visible = false
+		$CollisionShape2D.set_deferred("disabled", true)
+		$Explosion.play()

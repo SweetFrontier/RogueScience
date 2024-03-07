@@ -7,8 +7,13 @@ func _ready():
 	var collisionShape = CircleShape2D.new()
 	collisionShape.radius = 32
 	$Area2D/CollisionShape2D.set_deferred("shape", collisionShape)
-	pass # Replace with function body.
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	pass
+
+func _on_area_2d_body_entered(collider):
+	if collider is rigidPlayer or collider is movingObject or collider is Bullet:
+		collider.inSoda += 1
+
+
+func _on_area_2d_body_exited(collider):
+	if collider is rigidPlayer or collider is movingObject or collider is Bullet:
+		collider.inSoda -= 1

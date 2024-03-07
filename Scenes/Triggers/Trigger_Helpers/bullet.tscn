@@ -51,9 +51,10 @@ animations = [{
 }]
 
 [node name="Bullet" type="CharacterBody2D"]
-collision_layer = 0
+collision_layer = 16
 collision_mask = 257
 script = ExtResource("2_ucb8p")
+stickyMultiplier = 0.1
 
 [node name="BulletSprite" type="AnimatedSprite2D" parent="."]
 z_index = -3

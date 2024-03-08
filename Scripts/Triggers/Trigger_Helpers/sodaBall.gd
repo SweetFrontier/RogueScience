@@ -69,6 +69,7 @@ func _physics_process(delta):
 
 func _on_body_entered(collider):
 	if currState == SodaBallState.FLYING:
+		var sCT = collider.get_parent().get_parent().get_parent() as securityCameraTrigger
 		#check if collided with player
 		if(collider is rigidPlayer):
 			var player = collider as rigidPlayer
@@ -76,8 +77,7 @@ func _on_body_entered(collider):
 		elif(collider is movingObject):
 			var mObject = collider as movingObject
 			mObject.GiveSodaShield()
-		elif(collider is StaticBody2D):
-			var sCT = collider.get_parent().get_parent().get_parent() as securityCameraTrigger
+		elif(collider is StaticBody2D and sCT):
 			sCT.CoverInSoda()
 		else:
 			#default - cover surrounding tiles in goo

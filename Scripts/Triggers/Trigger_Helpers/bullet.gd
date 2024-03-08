@@ -57,12 +57,19 @@ func explosionFinished():
 	bulletState = BulletState.EXPLODED
 
 func _on_body_entered(collider):
-	if(collider is rigidPlayer):
+	var colliderParent = collider.get_parent()
+	if collider is rigidPlayer:
 		var player = collider as rigidPlayer
 		player.killFella()
-	elif(collider is movingObject):
+	elif collider is movingObject:
 		var mObject = collider as movingObject
 		mObject.destroy()
+	elif colliderParent and colliderParent is breakableBlocks:
+		var bBlock = colliderParent as breakableBlocks
+		bBlock.destroy(false)
+	elif colliderParent and colliderParent is invisibleBlock:
+		var iBlock = colliderParent as invisibleBlock
+		iBlock.destroy()
 	bulletState = BulletState.EXPLODING
 	$BulletSprite.visible = false
 	$CollisionShape2D.set_deferred("disabled", true)

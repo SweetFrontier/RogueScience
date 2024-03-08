@@ -61,11 +61,9 @@ position = Vector2(952, 440)
 
 [node name="CameraPivotPoint" parent="securityCameraTrigger" index="0"]
 position = Vector2(-488, -272)
-metadata/_edit_group_ = true
 
 [node name="GunSprite" parent="securityCameraTrigger" index="1"]
 position = Vector2(240, -160)
-metadata/_edit_group_ = true
 
 [node name="32x64breakableBlock2" parent="." instance=ExtResource("9_dcwt3")]
 position = Vector2(272, 160)

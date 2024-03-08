@@ -16,18 +16,7 @@ func _ready():
 # Override the baseTrigger's react method to toggle visibility, collision, and emit particles.
 func react():
 	super.react()
-	if !activated:
-		activated = true
-		#If has an Animated Sprite, make it invisible and the polygon invisible
-		if animSprite:
-			explodeable_polygon.visible = true
-			animSprite.visible = false
-		# Explode the Block
-		explodeable_polygon.explode()
-		# Disable collision.
-		body.collision_layer = 0
-		#play the boom sound
-		sound_child.play()
+	destroy(true)
 
 func reset():
 	super.reset()
@@ -47,7 +36,23 @@ func reset():
 	else:
 		explodeable_polygon.color.a = 0
 		explodeable_polygon.implode()
-		
+
+func destroy(fadeKey: bool = true):
+	if !activated:
+		if !fadeKey:
+			button_fade_timer = 0
+			TriggerKeySprite.modulate.a = 0
+		activated = true
+		if animSprite:
+			explodeable_polygon.visible = true
+			animSprite.visible = false
+		# Explode the Block
+		explodeable_polygon.explode()
+		# Disable collision.
+		body.collision_layer = 0
+		#play the boom sound
+		sound_child.play()
+
 func finished_imploding():
 	#Once finished imploding, make the animatedSprite2D visible if it exists
 	if animSprite:

@@ -2,6 +2,7 @@ extends RigidBody2D
 class_name movingObject
 
 @export var stickyMultiplier = 0.8
+@export var followPlayer: bool = true
 @export var floorDetector: RayCast2D	
 @export var sprite: Sprite2D
 @export var SodaShield: AnimatedSprite2D
@@ -80,7 +81,7 @@ func GiveSodaShield():
 
 func _physics_process(_delta):
 	floorDetector.rotation = -rotation
-	if levelPlayer != null:
+	if followPlayer and levelPlayer != null:
 		sprite.look_at(levelPlayer.global_position)
 
 func _integrate_forces(state):

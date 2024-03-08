@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://vwjnt2j2wbqk"]
+[gd_scene load_steps=41 format=3 uid="uid://vwjnt2j2wbqk"]
 
 [ext_resource type="Script" path="res://Scripts/gameManager.gd" id="1_rlws3"]
 [ext_resource type="Texture2D" uid="uid://bh66sgahohr8e" path="res://Art/Backgrounds/newBackground.png" id="2_wacfr"]
@@ -21,7 +21,10 @@
 [ext_resource type="PackedScene" uid="uid://sfyvalykml4p" path="res://Scenes/Screens/animatedTransition.tscn" id="12_gan4l"]
 [ext_resource type="Script" path="res://Scripts/MusicPlayer.gd" id="12_tas4r"]
 [ext_resource type="PackedScene" uid="uid://bfkkhh8xtlehi" path="res://Scenes/Levels/YeetTheBallLevel.tscn" id="13_6661y"]
+[ext_resource type="PackedScene" uid="uid://c2tvmnovh5jls" path="res://Scenes/Levels/Act_2_Levels/2-1_SecurityCameraIntroLevel.tscn" id="13_k8ysv"]
 [ext_resource type="PackedScene" uid="uid://bbfr58nt1tvg8" path="res://Scenes/Levels/ElevatorIntroLevel.tscn" id="13_t4a0s"]
+[ext_resource type="PackedScene" uid="uid://b2saltm6cvlaj" path="res://Scenes/Levels/Act_2_Levels/2-2_SecurityBallsLevel.tscn" id="14_tbquo"]
+[ext_resource type="PackedScene" uid="uid://dsixk1hdpya32" path="res://Scenes/Levels/Act_2_Levels/2-3_LasersLevel.tscn" id="15_b3lj6"]
 [ext_resource type="AudioStream" uid="uid://rbyp8q8q34ew" path="res://Sounds/UI/buttonpress.ogg" id="16_4q38v"]
 [ext_resource type="PackedScene" uid="uid://htmsvk40xshg" path="res://Scenes/Levels/BouncyLevel3.tscn" id="17_v28tw"]
 [ext_resource type="PackedScene" uid="uid://dg8bukpi7prtq" path="res://Scenes/Levels/BouncyElevator.tscn" id="18_dpntf"]
@@ -126,7 +129,7 @@ _data = {
 
 [node name="Main" type="Node2D" node_paths=PackedStringArray("Levels", "camera", "pauseMenu", "musicPlayer", "Transition", "resetWipeTransition", "resetWipeTransitionContoller")]
 script = ExtResource("1_rlws3")
-Levels = [NodePath("Levels/TESTING/baseLevel"), NodePath("Levels/Act_1/1-1_BreakableIntro"), NodePath("Levels/Act_1/1-2_InvisibleIntro"), NodePath("Levels/Act_1/1-3_BreakableSteps"), NodePath("Levels/Act_1/1-4_ThreeFallingEyesLevel"), NodePath("Levels/Act_1/1-5_FourFallingEyes"), NodePath("Levels/Act_1/1-6_JumpingPathLevel"), NodePath("Levels/Act_1/1-7_MultiEyeTrampoline"), NodePath("Levels/Act_1/1-8_bouncyLevel"), NodePath("Levels/Act_1/1-9_PowerfulTrampoline"), NodePath("Levels/HardInvisible"), NodePath("Levels/TeleportIntro"), NodePath("Levels/YeetTheBall"), NodePath("Levels/ElevatorsIntro"), NodePath("Levels/bouncyLevel2"), NodePath("Levels/BouncyElevator"), NodePath("Levels/TallElevator"), NodePath("Levels/bouncyLevel3"), NodePath("Levels/bouncyLevel4")]
+Levels = [NodePath("Levels/Act_2/2-3_Lasers"), NodePath("Levels/Act_1/1-1_BreakableIntro"), NodePath("Levels/Act_1/1-2_InvisibleIntro"), NodePath("Levels/Act_1/1-3_BreakableSteps"), NodePath("Levels/Act_1/1-4_ThreeFallingEyesLevel"), NodePath("Levels/Act_1/1-5_FourFallingEyes"), NodePath("Levels/Act_1/1-6_JumpingPathLevel"), NodePath("Levels/Act_1/1-7_MultiEyeTrampoline"), NodePath("Levels/Act_1/1-8_bouncyLevel"), NodePath("Levels/Act_1/1-9_PowerfulTrampoline"), NodePath("Levels/Act_2/2-1_SecurityCameraIntro"), NodePath("Levels/Act_2/2-2_SecurityBalls"), NodePath("Levels/HardInvisible"), NodePath("Levels/TeleportIntro"), NodePath("Levels/YeetTheBall"), NodePath("Levels/ElevatorsIntro"), NodePath("Levels/bouncyLevel2"), NodePath("Levels/BouncyElevator"), NodePath("Levels/TallElevator"), NodePath("Levels/bouncyLevel3"), NodePath("Levels/bouncyLevel4")]
 camera = NodePath("Camera2D")
 pauseMenu = NodePath("CanvasLayer/PauseMenu")
 musicPlayer = NodePath("MusicPlayer")
@@ -182,7 +185,19 @@ position = Vector2(6944, 128)
 position = Vector2(7968, 128)
 
 [node name="1-9_PowerfulTrampoline" parent="Levels/Act_1" instance=ExtResource("11_itubh")]
-position = Vector2(9600, 128)
+position = Vector2(9584, -160)
+
+[node name="Act_2" type="Node2D" parent="Levels"]
+position = Vector2(0, 1056)
+
+[node name="2-1_SecurityCameraIntro" parent="Levels/Act_2" instance=ExtResource("13_k8ysv")]
+position = Vector2(192, 0)
+
+[node name="2-2_SecurityBalls" parent="Levels/Act_2" instance=ExtResource("14_tbquo")]
+position = Vector2(960, 0)
+
+[node name="2-3_Lasers" parent="Levels/Act_2" instance=ExtResource("15_b3lj6")]
+position = Vector2(2048, 64)
 
 [node name="TeleportIntro" parent="Levels" instance=ExtResource("10_dk1u2")]
 position = Vector2(5920, -2336)

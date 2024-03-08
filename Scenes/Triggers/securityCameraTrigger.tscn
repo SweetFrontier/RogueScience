@@ -1,63 +1,67 @@
 [gd_scene load_steps=7 format=3 uid="uid://dcf8fjp1cyb11"]
 
-[ext_resource type="PackedScene" uid="uid://cgjy5x05wbked" path="res://Scenes/Triggers/baseTrigger.tscn" id="1_ouqpb"]
 [ext_resource type="Script" path="res://Scripts/Triggers/securityCameraTrigger.gd" id="2_trp4r"]
 [ext_resource type="SpriteFrames" uid="uid://c8sqx1xvrnvlr" path="res://Art/SpriteFrames/securityCameraAnims.tres" id="3_fkkyl"]
 [ext_resource type="SpriteFrames" uid="uid://n6voywyb5m04" path="res://Art/SpriteFrames/securityGunAnims.tres" id="4_beff6"]
+[ext_resource type="PackedScene" uid="uid://djjr177758y2h" path="res://Scenes/Triggers/Trigger_Helpers/triggerKey.tscn" id="5_ehj48"]
 [ext_resource type="PackedScene" uid="uid://bjl1j5sws2hp2" path="res://Scenes/Triggers/Trigger_Helpers/bullet.tscn" id="5_vit4w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w2cvd"]
 size = Vector2(16, 16)
 
-[node name="securityCameraTrigger" node_paths=PackedStringArray("cameraView", "cameraSprite", "gunSprite") instance=ExtResource("1_ouqpb")]
+[node name="securityCameraTrigger" type="Node2D" node_paths=PackedStringArray("cameraView", "cameraSprite", "gunSprite", "TriggerKeySprite")]
 script = ExtResource("2_trp4r")
-secondsToSetup = 1.0
+secondsToSetup = 0.5
 cameraView = NodePath("CameraPivotPoint/CameraView")
 cameraSprite = NodePath("CameraPivotPoint/CameraSprite")
 gunSprite = NodePath("GunSprite")
 one_shot = false
+TriggerKeySprite = NodePath("TriggerKeySprite")
 
-[node name="CameraPivotPoint" type="Marker2D" parent="." index="0"]
+[node name="CameraPivotPoint" type="Marker2D" parent="."]
+metadata/_edit_group_ = true
 
-[node name="CameraSprite" type="AnimatedSprite2D" parent="CameraPivotPoint" index="0"]
+[node name="CameraSprite" type="AnimatedSprite2D" parent="CameraPivotPoint"]
 z_index = 15
 z_as_relative = false
 position = Vector2(-8, 0)
 sprite_frames = ExtResource("3_fkkyl")
-animation = &"covered"
+animation = &"deactivated"
 
-[node name="CameraLens" type="StaticBody2D" parent="CameraPivotPoint/CameraSprite" index="0"]
+[node name="CameraLens" type="StaticBody2D" parent="CameraPivotPoint/CameraSprite"]
+visible = false
 collision_layer = 16
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraPivotPoint/CameraSprite/CameraLens" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraPivotPoint/CameraSprite/CameraLens"]
 position = Vector2(-8, 0)
 shape = SubResource("RectangleShape2D_w2cvd")
 
-[node name="CameraView" type="Area2D" parent="CameraPivotPoint" index="1"]
+[node name="CameraView" type="Area2D" parent="CameraPivotPoint"]
 position = Vector2(-16, 0)
 collision_layer = 0
 collision_mask = 256
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CameraPivotPoint/CameraView" index="0"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CameraPivotPoint/CameraView"]
 visible = false
 polygon = PackedVector2Array(0, 0, -160, -64, -160, 64)
 
-[node name="Polygon2D" type="Polygon2D" parent="CameraPivotPoint/CameraView" index="1"]
+[node name="Polygon2D" type="Polygon2D" parent="CameraPivotPoint/CameraView"]
 color = Color(1, 0, 0, 0.258824)
 polygon = PackedVector2Array(-160, -64, -160, 64, 0, 0)
 
-[node name="GunSprite" type="AnimatedSprite2D" parent="." index="1"]
+[node name="GunSprite" type="AnimatedSprite2D" parent="."]
 z_index = -1
 position = Vector2(0, 24)
 sprite_frames = ExtResource("4_beff6")
 animation = &"shooting"
+metadata/_edit_group_ = true
 
-[node name="Bullet" parent="GunSprite" index="0" instance=ExtResource("5_vit4w")]
+[node name="Bullet" parent="GunSprite" instance=ExtResource("5_vit4w")]
 position = Vector2(-8, 0)
 rotation = -3.14159
-MAX_ROTATION_SPEED = 45
+MAX_ROTATION_SPEED = 60
 BULLET_SPEED = 1500.0
 
-[node name="TriggerKeySprite" parent="." index="2"]
+[node name="TriggerKeySprite" parent="." instance=ExtResource("5_ehj48")]
 position = Vector2(0, 48)

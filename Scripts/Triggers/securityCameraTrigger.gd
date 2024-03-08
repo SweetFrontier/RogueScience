@@ -5,7 +5,6 @@ class_name securityCameraTrigger
 @export var secondsToSetup: float
 @export var cameraView: Area2D
 @export var cameraSprite: AnimatedSprite2D
-@export var cameraLensArea: Area2D
 @export var gunSprite: AnimatedSprite2D
 
 var currState: SecurityCameraState = SecurityCameraState.INACTIVE
@@ -120,5 +119,7 @@ func CoverInSoda():
 			return
 		SecurityCameraState.MOVINGTOPOSITION:
 			startingPivotRotation = global_rotation
-	pivotProgress = 0
+			pivotProgress = 0
+		SecurityCameraState.INPOSITION:
+			pivotProgress = 0
 	currState = SecurityCameraState.SHUTTINGDOWN

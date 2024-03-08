@@ -34,3 +34,12 @@ func reset():
 		react()
 		button_fade_timer = 0
 		TriggerKeySprite.modulate.a = 0
+
+func destroy():
+	activated = true
+	implodeable_polygon.reset()
+	# Make the block translucent
+	implodeable_polygon.color.a = translucent_opacity
+	body.disable()
+	button_fade_timer = 0
+	TriggerKeySprite.modulate.a = 0

@@ -99,7 +99,7 @@ func _on_camera_caught(body):
 	if !body is movingObject and !body is rigidPlayer:
 		return
 	targetIdentified = true
-	cameraView.set_deferred("monitoring",false)# = false
+	cameraView.set_deferred("monitoring",false)
 	cameraSprite.animation = "deactivated"
 	gunSprite.animation = "default"
 	$CameraPivotPoint/CameraView/Polygon2D.visible = false
@@ -112,6 +112,7 @@ func CoverInSoda():
 	isCoveredInSoda = true
 	cameraSprite.animation = "covered"
 	$CameraPivotPoint/CameraView/Polygon2D.visible = false
+	cameraView.set_deferred("monitoring",false)
 	button_fade_timer = 0
 	TriggerKeySprite.modulate.a = 0
 	match currState:

@@ -3,6 +3,7 @@ class_name rigidPlayer
 
 @export var speed = 300.0
 @export var stickyMultiplier = 0.5
+@export var controlledStickyMultiplier = 0.8
 @export var time_to_rotate_slope = 0.5 # Adjust this for slope rotation
 @export var falling_rotation_speed = 5.0  # Adjust this for falling rotation
 @export var starting_direction = Vector2.RIGHT
@@ -101,7 +102,10 @@ func _integrate_forces(state):
 	if inSoda < 0:
 		inSoda = 0
 	elif inSoda >= 1:
-		gravity_scale = stickyMultiplier
+		if being_controlled:
+			gravity_scale = controlledStickyMultiplier
+		else:
+			gravity_scale = stickyMultiplier
 	if just_reset:
 		#debug line, force to show again because of a glitch
 		AnimatedSprite.show()
@@ -127,8 +131,8 @@ func _integrate_forces(state):
 			if setBodyPos:
 				setBodyPos = false
 		else:
-			state.set_linear_velocity(controlled_lin_vel + state.get_linear_velocity())
-			state.set_angular_velocity(controlled_ang_vel + state.get_angular_velocity())
+			state.set_linear_velocity((controlled_lin_vel + state.get_linear_velocity()) * gravity_scale)
+			state.set_angular_velocity((controlled_ang_vel + state.get_angular_velocity()) * gravity_scale) 
 			clear_cont_vel()
 
 func _physics_process(delta):

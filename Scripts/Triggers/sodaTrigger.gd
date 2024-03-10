@@ -6,6 +6,7 @@ class_name sodaTrigger
 @export var shakeStrength: float = 1
 @export var shakeDecay: float = 0.0167
 @export var launch_speed: float
+@export var splat : bool = true
 @export var bottleSprite: AnimatedSprite2D
 @export var spewSprite: AnimatedSprite2D
 @export var sodaBall: SodaBall
@@ -33,6 +34,7 @@ func _ready():
 	startingPosition = bottleSprite.get_position()
 	$SodaBall.rotation = rotation
 	$SodaBall.LAUNCH_SPEED = launch_speed
+	$SodaBall.splat = splat
 	reset()
 
 func _input(event):

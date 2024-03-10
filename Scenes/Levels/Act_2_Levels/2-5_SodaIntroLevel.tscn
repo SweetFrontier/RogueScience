@@ -1,65 +1,64 @@
 [gd_scene load_steps=10 format=3 uid="uid://b6qmvsn57ae7p"]
 
-[ext_resource type="Script" path="res://Scripts/levelController.gd" id="1_425pw"]
-[ext_resource type="TileSet" uid="uid://bnpggr5480t5q" path="res://Art/TileSets/initialTileSet.tres" id="2_kdgen"]
-[ext_resource type="PackedScene" uid="uid://dd6l6fhpuajke" path="res://Scenes/rigidPlayer.tscn" id="3_8y8e8"]
-[ext_resource type="PackedScene" uid="uid://dvbyxsl5e3ol8" path="res://Scenes/Triggers/Trigger_Helpers/TransitionField.tscn" id="4_d3m23"]
-[ext_resource type="PackedScene" uid="uid://dpeaoe3ad3ahy" path="res://Scenes/Triggers/Trigger_Helpers/brokenVat.tscn" id="5_enbek"]
-[ext_resource type="PackedScene" uid="uid://dnqoj4eg2l7le" path="res://Scenes/Triggers/trampolineTrigger.tscn" id="6_el0p8"]
-[ext_resource type="PackedScene" uid="uid://p8wyqr1wis6" path="res://Scenes/Triggers/InvisibleBlocks/64x32InvisibleBlock.tscn" id="7_vn2qs"]
-[ext_resource type="PackedScene" uid="uid://diaq1g0u7ny5d" path="res://Scenes/Triggers/soda.tscn" id="8_rseco"]
-[ext_resource type="PackedScene" uid="uid://dcf8fjp1cyb11" path="res://Scenes/Triggers/securityCameraTrigger.tscn" id="9_lqr3t"]
+[ext_resource type="Script" path="res://Scripts/levelController.gd" id="1_ody0i"]
+[ext_resource type="TileSet" uid="uid://bnpggr5480t5q" path="res://Art/TileSets/initialTileSet.tres" id="2_4or5h"]
+[ext_resource type="PackedScene" uid="uid://dd6l6fhpuajke" path="res://Scenes/rigidPlayer.tscn" id="3_ore5n"]
+[ext_resource type="PackedScene" uid="uid://dvbyxsl5e3ol8" path="res://Scenes/Triggers/Trigger_Helpers/TransitionField.tscn" id="4_pr0d1"]
+[ext_resource type="PackedScene" uid="uid://dpeaoe3ad3ahy" path="res://Scenes/Triggers/Trigger_Helpers/brokenVat.tscn" id="5_24e3u"]
+[ext_resource type="PackedScene" uid="uid://dnqoj4eg2l7le" path="res://Scenes/Triggers/trampolineTrigger.tscn" id="6_0xohi"]
+[ext_resource type="PackedScene" uid="uid://p8wyqr1wis6" path="res://Scenes/Triggers/InvisibleBlocks/64x32InvisibleBlock.tscn" id="7_dn7tx"]
+[ext_resource type="PackedScene" uid="uid://diaq1g0u7ny5d" path="res://Scenes/Triggers/soda.tscn" id="8_jsaqd"]
+[ext_resource type="PackedScene" uid="uid://dcf8fjp1cyb11" path="res://Scenes/Triggers/securityCameraTrigger.tscn" id="9_8yn4r"]
 
-[node name="2-4_SodaIntro" type="Node2D" node_paths=PackedStringArray("cameraSpot", "player", "transitionField")]
-script = ExtResource("1_425pw")
+[node name="2-5_SodaIntro" type="Node2D" node_paths=PackedStringArray("cameraSpot", "player", "transitionField")]
+script = ExtResource("1_ody0i")
 cameraSpot = NodePath("CenterPosition")
 cameraSize = Vector2(640, 352)
 player = NodePath("rigidPlayer")
 transitionField = NodePath("TransitionField")
-DEBUG_MODE = true
 
 [node name="TileMap" type="TileMap" parent="."]
-tile_set = ExtResource("2_kdgen")
+tile_set = ExtResource("2_4or5h")
 format = 2
 layer_0/tile_data = PackedInt32Array(0, 65539, 1, 65536, 65539, 1, 131072, 65539, 1, 196608, 65539, 1, 262144, 65539, 1, 327680, 65539, 1, 393216, 65539, 1, 458752, 65539, 1, 524288, 65539, 1, 589824, 65539, 1, 655360, 65539, 1, 655361, 65539, 1, 655362, 65539, 1, 655363, 65539, 1, 655364, 65539, 1, 4, 65539, 1, 3, 65539, 1, 2, 65539, 1, 1, 65539, 1, 655365, 65539, 1, 655366, 65539, 1, 655367, 65539, 1, 655368, 65539, 1, 655369, 65539, 1, 655370, 65539, 1, 655371, 65539, 1, 5, 65539, 1, 6, 65539, 1, 7, 65539, 1, 8, 65539, 1, 9, 65539, 1, 10, 65539, 1, 11, 65539, 1, 12, 65539, 1, 655372, 65539, 1, 655373, 65539, 1, 655374, 65539, 1, 655375, 65539, 1, 655376, 65539, 1, 655377, 65539, 1, 13, 65539, 1, 14, 65539, 1, 15, 65539, 1, 16, 65539, 1, 17, 65539, 1, 589838, 196611, 3, 589837, 131075, 3, 524303, 131075, 3, 524304, 196611, 3, 589840, 65539, 1, 589839, 65539, 1, 655378, 65539, 1, 655379, 65539, 1, 589843, 65539, 1, 524307, 65539, 1, 458771, 65539, 1, 393235, 65539, 1, 327699, 65539, 1, 262163, 65539, 1, 196627, 65539, 1, 131091, 65539, 1, 65555, 65539, 1, 19, 65539, 1, 18, 65539, 1)
 
-[node name="rigidPlayer" parent="." instance=ExtResource("3_8y8e8")]
+[node name="rigidPlayer" parent="." instance=ExtResource("3_ore5n")]
 position = Vector2(64, 304)
 starting_direction = Vector2(-1, 0)
 
 [node name="CenterPosition" type="Marker2D" parent="."]
 position = Vector2(320, 176)
 
-[node name="TransitionField" parent="." instance=ExtResource("4_d3m23")]
+[node name="TransitionField" parent="." instance=ExtResource("4_pr0d1")]
 position = Vector2(576, 288)
 
-[node name="brokenVat" parent="." instance=ExtResource("5_enbek")]
+[node name="brokenVat" parent="." instance=ExtResource("5_24e3u")]
 position = Vector2(64, 288)
 
-[node name="trampolineTrigger" parent="." instance=ExtResource("6_el0p8")]
+[node name="trampolineTrigger" parent="." instance=ExtResource("6_0xohi")]
 position = Vector2(224, 304)
 startActivated = true
 
 [node name="TriggerKeySprite" parent="trampolineTrigger" index="1"]
 position = Vector2(0, 32)
 
-[node name="invisibleBlock" parent="." instance=ExtResource("7_vn2qs")]
+[node name="invisibleBlock" parent="." instance=ExtResource("7_dn7tx")]
 position = Vector2(192, 224)
 
-[node name="sodaTrigger" parent="." instance=ExtResource("8_rseco")]
+[node name="sodaTrigger" parent="." instance=ExtResource("8_jsaqd")]
 position = Vector2(320, 288)
 
 [node name="TriggerKeySprite" parent="sodaTrigger" index="2"]
 position = Vector2(0, 48)
 
-[node name="sodaTrigger3" parent="." instance=ExtResource("8_rseco")]
+[node name="sodaTrigger3" parent="." instance=ExtResource("8_jsaqd")]
 position = Vector2(224, 32)
 rotation = 3.14159
 
 [node name="TriggerKeySprite" parent="sodaTrigger3" index="2"]
 position = Vector2(-48, 16)
 
-[node name="securityCameraTrigger" parent="." instance=ExtResource("9_lqr3t")]
+[node name="securityCameraTrigger" parent="." instance=ExtResource("9_8yn4r")]
 position = Vector2(480, 32)
 rotation = -1.5708
 startActivated = true

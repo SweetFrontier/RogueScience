@@ -7,6 +7,7 @@ signal SPLATTED(gPosition : Vector2)
 @export var LAUNCH_SPEED: float
 @export var SPLAT_INTERVAL: int
 @export var SPLAT_RADIUS: int
+@export var splat: bool = true
 
 var currState : SodaBallState = SodaBallState.IDLE
 var startingTransform : Transform2D
@@ -39,8 +40,9 @@ func reset():
 func launch():
 	currState = SodaBallState.LAUNCHING
 
-func splat(gPosition : Vector2):
-	SPLATTED.emit(gPosition)
+func doSplat(gPosition : Vector2):
+	if splat:
+		SPLATTED.emit(gPosition)
 
 func _physics_process(delta):
 	if currState == SodaBallState.RESETTING:
@@ -62,7 +64,7 @@ func _physics_process(delta):
 		splatProgress += 1
 		if splatProgress >= SPLAT_INTERVAL:
 			splatProgress = 0
-			splat(get_global_position())
+			doSplat(get_global_position())
 	velocity.y += gravity * gravity_scale * delta
 	global_position += velocity * delta
 	rotation = velocity.angle()+deg_to_rad(90)
@@ -84,7 +86,7 @@ func _on_body_entered(collider):
 			for r in range(-SPLAT_RADIUS, SPLAT_RADIUS+1):
 				for c in range(-SPLAT_RADIUS, SPLAT_RADIUS+1):
 					if r*r+c*c <= SPLAT_RADIUS*SPLAT_RADIUS:
-						splat(get_global_position()+Vector2(r,c)*32)
+						doSplat(get_global_position()+Vector2(r,c)*32)
 		currState = SodaBallState.EXPLODING
 		gravity_scale = 0
 		velocity = Vector2()

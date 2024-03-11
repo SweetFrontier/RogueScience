@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://vwjnt2j2wbqk"]
+[gd_scene load_steps=46 format=3 uid="uid://vwjnt2j2wbqk"]
 
 [ext_resource type="Script" path="res://Scripts/gameManager.gd" id="1_rlws3"]
 [ext_resource type="Texture2D" uid="uid://bh66sgahohr8e" path="res://Art/Backgrounds/newBackground.png" id="2_wacfr"]
@@ -11,7 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://mq8lonv11ksd" path="res://Scenes/Screens/OptionsMenu.tscn" id="5_qvib5"]
 [ext_resource type="PackedScene" uid="uid://cqidg1783n37c" path="res://Scenes/Levels/Act_1_Levels/1-4_ThreeFallingEyesLevel.tscn" id="6_6ckh7"]
 [ext_resource type="PackedScene" uid="uid://dn5a606vv4xre" path="res://Scenes/Levels/Act_1_Levels/1-5_FourEyesFallingLevel.tscn" id="7_bfaoy"]
-[ext_resource type="PackedScene" uid="uid://capobeay08c0e" path="res://Scenes/Levels/HardInvisblePuzzleLevel.tscn" id="8_6oibd"]
 [ext_resource type="PackedScene" uid="uid://dsf2ti8shnrm3" path="res://Scenes/Levels/Act_1_Levels/1-6_JumpingPathLevel.tscn" id="8_vtxpd"]
 [ext_resource type="PackedScene" uid="uid://dq3bvwpl2bdnx" path="res://Scenes/Levels/Act_1_Levels/1-7_MultiEyeTrampolineLevel.tscn" id="9_k5bmy"]
 [ext_resource type="PackedScene" uid="uid://dkev763y31t6m" path="res://Scenes/Levels/Act_1_Levels/1-8_BouncyLevel.tscn" id="10_175ha"]
@@ -36,6 +35,8 @@
 [ext_resource type="PackedScene" uid="uid://c0o5k4kqpswq7" path="res://Scenes/Levels/Act_2_Levels/2-7_StickyCamerasLevel.tscn" id="19_7otee"]
 [ext_resource type="PackedScene" uid="uid://lj08gsttbwds" path="res://Scenes/Levels/BouncyLevel4.tscn" id="19_l3f8g"]
 [ext_resource type="TileSet" uid="uid://bnpggr5480t5q" path="res://Art/TileSets/initialTileSet.tres" id="19_t5xx0"]
+[ext_resource type="PackedScene" uid="uid://cfcc5yst41opg" path="res://Scenes/Levels/Act_2_Levels/2-8_StickyTimingLevel.tscn" id="20_itf1b"]
+[ext_resource type="PackedScene" uid="uid://cay6f8bfdomyn" path="res://Scenes/Levels/Act_2_Levels/2-9_HardInvisibleLevel.tscn" id="21_igu20"]
 [ext_resource type="PackedScene" uid="uid://bnqsgdg630snx" path="res://Scenes/Levels/TallElevatorLevel.tscn" id="28_oyags"]
 
 [sub_resource type="Animation" id="Animation_gwjdm"]
@@ -133,7 +134,7 @@ _data = {
 
 [node name="Main" type="Node2D" node_paths=PackedStringArray("Levels", "camera", "pauseMenu", "musicPlayer", "Transition", "resetWipeTransition", "resetWipeTransitionContoller")]
 script = ExtResource("1_rlws3")
-Levels = [NodePath("Levels/Act_1/1-1_BreakableIntro"), NodePath("Levels/Act_1/1-2_InvisibleIntro"), NodePath("Levels/Act_1/1-3_BreakableSteps"), NodePath("Levels/Act_1/1-4_ThreeFallingEyesLevel"), NodePath("Levels/Act_1/1-5_FourFallingEyes"), NodePath("Levels/Act_1/1-6_JumpingPathLevel"), NodePath("Levels/Act_1/1-7_MultiEyeTrampoline"), NodePath("Levels/Act_1/1-8_bouncyLevel"), NodePath("Levels/Act_1/1-9_PowerfulTrampoline"), NodePath("Levels/Act_2/2-1_SecurityCameraIntro"), NodePath("Levels/Act_2/2-2_SecurityBallsIntro"), NodePath("Levels/Act_2/2-3_SacrificialBall"), NodePath("Levels/Act_2/2-4_Lasers"), NodePath("Levels/Act_2/2-5_SodaIntro"), NodePath("Levels/Act_2/2-6_StickySecurityBalls"), NodePath("Levels/Act_2/2-7_StickyCameras"), NodePath("Levels/HardInvisible"), NodePath("Levels/TeleportIntro"), NodePath("Levels/YeetTheBall"), NodePath("Levels/ElevatorsIntro"), NodePath("Levels/bouncyLevel2"), NodePath("Levels/BouncyElevator"), NodePath("Levels/TallElevator"), NodePath("Levels/bouncyLevel3"), NodePath("Levels/bouncyLevel4")]
+Levels = [NodePath("Levels/Act_1/1-1_BreakableIntro"), NodePath("Levels/Act_1/1-2_InvisibleIntro"), NodePath("Levels/Act_1/1-3_BreakableSteps"), NodePath("Levels/Act_1/1-4_ThreeFallingEyesLevel"), NodePath("Levels/Act_1/1-5_FourFallingEyes"), NodePath("Levels/Act_1/1-6_JumpingPathLevel"), NodePath("Levels/Act_1/1-7_MultiEyeTrampoline"), NodePath("Levels/Act_1/1-8_bouncyLevel"), NodePath("Levels/Act_1/1-9_PowerfulTrampoline"), NodePath("Levels/Act_2/2-1_SecurityCameraIntro"), NodePath("Levels/Act_2/2-2_SecurityBallsIntro"), NodePath("Levels/Act_2/2-3_SacrificialBall"), NodePath("Levels/Act_2/2-4_Lasers"), NodePath("Levels/Act_2/2-5_SodaIntro"), NodePath("Levels/Act_2/2-6_StickySecurityBalls"), NodePath("Levels/Act_2/2-7_StickyCameras"), NodePath("Levels/Act_2/2-8_StickyTiming"), NodePath("Levels/Act_2/2-9_HardInvisible"), NodePath("Levels/TeleportIntro"), NodePath("Levels/YeetTheBall"), NodePath("Levels/ElevatorsIntro"), NodePath("Levels/bouncyLevel2"), NodePath("Levels/BouncyElevator"), NodePath("Levels/TallElevator"), NodePath("Levels/bouncyLevel3"), NodePath("Levels/bouncyLevel4")]
 camera = NodePath("Camera2D")
 pauseMenu = NodePath("CanvasLayer/PauseMenu")
 musicPlayer = NodePath("MusicPlayer")
@@ -192,7 +193,7 @@ position = Vector2(7968, 128)
 position = Vector2(9584, -160)
 
 [node name="Act_2" type="Node2D" parent="Levels"]
-position = Vector2(0, 1056)
+position = Vector2(0, 1280)
 
 [node name="2-1_SecurityCameraIntro" parent="Levels/Act_2" instance=ExtResource("13_k8ysv")]
 position = Vector2(192, 0)
@@ -207,13 +208,19 @@ position = Vector2(2080, -64)
 position = Vector2(3136, 32)
 
 [node name="2-5_SodaIntro" parent="Levels/Act_2" instance=ExtResource("17_8lumr")]
-position = Vector2(4576, -61)
+position = Vector2(4448, -64)
 
 [node name="2-6_StickySecurityBalls" parent="Levels/Act_2" instance=ExtResource("18_0dw25")]
-position = Vector2(5887, -160)
+position = Vector2(5664, -160)
 
 [node name="2-7_StickyCameras" parent="Levels/Act_2" instance=ExtResource("19_7otee")]
-position = Vector2(6914, -160)
+position = Vector2(6784, -160)
+
+[node name="2-8_StickyTiming" parent="Levels/Act_2" instance=ExtResource("20_itf1b")]
+position = Vector2(8192, -160)
+
+[node name="2-9_HardInvisible" parent="Levels/Act_2" instance=ExtResource("21_igu20")]
+position = Vector2(9472, 0)
 
 [node name="TeleportIntro" parent="Levels" instance=ExtResource("10_dk1u2")]
 position = Vector2(5920, -2336)
@@ -226,9 +233,6 @@ position = Vector2(7296, -2176)
 
 [node name="bouncyLevel2" parent="Levels" instance=ExtResource("11_2or5i")]
 position = Vector2(8320, -2496)
-
-[node name="HardInvisible" parent="Levels" instance=ExtResource("8_6oibd")]
-position = Vector2(5216, -2176)
 
 [node name="BouncyElevator" parent="Levels" instance=ExtResource("18_dpntf")]
 position = Vector2(9280, -2240)

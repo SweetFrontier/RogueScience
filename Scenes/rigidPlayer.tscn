@@ -30,6 +30,8 @@ animations = [{
 size = Vector2(20, 1)
 
 [node name="rigidPlayer" type="RigidBody2D" node_paths=PackedStringArray("AnimatedSprite", "PlayerCollision", "SodaShield", "CrawlSounds", "HitSounds", "floorCollisionArea", "floorCast", "wallCast", "deathExplosion")]
+z_index = 50
+z_as_relative = false
 texture_filter = 1
 collision_layer = 257
 collision_mask = 257
@@ -51,8 +53,6 @@ wallCast = NodePath("wallCast2D")
 deathExplosion = NodePath("Polygon2D")
 
 [node name="PlayerAnimatedSprite" type="AnimatedSprite2D" parent="."]
-z_index = 10
-z_as_relative = false
 sprite_frames = ExtResource("2_b4cfh")
 animation = &"rising"
 autoplay = "crawl"
@@ -60,7 +60,6 @@ offset = Vector2(4, 0)
 
 [node name="SodaShield" type="AnimatedSprite2D" parent="PlayerAnimatedSprite"]
 visible = false
-z_index = 200
 sprite_frames = SubResource("SpriteFrames_rrdhf")
 
 [node name="PlayerCollision" type="CollisionPolygon2D" parent="."]

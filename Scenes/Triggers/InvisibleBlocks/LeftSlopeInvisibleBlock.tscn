@@ -19,7 +19,7 @@ sound_child = NodePath("AudioStreamPlayer2D")
 TriggerKeySprite = NodePath("TriggerKeySprite")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
-z_index = 4
+z_index = 30
 z_as_relative = false
 texture_filter = 1
 texture = ExtResource("2_3noy5")
@@ -53,6 +53,7 @@ position = Vector2(0, 32)
 polygon = PackedVector2Array(0, -32, 64, 0, 0, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D/CollisionPolygon2D"]
+z_index = 29
 texture = ExtResource("5_8jbbm")
 offset = Vector2(32, -16)
 

@@ -178,7 +178,7 @@ position = Vector2(2272, 128)
 position = Vector2(3232, 134)
 
 [node name="1-5_FourFallingEyes" parent="Levels/Act_1" instance=ExtResource("7_bfaoy")]
-position = Vector2(4736, 0)
+position = Vector2(4735, 0)
 
 [node name="1-6_JumpingPathLevel" parent="Levels/Act_1" instance=ExtResource("8_vtxpd")]
 position = Vector2(5888, 128)

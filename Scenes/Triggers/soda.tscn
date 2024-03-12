@@ -99,6 +99,8 @@ animations = [{
 }]
 
 [node name="sodaTrigger" node_paths=PackedStringArray("bottleSprite", "spewSprite", "sodaBall") instance=ExtResource("1_ud7se")]
+z_index = 40
+z_as_relative = false
 script = ExtResource("2_w7a00")
 explosionThreshold = 40.0
 shakeStrength = 5.0
@@ -121,7 +123,6 @@ position = Vector2(0, -40)
 sprite_frames = SubResource("SpriteFrames_jtjnx")
 
 [node name="SodaBall" parent="." index="1" instance=ExtResource("7_bn3nb")]
-z_index = -1
 LAUNCH_SPEED = 1000.0
 SPLAT_INTERVAL = 2
 SPLAT_RADIUS = 3

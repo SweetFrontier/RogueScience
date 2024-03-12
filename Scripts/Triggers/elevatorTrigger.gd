@@ -64,14 +64,12 @@ func _physics_process(delta):
 	if !occupied or reached_stop:
 		return
 	if !riderInPosition:
-		if ridingBody is Player:
-			ridingBody.rotate_player_on_arc(delta)
 		moveRiderToStarting(delta)
 	if moving_elevator:
 		moveElevator(delta)
 
 func _on_body_entered(body):
-	if !body is Player and !body is movingObject and !body is rigidPlayer:
+	if !body is movingObject and !body is rigidPlayer:
 		return
 	if activated and body != self and !occupied and body != ridingBody:
 		override_movement(body)

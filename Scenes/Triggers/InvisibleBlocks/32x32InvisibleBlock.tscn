@@ -23,7 +23,7 @@ button = 66
 TriggerKeySprite = NodePath("TriggerKeySprite")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
-z_index = 4
+z_index = 30
 z_as_relative = false
 texture_filter = 1
 texture = ExtResource("2_jokhr")
@@ -58,6 +58,8 @@ shape = SubResource("RectangleShape2D_va747")
 one_way_collision_margin = 0.0
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D/CollisionShape2D"]
+z_index = 29
+z_as_relative = false
 texture = ExtResource("6_qnvf6")
 
 [node name="LeftSide" type="StaticBody2D" parent="StaticBody2D"]

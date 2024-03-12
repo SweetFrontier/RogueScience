@@ -25,6 +25,8 @@ animations = [{
 radius = 16.0
 
 [node name="movingObject" type="RigidBody2D" node_paths=PackedStringArray("floorDetector", "sprite", "SodaShield", "collisionShape", "soundPlayer", "deathExplosion")]
+z_index = 51
+z_as_relative = false
 collision_layer = 257
 collision_mask = 3
 mass = 10000.0
@@ -38,8 +40,6 @@ soundPlayer = NodePath("hittingSounds")
 deathExplosion = NodePath("DeathExplosion")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-z_index = 9
-z_as_relative = false
 texture = ExtResource("2_6v5ui")
 
 [node name="SodaShield" type="AnimatedSprite2D" parent="."]
@@ -48,6 +48,7 @@ z_index = 9
 sprite_frames = SubResource("SpriteFrames_qe4re")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("CircleShape2D_pygtm")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]

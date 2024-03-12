@@ -129,8 +129,6 @@ func _physics_process(delta):
 	if !occupied:
 		return
 	if !riderInPosition:
-		if ridingBody is Player:
-			ridingBody.rotate_player_on_arc(delta)
 		moveRiderToStarting(delta)
 	if teleporting:
 		teleport(delta)
@@ -145,7 +143,7 @@ func onT2BodyExited(body):
 	_on_body_exited(body, teleporter2)
 
 func _on_body_entered(body, teleporter):
-	if !body is Player and !body is movingObject and !body is rigidPlayer:
+	if !body is movingObject and !body is rigidPlayer:
 		return
 	if t1Occupied or t2Occupied:
 		return
@@ -164,7 +162,7 @@ func _on_body_entered(body, teleporter):
 			body.set_freed_vel(body.angular_velocity, body.linear_velocity)
 
 func _on_body_exited(body, teleporter):
-	if !body is Player and !body is movingObject and !body is rigidPlayer:
+	if !body is movingObject and !body is rigidPlayer:
 		return
 	if teleporting:
 		return

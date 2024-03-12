@@ -15,11 +15,15 @@ area2D = NodePath("BounceArea")
 BlockSprite = NodePath("BlockSprite")
 MoveToPosition = NodePath("MoveToPosition")
 Sound = NodePath("TrampolineSounds")
+startActivated = null
+one_shot = null
 button = 77
 TriggerKeySprite = NodePath("TriggerKeySprite")
+button_fade_duration = null
+moveRiderTime = null
 
 [node name="BlockSprite" type="AnimatedSprite2D" parent="."]
-z_index = 15
+z_index = 70
 z_as_relative = false
 sprite_frames = ExtResource("2_k65r4")
 animation = &"deactivated"

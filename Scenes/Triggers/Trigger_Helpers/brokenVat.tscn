@@ -1,10 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://dpeaoe3ad3ahy"]
+[gd_scene load_steps=8 format=3 uid="uid://dpeaoe3ad3ahy"]
 
 [ext_resource type="Texture2D" uid="uid://b00etgk7pv0fo" path="res://Art/TriggerArt/GooVat/plhVatFrameBroken.png" id="1_7c2hr"]
 [ext_resource type="Texture2D" uid="uid://cxqpof3saa00t" path="res://Art/TriggerArt/GooVat/GooTankBroken64x64.png" id="1_c7vlk"]
 [ext_resource type="Texture2D" uid="uid://8xutmblcuy3c" path="res://Art/TriggerArt/GooVat/plhVatFrame.png" id="2_h0awu"]
-[ext_resource type="Texture2D" uid="uid://cfgdius8p2kok" path="res://Art/TriggerArt/GooVat/plhVatGooSpilled.png" id="3_r373a"]
-[ext_resource type="Texture2D" uid="uid://d2xgfn6gtr3jt" path="res://Art/TriggerArt/GooVat/plhVatGoo.png" id="4_7cqub"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ygv8y"]
 atlas = ExtResource("1_c7vlk")
@@ -40,46 +38,10 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_u1sm0"]
-atlas = ExtResource("3_r373a")
-region = Rect2(0, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_sgbne"]
-atlas = ExtResource("4_7cqub")
-region = Rect2(0, 0, 64, 64)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_jnkcq"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_u1sm0")
-}],
-"loop": true,
-"name": &"broken",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_sgbne")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
 [node name="brokenVat" type="Node2D"]
 
 [node name="VatFrame" type="AnimatedSprite2D" parent="."]
-z_index = -2
+z_index = -25
 z_as_relative = false
-scale = Vector2(1, 1)
 sprite_frames = SubResource("SpriteFrames_tf07t")
-animation = &"broken"
-
-[node name="VatGoo" type="AnimatedSprite2D" parent="."]
-visible = false
-z_index = -3
-z_as_relative = false
-scale = Vector2(1, 1)
-sprite_frames = SubResource("SpriteFrames_jnkcq")
 animation = &"broken"

@@ -47,12 +47,9 @@ func _physics_process(delta):
 	else:
 		if ridingBody.is_on_floor() and rider_freeable:
 			free_movement()
-		elif ridingBody is Player:
-			ridingBody.velocity.y += gravity * delta
-			ridingBody.move_and_slide()
 
 func _on_body_entered(body):
-	if !body is Player and !body is movingObject and !body is rigidPlayer:
+	if !body is movingObject and !body is rigidPlayer:
 		return
 	if body == ridingBody:
 		override_movement(body)

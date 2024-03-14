@@ -1,7 +1,8 @@
-[gd_resource type="TileSet" load_steps=6 format=3 uid="uid://bnpggr5480t5q"]
+[gd_resource type="TileSet" load_steps=7 format=3 uid="uid://bnpggr5480t5q"]
 
 [ext_resource type="Texture2D" uid="uid://vrgbmurtm5pg" path="res://Art/Spritesheets/initial_tileset.png" id="1_u11lb"]
 [ext_resource type="Texture2D" uid="uid://nhopbnxm5cxy" path="res://Art/Spritesheets/BasesetTiles.png" id="2_fibfm"]
+[ext_resource type="Texture2D" uid="uid://bxmlwrdj0dqnw" path="res://Art/TileSets/Act1Tileset.png" id="3_polfq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lc8m1"]
 texture = ExtResource("1_u11lb")
@@ -385,7 +386,7 @@ texture_region_size = Vector2i(32, 32)
 7:9/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dxm0x"]
-texture = ExtResource("2_fibfm")
+texture = ExtResource("3_polfq")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)

@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://0dr66cb6xcya"]
+[gd_scene load_steps=14 format=3 uid="uid://0dr66cb6xcya"]
 
 [ext_resource type="Script" path="res://Scripts/levelController.gd" id="1_rq1ga"]
+[ext_resource type="Texture2D" uid="uid://hi1umfgi61ck" path="res://Art/Backgrounds/Act1/Act1-9_BG.png" id="2_lhfn6"]
 [ext_resource type="TileSet" uid="uid://bnpggr5480t5q" path="res://Art/TileSets/initialTileSet.tres" id="2_rrha3"]
 [ext_resource type="PackedScene" uid="uid://dd6l6fhpuajke" path="res://Scenes/rigidPlayer.tscn" id="3_1g3ci"]
 [ext_resource type="PackedScene" uid="uid://dvbyxsl5e3ol8" path="res://Scenes/Triggers/Trigger_Helpers/TransitionField.tscn" id="4_u7b7e"]
@@ -19,6 +20,12 @@ cameraSpot = NodePath("CenterPosition")
 cameraSize = Vector2(768, 832)
 player = NodePath("rigidPlayer")
 transitionField = NodePath("TransitionField")
+
+[node name="Act1-9Bg" type="Sprite2D" parent="."]
+z_index = -100
+z_as_relative = false
+position = Vector2(384, 400)
+texture = ExtResource("2_lhfn6")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("2_rrha3")
@@ -124,7 +131,7 @@ jump_force = 1400.0
 startActivated = true
 
 [node name="64x64breakableBlock" parent="." instance=ExtResource("11_5qchg")]
-position = Vector2(32, 512)
+position = Vector2(32, 256)
 metadata/_edit_group_ = true
 
 [node name="TriggerKeySprite" parent="64x64breakableBlock" index="2"]

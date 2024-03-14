@@ -193,7 +193,7 @@ position = Vector2(7968, 128)
 position = Vector2(9584, -160)
 
 [node name="Act_2" type="Node2D" parent="Levels"]
-position = Vector2(0, 1280)
+position = Vector2(0, 3104)
 
 [node name="2-1_SecurityCameraIntro" parent="Levels/Act_2" instance=ExtResource("13_k8ysv")]
 position = Vector2(192, 0)

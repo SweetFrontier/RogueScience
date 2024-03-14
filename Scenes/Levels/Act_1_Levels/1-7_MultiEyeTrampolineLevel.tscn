@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://dq3bvwpl2bdnx"]
+[gd_scene load_steps=12 format=3 uid="uid://dq3bvwpl2bdnx"]
 
 [ext_resource type="Script" path="res://Scripts/levelController.gd" id="1_a0fq1"]
 [ext_resource type="TileSet" uid="uid://bnpggr5480t5q" path="res://Art/TileSets/initialTileSet.tres" id="2_1ybqp"]
+[ext_resource type="Texture2D" uid="uid://caxri37q6n2ak" path="res://Art/Backgrounds/Act1/Act1-7_BG.png" id="2_yf18w"]
 [ext_resource type="PackedScene" uid="uid://dd6l6fhpuajke" path="res://Scenes/rigidPlayer.tscn" id="3_vdqlt"]
 [ext_resource type="PackedScene" uid="uid://dvbyxsl5e3ol8" path="res://Scenes/Triggers/Trigger_Helpers/TransitionField.tscn" id="4_oj2ii"]
 [ext_resource type="PackedScene" uid="uid://dxkklnkpsn70w" path="res://Scenes/Triggers/BreakableBlocks/32x32breakableBlock.tscn" id="5_edm15"]
@@ -17,6 +18,10 @@ cameraSpot = NodePath("CenterPosition")
 cameraSize = Vector2(576, 512)
 player = NodePath("rigidPlayer")
 transitionField = NodePath("TransitionField")
+
+[node name="Act1-7Bg" type="Sprite2D" parent="."]
+position = Vector2(288, 256)
+texture = ExtResource("2_yf18w")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("2_1ybqp")

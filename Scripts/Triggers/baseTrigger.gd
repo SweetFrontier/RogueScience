@@ -73,7 +73,7 @@ func hide_key():
 
 func _input(event):
 	# Check if the associated button is pressed and the trigger is active.
-	if event is InputEventKey and event.keycode == button and event.pressed and !activated:
+	if event is InputEventKey and event.keycode == button and event.pressed and !activated and event.echo == false:
 		react()  # Call the react method when the button is pressed.
 		emit_signal("remove_key_signal",self,button)
 		emit_signal("randomize_block_keys_signal")

@@ -10,6 +10,8 @@ class_name levelController
 
 var triggerBlocks : Array[baseTrigger]
 var movingObjects : Array[movingObject]
+var magnetTriggers : Array[magnetTrigger]
+var magneticMovingObjects : Array[movingObject]
 var remainingTriggerBlocks : Array[baseTrigger]
 var availableKeys : Array
 var isCurrentLevel : bool = false
@@ -22,8 +24,12 @@ func _ready():
 				triggerBlocks.append(child)
 				child.connect("remove_key_signal", remove_key)
 				child.connect("randomize_block_keys_signal", randomize_block_keys)
+				if child is magnetTrigger:
+					magnetTriggers.append(child)
 			elif child is movingObject:
 				movingObjects.append(child)
+				if child.magnetic:
+					magneticMovingObjects.append(child)
 		reset();
 	else:
 		#hide the player until the level starts
@@ -34,11 +40,19 @@ func _ready():
 				triggerBlocks.append(child)
 				child.connect("remove_key_signal", remove_key)
 				child.connect("randomize_block_keys_signal", randomize_block_keys)
+				if child is magnetTrigger:
+					magnetTriggers.append(child)
 			elif child is movingObject:
 				child.hide()
 				movingObjects.append(child)
 				if player != null:
 					child.setPlayer(player)
+				if child.magnetic:
+					magneticMovingObjects.append(child)
+	
+	#Give each Magnetic Moving Object a reference to each Magnet in the scene
+	for magneticObject in magneticMovingObjects:
+		magneticObject.magnetTriggers = magnetTriggers.duplicate()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):

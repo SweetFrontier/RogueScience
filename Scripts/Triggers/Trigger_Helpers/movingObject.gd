@@ -2,7 +2,9 @@ extends RigidBody2D
 class_name movingObject
 
 @export var stickyMultiplier = 0.8
+@export var magnetic: bool = false
 @export var followPlayer: bool = true
+@export var maxMagnetVelocity: float
 @export var floorDetector: RayCast2D	
 @export var sprite: Sprite2D
 @export var SodaShield: AnimatedSprite2D
@@ -31,6 +33,7 @@ var last_vel_x : float = 0
 var last_vel_y : float = 0
 var inSoda : int = 0
 var isShielded : bool = false
+var magnetTriggers : Array[magnetTrigger]
 
 func _ready():
 	starting_transform = get_global_transform()
@@ -94,6 +97,10 @@ func _integrate_forces(state):
 	state.set_linear_velocity(state.linear_velocity * gravity_scale)
 	state.set_angular_velocity(state.angular_velocity * gravity_scale)
 	
+	#magnetic field forces
+	if magnetic:
+		state.set_linear_velocity(calc_magnetic_forces(magnetTriggers) + state.get_linear_velocity())
+	
 	if just_destroyed:
 		#state.set_linear_velocity(Vector2())
 		state.set_angular_velocity(0.0)
@@ -135,7 +142,22 @@ func _integrate_forces(state):
 	if (!being_controlled):
 		last_vel_x = linear_velocity.x
 		last_vel_y = linear_velocity.y
-	
+
+func calc_magnetic_forces(magnets:Array[magnetTrigger]):
+	var magnetic_linear_velocity = Vector2()
+	for magnet in magnets:
+		var direction = magnet.location - global_position
+		direction = direction.normalized()
+		
+		var distance = global_position.distance_to(magnet.location)
+		
+		#Change this section to change how fast the force shrinks over distance
+		#Real life is distance^2, which just feels terrible
+		var force = magnet.strength / sqrt(distance)
+		force = clamp(force, -maxMagnetVelocity, maxMagnetVelocity)
+		
+		magnetic_linear_velocity += direction * force
+	return magnetic_linear_velocity
 
 func movement_overwritten(_movement_overrider):
 	being_controlled = true

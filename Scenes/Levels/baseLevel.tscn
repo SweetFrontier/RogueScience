@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://1xasoo80ygld"]
+[gd_scene load_steps=14 format=3 uid="uid://1xasoo80ygld"]
 
 [ext_resource type="Script" path="res://Scripts/levelController.gd" id="1_btnfb"]
 [ext_resource type="TileSet" uid="uid://bnpggr5480t5q" path="res://Art/TileSets/initialTileSet.tres" id="2_esq4l"]
@@ -11,6 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://diaq1g0u7ny5d" path="res://Scenes/Triggers/soda.tscn" id="9_v1e5y"]
 [ext_resource type="PackedScene" uid="uid://dcf8fjp1cyb11" path="res://Scenes/Triggers/securityCameraTrigger.tscn" id="10_dl7pq"]
 [ext_resource type="PackedScene" uid="uid://cl0g2o3284xxy" path="res://Scenes/Triggers/InvisibleBlocks/32x32InvisibleBlock.tscn" id="11_rdrg7"]
+[ext_resource type="PackedScene" uid="uid://dlkccgjxhbsdg" path="res://Scenes/Triggers/magnetTrigger.tscn" id="12_sw1qv"]
+[ext_resource type="PackedScene" uid="uid://cbygtk7mevpmo" path="res://Scenes/Triggers/Trigger_Helpers/MagneticObjects/MagneticBall32x32.tscn" id="13_xx1ey"]
 
 [node name="baseLevel" type="Node2D" node_paths=PackedStringArray("cameraSpot", "player", "transitionField")]
 texture_filter = 1
@@ -40,7 +42,7 @@ position = Vector2(240, 128)
 position = Vector2(-96, 288)
 
 [node name="rigidPlayer" parent="." instance=ExtResource("6_jf1j1")]
-position = Vector2(72, 176)
+position = Vector2(160, 312)
 
 [node name="trampolineTrigger" parent="." instance=ExtResource("6_0y03v")]
 position = Vector2(1000, 480)
@@ -54,13 +56,13 @@ moveRiderTime = 1.0
 position = Vector2(296, 128)
 
 [node name="invisibleBlock2" parent="." instance=ExtResource("8_v56lq")]
-position = Vector2(320, 416)
+position = Vector2(920, 419)
 
 [node name="32x64breakableBlock" parent="." instance=ExtResource("9_dcwt3")]
 position = Vector2(800, 576)
 
 [node name="sodaTrigger" parent="." instance=ExtResource("9_v1e5y")]
-position = Vector2(168, 192)
+position = Vector2(216, 339)
 metadata/_edit_group_ = true
 
 [node name="securityCameraTrigger" parent="." instance=ExtResource("10_dl7pq")]
@@ -79,7 +81,14 @@ position = Vector2(272, 160)
 position = Vector2(-8, 160)
 
 [node name="invisibleBlock" parent="." instance=ExtResource("11_rdrg7")]
-position = Vector2(152, 160)
+position = Vector2(240, 280)
+
+[node name="magnetTrigger" parent="." instance=ExtResource("12_sw1qv")]
+position = Vector2(176, 112)
+strengthAmplitude = 2000.0
+
+[node name="MagneticBall32x32" parent="." instance=ExtResource("13_xx1ey")]
+position = Vector2(848, 464)
 
 [editable path="sodaTrigger"]
 [editable path="securityCameraTrigger"]

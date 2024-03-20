@@ -1,0 +1,88 @@
+[gd_scene load_steps=13 format=3 uid="uid://dlkccgjxhbsdg"]
+
+[ext_resource type="Script" path="res://Scripts/Triggers/magnetTrigger.gd" id="1_a4tog"]
+[ext_resource type="Texture2D" uid="uid://d4csp4htvaefl" path="res://Art/TriggerArt/Magnet/plhMagnetInactive.png" id="2_gejr7"]
+[ext_resource type="Texture2D" uid="uid://bndyjwipmr6ap" path="res://Art/TriggerArt/Magnet/plhMagnetNeutral.png" id="3_bvaru"]
+[ext_resource type="Texture2D" uid="uid://06s1v5a1lpuf" path="res://Art/TriggerArt/Magnet/plhMagnetPulling.png" id="4_fbrop"]
+[ext_resource type="Texture2D" uid="uid://cbmvo7p83w266" path="res://Art/TriggerArt/Magnet/plhMagnetPushing.png" id="5_i0obu"]
+[ext_resource type="PackedScene" uid="uid://djjr177758y2h" path="res://Scenes/Triggers/Trigger_Helpers/triggerKey.tscn" id="5_nqqyp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_45t3s"]
+atlas = ExtResource("2_gejr7")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lh8gd"]
+atlas = ExtResource("3_bvaru")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_duhsa"]
+atlas = ExtResource("4_fbrop")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_54at6"]
+atlas = ExtResource("5_i0obu")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yup5f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_45t3s")
+}],
+"loop": true,
+"name": &"inactive",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lh8gd")
+}],
+"loop": true,
+"name": &"neutral",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_duhsa")
+}],
+"loop": true,
+"name": &"pulling",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_54at6")
+}],
+"loop": true,
+"name": &"pushing",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ffuhi"]
+size = Vector2(40, 52)
+
+[node name="magnetTrigger" type="Node2D" node_paths=PackedStringArray("magnetSprite", "magneticSourcePoint", "TriggerKeySprite")]
+script = ExtResource("1_a4tog")
+strengthAmplitude = 20.0
+startingPolarity = 1
+magnetSprite = NodePath("MagnetSprite")
+magneticSourcePoint = NodePath("MagnetSprite/MagneticSourcePoint")
+one_shot = false
+TriggerKeySprite = NodePath("TriggerKeySprite")
+
+[node name="MagnetSprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_yup5f")
+animation = &"pushing"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="MagnetSprite"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MagnetSprite/StaticBody2D"]
+visible = false
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_ffuhi")
+
+[node name="MagneticSourcePoint" type="Marker2D" parent="MagnetSprite"]
+position = Vector2(0, 32)
+
+[node name="TriggerKeySprite" parent="." instance=ExtResource("5_nqqyp")]
+position = Vector2(0, 64)

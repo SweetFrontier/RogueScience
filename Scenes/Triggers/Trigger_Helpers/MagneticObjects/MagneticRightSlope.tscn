@@ -1,13 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://c0eghc3oa7752"]
+[gd_scene load_steps=9 format=3 uid="uid://bchrj88cennsy"]
 
-[ext_resource type="Script" path="res://Scripts/Triggers/Trigger_Helpers/movingObject.gd" id="1_kg8bi"]
-[ext_resource type="Texture2D" uid="uid://d07soj2hvu8u3" path="res://Art/TriggerArt/MovingObject/MovingEye.png" id="2_6v5ui"]
-[ext_resource type="AudioStream" uid="uid://cbl8qb0gk6iiq" path="res://Sounds/hitsomething.ogg" id="3_lawhx"]
-[ext_resource type="Texture2D" uid="uid://bctxuq8plm2r2" path="res://Art/TriggerArt/MovingObject/plhSodaShield.png" id="3_p14n0"]
-[ext_resource type="Script" path="res://Scripts/Triggers/Trigger_Helpers/explodeablePolygon.gd" id="4_dtmf2"]
+[ext_resource type="Script" path="res://Scripts/Triggers/Trigger_Helpers/movingObject.gd" id="1_3ifdr"]
+[ext_resource type="Texture2D" uid="uid://c6b4wy8ura8bp" path="res://Art/TriggerArt/MovingObject/plhMagneticRightSlope.png" id="2_6wgs6"]
+[ext_resource type="Texture2D" uid="uid://bctxuq8plm2r2" path="res://Art/TriggerArt/MovingObject/plhSodaShield.png" id="3_ssse4"]
+[ext_resource type="AudioStream" uid="uid://cbl8qb0gk6iiq" path="res://Sounds/hitsomething.ogg" id="4_kqs84"]
+[ext_resource type="Script" path="res://Scripts/Triggers/Trigger_Helpers/explodeablePolygon.gd" id="5_a4kxg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m0v1t"]
-atlas = ExtResource("3_p14n0")
+atlas = ExtResource("3_ssse4")
 region = Rect2(0, 0, 38, 38)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qe4re"]
@@ -21,17 +21,21 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_pygtm"]
-radius = 16.0
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_i07ao"]
+points = PackedVector2Array(14, -19, 16, -17, 16, 10, 14, 12, -44, 12, -46, 11)
 
-[node name="movingObject" type="RigidBody2D" node_paths=PackedStringArray("floorDetector", "sprite", "SodaShield", "collisionShape", "soundPlayer", "deathExplosion")]
+[node name="MagneticRightSlope" type="RigidBody2D" node_paths=PackedStringArray("floorDetector", "sprite", "SodaShield", "collisionShape", "soundPlayer", "deathExplosion")]
 z_index = 51
 z_as_relative = false
 collision_layer = 321
-collision_mask = 3
+collision_mask = 67
 mass = 10000.0
 can_sleep = false
-script = ExtResource("1_kg8bi")
+script = ExtResource("1_3ifdr")
+magnetic = true
+followPlayer = false
+maxSingleMagnetVelocity = 100.0
+maxMagnetVelocity = 20.0
 floorDetector = NodePath("RayCast2D")
 sprite = NodePath("Sprite2D")
 SodaShield = NodePath("SodaShield")
@@ -40,7 +44,8 @@ soundPlayer = NodePath("hittingSounds")
 deathExplosion = NodePath("DeathExplosion")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_6v5ui")
+position = Vector2(-16, -4)
+texture = ExtResource("2_6wgs6")
 
 [node name="SodaShield" type="AnimatedSprite2D" parent="."]
 visible = false
@@ -49,7 +54,7 @@ sprite_frames = SubResource("SpriteFrames_qe4re")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
-shape = SubResource("CircleShape2D_pygtm")
+shape = SubResource("ConvexPolygonShape2D_i07ao")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 target_position = Vector2(0, 17)
@@ -57,17 +62,18 @@ collision_mask = 3
 hit_from_inside = true
 
 [node name="hittingSounds" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_lawhx")
+stream = ExtResource("4_kqs84")
 pitch_scale = 0.5
 bus = &"Sound Effects"
 
 [node name="DeathExplosion" type="Polygon2D" parent="."]
 process_mode = 3
 visible = false
-texture = ExtResource("2_6v5ui")
-texture_offset = Vector2(16, 16)
-polygon = PackedVector2Array(16, -16, 16, 16, -16, 16, -16, -16)
-script = ExtResource("4_dtmf2")
+position = Vector2(-16, 12)
+texture = ExtResource("2_6wgs6")
+texture_offset = Vector2(32, 32)
+polygon = PackedVector2Array(32, -32, 32, 0, -32, 0, -32, -32)
+script = ExtResource("5_a4kxg")
 shard_count = 256
 shard_shrink_rate = 0.99
 x_init_velocity = 20

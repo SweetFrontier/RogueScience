@@ -4,6 +4,7 @@ class_name movingObject
 @export var stickyMultiplier = 0.8
 @export var magnetic: bool = false
 @export var followPlayer: bool = true
+@export var maxSingleMagnetVelocity: float
 @export var maxMagnetVelocity: float
 @export var floorDetector: RayCast2D	
 @export var sprite: Sprite2D
@@ -150,13 +151,12 @@ func calc_magnetic_forces(magnets:Array[magnetTrigger]):
 		direction = direction.normalized()
 		
 		var distance = global_position.distance_to(magnet.location)
-		
+		#print(distance)
 		#Change this section to change how fast the force shrinks over distance
 		#Real life is distance^2, which just feels terrible
-		var force = magnet.strength / sqrt(distance)
-		force = clamp(force, -maxMagnetVelocity, maxMagnetVelocity)
-		
-		magnetic_linear_velocity += direction * force
+		var force = magnet.strength / distance
+		magnetic_linear_velocity += (direction * force).clamp(Vector2(-maxSingleMagnetVelocity,-maxSingleMagnetVelocity), Vector2(maxSingleMagnetVelocity,maxSingleMagnetVelocity))
+	magnetic_linear_velocity = magnetic_linear_velocity.clamp(Vector2(-maxMagnetVelocity,-maxMagnetVelocity), Vector2(maxMagnetVelocity,maxMagnetVelocity))
 	return magnetic_linear_velocity
 
 func movement_overwritten(_movement_overrider):

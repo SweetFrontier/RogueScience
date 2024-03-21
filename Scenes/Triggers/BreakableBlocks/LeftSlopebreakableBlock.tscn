@@ -41,7 +41,6 @@ position = Vector2(32, 64)
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-visible = false
 polygon = PackedVector2Array(0, 0, 0, 32, 64, 32)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]

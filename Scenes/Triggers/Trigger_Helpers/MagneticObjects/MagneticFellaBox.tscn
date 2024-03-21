@@ -1,0 +1,106 @@
+[gd_scene load_steps=10 format=3 uid="uid://cb4i64k02myvh"]
+
+[ext_resource type="Script" path="res://Scripts/Triggers/Trigger_Helpers/movingObject.gd" id="1_pa0km"]
+[ext_resource type="Texture2D" uid="uid://cin483kgy7yjg" path="res://Art/TriggerArt/MovingObject/plhFellaBox.png" id="2_lpte8"]
+[ext_resource type="Texture2D" uid="uid://bctxuq8plm2r2" path="res://Art/TriggerArt/MovingObject/plhSodaShield.png" id="3_4bq0t"]
+[ext_resource type="AudioStream" uid="uid://cbl8qb0gk6iiq" path="res://Sounds/hitsomething.ogg" id="4_ticff"]
+[ext_resource type="Script" path="res://Scripts/Triggers/Trigger_Helpers/explodeablePolygon.gd" id="5_a2wo4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m0v1t"]
+atlas = ExtResource("3_4bq0t")
+region = Rect2(0, 0, 38, 38)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qe4re"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m0v1t")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="ConcavePolygonShape2D" id="ConcavePolygonShape2D_kvaxj"]
+segments = PackedVector2Array(-32, -15, 32, -15, -32, 15, 32, 15)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tuno6"]
+size = Vector2(2, 28)
+
+[node name="MagneticFellaBox" type="RigidBody2D" node_paths=PackedStringArray("floorDetector", "sprite", "SodaShield", "collisionShape", "soundPlayer", "deathExplosion")]
+z_index = 51
+z_as_relative = false
+collision_layer = 321
+collision_mask = 67
+mass = 10000.0
+can_sleep = false
+script = ExtResource("1_pa0km")
+magnetic = true
+followPlayer = false
+maxSingleMagnetVelocity = 100.0
+maxMagnetVelocity = 20.0
+floorDetector = NodePath("RayCast2D")
+sprite = NodePath("Sprite2D")
+SodaShield = NodePath("SodaShield")
+collisionShape = NodePath("CollisionShape2D")
+soundPlayer = NodePath("hittingSounds")
+deathExplosion = NodePath("DeathExplosion")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_lpte8")
+
+[node name="SodaShield" type="AnimatedSprite2D" parent="."]
+visible = false
+z_index = 9
+sprite_frames = SubResource("SpriteFrames_qe4re")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("ConcavePolygonShape2D_kvaxj")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(0, 17)
+collision_mask = 3
+hit_from_inside = true
+
+[node name="hittingSounds" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_ticff")
+pitch_scale = 0.5
+bus = &"Sound Effects"
+
+[node name="DeathExplosion" type="Polygon2D" parent="."]
+process_mode = 3
+visible = false
+position = Vector2(0, 16)
+texture = ExtResource("2_lpte8")
+texture_offset = Vector2(32, 32)
+polygon = PackedVector2Array(32, -32, 32, 0, -32, 0, -32, -32)
+script = ExtResource("5_a2wo4")
+shard_count = 256
+shard_shrink_rate = 0.99
+x_init_velocity = 20
+y_init_velocity = 40
+shard_speed = 12.0
+rotation_speed = 0.1
+shard_gravity = 40.0
+x_max_distance = 10
+x_min_distance = -10
+y_max_distance = 10
+y_min_distance = -10
+time_to_form = 2.0
+metadata/_edit_group_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(31, 0)
+collision_layer = 64
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_tuno6")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(-31, 0)
+collision_layer = 64
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+shape = SubResource("RectangleShape2D_tuno6")

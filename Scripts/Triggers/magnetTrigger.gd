@@ -43,13 +43,18 @@ func react():
 		MagnetState.PULLING:
 			lastPolarityState = MagnetState.PULLING
 			currState = MagnetState.NEUTRAL
-			strength = -strengthAmplitude
+			strength = 0
 		MagnetState.PUSHING:
 			lastPolarityState = MagnetState.PUSHING
 			currState = MagnetState.NEUTRAL
-			strength = strengthAmplitude
+			strength = 0
 		MagnetState.NEUTRAL:
-			currState = MagnetState.PULLING if lastPolarityState == MagnetState.PUSHING else MagnetState.PUSHING
+			if(lastPolarityState == MagnetState.PUSHING):
+				currState = MagnetState.PULLING
+				strength = -strengthAmplitude
+			else:
+				currState = MagnetState.PUSHING
+				strength = strengthAmplitude
 	magnetSprite.animation = stateToAnimString[currState]
 	magnetSprite.frame = 0
 

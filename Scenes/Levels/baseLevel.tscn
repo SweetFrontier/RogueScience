@@ -48,10 +48,10 @@ position = Vector2(240, 128)
 position = Vector2(-96, 288)
 
 [node name="rigidPlayer" parent="." instance=ExtResource("6_jf1j1")]
-position = Vector2(80, 208)
+position = Vector2(16, 104)
 
 [node name="trampolineTrigger" parent="." instance=ExtResource("6_0y03v")]
-position = Vector2(1000, 480)
+position = Vector2(152, 192)
 rotation = 0.47822
 startActivated = false
 one_shot = true
@@ -101,25 +101,25 @@ strengthAmplitude = 10000.0
 position = Vector2(400, 189)
 
 [node name="MagneticRightSlope" parent="." instance=ExtResource("14_2c12l")]
-position = Vector2(352, 144)
+position = Vector2(419, 189)
 
 [node name="Magnetic64x64Block" parent="." instance=ExtResource("15_fqx55")]
-position = Vector2(152, -224)
+position = Vector2(416, -168)
 
 [node name="Magnetic32x64Block" parent="." instance=ExtResource("16_evcsx")]
-position = Vector2(288, 48)
+position = Vector2(480, 152)
 
 [node name="Magnetic32x32Block" parent="." instance=ExtResource("17_pptcr")]
-position = Vector2(208, -464)
+position = Vector2(392, -424)
 
 [node name="Magnetic32x32Ball" parent="." instance=ExtResource("18_rfven")]
-position = Vector2(272, -392)
+position = Vector2(344, -352)
 
 [node name="Magnetic32x32Ball2" parent="." instance=ExtResource("18_rfven")]
 position = Vector2(352, -440)
 
 [node name="MagneticFellaBox" parent="." instance=ExtResource("19_108sj")]
-position = Vector2(224, 208)
+position = Vector2(288, 125)
 
 [editable path="sodaTrigger"]
 [editable path="securityCameraTrigger"]

@@ -97,6 +97,7 @@ func reset():
 	occupied = false
 	ridingBody = null
 	riderInPosition = false
+	moveRiderProgress = 0
 	
 func _physics_process(delta):
 	if button_fade_timer > 0.0:
@@ -117,10 +118,10 @@ func set_button(_button):
 
 func moveRiderToStarting(delta):
 	moveRiderProgress += delta
-	ridingBody.set_body_pos((endRiderPos - beginRiderPos) * (moveRiderProgress/moveRiderTime) + beginRiderPos)
+	ridingBody.set_body_pos((global_position - beginRiderPos) * (moveRiderProgress/moveRiderTime) + beginRiderPos)
 	# Check if the interpolation is complete.
 	if moveRiderProgress >= moveRiderTime:
-		ridingBody.set_body_pos(endRiderPos)
+		ridingBody.set_body_pos(global_position)
 		riderReady()
 
 func override_movement(body):

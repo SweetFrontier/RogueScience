@@ -59,7 +59,6 @@ func reset():
 	
 	just_destroyed = false
 	destroyed = false
-	sprite.show()
 	deathExplosion.hide()
 	collisionShape.set_deferred("disabled", false)
 
@@ -70,7 +69,6 @@ func destroy():
 		return
 	just_destroyed = true
 	destroyed = true
-	sprite.hide()
 	deathExplosion.show()
 	deathExplosion.explode()
 	collisionShape.set_deferred("disabled", true)

@@ -30,6 +30,11 @@ func _ready():
 				movingObjects.append(child)
 				if child.magnetic:
 					magneticMovingObjects.append(child)
+					for grandchild in child.get_children():
+						if grandchild is fellaBoxTrigger:
+							triggerBlocks.append(grandchild)
+							grandchild.connect("remove_key_signal", remove_key)
+							grandchild.connect("randomize_block_keys_signal", randomize_block_keys)
 		reset();
 	else:
 		#hide the player until the level starts
@@ -49,14 +54,15 @@ func _ready():
 					child.setPlayer(player)
 				if child.magnetic:
 					magneticMovingObjects.append(child)
+					for grandchild in child.get_children():
+						if grandchild is fellaBoxTrigger:
+							triggerBlocks.append(grandchild)
+							grandchild.connect("remove_key_signal", remove_key)
+							grandchild.connect("randomize_block_keys_signal", randomize_block_keys)
 	
 	#Give each Magnetic Moving Object a reference to each Magnet in the scene
 	for magneticObject in magneticMovingObjects:
 		magneticObject.magnetTriggers = magnetTriggers.duplicate()
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	pass
 
 func reset():
 	isCurrentLevel = true

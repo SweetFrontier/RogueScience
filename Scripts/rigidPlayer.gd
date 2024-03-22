@@ -56,6 +56,10 @@ func _ready():
 	reset()
 
 func reset():
+	set_collision_layer_value(1, true)
+	set_collision_layer_value(9, true)
+	set_collision_mask_value(1, true)
+	set_collision_mask_value(9, true)
 	AnimatedSprite.animation = "crawl"
 	AnimatedSprite.show()
 	current_direction = starting_direction
@@ -79,7 +83,6 @@ func reset():
 	SodaShield.visible = false
 	isShielded = false
 	
-	
 	just_reset = true
 	dead = false
 	set_process(PROCESS_MODE_INHERIT)
@@ -93,8 +96,9 @@ func reset():
 	controlled_ang_vel = 0.0
 	controlled_lin_vel = Vector2(0,0)
 	directPosControl = false
+	setBodyPos = false
 	last_y_velocity = 0
-	inSoda = false
+	inSoda = 0
 
 func _integrate_forces(state):
 	#reset gravity scale
@@ -152,7 +156,7 @@ func _physics_process(delta):
 						HitSounds.stream = load("res://Sounds/hitsomething.ogg")
 					last_y_velocity = 0
 					HitSounds.play()
-		else:
+		elif movement_overrider == null || not movement_overrider is fellaBoxTrigger:
 			rotate_player_on_arc(delta)
 			if (linear_velocity.y > fallingThreshold):
 				CrawlSounds.stop()

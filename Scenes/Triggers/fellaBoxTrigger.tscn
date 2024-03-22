@@ -1,0 +1,69 @@
+[gd_scene load_steps=10 format=3 uid="uid://sega43ibokvc"]
+
+[ext_resource type="Script" path="res://Scripts/Triggers/fellaBoxTrigger.gd" id="1_qxyma"]
+[ext_resource type="Texture2D" uid="uid://cin483kgy7yjg" path="res://Art/TriggerArt/MovingObject/plhFellaBox.png" id="2_eq3rl"]
+[ext_resource type="PackedScene" uid="uid://djjr177758y2h" path="res://Scenes/Triggers/Trigger_Helpers/triggerKey.tscn" id="3_ghxpk"]
+[ext_resource type="Texture2D" uid="uid://slclgmxem4ba" path="res://Art/TriggerArt/MovingObject/plhFellaBoxOpen.png" id="4_lypgx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_amwmb"]
+atlas = ExtResource("2_eq3rl")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i3sox"]
+atlas = ExtResource("4_lypgx")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_114bo"]
+atlas = ExtResource("2_eq3rl")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_upsld"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_amwmb")
+}],
+"loop": true,
+"name": &"exploded",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i3sox")
+}],
+"loop": true,
+"name": &"open",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_114bo")
+}],
+"loop": true,
+"name": &"riding",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k1rnq"]
+size = Vector2(64, 32)
+
+[node name="FellaBoxTrigger" type="Node2D" node_paths=PackedStringArray("area2D", "doorSprite", "TriggerKeySprite")]
+script = ExtResource("1_qxyma")
+area2D = NodePath("BoxArea")
+doorSprite = NodePath("DoorSprite")
+TriggerKeySprite = NodePath("TriggerKeySprite")
+
+[node name="DoorSprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_upsld")
+animation = &"riding"
+
+[node name="BoxArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoxArea"]
+position = Vector2(0, 16)
+shape = SubResource("RectangleShape2D_k1rnq")
+
+[node name="TriggerKeySprite" parent="." instance=ExtResource("3_ghxpk")]
+position = Vector2(0, 56)
+
+[editable path="TriggerKeySprite"]

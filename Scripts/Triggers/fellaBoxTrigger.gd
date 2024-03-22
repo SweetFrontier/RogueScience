@@ -94,6 +94,14 @@ func setupMoveToStart():
 	endRiderPos = global_position
 	doorSprite.frame = 1
 
+func moveRiderToStarting(delta):
+	moveRiderProgress += delta
+	ridingBody.set_body_pos((global_position - beginRiderPos) * (moveRiderProgress/moveRiderTime) + beginRiderPos)
+	# Check if the interpolation is complete.
+	if moveRiderProgress >= moveRiderTime:
+		ridingBody.set_body_pos(global_position)
+		riderReady()
+
 func riderReady():
 	super.riderReady()
 	ridingBody.positioningRideEnded(false)

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/Triggers/Trigger_Helpers/movingObject.gd" id="1_pa0km"]
 [ext_resource type="Texture2D" uid="uid://cin483kgy7yjg" path="res://Art/TriggerArt/MovingObject/plhFellaBox.png" id="2_lpte8"]
-[ext_resource type="Texture2D" uid="uid://v7ixcj3326hk" path="res://Art/TriggerArt/MovingObject/plhFellaBoxDoorless.png" id="2_o83oa"]
+[ext_resource type="Texture2D" uid="uid://ca64lqubue6b" path="res://Art/TriggerArt/MovingObject/plhFellaBoxEmpty.png" id="2_t85om"]
 [ext_resource type="Texture2D" uid="uid://bctxuq8plm2r2" path="res://Art/TriggerArt/MovingObject/plhSodaShield.png" id="3_4bq0t"]
 [ext_resource type="AudioStream" uid="uid://cbl8qb0gk6iiq" path="res://Sounds/hitsomething.ogg" id="4_ticff"]
 [ext_resource type="Script" path="res://Scripts/Triggers/Trigger_Helpers/explodeablePolygon.gd" id="5_a2wo4"]
@@ -48,7 +48,7 @@ deathExplosion = NodePath("DeathExplosion")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false
-texture = ExtResource("2_o83oa")
+texture = ExtResource("2_t85om")
 
 [node name="SodaShield" type="AnimatedSprite2D" parent="."]
 visible = false

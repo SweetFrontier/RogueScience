@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bndyjwipmr6ap"
-path="res://.godot/imported/plhMagnetNeutral.png-f6e02da7dcf3281bd13138002d396d20.ctex"
+uid="uid://d1v133gy65m5i"
+path="res://.godot/imported/plhMagnetNeutralPull.png-061b02d25a3352dd884a294a2bc82f74.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/TriggerArt/Magnet/plhMagnetNeutral.png"
-dest_files=["res://.godot/imported/plhMagnetNeutral.png-f6e02da7dcf3281bd13138002d396d20.ctex"]
+source_file="res://Art/TriggerArt/Magnet/plhMagnetNeutralPull.png"
+dest_files=["res://.godot/imported/plhMagnetNeutralPull.png-061b02d25a3352dd884a294a2bc82f74.ctex"]
 
 [params]
 

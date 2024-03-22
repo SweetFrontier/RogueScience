@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://vwjnt2j2wbqk"]
+[gd_scene load_steps=48 format=3 uid="uid://vwjnt2j2wbqk"]
 
 [ext_resource type="Script" path="res://Scripts/gameManager.gd" id="1_rlws3"]
 [ext_resource type="Texture2D" uid="uid://bh66sgahohr8e" path="res://Art/Backgrounds/newBackground.png" id="2_wacfr"]
@@ -37,6 +37,8 @@
 [ext_resource type="TileSet" uid="uid://bnpggr5480t5q" path="res://Art/TileSets/initialTileSet.tres" id="19_t5xx0"]
 [ext_resource type="PackedScene" uid="uid://cfcc5yst41opg" path="res://Scenes/Levels/Act_2_Levels/2-8_StickyTimingLevel.tscn" id="20_itf1b"]
 [ext_resource type="PackedScene" uid="uid://cay6f8bfdomyn" path="res://Scenes/Levels/Act_2_Levels/2-9_HardInvisibleLevel.tscn" id="21_igu20"]
+[ext_resource type="PackedScene" uid="uid://bs2v8sok8npgp" path="res://Scenes/Levels/Act_3_Levels/3-1_MagnetIntroLevel.tscn" id="22_viqh2"]
+[ext_resource type="PackedScene" uid="uid://rnddto6mew62" path="res://Scenes/Levels/Act_3_Levels/3-2_ParkingLotLevel.tscn" id="23_mrol5"]
 [ext_resource type="PackedScene" uid="uid://bnqsgdg630snx" path="res://Scenes/Levels/TallElevatorLevel.tscn" id="28_oyags"]
 
 [sub_resource type="Animation" id="Animation_gwjdm"]
@@ -134,7 +136,7 @@ _data = {
 
 [node name="Main" type="Node2D" node_paths=PackedStringArray("Levels", "camera", "pauseMenu", "musicPlayer", "Transition", "resetWipeTransition", "resetWipeTransitionContoller")]
 script = ExtResource("1_rlws3")
-Levels = [NodePath("Levels/Act_1/1-1_BreakableIntro"), NodePath("Levels/Act_1/1-2_InvisibleIntro"), NodePath("Levels/Act_1/1-3_BreakableSteps"), NodePath("Levels/Act_1/1-4_ThreeFallingEyesLevel"), NodePath("Levels/Act_1/1-5_FourFallingEyes"), NodePath("Levels/Act_1/1-6_JumpingPathLevel"), NodePath("Levels/Act_1/1-7_MultiEyeTrampoline"), NodePath("Levels/Act_1/1-8_bouncyLevel"), NodePath("Levels/Act_1/1-9_PowerfulTrampoline"), NodePath("Levels/Act_2/2-1_SecurityCameraIntro"), NodePath("Levels/Act_2/2-2_SecurityBallsIntro"), NodePath("Levels/Act_2/2-3_SacrificialBall"), NodePath("Levels/Act_2/2-4_Lasers"), NodePath("Levels/Act_2/2-5_SodaIntro"), NodePath("Levels/Act_2/2-6_StickySecurityBalls"), NodePath("Levels/Act_2/2-7_StickyCameras"), NodePath("Levels/Act_2/2-8_StickyTiming"), NodePath("Levels/Act_2/2-9_HardInvisible"), NodePath("Levels/TESTING/baseLevel"), NodePath("Levels/TeleportIntro"), NodePath("Levels/YeetTheBall"), NodePath("Levels/ElevatorsIntro"), NodePath("Levels/bouncyLevel2"), NodePath("Levels/BouncyElevator"), NodePath("Levels/TallElevator"), NodePath("Levels/bouncyLevel3"), NodePath("Levels/bouncyLevel4")]
+Levels = [NodePath("Levels/Act_1/1-1_BreakableIntro"), NodePath("Levels/Act_1/1-2_InvisibleIntro"), NodePath("Levels/Act_1/1-3_BreakableSteps"), NodePath("Levels/Act_1/1-4_ThreeFallingEyesLevel"), NodePath("Levels/Act_1/1-5_FourFallingEyes"), NodePath("Levels/Act_1/1-6_JumpingPathLevel"), NodePath("Levels/Act_1/1-7_MultiEyeTrampoline"), NodePath("Levels/Act_1/1-8_bouncyLevel"), NodePath("Levels/Act_1/1-9_PowerfulTrampoline"), NodePath("Levels/Act_2/2-1_SecurityCameraIntro"), NodePath("Levels/Act_2/2-2_SecurityBallsIntro"), NodePath("Levels/Act_2/2-3_SacrificialBall"), NodePath("Levels/Act_2/2-4_Lasers"), NodePath("Levels/Act_2/2-5_SodaIntro"), NodePath("Levels/Act_2/2-6_StickySecurityBalls"), NodePath("Levels/Act_2/2-7_StickyCameras"), NodePath("Levels/Act_2/2-8_StickyTiming"), NodePath("Levels/Act_2/2-9_HardInvisible"), NodePath("Levels/Act_3/3-1_MagnetIntro"), NodePath("Levels/Act_3/3-2_ParkingLot"), NodePath("Levels/TeleportIntro"), NodePath("Levels/YeetTheBall"), NodePath("Levels/ElevatorsIntro"), NodePath("Levels/bouncyLevel2"), NodePath("Levels/BouncyElevator"), NodePath("Levels/TallElevator"), NodePath("Levels/bouncyLevel3"), NodePath("Levels/bouncyLevel4")]
 camera = NodePath("Camera2D")
 pauseMenu = NodePath("CanvasLayer/PauseMenu")
 musicPlayer = NodePath("MusicPlayer")
@@ -193,7 +195,7 @@ position = Vector2(7968, 128)
 position = Vector2(9584, -160)
 
 [node name="Act_2" type="Node2D" parent="Levels"]
-position = Vector2(0, 3104)
+position = Vector2(3, 1312)
 
 [node name="2-1_SecurityCameraIntro" parent="Levels/Act_2" instance=ExtResource("13_k8ysv")]
 position = Vector2(192, 0)
@@ -221,6 +223,14 @@ position = Vector2(8192, -160)
 
 [node name="2-9_HardInvisible" parent="Levels/Act_2" instance=ExtResource("21_igu20")]
 position = Vector2(9472, 0)
+
+[node name="Act_3" type="Node2D" parent="Levels"]
+position = Vector2(0, 2304)
+
+[node name="3-1_MagnetIntro" parent="Levels/Act_3" instance=ExtResource("22_viqh2")]
+
+[node name="3-2_ParkingLot" parent="Levels/Act_3" instance=ExtResource("23_mrol5")]
+position = Vector2(963, -64)
 
 [node name="TeleportIntro" parent="Levels" instance=ExtResource("10_dk1u2")]
 position = Vector2(5920, -2336)

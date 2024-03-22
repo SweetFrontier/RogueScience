@@ -91,11 +91,9 @@ position = Vector2(240, 280)
 
 [node name="magnetTrigger" parent="." instance=ExtResource("12_sw1qv")]
 position = Vector2(176, 112)
-strengthAmplitude = 10000.0
 
 [node name="magnetTrigger2" parent="." instance=ExtResource("12_sw1qv")]
 position = Vector2(416, 64)
-strengthAmplitude = 10000.0
 
 [node name="MagneticLeftSlope" parent="." instance=ExtResource("13_0qw43")]
 position = Vector2(400, 189)

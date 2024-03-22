@@ -8,21 +8,22 @@ class_name magnetTrigger
 @export var magneticSourcePoint: Marker2D
 
 var currState: MagnetState
-var lastPolarityState: MagnetState
 var strength: float
 var location: Vector2
 
 enum MagnetState
 {
 	PULLING,
-	NEUTRAL,
-	PUSHING
+	NEUTRALPUSH,
+	PUSHING,
+	NEUTRALPULL
 }
 
 var stateToAnimString = {
 	MagnetState.PULLING: "pulling",
-	MagnetState.NEUTRAL: "neutral",
-	MagnetState.PUSHING: "pushing"
+	MagnetState.NEUTRALPUSH: "neutralPush",
+	MagnetState.PUSHING: "pushing",
+	MagnetState.NEUTRALPULL: "neutralPull"
 }
 
 # Called when the node enters the scene tree for the first time.
@@ -41,20 +42,17 @@ func react():
 	activated = true
 	match currState:
 		MagnetState.PULLING:
-			lastPolarityState = MagnetState.PULLING
-			currState = MagnetState.NEUTRAL
+			currState = MagnetState.NEUTRALPUSH
 			strength = 0
+		MagnetState.NEUTRALPUSH:
+			currState = MagnetState.PUSHING
+			strength = strengthAmplitude
 		MagnetState.PUSHING:
-			lastPolarityState = MagnetState.PUSHING
-			currState = MagnetState.NEUTRAL
+			currState = MagnetState.NEUTRALPULL
 			strength = 0
-		MagnetState.NEUTRAL:
-			if(lastPolarityState == MagnetState.PUSHING):
-				currState = MagnetState.PULLING
-				strength = -strengthAmplitude
-			else:
-				currState = MagnetState.PUSHING
-				strength = strengthAmplitude
+		MagnetState.NEUTRALPULL:
+			currState = MagnetState.PULLING
+			strength = -strengthAmplitude
 	magnetSprite.animation = stateToAnimString[currState]
 	magnetSprite.frame = 0
 
@@ -63,8 +61,6 @@ func reset():
 	magnetSprite.animation = "inactive"
 	magnetSprite.frame = 0
 	currState = startingPolarity
-	lastPolarityState = MagnetState.PULLING if startingPolarity == MagnetState.PULLING else MagnetState.PUSHING
 	strength = 0
-
-func _process(_delta):
-	pass
+	if startActivated:
+		react()

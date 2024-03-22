@@ -1,14 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://cbygtk7mevpmo"]
+[gd_scene load_steps=10 format=3 uid="uid://dir1eiogwy03f"]
 
-[ext_resource type="PhysicsMaterial" uid="uid://0wv2kg3l0ugb" path="res://Scenes/Triggers/Trigger_Helpers/MagneticObjects/magneticPhysicsMaterial.tres" id="1_gxrjm"]
-[ext_resource type="Script" path="res://Scripts/Triggers/Trigger_Helpers/movingObject.gd" id="1_vdvpy"]
-[ext_resource type="Texture2D" uid="uid://b1hx8lndst1of" path="res://Art/TriggerArt/MovingObject/plhMagnetic32x32Ball.png" id="2_lwmgf"]
-[ext_resource type="Texture2D" uid="uid://bctxuq8plm2r2" path="res://Art/TriggerArt/MovingObject/plhSodaShield.png" id="3_3wp1y"]
-[ext_resource type="AudioStream" uid="uid://cbl8qb0gk6iiq" path="res://Sounds/hitsomething.ogg" id="4_tkdmi"]
-[ext_resource type="Script" path="res://Scripts/Triggers/Trigger_Helpers/explodeablePolygon.gd" id="5_4fx0u"]
+[ext_resource type="Script" path="res://Scripts/Triggers/Trigger_Helpers/movingObject.gd" id="1_wd0db"]
+[ext_resource type="PhysicsMaterial" uid="uid://0wv2kg3l0ugb" path="res://Scenes/Triggers/Trigger_Helpers/MagneticObjects/magneticPhysicsMaterial.tres" id="1_xlhlp"]
+[ext_resource type="Texture2D" uid="uid://cjr2xan7up3fo" path="res://Art/TriggerArt/MovingObject/plhMagnetic32x96Block.png" id="2_fpcof"]
+[ext_resource type="Texture2D" uid="uid://bctxuq8plm2r2" path="res://Art/TriggerArt/MovingObject/plhSodaShield.png" id="3_0i1h2"]
+[ext_resource type="AudioStream" uid="uid://cbl8qb0gk6iiq" path="res://Sounds/hitsomething.ogg" id="4_smfhy"]
+[ext_resource type="Script" path="res://Scripts/Triggers/Trigger_Helpers/explodeablePolygon.gd" id="5_dyufw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m0v1t"]
-atlas = ExtResource("3_3wp1y")
+atlas = ExtResource("3_0i1h2")
 region = Rect2(0, 0, 38, 38)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qe4re"]
@@ -22,18 +22,18 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_pygtm"]
-radius = 16.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h8oje"]
+size = Vector2(31.99, 94.99)
 
-[node name="Magnetic32x32Ball" type="RigidBody2D" node_paths=PackedStringArray("floorDetector", "sprite", "SodaShield", "collisionShape", "soundPlayer", "deathExplosion")]
+[node name="Magnetic32x96Block" type="RigidBody2D" node_paths=PackedStringArray("floorDetector", "sprite", "SodaShield", "collisionShape", "soundPlayer", "deathExplosion")]
 z_index = 51
 z_as_relative = false
 collision_layer = 321
 collision_mask = 67
 mass = 10000.0
-physics_material_override = ExtResource("1_gxrjm")
+physics_material_override = ExtResource("1_xlhlp")
 can_sleep = false
-script = ExtResource("1_vdvpy")
+script = ExtResource("1_wd0db")
 magnetic = true
 followPlayer = false
 maxSingleMagnetVelocity = 100.0
@@ -46,7 +46,7 @@ soundPlayer = NodePath("hittingSounds")
 deathExplosion = NodePath("DeathExplosion")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_lwmgf")
+texture = ExtResource("2_fpcof")
 
 [node name="SodaShield" type="AnimatedSprite2D" parent="."]
 visible = false
@@ -55,7 +55,8 @@ sprite_frames = SubResource("SpriteFrames_qe4re")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
-shape = SubResource("CircleShape2D_pygtm")
+position = Vector2(0, -9.53674e-07)
+shape = SubResource("RectangleShape2D_h8oje")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 target_position = Vector2(0, 17)
@@ -63,17 +64,17 @@ collision_mask = 3
 hit_from_inside = true
 
 [node name="hittingSounds" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("4_tkdmi")
+stream = ExtResource("4_smfhy")
 pitch_scale = 0.5
 bus = &"Sound Effects"
 
 [node name="DeathExplosion" type="Polygon2D" parent="."]
 process_mode = 3
 visible = false
-texture = ExtResource("2_lwmgf")
-texture_offset = Vector2(16, 16)
-polygon = PackedVector2Array(16, -16, 16, 16, -16, 16, -16, -16)
-script = ExtResource("5_4fx0u")
+texture = ExtResource("2_fpcof")
+texture_offset = Vector2(16, 48)
+polygon = PackedVector2Array(16, -48, 16, 48, -16, 48, -16, -48)
+script = ExtResource("5_dyufw")
 shard_count = 256
 shard_shrink_rate = 0.99
 x_init_velocity = 20

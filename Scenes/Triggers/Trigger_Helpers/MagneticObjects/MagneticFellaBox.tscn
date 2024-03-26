@@ -25,7 +25,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_eujel"]
-radius = 32.0
+radius = 31.0
 
 [node name="MagneticFellaBox" type="RigidBody2D" node_paths=PackedStringArray("floorDetector", "sprite", "SodaShield", "collisionShape", "soundPlayer", "deathExplosion")]
 z_index = 51
@@ -40,7 +40,7 @@ script = ExtResource("1_pa0km")
 magnetic = true
 followPlayer = false
 maxSingleMagnetVelocity = 100.0
-maxMagnetVelocity = 15.0
+maxMagnetVelocity = 20.0
 floorDetector = NodePath("RayCast2D")
 sprite = NodePath("Sprite2D")
 SodaShield = NodePath("SodaShield")
@@ -58,6 +58,7 @@ z_index = 9
 sprite_frames = SubResource("SpriteFrames_qe4re")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("CircleShape2D_eujel")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]

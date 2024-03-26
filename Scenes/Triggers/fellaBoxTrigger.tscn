@@ -60,6 +60,7 @@ animation = &"riding"
 [node name="BoxArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BoxArea"]
+visible = false
 position = Vector2(0, 16)
 shape = SubResource("RectangleShape2D_k1rnq")
 

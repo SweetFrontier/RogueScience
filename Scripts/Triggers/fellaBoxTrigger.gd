@@ -55,13 +55,23 @@ func reset():
 	currState = BoxState.OPEN
 	doorSprite.animation = stateToAnimString[currState]
 	doorSprite.show()
+	TriggerKeySprite.modulate.a = 0
 
 func _process(_delta):
 	TriggerKeySprite.global_rotation = 0
 	TriggerKeySprite.global_position = global_position + Vector2(0,56)
 
 func _physics_process(delta):
-	super._physics_process(delta)
+	if button_fade_timer > 0.0:
+		var new_opacity
+		if !activated:
+			# Calculate the new opacity based on the elapsed time and fade duration.
+			new_opacity = lerpf(0, startingTranslucency, 1.0 - (button_fade_timer / button_fade_duration))
+		else:
+			new_opacity = lerpf(startingTranslucency, 0, 1.0 - (button_fade_timer / button_fade_duration))
+		TriggerKeySprite.modulate.a = new_opacity
+		# Decrease the fade timer.
+		button_fade_timer -= delta
 	if !occupied:
 		return
 	#ridingBody.rotate_player_on_arc(delta)
@@ -104,6 +114,7 @@ func moveRiderToStarting(delta):
 
 func riderReady():
 	super.riderReady()
+	button_fade_timer = button_fade_duration
 	ridingBody.positioningRideEnded(false)
 	currState = BoxState.RIDING
 	doorSprite.animation = stateToAnimString[currState]

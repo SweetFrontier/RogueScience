@@ -108,7 +108,7 @@ func _physics_process(delta):
 		button_fade_timer -= delta
 
 func set_button(_button):
-	if activated:
+	if activated and one_shot:
 		return
 	if _button in buttonToAnimation:
 		button = _button

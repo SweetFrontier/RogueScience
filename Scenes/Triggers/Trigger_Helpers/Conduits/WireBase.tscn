@@ -1,0 +1,194 @@
+[gd_scene load_steps=16 format=3 uid="uid://c57nbuyl2p4e"]
+
+[ext_resource type="Script" path="res://Scripts/Triggers/Trigger_Helpers/Wire.gd" id="1_ii2qb"]
+[ext_resource type="Texture2D" uid="uid://bl0fs2fmm3wat" path="res://Art/TriggerArt/Conduits/Wires/plhWiresOff.png" id="2_87u60"]
+[ext_resource type="Texture2D" uid="uid://038npk5756sl" path="res://Art/TriggerArt/Conduits/Wires/plhWiresOn.png" id="3_h8smc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_24mxl"]
+atlas = ExtResource("2_87u60")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gcalx"]
+atlas = ExtResource("3_h8smc")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kxgs1"]
+atlas = ExtResource("3_h8smc")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5bwea"]
+atlas = ExtResource("3_h8smc")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_353nu"]
+atlas = ExtResource("3_h8smc")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_88qkf"]
+atlas = ExtResource("3_h8smc")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q6n8i"]
+atlas = ExtResource("3_h8smc")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2l0cf"]
+atlas = ExtResource("3_h8smc")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m6ktk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_24mxl")
+}],
+"loop": true,
+"name": &"off",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gcalx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kxgs1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5bwea")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_353nu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_88qkf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q6n8i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2l0cf")
+}],
+"loop": false,
+"name": &"on",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_exw8o"]
+size = Vector2(3, 3)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pa23f"]
+size = Vector2(3, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6is2k"]
+size = Vector2(6, 3)
+
+[node name="Wire" type="Node2D" node_paths=PackedStringArray("wireSprite")]
+script = ExtResource("1_ii2qb")
+wireSprite = NodePath("WireSprite")
+
+[node name="WireSprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_m6ktk")
+animation = &"off"
+
+[node name="ULCollision" type="Area2D" parent="."]
+position = Vector2(-16, -16)
+collision_layer = 64
+collision_mask = 64
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ULCollision"]
+position = Vector2(-2, -2)
+shape = SubResource("RectangleShape2D_exw8o")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="ULCollision"]
+position = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_exw8o")
+
+[node name="UCollision" type="Area2D" parent="."]
+position = Vector2(0, -16)
+collision_layer = 64
+collision_mask = 64
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="UCollision"]
+shape = SubResource("RectangleShape2D_pa23f")
+
+[node name="URCollision" type="Area2D" parent="."]
+position = Vector2(16, -16)
+collision_layer = 64
+collision_mask = 64
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="URCollision"]
+position = Vector2(2, -2)
+shape = SubResource("RectangleShape2D_exw8o")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="URCollision"]
+position = Vector2(-2, 2)
+shape = SubResource("RectangleShape2D_exw8o")
+
+[node name="LCollision" type="Area2D" parent="."]
+position = Vector2(-16, 0)
+collision_layer = 64
+collision_mask = 64
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LCollision"]
+shape = SubResource("RectangleShape2D_6is2k")
+
+[node name="RCollision" type="Area2D" parent="."]
+position = Vector2(16, 0)
+collision_layer = 64
+collision_mask = 64
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RCollision"]
+shape = SubResource("RectangleShape2D_6is2k")
+
+[node name="DLCollision" type="Area2D" parent="."]
+position = Vector2(-16, 16)
+collision_layer = 64
+collision_mask = 64
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DLCollision"]
+position = Vector2(2, -2)
+shape = SubResource("RectangleShape2D_exw8o")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="DLCollision"]
+position = Vector2(-2, 2)
+shape = SubResource("RectangleShape2D_exw8o")
+
+[node name="DCollision" type="Area2D" parent="."]
+position = Vector2(0, 16)
+collision_layer = 64
+collision_mask = 64
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DCollision"]
+shape = SubResource("RectangleShape2D_pa23f")
+
+[node name="DRCollision" type="Area2D" parent="."]
+position = Vector2(16, 16)
+collision_layer = 64
+collision_mask = 64
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DRCollision"]
+position = Vector2(-2, -2)
+shape = SubResource("RectangleShape2D_exw8o")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="DRCollision"]
+position = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_exw8o")
+
+[connection signal="animation_finished" from="WireSprite" to="." method="onWireSpriteAnimationFinished"]
+[connection signal="frame_changed" from="WireSprite" to="." method="onWireSpriteFrameChanged"]
+[connection signal="area_shape_entered" from="ULCollision" to="." method="onAdjacentConduitFound" binds= [0]]
+[connection signal="area_shape_entered" from="UCollision" to="." method="onAdjacentConduitFound" binds= [1]]
+[connection signal="area_shape_entered" from="URCollision" to="." method="onAdjacentConduitFound" binds= [2]]
+[connection signal="area_shape_entered" from="LCollision" to="." method="onAdjacentConduitFound" binds= [3]]
+[connection signal="area_shape_entered" from="RCollision" to="." method="onAdjacentConduitFound" binds= [4]]
+[connection signal="area_shape_entered" from="DLCollision" to="." method="onAdjacentConduitFound" binds= [5]]
+[connection signal="area_shape_entered" from="DCollision" to="." method="onAdjacentConduitFound" binds= [6]]
+[connection signal="area_shape_entered" from="DRCollision" to="." method="onAdjacentConduitFound" binds= [7]]

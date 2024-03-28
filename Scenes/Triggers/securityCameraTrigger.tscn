@@ -30,7 +30,7 @@ animation = &"deactivated"
 
 [node name="CameraLens" type="StaticBody2D" parent="CameraPivotPoint/CameraSprite"]
 visible = false
-collision_layer = 16
+collision_layer = 32
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CameraPivotPoint/CameraSprite/CameraLens"]
@@ -42,7 +42,7 @@ z_index = 91
 z_as_relative = false
 position = Vector2(-16, 0)
 collision_layer = 0
-collision_mask = 256
+collision_mask = 272
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CameraPivotPoint/CameraView"]
 visible = false

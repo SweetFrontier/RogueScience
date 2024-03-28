@@ -1,0 +1,135 @@
+[gd_scene load_steps=18 format=3 uid="uid://b7levwy0h2j7v"]
+
+[ext_resource type="Script" path="res://Scripts/Triggers/Trigger_Helpers/Electrode.gd" id="1_sqwjy"]
+[ext_resource type="Texture2D" uid="uid://mws3aojjykk3" path="res://Art/TriggerArt/Conduits/plhElectrodeOff.png" id="2_osq5r"]
+[ext_resource type="Texture2D" uid="uid://b73reafwgk28q" path="res://Art/TriggerArt/Conduits/plhElectrodeOn.png" id="3_3sysq"]
+[ext_resource type="PackedScene" uid="uid://bvxwld4fu1vc0" path="res://Scenes/Triggers/Trigger_Helpers/lightning.tscn" id="4_omhlq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_elkwl"]
+atlas = ExtResource("2_osq5r")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xqwj1"]
+atlas = ExtResource("3_3sysq")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gi5dn"]
+atlas = ExtResource("3_3sysq")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pp2xm"]
+atlas = ExtResource("3_3sysq")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g2p1m"]
+atlas = ExtResource("3_3sysq")
+region = Rect2(16, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a8pcl"]
+atlas = ExtResource("3_3sysq")
+region = Rect2(24, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nae2p"]
+atlas = ExtResource("3_3sysq")
+region = Rect2(32, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g5fgn"]
+atlas = ExtResource("3_3sysq")
+region = Rect2(40, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4oy6g"]
+atlas = ExtResource("3_3sysq")
+region = Rect2(48, 0, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4wphf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_elkwl")
+}],
+"loop": true,
+"name": &"off",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xqwj1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gi5dn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pp2xm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g2p1m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a8pcl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nae2p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g5fgn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4oy6g")
+}],
+"loop": false,
+"name": &"on",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_44efp"]
+size = Vector2(4, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wfc8c"]
+size = Vector2(2, 6)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mo70v"]
+radius = 48.0
+
+[node name="Electrode" type="StaticBody2D" node_paths=PackedStringArray("electrodeSprite", "arcDetectionArea", "lightning")]
+collision_layer = 64
+collision_mask = 64
+script = ExtResource("1_sqwjy")
+electrodeSprite = NodePath("ElectrodeSprite")
+arcDetectionArea = NodePath("ArcDetection")
+lightning = NodePath("lightning")
+
+[node name="ElectrodeSprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_4wphf")
+animation = &"on"
+frame = 7
+frame_progress = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_44efp")
+
+[node name="WireDetection" type="Area2D" parent="."]
+position = Vector2(0, -4)
+collision_layer = 64
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WireDetection"]
+visible = false
+shape = SubResource("RectangleShape2D_wfc8c")
+
+[node name="ArcDetection" type="Area2D" parent="."]
+collision_layer = 64
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ArcDetection"]
+visible = false
+shape = SubResource("CircleShape2D_mo70v")
+
+[node name="lightning" parent="." node_paths=PackedStringArray("fromPos") instance=ExtResource("4_omhlq")]
+fromPos = NodePath("..")
+bolt_length_factor = 50
+
+[connection signal="animation_finished" from="ElectrodeSprite" to="." method="onElectrodeSpriteAnimationFinished"]
+[connection signal="frame_changed" from="ElectrodeSprite" to="." method="onElectrodeSpriteFrameChanged"]
+[connection signal="area_shape_entered" from="WireDetection" to="." method="onAdjacentConduitFound"]

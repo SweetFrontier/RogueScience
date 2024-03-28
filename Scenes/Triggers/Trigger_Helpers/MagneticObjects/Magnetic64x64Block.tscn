@@ -28,7 +28,7 @@ size = Vector2(63.99, 63.99)
 [node name="Magnetic64x64Block" type="RigidBody2D" node_paths=PackedStringArray("floorDetector", "sprite", "SodaShield", "collisionShape", "soundPlayer", "deathExplosion")]
 z_index = 51
 z_as_relative = false
-collision_layer = 321
+collision_layer = 81
 collision_mask = 67
 mass = 10000.0
 physics_material_override = ExtResource("1_ja1i7")

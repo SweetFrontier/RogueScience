@@ -58,6 +58,8 @@ sprite_frames = SubResource("SpriteFrames_upsld")
 animation = &"riding"
 
 [node name="BoxArea" type="Area2D" parent="."]
+collision_layer = 256
+collision_mask = 256
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BoxArea"]
 visible = false

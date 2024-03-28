@@ -112,6 +112,7 @@ visible = false
 [node name="sodaTrigger" parent="." instance=ExtResource("7_l5nue")]
 position = Vector2(464, 64)
 rotation = -3.14159
+splat = false
 
 [node name="TriggerKeySprite" parent="sodaTrigger" index="2"]
 position = Vector2(-32, -7.62939e-06)
@@ -130,7 +131,7 @@ rotation = 3.14159
 position = Vector2(-48, 3.8147e-06)
 
 [node name="LeftSlopebreakableBlock" parent="." instance=ExtResource("9_13vkl")]
-position = Vector2(416, 128)
+position = Vector2(416, 104)
 
 [node name="trampolineTrigger" parent="." instance=ExtResource("10_1j7yp")]
 position = Vector2(-32, 592)

@@ -83,7 +83,7 @@ animations = [{
 z_index = 10
 z_as_relative = false
 collision_layer = 0
-collision_mask = 273
+collision_mask = 305
 script = ExtResource("1_eo3ja")
 
 [node name="SodaBallSprite" type="AnimatedSprite2D" parent="."]

@@ -35,11 +35,11 @@ func _ready():
 	reset()
 
 func react():
-	super.react()
 	if !activated:
 		activated = true
 		magneticBox.destroy()
 		doorSprite.hide()
+		TriggerKeySprite.modulate.a = 0
 		currState = BoxState.EXPLODED
 		doorSprite.animation = stateToAnimString[currState]
 		ridingBody.set_collision_layer_value(1, true)

@@ -13,6 +13,8 @@ glow_hdr_threshold = 2.0
 
 [node name="lightning" type="Node2D" node_paths=PackedStringArray("boltsArray", "Sound")]
 modulate = Color(1.4, 1.4, 1.4, 1)
+z_index = 75
+z_as_relative = false
 script = ExtResource("1_p7c6a")
 boltsArray = [NodePath("Bolt"), NodePath("Bolt2"), NodePath("Bolt3"), NodePath("Bolt4"), NodePath("Bolt5")]
 Sound = NodePath("AudioStreamPlayer2D")

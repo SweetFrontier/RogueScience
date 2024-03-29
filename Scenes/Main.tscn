@@ -206,7 +206,7 @@ position = Vector2(192, 0)
 position = Vector2(992, -64)
 
 [node name="2-3_SacrificialBall" parent="Levels/Act_2" instance=ExtResource("15_03un2")]
-position = Vector2(2080, -64)
+position = Vector2(2077, -64)
 
 [node name="2-4_Lasers" parent="Levels/Act_2" instance=ExtResource("16_3poq4")]
 position = Vector2(3136, 32)

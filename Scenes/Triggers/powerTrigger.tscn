@@ -33,7 +33,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ffuhi"]
-size = Vector2(64, 48)
+size = Vector2(64, 64)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tjonp"]
 size = Vector2(64, 64)
@@ -49,8 +49,6 @@ sprite_frames = SubResource("SpriteFrames_5ygn1")
 animation = &"on"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(0, 8)
 shape = SubResource("RectangleShape2D_ffuhi")
 
 [node name="WireDetection" type="Area2D" parent="."]

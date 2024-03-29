@@ -1,8 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://bchrj88cennsy"]
+[gd_scene load_steps=13 format=3 uid="uid://bchrj88cennsy"]
 
-[ext_resource type="Script" path="res://Scripts/Triggers/Trigger_Helpers/movingObject.gd" id="1_3ifdr"]
 [ext_resource type="PhysicsMaterial" uid="uid://0wv2kg3l0ugb" path="res://Scenes/Triggers/Trigger_Helpers/MagneticObjects/magneticPhysicsMaterial.tres" id="1_ank5w"]
 [ext_resource type="Texture2D" uid="uid://c6b4wy8ura8bp" path="res://Art/TriggerArt/MovingObject/plhMagneticRightSlope.png" id="2_6wgs6"]
+[ext_resource type="Script" path="res://Scripts/Triggers/Trigger_Helpers/magneticObject.gd" id="2_kmmdn"]
 [ext_resource type="Texture2D" uid="uid://bctxuq8plm2r2" path="res://Art/TriggerArt/MovingObject/plhSodaShield.png" id="3_ssse4"]
 [ext_resource type="AudioStream" uid="uid://cbl8qb0gk6iiq" path="res://Sounds/hitsomething.ogg" id="4_kqs84"]
 [ext_resource type="Script" path="res://Scripts/Triggers/Trigger_Helpers/explodeablePolygon.gd" id="5_a4kxg"]
@@ -25,7 +25,16 @@ animations = [{
 [sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_i07ao"]
 points = PackedVector2Array(14, -19, 16, -17, 16, 10, 14, 12, -44, 12, -46, 11)
 
-[node name="MagneticRightSlope" type="RigidBody2D" node_paths=PackedStringArray("floorDetector", "sprite", "SodaShield", "collisionShape", "soundPlayer", "deathExplosion")]
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_7edkk"]
+points = PackedVector2Array(-8, -61.5, -72, -29.5, -30, -31)
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_o21rd"]
+points = PackedVector2Array(-16, 60, 16, 44, 48, 60)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vx5xk"]
+radius = 48.0
+
+[node name="MagneticRightSlope" type="RigidBody2D" node_paths=PackedStringArray("arcDetectionArea", "floorDetector", "sprite", "SodaShield", "collisionShape", "soundPlayer", "deathExplosion")]
 z_index = 51
 z_as_relative = false
 collision_layer = 81
@@ -33,11 +42,10 @@ collision_mask = 67
 mass = 10000.0
 physics_material_override = ExtResource("1_ank5w")
 can_sleep = false
-script = ExtResource("1_3ifdr")
+script = ExtResource("2_kmmdn")
+arcDetectionArea = NodePath("ArcDetection")
 magnetic = true
 followPlayer = false
-maxSingleMagnetVelocity = 100.0
-maxMagnetVelocity = 20.0
 floorDetector = NodePath("RayCast2D")
 sprite = NodePath("Sprite2D")
 SodaShield = NodePath("SodaShield")
@@ -89,3 +97,31 @@ y_max_distance = 10
 y_min_distance = -10
 time_to_form = 2.0
 metadata/_edit_group_ = true
+
+[node name="ArcDetection" type="Area2D" parent="."]
+collision_layer = 64
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ArcDetection"]
+visible = false
+shape = SubResource("ConvexPolygonShape2D_7edkk")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="ArcDetection"]
+visible = false
+position = Vector2(-32, 0)
+shape = SubResource("ConvexPolygonShape2D_o21rd")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="ArcDetection"]
+visible = false
+position = Vector2(16, -20)
+shape = SubResource("CircleShape2D_vx5xk")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="ArcDetection"]
+visible = false
+position = Vector2(-48, 12)
+shape = SubResource("CircleShape2D_vx5xk")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="ArcDetection"]
+visible = false
+position = Vector2(16, 12)
+shape = SubResource("CircleShape2D_vx5xk")

@@ -1,19 +1,13 @@
-[gd_scene load_steps=23 format=3 uid="uid://1xasoo80ygld"]
+[gd_scene load_steps=17 format=3 uid="uid://1xasoo80ygld"]
 
 [ext_resource type="Script" path="res://Scripts/levelController.gd" id="1_btnfb"]
 [ext_resource type="TileSet" uid="uid://bnpggr5480t5q" path="res://Art/TileSets/initialTileSet.tres" id="2_esq4l"]
 [ext_resource type="PackedScene" uid="uid://dvbyxsl5e3ol8" path="res://Scenes/Triggers/Trigger_Helpers/TransitionField.tscn" id="4_go5s3"]
-[ext_resource type="PackedScene" uid="uid://dnqoj4eg2l7le" path="res://Scenes/Triggers/trampolineTrigger.tscn" id="6_0y03v"]
 [ext_resource type="PackedScene" uid="uid://dd6l6fhpuajke" path="res://Scenes/rigidPlayer.tscn" id="6_jf1j1"]
-[ext_resource type="PackedScene" uid="uid://c0eghc3oa7752" path="res://Scenes/Triggers/Trigger_Helpers/movingObject.tscn" id="7_g7rdw"]
-[ext_resource type="PackedScene" uid="uid://b653ep4goj6pf" path="res://Scenes/Triggers/InvisibleBlocks/32x64InvisibleBlock.tscn" id="8_v56lq"]
-[ext_resource type="PackedScene" uid="uid://psrem4kknlu8" path="res://Scenes/Triggers/BreakableBlocks/32x64breakableBlock.tscn" id="9_dcwt3"]
-[ext_resource type="PackedScene" uid="uid://diaq1g0u7ny5d" path="res://Scenes/Triggers/soda.tscn" id="9_v1e5y"]
-[ext_resource type="PackedScene" uid="uid://dcf8fjp1cyb11" path="res://Scenes/Triggers/securityCameraTrigger.tscn" id="10_dl7pq"]
-[ext_resource type="PackedScene" uid="uid://cl0g2o3284xxy" path="res://Scenes/Triggers/InvisibleBlocks/32x32InvisibleBlock.tscn" id="11_rdrg7"]
-[ext_resource type="PackedScene" uid="uid://dlkccgjxhbsdg" path="res://Scenes/Triggers/magnetTrigger.tscn" id="12_sw1qv"]
 [ext_resource type="PackedScene" uid="uid://dq4yjj3ejtpyp" path="res://Scenes/Triggers/Trigger_Helpers/MagneticObjects/MagneticLeftSlope.tscn" id="13_0qw43"]
+[ext_resource type="PackedScene" uid="uid://d4c6xm5wf3f6v" path="res://Scenes/Triggers/Trigger_Helpers/MagneticObjects/Magnetic32x128Block.tscn" id="13_2aig8"]
 [ext_resource type="PackedScene" uid="uid://bchrj88cennsy" path="res://Scenes/Triggers/Trigger_Helpers/MagneticObjects/MagneticRightSlope.tscn" id="14_2c12l"]
+[ext_resource type="PackedScene" uid="uid://dir1eiogwy03f" path="res://Scenes/Triggers/Trigger_Helpers/MagneticObjects/Magnetic32x96Block.tscn" id="14_sg4am"]
 [ext_resource type="PackedScene" uid="uid://ir5lgtduwqki" path="res://Scenes/Triggers/Trigger_Helpers/MagneticObjects/Magnetic64x64Block.tscn" id="15_fqx55"]
 [ext_resource type="PackedScene" uid="uid://b3en650yijru0" path="res://Scenes/Triggers/Trigger_Helpers/MagneticObjects/Magnetic32x64Block.tscn" id="16_evcsx"]
 [ext_resource type="PackedScene" uid="uid://chmcx2asxgymc" path="res://Scenes/Triggers/Trigger_Helpers/MagneticObjects/Magnetic32x32Block.tscn" id="17_pptcr"]
@@ -42,7 +36,7 @@ layer_0/tile_data = PackedInt32Array(720925, 65537, 1, 655390, 65537, 1, 589855,
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("2_esq4l")
 format = 2
-layer_0/tile_data = PackedInt32Array(983050, 262147, 0, 983051, 327683, 0, 983052, 327683, 0, 983053, 327683, 0, 983054, 327683, 0, 983065, 327683, 0, 983066, 327683, 0, 983067, 327683, 0, 983068, 327683, 0, 983069, 393219, 0, 917528, 65539, 3, 851990, 65539, 3, 786452, 65539, 3, 720914, 65539, 3, 917527, 3, 3, 851989, 3, 3, 786451, 3, 3, 720913, 3, 3, 655375, 3, 3, 655376, 65539, 3, 589837, 3, 3, 589838, 65539, 3, 524299, 3, 3, 524300, 65539, 3, 458761, 3, 3, 458762, 65539, 3, 458760, 65539, 1, 458759, 65539, 1, 458758, 65539, 1, 458757, 65539, 1, 458756, 65539, 1, 458755, 65539, 1, 458754, 65539, 1, 458753, 65539, 1, 458752, 65539, 1)
+layer_0/tile_data = PackedInt32Array(983050, 262147, 0, 983051, 327683, 0, 983052, 327683, 0, 983053, 327683, 0, 983054, 327683, 0, 983065, 327683, 0, 983066, 327683, 0, 983067, 327683, 0, 983068, 327683, 0, 983069, 393219, 0, 917528, 65539, 3, 851990, 65539, 3, 786452, 65539, 3, 720914, 65539, 3, 917527, 3, 3, 851989, 3, 3, 786451, 3, 3, 720913, 3, 3, 655375, 3, 3, 655376, 65539, 3, 589837, 3, 3, 589838, 65539, 3, 524299, 3, 3, 524300, 65539, 3, 458761, 3, 3, 458762, 65539, 3, 458760, 65539, 1, 458759, 65539, 1, 458758, 65539, 1, 458757, 65539, 1, 458756, 65539, 1, 458755, 65539, 1, 458754, 65539, 1, 458753, 65539, 1, 458752, 65539, 1, 196613, 65539, 1, 458750, 65539, 1, 458751, 65539, 1, 393214, 65539, 1, 327677, 65539, 1, 262141, 65539, 1, 196605, 65539, 1, 196604, 65539, 1, 131068, 65539, 1, 131067, 65539, 1)
 
 [node name="CenterPosition" type="Marker2D" parent="."]
 position = Vector2(240, 128)
@@ -51,79 +45,10 @@ position = Vector2(240, 128)
 position = Vector2(-96, 288)
 
 [node name="rigidPlayer" parent="." instance=ExtResource("6_jf1j1")]
-position = Vector2(-32, 264)
-
-[node name="trampolineTrigger" parent="." instance=ExtResource("6_0y03v")]
-position = Vector2(152, 192)
-rotation = 0.47822
-startActivated = false
-one_shot = true
-button_fade_duration = 2.0
-moveRiderTime = 1.0
-
-[node name="movingObject" parent="." instance=ExtResource("7_g7rdw")]
-position = Vector2(480, 192)
-
-[node name="invisibleBlock2" parent="." instance=ExtResource("8_v56lq")]
-position = Vector2(920, 419)
-
-[node name="32x64breakableBlock" parent="." instance=ExtResource("9_dcwt3")]
-position = Vector2(800, 576)
-
-[node name="sodaTrigger" parent="." instance=ExtResource("9_v1e5y")]
-position = Vector2(216, 339)
-metadata/_edit_group_ = true
-
-[node name="securityCameraTrigger" parent="." instance=ExtResource("10_dl7pq")]
-position = Vector2(952, 440)
-
-[node name="CameraPivotPoint" parent="securityCameraTrigger" index="0"]
-position = Vector2(-288, -208)
-
-[node name="GunSprite" parent="securityCameraTrigger" index="1"]
-position = Vector2(240, -160)
-
-[node name="32x64breakableBlock2" parent="." instance=ExtResource("9_dcwt3")]
-position = Vector2(272, 160)
-
-[node name="32x64breakableBlock3" parent="." instance=ExtResource("9_dcwt3")]
-position = Vector2(-8, 160)
-
-[node name="invisibleBlock" parent="." instance=ExtResource("11_rdrg7")]
-position = Vector2(240, 280)
-
-[node name="magnetTrigger" parent="." instance=ExtResource("12_sw1qv")]
-position = Vector2(480, 264)
-
-[node name="magnetTrigger2" parent="." instance=ExtResource("12_sw1qv")]
-position = Vector2(416, 64)
-
-[node name="MagneticLeftSlope" parent="." instance=ExtResource("13_0qw43")]
-position = Vector2(400, 189)
-
-[node name="MagneticRightSlope" parent="." instance=ExtResource("14_2c12l")]
-position = Vector2(112, 112)
-
-[node name="Magnetic64x64Block" parent="." instance=ExtResource("15_fqx55")]
-position = Vector2(152, 192)
-
-[node name="Magnetic32x64Block" parent="." instance=ExtResource("16_evcsx")]
-position = Vector2(104, 192)
-
-[node name="Magnetic32x32Block" parent="." instance=ExtResource("17_pptcr")]
-position = Vector2(112, 144)
-
-[node name="Magnetic32x32Ball" parent="." instance=ExtResource("18_rfven")]
-position = Vector2(344, -352)
-
-[node name="Magnetic32x32Ball2" parent="." instance=ExtResource("18_rfven")]
-position = Vector2(328, 144)
-
-[node name="MagneticFellaBox" parent="." instance=ExtResource("19_108sj")]
-position = Vector2(232, 192)
+position = Vector2(-16, 136)
 
 [node name="powerTrigger" parent="." instance=ExtResource("20_tmok2")]
-position = Vector2(128, 64)
+position = Vector2(96, 96)
 
 [node name="Wire" parent="." instance=ExtResource("21_6ujqy")]
 position = Vector2(208, 80)
@@ -135,13 +60,50 @@ position = Vector2(240, 16)
 position = Vector2(208, 48)
 
 [node name="Electrode" parent="." instance=ExtResource("22_ctscx")]
-position = Vector2(144, 99)
+position = Vector2(120, 124)
 
 [node name="Electrode2" parent="." instance=ExtResource("22_ctscx")]
-position = Vector2(192, 98)
+position = Vector2(292, 168)
 
-[node name="Electrode3" parent="." instance=ExtResource("22_ctscx")]
-position = Vector2(176, 132)
+[node name="Magnetic32x32Ball3" parent="." instance=ExtResource("18_rfven")]
+position = Vector2(144, 176)
 
-[editable path="sodaTrigger"]
-[editable path="securityCameraTrigger"]
+[node name="Magnetic32x32Ball2" parent="." instance=ExtResource("18_rfven")]
+position = Vector2(208, 144)
+
+[node name="Magnetic32x32Ball4" parent="." instance=ExtResource("18_rfven")]
+position = Vector2(80, 208)
+
+[node name="Magnetic32x32Ball5" parent="." instance=ExtResource("18_rfven")]
+position = Vector2(16, 176)
+
+[node name="Magnetic32x32Block" parent="." instance=ExtResource("17_pptcr")]
+position = Vector2(16, 208)
+
+[node name="Magnetic32x32Block2" parent="." instance=ExtResource("17_pptcr")]
+position = Vector2(144, 208)
+
+[node name="Magnetic32x64Block" parent="." instance=ExtResource("16_evcsx")]
+position = Vector2(208, 192)
+
+[node name="Magnetic32x32Ball6" parent="." instance=ExtResource("18_rfven")]
+position = Vector2(160, 80)
+
+[node name="MagneticLeftSlope" parent="." instance=ExtResource("13_0qw43")]
+position = Vector2(296, 136)
+
+[node name="MagneticRightSlope" parent="." instance=ExtResource("14_2c12l")]
+position = Vector2(304, -64)
+
+[node name="Magnetic32x128Block" parent="." instance=ExtResource("13_2aig8")]
+position = Vector2(464, -64)
+rotation = 1.5708
+
+[node name="Magnetic32x96Block" parent="." instance=ExtResource("14_sg4am")]
+position = Vector2(256, 72)
+
+[node name="Magnetic64x64Block" parent="." instance=ExtResource("15_fqx55")]
+position = Vector2(258, 189)
+
+[node name="MagneticFellaBox" parent="." instance=ExtResource("19_108sj")]
+position = Vector2(24, 72)

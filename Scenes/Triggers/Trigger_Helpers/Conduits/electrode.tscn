@@ -88,15 +88,15 @@ size = Vector2(4, 6)
 size = Vector2(2, 6)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mo70v"]
-radius = 48.0
+radius = 64.0
 
-[node name="Electrode" type="StaticBody2D" node_paths=PackedStringArray("electrodeSprite", "arcDetectionArea", "lightning")]
+[node name="Electrode" type="StaticBody2D" node_paths=PackedStringArray("electrodeSprite", "arcDetectionArea")]
 collision_layer = 64
 collision_mask = 64
 script = ExtResource("1_sqwjy")
 electrodeSprite = NodePath("ElectrodeSprite")
 arcDetectionArea = NodePath("ArcDetection")
-lightning = NodePath("lightning")
+lightningScene = ExtResource("4_omhlq")
 
 [node name="ElectrodeSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_4wphf")
@@ -125,10 +125,6 @@ collision_mask = 64
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ArcDetection"]
 visible = false
 shape = SubResource("CircleShape2D_mo70v")
-
-[node name="lightning" parent="." node_paths=PackedStringArray("fromPos") instance=ExtResource("4_omhlq")]
-fromPos = NodePath("..")
-bolt_length_factor = 50
 
 [connection signal="animation_finished" from="ElectrodeSprite" to="." method="onElectrodeSpriteAnimationFinished"]
 [connection signal="frame_changed" from="ElectrodeSprite" to="." method="onElectrodeSpriteFrameChanged"]

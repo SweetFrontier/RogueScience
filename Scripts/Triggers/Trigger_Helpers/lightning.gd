@@ -1,5 +1,5 @@
 extends Node2D
-class_name lightning
+class_name lightningBolt
 @export var boltsArray: Array[Line2D]
 @export var Sound: AudioStreamPlayer2D
 
@@ -18,7 +18,6 @@ class_name lightning
 
 func lightning_strike():
 	randomize()
-	
 	for bolt in boltsArray:
 		bolt.width = randf_range(bolt_min_width,bolt_max_width)
 		bolt.default_color = boltColor

@@ -1,8 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://chmcx2asxgymc"]
+[gd_scene load_steps=11 format=3 uid="uid://chmcx2asxgymc"]
 
 [ext_resource type="PhysicsMaterial" uid="uid://0wv2kg3l0ugb" path="res://Scenes/Triggers/Trigger_Helpers/MagneticObjects/magneticPhysicsMaterial.tres" id="1_autjl"]
-[ext_resource type="Script" path="res://Scripts/Triggers/Trigger_Helpers/movingObject.gd" id="1_pvlfx"]
 [ext_resource type="Texture2D" uid="uid://cxoqcb25v7cr0" path="res://Art/TriggerArt/MovingObject/plhMagnetic32x32Block.png" id="2_6j2i3"]
+[ext_resource type="Script" path="res://Scripts/Triggers/Trigger_Helpers/magneticObject.gd" id="2_dd4ut"]
 [ext_resource type="Texture2D" uid="uid://bctxuq8plm2r2" path="res://Art/TriggerArt/MovingObject/plhSodaShield.png" id="3_vcenh"]
 [ext_resource type="AudioStream" uid="uid://cbl8qb0gk6iiq" path="res://Sounds/hitsomething.ogg" id="4_kiq3s"]
 [ext_resource type="Script" path="res://Scripts/Triggers/Trigger_Helpers/explodeablePolygon.gd" id="5_ixiu8"]
@@ -25,7 +25,10 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h8oje"]
 size = Vector2(32, 32)
 
-[node name="Magnetic32x32Block" type="RigidBody2D" node_paths=PackedStringArray("floorDetector", "sprite", "SodaShield", "collisionShape", "soundPlayer", "deathExplosion")]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jk3h4"]
+size = Vector2(128, 128)
+
+[node name="Magnetic32x32Block" type="RigidBody2D" node_paths=PackedStringArray("arcDetectionArea", "floorDetector", "sprite", "SodaShield", "collisionShape", "soundPlayer", "deathExplosion")]
 z_index = 51
 z_as_relative = false
 collision_layer = 81
@@ -33,11 +36,10 @@ collision_mask = 67
 mass = 10000.0
 physics_material_override = ExtResource("1_autjl")
 can_sleep = false
-script = ExtResource("1_pvlfx")
+script = ExtResource("2_dd4ut")
+arcDetectionArea = NodePath("ArcDetection")
 magnetic = true
 followPlayer = false
-maxSingleMagnetVelocity = 100.0
-maxMagnetVelocity = 20.0
 floorDetector = NodePath("RayCast2D")
 sprite = NodePath("Sprite2D")
 SodaShield = NodePath("SodaShield")
@@ -87,3 +89,11 @@ y_max_distance = 10
 y_min_distance = -10
 time_to_form = 2.0
 metadata/_edit_group_ = true
+
+[node name="ArcDetection" type="Area2D" parent="."]
+collision_layer = 64
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ArcDetection"]
+visible = false
+shape = SubResource("RectangleShape2D_jk3h4")

@@ -17,7 +17,7 @@ enum teleporterColor {
 @export var teleporterArea1: Area2D
 @export var teleporter2: Node2D
 @export var teleporterArea2: Area2D
-@export var lightning: lightning
+@export var lightning: lightningBolt
 @export var activateSound : AudioStreamPlayer
 
 var teleporting = false

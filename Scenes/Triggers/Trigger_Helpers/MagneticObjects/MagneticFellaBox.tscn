@@ -1,8 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://cb4i64k02myvh"]
+[gd_scene load_steps=13 format=3 uid="uid://cb4i64k02myvh"]
 
-[ext_resource type="Script" path="res://Scripts/Triggers/Trigger_Helpers/movingObject.gd" id="1_pa0km"]
 [ext_resource type="PhysicsMaterial" uid="uid://0wv2kg3l0ugb" path="res://Scenes/Triggers/Trigger_Helpers/MagneticObjects/magneticPhysicsMaterial.tres" id="1_y7qvw"]
 [ext_resource type="Texture2D" uid="uid://cin483kgy7yjg" path="res://Art/TriggerArt/MovingObject/plhFellaBox.png" id="2_lpte8"]
+[ext_resource type="Script" path="res://Scripts/Triggers/Trigger_Helpers/magneticObject.gd" id="2_ntqnr"]
 [ext_resource type="Texture2D" uid="uid://ca64lqubue6b" path="res://Art/TriggerArt/MovingObject/plhFellaBoxEmpty.png" id="2_t85om"]
 [ext_resource type="Texture2D" uid="uid://bctxuq8plm2r2" path="res://Art/TriggerArt/MovingObject/plhSodaShield.png" id="3_4bq0t"]
 [ext_resource type="AudioStream" uid="uid://cbl8qb0gk6iiq" path="res://Sounds/hitsomething.ogg" id="4_ticff"]
@@ -27,7 +27,10 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_eujel"]
 radius = 31.0
 
-[node name="MagneticFellaBox" type="RigidBody2D" node_paths=PackedStringArray("floorDetector", "sprite", "SodaShield", "collisionShape", "soundPlayer", "deathExplosion")]
+[sub_resource type="CircleShape2D" id="CircleShape2D_kwkqk"]
+radius = 96.0
+
+[node name="MagneticFellaBox" type="RigidBody2D" node_paths=PackedStringArray("arcDetectionArea", "floorDetector", "sprite", "SodaShield", "collisionShape", "soundPlayer", "deathExplosion")]
 z_index = 51
 z_as_relative = false
 collision_layer = 81
@@ -36,11 +39,10 @@ mass = 10000.0
 center_of_mass_mode = 1
 physics_material_override = ExtResource("1_y7qvw")
 can_sleep = false
-script = ExtResource("1_pa0km")
+script = ExtResource("2_ntqnr")
+arcDetectionArea = NodePath("ArcDetection")
 magnetic = true
 followPlayer = false
-maxSingleMagnetVelocity = 100.0
-maxMagnetVelocity = 20.0
 floorDetector = NodePath("RayCast2D")
 sprite = NodePath("Sprite2D")
 SodaShield = NodePath("SodaShield")
@@ -94,3 +96,11 @@ metadata/_edit_group_ = true
 
 [node name="FellaBoxTrigger" parent="." node_paths=PackedStringArray("magneticBox") instance=ExtResource("7_ww057")]
 magneticBox = NodePath("..")
+
+[node name="ArcDetection" type="Area2D" parent="."]
+collision_layer = 64
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ArcDetection"]
+visible = false
+shape = SubResource("CircleShape2D_kwkqk")

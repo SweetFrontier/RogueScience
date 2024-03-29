@@ -4,8 +4,8 @@ class_name movingObject
 @export var stickyMultiplier = 0.8
 @export var magnetic: bool = false
 @export var followPlayer: bool = true
-@export var maxSingleMagnetVelocity: float
-@export var maxMagnetVelocity: float
+@export var maxSingleMagnetVelocity: float = 100.0
+@export var maxMagnetVelocity: float = 20.0
 @export var floorDetector: RayCast2D	
 @export var sprite: Sprite2D
 @export var SodaShield: AnimatedSprite2D

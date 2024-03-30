@@ -22,7 +22,8 @@ var stateToAnimString = {
 func _ready():
 	TriggerKeySprite.rotation_degrees = -rotation_degrees
 	currState = PowerState.OFF
-	reset()
+	$WireDetection.monitoring = false
+	$WireDetection.monitorable = false
 
 func _input(event):
 	# Check if the associated button is pressed and the trigger is active.
@@ -39,6 +40,8 @@ func react():
 
 func reset():
 	super.reset()
+	$WireDetection.monitoring = true
+	$WireDetection.monitorable = true
 	currState = PowerState.OFF
 	powerSourceSprite.animation = stateToAnimString[currState]
 	powerSourceSprite.frame = 0
@@ -49,10 +52,15 @@ func releasePower():
 	for exportConduit in exportConduits:
 		if exportConduit is wire or exportConduit is electrode:
 			exportConduit.power(self)
+		elif exportConduit is baseTrigger:
+			exportConduit.react()
 	currState = PowerState.OFF
 	powerSourceSprite.animation = stateToAnimString[currState]
 
 func onAdjacentConduitFound(_area_rid, area, _area_shape_index, _local_shape_index):
 	var areaParent = area.get_parent()
-	if areaParent is wire or (areaParent is electrode and area.name != "ArcDetection") or areaParent is powerTrigger:
+	if areaParent is wire or (areaParent is electrode and area.name != "ArcDetection") or areaParent is powerTrigger or areaParent is baseTrigger:
+		#powerTrigger will only be able to detect other powerTriggers or baseTriggers, as it has its collision turned on first
+		if areaParent is powerTrigger and not self in areaParent.exportConduits:
+			areaParent.exportConduits.append(self)
 		exportConduits.append(areaParent)

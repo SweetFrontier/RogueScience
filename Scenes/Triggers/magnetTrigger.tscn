@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dlkccgjxhbsdg"]
+[gd_scene load_steps=16 format=3 uid="uid://dlkccgjxhbsdg"]
 
 [ext_resource type="Script" path="res://Scripts/Triggers/magnetTrigger.gd" id="1_a4tog"]
 [ext_resource type="Texture2D" uid="uid://d4csp4htvaefl" path="res://Art/TriggerArt/Magnet/plhMagnetInactive.png" id="2_gejr7"]
@@ -74,6 +74,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ffuhi"]
 size = Vector2(64, 48)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eyows"]
+size = Vector2(64, 64)
+
 [node name="magnetTrigger" type="Node2D" node_paths=PackedStringArray("magnetSprite", "magneticSourcePoint", "TriggerKeySprite")]
 script = ExtResource("1_a4tog")
 strengthAmplitude = 10000.0
@@ -99,3 +102,10 @@ position = Vector2(0, 32)
 
 [node name="TriggerKeySprite" parent="." instance=ExtResource("5_nqqyp")]
 position = Vector2(0, 64)
+
+[node name="WireDetection" type="Area2D" parent="."]
+collision_layer = 64
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WireDetection"]
+shape = SubResource("RectangleShape2D_eyows")

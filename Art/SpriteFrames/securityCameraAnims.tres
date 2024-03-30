@@ -1,18 +1,26 @@
-[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://c8sqx1xvrnvlr"]
+[gd_resource type="SpriteFrames" load_steps=7 format=3 uid="uid://c8sqx1xvrnvlr"]
 
-[ext_resource type="Texture2D" uid="uid://c72kdodnx415i" path="res://Art/TriggerArt/SecurityCamera/plhCameraActivated.png" id="1_xrvr1"]
-[ext_resource type="Texture2D" uid="uid://c2fvl0rd5s07q" path="res://Art/TriggerArt/SecurityCamera/plhCameraDeactivated.png" id="2_o2yxd"]
+[ext_resource type="Texture2D" uid="uid://brnbvf320n4x0" path="res://Art/TriggerArt/SecurityCamera/CameraActivated.png" id="1_d3egb"]
 [ext_resource type="Texture2D" uid="uid://8popallfjrgh" path="res://Art/TriggerArt/SecurityCamera/plhCameraCovered.png" id="2_xu71h"]
+[ext_resource type="Texture2D" uid="uid://dwfp6ln4mo1wh" path="res://Art/TriggerArt/SecurityCamera/CameraDeactivated.png" id="3_vnbu4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pilt0"]
+atlas = ExtResource("1_d3egb")
+region = Rect2(0, 0, 32, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_voidt"]
 atlas = ExtResource("2_xu71h")
+region = Rect2(0, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y02kh"]
+atlas = ExtResource("3_vnbu4")
 region = Rect2(0, 0, 32, 16)
 
 [resource]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_xrvr1")
+"texture": SubResource("AtlasTexture_pilt0")
 }],
 "loop": true,
 "name": &"activated",
@@ -28,7 +36,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_o2yxd")
+"texture": SubResource("AtlasTexture_y02kh")
 }],
 "loop": true,
 "name": &"deactivated",

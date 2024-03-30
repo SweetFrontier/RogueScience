@@ -58,14 +58,14 @@ polygon = PackedVector2Array(0, 0, -160, -104, -264, -104, -96, -40, -96, 8, -96
 [node name="Polygon2D" parent="securityCameraTrigger/CameraPivotPoint/CameraView" index="1"]
 polygon = PackedVector2Array(-160, -104, -264, -104, -96, -40, -96, 8, -264, 56, -160, 56, -160, 72, -128, 56, -96, 56, 0, 0)
 
-[node name="GunSprite" parent="securityCameraTrigger" index="1"]
+[node name="GunSprite" parent="securityCameraTrigger" index="2"]
 position = Vector2(-16, 56)
 rotation = 0.785398
 
 [node name="Bullet" parent="securityCameraTrigger/GunSprite" index="0"]
 MAX_ROTATION_SPEED = 180
 
-[node name="TriggerKeySprite" parent="securityCameraTrigger" index="2"]
+[node name="TriggerKeySprite" parent="securityCameraTrigger" index="3"]
 visible = false
 
 [node name="securityCameraTrigger2" parent="." instance=ExtResource("7_0hxb1")]
@@ -81,14 +81,14 @@ polygon = PackedVector2Array(0, 0, -96, -56, -128, -56, -160, -72, -160, -56, -2
 [node name="Polygon2D" parent="securityCameraTrigger2/CameraPivotPoint/CameraView" index="1"]
 polygon = PackedVector2Array(-160, -56, -224, -56, -256, -64, -256, -56, -264, -56, -96, -8, -96, 40, -264, 104, -160, 104, 0, 0, -96, -56, -128, -56, -160, -72)
 
-[node name="GunSprite" parent="securityCameraTrigger2" index="1"]
+[node name="GunSprite" parent="securityCameraTrigger2" index="2"]
 position = Vector2(16, 56)
 rotation = 2.35619
 
 [node name="Bullet" parent="securityCameraTrigger2/GunSprite" index="0"]
 MAX_ROTATION_SPEED = 180
 
-[node name="TriggerKeySprite" parent="securityCameraTrigger2" index="2"]
+[node name="TriggerKeySprite" parent="securityCameraTrigger2" index="3"]
 visible = false
 
 [node name="32x32breakableBlock" parent="." instance=ExtResource("8_ov36q")]

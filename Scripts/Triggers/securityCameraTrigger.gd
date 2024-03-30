@@ -28,6 +28,10 @@ enum SecurityCameraState
 func _ready():
 	cameraView.body_entered.connect(_on_camera_caught)
 	TriggerKeySprite.rotation_degrees = -rotation_degrees
+	if($CameraPivotPoint.rotation_degrees > 90 or $CameraPivotPoint.rotation_degrees < -90):
+		cameraSprite.flip_v = true
+	if(gunSprite.rotation_degrees > 90 or gunSprite.rotation_degrees < -90):
+		gunSprite.flip_v = true
 	goalPivotRotation = $CameraPivotPoint.rotation_degrees
 	$CameraPivotPoint/CameraView/Polygon2D.visible = false
 	$CameraPivotPoint.rotation_degrees = 270
@@ -101,7 +105,7 @@ func _on_camera_caught(body):
 	targetIdentified = true
 	cameraView.set_deferred("monitoring",false)
 	cameraSprite.animation = "deactivated"
-	gunSprite.animation = "default"
+	gunSprite.animation = "shooting"
 	$CameraPivotPoint/CameraView/Polygon2D.visible = false
 	$GunSprite/Bullet.setTarget(body)
 	$GunSprite/Bullet.launch()

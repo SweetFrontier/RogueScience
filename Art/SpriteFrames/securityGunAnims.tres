@@ -1,13 +1,21 @@
-[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://n6voywyb5m04"]
+[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://n6voywyb5m04"]
 
-[ext_resource type="Texture2D" uid="uid://cvjrms7h8i8ma" path="res://Art/TriggerArt/SecurityCamera/plhGunDeactivated.png" id="1_5lkxc"]
-[ext_resource type="Texture2D" uid="uid://sixcjn8o4n6b" path="res://Art/TriggerArt/SecurityCamera/plhGunActivated.png" id="2_7c1yg"]
+[ext_resource type="Texture2D" uid="uid://bym8dn48krcm5" path="res://Art/TriggerArt/SecurityCamera/GunDeactivated.png" id="1_u4f0j"]
+[ext_resource type="Texture2D" uid="uid://8tsgvmk6dasq" path="res://Art/TriggerArt/SecurityCamera/GunActivated.png" id="2_s5boi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_12dnh"]
+atlas = ExtResource("1_u4f0j")
+region = Rect2(0, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_urg2c"]
+atlas = ExtResource("2_s5boi")
+region = Rect2(0, 0, 32, 16)
 
 [resource]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_5lkxc")
+"texture": SubResource("AtlasTexture_12dnh")
 }],
 "loop": true,
 "name": &"default",
@@ -15,7 +23,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_7c1yg")
+"texture": SubResource("AtlasTexture_urg2c")
 }],
 "loop": true,
 "name": &"shooting",

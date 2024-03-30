@@ -1,6 +1,6 @@
 [gd_resource type="SpriteFrames" load_steps=54 format=3 uid="uid://uoxtfmfhh7ft"]
 
-[ext_resource type="Texture2D" uid="uid://cudx8wpx2gmkj" path="res://Art/FellaSheet.png" id="1_hir8l"]
+[ext_resource type="Texture2D" uid="uid://cudx8wpx2gmkj" path="res://Art/Spritesheets/plhFellaSheet.png" id="1_hir8l"]
 [ext_resource type="Texture2D" uid="uid://dwruu2aib5lqw" path="res://Art/Spritesheets/FellaSheet.png" id="1_ogbgy"]
 [ext_resource type="Texture2D" uid="uid://bf58iq3vhvxue" path="res://Art/Credits/FellaSheet.png" id="2_jvwc3"]
 

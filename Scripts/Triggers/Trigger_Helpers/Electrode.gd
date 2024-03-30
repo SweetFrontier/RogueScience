@@ -29,11 +29,14 @@ var stateToAnimString = {
 }
 
 func _ready():
-	if !WireConnectionOverride:
+	if !wireConnection:
 		wireConnection = WireConnectionOverride
-	reset()
+	$WireDetection.monitoring = false
+	$WireDetection.monitorable = false
 
 func reset():
+	$WireDetection.monitoring = true
+	$WireDetection.monitorable = true
 	currState = PowerState.OFF
 	electrodeSprite.animation = stateToAnimString[currState]
 	poweringConnection = null
@@ -66,16 +69,20 @@ func power(inputConn):
 		electrodeSprite.play()
 
 func outputWire():
-	if wireConnection is wire:
+	if wireConnection is wire or wireConnection is electrode:
 		wireConnection.power(self)
+	elif wireConnection is baseTrigger:
+		wireConnection.react()
 
 func outputElectrode():
 	conductiveBodies = arcDetectionArea.get_overlapping_bodies()
 	var cBodies = arcDetectionArea.get_overlapping_bodies()
 	for cb in cBodies:
-		if cb == self or (cb is magneticObject and cb.currState == PowerState.ON):
+		if cb == self:
 			continue
 		elif cb is electrode or cb is magneticObject:
+			if cb.currState == PowerState.ON:
+					continue
 			conductiveBodies.append(cb)
 			var lightning = getFreeLightning()
 			lightning.toPos = cb
@@ -87,7 +94,7 @@ func outputElectrode():
 
 func onElectrodeSpriteFrameChanged():
 	if electrodeSprite.frame == 3 and electrodeSprite.animation == stateToAnimString[PowerState.ON]:
-		if poweringConnection is electrode:
+		if (poweringConnection is electrode and wireConnection != poweringConnection) or poweringConnection is magneticObject:
 			outputWire()
 		else:
 			outputElectrode()
@@ -98,8 +105,13 @@ func onElectrodeSpriteAnimationFinished():
 
 func onAdjacentConduitFound(_area_rid, area, _area_shape_index, _local_shape_index):
 	var areaParent = area.get_parent()
-	if areaParent is wire or (areaParent is electrode and area.name != "ArcDetection") or areaParent is powerTrigger:
+	if areaParent is wire or (areaParent is electrode and area.name != "ArcDetection") or areaParent is powerTrigger or areaParent is baseTrigger:
 		if !wireConnection:
+			#electrodes will only be able to detect other powerTriggers, baseTriggers or other eledtrodes, as it has its collision turned on second
+			if areaParent is powerTrigger and not self in areaParent.exportConduits:
+				areaParent.exportConduits.append(self)
+			elif areaParent is electrode and areaParent.wireConnection != self:
+				areaParent.wireConnection = self
 			wireConnection = areaParent
 
 func getFreeLightning():

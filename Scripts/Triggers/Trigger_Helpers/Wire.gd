@@ -13,6 +13,7 @@ class_name wire
 @export var overrideD : Node2D
 @export var overrideDR : Node2D
 
+var wireDetectors : Array[Area2D]
 var currState : PowerState = PowerState.OFF
 var connections : Array[Node2D]
 var poweringConnection : Node2D
@@ -31,9 +32,15 @@ var stateToAnimString = {
 
 func _ready():
 	connections = [overrideUL, overrideU, overrideUR, overrideL, overrideR, overrideDL, overrideD, overrideDR]
-	reset()
+	wireDetectors = [$ULCollision, $UCollision, $URCollision, $LCollision, $RCollision, $DLCollision, $DCollision, $DRCollision]
+	for wireDetector in wireDetectors:
+		wireDetector.monitoring = false
+		wireDetector.monitorable = false
 
 func reset():
+	for wireDetector in wireDetectors:
+		wireDetector.monitoring = true
+		wireDetector.monitorable = true
 	currState = PowerState.OFF
 	wireSprite.animation = stateToAnimString[currState]
 	wireSprite.frame = 0
@@ -60,6 +67,8 @@ func onWireSpriteFrameChanged():
 		for output in outputConnections:
 			if output is wire or output is electrode:
 				output.power(self)
+			elif output is baseTrigger:
+				output.react()
 
 func onWireSpriteAnimationFinished():
 	if wireSprite.animation == stateToAnimString[PowerState.ON]:
@@ -67,6 +76,13 @@ func onWireSpriteAnimationFinished():
 
 func onAdjacentConduitFound(_area_rid, area, _area_shape_index, _local_shape_index, areaDirection):
 	var areaParent = area.get_parent()
-	if areaParent is wire or (areaParent is electrode and area.name != "ArcDetection") or areaParent is powerTrigger:
+	if areaParent is wire or (areaParent is electrode and area.name != "ArcDetection") or areaParent is powerTrigger or areaParent is baseTrigger:
 		if !connections[areaDirection]:
+			#Wires are the last conduit to have its collision enabled
+			if areaParent is powerTrigger and not self in areaParent.exportConduits:
+				areaParent.exportConduits.append(self)
+			elif areaParent is electrode and areaParent.wireConnection != self:
+				areaParent.wireConnection = self
+			elif areaParent is wire and not self in connections:
+				print_debug()
 			connections[areaDirection] = areaParent

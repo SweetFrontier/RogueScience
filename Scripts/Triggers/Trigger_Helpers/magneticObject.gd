@@ -60,9 +60,11 @@ func power(inputConn):
 		conductiveBodies.clear()
 		var cBodies = arcDetectionArea.get_overlapping_bodies()
 		for cb in cBodies:
-			if cb == self or cb == inputConn or (cb is magneticObject and cb.currState == PowerState.ON):
+			if cb == self or cb == inputConn:
 				continue
 			elif cb is electrode or cb is magneticObject:
+				if cb.currState == PowerState.ON:
+					continue
 				conductiveBodies.append(cb)
 				var lightning = getFreeLightning()
 				lightning.toPos = cb

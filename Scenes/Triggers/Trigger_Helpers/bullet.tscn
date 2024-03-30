@@ -63,10 +63,11 @@ BULLET_SPEED = 200000.0
 [node name="BulletSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("1_wu2f4")
 frame_progress = 0.957232
-offset = Vector2(-10, 0)
+offset = Vector2(-1, 0)
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(-1, 0)
 shape = SubResource("CircleShape2D_u0vxs")
 

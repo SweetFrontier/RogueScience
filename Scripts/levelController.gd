@@ -10,7 +10,8 @@ class_name levelController
 
 var triggerBlocks : Array[baseTrigger]
 var movingObjects : Array[movingObject]
-var conduits : Array[Node2D]
+var wires : Array[wire]
+var electrodes : Array[electrode]
 var magnetTriggers : Array[magnetTrigger]
 var magneticMovingObjects : Array[movingObject]
 var remainingTriggerBlocks : Array[baseTrigger]
@@ -37,7 +38,9 @@ func _ready():
 							grandchild.connect("remove_key_signal", remove_key)
 							grandchild.connect("randomize_block_keys_signal", randomize_block_keys)
 			elif child is wire:
-				conduits.append(child)
+				wires.append(child)
+			elif child is electrode:
+				electrodes.append(child)
 		reset();
 	else:
 		#hide the player until the level starts
@@ -63,7 +66,9 @@ func _ready():
 							grandchild.connect("remove_key_signal", remove_key)
 							grandchild.connect("randomize_block_keys_signal", randomize_block_keys)
 			elif child is wire:
-				conduits.append(child)
+				wires.append(child)
+			elif child is electrode:
+				electrodes.append(child)
 	
 	#Give each Magnetic Moving Object a reference to each Magnet in the scene
 	for magneticObject in magneticMovingObjects:
@@ -79,8 +84,10 @@ func reset():
 	for moveO in movingObjects:
 		moveO.show()
 		moveO.reset()
-	for conduit in conduits:
-		conduit.reset()
+	for e in electrodes:
+		e.reset()
+	for w in wires:
+		w.reset()
 	player.reset()
 	#show the player
 	player.show()

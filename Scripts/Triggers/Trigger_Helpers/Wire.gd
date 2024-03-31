@@ -3,6 +3,7 @@ extends Node2D
 class_name wire
 
 @export var wireSprite: AnimatedSprite2D
+@export var wireDetectors : Array[Area2D]
 
 @export var overrideUL : Node2D
 @export var overrideU : Node2D
@@ -13,7 +14,6 @@ class_name wire
 @export var overrideD : Node2D
 @export var overrideDR : Node2D
 
-var wireDetectors : Array[Area2D]
 var currState : PowerState = PowerState.OFF
 var connections : Array[Node2D]
 var poweringConnection : Node2D
@@ -30,9 +30,20 @@ var stateToAnimString = {
 	PowerState.OFF: "off"
 }
 
+var stringToWireIndex = {
+	"ULCollision" : 0, 
+	"UCollision" : 1, 
+	"URCollision" : 2, 
+	"LCollision" : 3, 
+	"RCollision" : 4, 
+	"DLCollision" : 5, 
+	"DCollision" : 6, 
+	"DRCollision" : 7
+}
+
 func _ready():
 	connections = [overrideUL, overrideU, overrideUR, overrideL, overrideR, overrideDL, overrideD, overrideDR]
-	wireDetectors = [$ULCollision, $UCollision, $URCollision, $LCollision, $RCollision, $DLCollision, $DCollision, $DRCollision]
+	#wireDetectors = [$ULCollision, $UCollision, $URCollision, $LCollision, $RCollision, $DLCollision, $DCollision, $DRCollision]
 	for wireDetector in wireDetectors:
 		wireDetector.monitoring = false
 		wireDetector.monitorable = false
@@ -79,10 +90,14 @@ func onAdjacentConduitFound(_area_rid, area, _area_shape_index, _local_shape_ind
 	if areaParent is wire or (areaParent is electrode and area.name != "ArcDetection") or areaParent is powerTrigger or areaParent is baseTrigger:
 		if !connections[areaDirection]:
 			#Wires are the last conduit to have its collision enabled
-			if areaParent is powerTrigger and not self in areaParent.exportConduits:
-				areaParent.exportConduits.append(self)
+			if areaParent is powerTrigger:
+				if not self in areaParent.exportConduits:
+					areaParent.exportConduits.append(self)
+			elif areaParent is baseTrigger:
+				areaParent.show_button = false
+				areaParent.TriggerKeySprite.modulate.a = 0
 			elif areaParent is electrode and areaParent.wireConnection != self:
 				areaParent.wireConnection = self
-			elif areaParent is wire and not self in connections:
-				print_debug()
+			elif areaParent is wire and not self in areaParent.connections:
+				areaParent.connections[stringToWireIndex[area.name]] = self
 			connections[areaDirection] = areaParent

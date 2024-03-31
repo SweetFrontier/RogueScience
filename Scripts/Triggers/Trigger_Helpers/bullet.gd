@@ -27,18 +27,20 @@ func _ready():
 	startingTransform = get_transform()
 
 func reset():
-	$BulletSprite.visible = true
+	$BulletSprite.visible = false
 	bulletState = BulletState.IDLE
 	transform = startingTransform
 	velocity = Vector2()
 	inSoda = 0
-	$CollisionShape2D.set_deferred("disabled", false)
+	$CollisionShape2D.set_deferred("disabled", true)
 
 func setTarget(target: Node2D):
 	target_node = target
 
 func launch():
 	bulletState = BulletState.FLYING
+	$BulletSprite.visible = true
+	$CollisionShape2D.set_deferred("disabled", false)
 
 func _physics_process(delta):
 	match(bulletState):

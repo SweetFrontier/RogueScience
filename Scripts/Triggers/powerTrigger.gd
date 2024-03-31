@@ -21,6 +21,8 @@ var stateToAnimString = {
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	TriggerKeySprite.rotation_degrees = -rotation_degrees
+	if !show_button:
+		TriggerKeySprite.modulate.a = 0
 	currState = PowerState.OFF
 	$WireDetection.monitoring = false
 	$WireDetection.monitorable = false
@@ -63,4 +65,7 @@ func onAdjacentConduitFound(_area_rid, area, _area_shape_index, _local_shape_ind
 		#powerTrigger will only be able to detect other powerTriggers or baseTriggers, as it has its collision turned on first
 		if areaParent is powerTrigger and not self in areaParent.exportConduits:
 			areaParent.exportConduits.append(self)
+		elif areaParent is baseTrigger:
+			areaParent.show_button = false
+			areaParent.TriggerKeySprite.modulate.a = 0
 		exportConduits.append(areaParent)

@@ -82,6 +82,7 @@ func getFreeLightning():
 	if !freeLightning:
 		freeLightning = lightningScene.instantiate()
 		freeLightning.fromPos = self
+		freeLightning.rotation = -rotation
 		add_child(freeLightning)
 	inUseLightnings.append(freeLightning)
 	return freeLightning	

@@ -31,8 +31,9 @@ func reset():
 	BlockSprite.animation = "deactivated"
 	if startActivated:
 		react()
-		button_fade_timer = 0
-		TriggerKeySprite.modulate.a = 0
+		if show_button:
+			button_fade_timer = 0
+			TriggerKeySprite.modulate.a = 0
 
 func _physics_process(delta):
 	super._physics_process(delta)

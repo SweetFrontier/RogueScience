@@ -30,6 +30,8 @@ enum SodaState
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	TriggerKeySprite.rotation_degrees = -rotation_degrees
+	if !show_button:
+		TriggerKeySprite.modulate.a = 0
 	currState = SodaState.FULL
 	startingPosition = bottleSprite.get_position()
 	$SodaBall.rotation = rotation
@@ -83,8 +85,9 @@ func reset():
 	
 	if startActivated:
 		react()
-		button_fade_timer = 0
-		TriggerKeySprite.modulate.a = 0
+		if show_button:
+			button_fade_timer = 0
+			TriggerKeySprite.modulate.a = 0
 		shakeAmount = explosionThreshold
 
 func recieve_splat(gPosition : Vector2):

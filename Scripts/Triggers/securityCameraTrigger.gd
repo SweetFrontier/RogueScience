@@ -28,6 +28,8 @@ enum SecurityCameraState
 func _ready():
 	cameraView.body_entered.connect(_on_camera_caught)
 	TriggerKeySprite.rotation_degrees = -rotation_degrees
+	if !show_button:
+		TriggerKeySprite.modulate.a = 0
 	if($CameraPivotPoint.rotation_degrees > 90 or $CameraPivotPoint.rotation_degrees < -90):
 		cameraSprite.flip_v = true
 	if(gunSprite.rotation_degrees > 90 or gunSprite.rotation_degrees < -90):
@@ -72,8 +74,9 @@ func reset():
 	if startActivated:
 		currState = SecurityCameraState.INPOSITION
 		react()
-		button_fade_timer = 0
-		TriggerKeySprite.modulate.a = 0
+		if show_button:
+			button_fade_timer = 0
+			TriggerKeySprite.modulate.a = 0
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -117,8 +120,9 @@ func CoverInSoda():
 	cameraSprite.animation = "covered"
 	$CameraPivotPoint/CameraView/Polygon2D.visible = false
 	cameraView.set_deferred("monitoring",false)
-	button_fade_timer = 0
-	TriggerKeySprite.modulate.a = 0
+	if show_button:
+		button_fade_timer = 0
+		TriggerKeySprite.modulate.a = 0
 	match currState:
 		SecurityCameraState.INACTIVE:
 			return

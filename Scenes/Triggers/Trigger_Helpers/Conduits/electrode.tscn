@@ -47,7 +47,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_elkwl")
 }],
-"loop": true,
+"loop": false,
 "name": &"off",
 "speed": 5.0
 }, {
@@ -100,9 +100,7 @@ lightningScene = ExtResource("4_omhlq")
 
 [node name="ElectrodeSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_4wphf")
-animation = &"on"
-frame = 7
-frame_progress = 1.0
+animation = &"off"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1)

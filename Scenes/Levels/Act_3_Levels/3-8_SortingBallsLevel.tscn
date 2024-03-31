@@ -1,0 +1,255 @@
+[gd_scene load_steps=18 format=3 uid="uid://cg7o1kp2d4e4w"]
+
+[ext_resource type="Script" path="res://Scripts/levelController.gd" id="1_6qwwc"]
+[ext_resource type="TileSet" uid="uid://bnpggr5480t5q" path="res://Art/TileSets/initialTileSet.tres" id="2_kehlp"]
+[ext_resource type="PackedScene" uid="uid://dd6l6fhpuajke" path="res://Scenes/rigidPlayer.tscn" id="3_kwpki"]
+[ext_resource type="PackedScene" uid="uid://dvbyxsl5e3ol8" path="res://Scenes/Triggers/Trigger_Helpers/TransitionField.tscn" id="4_n6iwy"]
+[ext_resource type="PackedScene" uid="uid://dpeaoe3ad3ahy" path="res://Scenes/Triggers/Trigger_Helpers/brokenVat.tscn" id="5_0tt1j"]
+[ext_resource type="PackedScene" uid="uid://ir5lgtduwqki" path="res://Scenes/Triggers/Trigger_Helpers/MagneticObjects/Magnetic64x64Block.tscn" id="7_36sis"]
+[ext_resource type="PackedScene" uid="uid://w0tbh5u1qv7j" path="res://Scenes/Triggers/ElectricalDoors/32x64ElectricalDoor.tscn" id="8_mhrhh"]
+[ext_resource type="PackedScene" uid="uid://b7levwy0h2j7v" path="res://Scenes/Triggers/Trigger_Helpers/Conduits/electrode.tscn" id="9_vdgpu"]
+[ext_resource type="PackedScene" uid="uid://bhxvnemhaxas4" path="res://Scenes/Triggers/Trigger_Helpers/Conduits/WireRightAngle.tscn" id="10_w2b76"]
+[ext_resource type="PackedScene" uid="uid://bhlldrm76206b" path="res://Scenes/Triggers/powerTrigger.tscn" id="11_0xrow"]
+[ext_resource type="PackedScene" uid="uid://dlkccgjxhbsdg" path="res://Scenes/Triggers/magnetTrigger.tscn" id="12_qi1pv"]
+[ext_resource type="PackedScene" uid="uid://bd1gtx8upibdi" path="res://Scenes/Triggers/Trigger_Helpers/Conduits/WireTSplit.tscn" id="13_sh0sg"]
+[ext_resource type="PackedScene" uid="uid://dcf8fjp1cyb11" path="res://Scenes/Triggers/securityCameraTrigger.tscn" id="14_63uut"]
+[ext_resource type="PackedScene" uid="uid://blx73h3sy4dr8" path="res://Scenes/Triggers/Trigger_Helpers/Conduits/WireStraight.tscn" id="14_m7lfx"]
+[ext_resource type="PackedScene" uid="uid://b3en650yijru0" path="res://Scenes/Triggers/Trigger_Helpers/MagneticObjects/Magnetic32x64Block.tscn" id="15_ex36h"]
+[ext_resource type="PackedScene" uid="uid://psrem4kknlu8" path="res://Scenes/Triggers/BreakableBlocks/32x64breakableBlock.tscn" id="16_alqlf"]
+[ext_resource type="PackedScene" uid="uid://cbygtk7mevpmo" path="res://Scenes/Triggers/Trigger_Helpers/MagneticObjects/Magnetic32x32Ball.tscn" id="17_b8jyq"]
+
+[node name="3-8_SortingBalls" type="Node2D" node_paths=PackedStringArray("cameraSpot", "player", "transitionField")]
+script = ExtResource("1_6qwwc")
+cameraSpot = NodePath("CenterPosition")
+cameraSize = Vector2(608, 480)
+player = NodePath("rigidPlayer")
+transitionField = NodePath("TransitionField")
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("2_kehlp")
+format = 2
+layer_0/tile_data = PackedInt32Array(262154, 65539, 1, 196618, 65539, 1, 196619, 65539, 1, 196620, 65539, 1, 196622, 65539, 1, 262158, 65539, 1, 458762, 65539, 1, 524298, 65539, 1, 524302, 65539, 1, 458766, 65539, 1, 196623, 65539, 1, 196624, 65539, 1, 196625, 65539, 1, 196626, 65539, 1, 262159, 65539, 1, 196627, 65539, 1, 262163, 65539, 1, 458767, 65539, 1, 524303, 65539, 1, 458771, 65539, 1, 524307, 65539, 1, 393231, 65539, 1, 393230, 65539, 1, 327694, 65539, 1, 327695, 65539, 1, 393235, 65539, 1, 327699, 65539, 1, 393226, 65539, 1, 327690, 65539, 1, 196628, 65539, 1, 262164, 65539, 1, 327700, 65539, 1, 393236, 65539, 1, 458772, 65539, 1, 524308, 65539, 1, 524297, 65539, 1, 458761, 65539, 1, 393225, 65539, 1, 327689, 65539, 1, 262153, 65539, 1, 196617, 65539, 1, 589834, 65539, 1, 589833, 65539, 1, 589835, 65539, 1, 589836, 65539, 1, 589837, 65539, 1, 589838, 65539, 1, 589839, 65539, 1, 589840, 65539, 1, 589841, 65539, 1, 589842, 65539, 1, 589843, 65539, 1, 589844, 65539, 1, 196621, 65539, 1, 262155, 262147, 4, 524299, 65539, 3, 524301, 131075, 3, 262157, 393219, 4, 655375, 65539, 1, 655369, 65539, 1, 720905, 65539, 1, 786441, 65539, 1, 851977, 65539, 1, 851978, 65539, 1, 851979, 65539, 1, 851980, 65539, 1, 851981, 65539, 1, 851982, 65539, 1, 851983, 65539, 1, 851984, 65539, 1, 851985, 65539, 1, 851986, 65539, 1, 851987, 65539, 1, 851988, 65539, 1, 851989, 65539, 1, 851990, 65539, 1, 655380, 65539, 1, 851991, 65539, 1, 524315, 65539, 1, 589851, 65539, 1, 655387, 65539, 1, 720923, 65539, 1, 786459, 65539, 1, 851995, 65539, 1, 851992, 65539, 1, 917528, 65539, 1, 917531, 65539, 1, 983066, 65539, 1, 983065, 65539, 1, 983067, 65539, 1, 983064, 65539, 1, 262165, 65539, 1, 327702, 65539, 1, 393239, 65539, 1, 458776, 65539, 1, 524313, 65539, 1, 524314, 65539, 1, 524312, 524291, 2, 458775, 524291, 2, 393238, 524291, 2, 327701, 524291, 2, 196629, 524291, 1, 262166, 524291, 1, 327703, 524291, 1, 393240, 524291, 1, 458777, 524291, 1, 65552, 65539, 1, 65553, 65539, 1, 131089, 65539, 1, 131088, 65539, 1, 131087, 65539, 1, 131086, 65539, 1, 65554, 65539, 1, 131090, 65539, 1, 131091, 65539, 1, 131092, 393219, 1, 65555, 393219, 1)
+
+[node name="rigidPlayer" parent="." instance=ExtResource("3_kwpki")]
+position = Vector2(352, 400)
+starting_direction = Vector2(-1, 0)
+
+[node name="CenterPosition" type="Marker2D" parent="."]
+position = Vector2(592, 272)
+
+[node name="TransitionField" parent="." instance=ExtResource("4_n6iwy")]
+position = Vector2(832, 448)
+
+[node name="brokenVat" parent="." instance=ExtResource("5_0tt1j")]
+position = Vector2(352, 384)
+
+[node name="Electrode" parent="." instance=ExtResource("9_vdgpu")]
+position = Vector2(356, 208)
+rotation = -1.5708
+
+[node name="Electrode2" parent="." instance=ExtResource("9_vdgpu")]
+position = Vector2(516, 208)
+rotation = -1.5708
+
+[node name="Electrode3" parent="." instance=ExtResource("9_vdgpu")]
+position = Vector2(444, 144)
+rotation = 1.5708
+
+[node name="Electrode4" parent="." instance=ExtResource("9_vdgpu")]
+position = Vector2(444, 272)
+rotation = 1.5708
+
+[node name="Magnetic64x64Block" parent="." instance=ExtResource("7_36sis")]
+position = Vector2(400, 208)
+
+[node name="magnetTrigger" parent="." instance=ExtResource("12_qi1pv")]
+position = Vector2(560, 64)
+
+[node name="powerTrigger" parent="." instance=ExtResource("11_0xrow")]
+position = Vector2(320, 208)
+
+[node name="WireStraight" parent="." instance=ExtResource("14_m7lfx")]
+position = Vector2(464, 176)
+rotation = 1.5708
+
+[node name="WireRightAngle" parent="." instance=ExtResource("10_w2b76")]
+position = Vector2(464, 144)
+rotation = 3.14159
+
+[node name="WireRightAngle2" parent="." instance=ExtResource("10_w2b76")]
+position = Vector2(464, 208)
+
+[node name="WireRightAngle3" parent="." instance=ExtResource("10_w2b76")]
+position = Vector2(464, 272)
+rotation = 3.14159
+
+[node name="WireStraight5" parent="." instance=ExtResource("14_m7lfx")]
+position = Vector2(464, 304)
+rotation = 1.5708
+
+[node name="WireTSplit" parent="." instance=ExtResource("13_sh0sg")]
+position = Vector2(496, 208)
+
+[node name="electricalDoor" parent="." instance=ExtResource("8_mhrhh")]
+position = Vector2(480, 352)
+startState = 2
+
+[node name="electricalDoor2" parent="." instance=ExtResource("8_mhrhh")]
+position = Vector2(640, 352)
+startState = 2
+
+[node name="securityCameraTrigger" parent="." instance=ExtResource("14_63uut")]
+position = Vector2(464, 320)
+
+[node name="CameraPivotPoint" parent="securityCameraTrigger" index="0"]
+rotation = -0.785398
+
+[node name="CollisionPolygon2D" parent="securityCameraTrigger/CameraPivotPoint/CameraView" index="0"]
+polygon = PackedVector2Array(0, 0, -136.735, -50.9117, -153.706, -33.9412, -85.8234, 33.9411)
+
+[node name="Polygon2D" parent="securityCameraTrigger/CameraPivotPoint/CameraView" index="1"]
+polygon = PackedVector2Array(-136.735, -50.9117, -153.706, -33.9412, -85.8234, 33.9411, 0, 0)
+
+[node name="GunSprite" parent="securityCameraTrigger" index="2"]
+position = Vector2(16, 16)
+rotation = -0.479966
+metadata/_edit_group_ = true
+
+[node name="Bullet" parent="securityCameraTrigger/GunSprite" index="0"]
+MAX_ROTATION_SPEED = 180
+
+[node name="TriggerKeySprite" parent="securityCameraTrigger" index="3"]
+visible = false
+
+[node name="WireStraight2" parent="." instance=ExtResource("14_m7lfx")]
+position = Vector2(496, 336)
+rotation = 1.5708
+
+[node name="WireStraight3" parent="." instance=ExtResource("14_m7lfx")]
+position = Vector2(496, 304)
+rotation = 1.5708
+
+[node name="WireStraight4" parent="." instance=ExtResource("14_m7lfx")]
+position = Vector2(496, 272)
+rotation = 1.5708
+
+[node name="WireStraight6" parent="." instance=ExtResource("14_m7lfx")]
+position = Vector2(496, 240)
+rotation = 1.5708
+
+[node name="Magnetic32x64Block" parent="." instance=ExtResource("15_ex36h")]
+position = Vector2(568, 208)
+
+[node name="Electrode5" parent="." instance=ExtResource("9_vdgpu")]
+position = Vector2(604, 144)
+rotation = 1.5708
+
+[node name="Electrode6" parent="." instance=ExtResource("9_vdgpu")]
+position = Vector2(604, 272)
+rotation = 1.5708
+
+[node name="WireRightAngle4" parent="." instance=ExtResource("10_w2b76")]
+position = Vector2(656, 144)
+rotation = 3.14159
+
+[node name="WireStraight7" parent="." instance=ExtResource("14_m7lfx")]
+position = Vector2(624, 144)
+
+[node name="WireStraight8" parent="." instance=ExtResource("14_m7lfx")]
+position = Vector2(656, 176)
+rotation = 1.5708
+
+[node name="WireStraight9" parent="." instance=ExtResource("14_m7lfx")]
+position = Vector2(656, 208)
+rotation = 1.5708
+
+[node name="WireStraight10" parent="." instance=ExtResource("14_m7lfx")]
+position = Vector2(624, 272)
+rotation = 1.5708
+
+[node name="WireRightAngle5" parent="." instance=ExtResource("10_w2b76")]
+position = Vector2(624, 240)
+rotation = 1.5708
+
+[node name="WireRightAngle6" parent="." instance=ExtResource("10_w2b76")]
+position = Vector2(656, 240)
+rotation = -1.5708
+
+[node name="WireStraight11" parent="." instance=ExtResource("14_m7lfx")]
+position = Vector2(624, 304)
+rotation = 1.5708
+
+[node name="WireStraight12" parent="." instance=ExtResource("14_m7lfx")]
+position = Vector2(624, 272)
+
+[node name="WireStraight13" parent="." instance=ExtResource("14_m7lfx")]
+position = Vector2(656, 304)
+rotation = 1.5708
+
+[node name="WireStraight14" parent="." instance=ExtResource("14_m7lfx")]
+position = Vector2(656, 336)
+rotation = 1.5708
+
+[node name="WireTSplit2" parent="." instance=ExtResource("13_sh0sg")]
+position = Vector2(656, 272)
+
+[node name="securityCameraTrigger2" parent="." instance=ExtResource("14_63uut")]
+position = Vector2(624, 320)
+
+[node name="CameraPivotPoint" parent="securityCameraTrigger2" index="0"]
+rotation = -1.0472
+
+[node name="CollisionPolygon2D" parent="securityCameraTrigger2/CameraPivotPoint/CameraView" index="0"]
+polygon = PackedVector2Array(0, 0, -123.138, -48.9949, -79.1385, 27.2154)
+
+[node name="Polygon2D" parent="securityCameraTrigger2/CameraPivotPoint/CameraView" index="1"]
+polygon = PackedVector2Array(-123.138, -48.9949, -79.1385, 27.2154, 0, 0)
+
+[node name="GunSprite" parent="securityCameraTrigger2" index="2"]
+position = Vector2(16, 16)
+rotation = -0.479966
+metadata/_edit_group_ = true
+
+[node name="Bullet" parent="securityCameraTrigger2/GunSprite" index="0"]
+MAX_ROTATION_SPEED = 180
+
+[node name="TriggerKeySprite" parent="securityCameraTrigger2" index="3"]
+visible = false
+
+[node name="securityCameraTrigger3" parent="." instance=ExtResource("14_63uut")]
+position = Vector2(672, 272)
+
+[node name="CameraPivotPoint" parent="securityCameraTrigger3" index="0"]
+rotation = -2.70526
+
+[node name="CameraLens" parent="securityCameraTrigger3/CameraPivotPoint/CameraSprite" index="0"]
+visible = true
+
+[node name="CollisionShape2D" parent="securityCameraTrigger3/CameraPivotPoint/CameraSprite/CameraLens" index="0"]
+visible = false
+
+[node name="CollisionPolygon2D" parent="securityCameraTrigger3/CameraPivotPoint/CameraView" index="0"]
+polygon = PackedVector2Array(0, 0, -160.864, -76.4131, -218.868, -49.3656, -171.535, 52.1409)
+
+[node name="Polygon2D" parent="securityCameraTrigger3/CameraPivotPoint/CameraView" index="1"]
+polygon = PackedVector2Array(-160.864, -76.4131, -218.868, -49.3656, -171.535, 52.1409, 0, 0)
+
+[node name="GunSprite" parent="securityCameraTrigger3" index="2"]
+rotation = -2.35619
+metadata/_edit_group_ = true
+
+[node name="Bullet" parent="securityCameraTrigger3/GunSprite" index="0"]
+MAX_ROTATION_SPEED = 180
+
+[node name="TriggerKeySprite" parent="securityCameraTrigger3" index="3"]
+visible = false
+
+[node name="32x64breakableBlock" parent="." instance=ExtResource("16_alqlf")]
+position = Vector2(672, 352)
+
+[node name="Magnetic32x32Ball" parent="." instance=ExtResource("17_b8jyq")]
+position = Vector2(752, 400)
+
+[editable path="securityCameraTrigger"]
+[editable path="securityCameraTrigger2"]
+[editable path="securityCameraTrigger3"]

@@ -1,0 +1,224 @@
+[gd_scene load_steps=17 format=3 uid="uid://d2miuhaw75pfu"]
+
+[ext_resource type="Script" path="res://Scripts/levelController.gd" id="1_kdjjo"]
+[ext_resource type="TileSet" uid="uid://bnpggr5480t5q" path="res://Art/TileSets/initialTileSet.tres" id="2_4nd06"]
+[ext_resource type="PackedScene" uid="uid://dd6l6fhpuajke" path="res://Scenes/rigidPlayer.tscn" id="3_dmwka"]
+[ext_resource type="PackedScene" uid="uid://dvbyxsl5e3ol8" path="res://Scenes/Triggers/Trigger_Helpers/TransitionField.tscn" id="4_5fcei"]
+[ext_resource type="PackedScene" uid="uid://dpeaoe3ad3ahy" path="res://Scenes/Triggers/Trigger_Helpers/brokenVat.tscn" id="5_e1chm"]
+[ext_resource type="PackedScene" uid="uid://b7levwy0h2j7v" path="res://Scenes/Triggers/Trigger_Helpers/Conduits/electrode.tscn" id="6_d8a0k"]
+[ext_resource type="PackedScene" uid="uid://w0tbh5u1qv7j" path="res://Scenes/Triggers/ElectricalDoors/32x64ElectricalDoor.tscn" id="7_nlcnt"]
+[ext_resource type="PackedScene" uid="uid://bhxvnemhaxas4" path="res://Scenes/Triggers/Trigger_Helpers/Conduits/WireRightAngle.tscn" id="8_bikua"]
+[ext_resource type="PackedScene" uid="uid://blx73h3sy4dr8" path="res://Scenes/Triggers/Trigger_Helpers/Conduits/WireStraight.tscn" id="9_xy2sd"]
+[ext_resource type="PackedScene" uid="uid://bhlldrm76206b" path="res://Scenes/Triggers/powerTrigger.tscn" id="10_7sc1t"]
+[ext_resource type="PackedScene" uid="uid://by8l8mnrr610i" path="res://Scenes/Triggers/InvisibleBlocks/LeftSlopeInvisibleBlock.tscn" id="11_6rhxx"]
+[ext_resource type="PackedScene" uid="uid://6g21fyk11mro" path="res://Scenes/Triggers/InvisibleBlocks/RightSlopeInvisibleBlock.tscn" id="12_1kuo8"]
+[ext_resource type="PackedScene" uid="uid://chmcx2asxgymc" path="res://Scenes/Triggers/Trigger_Helpers/MagneticObjects/Magnetic32x32Block.tscn" id="13_mcpvt"]
+[ext_resource type="PackedScene" uid="uid://dlkccgjxhbsdg" path="res://Scenes/Triggers/magnetTrigger.tscn" id="14_4vwow"]
+[ext_resource type="PackedScene" uid="uid://bd1gtx8upibdi" path="res://Scenes/Triggers/Trigger_Helpers/Conduits/WireTSplit.tscn" id="15_3byws"]
+[ext_resource type="PackedScene" uid="uid://cbygtk7mevpmo" path="res://Scenes/Triggers/Trigger_Helpers/MagneticObjects/Magnetic32x32Ball.tscn" id="16_73txf"]
+
+[node name="3-9_HardWire" type="Node2D" node_paths=PackedStringArray("cameraSpot", "player", "transitionField")]
+script = ExtResource("1_kdjjo")
+cameraSpot = NodePath("CenterPosition")
+cameraSize = Vector2(512, 448)
+player = NodePath("rigidPlayer")
+transitionField = NodePath("TransitionField")
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("2_4nd06")
+format = 2
+layer_0/tile_data = PackedInt32Array(655371, 65539, 1, 655376, 65539, 1, 655377, 65539, 1, 851983, 131075, 3, 851979, 3, 3, 851978, 65539, 1, 851977, 65539, 1, 851976, 65539, 1, 851975, 65539, 1, 589839, 65539, 1, 589840, 65539, 1, 589841, 65539, 1, 589835, 65539, 1, 589834, 65539, 1, 589833, 65539, 1, 589832, 65539, 1, 589831, 65539, 1, 524299, 65539, 1, 983058, 65539, 1, 983057, 65539, 1, 983056, 65539, 1, 851974, 65539, 1, 589830, 65539, 1, 524303, 65539, 1, 524304, 65539, 1, 524305, 65539, 1, 524306, 65539, 1, 851973, 65539, 1, 851972, 65539, 1, 786436, 65539, 1, 720900, 65539, 1, 655364, 65539, 1, 589828, 65539, 1, 589829, 65539, 1, 655370, 65539, 1, 655369, 65539, 1, 983059, 65539, 1, 917523, 65539, 1, 851987, 65539, 1, 786451, 65539, 1, 720915, 65539, 1, 655379, 65539, 1, 589843, 65539, 1, 524307, 65539, 1, 655378, 65539, 1, 589842, 65539, 1, 851984, 196611, 3, 917520, 65539, 1, 524292, 65539, 1, 458756, 65539, 1, 393220, 65539, 1, 393227, 65539, 1, 458763, 65539, 1, 327684, 65539, 1, 524293, 65539, 1, 458757, 65539, 1, 524294, 65539, 1, 458758, 65539, 1, 262148, 65539, 1, 262149, 65539, 1, 262150, 65539, 1, 262151, 65539, 1, 720910, 65539, 1, 720909, 65539, 1, 720908, 458755, 4, 720907, 393219, 4, 720911, 196611, 4, 720912, 262147, 4, 851980, 65539, 3, 917519, 65539, 1, 917518, 65539, 1, 917517, 65539, 1, 917516, 65539, 1, 917515, 65539, 1, 327687, 393219, 4, 327688, 458755, 4, 393225, 393219, 4, 393226, 458755, 4, 327689, 65539, 1, 458767, 65539, 1, 393231, 65539, 1, 327691, 65539, 1, 327690, 65539, 1, 983055, 65539, 1, 983054, 65539, 1, 983053, 65539, 1, 983052, 65539, 1, 983051, 65539, 1, 327695, 65539, 1, 262155, 65539, 1, 262154, 65539, 1, 262153, 65539, 1, 262152, 65539, 1, 262159, 65539, 1, 655375, 65539, 3, 655372, 131075, 3, 655373, 65539, 3, 655374, 131075, 3, 131083, 65539, 1, 131084, 65539, 1, 131085, 65539, 1, 131086, 65539, 1, 196618, 65539, 1, 131082, 65539, 1, 131087, 65539, 1, 393221, 3, 3, 393222, 65539, 3, 262156, 65539, 1, 327692, 65539, 1, 393228, 65539, 1, 458764, 65539, 1, 524300, 65539, 1, 589836, 65539, 1, 196619, 65539, 1, 262160, 65539, 1, 196624, 65539, 1, 131088, 65539, 1, 196621, 262147, 4, 196623, 262147, 4, 196622, 393219, 4, 196620, 393219, 4)
+
+[node name="rigidPlayer" parent="." instance=ExtResource("3_dmwka")]
+position = Vector2(192, 400)
+starting_direction = Vector2(-1, 0)
+
+[node name="CenterPosition" type="Marker2D" parent="."]
+position = Vector2(384, 288)
+
+[node name="TransitionField" parent="." instance=ExtResource("4_5fcei")]
+position = Vector2(576, 448)
+
+[node name="brokenVat" parent="." instance=ExtResource("5_e1chm")]
+position = Vector2(192, 384)
+
+[node name="Electrode" parent="." instance=ExtResource("6_d8a0k")]
+position = Vector2(388, 336)
+rotation = -1.5708
+
+[node name="Electrode2" parent="." instance=ExtResource("6_d8a0k")]
+position = Vector2(508, 336)
+rotation = 1.5708
+
+[node name="electricalDoor" parent="." instance=ExtResource("7_nlcnt")]
+position = Vector2(416, 288)
+rotation = -1.5708
+startState = 2
+
+[node name="electricalDoor2" parent="." instance=ExtResource("7_nlcnt")]
+position = Vector2(288, 352)
+startState = 2
+
+[node name="WireRightAngle3" parent="." instance=ExtResource("8_bikua")]
+position = Vector2(304, 336)
+rotation = 1.5708
+
+[node name="WireStraight" parent="." instance=ExtResource("9_xy2sd")]
+position = Vector2(528, 336)
+
+[node name="WireStraight2" parent="." instance=ExtResource("9_xy2sd")]
+position = Vector2(336, 336)
+
+[node name="WireStraight3" parent="." instance=ExtResource("9_xy2sd")]
+position = Vector2(368, 336)
+
+[node name="powerTrigger2" parent="." instance=ExtResource("10_7sc1t")]
+position = Vector2(192, 256)
+
+[node name="Electrode3" parent="." instance=ExtResource("6_d8a0k")]
+position = Vector2(348, 240)
+rotation = 1.5708
+
+[node name="Electrode4" parent="." instance=ExtResource("6_d8a0k")]
+position = Vector2(228, 240)
+rotation = -1.5708
+
+[node name="LeftSlopeInvisibleBlock2" parent="." instance=ExtResource("11_6rhxx")]
+position = Vector2(224, 256)
+
+[node name="RightSlopeInvisibleBlock" parent="." instance=ExtResource("12_1kuo8")]
+position = Vector2(288, 256)
+
+[node name="WireRightAngle" parent="." instance=ExtResource("8_bikua")]
+position = Vector2(368, 272)
+
+[node name="Magnetic32x32Block2" parent="." instance=ExtResource("13_mcpvt")]
+position = Vector2(176, 176)
+
+[node name="electricalDoor3" parent="." instance=ExtResource("7_nlcnt")]
+position = Vector2(480, 192)
+rotation = 1.5708
+startState = 2
+
+[node name="magnetTrigger" parent="." instance=ExtResource("14_4vwow")]
+position = Vector2(448, 480)
+rotation = 3.14159
+strengthAmplitude = 40000.0
+metadata/_edit_group_ = true
+
+[node name="TriggerKeySprite" parent="magnetTrigger" index="1"]
+position = Vector2(64, 0)
+
+[node name="electricalDoor4" parent="." instance=ExtResource("7_nlcnt")]
+position = Vector2(416, 160)
+rotation = -1.5708
+
+[node name="WireTSplit9" parent="." instance=ExtResource("15_3byws")]
+position = Vector2(368, 240)
+rotation = 1.5708
+
+[node name="WireRightAngle2" parent="." instance=ExtResource("8_bikua")]
+position = Vector2(368, 144)
+rotation = 1.5708
+
+[node name="WireStraight9" parent="." instance=ExtResource("9_xy2sd")]
+position = Vector2(368, 176)
+rotation = 1.5708
+
+[node name="WireStraight4" parent="." instance=ExtResource("9_xy2sd")]
+position = Vector2(400, 272)
+
+[node name="WireRightAngle4" parent="." instance=ExtResource("8_bikua")]
+position = Vector2(496, 272)
+rotation = -1.5708
+
+[node name="WireStraight7" parent="." instance=ExtResource("9_xy2sd")]
+position = Vector2(496, 240)
+rotation = 1.5708
+
+[node name="WireTSplit" parent="." instance=ExtResource("15_3byws")]
+position = Vector2(496, 208)
+
+[node name="WireTSplit2" parent="." instance=ExtResource("15_3byws")]
+position = Vector2(528, 208)
+rotation = 1.5708
+
+[node name="WireStraight8" parent="." instance=ExtResource("9_xy2sd")]
+position = Vector2(400, 144)
+
+[node name="WireRightAngle8" parent="." instance=ExtResource("8_bikua")]
+position = Vector2(528, 272)
+
+[node name="WireRightAngle9" parent="." instance=ExtResource("8_bikua")]
+position = Vector2(560, 272)
+rotation = 3.14159
+
+[node name="WireStraight5" parent="." instance=ExtResource("9_xy2sd")]
+position = Vector2(368, 208)
+rotation = 1.5708
+
+[node name="Electrode5" parent="." instance=ExtResource("6_d8a0k")]
+position = Vector2(388, 112)
+rotation = -1.5708
+
+[node name="Electrode6" parent="." instance=ExtResource("6_d8a0k")]
+position = Vector2(508, 112)
+rotation = 1.5708
+
+[node name="powerTrigger3" parent="." instance=ExtResource("10_7sc1t")]
+position = Vector2(288, 96)
+
+[node name="Magnetic32x32Ball" parent="." instance=ExtResource("16_73txf")]
+position = Vector2(448, 112)
+
+[node name="WireRightAngle10" parent="." instance=ExtResource("8_bikua")]
+position = Vector2(528, 112)
+rotation = 3.14159
+
+[node name="WireTSplit3" parent="." instance=ExtResource("15_3byws")]
+position = Vector2(528, 144)
+rotation = 1.5708
+
+[node name="WireStraight6" parent="." instance=ExtResource("9_xy2sd")]
+position = Vector2(528, 240)
+rotation = 1.5708
+
+[node name="WireStraight10" parent="." instance=ExtResource("9_xy2sd")]
+position = Vector2(560, 304)
+rotation = 1.5708
+
+[node name="WireRightAngle7" parent="." instance=ExtResource("8_bikua")]
+position = Vector2(560, 336)
+rotation = -1.5708
+
+[node name="WireTSplit4" parent="." instance=ExtResource("15_3byws")]
+position = Vector2(336, 112)
+
+[node name="WireStraight11" parent="." instance=ExtResource("9_xy2sd")]
+position = Vector2(336, 144)
+rotation = 1.5708
+
+[node name="WireStraight12" parent="." instance=ExtResource("9_xy2sd")]
+position = Vector2(336, 176)
+rotation = 1.5708
+
+[node name="WireRightAngle11" parent="." instance=ExtResource("8_bikua")]
+position = Vector2(336, 208)
+
+[node name="WireStraight13" parent="." instance=ExtResource("9_xy2sd")]
+position = Vector2(368, 208)
+
+[node name="WireStraight14" parent="." instance=ExtResource("9_xy2sd")]
+position = Vector2(400, 208)
+
+[node name="WireStraight15" parent="." instance=ExtResource("9_xy2sd")]
+position = Vector2(368, 112)
+
+[node name="WireStraight16" parent="." instance=ExtResource("9_xy2sd")]
+position = Vector2(496, 144)
+
+[node name="WireStraight18" parent="." instance=ExtResource("9_xy2sd")]
+position = Vector2(528, 176)
+rotation = 1.5708
+
+[editable path="magnetTrigger"]

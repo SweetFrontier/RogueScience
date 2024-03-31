@@ -33,10 +33,14 @@ func _ready():
 		wireConnection = WireConnectionOverride
 	$WireDetection.monitoring = false
 	$WireDetection.monitorable = false
+	$ArcDetection.monitoring = false
+	$ArcDetection.monitorable = false
 
 func reset():
 	$WireDetection.monitoring = true
 	$WireDetection.monitorable = true
+	$ArcDetection.monitoring = true
+	$ArcDetection.monitorable = true
 	currState = PowerState.OFF
 	electrodeSprite.animation = stateToAnimString[currState]
 	poweringConnection = null
@@ -82,7 +86,7 @@ func outputElectrode():
 			continue
 		elif cb is electrode or cb is magneticObject:
 			if cb.currState == PowerState.ON:
-					continue
+				continue
 			conductiveBodies.append(cb)
 			var lightning = getFreeLightning()
 			lightning.toPos = cb
@@ -110,6 +114,9 @@ func onAdjacentConduitFound(_area_rid, area, _area_shape_index, _local_shape_ind
 			#electrodes will only be able to detect other powerTriggers, baseTriggers or other eledtrodes, as it has its collision turned on second
 			if areaParent is powerTrigger and not self in areaParent.exportConduits:
 				areaParent.exportConduits.append(self)
+			elif areaParent is baseTrigger:
+				areaParent.show_button = false
+				areaParent.TriggerKeySprite.modulate.a = 0
 			elif areaParent is electrode and areaParent.wireConnection != self:
 				areaParent.wireConnection = self
 			wireConnection = areaParent
@@ -119,6 +126,7 @@ func getFreeLightning():
 	if !freeLightning:
 		freeLightning = lightningScene.instantiate()
 		freeLightning.fromPos = self
+		freeLightning.rotation = -rotation
 		add_child(freeLightning)
 	inUseLightnings.append(freeLightning)
 	return freeLightning	

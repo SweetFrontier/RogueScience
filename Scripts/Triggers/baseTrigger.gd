@@ -10,6 +10,7 @@ signal randomize_block_keys_signal
 @export var button = KEY_SPACE  # The associated button to activate the trigger.
 @export var TriggerKeySprite: AnimatedSprite2D
 @export var button_fade_duration: float = 2.0  # Adjust the duration as needed
+@export var show_button: bool = true
 var activated = false
 var startingTranslucency = 0.85
 var button_fade_timer: float = 0.0
@@ -67,33 +68,38 @@ func _ready():
 	# Connect the input event to the `_input` method.
 	set_process_input(true)
 	set_button(button)
+	if show_button:
+		TriggerKeySprite.modulate.a = 0
 
 func hide_key():
 	TriggerKeySprite.hide()
 
 func _input(event):
 	# Check if the associated button is pressed and the trigger is active.
-	if event is InputEventKey and event.keycode == button and event.pressed and !activated and event.echo == false:
+	if event is InputEventKey and event.keycode == button and event.pressed and (!activated  or !one_shot) and event.echo == false and show_button:
 		react()  # Call the react method when the button is pressed.
-		emit_signal("remove_key_signal",self,button)
-		emit_signal("randomize_block_keys_signal")
+		if(one_shot):
+			emit_signal("remove_key_signal",self,button)
+			emit_signal("randomize_block_keys_signal")
 
 # Override this method in child classes to define trigger-specific behavior.
 func react():
 	if !(one_shot and activated):
-		# Set the key to the "pressed state"
-		TriggerKeySprite.frame = 1
-		# Start the fade timer.
-		button_fade_timer = button_fade_duration
+		if show_button:
+			# Set the key to the "pressed state"
+			TriggerKeySprite.frame = 1
+			# Start the fade timer.
+			button_fade_timer = button_fade_duration
 
 func reset():
-	TriggerKeySprite.show()
+	if show_button:
+		TriggerKeySprite.show()
+		# Set the key to the "unpressed state"
+		TriggerKeySprite.frame = 0
+		# Reset the fade timer and opacity.
+		button_fade_timer = 0.0
+		TriggerKeySprite.modulate.a = startingTranslucency
 	activated = false
-	# Set the key to the "unpressed state"
-	TriggerKeySprite.frame = 0
-	# Reset the fade timer and opacity.
-	button_fade_timer = 0.0
-	TriggerKeySprite.modulate.a = startingTranslucency
 	occupied = false
 	ridingBody = null
 	riderInPosition = false

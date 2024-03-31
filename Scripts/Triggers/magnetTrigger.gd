@@ -29,14 +29,11 @@ var stateToAnimString = {
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	TriggerKeySprite.rotation_degrees = -rotation_degrees
+	if !show_button:
+		TriggerKeySprite.modulate.a = 0
 	currState = startingPolarity
 	location = magneticSourcePoint.global_position
 	reset()
-
-func _input(event):
-	# Check if the associated button is pressed and the trigger is active.
-	if event is InputEventKey and event.keycode == button and event.pressed and event.echo == false:
-		react()  # Call the react method when the button is pressed.
 
 func react():
 	activated = true
@@ -58,7 +55,7 @@ func react():
 
 func reset():
 	super.reset()
-	magnetSprite.animation = "inactive"
+	magnetSprite.animation = stateToAnimString[currState]
 	magnetSprite.frame = 0
 	currState = startingPolarity
 	strength = 0

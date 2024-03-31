@@ -1,46 +1,46 @@
-[gd_scene load_steps=16 format=3 uid="uid://c57nbuyl2p4e"]
+[gd_scene load_steps=16 format=3 uid="uid://bhxvnemhaxas4"]
 
-[ext_resource type="Script" path="res://Scripts/Triggers/Trigger_Helpers/Wire.gd" id="1_ii2qb"]
-[ext_resource type="Texture2D" uid="uid://bl0fs2fmm3wat" path="res://Art/TriggerArt/Conduits/Wires/plhWiresOff.png" id="2_87u60"]
-[ext_resource type="Texture2D" uid="uid://038npk5756sl" path="res://Art/TriggerArt/Conduits/Wires/plhWiresOn.png" id="3_h8smc"]
+[ext_resource type="Script" path="res://Scripts/Triggers/Trigger_Helpers/Wire.gd" id="1_3bmj2"]
+[ext_resource type="Texture2D" uid="uid://02vs00sfaqqg" path="res://Art/TriggerArt/Conduits/Wires/plhRightAngleWiresOff.png" id="2_rdtcu"]
+[ext_resource type="Texture2D" uid="uid://038npk5756sl" path="res://Art/TriggerArt/Conduits/Wires/plhWiresOn.png" id="3_6g2sc"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_24mxl"]
-atlas = ExtResource("2_87u60")
+[sub_resource type="AtlasTexture" id="AtlasTexture_7j2xf"]
+atlas = ExtResource("2_rdtcu")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gcalx"]
-atlas = ExtResource("3_h8smc")
+atlas = ExtResource("3_6g2sc")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kxgs1"]
-atlas = ExtResource("3_h8smc")
+atlas = ExtResource("3_6g2sc")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5bwea"]
-atlas = ExtResource("3_h8smc")
+atlas = ExtResource("3_6g2sc")
 region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_353nu"]
-atlas = ExtResource("3_h8smc")
+atlas = ExtResource("3_6g2sc")
 region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_88qkf"]
-atlas = ExtResource("3_h8smc")
+atlas = ExtResource("3_6g2sc")
 region = Rect2(128, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q6n8i"]
-atlas = ExtResource("3_h8smc")
+atlas = ExtResource("3_6g2sc")
 region = Rect2(160, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2l0cf"]
-atlas = ExtResource("3_h8smc")
+atlas = ExtResource("3_6g2sc")
 region = Rect2(192, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_m6ktk"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_24mxl")
+"texture": SubResource("AtlasTexture_7j2xf")
 }],
 "loop": false,
 "name": &"off",
@@ -82,19 +82,22 @@ size = Vector2(3, 6)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6is2k"]
 size = Vector2(6, 3)
 
-[node name="Wire" type="Node2D" node_paths=PackedStringArray("wireSprite", "wireDetectors")]
-script = ExtResource("1_ii2qb")
+[node name="WireRightAngle" type="Node2D" node_paths=PackedStringArray("wireSprite", "wireDetectors")]
+script = ExtResource("1_3bmj2")
 wireSprite = NodePath("WireSprite")
-wireDetectors = [NodePath("ULCollision"), NodePath("UCollision"), NodePath("URCollision"), NodePath("LCollision"), NodePath("RCollision"), NodePath("DLCollision"), NodePath("DCollision"), NodePath("DRCollision")]
+wireDetectors = [NodePath("UCollision"), NodePath("RCollision")]
 
 [node name="WireSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_m6ktk")
 animation = &"off"
 
 [node name="ULCollision" type="Area2D" parent="."]
+visible = false
 position = Vector2(-16, -16)
 collision_layer = 64
 collision_mask = 64
+monitoring = false
+monitorable = false
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ULCollision"]
@@ -115,9 +118,12 @@ metadata/_edit_group_ = true
 shape = SubResource("RectangleShape2D_pa23f")
 
 [node name="URCollision" type="Area2D" parent="."]
+visible = false
 position = Vector2(16, -16)
 collision_layer = 64
 collision_mask = 64
+monitoring = false
+monitorable = false
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="URCollision"]
@@ -129,9 +135,12 @@ position = Vector2(-2, 2)
 shape = SubResource("RectangleShape2D_exw8o")
 
 [node name="LCollision" type="Area2D" parent="."]
+visible = false
 position = Vector2(-16, 0)
 collision_layer = 64
 collision_mask = 64
+monitoring = false
+monitorable = false
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LCollision"]
@@ -147,9 +156,12 @@ metadata/_edit_group_ = true
 shape = SubResource("RectangleShape2D_6is2k")
 
 [node name="DLCollision" type="Area2D" parent="."]
+visible = false
 position = Vector2(-16, 16)
 collision_layer = 64
 collision_mask = 64
+monitoring = false
+monitorable = false
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DLCollision"]
@@ -161,18 +173,24 @@ position = Vector2(-2, 2)
 shape = SubResource("RectangleShape2D_exw8o")
 
 [node name="DCollision" type="Area2D" parent="."]
+visible = false
 position = Vector2(0, 16)
 collision_layer = 64
 collision_mask = 64
+monitoring = false
+monitorable = false
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DCollision"]
 shape = SubResource("RectangleShape2D_pa23f")
 
 [node name="DRCollision" type="Area2D" parent="."]
+visible = false
 position = Vector2(16, 16)
 collision_layer = 64
 collision_mask = 64
+monitoring = false
+monitorable = false
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DRCollision"]

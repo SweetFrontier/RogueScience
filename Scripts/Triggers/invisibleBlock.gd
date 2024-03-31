@@ -32,8 +32,9 @@ func reset():
 	body.disable()
 	if startActivated:
 		react()
-		button_fade_timer = 0
-		TriggerKeySprite.modulate.a = 0
+		if show_button:
+			button_fade_timer = 0
+			TriggerKeySprite.modulate.a = 0
 
 func destroy():
 	activated = true
@@ -42,4 +43,5 @@ func destroy():
 	implodeable_polygon.color.a = translucent_opacity
 	body.disable()
 	button_fade_timer = 0
-	TriggerKeySprite.modulate.a = 0
+	if show_button:
+		TriggerKeySprite.modulate.a = 0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://vwjnt2j2wbqk"]
+[gd_scene load_steps=55 format=3 uid="uid://vwjnt2j2wbqk"]
 
 [ext_resource type="Script" path="res://Scripts/gameManager.gd" id="1_rlws3"]
 [ext_resource type="Texture2D" uid="uid://bh66sgahohr8e" path="res://Art/Backgrounds/newBackground.png" id="2_wacfr"]
@@ -41,7 +41,12 @@
 [ext_resource type="PackedScene" uid="uid://rnddto6mew62" path="res://Scenes/Levels/Act_3_Levels/3-2_ParkingLotLevel.tscn" id="23_mrol5"]
 [ext_resource type="PackedScene" uid="uid://3dt8ontifywy" path="res://Scenes/Levels/Act_3_Levels/3-3_MagnivatorLevel.tscn" id="24_c4sll"]
 [ext_resource type="PackedScene" uid="uid://s2x2kniut8ww" path="res://Scenes/Levels/Act_3_Levels/3-4_FellavatorLevel.tscn" id="25_wy4md"]
+[ext_resource type="PackedScene" uid="uid://cdvq37b7ula4" path="res://Scenes/Levels/Act_3_Levels/3-5_ElectricityIntroLevel.tscn" id="26_yws66"]
+[ext_resource type="PackedScene" uid="uid://b53dbav2hd5d" path="res://Scenes/Levels/Act_3_Levels/3-6_LightningLevel.tscn" id="27_aad5g"]
 [ext_resource type="PackedScene" uid="uid://bnqsgdg630snx" path="res://Scenes/Levels/TallElevatorLevel.tscn" id="28_oyags"]
+[ext_resource type="PackedScene" uid="uid://dojjch0xqh6hn" path="res://Scenes/Levels/Act_3_Levels/3-7_ShortCircuitLevel.tscn" id="28_wqpd5"]
+[ext_resource type="PackedScene" uid="uid://cg7o1kp2d4e4w" path="res://Scenes/Levels/Act_3_Levels/3-8_SortingBallsLevel.tscn" id="29_a3pem"]
+[ext_resource type="PackedScene" uid="uid://d2miuhaw75pfu" path="res://Scenes/Levels/Act_3_Levels/3-9_HardWireLevel.tscn" id="30_kl7rb"]
 
 [sub_resource type="Animation" id="Animation_gwjdm"]
 resource_name = "fadeOut"
@@ -138,7 +143,7 @@ _data = {
 
 [node name="Main" type="Node2D" node_paths=PackedStringArray("Levels", "camera", "pauseMenu", "musicPlayer", "Transition", "resetWipeTransition", "resetWipeTransitionContoller")]
 script = ExtResource("1_rlws3")
-Levels = [NodePath("Levels/Act_1/1-1_BreakableIntro"), NodePath("Levels/Act_1/1-2_InvisibleIntro"), NodePath("Levels/Act_1/1-3_BreakableSteps"), NodePath("Levels/Act_1/1-4_ThreeFallingEyesLevel"), NodePath("Levels/Act_1/1-5_FourFallingEyes"), NodePath("Levels/Act_1/1-6_JumpingPathLevel"), NodePath("Levels/Act_1/1-7_MultiEyeTrampoline"), NodePath("Levels/Act_1/1-8_bouncyLevel"), NodePath("Levels/Act_1/1-9_PowerfulTrampoline"), NodePath("Levels/Act_2/2-1_SecurityCameraIntro"), NodePath("Levels/Act_2/2-2_SecurityBallsIntro"), NodePath("Levels/Act_2/2-3_SacrificialBall"), NodePath("Levels/Act_2/2-4_Lasers"), NodePath("Levels/Act_2/2-5_SodaIntro"), NodePath("Levels/Act_2/2-6_StickySecurityBalls"), NodePath("Levels/Act_2/2-7_StickyCameras"), NodePath("Levels/Act_2/2-8_StickyTiming"), NodePath("Levels/Act_2/2-9_HardInvisible"), NodePath("Levels/Act_3/3-1_MagnetIntro"), NodePath("Levels/Act_3/3-2_ParkingLot"), NodePath("Levels/Act_3/3-3_Magnivator"), NodePath("Levels/Act_3/3-4_Fellavator"), NodePath("Levels/TESTING/baseLevel"), NodePath("Levels/TeleportIntro"), NodePath("Levels/YeetTheBall"), NodePath("Levels/ElevatorsIntro"), NodePath("Levels/bouncyLevel2"), NodePath("Levels/BouncyElevator"), NodePath("Levels/TallElevator"), NodePath("Levels/bouncyLevel3"), NodePath("Levels/bouncyLevel4")]
+Levels = [NodePath("Levels/Act_1/1-1_BreakableIntro"), NodePath("Levels/Act_1/1-2_InvisibleIntro"), NodePath("Levels/Act_1/1-3_BreakableSteps"), NodePath("Levels/Act_1/1-4_ThreeFallingEyesLevel"), NodePath("Levels/Act_1/1-5_FourFallingEyes"), NodePath("Levels/Act_1/1-6_JumpingPathLevel"), NodePath("Levels/Act_1/1-7_MultiEyeTrampoline"), NodePath("Levels/Act_1/1-8_bouncyLevel"), NodePath("Levels/Act_1/1-9_PowerfulTrampoline"), NodePath("Levels/Act_2/2-1_SecurityCameraIntro"), NodePath("Levels/Act_2/2-2_SecurityBallsIntro"), NodePath("Levels/Act_2/2-3_SacrificialBall"), NodePath("Levels/Act_2/2-4_Lasers"), NodePath("Levels/Act_2/2-5_SodaIntro"), NodePath("Levels/Act_2/2-6_StickySecurityBalls"), NodePath("Levels/Act_2/2-7_StickyCameras"), NodePath("Levels/Act_2/2-8_StickyTiming"), NodePath("Levels/Act_2/2-9_HardInvisible"), NodePath("Levels/Act_3/3-1_MagnetIntro"), NodePath("Levels/Act_3/3-2_ParkingLot"), NodePath("Levels/Act_3/3-3_Magnivator"), NodePath("Levels/Act_3/3-4_Fellavator"), NodePath("Levels/Act_3/3-5_ElectricityIntro"), NodePath("Levels/Act_3/3-6_Lightning"), NodePath("Levels/Act_3/3-7_ShortCircuit"), NodePath("Levels/Act_3/3-8_SortingBalls"), NodePath("Levels/Act_3/3-9_HardWire"), NodePath("Levels/TESTING/baseLevel"), NodePath("Levels/TeleportIntro"), NodePath("Levels/YeetTheBall"), NodePath("Levels/ElevatorsIntro"), NodePath("Levels/bouncyLevel2"), NodePath("Levels/BouncyElevator"), NodePath("Levels/TallElevator"), NodePath("Levels/bouncyLevel3"), NodePath("Levels/bouncyLevel4")]
 camera = NodePath("Camera2D")
 pauseMenu = NodePath("CanvasLayer/PauseMenu")
 musicPlayer = NodePath("MusicPlayer")
@@ -239,6 +244,21 @@ position = Vector2(2112, 0)
 
 [node name="3-4_Fellavator" parent="Levels/Act_3" instance=ExtResource("25_wy4md")]
 position = Vector2(3136, 0)
+
+[node name="3-5_ElectricityIntro" parent="Levels/Act_3" instance=ExtResource("26_yws66")]
+position = Vector2(4448, 96)
+
+[node name="3-6_Lightning" parent="Levels/Act_3" instance=ExtResource("27_aad5g")]
+position = Vector2(5632, 32)
+
+[node name="3-7_ShortCircuit" parent="Levels/Act_3" instance=ExtResource("28_wqpd5")]
+position = Vector2(6688, -2)
+
+[node name="3-8_SortingBalls" parent="Levels/Act_3" instance=ExtResource("29_a3pem")]
+position = Vector2(7840, 0)
+
+[node name="3-9_HardWire" parent="Levels/Act_3" instance=ExtResource("30_kl7rb")]
+position = Vector2(9440, -64)
 
 [node name="TeleportIntro" parent="Levels" instance=ExtResource("10_dk1u2")]
 position = Vector2(5920, -2336)

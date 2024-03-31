@@ -10,7 +10,7 @@
 size = Vector2(16, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mmj82"]
-size = Vector2(32, 32)
+size = Vector2(16, 16)
 
 [node name="securityCameraTrigger" type="Node2D" node_paths=PackedStringArray("cameraView", "cameraSprite", "gunSprite", "TriggerKeySprite")]
 script = ExtResource("2_trp4r")

@@ -47,6 +47,9 @@ func _ready():
 			lightning.boltColor = Color("FF0712")
 		"Purple":
 			lightning.boltColor = Color("B95DFF")
+	if !show_button:
+		TriggerKeySprite.modulate.a = 0
+		TriggerKeySprite2.modulate.a = 0
 	reset()
 
 func hide_key():
@@ -76,13 +79,14 @@ func react():
 
 func reset():
 	super.reset()
-	#show the triggerkeysprites (parent shows first one)
-	TriggerKeySprite2.show()
 	$Teleporter1/TeleporterArea1.monitoring = false
 	$Teleporter2/TeleporterArea2.monitoring = false
-	# Set the key to the "unpressed state"
-	TriggerKeySprite2.frame = 0
-	TriggerKeySprite2.modulate.a = 1
+	if show_button:
+		#show the triggerkeysprites (parent shows first one)
+		TriggerKeySprite2.show()
+		# Set the key to the "unpressed state"
+		TriggerKeySprite2.frame = 0
+		TriggerKeySprite2.modulate.a = 1
 	occupied = false
 	ridingBody = null
 	isDoorsClosed = false
@@ -104,9 +108,10 @@ func reset():
 	
 	if startActivated:
 		react()
-		button_fade_timer = 0
-		TriggerKeySprite.modulate.a = 0
-		TriggerKeySprite2.modulate.a = 0
+		if show_button:
+			button_fade_timer = 0
+			TriggerKeySprite.modulate.a = 0
+			TriggerKeySprite2.modulate.a = 0
 
 func set_button(_button):
 	super.set_button(_button)
@@ -122,8 +127,9 @@ func _physics_process(delta):
 	if button_fade_timer > 0.0:
 		# Calculate the new opacity based on the elapsed time and fade duration.
 		var new_opacity = lerp(1, 0, 1.0 - (button_fade_timer / button_fade_duration))
-		TriggerKeySprite.modulate.a = new_opacity
-		TriggerKeySprite2.modulate.a = new_opacity
+		if show_button:
+			TriggerKeySprite.modulate.a = new_opacity
+			TriggerKeySprite2.modulate.a = new_opacity
 		# Decrease the fade timer.
 		button_fade_timer -= delta
 	if !occupied:

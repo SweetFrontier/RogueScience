@@ -39,7 +39,8 @@ func react():
 		activated = true
 		magneticBox.destroy()
 		doorSprite.hide()
-		TriggerKeySprite.modulate.a = 0
+		if show_button:
+			TriggerKeySprite.modulate.a = 0
 		currState = BoxState.EXPLODED
 		doorSprite.animation = stateToAnimString[currState]
 		ridingBody.set_collision_layer_value(1, true)
@@ -55,7 +56,8 @@ func reset():
 	currState = BoxState.OPEN
 	doorSprite.animation = stateToAnimString[currState]
 	doorSprite.show()
-	TriggerKeySprite.modulate.a = 0
+	if show_button:
+		TriggerKeySprite.modulate.a = 0
 
 func _process(_delta):
 	TriggerKeySprite.global_rotation = 0
@@ -69,7 +71,8 @@ func _physics_process(delta):
 			new_opacity = lerpf(0, startingTranslucency, 1.0 - (button_fade_timer / button_fade_duration))
 		else:
 			new_opacity = lerpf(startingTranslucency, 0, 1.0 - (button_fade_timer / button_fade_duration))
-		TriggerKeySprite.modulate.a = new_opacity
+		if show_button:
+			TriggerKeySprite.modulate.a = new_opacity
 		# Decrease the fade timer.
 		button_fade_timer -= delta
 	if !occupied:

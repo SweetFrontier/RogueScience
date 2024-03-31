@@ -31,15 +31,16 @@ func reset():
 	if startActivated:
 		explodeable_polygon.color.a = 1
 		react()
-		button_fade_timer = 0
-		TriggerKeySprite.modulate.a = 0
+		if show_button:
+			button_fade_timer = 0
+			TriggerKeySprite.modulate.a = 0
 	else:
 		explodeable_polygon.color.a = 0
 		explodeable_polygon.implode()
 
 func destroy(fadeKey: bool = true):
 	if !activated:
-		if !fadeKey:
+		if !fadeKey and show_button:
 			button_fade_timer = 0
 			TriggerKeySprite.modulate.a = 0
 		activated = true

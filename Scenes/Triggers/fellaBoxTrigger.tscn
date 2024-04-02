@@ -55,7 +55,7 @@ TriggerKeySprite = NodePath("TriggerKeySprite")
 
 [node name="DoorSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_upsld")
-animation = &"riding"
+animation = &"open"
 
 [node name="BoxArea" type="Area2D" parent="."]
 collision_layer = 256

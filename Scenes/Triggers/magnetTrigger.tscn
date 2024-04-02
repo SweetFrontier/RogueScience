@@ -88,7 +88,7 @@ TriggerKeySprite = NodePath("TriggerKeySprite")
 
 [node name="MagnetSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_yup5f")
-animation = &"neutralPush"
+animation = &"pushing"
 
 [node name="StaticBody2D" type="StaticBody2D" parent="MagnetSprite"]
 

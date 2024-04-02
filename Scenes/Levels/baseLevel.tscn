@@ -1,12 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://1xasoo80ygld"]
+[gd_scene load_steps=7 format=3 uid="uid://1xasoo80ygld"]
 
 [ext_resource type="Script" path="res://Scripts/levelController.gd" id="1_btnfb"]
 [ext_resource type="TileSet" uid="uid://bnpggr5480t5q" path="res://Art/TileSets/initialTileSet.tres" id="2_esq4l"]
 [ext_resource type="PackedScene" uid="uid://dvbyxsl5e3ol8" path="res://Scenes/Triggers/Trigger_Helpers/TransitionField.tscn" id="4_go5s3"]
+[ext_resource type="PackedScene" uid="uid://biw5iomco5lst" path="res://Scenes/Triggers/ventTrigger.tscn" id="5_b7v4i"]
 [ext_resource type="PackedScene" uid="uid://dd6l6fhpuajke" path="res://Scenes/rigidPlayer.tscn" id="6_jf1j1"]
-[ext_resource type="PackedScene" uid="uid://w0tbh5u1qv7j" path="res://Scenes/Triggers/ElectricalDoors/32x64ElectricalDoor.tscn" id="7_qm38b"]
-[ext_resource type="PackedScene" uid="uid://cb4i64k02myvh" path="res://Scenes/Triggers/Trigger_Helpers/MagneticObjects/MagneticFellaBox.tscn" id="19_108sj"]
-[ext_resource type="PackedScene" uid="uid://bhlldrm76206b" path="res://Scenes/Triggers/powerTrigger.tscn" id="20_tmok2"]
+[ext_resource type="PackedScene" uid="uid://cbygtk7mevpmo" path="res://Scenes/Triggers/Trigger_Helpers/MagneticObjects/Magnetic32x32Ball.tscn" id="6_nopbn"]
 
 [node name="baseLevel" type="Node2D" node_paths=PackedStringArray("cameraSpot", "player", "transitionField")]
 texture_filter = 1
@@ -27,7 +26,7 @@ layer_0/tile_data = PackedInt32Array(720925, 65537, 1, 655390, 65537, 1, 589855,
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("2_esq4l")
 format = 2
-layer_0/tile_data = PackedInt32Array(983065, 327683, 0, 983066, 327683, 0, 983067, 327683, 0, 983068, 327683, 0, 983069, 393219, 0, 917528, 65539, 3, 851990, 65539, 3, 786452, 65539, 3, 720914, 65539, 3, 917527, 3, 3, 851989, 3, 3, 786451, 3, 3, 720913, 3, 3, 655375, 3, 3, 655376, 65539, 3, 589837, 3, 3, 589838, 65539, 3, 524299, 3, 3, 524300, 65539, 3, 458761, 3, 3, 458762, 65539, 3, 458760, 65539, 1, 458759, 65539, 1, 458758, 65539, 1, 458757, 65539, 1, 458756, 65539, 1, 458755, 65539, 1, 458754, 65539, 1, 458753, 65539, 1, 458752, 65539, 1, 196613, 65539, 1, 458750, 65539, 1, 458751, 65539, 1, 393214, 65539, 1, 327677, 65539, 1, 262141, 65539, 1, 196605, 65539, 1, 196604, 65539, 1, 131068, 65539, 1, 131067, 65539, 1, 393219, 65539, 1, 393224, 65539, 1)
+layer_0/tile_data = PackedInt32Array(983065, 327683, 0, 983066, 327683, 0, 983067, 327683, 0, 983068, 327683, 0, 983069, 393219, 0, 917528, 65539, 3, 851990, 65539, 3, 786452, 65539, 3, 720914, 65539, 3, 917527, 3, 3, 851989, 3, 3, 786451, 3, 3, 720913, 3, 3, 655375, 3, 3, 655376, 65539, 3, 589837, 3, 3, 589838, 65539, 3, 524299, 3, 3, 524300, 65539, 3, 458761, 3, 3, 458762, 65539, 3, 458760, 65539, 1, 458759, 65539, 1, 458758, 65539, 1, 458757, 65539, 1, 458756, 65539, 1, 458755, 65539, 1, 458754, 65539, 1, 458753, 65539, 1, 458752, 65539, 1, 458750, 65539, 1, 458751, 65539, 1, 393214, 65539, 1, 327677, 65539, 1, 262141, 65539, 1, 196605, 65539, 1, 196604, 65539, 1, 131068, 65539, 1, 131067, 65539, 1, 393217, 65539, 1, 393216, 65539, 1, 327680, 65539, 1, 393215, 65539, 1, 327678, 65539, 1, 393218, 524291, 1, 327681, 524291, 1, 327679, 524291, 1, 262142, 524291, 1, 131069, 524291, 1, 262144, 65539, 1, 262143, 524291, 1, 196606, 524291, 1)
 
 [node name="CenterPosition" type="Marker2D" parent="."]
 position = Vector2(240, 128)
@@ -36,13 +35,12 @@ position = Vector2(240, 128)
 position = Vector2(-96, 288)
 
 [node name="rigidPlayer" parent="." instance=ExtResource("6_jf1j1")]
-position = Vector2(160, 208)
+position = Vector2(408, 224)
+starting_direction = Vector2(-1, 0)
 
-[node name="MagneticFellaBox" parent="." instance=ExtResource("19_108sj")]
-position = Vector2(176, 64)
+[node name="ventTrigger" parent="." instance=ExtResource("5_b7v4i")]
+position = Vector2(128, 192)
+ventExtranceDirection = 1
 
-[node name="powerTrigger" parent="." instance=ExtResource("20_tmok2")]
-position = Vector2(280, 83)
-
-[node name="electricalDoor" parent="." instance=ExtResource("7_qm38b")]
-position = Vector2(192, 160)
+[node name="Magnetic32x32Ball" parent="." instance=ExtResource("6_nopbn")]
+position = Vector2(464, 152)

@@ -1,0 +1,269 @@
+[gd_scene load_steps=34 format=3 uid="uid://biw5iomco5lst"]
+
+[ext_resource type="Script" path="res://Scripts/Triggers/ventTrigger.gd" id="1_8urf8"]
+[ext_resource type="Texture2D" uid="uid://cw3ljjppfmi0d" path="res://Art/TriggerArt/Vent/plhVentEntranceBacking.png" id="2_0bfpb"]
+[ext_resource type="Texture2D" uid="uid://80puoekynvou" path="res://Art/TriggerArt/Vent/plhVentEntranceClosing.png" id="2_270h8"]
+[ext_resource type="Texture2D" uid="uid://d4cg448f4co4k" path="res://Art/TriggerArt/Vent/plhVentEntranceClosed.png" id="2_dea05"]
+[ext_resource type="Texture2D" uid="uid://b3be5wpxmevf5" path="res://Art/TriggerArt/Vent/plhVentEntranceOpening.png" id="3_28e0b"]
+[ext_resource type="Texture2D" uid="uid://bd1tmq3fybpfs" path="res://Art/TriggerArt/Vent/plhVentEntranceOpen.png" id="4_sr1fs"]
+[ext_resource type="PackedScene" uid="uid://djjr177758y2h" path="res://Scenes/Triggers/Trigger_Helpers/triggerKey.tscn" id="5_mkwp0"]
+[ext_resource type="Texture2D" uid="uid://bsdf7ttsg7sxt" path="res://Art/TriggerArt/Vent/plhVentExit.png" id="6_2suut"]
+[ext_resource type="Texture2D" uid="uid://br4nivuvvnump" path="res://Art/TriggerArt/Vent/plhVentBall.png" id="7_g8yn0"]
+[ext_resource type="Script" path="res://Scripts/Triggers/Trigger_Helpers/explodeablePolygon.gd" id="8_oousd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y6fvi"]
+atlas = ExtResource("2_0bfpb")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c4i65"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y6fvi")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7pmeu"]
+atlas = ExtResource("2_dea05")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_by02t"]
+atlas = ExtResource("2_270h8")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_26bv0"]
+atlas = ExtResource("2_270h8")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u1ege"]
+atlas = ExtResource("2_270h8")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4l6sl"]
+atlas = ExtResource("2_270h8")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t7ne1"]
+atlas = ExtResource("2_270h8")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_406e7"]
+atlas = ExtResource("2_270h8")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f0r4g"]
+atlas = ExtResource("2_270h8")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_37y0p"]
+atlas = ExtResource("2_270h8")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i30j0"]
+atlas = ExtResource("4_sr1fs")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hsvis"]
+atlas = ExtResource("3_28e0b")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a0rf4"]
+atlas = ExtResource("3_28e0b")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6f276"]
+atlas = ExtResource("3_28e0b")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rr1wn"]
+atlas = ExtResource("3_28e0b")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1843d"]
+atlas = ExtResource("3_28e0b")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a6nxo"]
+atlas = ExtResource("3_28e0b")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vhrh7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7pmeu")
+}],
+"loop": true,
+"name": &"closed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_by02t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_26bv0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u1ege")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4l6sl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t7ne1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_406e7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f0r4g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_37y0p")
+}],
+"loop": false,
+"name": &"closing",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i30j0")
+}],
+"loop": true,
+"name": &"open",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hsvis")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a0rf4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6f276")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rr1wn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1843d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a6nxo")
+}],
+"loop": false,
+"name": &"opening",
+"speed": 15.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uyipl"]
+size = Vector2(4, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_abunc"]
+size = Vector2(32, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gkf76"]
+atlas = ExtResource("6_2suut")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lbpre"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gkf76")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="ventTrigger" type="Node2D" node_paths=PackedStringArray("entrance", "entranceSprite", "doorStop", "exit", "exitSprite", "TriggerKeySprite")]
+script = ExtResource("1_8urf8")
+entrance = NodePath("VentEntrance")
+entranceSprite = NodePath("VentEntrance/Fronting")
+doorStop = NodePath("VentEntrance/BallPolygon")
+exit = NodePath("VentExit")
+exitSprite = NodePath("VentExit/Fronting")
+TriggerKeySprite = NodePath("TriggerKeySprite")
+
+[node name="VentEntrance" type="Node2D" parent="."]
+
+[node name="Backing" type="AnimatedSprite2D" parent="VentEntrance"]
+sprite_frames = SubResource("SpriteFrames_c4i65")
+
+[node name="Fronting" type="AnimatedSprite2D" parent="VentEntrance"]
+z_index = 53
+z_as_relative = false
+sprite_frames = SubResource("SpriteFrames_vhrh7")
+animation = &"open"
+
+[node name="ShutVentArea" type="Area2D" parent="VentEntrance"]
+position = Vector2(-4, 16)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VentEntrance/ShutVentArea"]
+shape = SubResource("RectangleShape2D_uyipl")
+
+[node name="InsideCheckVentArea" type="Area2D" parent="VentEntrance"]
+position = Vector2(28, 16)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VentEntrance/InsideCheckVentArea"]
+shape = SubResource("RectangleShape2D_uyipl")
+
+[node name="EntranceGoalPoint" type="Marker2D" parent="VentEntrance"]
+position = Vector2(0, 16)
+
+[node name="BallCollision" type="StaticBody2D" parent="VentEntrance"]
+position = Vector2(33.5, 16)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VentEntrance/BallCollision"]
+position = Vector2(-2, 0)
+rotation = -1.5708
+shape = SubResource("RectangleShape2D_abunc")
+one_way_collision = true
+
+[node name="BallPolygon" type="Polygon2D" parent="VentEntrance"]
+z_index = 53
+z_as_relative = false
+texture_filter = 1
+texture = ExtResource("7_g8yn0")
+polygon = PackedVector2Array(0, 0, 32, 0, 32, 32, 0, 32)
+script = ExtResource("8_oousd")
+shard_count = 64
+invisible = true
+shard_shrink_rate = 0.99
+min_shard_size = 0.05
+x_init_velocity = 20
+y_init_velocity = 40
+shard_speed = 3.0
+rotation_speed = 0.1
+shard_gravity = 40.0
+x_max_distance = 10
+x_min_distance = -10
+y_max_distance = 10
+y_min_distance = -10
+time_to_form = 0.5
+
+[node name="VentExit" type="Node2D" parent="."]
+position = Vector2(192, -112)
+metadata/_edit_group_ = true
+
+[node name="Fronting" type="AnimatedSprite2D" parent="VentExit"]
+z_index = 53
+z_as_relative = false
+sprite_frames = SubResource("SpriteFrames_lbpre")
+
+[node name="TriggerKeySprite" parent="." instance=ExtResource("5_mkwp0")]
+position = Vector2(0, 60)
+animation = &"3"
+
+[connection signal="animation_finished" from="VentEntrance/Fronting" to="." method="onEntranceAnimationFinished"]
+[connection signal="body_entered" from="VentEntrance/ShutVentArea" to="." method="onShutVentAreaEntered"]
+[connection signal="body_entered" from="VentEntrance/InsideCheckVentArea" to="." method="onInsideCheckVentAreaEntered"]

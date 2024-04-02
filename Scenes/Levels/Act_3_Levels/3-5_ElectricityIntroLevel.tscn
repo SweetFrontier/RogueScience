@@ -17,6 +17,7 @@ cameraSpot = NodePath("CenterPosition")
 cameraSize = Vector2(224, 352)
 player = NodePath("rigidPlayer")
 transitionField = NodePath("TransitionField")
+DEBUG_MODE = true
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("2_qxamy")

@@ -91,7 +91,6 @@ position = Vector2(0, 64)
 
 [node name="lightning" parent="." node_paths=PackedStringArray("fromPos", "toPos") instance=ExtResource("4_m0xrp")]
 z_index = 17
-z_as_relative = false
 fromPos = NodePath("../Teleporter1")
 toPos = NodePath("../Teleporter2")
 lightingYOffset = Vector2(0, -28)

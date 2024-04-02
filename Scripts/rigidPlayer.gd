@@ -288,6 +288,24 @@ func player_anim_finished():
 				AnimatedSprite.play("changingVerticalDirection")
 				animBackwards = false
 
+func changeDirection(direction : Vector2):
+	current_direction = direction
+	if current_direction == Vector2.RIGHT:
+		AnimatedSprite.flip_h = false
+		PlayerCollision.scale.x = abs(PlayerCollision.scale.x)
+		AnimatedSprite.offset.x = 4
+		#start facing right, wallcast can collide with left side of blocks
+		wallCast.set_collision_mask_value(3, false) # 3 is oneWayBlockRHS
+		wallCast.set_collision_mask_value(4, true) # 4 is oneWayBlockLHS
+	if current_direction == Vector2.LEFT:
+		AnimatedSprite.flip_h = true
+		PlayerCollision.scale.x = -1 * abs(PlayerCollision.scale.x)
+		AnimatedSprite.offset.x = -4
+		#start facing left, wallcast can collide with right side of blocks
+		wallCast.set_collision_mask_value(3, true) # 3 is oneWayBlockRHS
+		wallCast.set_collision_mask_value(4, false) # 4 is oneWayBlockLHS
+	wallCast.scale.x = PlayerCollision.scale.x
+
 func set_body_pos(pos):
 	next_pos = pos
 	setBodyPos = true

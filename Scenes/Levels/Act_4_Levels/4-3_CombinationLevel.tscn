@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://b5vd1cnufw78t"]
+
+[ext_resource type="Script" path="res://Scripts/levelController.gd" id="1_cbnof"]
+[ext_resource type="TileSet" uid="uid://bnpggr5480t5q" path="res://Art/TileSets/initialTileSet.tres" id="2_q807n"]
+[ext_resource type="PackedScene" uid="uid://dd6l6fhpuajke" path="res://Scenes/rigidPlayer.tscn" id="3_hc8lg"]
+[ext_resource type="PackedScene" uid="uid://dvbyxsl5e3ol8" path="res://Scenes/Triggers/Trigger_Helpers/TransitionField.tscn" id="4_yybgg"]
+[ext_resource type="PackedScene" uid="uid://dpeaoe3ad3ahy" path="res://Scenes/Triggers/Trigger_Helpers/brokenVat.tscn" id="5_t67q4"]
+
+[node name="4-3_Combination" type="Node2D" node_paths=PackedStringArray("cameraSpot", "player", "transitionField")]
+script = ExtResource("1_cbnof")
+cameraSpot = NodePath("CenterPosition")
+cameraSize = Vector2(672, 320)
+player = NodePath("rigidPlayer")
+transitionField = NodePath("TransitionField")
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("2_q807n")
+format = 2
+
+[node name="rigidPlayer" parent="." instance=ExtResource("3_hc8lg")]
+position = Vector2(-80, 56)
+
+[node name="CenterPosition" type="Marker2D" parent="."]
+position = Vector2(-100, 100)
+
+[node name="TransitionField" parent="." instance=ExtResource("4_yybgg")]
+position = Vector2(-80, 156)
+
+[node name="brokenVat" parent="." instance=ExtResource("5_t67q4")]
+position = Vector2(-80, 40)

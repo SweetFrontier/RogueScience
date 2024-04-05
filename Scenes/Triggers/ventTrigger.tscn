@@ -166,8 +166,8 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uyipl"]
 size = Vector2(4, 24)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_abunc"]
-size = Vector2(32, 1)
+[sub_resource type="CircleShape2D" id="CircleShape2D_ymurv"]
+radius = 2.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gkf76"]
 atlas = ExtResource("6_2suut")
@@ -383,7 +383,7 @@ sprite_frames = SubResource("SpriteFrames_c4i65")
 z_index = 53
 z_as_relative = false
 sprite_frames = SubResource("SpriteFrames_vhrh7")
-animation = &"open"
+animation = &"opening"
 
 [node name="ShutVentArea" type="Area2D" parent="VentEntrance"]
 position = Vector2(-4, 16)
@@ -403,17 +403,17 @@ shape = SubResource("RectangleShape2D_uyipl")
 position = Vector2(0, 16)
 
 [node name="BallCollision" type="StaticBody2D" parent="VentEntrance"]
-position = Vector2(33.5, 16)
+position = Vector2(16, 16)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="VentEntrance/BallCollision"]
-position = Vector2(-2, 0)
+z_index = 2000
+position = Vector2(0, 14)
 rotation = -1.5708
-shape = SubResource("RectangleShape2D_abunc")
-disabled = true
-one_way_collision = true
+shape = SubResource("CircleShape2D_ymurv")
 
 [node name="BallPolygon" type="Polygon2D" parent="VentEntrance"]
+visible = false
 z_index = 53
 z_as_relative = false
 texture_filter = 1

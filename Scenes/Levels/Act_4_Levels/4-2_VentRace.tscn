@@ -173,8 +173,8 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uyipl"]
 size = Vector2(4, 24)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_abunc"]
-size = Vector2(32, 1)
+[sub_resource type="CircleShape2D" id="CircleShape2D_dybot"]
+radius = 16.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gkf76"]
 atlas = ExtResource("15_nk0sv")
@@ -440,14 +440,11 @@ shape = SubResource("RectangleShape2D_uyipl")
 position = Vector2(0, 16)
 
 [node name="BallCollision" type="StaticBody2D" parent="ventTrigger/VentEntrance"]
-position = Vector2(33.5, 16)
+position = Vector2(16, 16)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ventTrigger/VentEntrance/BallCollision"]
-position = Vector2(-2, 0)
-rotation = -1.5708
-shape = SubResource("RectangleShape2D_abunc")
-one_way_collision = true
+shape = SubResource("CircleShape2D_dybot")
 
 [node name="BallPolygon" type="Polygon2D" parent="ventTrigger/VentEntrance"]
 z_index = 53
@@ -520,6 +517,7 @@ animation = &"3"
 position = Vector2(256, 48)
 
 [connection signal="animation_finished" from="ventTrigger/VentEntrance/Fronting" to="ventTrigger" method="onEntranceAnimationFinished" flags=18]
+[connection signal="frame_changed" from="ventTrigger/VentEntrance/Fronting" to="ventTrigger" method="onEntranceSpriteFrameChanged"]
 [connection signal="body_entered" from="ventTrigger/VentEntrance/ShutVentArea" to="ventTrigger" method="onShutVentAreaEntered" flags=18]
 [connection signal="body_entered" from="ventTrigger/VentEntrance/InsideCheckVentArea" to="ventTrigger" method="onInsideCheckVentAreaEntered" flags=18]
 [connection signal="frame_changed" from="ventTrigger/VentPath/Vent1" to="ventTrigger" method="onVentFrameChanged" flags=18]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=3 uid="uid://4ga4n5hvetb"]
+[gd_scene load_steps=69 format=3 uid="uid://4ga4n5hvetb"]
 
 [ext_resource type="Script" path="res://Scripts/levelController.gd" id="1_dcea6"]
 [ext_resource type="TileSet" uid="uid://bnpggr5480t5q" path="res://Art/TileSets/initialTileSet.tres" id="2_foqv1"]
@@ -172,8 +172,8 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uyipl"]
 size = Vector2(4, 24)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_abunc"]
-size = Vector2(32, 1)
+[sub_resource type="CircleShape2D" id="CircleShape2D_ei8t7"]
+radius = 16.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gkf76"]
 atlas = ExtResource("16_xgoq2")
@@ -371,6 +371,12 @@ animations = [{
 "speed": 60.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_lsvro"]
+radius = 16.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mog3c"]
+radius = 16.0
+
 [node name="4-1_VentInto" type="Node2D" node_paths=PackedStringArray("cameraSpot", "player", "transitionField")]
 script = ExtResource("1_dcea6")
 cameraSpot = NodePath("CenterPosition")
@@ -436,14 +442,11 @@ shape = SubResource("RectangleShape2D_uyipl")
 position = Vector2(0, 16)
 
 [node name="BallCollision" type="StaticBody2D" parent="ventTrigger/VentEntrance"]
-position = Vector2(33.5, 16)
+position = Vector2(16, 16)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ventTrigger/VentEntrance/BallCollision"]
-position = Vector2(-2, 0)
-rotation = -1.5708
-shape = SubResource("RectangleShape2D_abunc")
-one_way_collision = true
+shape = SubResource("CircleShape2D_ei8t7")
 
 [node name="BallPolygon" type="Polygon2D" parent="ventTrigger/VentEntrance"]
 z_index = 53
@@ -590,14 +593,11 @@ shape = SubResource("RectangleShape2D_uyipl")
 position = Vector2(0, 16)
 
 [node name="BallCollision" type="StaticBody2D" parent="ventTrigger2/VentEntrance"]
-position = Vector2(33.5, 16)
+position = Vector2(16, 16)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ventTrigger2/VentEntrance/BallCollision"]
-position = Vector2(-2, 0)
-rotation = -1.5708
-shape = SubResource("RectangleShape2D_abunc")
-one_way_collision = true
+shape = SubResource("CircleShape2D_lsvro")
 
 [node name="BallPolygon" type="Polygon2D" parent="ventTrigger2/VentEntrance"]
 z_index = 53
@@ -718,14 +718,11 @@ shape = SubResource("RectangleShape2D_uyipl")
 position = Vector2(0, 16)
 
 [node name="BallCollision" type="StaticBody2D" parent="ventTrigger3/VentEntrance"]
-position = Vector2(33.5, 16)
+position = Vector2(16, 16)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ventTrigger3/VentEntrance/BallCollision"]
-position = Vector2(-2, 0)
-rotation = -1.5708
-shape = SubResource("RectangleShape2D_abunc")
-one_way_collision = true
+shape = SubResource("CircleShape2D_mog3c")
 
 [node name="BallPolygon" type="Polygon2D" parent="ventTrigger3/VentEntrance"]
 z_index = 53
@@ -810,6 +807,7 @@ animation = &"3"
 position = Vector2(-64, 20)
 
 [connection signal="animation_finished" from="ventTrigger/VentEntrance/Fronting" to="ventTrigger" method="onEntranceAnimationFinished" flags=18]
+[connection signal="frame_changed" from="ventTrigger/VentEntrance/Fronting" to="ventTrigger" method="onEntranceSpriteFrameChanged"]
 [connection signal="body_entered" from="ventTrigger/VentEntrance/ShutVentArea" to="ventTrigger" method="onShutVentAreaEntered" flags=18]
 [connection signal="body_entered" from="ventTrigger/VentEntrance/InsideCheckVentArea" to="ventTrigger" method="onInsideCheckVentAreaEntered" flags=18]
 [connection signal="frame_changed" from="ventTrigger/VentPath/Vent1" to="ventTrigger" method="onVentFrameChanged" flags=18]
@@ -824,6 +822,7 @@ position = Vector2(-64, 20)
 [connection signal="frame_changed" from="ventTrigger/VentPath/Vent10" to="ventTrigger" method="onVentFrameChanged" flags=18]
 [connection signal="frame_changed" from="ventTrigger/VentPath/Vent11" to="ventTrigger" method="onVentFrameChanged" flags=18]
 [connection signal="animation_finished" from="ventTrigger2/VentEntrance/Fronting" to="ventTrigger2" method="onEntranceAnimationFinished" flags=18]
+[connection signal="frame_changed" from="ventTrigger2/VentEntrance/Fronting" to="ventTrigger2" method="onEntranceSpriteFrameChanged"]
 [connection signal="body_entered" from="ventTrigger2/VentEntrance/ShutVentArea" to="ventTrigger2" method="onShutVentAreaEntered" flags=18]
 [connection signal="body_entered" from="ventTrigger2/VentEntrance/InsideCheckVentArea" to="ventTrigger2" method="onInsideCheckVentAreaEntered" flags=18]
 [connection signal="frame_changed" from="ventTrigger2/VentPath/Vent1" to="ventTrigger2" method="onVentFrameChanged" flags=18]
@@ -834,6 +833,7 @@ position = Vector2(-64, 20)
 [connection signal="frame_changed" from="ventTrigger2/VentPath/Vent6" to="ventTrigger2" method="onVentFrameChanged" flags=18]
 [connection signal="frame_changed" from="ventTrigger2/VentPath/Vent7" to="ventTrigger2" method="onVentFrameChanged" flags=18]
 [connection signal="animation_finished" from="ventTrigger3/VentEntrance/Fronting" to="ventTrigger3" method="onEntranceAnimationFinished" flags=18]
+[connection signal="frame_changed" from="ventTrigger3/VentEntrance/Fronting" to="ventTrigger3" method="onEntranceSpriteFrameChanged"]
 [connection signal="body_entered" from="ventTrigger3/VentEntrance/ShutVentArea" to="ventTrigger3" method="onShutVentAreaEntered" flags=18]
 [connection signal="body_entered" from="ventTrigger3/VentEntrance/InsideCheckVentArea" to="ventTrigger3" method="onInsideCheckVentAreaEntered" flags=18]
 [connection signal="frame_changed" from="ventTrigger3/VentPath/Vent1" to="ventTrigger3" method="onVentFrameChanged" flags=18]

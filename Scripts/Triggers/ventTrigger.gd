@@ -61,6 +61,8 @@ func react():
 		currState = VentState.OPENING
 		entranceSprite.animation = stateToAnimString[currState]
 		entranceSprite.play()
+		$VentEntrance/BallCollision/CollisionShape2D.shape.radius = 1+entranceSprite.frame*3
+		$VentEntrance/BallCollision/CollisionShape2D.position.y = 15-entranceSprite.frame*3
 
 func reset():
 	super.reset()
@@ -68,6 +70,7 @@ func reset():
 	entranceSprite.animation = stateToAnimString[currState]
 	doorStop.visible = false
 	currVentIndex = 0
+	$VentEntrance/BallCollision/CollisionShape2D.position.y = -10000
 	for vent in ventAnimSprites:
 		vent.frame = 0
 		vent.stop()
@@ -106,6 +109,8 @@ func onShutVentAreaEntered(body):
 		currState = VentState.READYTOVENT
 		entranceSprite.animation = stateToAnimString[currState]
 		entranceSprite.play()
+		#disabling the collision shape would have to be deferred, instead we just move the position away
+		$VentEntrance/BallCollision/CollisionShape2D.position.y = -10000
 
 func onInsideCheckVentAreaEntered(body):
 	if !body is rigidPlayer and !body is movingObject:
@@ -126,6 +131,11 @@ func onEntranceAnimationFinished():
 	if entranceSprite.animation == stateToAnimString[VentState.OPENING]:
 		currState = VentState.OPEN
 		entranceSprite.animation = stateToAnimString[currState]
+
+func onEntranceSpriteFrameChanged():
+	if entranceSprite.animation == stateToAnimString[VentState.OPENING] && entranceSprite.frame > 0:
+		$VentEntrance/BallCollision/CollisionShape2D.shape.radius = 1+entranceSprite.frame*3
+		$VentEntrance/BallCollision/CollisionShape2D.position.y = 15-entranceSprite.frame*3
 
 func onVentFrameChanged():
 	if currVentIndex >= ventAnimSprites.size():

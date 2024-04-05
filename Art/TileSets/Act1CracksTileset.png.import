@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cynse8y3hjdp4"
-path="res://.godot/imported/CracksTileset.png-00640fbf085e320bccb2a16fb6ab6650.ctex"
+uid="uid://cn2673e7rh1k3"
+path="res://.godot/imported/Act1CracksTileset.png-05377a58529bd0f2512af6427ee5811b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/TileSets/CracksTileset.png"
-dest_files=["res://.godot/imported/CracksTileset.png-00640fbf085e320bccb2a16fb6ab6650.ctex"]
+source_file="res://Art/TileSets/Act1CracksTileset.png"
+dest_files=["res://.godot/imported/Act1CracksTileset.png-05377a58529bd0f2512af6427ee5811b.ctex"]
 
 [params]
 

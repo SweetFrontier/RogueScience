@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dq5y6dakukr1g"
-path="res://.godot/imported/BloodTileset.png-8ab962123dd72d9bd48cc5363e0c8516.ctex"
+uid="uid://cbvu47xa2p3vc"
+path="res://.godot/imported/Act2GooTileset.png-ec396b463ecbe10900692cd5cd392b66.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/TileSets/BloodTileset.png"
-dest_files=["res://.godot/imported/BloodTileset.png-8ab962123dd72d9bd48cc5363e0c8516.ctex"]
+source_file="res://Art/TileSets/Act2GooTileset.png"
+dest_files=["res://.godot/imported/Act2GooTileset.png-ec396b463ecbe10900692cd5cd392b66.ctex"]
 
 [params]
 

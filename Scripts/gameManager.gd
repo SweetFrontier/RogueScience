@@ -139,6 +139,55 @@ func increase_level() -> void:
 	await(Transition.animation_finished)
 	Transition.hide()
 
+func decrease_level() -> void:
+	if current_level == 0:
+		return
+	#tell player to be silent
+	Levels[current_level].player.won_level_silence()
+	#Next level
+	current_level -= 1
+	GlobalVariables.currentLevel = current_level-1
+	#set global unlocked levels to up to this one
+	if (GlobalVariables.unlockedLevel > current_level):
+		GlobalVariables.unlockedLevel = current_level
+		GlobalVariables.give_free_cookies()
+	
+	var min_zoom_size : Vector2 =  Levels[current_level].cameraSize
+	var final_zoom_size = minf(1280/min_zoom_size.x,736/min_zoom_size.y)
+	
+	pauseMenu.set_pausability(false)
+	
+	Transition.show()
+	Transition.play("CoverScreen")
+	Transition.get_child(0).play()
+	
+	await(Transition.animation_finished)
+	
+	#tell last level it ended
+	Levels[current_level+1].levelEnded()
+	
+	#freeze last level
+	Levels[current_level+1].process_mode = Node.PROCESS_MODE_DISABLED
+	
+	#move camera and change zoom
+	camera.position = Levels[current_level].cameraSpot.global_position
+	camera.set_zoom(Vector2(final_zoom_size, final_zoom_size))
+	
+	# set music
+	if (current_level == 8):
+		musicPlayer.changeMusic("midlevels");
+	elif (current_level == 14):
+		musicPlayer.changeMusic("intense");
+	
+	Levels[current_level].process_mode = Node.PROCESS_MODE_PAUSABLE
+	pauseMenu.set_pausability(true)
+	Levels[current_level].reset()
+	
+	#uncover screen
+	Transition.play("UncoverScreen");
+	await(Transition.animation_finished)
+	Transition.hide()
+
 func resetLevel() -> void:
 	# Resets the entire current level
 	Levels[current_level].reset()
@@ -160,5 +209,8 @@ func screen_wipe_covered():
 
 func _input(event):
 	# Check if the associated button is pressed and the trigger is active.
-	if event is InputEventKey and event.keycode == KEY_PERIOD and event.is_released() and event.shift_pressed:
-		increase_level()
+	if event is InputEventKey and event.is_released() and event.shift_pressed:
+		if event.keycode == KEY_PERIOD:
+			increase_level()
+		elif event.keycode == KEY_SLASH:
+			decrease_level()

@@ -1,30 +1,1410 @@
-[gd_scene load_steps=6 format=3 uid="uid://b5vd1cnufw78t"]
+[gd_scene load_steps=119 format=3 uid="uid://b5vd1cnufw78t"]
 
 [ext_resource type="Script" path="res://Scripts/levelController.gd" id="1_cbnof"]
 [ext_resource type="TileSet" uid="uid://bnpggr5480t5q" path="res://Art/TileSets/initialTileSet.tres" id="2_q807n"]
 [ext_resource type="PackedScene" uid="uid://dd6l6fhpuajke" path="res://Scenes/rigidPlayer.tscn" id="3_hc8lg"]
 [ext_resource type="PackedScene" uid="uid://dvbyxsl5e3ol8" path="res://Scenes/Triggers/Trigger_Helpers/TransitionField.tscn" id="4_yybgg"]
 [ext_resource type="PackedScene" uid="uid://dpeaoe3ad3ahy" path="res://Scenes/Triggers/Trigger_Helpers/brokenVat.tscn" id="5_t67q4"]
+[ext_resource type="PackedScene" uid="uid://psrem4kknlu8" path="res://Scenes/Triggers/BreakableBlocks/32x64breakableBlock.tscn" id="6_ypmic"]
+[ext_resource type="PackedScene" uid="uid://b653ep4goj6pf" path="res://Scenes/Triggers/InvisibleBlocks/32x64InvisibleBlock.tscn" id="7_yiy1r"]
+[ext_resource type="PackedScene" uid="uid://ci05tj7j8an3w" path="res://Scenes/Triggers/BreakableBlocks/64x32breakableBlock.tscn" id="8_ljxgd"]
+[ext_resource type="PackedScene" uid="uid://p8wyqr1wis6" path="res://Scenes/Triggers/InvisibleBlocks/64x32InvisibleBlock.tscn" id="9_0m5wv"]
+[ext_resource type="Script" path="res://Scripts/Triggers/ventTrigger.gd" id="10_7sfj4"]
+[ext_resource type="Texture2D" uid="uid://cw3ljjppfmi0d" path="res://Art/TriggerArt/Vent/plhVentEntranceBacking.png" id="11_3467c"]
+[ext_resource type="Texture2D" uid="uid://d4cg448f4co4k" path="res://Art/TriggerArt/Vent/plhVentEntranceClosed.png" id="12_oypw3"]
+[ext_resource type="Texture2D" uid="uid://80puoekynvou" path="res://Art/TriggerArt/Vent/plhVentEntranceClosing.png" id="13_5mhsj"]
+[ext_resource type="Texture2D" uid="uid://bd1tmq3fybpfs" path="res://Art/TriggerArt/Vent/plhVentEntranceOpen.png" id="14_h1151"]
+[ext_resource type="Texture2D" uid="uid://b3be5wpxmevf5" path="res://Art/TriggerArt/Vent/plhVentEntranceOpening.png" id="15_ab1qy"]
+[ext_resource type="Texture2D" uid="uid://br4nivuvvnump" path="res://Art/TriggerArt/Vent/plhVentBall.png" id="16_s411k"]
+[ext_resource type="Script" path="res://Scripts/Triggers/Trigger_Helpers/explodeablePolygon.gd" id="17_g3hf8"]
+[ext_resource type="Texture2D" uid="uid://bsdf7ttsg7sxt" path="res://Art/TriggerArt/Vent/plhVentExit.png" id="18_vugx3"]
+[ext_resource type="Texture2D" uid="uid://ljqhc6ud7t0p" path="res://Art/TriggerArt/Vent/plhVentCurved.png" id="19_rhgqk"]
+[ext_resource type="Texture2D" uid="uid://cguu570tipo33" path="res://Art/TriggerArt/Vent/plhVentStraight.png" id="20_8pirl"]
+[ext_resource type="PackedScene" uid="uid://djjr177758y2h" path="res://Scenes/Triggers/Trigger_Helpers/triggerKey.tscn" id="21_ogrt8"]
+[ext_resource type="PackedScene" uid="uid://bmwdwlb5umkan" path="res://Scenes/Triggers/Trigger_Helpers/SecurityBall.tscn" id="22_tu5dd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y6fvi"]
+atlas = ExtResource("11_3467c")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c4i65"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y6fvi")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7pmeu"]
+atlas = ExtResource("12_oypw3")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_by02t"]
+atlas = ExtResource("13_5mhsj")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_26bv0"]
+atlas = ExtResource("13_5mhsj")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u1ege"]
+atlas = ExtResource("13_5mhsj")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4l6sl"]
+atlas = ExtResource("13_5mhsj")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t7ne1"]
+atlas = ExtResource("13_5mhsj")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_406e7"]
+atlas = ExtResource("13_5mhsj")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f0r4g"]
+atlas = ExtResource("13_5mhsj")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_37y0p"]
+atlas = ExtResource("13_5mhsj")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i30j0"]
+atlas = ExtResource("14_h1151")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hsvis"]
+atlas = ExtResource("15_ab1qy")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a0rf4"]
+atlas = ExtResource("15_ab1qy")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6f276"]
+atlas = ExtResource("15_ab1qy")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rr1wn"]
+atlas = ExtResource("15_ab1qy")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1843d"]
+atlas = ExtResource("15_ab1qy")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a6nxo"]
+atlas = ExtResource("15_ab1qy")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vhrh7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7pmeu")
+}],
+"loop": true,
+"name": &"closed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_by02t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_26bv0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u1ege")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4l6sl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t7ne1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_406e7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f0r4g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_37y0p")
+}],
+"loop": false,
+"name": &"closing",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i30j0")
+}],
+"loop": true,
+"name": &"open",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hsvis")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a0rf4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6f276")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rr1wn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1843d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a6nxo")
+}],
+"loop": false,
+"name": &"opening",
+"speed": 15.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uyipl"]
+size = Vector2(4, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_abunc"]
+size = Vector2(32, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gkf76"]
+atlas = ExtResource("18_vugx3")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lbpre"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gkf76")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nl3n0"]
+atlas = ExtResource("19_rhgqk")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7adc7"]
+atlas = ExtResource("19_rhgqk")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_or004"]
+atlas = ExtResource("19_rhgqk")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ktgen"]
+atlas = ExtResource("19_rhgqk")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fqdvc"]
+atlas = ExtResource("19_rhgqk")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2b076"]
+atlas = ExtResource("19_rhgqk")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g4fyp"]
+atlas = ExtResource("19_rhgqk")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dpub7"]
+atlas = ExtResource("19_rhgqk")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hnfw8"]
+atlas = ExtResource("19_rhgqk")
+region = Rect2(512, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mv7gk"]
+atlas = ExtResource("19_rhgqk")
+region = Rect2(576, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lh61y"]
+atlas = ExtResource("19_rhgqk")
+region = Rect2(640, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nuuog"]
+atlas = ExtResource("19_rhgqk")
+region = Rect2(704, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cysrp"]
+atlas = ExtResource("20_8pirl")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nmatd"]
+atlas = ExtResource("20_8pirl")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wdxml"]
+atlas = ExtResource("20_8pirl")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4tr6l"]
+atlas = ExtResource("20_8pirl")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hs37i"]
+atlas = ExtResource("20_8pirl")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xojot"]
+atlas = ExtResource("20_8pirl")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8a5mc"]
+atlas = ExtResource("20_8pirl")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xxklx"]
+atlas = ExtResource("20_8pirl")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8nxi8"]
+atlas = ExtResource("20_8pirl")
+region = Rect2(512, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f4vit"]
+atlas = ExtResource("20_8pirl")
+region = Rect2(576, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ool51"]
+atlas = ExtResource("20_8pirl")
+region = Rect2(640, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wab24"]
+atlas = ExtResource("20_8pirl")
+region = Rect2(704, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wuhj8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nl3n0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7adc7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_or004")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ktgen")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fqdvc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2b076")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g4fyp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dpub7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hnfw8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mv7gk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lh61y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nuuog")
+}],
+"loop": false,
+"name": &"curved",
+"speed": 60.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cysrp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nmatd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wdxml")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4tr6l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hs37i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xojot")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8a5mc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xxklx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8nxi8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f4vit")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ool51")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wab24")
+}],
+"loop": false,
+"name": &"straight",
+"speed": 60.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w1fia"]
+atlas = ExtResource("11_3467c")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wkok6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w1fia")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bdey2"]
+atlas = ExtResource("12_oypw3")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2jq34"]
+atlas = ExtResource("13_5mhsj")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v88v0"]
+atlas = ExtResource("13_5mhsj")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ff663"]
+atlas = ExtResource("13_5mhsj")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3rwpt"]
+atlas = ExtResource("13_5mhsj")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j4auw"]
+atlas = ExtResource("13_5mhsj")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ru8xo"]
+atlas = ExtResource("13_5mhsj")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6kvse"]
+atlas = ExtResource("13_5mhsj")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e83em"]
+atlas = ExtResource("13_5mhsj")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yup0y"]
+atlas = ExtResource("14_h1151")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t21w7"]
+atlas = ExtResource("15_ab1qy")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pktcu"]
+atlas = ExtResource("15_ab1qy")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_prva3"]
+atlas = ExtResource("15_ab1qy")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dynvv"]
+atlas = ExtResource("15_ab1qy")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qfuya"]
+atlas = ExtResource("15_ab1qy")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tf8u1"]
+atlas = ExtResource("15_ab1qy")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rajko"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bdey2")
+}],
+"loop": true,
+"name": &"closed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2jq34")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v88v0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ff663")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3rwpt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j4auw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ru8xo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6kvse")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e83em")
+}],
+"loop": false,
+"name": &"closing",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yup0y")
+}],
+"loop": true,
+"name": &"open",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t21w7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pktcu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_prva3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dynvv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qfuya")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tf8u1")
+}],
+"loop": false,
+"name": &"opening",
+"speed": 15.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4wsn3"]
+size = Vector2(4, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ppkc5"]
+size = Vector2(32, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wim0f"]
+atlas = ExtResource("18_vugx3")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ss3ge"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wim0f")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dqwxh"]
+atlas = ExtResource("19_rhgqk")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_17tsv"]
+atlas = ExtResource("19_rhgqk")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dfd8p"]
+atlas = ExtResource("19_rhgqk")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nprwt"]
+atlas = ExtResource("19_rhgqk")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2rg5d"]
+atlas = ExtResource("19_rhgqk")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8sh0o"]
+atlas = ExtResource("19_rhgqk")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j4wdl"]
+atlas = ExtResource("19_rhgqk")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ijok7"]
+atlas = ExtResource("19_rhgqk")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ly07"]
+atlas = ExtResource("19_rhgqk")
+region = Rect2(512, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tprh4"]
+atlas = ExtResource("19_rhgqk")
+region = Rect2(576, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8j3aw"]
+atlas = ExtResource("19_rhgqk")
+region = Rect2(640, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_364qb"]
+atlas = ExtResource("19_rhgqk")
+region = Rect2(704, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tvpq3"]
+atlas = ExtResource("20_8pirl")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1auw5"]
+atlas = ExtResource("20_8pirl")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q1h41"]
+atlas = ExtResource("20_8pirl")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mpscu"]
+atlas = ExtResource("20_8pirl")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_igg60"]
+atlas = ExtResource("20_8pirl")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2gbcs"]
+atlas = ExtResource("20_8pirl")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o8fig"]
+atlas = ExtResource("20_8pirl")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lwnwu"]
+atlas = ExtResource("20_8pirl")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s3jyp"]
+atlas = ExtResource("20_8pirl")
+region = Rect2(512, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_21dcb"]
+atlas = ExtResource("20_8pirl")
+region = Rect2(576, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cvoip"]
+atlas = ExtResource("20_8pirl")
+region = Rect2(640, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6kkjg"]
+atlas = ExtResource("20_8pirl")
+region = Rect2(704, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8jkgk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dqwxh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_17tsv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dfd8p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nprwt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2rg5d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8sh0o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j4wdl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ijok7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ly07")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tprh4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8j3aw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_364qb")
+}],
+"loop": false,
+"name": &"curved",
+"speed": 60.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tvpq3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1auw5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q1h41")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mpscu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_igg60")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2gbcs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o8fig")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lwnwu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s3jyp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_21dcb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cvoip")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6kkjg")
+}],
+"loop": false,
+"name": &"straight",
+"speed": 60.0
+}]
 
 [node name="4-3_Combination" type="Node2D" node_paths=PackedStringArray("cameraSpot", "player", "transitionField")]
 script = ExtResource("1_cbnof")
 cameraSpot = NodePath("CenterPosition")
-cameraSize = Vector2(672, 320)
+cameraSize = Vector2(896, 512)
 player = NodePath("rigidPlayer")
 transitionField = NodePath("TransitionField")
+DEBUG_MODE = true
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("2_q807n")
 format = 2
+layer_0/tile_data = PackedInt32Array(393225, 65539, 1, 458761, 65539, 1, 458764, 65539, 1, 393228, 65539, 1, 393231, 65539, 1, 393229, 65539, 1, 393230, 65539, 1, 393236, 65539, 1, 393237, 65539, 1, 393241, 65539, 1, 393232, 65539, 1, 393233, 65539, 1, 458772, 65539, 1, 458769, 65539, 1, 393238, 65539, 1, 393239, 65539, 1, 393240, 65539, 1, 458777, 65539, 1, 458780, 65539, 1, 393244, 65539, 1, 393247, 65539, 1, 458783, 65539, 1, 524319, 65539, 1, 524318, 65539, 1, 524317, 65539, 1, 524316, 65539, 1, 720907, 393219, 1, 655370, 393219, 1, 720914, 458755, 1, 655379, 458755, 1, 655387, 458755, 1, 720922, 458755, 1, 917529, 65539, 1, 917528, 65539, 1, 917527, 65539, 1, 917526, 65539, 1, 917525, 65539, 1, 917524, 65539, 1, 917523, 65539, 1, 917522, 65539, 1, 917521, 65539, 1, 917520, 65539, 1, 917519, 65539, 1, 917518, 65539, 1, 917517, 65539, 1, 917516, 65539, 1, 917515, 65539, 1, 917514, 65539, 1, 917531, 65539, 1, 917530, 65539, 1, 851996, 65539, 1, 786460, 65539, 1, 720924, 65539, 1, 655388, 65539, 1, 589852, 65539, 1, 720923, 65539, 1, 851994, 65539, 1, 851995, 65539, 1, 786459, 65539, 1, 786458, 65539, 1, 917513, 65539, 1, 851977, 65539, 1, 786441, 65539, 1, 786440, 65539, 1, 851976, 65539, 1, 720906, 65539, 1, 720905, 65539, 1, 655369, 65539, 1, 655368, 65539, 1, 720904, 65539, 1, 720915, 65539, 1, 589832, 65539, 1, 524296, 65539, 1, 458760, 65539, 1, 393224, 65539, 1, 589833, 65539, 1, 524297, 65539, 1, 327711, 65539, 1, 262175, 65539, 1, 196639, 65539, 1, 131103, 65539, 1, 786457, 458755, 1, 851993, 65539, 1, 851992, 458755, 1, 458765, 65539, 1, 458766, 65539, 1, 458767, 65539, 1, 458768, 65539, 1, 458773, 65539, 1, 458774, 65539, 1, 458775, 65539, 1, 458776, 65539, 1, 655372, 524291, 2, 720909, 524291, 2, 655373, 65539, 1, 589837, 65539, 1, 524301, 65539, 1, 524300, 65539, 1, 589836, 65539, 1, 720911, 65539, 1, 720910, 65539, 1, 655374, 65539, 1, 589838, 65539, 1, 524302, 65539, 1, 524303, 65539, 1, 524304, 65539, 1, 589840, 65539, 1, 655376, 65539, 1, 655375, 65539, 1, 589839, 65539, 1, 589841, 65539, 1, 524305, 65539, 1, 655377, 589827, 2, 720912, 589827, 2, 720917, 65539, 1, 720916, 65539, 1, 655380, 65539, 1, 589844, 65539, 1, 524308, 65539, 1, 524309, 65539, 1, 524310, 65539, 1, 589846, 65539, 1, 589845, 65539, 1, 655381, 65539, 1, 589847, 65539, 1, 655383, 65539, 1, 720919, 65539, 1, 720918, 65539, 1, 655382, 65539, 1, 655384, 65539, 1, 589848, 65539, 1, 524311, 65539, 1, 524312, 65539, 1, 524313, 65539, 1, 589849, 65539, 1, 720920, 589827, 2, 655385, 589827, 2, 196638, 65539, 1, 196637, 65539, 1, 131101, 65539, 1, 131100, 65539, 1, 65564, 65539, 1, 28, 65539, 1, 29, 65539, 1, 30, 65539, 1, 65566, 65539, 1, 131102, 65539, 1, 31, 65539, 1, 65567, 65539, 1, 65565, 65539, 1, 65553, 65539, 1, 17, 65539, 1, 16, 65539, 1, 65552, 65539, 1, 65551, 65539, 1, 15, 65539, 1, 14, 65539, 1, 65550, 65539, 1, 65549, 65539, 1, 13, 65539, 1, 12, 65539, 1, 65548, 65539, 1, 196629, 65539, 1, 196628, 65539, 1, 131092, 65539, 1, 65556, 65539, 1, 20, 65539, 1, 21, 65539, 1, 65557, 65539, 1, 131093, 65539, 1, 196625, 65539, 1, 196624, 65539, 1, 131088, 65539, 1, 131089, 65539, 1, 196623, 65539, 1, 196622, 65539, 1, 196621, 65539, 1, 196620, 65539, 1, 131084, 65539, 1, 131085, 65539, 1, 131086, 65539, 1, 131087, 65539, 1, 196632, 65539, 1, 131096, 65539, 1, 65560, 65539, 1, 24, 65539, 1, 25, 65539, 1, 65561, 65539, 1, 131097, 65539, 1, 196633, 65539, 1, -65506, 65539, 1, -65507, 65539, 1, -65508, 65539, 1, -65509, 65539, 1, -65510, 65539, 1, -65511, 65539, 1, -65512, 65539, 1, -65513, 65539, 1, -65514, 65539, 1, -65515, 65539, 1, -65516, 65539, 1, -65517, 65539, 1, -65518, 65539, 1, -65519, 65539, 1, -65520, 65539, 1, -65521, 65539, 1, -65522, 65539, 1, -65523, 65539, 1, -65524, 65539, 1, -65525, 65539, 1, -65526, 65539, 1, -65527, 65539, 1, 9, 65539, 1, 65545, 65539, 1, 131081, 65539, 1, 131080, 65539, 1, 196616, 65539, 1, 65544, 65539, 1, 8, 65539, 1, 196617, 65539, 1, 10, 196611, 4, 23, 458755, 4, 27, 458755, 4, 393223, 65539, 1, 393222, 65539, 1, 393221, 65539, 1, 393220, 65539, 1, 327684, 65539, 1, 262148, 65539, 1, 196612, 65539, 1, 196613, 65539, 1, 196614, 65539, 1, 196615, 65539, 1, 720903, 65539, 1, 655367, 65539, 1, 589831, 65539, 1, 589830, 65539, 1, 524294, 65539, 1, 524293, 65539, 1, 458757, 65539, 1, 458758, 65539, 1, 458759, 65539, 1, 524295, 65539, 1, 131077, 65539, 1, 131078, 65539, 1, 65542, 65539, 1, 65543, 65539, 1, 7, 65539, 1, 131079, 65539, 1, 11, 262147, 4, 18, 393219, 4, 19, 458755, 4, 22, 393219, 4, 26, 393219, 4)
 
 [node name="rigidPlayer" parent="." instance=ExtResource("3_hc8lg")]
-position = Vector2(-80, 56)
+position = Vector2(192, 176)
 
 [node name="CenterPosition" type="Marker2D" parent="."]
-position = Vector2(-100, 100)
+position = Vector2(576, 224)
 
 [node name="TransitionField" parent="." instance=ExtResource("4_yybgg")]
-position = Vector2(-80, 156)
+position = Vector2(960, 224)
 
 [node name="brokenVat" parent="." instance=ExtResource("5_t67q4")]
-position = Vector2(-80, 40)
+position = Vector2(192, 160)
+
+[node name="32x64breakableBlock" parent="." instance=ExtResource("6_ypmic")]
+position = Vector2(288, 128)
+
+[node name="32x64breakableBlock2" parent="." instance=ExtResource("6_ypmic")]
+position = Vector2(544, 128)
+
+[node name="32x64breakableBlock3" parent="." instance=ExtResource("6_ypmic")]
+position = Vector2(800, 128)
+
+[node name="invisibleBlock" parent="." instance=ExtResource("7_yiy1r")]
+position = Vector2(384, 128)
+
+[node name="invisibleBlock2" parent="." instance=ExtResource("7_yiy1r")]
+position = Vector2(640, 128)
+
+[node name="64x32breakableBlock" parent="." instance=ExtResource("8_ljxgd")]
+position = Vector2(320, 224)
+
+[node name="64x32breakableBlock2" parent="." instance=ExtResource("8_ljxgd")]
+position = Vector2(576, 224)
+
+[node name="invisibleBlock3" parent="." instance=ExtResource("9_0m5wv")]
+position = Vector2(832, 224)
+
+[node name="ventTrigger" type="Node2D" parent="." node_paths=PackedStringArray("entrance", "entranceSprite", "doorStop", "exit", "exitSprite", "TriggerKeySprite")]
+position = Vector2(352, 416)
+script = ExtResource("10_7sfj4")
+ventExtranceDirection = 1
+entrance = NodePath("VentEntrance")
+entranceSprite = NodePath("VentEntrance/Fronting")
+doorStop = NodePath("VentEntrance/BallPolygon")
+exit = NodePath("VentExit")
+exitSprite = NodePath("VentExit/Fronting")
+TriggerKeySprite = NodePath("TriggerKeySprite")
+
+[node name="VentEntrance" type="Node2D" parent="ventTrigger"]
+metadata/_edit_group_ = true
+
+[node name="Backing" type="AnimatedSprite2D" parent="ventTrigger/VentEntrance"]
+sprite_frames = SubResource("SpriteFrames_c4i65")
+
+[node name="Fronting" type="AnimatedSprite2D" parent="ventTrigger/VentEntrance"]
+z_index = 53
+z_as_relative = false
+sprite_frames = SubResource("SpriteFrames_vhrh7")
+animation = &"open"
+
+[node name="ShutVentArea" type="Area2D" parent="ventTrigger/VentEntrance"]
+position = Vector2(-4, 16)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ventTrigger/VentEntrance/ShutVentArea"]
+shape = SubResource("RectangleShape2D_uyipl")
+
+[node name="InsideCheckVentArea" type="Area2D" parent="ventTrigger/VentEntrance"]
+position = Vector2(28, 16)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ventTrigger/VentEntrance/InsideCheckVentArea"]
+shape = SubResource("RectangleShape2D_uyipl")
+
+[node name="EntranceGoalPoint" type="Marker2D" parent="ventTrigger/VentEntrance"]
+position = Vector2(0, 16)
+
+[node name="BallCollision" type="StaticBody2D" parent="ventTrigger/VentEntrance"]
+position = Vector2(33.5, 16)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ventTrigger/VentEntrance/BallCollision"]
+position = Vector2(-2, 0)
+rotation = -1.5708
+shape = SubResource("RectangleShape2D_abunc")
+disabled = true
+one_way_collision = true
+
+[node name="BallPolygon" type="Polygon2D" parent="ventTrigger/VentEntrance"]
+z_index = 53
+z_as_relative = false
+texture_filter = 1
+texture = ExtResource("16_s411k")
+polygon = PackedVector2Array(0, 0, 32, 0, 32, 32, 0, 32)
+script = ExtResource("17_g3hf8")
+shard_count = 64
+invisible = true
+shard_shrink_rate = 0.99
+min_shard_size = 0.05
+x_init_velocity = 20
+y_init_velocity = 40
+shard_speed = 3.0
+rotation_speed = 0.1
+shard_gravity = 40.0
+x_max_distance = 10
+x_min_distance = -10
+y_max_distance = 10
+y_min_distance = -10
+time_to_form = 0.5
+
+[node name="VentExit" type="Node2D" parent="ventTrigger"]
+position = Vector2(0, -384)
+metadata/_edit_group_ = true
+
+[node name="Fronting" type="AnimatedSprite2D" parent="ventTrigger/VentExit"]
+z_index = 53
+z_as_relative = false
+sprite_frames = SubResource("SpriteFrames_lbpre")
+
+[node name="VentPath" type="Node2D" parent="ventTrigger"]
+
+[node name="Vent1" type="AnimatedSprite2D" parent="ventTrigger/VentPath"]
+modulate = Color(1, 1, 1, 0.490196)
+position = Vector2(64, 0)
+sprite_frames = SubResource("SpriteFrames_wuhj8")
+animation = &"curved"
+
+[node name="Vent2" type="AnimatedSprite2D" parent="ventTrigger/VentPath"]
+modulate = Color(1, 1, 1, 0.490196)
+position = Vector2(64, -64)
+sprite_frames = SubResource("SpriteFrames_wuhj8")
+animation = &"curved"
+
+[node name="Vent3" type="AnimatedSprite2D" parent="ventTrigger/VentPath"]
+modulate = Color(1, 1, 1, 0.490196)
+position = Vector2(64, -128)
+sprite_frames = SubResource("SpriteFrames_wuhj8")
+animation = &"curved"
+
+[node name="Vent4" type="AnimatedSprite2D" parent="ventTrigger/VentPath"]
+modulate = Color(1, 1, 1, 0.490196)
+position = Vector2(64, -192)
+sprite_frames = SubResource("SpriteFrames_wuhj8")
+animation = &"curved"
+
+[node name="Vent5" type="AnimatedSprite2D" parent="ventTrigger/VentPath"]
+modulate = Color(1, 1, 1, 0.490196)
+position = Vector2(128, -192)
+sprite_frames = SubResource("SpriteFrames_wuhj8")
+animation = &"curved"
+
+[node name="Vent6" type="AnimatedSprite2D" parent="ventTrigger/VentPath"]
+modulate = Color(1, 1, 1, 0.490196)
+position = Vector2(128, -256)
+sprite_frames = SubResource("SpriteFrames_wuhj8")
+animation = &"curved"
+
+[node name="Vent7" type="AnimatedSprite2D" parent="ventTrigger/VentPath"]
+modulate = Color(1, 1, 1, 0.490196)
+position = Vector2(128, -320)
+sprite_frames = SubResource("SpriteFrames_wuhj8")
+animation = &"curved"
+
+[node name="Vent8" type="AnimatedSprite2D" parent="ventTrigger/VentPath"]
+modulate = Color(1, 1, 1, 0.490196)
+position = Vector2(64, -320)
+sprite_frames = SubResource("SpriteFrames_wuhj8")
+animation = &"curved"
+
+[node name="Vent9" type="AnimatedSprite2D" parent="ventTrigger/VentPath"]
+modulate = Color(1, 1, 1, 0.490196)
+position = Vector2(64, -384)
+sprite_frames = SubResource("SpriteFrames_wuhj8")
+animation = &"curved"
+
+[node name="TriggerKeySprite" parent="ventTrigger" instance=ExtResource("21_ogrt8")]
+position = Vector2(0, 48)
+animation = &"3"
+
+[node name="ventTrigger2" type="Node2D" parent="." node_paths=PackedStringArray("entrance", "entranceSprite", "doorStop", "exit", "exitSprite", "TriggerKeySprite")]
+position = Vector2(480, 416)
+script = ExtResource("10_7sfj4")
+ventExtranceDirection = 1
+ventExitDirection = 1
+entrance = NodePath("VentEntrance")
+entranceSprite = NodePath("VentEntrance/Fronting")
+doorStop = NodePath("VentEntrance/BallPolygon")
+exit = NodePath("VentExit")
+exitSprite = NodePath("VentExit/Fronting")
+TriggerKeySprite = NodePath("TriggerKeySprite")
+
+[node name="VentEntrance" type="Node2D" parent="ventTrigger2"]
+
+[node name="Backing" type="AnimatedSprite2D" parent="ventTrigger2/VentEntrance"]
+sprite_frames = SubResource("SpriteFrames_c4i65")
+
+[node name="Fronting" type="AnimatedSprite2D" parent="ventTrigger2/VentEntrance"]
+z_index = 53
+z_as_relative = false
+sprite_frames = SubResource("SpriteFrames_vhrh7")
+animation = &"open"
+
+[node name="ShutVentArea" type="Area2D" parent="ventTrigger2/VentEntrance"]
+position = Vector2(-4, 16)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ventTrigger2/VentEntrance/ShutVentArea"]
+shape = SubResource("RectangleShape2D_uyipl")
+
+[node name="InsideCheckVentArea" type="Area2D" parent="ventTrigger2/VentEntrance"]
+position = Vector2(28, 16)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ventTrigger2/VentEntrance/InsideCheckVentArea"]
+shape = SubResource("RectangleShape2D_uyipl")
+
+[node name="EntranceGoalPoint" type="Marker2D" parent="ventTrigger2/VentEntrance"]
+position = Vector2(0, 16)
+
+[node name="BallCollision" type="StaticBody2D" parent="ventTrigger2/VentEntrance"]
+position = Vector2(33.5, 16)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ventTrigger2/VentEntrance/BallCollision"]
+position = Vector2(-2, 0)
+rotation = -1.5708
+shape = SubResource("RectangleShape2D_abunc")
+disabled = true
+one_way_collision = true
+
+[node name="BallPolygon" type="Polygon2D" parent="ventTrigger2/VentEntrance"]
+z_index = 53
+z_as_relative = false
+texture_filter = 1
+texture = ExtResource("16_s411k")
+polygon = PackedVector2Array(0, 0, 32, 0, 32, 32, 0, 32)
+script = ExtResource("17_g3hf8")
+shard_count = 64
+invisible = true
+shard_shrink_rate = 0.99
+min_shard_size = 0.05
+x_init_velocity = 20
+y_init_velocity = 40
+shard_speed = 3.0
+rotation_speed = 0.1
+shard_gravity = 40.0
+x_max_distance = 10
+x_min_distance = -10
+y_max_distance = 10
+y_min_distance = -10
+time_to_form = 0.5
+
+[node name="VentExit" type="Node2D" parent="ventTrigger2"]
+position = Vector2(384, -384)
+metadata/_edit_group_ = true
+
+[node name="Fronting" type="AnimatedSprite2D" parent="ventTrigger2/VentExit"]
+z_index = 53
+z_as_relative = false
+sprite_frames = SubResource("SpriteFrames_lbpre")
+
+[node name="VentPath" type="Node2D" parent="ventTrigger2"]
+
+[node name="Vent1" type="AnimatedSprite2D" parent="ventTrigger2/VentPath"]
+modulate = Color(1, 1, 1, 0.490196)
+position = Vector2(64, 0)
+sprite_frames = SubResource("SpriteFrames_wuhj8")
+animation = &"curved"
+
+[node name="Vent2" type="AnimatedSprite2D" parent="ventTrigger2/VentPath"]
+modulate = Color(1, 1, 1, 0.490196)
+position = Vector2(64, -64)
+sprite_frames = SubResource("SpriteFrames_wuhj8")
+animation = &"curved"
+
+[node name="Vent3" type="AnimatedSprite2D" parent="ventTrigger2/VentPath"]
+modulate = Color(1, 1, 1, 0.490196)
+position = Vector2(64, -128)
+sprite_frames = SubResource("SpriteFrames_wuhj8")
+animation = &"curved"
+
+[node name="Vent4" type="AnimatedSprite2D" parent="ventTrigger2/VentPath"]
+modulate = Color(1, 1, 1, 0.490196)
+position = Vector2(128, -128)
+sprite_frames = SubResource("SpriteFrames_wuhj8")
+animation = &"curved"
+
+[node name="Vent5" type="AnimatedSprite2D" parent="ventTrigger2/VentPath"]
+modulate = Color(1, 1, 1, 0.490196)
+position = Vector2(192, -128)
+sprite_frames = SubResource("SpriteFrames_wuhj8")
+animation = &"curved"
+
+[node name="Vent6" type="AnimatedSprite2D" parent="ventTrigger2/VentPath"]
+modulate = Color(1, 1, 1, 0.490196)
+position = Vector2(256, -128)
+sprite_frames = SubResource("SpriteFrames_wuhj8")
+animation = &"curved"
+
+[node name="Vent7" type="AnimatedSprite2D" parent="ventTrigger2/VentPath"]
+modulate = Color(1, 1, 1, 0.490196)
+position = Vector2(320, -128)
+sprite_frames = SubResource("SpriteFrames_wuhj8")
+animation = &"curved"
+
+[node name="Vent8" type="AnimatedSprite2D" parent="ventTrigger2/VentPath"]
+modulate = Color(1, 1, 1, 0.490196)
+position = Vector2(320, -192)
+sprite_frames = SubResource("SpriteFrames_wuhj8")
+animation = &"curved"
+
+[node name="Vent9" type="AnimatedSprite2D" parent="ventTrigger2/VentPath"]
+modulate = Color(1, 1, 1, 0.490196)
+position = Vector2(320, -256)
+sprite_frames = SubResource("SpriteFrames_wuhj8")
+animation = &"curved"
+
+[node name="Vent10" type="AnimatedSprite2D" parent="ventTrigger2/VentPath"]
+modulate = Color(1, 1, 1, 0.490196)
+position = Vector2(320, -320)
+sprite_frames = SubResource("SpriteFrames_wuhj8")
+animation = &"curved"
+
+[node name="Vent11" type="AnimatedSprite2D" parent="ventTrigger2/VentPath"]
+modulate = Color(1, 1, 1, 0.490196)
+position = Vector2(320, -384)
+sprite_frames = SubResource("SpriteFrames_wuhj8")
+animation = &"curved"
+
+[node name="TriggerKeySprite" parent="ventTrigger2" instance=ExtResource("21_ogrt8")]
+position = Vector2(0, 48)
+animation = &"3"
+
+[node name="ventTrigger3" type="Node2D" parent="." node_paths=PackedStringArray("entrance", "entranceSprite", "doorStop", "exit", "exitSprite", "TriggerKeySprite")]
+position = Vector2(608, 416)
+script = ExtResource("10_7sfj4")
+ventExitDirection = 1
+entrance = NodePath("VentEntrance")
+entranceSprite = NodePath("VentEntrance/Fronting")
+doorStop = NodePath("VentEntrance/BallPolygon")
+exit = NodePath("VentExit")
+exitSprite = NodePath("VentExit/Fronting")
+TriggerKeySprite = NodePath("TriggerKeySprite")
+
+[node name="VentEntrance" type="Node2D" parent="ventTrigger3"]
+
+[node name="Backing" type="AnimatedSprite2D" parent="ventTrigger3/VentEntrance"]
+sprite_frames = SubResource("SpriteFrames_c4i65")
+
+[node name="Fronting" type="AnimatedSprite2D" parent="ventTrigger3/VentEntrance"]
+z_index = 53
+z_as_relative = false
+sprite_frames = SubResource("SpriteFrames_vhrh7")
+animation = &"open"
+
+[node name="ShutVentArea" type="Area2D" parent="ventTrigger3/VentEntrance"]
+position = Vector2(-4, 16)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ventTrigger3/VentEntrance/ShutVentArea"]
+shape = SubResource("RectangleShape2D_uyipl")
+
+[node name="InsideCheckVentArea" type="Area2D" parent="ventTrigger3/VentEntrance"]
+position = Vector2(28, 16)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ventTrigger3/VentEntrance/InsideCheckVentArea"]
+shape = SubResource("RectangleShape2D_uyipl")
+
+[node name="EntranceGoalPoint" type="Marker2D" parent="ventTrigger3/VentEntrance"]
+position = Vector2(0, 16)
+
+[node name="BallCollision" type="StaticBody2D" parent="ventTrigger3/VentEntrance"]
+position = Vector2(33.5, 16)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ventTrigger3/VentEntrance/BallCollision"]
+position = Vector2(-2, 0)
+rotation = -1.5708
+shape = SubResource("RectangleShape2D_abunc")
+disabled = true
+one_way_collision = true
+
+[node name="BallPolygon" type="Polygon2D" parent="ventTrigger3/VentEntrance"]
+z_index = 53
+z_as_relative = false
+texture_filter = 1
+texture = ExtResource("16_s411k")
+polygon = PackedVector2Array(0, 0, 32, 0, 32, 32, 0, 32)
+script = ExtResource("17_g3hf8")
+shard_count = 64
+invisible = true
+shard_shrink_rate = 0.99
+min_shard_size = 0.05
+x_init_velocity = 20
+y_init_velocity = 40
+shard_speed = 3.0
+rotation_speed = 0.1
+shard_gravity = 40.0
+x_max_distance = 10
+x_min_distance = -10
+y_max_distance = 10
+y_min_distance = -10
+time_to_form = 0.5
+
+[node name="VentExit" type="Node2D" parent="ventTrigger3"]
+position = Vector2(0, -384)
+metadata/_edit_group_ = true
+
+[node name="Fronting" type="AnimatedSprite2D" parent="ventTrigger3/VentExit"]
+z_index = 53
+z_as_relative = false
+sprite_frames = SubResource("SpriteFrames_lbpre")
+
+[node name="VentPath" type="Node2D" parent="ventTrigger3"]
+
+[node name="Vent1" type="AnimatedSprite2D" parent="ventTrigger3/VentPath"]
+modulate = Color(1, 1, 1, 0.490196)
+position = Vector2(64, 0)
+sprite_frames = SubResource("SpriteFrames_wuhj8")
+animation = &"curved"
+
+[node name="Vent2" type="AnimatedSprite2D" parent="ventTrigger3/VentPath"]
+modulate = Color(1, 1, 1, 0.490196)
+position = Vector2(64, -64)
+sprite_frames = SubResource("SpriteFrames_wuhj8")
+animation = &"curved"
+
+[node name="Vent3" type="AnimatedSprite2D" parent="ventTrigger3/VentPath"]
+modulate = Color(1, 1, 1, 0.490196)
+position = Vector2(64, -128)
+sprite_frames = SubResource("SpriteFrames_wuhj8")
+animation = &"curved"
+
+[node name="Vent4" type="AnimatedSprite2D" parent="ventTrigger3/VentPath"]
+modulate = Color(1, 1, 1, 0.490196)
+position = Vector2(0, -128)
+sprite_frames = SubResource("SpriteFrames_wuhj8")
+animation = &"curved"
+
+[node name="Vent5" type="AnimatedSprite2D" parent="ventTrigger3/VentPath"]
+modulate = Color(1, 1, 1, 0.490196)
+position = Vector2(0, -192)
+sprite_frames = SubResource("SpriteFrames_wuhj8")
+animation = &"curved"
+
+[node name="Vent6" type="AnimatedSprite2D" parent="ventTrigger3/VentPath"]
+modulate = Color(1, 1, 1, 0.490196)
+position = Vector2(0, -256)
+sprite_frames = SubResource("SpriteFrames_wuhj8")
+animation = &"curved"
+
+[node name="Vent7" type="AnimatedSprite2D" parent="ventTrigger3/VentPath"]
+modulate = Color(1, 1, 1, 0.490196)
+position = Vector2(0, -320)
+sprite_frames = SubResource("SpriteFrames_wuhj8")
+animation = &"curved"
+
+[node name="Vent8" type="AnimatedSprite2D" parent="ventTrigger3/VentPath"]
+modulate = Color(1, 1, 1, 0.490196)
+position = Vector2(-64, -320)
+sprite_frames = SubResource("SpriteFrames_wuhj8")
+animation = &"curved"
+
+[node name="Vent9" type="AnimatedSprite2D" parent="ventTrigger3/VentPath"]
+modulate = Color(1, 1, 1, 0.490196)
+position = Vector2(-64, -384)
+sprite_frames = SubResource("SpriteFrames_wuhj8")
+animation = &"curved"
+
+[node name="TriggerKeySprite" parent="ventTrigger3" instance=ExtResource("21_ogrt8")]
+position = Vector2(0, 48)
+animation = &"3"
+
+[node name="ventTrigger4" type="Node2D" parent="." node_paths=PackedStringArray("entrance", "entranceSprite", "doorStop", "exit", "exitSprite", "TriggerKeySprite")]
+position = Vector2(736, 416)
+script = ExtResource("10_7sfj4")
+ventExtranceDirection = 1
+ventExitDirection = 1
+entrance = NodePath("VentEntrance")
+entranceSprite = NodePath("VentEntrance/Fronting")
+doorStop = NodePath("VentEntrance/BallPolygon")
+exit = NodePath("VentExit")
+exitSprite = NodePath("VentExit/Fronting")
+TriggerKeySprite = NodePath("TriggerKeySprite")
+
+[node name="VentEntrance" type="Node2D" parent="ventTrigger4"]
+
+[node name="Backing" type="AnimatedSprite2D" parent="ventTrigger4/VentEntrance"]
+sprite_frames = SubResource("SpriteFrames_wkok6")
+
+[node name="Fronting" type="AnimatedSprite2D" parent="ventTrigger4/VentEntrance"]
+z_index = 53
+z_as_relative = false
+sprite_frames = SubResource("SpriteFrames_rajko")
+animation = &"open"
+
+[node name="ShutVentArea" type="Area2D" parent="ventTrigger4/VentEntrance"]
+position = Vector2(-4, 16)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ventTrigger4/VentEntrance/ShutVentArea"]
+shape = SubResource("RectangleShape2D_4wsn3")
+
+[node name="InsideCheckVentArea" type="Area2D" parent="ventTrigger4/VentEntrance"]
+position = Vector2(28, 16)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ventTrigger4/VentEntrance/InsideCheckVentArea"]
+shape = SubResource("RectangleShape2D_4wsn3")
+
+[node name="EntranceGoalPoint" type="Marker2D" parent="ventTrigger4/VentEntrance"]
+position = Vector2(0, 16)
+
+[node name="BallCollision" type="StaticBody2D" parent="ventTrigger4/VentEntrance"]
+position = Vector2(33.5, 16)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ventTrigger4/VentEntrance/BallCollision"]
+position = Vector2(-2, 0)
+rotation = -1.5708
+shape = SubResource("RectangleShape2D_ppkc5")
+disabled = true
+one_way_collision = true
+
+[node name="BallPolygon" type="Polygon2D" parent="ventTrigger4/VentEntrance"]
+z_index = 53
+z_as_relative = false
+texture_filter = 1
+texture = ExtResource("16_s411k")
+polygon = PackedVector2Array(0, 0, 32, 0, 32, 32, 0, 32)
+script = ExtResource("17_g3hf8")
+shard_count = 64
+invisible = true
+shard_shrink_rate = 0.99
+min_shard_size = 0.05
+x_init_velocity = 20
+y_init_velocity = 40
+shard_speed = 3.0
+rotation_speed = 0.1
+shard_gravity = 40.0
+x_max_distance = 10
+x_min_distance = -10
+y_max_distance = 10
+y_min_distance = -10
+time_to_form = 0.5
+
+[node name="VentExit" type="Node2D" parent="ventTrigger4"]
+position = Vector2(0, -384)
+metadata/_edit_group_ = true
+
+[node name="Fronting" type="AnimatedSprite2D" parent="ventTrigger4/VentExit"]
+z_index = 53
+z_as_relative = false
+sprite_frames = SubResource("SpriteFrames_ss3ge")
+
+[node name="VentPath" type="Node2D" parent="ventTrigger4"]
+
+[node name="Vent1" type="AnimatedSprite2D" parent="ventTrigger4/VentPath"]
+modulate = Color(1, 1, 1, 0.490196)
+position = Vector2(64, 0)
+sprite_frames = SubResource("SpriteFrames_8jkgk")
+animation = &"curved"
+
+[node name="Vent2" type="AnimatedSprite2D" parent="ventTrigger4/VentPath"]
+modulate = Color(1, 1, 1, 0.490196)
+position = Vector2(64, -64)
+sprite_frames = SubResource("SpriteFrames_8jkgk")
+animation = &"curved"
+
+[node name="Vent3" type="AnimatedSprite2D" parent="ventTrigger4/VentPath"]
+modulate = Color(1, 1, 1, 0.490196)
+position = Vector2(0, -64)
+sprite_frames = SubResource("SpriteFrames_8jkgk")
+animation = &"curved"
+
+[node name="Vent4" type="AnimatedSprite2D" parent="ventTrigger4/VentPath"]
+modulate = Color(1, 1, 1, 0.490196)
+position = Vector2(0, -128)
+sprite_frames = SubResource("SpriteFrames_8jkgk")
+animation = &"curved"
+
+[node name="Vent5" type="AnimatedSprite2D" parent="ventTrigger4/VentPath"]
+modulate = Color(1, 1, 1, 0.490196)
+position = Vector2(0, -192)
+sprite_frames = SubResource("SpriteFrames_8jkgk")
+animation = &"curved"
+
+[node name="Vent6" type="AnimatedSprite2D" parent="ventTrigger4/VentPath"]
+modulate = Color(1, 1, 1, 0.490196)
+position = Vector2(0, -256)
+sprite_frames = SubResource("SpriteFrames_8jkgk")
+animation = &"curved"
+
+[node name="Vent7" type="AnimatedSprite2D" parent="ventTrigger4/VentPath"]
+modulate = Color(1, 1, 1, 0.490196)
+position = Vector2(0, -320)
+sprite_frames = SubResource("SpriteFrames_8jkgk")
+animation = &"curved"
+
+[node name="Vent8" type="AnimatedSprite2D" parent="ventTrigger4/VentPath"]
+modulate = Color(1, 1, 1, 0.490196)
+position = Vector2(-64, -320)
+sprite_frames = SubResource("SpriteFrames_8jkgk")
+animation = &"curved"
+
+[node name="Vent9" type="AnimatedSprite2D" parent="ventTrigger4/VentPath"]
+modulate = Color(1, 1, 1, 0.490196)
+position = Vector2(-64, -384)
+sprite_frames = SubResource("SpriteFrames_8jkgk")
+animation = &"curved"
+
+[node name="TriggerKeySprite" parent="ventTrigger4" instance=ExtResource("21_ogrt8")]
+position = Vector2(0, 48)
+animation = &"3"
+
+[node name="SecurityBall3" parent="." instance=ExtResource("22_tu5dd")]
+position = Vector2(864, 176)
+
+[connection signal="animation_finished" from="ventTrigger/VentEntrance/Fronting" to="ventTrigger" method="onEntranceAnimationFinished" flags=18]
+[connection signal="body_entered" from="ventTrigger/VentEntrance/ShutVentArea" to="ventTrigger" method="onShutVentAreaEntered" flags=18]
+[connection signal="body_entered" from="ventTrigger/VentEntrance/InsideCheckVentArea" to="ventTrigger" method="onInsideCheckVentAreaEntered" flags=18]
+[connection signal="frame_changed" from="ventTrigger/VentPath/Vent1" to="ventTrigger" method="onVentFrameChanged" flags=18]
+[connection signal="frame_changed" from="ventTrigger/VentPath/Vent2" to="ventTrigger" method="onVentFrameChanged" flags=18]
+[connection signal="frame_changed" from="ventTrigger/VentPath/Vent3" to="ventTrigger" method="onVentFrameChanged" flags=18]
+[connection signal="frame_changed" from="ventTrigger/VentPath/Vent4" to="ventTrigger" method="onVentFrameChanged" flags=18]
+[connection signal="frame_changed" from="ventTrigger/VentPath/Vent5" to="ventTrigger" method="onVentFrameChanged" flags=18]
+[connection signal="frame_changed" from="ventTrigger/VentPath/Vent6" to="ventTrigger" method="onVentFrameChanged" flags=18]
+[connection signal="frame_changed" from="ventTrigger/VentPath/Vent7" to="ventTrigger" method="onVentFrameChanged" flags=18]
+[connection signal="frame_changed" from="ventTrigger/VentPath/Vent8" to="ventTrigger" method="onVentFrameChanged" flags=18]
+[connection signal="frame_changed" from="ventTrigger/VentPath/Vent9" to="ventTrigger" method="onVentFrameChanged" flags=18]
+[connection signal="animation_finished" from="ventTrigger2/VentEntrance/Fronting" to="ventTrigger2" method="onEntranceAnimationFinished" flags=18]
+[connection signal="body_entered" from="ventTrigger2/VentEntrance/ShutVentArea" to="ventTrigger2" method="onShutVentAreaEntered" flags=18]
+[connection signal="body_entered" from="ventTrigger2/VentEntrance/InsideCheckVentArea" to="ventTrigger2" method="onInsideCheckVentAreaEntered" flags=18]
+[connection signal="frame_changed" from="ventTrigger2/VentPath/Vent1" to="ventTrigger2" method="onVentFrameChanged" flags=18]
+[connection signal="frame_changed" from="ventTrigger2/VentPath/Vent2" to="ventTrigger2" method="onVentFrameChanged" flags=18]
+[connection signal="frame_changed" from="ventTrigger2/VentPath/Vent3" to="ventTrigger2" method="onVentFrameChanged" flags=18]
+[connection signal="frame_changed" from="ventTrigger2/VentPath/Vent4" to="ventTrigger2" method="onVentFrameChanged" flags=18]
+[connection signal="frame_changed" from="ventTrigger2/VentPath/Vent5" to="ventTrigger2" method="onVentFrameChanged" flags=18]
+[connection signal="frame_changed" from="ventTrigger2/VentPath/Vent6" to="ventTrigger2" method="onVentFrameChanged" flags=18]
+[connection signal="frame_changed" from="ventTrigger2/VentPath/Vent7" to="ventTrigger2" method="onVentFrameChanged" flags=18]
+[connection signal="frame_changed" from="ventTrigger2/VentPath/Vent8" to="ventTrigger2" method="onVentFrameChanged" flags=18]
+[connection signal="frame_changed" from="ventTrigger2/VentPath/Vent9" to="ventTrigger2" method="onVentFrameChanged" flags=18]
+[connection signal="frame_changed" from="ventTrigger2/VentPath/Vent10" to="ventTrigger2" method="onVentFrameChanged" flags=18]
+[connection signal="frame_changed" from="ventTrigger2/VentPath/Vent11" to="ventTrigger2" method="onVentFrameChanged" flags=18]
+[connection signal="animation_finished" from="ventTrigger3/VentEntrance/Fronting" to="ventTrigger3" method="onEntranceAnimationFinished" flags=18]
+[connection signal="body_entered" from="ventTrigger3/VentEntrance/ShutVentArea" to="ventTrigger3" method="onShutVentAreaEntered" flags=18]
+[connection signal="body_entered" from="ventTrigger3/VentEntrance/InsideCheckVentArea" to="ventTrigger3" method="onInsideCheckVentAreaEntered" flags=18]
+[connection signal="frame_changed" from="ventTrigger3/VentPath/Vent1" to="ventTrigger3" method="onVentFrameChanged" flags=18]
+[connection signal="frame_changed" from="ventTrigger3/VentPath/Vent2" to="ventTrigger3" method="onVentFrameChanged" flags=18]
+[connection signal="frame_changed" from="ventTrigger3/VentPath/Vent3" to="ventTrigger3" method="onVentFrameChanged" flags=18]
+[connection signal="frame_changed" from="ventTrigger3/VentPath/Vent4" to="ventTrigger3" method="onVentFrameChanged" flags=18]
+[connection signal="frame_changed" from="ventTrigger3/VentPath/Vent5" to="ventTrigger3" method="onVentFrameChanged" flags=18]
+[connection signal="frame_changed" from="ventTrigger3/VentPath/Vent6" to="ventTrigger3" method="onVentFrameChanged" flags=18]
+[connection signal="frame_changed" from="ventTrigger3/VentPath/Vent7" to="ventTrigger3" method="onVentFrameChanged" flags=18]
+[connection signal="frame_changed" from="ventTrigger3/VentPath/Vent8" to="ventTrigger3" method="onVentFrameChanged" flags=18]
+[connection signal="frame_changed" from="ventTrigger3/VentPath/Vent9" to="ventTrigger3" method="onVentFrameChanged" flags=18]
+[connection signal="animation_finished" from="ventTrigger4/VentEntrance/Fronting" to="ventTrigger4" method="onEntranceAnimationFinished" flags=18]
+[connection signal="body_entered" from="ventTrigger4/VentEntrance/ShutVentArea" to="ventTrigger4" method="onShutVentAreaEntered" flags=18]
+[connection signal="body_entered" from="ventTrigger4/VentEntrance/InsideCheckVentArea" to="ventTrigger4" method="onInsideCheckVentAreaEntered" flags=18]
+[connection signal="frame_changed" from="ventTrigger4/VentPath/Vent1" to="ventTrigger4" method="onVentFrameChanged" flags=18]
+[connection signal="frame_changed" from="ventTrigger4/VentPath/Vent2" to="ventTrigger4" method="onVentFrameChanged" flags=18]
+[connection signal="frame_changed" from="ventTrigger4/VentPath/Vent3" to="ventTrigger4" method="onVentFrameChanged" flags=18]
+[connection signal="frame_changed" from="ventTrigger4/VentPath/Vent4" to="ventTrigger4" method="onVentFrameChanged" flags=18]
+[connection signal="frame_changed" from="ventTrigger4/VentPath/Vent5" to="ventTrigger4" method="onVentFrameChanged" flags=18]
+[connection signal="frame_changed" from="ventTrigger4/VentPath/Vent6" to="ventTrigger4" method="onVentFrameChanged" flags=18]
+[connection signal="frame_changed" from="ventTrigger4/VentPath/Vent7" to="ventTrigger4" method="onVentFrameChanged" flags=18]
+[connection signal="frame_changed" from="ventTrigger4/VentPath/Vent8" to="ventTrigger4" method="onVentFrameChanged" flags=18]
+[connection signal="frame_changed" from="ventTrigger4/VentPath/Vent9" to="ventTrigger4" method="onVentFrameChanged" flags=18]

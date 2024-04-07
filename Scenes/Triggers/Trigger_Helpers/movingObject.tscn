@@ -32,6 +32,7 @@ collision_mask = 3
 mass = 10000.0
 can_sleep = false
 script = ExtResource("1_kg8bi")
+maxFanVelocity = 40.0
 floorDetector = NodePath("RayCast2D")
 sprite = NodePath("Sprite2D")
 SodaShield = NodePath("SodaShield")

@@ -1,8 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://b8japh5crdt7v"]
+[gd_scene load_steps=30 format=3 uid="uid://b8japh5crdt7v"]
 
 [ext_resource type="Script" path="res://Scripts/Triggers/fanTrigger.gd" id="1_t8n4g"]
 [ext_resource type="Texture2D" uid="uid://buqycbqj85rkk" path="res://Art/TriggerArt/Fan/plhFanHeadOff.png" id="2_g26xu"]
 [ext_resource type="Texture2D" uid="uid://cxbjt31vust1l" path="res://Art/TriggerArt/Fan/plhFanHeadOn.png" id="3_5ldck"]
+[ext_resource type="Texture2D" uid="uid://8yh8c5n7wkvu" path="res://Art/TriggerArt/Fan/plhWindVis64.png" id="5_qydgy"]
+[ext_resource type="Texture2D" uid="uid://cgtbmno20ljkx" path="res://Art/TriggerArt/Fan/plhWindVis32.png" id="6_acwrb"]
+[ext_resource type="Texture2D" uid="uid://c4jjgjswot180" path="res://Art/TriggerArt/Fan/plhWindVis16.png" id="7_5gqib"]
 [ext_resource type="PackedScene" uid="uid://djjr177758y2h" path="res://Scenes/Triggers/Trigger_Helpers/triggerKey.tscn" id="7_460pp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vfynt"]
@@ -64,16 +67,104 @@ animations = [{
 size = Vector2(16, 96)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b7p4s"]
-size = Vector2(192, 96)
+size = Vector2(176, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v80wv"]
+atlas = ExtResource("5_qydgy")
+region = Rect2(0, 0, 64, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l5foe"]
+atlas = ExtResource("5_qydgy")
+region = Rect2(64, 0, 64, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_26vbq"]
+atlas = ExtResource("5_qydgy")
+region = Rect2(128, 0, 64, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h0rwc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v80wv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l5foe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_26vbq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ae3oj"]
+atlas = ExtResource("6_acwrb")
+region = Rect2(0, 0, 32, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_00ary"]
+atlas = ExtResource("6_acwrb")
+region = Rect2(32, 0, 32, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ane3"]
+atlas = ExtResource("6_acwrb")
+region = Rect2(64, 0, 32, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_atu4c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ae3oj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_00ary")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ane3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_24jid"]
+atlas = ExtResource("7_5gqib")
+region = Rect2(0, 0, 16, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_04c3t"]
+atlas = ExtResource("7_5gqib")
+region = Rect2(16, 0, 16, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2fumy"]
+atlas = ExtResource("7_5gqib")
+region = Rect2(32, 0, 16, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_06fah"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_24jid")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_04c3t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2fumy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eyows"]
 size = Vector2(64, 64)
 
-[node name="fanTrigger" type="Node2D" node_paths=PackedStringArray("fanSprite", "pushArea", "TriggerKeySprite")]
+[node name="fanTrigger" type="Node2D" node_paths=PackedStringArray("fanSprite", "pushArea", "windSprites", "TriggerKeySprite")]
 script = ExtResource("1_t8n4g")
-strengthAmplitude = 1000.0
+strengthAmplitude = 3000.0
 fanSprite = NodePath("FanSprite")
 pushArea = NodePath("PushArea")
+windSprites = [NodePath("PushArea/Wind64"), NodePath("PushArea/Wind32"), NodePath("PushArea/Wind16")]
 one_shot = false
 TriggerKeySprite = NodePath("TriggerKeySprite")
 
@@ -93,8 +184,26 @@ position = Vector2(0, 64)
 [node name="PushArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PushArea"]
-position = Vector2(96, 0)
+position = Vector2(104, 0)
 shape = SubResource("RectangleShape2D_b7p4s")
+
+[node name="Wind64" type="AnimatedSprite2D" parent="PushArea"]
+position = Vector2(48, 0)
+sprite_frames = SubResource("SpriteFrames_h0rwc")
+autoplay = "default"
+frame_progress = 0.179438
+
+[node name="Wind32" type="AnimatedSprite2D" parent="PushArea"]
+position = Vector2(128, 0)
+sprite_frames = SubResource("SpriteFrames_atu4c")
+autoplay = "default"
+frame_progress = 0.603033
+
+[node name="Wind16" type="AnimatedSprite2D" parent="PushArea"]
+position = Vector2(184, 0)
+sprite_frames = SubResource("SpriteFrames_06fah")
+autoplay = "default"
+frame_progress = 0.124541
 
 [node name="WireDetection" type="Area2D" parent="."]
 collision_layer = 64

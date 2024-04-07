@@ -7,6 +7,8 @@ class_name rigidPlayer
 @export var time_to_rotate_slope = 0.5 # Adjust this for slope rotation
 @export var falling_rotation_speed = 5.0  # Adjust this for falling rotation
 @export var starting_direction = Vector2.RIGHT
+@export var maxSingleFanVelocity: float = 100.0
+@export var maxFanVelocity: float = 20.0
 
 # Permanent node children
 @export var AnimatedSprite : AnimatedSprite2D
@@ -48,6 +50,7 @@ var dead : bool = false
 var animBackwards = false
 var inSoda : int = 0
 var isShielded : bool = false
+var fansInRange : Array[fanTrigger]
 
 func _ready():
 	last_y_velocity = 0
@@ -110,6 +113,8 @@ func _integrate_forces(state):
 			gravity_scale = controlledStickyMultiplier
 		else:
 			gravity_scale = stickyMultiplier
+	
+	
 	if just_reset:
 		#debug line, force to show again because of a glitch
 		AnimatedSprite.show()
@@ -120,6 +125,9 @@ func _integrate_forces(state):
 	
 	if !being_controlled && !dead:
 		state.set_linear_velocity(Vector2(current_direction.x * speed * gravity_scale, state.get_linear_velocity().y))
+	
+	#fan forces
+	state.set_linear_velocity(calc_fan_forces(fansInRange) + state.get_linear_velocity())
 	
 	if just_started_control:
 		just_started_control = false
@@ -305,6 +313,15 @@ func changeDirection(direction : Vector2):
 		wallCast.set_collision_mask_value(3, true) # 3 is oneWayBlockRHS
 		wallCast.set_collision_mask_value(4, false) # 4 is oneWayBlockLHS
 	wallCast.scale.x = PlayerCollision.scale.x
+
+func calc_fan_forces(fans:Array[fanTrigger]):
+	var fan_linear_velocity = Vector2()
+	for fan in fans:
+		var distance = global_position.distance_to(fan.global_position)
+		var force = fan.strength/distance
+		fan_linear_velocity += (fan.direction * force).clamp(Vector2(-maxSingleFanVelocity,-maxSingleFanVelocity), Vector2(maxSingleFanVelocity,maxSingleFanVelocity))
+	fan_linear_velocity = fan_linear_velocity.clamp(Vector2(-maxFanVelocity,-maxFanVelocity), Vector2(maxFanVelocity,maxFanVelocity))
+	return fan_linear_velocity
 
 func set_body_pos(pos):
 	next_pos = pos

@@ -6,6 +6,8 @@ class_name movingObject
 @export var followPlayer: bool = true
 @export var maxSingleMagnetVelocity: float = 100.0
 @export var maxMagnetVelocity: float = 20.0
+@export var maxSingleFanVelocity: float = 100.0
+@export var maxFanVelocity: float = 20.0
 @export var floorDetector: RayCast2D	
 @export var sprite: Sprite2D
 @export var SodaShield: AnimatedSprite2D
@@ -35,6 +37,7 @@ var last_vel_y : float = 0
 var inSoda : int = 0
 var isShielded : bool = false
 var magnetTriggers : Array[magnetTrigger]
+var fansInRange : Array[fanTrigger] = []
 
 func _ready():
 	starting_transform = get_global_transform()
@@ -101,6 +104,8 @@ func _integrate_forces(state):
 	#magnetic field forces
 	if magnetic:
 		state.set_linear_velocity(calc_magnetic_forces(magnetTriggers) + state.get_linear_velocity())
+	#fan forces
+	state.set_linear_velocity(calc_fan_forces(fansInRange) + state.get_linear_velocity())
 	
 	if just_destroyed:
 		#state.set_linear_velocity(Vector2())
@@ -158,6 +163,15 @@ func calc_magnetic_forces(magnets:Array[magnetTrigger]):
 		magnetic_linear_velocity += (direction * force).clamp(Vector2(-maxSingleMagnetVelocity,-maxSingleMagnetVelocity), Vector2(maxSingleMagnetVelocity,maxSingleMagnetVelocity))
 	magnetic_linear_velocity = magnetic_linear_velocity.clamp(Vector2(-maxMagnetVelocity,-maxMagnetVelocity), Vector2(maxMagnetVelocity,maxMagnetVelocity))
 	return magnetic_linear_velocity
+
+func calc_fan_forces(fans:Array[fanTrigger]):
+	var fan_linear_velocity = Vector2()
+	for fan in fans:
+		var distance = global_position.distance_to(fan.global_position)
+		var force = fan.strength/distance
+		fan_linear_velocity += (fan.direction * force).clamp(Vector2(-maxSingleFanVelocity,-maxSingleFanVelocity), Vector2(maxSingleFanVelocity,maxSingleFanVelocity))
+	fan_linear_velocity = fan_linear_velocity.clamp(Vector2(-maxFanVelocity,-maxFanVelocity), Vector2(maxFanVelocity,maxFanVelocity))
+	return fan_linear_velocity
 
 func movement_overwritten(_movement_overrider):
 	being_controlled = true

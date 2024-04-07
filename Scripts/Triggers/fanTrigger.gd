@@ -5,9 +5,11 @@ class_name fanTrigger
 @export var strengthAmplitude: float
 @export var fanSprite: AnimatedSprite2D
 @export var pushArea: Area2D
+@export var windSprites: Array[AnimatedSprite2D]
 
 var currState: FanState
 var strength: float
+var direction: Vector2
 
 enum FanState
 {
@@ -22,6 +24,9 @@ var stateToAnimString = {
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	#calculate Vector2 direction premptively
+	direction = Vector2(cos(global_rotation), sin(global_rotation)).normalized()
+	
 	TriggerKeySprite.rotation_degrees = -rotation_degrees
 	if !show_button:
 		TriggerKeySprite.modulate.a = 0
@@ -34,12 +39,14 @@ func react():
 		currState = FanState.ON
 		strength = strengthAmplitude
 		pushArea.monitoring = true
-		#$PushArea/CollisionShape2D.shape.size.y = 96
+		for wind in windSprites:
+			wind.show()
 	else:
 		currState = FanState.OFF
 		strength = 0
 		pushArea.monitoring = false
-		#$PushArea/CollisionShape2D.shape.size.y = 0
+		for wind in windSprites:
+			wind.hide()
 	fanSprite.animation = stateToAnimString[currState]
 	fanSprite.frame = 0
 	fanSprite.play()
@@ -49,13 +56,23 @@ func reset():
 	currState = FanState.OFF
 	fanSprite.animation = stateToAnimString[currState]
 	fanSprite.frame = 0
+	pushArea.monitoring = false
 	fanSprite.play()
+	for wind in windSprites:
+			wind.hide()
 	strength = 0
 	if startActivated:
 		react()
 
 func onPushBodyEntered(body):
-	print(body, " entered")
+	if body is rigidPlayer or body is movingObject:
+		var bodyFans = body.fansInRange
+		if not self in bodyFans:
+			bodyFans.append(self)
 
 func onPushBodyExited(body):
-	print(body, " exited")
+	if body is rigidPlayer or body is movingObject:
+		var bodyFans = body.fansInRange
+		var index = bodyFans.find(self)
+		if index != -1:
+			bodyFans.remove_at(index)

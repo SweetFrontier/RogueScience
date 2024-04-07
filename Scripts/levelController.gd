@@ -20,56 +20,40 @@ var isCurrentLevel : bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	var children = get_children()
+	var index = 0
+	while index < children.size():
+		var child = children[index]
+		if child is baseTrigger:
+			child.hide_key()
+			triggerBlocks.append(child)
+			child.connect("remove_key_signal", remove_key)
+			child.connect("randomize_block_keys_signal", randomize_block_keys)
+			if child is magnetTrigger:
+				magnetTriggers.append(child)
+		elif child is movingObject:
+			child.hide()
+			movingObjects.append(child)
+			if player != null:
+				child.setPlayer(player)
+			if child.magnetic:
+				magneticMovingObjects.append(child)
+				for grandchild in child.get_children():
+					if grandchild is fellaBoxTrigger:
+						triggerBlocks.append(grandchild)
+						grandchild.connect("remove_key_signal", remove_key)
+						grandchild.connect("randomize_block_keys_signal", randomize_block_keys)
+		elif child is wire:
+			wires.append(child)
+		elif child is electrode:
+			electrodes.append(child)
+		elif child is triggerHolder:
+			children.append_array(child.get_children())
+		index += 1
 	if (DEBUG_MODE):
-		for child in get_children():
-			if child is baseTrigger:
-				triggerBlocks.append(child)
-				child.connect("remove_key_signal", remove_key)
-				child.connect("randomize_block_keys_signal", randomize_block_keys)
-				if child is magnetTrigger:
-					magnetTriggers.append(child)
-			elif child is movingObject:
-				movingObjects.append(child)
-				if child.magnetic:
-					magneticMovingObjects.append(child)
-					for grandchild in child.get_children():
-						if grandchild is fellaBoxTrigger:
-							triggerBlocks.append(grandchild)
-							grandchild.connect("remove_key_signal", remove_key)
-							grandchild.connect("randomize_block_keys_signal", randomize_block_keys)
-			elif child is wire:
-				wires.append(child)
-			elif child is electrode:
-				electrodes.append(child)
-		reset();
+		reset()
 	else:
-		#hide the player until the level starts
 		player.hide()
-		for child in get_children():
-			if child is baseTrigger:
-				child.hide_key()
-				triggerBlocks.append(child)
-				child.connect("remove_key_signal", remove_key)
-				child.connect("randomize_block_keys_signal", randomize_block_keys)
-				if child is magnetTrigger:
-					magnetTriggers.append(child)
-			elif child is movingObject:
-				child.hide()
-				movingObjects.append(child)
-				if player != null:
-					child.setPlayer(player)
-				if child.magnetic:
-					magneticMovingObjects.append(child)
-					for grandchild in child.get_children():
-						if grandchild is fellaBoxTrigger:
-							triggerBlocks.append(grandchild)
-							grandchild.connect("remove_key_signal", remove_key)
-							grandchild.connect("randomize_block_keys_signal", randomize_block_keys)
-			elif child is wire:
-				wires.append(child)
-			elif child is electrode:
-				electrodes.append(child)
-	
 	#Give each Magnetic Moving Object a reference to each Magnet in the scene
 	for magneticObject in magneticMovingObjects:
 		magneticObject.magnetTriggers = magnetTriggers.duplicate()

@@ -1,0 +1,109 @@
+[gd_scene load_steps=15 format=3 uid="uid://b8japh5crdt7v"]
+
+[ext_resource type="Script" path="res://Scripts/Triggers/fanTrigger.gd" id="1_t8n4g"]
+[ext_resource type="Texture2D" uid="uid://buqycbqj85rkk" path="res://Art/TriggerArt/Fan/plhFanHeadOff.png" id="2_g26xu"]
+[ext_resource type="Texture2D" uid="uid://cxbjt31vust1l" path="res://Art/TriggerArt/Fan/plhFanHeadOn.png" id="3_5ldck"]
+[ext_resource type="PackedScene" uid="uid://djjr177758y2h" path="res://Scenes/Triggers/Trigger_Helpers/triggerKey.tscn" id="7_460pp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vfynt"]
+atlas = ExtResource("2_g26xu")
+region = Rect2(0, 0, 32, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_20dws"]
+atlas = ExtResource("2_g26xu")
+region = Rect2(32, 0, 32, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gmwd8"]
+atlas = ExtResource("2_g26xu")
+region = Rect2(64, 0, 32, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qpkw6"]
+atlas = ExtResource("3_5ldck")
+region = Rect2(0, 0, 32, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sxrhg"]
+atlas = ExtResource("3_5ldck")
+region = Rect2(32, 0, 32, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s1ocf"]
+atlas = ExtResource("3_5ldck")
+region = Rect2(64, 0, 32, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yup5f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vfynt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_20dws")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gmwd8")
+}],
+"loop": true,
+"name": &"off",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qpkw6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sxrhg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s1ocf")
+}],
+"loop": true,
+"name": &"on",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ffuhi"]
+size = Vector2(16, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b7p4s"]
+size = Vector2(192, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eyows"]
+size = Vector2(64, 64)
+
+[node name="fanTrigger" type="Node2D" node_paths=PackedStringArray("fanSprite", "pushArea", "TriggerKeySprite")]
+script = ExtResource("1_t8n4g")
+strengthAmplitude = 1000.0
+fanSprite = NodePath("FanSprite")
+pushArea = NodePath("PushArea")
+one_shot = false
+TriggerKeySprite = NodePath("TriggerKeySprite")
+
+[node name="FanSprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_yup5f")
+animation = &"off"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="FanSprite"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FanSprite/StaticBody2D"]
+position = Vector2(8, 0)
+shape = SubResource("RectangleShape2D_ffuhi")
+
+[node name="TriggerKeySprite" parent="." instance=ExtResource("7_460pp")]
+position = Vector2(0, 64)
+
+[node name="PushArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PushArea"]
+position = Vector2(96, 0)
+shape = SubResource("RectangleShape2D_b7p4s")
+
+[node name="WireDetection" type="Area2D" parent="."]
+collision_layer = 64
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WireDetection"]
+visible = false
+position = Vector2(8, 0)
+shape = SubResource("RectangleShape2D_eyows")
+
+[connection signal="body_entered" from="PushArea" to="." method="onPushBodyEntered"]
+[connection signal="body_exited" from="PushArea" to="." method="onPushBodyExited"]

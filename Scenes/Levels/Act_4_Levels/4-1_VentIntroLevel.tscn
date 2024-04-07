@@ -1,194 +1,15 @@
-[gd_scene load_steps=69 format=3 uid="uid://4ga4n5hvetb"]
+[gd_scene load_steps=36 format=3 uid="uid://4ga4n5hvetb"]
 
 [ext_resource type="Script" path="res://Scripts/levelController.gd" id="1_dcea6"]
 [ext_resource type="TileSet" uid="uid://bnpggr5480t5q" path="res://Art/TileSets/initialTileSet.tres" id="2_foqv1"]
 [ext_resource type="PackedScene" uid="uid://dd6l6fhpuajke" path="res://Scenes/rigidPlayer.tscn" id="3_4k00t"]
 [ext_resource type="PackedScene" uid="uid://dvbyxsl5e3ol8" path="res://Scenes/Triggers/Trigger_Helpers/TransitionField.tscn" id="4_bkf36"]
 [ext_resource type="PackedScene" uid="uid://dpeaoe3ad3ahy" path="res://Scenes/Triggers/Trigger_Helpers/brokenVat.tscn" id="7_mm07j"]
-[ext_resource type="Script" path="res://Scripts/Triggers/ventTrigger.gd" id="8_gt8t8"]
-[ext_resource type="Texture2D" uid="uid://cw3ljjppfmi0d" path="res://Art/TriggerArt/Vent/plhVentEntranceBacking.png" id="9_yi5px"]
-[ext_resource type="Texture2D" uid="uid://d4cg448f4co4k" path="res://Art/TriggerArt/Vent/plhVentEntranceClosed.png" id="10_pw4fp"]
-[ext_resource type="Texture2D" uid="uid://80puoekynvou" path="res://Art/TriggerArt/Vent/plhVentEntranceClosing.png" id="11_d4o65"]
-[ext_resource type="Texture2D" uid="uid://bd1tmq3fybpfs" path="res://Art/TriggerArt/Vent/plhVentEntranceOpen.png" id="12_xf112"]
-[ext_resource type="Texture2D" uid="uid://b3be5wpxmevf5" path="res://Art/TriggerArt/Vent/plhVentEntranceOpening.png" id="13_m0brg"]
-[ext_resource type="Texture2D" uid="uid://br4nivuvvnump" path="res://Art/TriggerArt/Vent/plhVentBall.png" id="14_x4vhe"]
-[ext_resource type="Script" path="res://Scripts/Triggers/Trigger_Helpers/explodeablePolygon.gd" id="15_v67oe"]
-[ext_resource type="Texture2D" uid="uid://bsdf7ttsg7sxt" path="res://Art/TriggerArt/Vent/plhVentExit.png" id="16_xgoq2"]
 [ext_resource type="Texture2D" uid="uid://ljqhc6ud7t0p" path="res://Art/TriggerArt/Vent/plhVentCurved.png" id="17_uoijs"]
 [ext_resource type="PackedScene" uid="uid://cbygtk7mevpmo" path="res://Scenes/Triggers/Trigger_Helpers/MagneticObjects/Magnetic32x32Ball.tscn" id="18_p3rld"]
 [ext_resource type="Texture2D" uid="uid://cguu570tipo33" path="res://Art/TriggerArt/Vent/plhVentStraight.png" id="18_ttrsf"]
-[ext_resource type="PackedScene" uid="uid://djjr177758y2h" path="res://Scenes/Triggers/Trigger_Helpers/triggerKey.tscn" id="19_p4p6k"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_y6fvi"]
-atlas = ExtResource("9_yi5px")
-region = Rect2(0, 0, 64, 64)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_c4i65"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_y6fvi")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7pmeu"]
-atlas = ExtResource("10_pw4fp")
-region = Rect2(0, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_by02t"]
-atlas = ExtResource("11_d4o65")
-region = Rect2(0, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_26bv0"]
-atlas = ExtResource("11_d4o65")
-region = Rect2(64, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_u1ege"]
-atlas = ExtResource("11_d4o65")
-region = Rect2(128, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4l6sl"]
-atlas = ExtResource("11_d4o65")
-region = Rect2(192, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_t7ne1"]
-atlas = ExtResource("11_d4o65")
-region = Rect2(256, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_406e7"]
-atlas = ExtResource("11_d4o65")
-region = Rect2(320, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_f0r4g"]
-atlas = ExtResource("11_d4o65")
-region = Rect2(384, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_37y0p"]
-atlas = ExtResource("11_d4o65")
-region = Rect2(448, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_i30j0"]
-atlas = ExtResource("12_xf112")
-region = Rect2(0, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hsvis"]
-atlas = ExtResource("13_m0brg")
-region = Rect2(0, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_a0rf4"]
-atlas = ExtResource("13_m0brg")
-region = Rect2(64, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6f276"]
-atlas = ExtResource("13_m0brg")
-region = Rect2(128, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rr1wn"]
-atlas = ExtResource("13_m0brg")
-region = Rect2(192, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1843d"]
-atlas = ExtResource("13_m0brg")
-region = Rect2(256, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_a6nxo"]
-atlas = ExtResource("13_m0brg")
-region = Rect2(320, 0, 64, 64)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_vhrh7"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7pmeu")
-}],
-"loop": true,
-"name": &"closed",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_by02t")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_26bv0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_u1ege")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4l6sl")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_t7ne1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_406e7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_f0r4g")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_37y0p")
-}],
-"loop": false,
-"name": &"closing",
-"speed": 15.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_i30j0")
-}],
-"loop": true,
-"name": &"open",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hsvis")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_a0rf4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6f276")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rr1wn")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1843d")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_a6nxo")
-}],
-"loop": false,
-"name": &"opening",
-"speed": 15.0
-}]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_uyipl"]
-size = Vector2(4, 24)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_ei8t7"]
-radius = 16.0
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_gkf76"]
-atlas = ExtResource("16_xgoq2")
-region = Rect2(0, 0, 64, 64)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_lbpre"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gkf76")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
+[ext_resource type="Script" path="res://Scripts/triggerHolder.gd" id="19_bminb"]
+[ext_resource type="PackedScene" uid="uid://biw5iomco5lst" path="res://Scenes/Triggers/ventTrigger.tscn" id="20_rt1np"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nl3n0"]
 atlas = ExtResource("17_uoijs")
@@ -371,12 +192,6 @@ animations = [{
 "speed": 60.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_lsvro"]
-radius = 16.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_mog3c"]
-radius = 16.0
-
 [node name="4-1_VentInto" type="Node2D" node_paths=PackedStringArray("cameraSpot", "player", "transitionField")]
 script = ExtResource("1_dcea6")
 cameraSpot = NodePath("CenterPosition")
@@ -402,444 +217,199 @@ position = Vector2(192, 384)
 [node name="brokenVat" parent="." instance=ExtResource("7_mm07j")]
 position = Vector2(192, 160)
 
-[node name="ventTrigger" type="Node2D" parent="." node_paths=PackedStringArray("entrance", "entranceSprite", "doorStop", "exit", "exitSprite", "TriggerKeySprite")]
+[node name="VentSystem" type="Node2D" parent="."]
 position = Vector2(384, 160)
-script = ExtResource("8_gt8t8")
+script = ExtResource("19_bminb")
+
+[node name="ventTrigger" parent="VentSystem" node_paths=PackedStringArray("ventPathHolder") instance=ExtResource("20_rt1np")]
+ventPathHolder = NodePath("../VentPath")
 ventExitDirection = 1
-entrance = NodePath("VentEntrance")
-entranceSprite = NodePath("VentEntrance/Fronting")
-doorStop = NodePath("VentEntrance/BallPolygon")
-exit = NodePath("VentExit")
-exitSprite = NodePath("VentExit/Fronting")
-TriggerKeySprite = NodePath("TriggerKeySprite")
 
-[node name="VentEntrance" type="Node2D" parent="ventTrigger"]
-
-[node name="Backing" type="AnimatedSprite2D" parent="ventTrigger/VentEntrance"]
-sprite_frames = SubResource("SpriteFrames_c4i65")
-
-[node name="Fronting" type="AnimatedSprite2D" parent="ventTrigger/VentEntrance"]
-z_index = 53
-z_as_relative = false
-sprite_frames = SubResource("SpriteFrames_vhrh7")
-animation = &"open"
-
-[node name="ShutVentArea" type="Area2D" parent="ventTrigger/VentEntrance"]
-position = Vector2(-4, 16)
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ventTrigger/VentEntrance/ShutVentArea"]
-shape = SubResource("RectangleShape2D_uyipl")
-
-[node name="InsideCheckVentArea" type="Area2D" parent="ventTrigger/VentEntrance"]
-position = Vector2(28, 16)
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ventTrigger/VentEntrance/InsideCheckVentArea"]
-shape = SubResource("RectangleShape2D_uyipl")
-
-[node name="EntranceGoalPoint" type="Marker2D" parent="ventTrigger/VentEntrance"]
-position = Vector2(0, 16)
-
-[node name="BallCollision" type="StaticBody2D" parent="ventTrigger/VentEntrance"]
-position = Vector2(16, 16)
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ventTrigger/VentEntrance/BallCollision"]
-shape = SubResource("CircleShape2D_ei8t7")
-
-[node name="BallPolygon" type="Polygon2D" parent="ventTrigger/VentEntrance"]
-z_index = 53
-z_as_relative = false
-texture_filter = 1
-texture = ExtResource("14_x4vhe")
-polygon = PackedVector2Array(0, 0, 32, 0, 32, 32, 0, 32)
-script = ExtResource("15_v67oe")
-shard_count = 64
-invisible = true
-shard_shrink_rate = 0.99
-min_shard_size = 0.05
-x_init_velocity = 20
-y_init_velocity = 40
-shard_speed = 3.0
-rotation_speed = 0.1
-shard_gravity = 40.0
-x_max_distance = 10
-x_min_distance = -10
-y_max_distance = 10
-y_min_distance = -10
-time_to_form = 0.5
-
-[node name="VentExit" type="Node2D" parent="ventTrigger"]
+[node name="VentExit" parent="VentSystem/ventTrigger" index="1"]
 position = Vector2(-64, -192)
-metadata/_edit_group_ = true
 
-[node name="Fronting" type="AnimatedSprite2D" parent="ventTrigger/VentExit"]
-z_index = 53
-z_as_relative = false
-sprite_frames = SubResource("SpriteFrames_lbpre")
+[node name="VentPath" type="Node2D" parent="VentSystem"]
 
-[node name="VentPath" type="Node2D" parent="ventTrigger"]
-
-[node name="Vent1" type="AnimatedSprite2D" parent="ventTrigger/VentPath"]
+[node name="Vent1" type="AnimatedSprite2D" parent="VentSystem/VentPath"]
 modulate = Color(1, 1, 1, 0.490196)
 position = Vector2(64, 0)
 sprite_frames = SubResource("SpriteFrames_wuhj8")
 animation = &"curved"
 
-[node name="Vent2" type="AnimatedSprite2D" parent="ventTrigger/VentPath"]
+[node name="Vent2" type="AnimatedSprite2D" parent="VentSystem/VentPath"]
 modulate = Color(1, 1, 1, 0.490196)
 position = Vector2(64, -64)
 sprite_frames = SubResource("SpriteFrames_wuhj8")
 animation = &"curved"
 
-[node name="Vent3" type="AnimatedSprite2D" parent="ventTrigger/VentPath"]
+[node name="Vent3" type="AnimatedSprite2D" parent="VentSystem/VentPath"]
 modulate = Color(1, 1, 1, 0.490196)
 position = Vector2(0, -64)
 sprite_frames = SubResource("SpriteFrames_wuhj8")
 animation = &"curved"
 
-[node name="Vent4" type="AnimatedSprite2D" parent="ventTrigger/VentPath"]
+[node name="Vent4" type="AnimatedSprite2D" parent="VentSystem/VentPath"]
 modulate = Color(1, 1, 1, 0.490196)
 position = Vector2(-64, -64)
 sprite_frames = SubResource("SpriteFrames_wuhj8")
 animation = &"curved"
 
-[node name="Vent5" type="AnimatedSprite2D" parent="ventTrigger/VentPath"]
+[node name="Vent5" type="AnimatedSprite2D" parent="VentSystem/VentPath"]
 modulate = Color(1, 1, 1, 0.490196)
 position = Vector2(-128, -64)
 sprite_frames = SubResource("SpriteFrames_wuhj8")
 animation = &"curved"
 
-[node name="Vent6" type="AnimatedSprite2D" parent="ventTrigger/VentPath"]
+[node name="Vent6" type="AnimatedSprite2D" parent="VentSystem/VentPath"]
 modulate = Color(1, 1, 1, 0.490196)
 position = Vector2(-192, -64)
 sprite_frames = SubResource("SpriteFrames_wuhj8")
 animation = &"curved"
 
-[node name="Vent7" type="AnimatedSprite2D" parent="ventTrigger/VentPath"]
+[node name="Vent7" type="AnimatedSprite2D" parent="VentSystem/VentPath"]
 modulate = Color(1, 1, 1, 0.490196)
 position = Vector2(-256, -64)
 sprite_frames = SubResource("SpriteFrames_wuhj8")
 animation = &"curved"
 
-[node name="Vent8" type="AnimatedSprite2D" parent="ventTrigger/VentPath"]
+[node name="Vent8" type="AnimatedSprite2D" parent="VentSystem/VentPath"]
 modulate = Color(1, 1, 1, 0.490196)
 position = Vector2(-256, -128)
 sprite_frames = SubResource("SpriteFrames_wuhj8")
 animation = &"curved"
 
-[node name="Vent9" type="AnimatedSprite2D" parent="ventTrigger/VentPath"]
+[node name="Vent9" type="AnimatedSprite2D" parent="VentSystem/VentPath"]
 modulate = Color(1, 1, 1, 0.490196)
 position = Vector2(-256, -192)
 sprite_frames = SubResource("SpriteFrames_wuhj8")
 animation = &"curved"
 
-[node name="Vent10" type="AnimatedSprite2D" parent="ventTrigger/VentPath"]
+[node name="Vent10" type="AnimatedSprite2D" parent="VentSystem/VentPath"]
 modulate = Color(1, 1, 1, 0.490196)
 position = Vector2(-192, -192)
 sprite_frames = SubResource("SpriteFrames_wuhj8")
 animation = &"curved"
 
-[node name="Vent11" type="AnimatedSprite2D" parent="ventTrigger/VentPath"]
+[node name="Vent11" type="AnimatedSprite2D" parent="VentSystem/VentPath"]
 modulate = Color(1, 1, 1, 0.490196)
 position = Vector2(-128, -192)
 sprite_frames = SubResource("SpriteFrames_wuhj8")
 animation = &"curved"
 
-[node name="TriggerKeySprite" parent="ventTrigger" instance=ExtResource("19_p4p6k")]
-position = Vector2(0, 60)
-animation = &"3"
+[node name="VentSystem2" type="Node2D" parent="."]
+position = Vector2(256, 32)
+script = ExtResource("19_bminb")
 
-[node name="ventTrigger2" type="Node2D" parent="." node_paths=PackedStringArray("entrance", "entranceSprite", "doorStop", "exit", "exitSprite", "TriggerKeySprite")]
-position = Vector2(384, 32)
-script = ExtResource("8_gt8t8")
+[node name="ventTrigger" parent="VentSystem2" node_paths=PackedStringArray("ventPathHolder") instance=ExtResource("20_rt1np")]
+ventPathHolder = NodePath("../VentPath")
 ventExtranceDirection = 1
-entrance = NodePath("VentEntrance")
-entranceSprite = NodePath("VentEntrance/Fronting")
-doorStop = NodePath("VentEntrance/BallPolygon")
-exit = NodePath("VentExit")
-exitSprite = NodePath("VentExit/Fronting")
-TriggerKeySprite = NodePath("TriggerKeySprite")
 
-[node name="VentEntrance" type="Node2D" parent="ventTrigger2"]
-position = Vector2(-128, 0)
-metadata/_edit_group_ = true
+[node name="VentExit" parent="VentSystem2/ventTrigger" index="1"]
+position = Vector2(0, 256)
 
-[node name="Backing" type="AnimatedSprite2D" parent="ventTrigger2/VentEntrance"]
-sprite_frames = SubResource("SpriteFrames_c4i65")
+[node name="VentPath" type="Node2D" parent="VentSystem2"]
+position = Vector2(128, 0)
 
-[node name="Fronting" type="AnimatedSprite2D" parent="ventTrigger2/VentEntrance"]
-z_index = 53
-z_as_relative = false
-sprite_frames = SubResource("SpriteFrames_vhrh7")
-animation = &"open"
-
-[node name="ShutVentArea" type="Area2D" parent="ventTrigger2/VentEntrance"]
-position = Vector2(-4, 16)
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ventTrigger2/VentEntrance/ShutVentArea"]
-shape = SubResource("RectangleShape2D_uyipl")
-
-[node name="InsideCheckVentArea" type="Area2D" parent="ventTrigger2/VentEntrance"]
-position = Vector2(28, 16)
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ventTrigger2/VentEntrance/InsideCheckVentArea"]
-shape = SubResource("RectangleShape2D_uyipl")
-
-[node name="EntranceGoalPoint" type="Marker2D" parent="ventTrigger2/VentEntrance"]
-position = Vector2(0, 16)
-
-[node name="BallCollision" type="StaticBody2D" parent="ventTrigger2/VentEntrance"]
-position = Vector2(16, 16)
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ventTrigger2/VentEntrance/BallCollision"]
-shape = SubResource("CircleShape2D_lsvro")
-
-[node name="BallPolygon" type="Polygon2D" parent="ventTrigger2/VentEntrance"]
-z_index = 53
-z_as_relative = false
-texture_filter = 1
-texture = ExtResource("14_x4vhe")
-polygon = PackedVector2Array(0, 0, 32, 0, 32, 32, 0, 32)
-script = ExtResource("15_v67oe")
-shard_count = 64
-invisible = true
-shard_shrink_rate = 0.99
-min_shard_size = 0.05
-x_init_velocity = 20
-y_init_velocity = 40
-shard_speed = 3.0
-rotation_speed = 0.1
-shard_gravity = 40.0
-x_max_distance = 10
-x_min_distance = -10
-y_max_distance = 10
-y_min_distance = -10
-time_to_form = 0.5
-
-[node name="VentExit" type="Node2D" parent="ventTrigger2"]
-position = Vector2(-128, 256)
-metadata/_edit_group_ = true
-
-[node name="Fronting" type="AnimatedSprite2D" parent="ventTrigger2/VentExit"]
-z_index = 53
-z_as_relative = false
-sprite_frames = SubResource("SpriteFrames_lbpre")
-
-[node name="VentPath" type="Node2D" parent="ventTrigger2"]
-
-[node name="Vent1" type="AnimatedSprite2D" parent="ventTrigger2/VentPath"]
+[node name="Vent1" type="AnimatedSprite2D" parent="VentSystem2/VentPath"]
 modulate = Color(1, 1, 1, 0.490196)
 position = Vector2(-192, 0)
 sprite_frames = SubResource("SpriteFrames_wuhj8")
 animation = &"curved"
 
-[node name="Vent2" type="AnimatedSprite2D" parent="ventTrigger2/VentPath"]
+[node name="Vent2" type="AnimatedSprite2D" parent="VentSystem2/VentPath"]
 modulate = Color(1, 1, 1, 0.490196)
 position = Vector2(-192, 64)
 sprite_frames = SubResource("SpriteFrames_wuhj8")
 animation = &"curved"
 
-[node name="Vent3" type="AnimatedSprite2D" parent="ventTrigger2/VentPath"]
+[node name="Vent3" type="AnimatedSprite2D" parent="VentSystem2/VentPath"]
 modulate = Color(1, 1, 1, 0.490196)
 position = Vector2(-128, 64)
 sprite_frames = SubResource("SpriteFrames_wuhj8")
 animation = &"curved"
 
-[node name="Vent4" type="AnimatedSprite2D" parent="ventTrigger2/VentPath"]
+[node name="Vent4" type="AnimatedSprite2D" parent="VentSystem2/VentPath"]
 modulate = Color(1, 1, 1, 0.490196)
 position = Vector2(-128, 128)
 sprite_frames = SubResource("SpriteFrames_wuhj8")
 animation = &"curved"
 
-[node name="Vent5" type="AnimatedSprite2D" parent="ventTrigger2/VentPath"]
+[node name="Vent5" type="AnimatedSprite2D" parent="VentSystem2/VentPath"]
 modulate = Color(1, 1, 1, 0.490196)
 position = Vector2(-128, 192)
 sprite_frames = SubResource("SpriteFrames_wuhj8")
 animation = &"curved"
 
-[node name="Vent6" type="AnimatedSprite2D" parent="ventTrigger2/VentPath"]
+[node name="Vent6" type="AnimatedSprite2D" parent="VentSystem2/VentPath"]
 modulate = Color(1, 1, 1, 0.490196)
 position = Vector2(-64, 192)
 sprite_frames = SubResource("SpriteFrames_wuhj8")
 animation = &"curved"
 
-[node name="Vent7" type="AnimatedSprite2D" parent="ventTrigger2/VentPath"]
+[node name="Vent7" type="AnimatedSprite2D" parent="VentSystem2/VentPath"]
 modulate = Color(1, 1, 1, 0.490196)
 position = Vector2(-64, 256)
 sprite_frames = SubResource("SpriteFrames_wuhj8")
 animation = &"curved"
 
-[node name="TriggerKeySprite" parent="ventTrigger2" instance=ExtResource("19_p4p6k")]
-position = Vector2(0, 60)
-animation = &"3"
-
-[node name="ventTrigger3" type="Node2D" parent="." node_paths=PackedStringArray("entrance", "entranceSprite", "doorStop", "exit", "exitSprite", "TriggerKeySprite")]
+[node name="VentSystem3" type="Node2D" parent="."]
 position = Vector2(64, 256)
-script = ExtResource("8_gt8t8")
-entrance = NodePath("VentEntrance")
-entranceSprite = NodePath("VentEntrance/Fronting")
-doorStop = NodePath("VentEntrance/BallPolygon")
-exit = NodePath("VentExit")
-exitSprite = NodePath("VentExit/Fronting")
+script = ExtResource("19_bminb")
+
+[node name="ventTrigger" parent="VentSystem3" node_paths=PackedStringArray("ventPathHolder") instance=ExtResource("20_rt1np")]
+ventPathHolder = NodePath("../VentPath")
 startActivated = true
-TriggerKeySprite = NodePath("TriggerKeySprite")
 
-[node name="VentEntrance" type="Node2D" parent="ventTrigger3"]
-
-[node name="Backing" type="AnimatedSprite2D" parent="ventTrigger3/VentEntrance"]
-sprite_frames = SubResource("SpriteFrames_c4i65")
-
-[node name="Fronting" type="AnimatedSprite2D" parent="ventTrigger3/VentEntrance"]
-z_index = 53
-z_as_relative = false
-sprite_frames = SubResource("SpriteFrames_vhrh7")
-animation = &"open"
-
-[node name="ShutVentArea" type="Area2D" parent="ventTrigger3/VentEntrance"]
-position = Vector2(-4, 16)
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ventTrigger3/VentEntrance/ShutVentArea"]
-shape = SubResource("RectangleShape2D_uyipl")
-
-[node name="InsideCheckVentArea" type="Area2D" parent="ventTrigger3/VentEntrance"]
-position = Vector2(28, 16)
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ventTrigger3/VentEntrance/InsideCheckVentArea"]
-shape = SubResource("RectangleShape2D_uyipl")
-
-[node name="EntranceGoalPoint" type="Marker2D" parent="ventTrigger3/VentEntrance"]
-position = Vector2(0, 16)
-
-[node name="BallCollision" type="StaticBody2D" parent="ventTrigger3/VentEntrance"]
-position = Vector2(16, 16)
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ventTrigger3/VentEntrance/BallCollision"]
-shape = SubResource("CircleShape2D_mog3c")
-
-[node name="BallPolygon" type="Polygon2D" parent="ventTrigger3/VentEntrance"]
-z_index = 53
-z_as_relative = false
-texture_filter = 1
-texture = ExtResource("14_x4vhe")
-polygon = PackedVector2Array(0, 0, 32, 0, 32, 32, 0, 32)
-script = ExtResource("15_v67oe")
-shard_count = 64
-invisible = true
-shard_shrink_rate = 0.99
-min_shard_size = 0.05
-x_init_velocity = 20
-y_init_velocity = 40
-shard_speed = 3.0
-rotation_speed = 0.1
-shard_gravity = 40.0
-x_max_distance = 10
-x_min_distance = -10
-y_max_distance = 10
-y_min_distance = -10
-time_to_form = 0.5
-
-[node name="VentExit" type="Node2D" parent="ventTrigger3"]
+[node name="VentExit" parent="VentSystem3/ventTrigger" index="1"]
 position = Vector2(-128, -256)
-metadata/_edit_group_ = true
 
-[node name="Fronting" type="AnimatedSprite2D" parent="ventTrigger3/VentExit"]
-z_index = 53
-z_as_relative = false
-sprite_frames = SubResource("SpriteFrames_lbpre")
+[node name="VentPath" type="Node2D" parent="VentSystem3"]
 
-[node name="VentPath" type="Node2D" parent="ventTrigger3"]
-
-[node name="Vent1" type="AnimatedSprite2D" parent="ventTrigger3/VentPath"]
+[node name="Vent1" type="AnimatedSprite2D" parent="VentSystem3/VentPath"]
 modulate = Color(1, 1, 1, 0.490196)
 position = Vector2(64, 0)
 sprite_frames = SubResource("SpriteFrames_wuhj8")
 animation = &"curved"
 
-[node name="Vent2" type="AnimatedSprite2D" parent="ventTrigger3/VentPath"]
+[node name="Vent2" type="AnimatedSprite2D" parent="VentSystem3/VentPath"]
 modulate = Color(1, 1, 1, 0.490196)
 position = Vector2(64, -64)
 sprite_frames = SubResource("SpriteFrames_wuhj8")
 animation = &"curved"
 
-[node name="Vent3" type="AnimatedSprite2D" parent="ventTrigger3/VentPath"]
+[node name="Vent3" type="AnimatedSprite2D" parent="VentSystem3/VentPath"]
 modulate = Color(1, 1, 1, 0.490196)
 position = Vector2(0, -64)
 sprite_frames = SubResource("SpriteFrames_wuhj8")
 animation = &"curved"
 
-[node name="Vent4" type="AnimatedSprite2D" parent="ventTrigger3/VentPath"]
+[node name="Vent4" type="AnimatedSprite2D" parent="VentSystem3/VentPath"]
 modulate = Color(1, 1, 1, 0.490196)
 position = Vector2(0, -128)
 sprite_frames = SubResource("SpriteFrames_wuhj8")
 animation = &"curved"
 
-[node name="Vent5" type="AnimatedSprite2D" parent="ventTrigger3/VentPath"]
+[node name="Vent5" type="AnimatedSprite2D" parent="VentSystem3/VentPath"]
 modulate = Color(1, 1, 1, 0.490196)
 position = Vector2(0, -192)
 sprite_frames = SubResource("SpriteFrames_wuhj8")
 animation = &"curved"
 
-[node name="Vent6" type="AnimatedSprite2D" parent="ventTrigger3/VentPath"]
+[node name="Vent6" type="AnimatedSprite2D" parent="VentSystem3/VentPath"]
 modulate = Color(1, 1, 1, 0.490196)
 position = Vector2(0, -256)
 sprite_frames = SubResource("SpriteFrames_wuhj8")
 animation = &"curved"
 
-[node name="Vent7" type="AnimatedSprite2D" parent="ventTrigger3/VentPath"]
+[node name="Vent7" type="AnimatedSprite2D" parent="VentSystem3/VentPath"]
 modulate = Color(1, 1, 1, 0.490196)
 position = Vector2(-64, -256)
 sprite_frames = SubResource("SpriteFrames_wuhj8")
 animation = &"curved"
 
-[node name="TriggerKeySprite" parent="ventTrigger3" instance=ExtResource("19_p4p6k")]
-position = Vector2(0, 60)
-animation = &"3"
-
 [node name="Magnetic32x32Ball" parent="." instance=ExtResource("18_p3rld")]
 position = Vector2(-64, 20)
 
-[connection signal="animation_finished" from="ventTrigger/VentEntrance/Fronting" to="ventTrigger" method="onEntranceAnimationFinished" flags=18]
-[connection signal="frame_changed" from="ventTrigger/VentEntrance/Fronting" to="ventTrigger" method="onEntranceSpriteFrameChanged"]
-[connection signal="body_entered" from="ventTrigger/VentEntrance/ShutVentArea" to="ventTrigger" method="onShutVentAreaEntered" flags=18]
-[connection signal="body_entered" from="ventTrigger/VentEntrance/InsideCheckVentArea" to="ventTrigger" method="onInsideCheckVentAreaEntered" flags=18]
-[connection signal="frame_changed" from="ventTrigger/VentPath/Vent1" to="ventTrigger" method="onVentFrameChanged" flags=18]
-[connection signal="frame_changed" from="ventTrigger/VentPath/Vent2" to="ventTrigger" method="onVentFrameChanged" flags=18]
-[connection signal="frame_changed" from="ventTrigger/VentPath/Vent3" to="ventTrigger" method="onVentFrameChanged" flags=18]
-[connection signal="frame_changed" from="ventTrigger/VentPath/Vent4" to="ventTrigger" method="onVentFrameChanged" flags=18]
-[connection signal="frame_changed" from="ventTrigger/VentPath/Vent5" to="ventTrigger" method="onVentFrameChanged" flags=18]
-[connection signal="frame_changed" from="ventTrigger/VentPath/Vent6" to="ventTrigger" method="onVentFrameChanged" flags=18]
-[connection signal="frame_changed" from="ventTrigger/VentPath/Vent7" to="ventTrigger" method="onVentFrameChanged" flags=18]
-[connection signal="frame_changed" from="ventTrigger/VentPath/Vent8" to="ventTrigger" method="onVentFrameChanged" flags=18]
-[connection signal="frame_changed" from="ventTrigger/VentPath/Vent9" to="ventTrigger" method="onVentFrameChanged" flags=18]
-[connection signal="frame_changed" from="ventTrigger/VentPath/Vent10" to="ventTrigger" method="onVentFrameChanged" flags=18]
-[connection signal="frame_changed" from="ventTrigger/VentPath/Vent11" to="ventTrigger" method="onVentFrameChanged" flags=18]
-[connection signal="animation_finished" from="ventTrigger2/VentEntrance/Fronting" to="ventTrigger2" method="onEntranceAnimationFinished" flags=18]
-[connection signal="frame_changed" from="ventTrigger2/VentEntrance/Fronting" to="ventTrigger2" method="onEntranceSpriteFrameChanged"]
-[connection signal="body_entered" from="ventTrigger2/VentEntrance/ShutVentArea" to="ventTrigger2" method="onShutVentAreaEntered" flags=18]
-[connection signal="body_entered" from="ventTrigger2/VentEntrance/InsideCheckVentArea" to="ventTrigger2" method="onInsideCheckVentAreaEntered" flags=18]
-[connection signal="frame_changed" from="ventTrigger2/VentPath/Vent1" to="ventTrigger2" method="onVentFrameChanged" flags=18]
-[connection signal="frame_changed" from="ventTrigger2/VentPath/Vent2" to="ventTrigger2" method="onVentFrameChanged" flags=18]
-[connection signal="frame_changed" from="ventTrigger2/VentPath/Vent3" to="ventTrigger2" method="onVentFrameChanged" flags=18]
-[connection signal="frame_changed" from="ventTrigger2/VentPath/Vent4" to="ventTrigger2" method="onVentFrameChanged" flags=18]
-[connection signal="frame_changed" from="ventTrigger2/VentPath/Vent5" to="ventTrigger2" method="onVentFrameChanged" flags=18]
-[connection signal="frame_changed" from="ventTrigger2/VentPath/Vent6" to="ventTrigger2" method="onVentFrameChanged" flags=18]
-[connection signal="frame_changed" from="ventTrigger2/VentPath/Vent7" to="ventTrigger2" method="onVentFrameChanged" flags=18]
-[connection signal="animation_finished" from="ventTrigger3/VentEntrance/Fronting" to="ventTrigger3" method="onEntranceAnimationFinished" flags=18]
-[connection signal="frame_changed" from="ventTrigger3/VentEntrance/Fronting" to="ventTrigger3" method="onEntranceSpriteFrameChanged"]
-[connection signal="body_entered" from="ventTrigger3/VentEntrance/ShutVentArea" to="ventTrigger3" method="onShutVentAreaEntered" flags=18]
-[connection signal="body_entered" from="ventTrigger3/VentEntrance/InsideCheckVentArea" to="ventTrigger3" method="onInsideCheckVentAreaEntered" flags=18]
-[connection signal="frame_changed" from="ventTrigger3/VentPath/Vent1" to="ventTrigger3" method="onVentFrameChanged" flags=18]
-[connection signal="frame_changed" from="ventTrigger3/VentPath/Vent2" to="ventTrigger3" method="onVentFrameChanged" flags=18]
-[connection signal="frame_changed" from="ventTrigger3/VentPath/Vent3" to="ventTrigger3" method="onVentFrameChanged" flags=18]
-[connection signal="frame_changed" from="ventTrigger3/VentPath/Vent4" to="ventTrigger3" method="onVentFrameChanged" flags=18]
-[connection signal="frame_changed" from="ventTrigger3/VentPath/Vent5" to="ventTrigger3" method="onVentFrameChanged" flags=18]
-[connection signal="frame_changed" from="ventTrigger3/VentPath/Vent6" to="ventTrigger3" method="onVentFrameChanged" flags=18]
-[connection signal="frame_changed" from="ventTrigger3/VentPath/Vent7" to="ventTrigger3" method="onVentFrameChanged" flags=18]
+[editable path="VentSystem/ventTrigger"]
+[editable path="VentSystem2/ventTrigger"]
+[editable path="VentSystem3/ventTrigger"]

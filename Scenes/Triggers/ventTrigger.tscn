@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3 uid="uid://biw5iomco5lst"]
+[gd_scene load_steps=34 format=3 uid="uid://biw5iomco5lst"]
 
 [ext_resource type="Script" path="res://Scripts/Triggers/ventTrigger.gd" id="1_8urf8"]
 [ext_resource type="Texture2D" uid="uid://cw3ljjppfmi0d" path="res://Art/TriggerArt/Vent/plhVentEntranceBacking.png" id="2_0bfpb"]
@@ -10,8 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://bsdf7ttsg7sxt" path="res://Art/TriggerArt/Vent/plhVentExit.png" id="6_2suut"]
 [ext_resource type="Texture2D" uid="uid://br4nivuvvnump" path="res://Art/TriggerArt/Vent/plhVentBall.png" id="7_g8yn0"]
 [ext_resource type="Script" path="res://Scripts/Triggers/Trigger_Helpers/explodeablePolygon.gd" id="8_oousd"]
-[ext_resource type="Texture2D" uid="uid://ljqhc6ud7t0p" path="res://Art/TriggerArt/Vent/plhVentCurved.png" id="10_h1cwl"]
-[ext_resource type="Texture2D" uid="uid://cguu570tipo33" path="res://Art/TriggerArt/Vent/plhVentStraight.png" id="11_kmdsy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y6fvi"]
 atlas = ExtResource("2_0bfpb")
@@ -184,187 +182,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_nl3n0"]
-atlas = ExtResource("10_h1cwl")
-region = Rect2(0, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7adc7"]
-atlas = ExtResource("10_h1cwl")
-region = Rect2(64, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_or004"]
-atlas = ExtResource("10_h1cwl")
-region = Rect2(128, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ktgen"]
-atlas = ExtResource("10_h1cwl")
-region = Rect2(192, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fqdvc"]
-atlas = ExtResource("10_h1cwl")
-region = Rect2(256, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2b076"]
-atlas = ExtResource("10_h1cwl")
-region = Rect2(320, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_g4fyp"]
-atlas = ExtResource("10_h1cwl")
-region = Rect2(384, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dpub7"]
-atlas = ExtResource("10_h1cwl")
-region = Rect2(448, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hnfw8"]
-atlas = ExtResource("10_h1cwl")
-region = Rect2(512, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mv7gk"]
-atlas = ExtResource("10_h1cwl")
-region = Rect2(576, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lh61y"]
-atlas = ExtResource("10_h1cwl")
-region = Rect2(640, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nuuog"]
-atlas = ExtResource("10_h1cwl")
-region = Rect2(704, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_cysrp"]
-atlas = ExtResource("11_kmdsy")
-region = Rect2(0, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nmatd"]
-atlas = ExtResource("11_kmdsy")
-region = Rect2(64, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wdxml"]
-atlas = ExtResource("11_kmdsy")
-region = Rect2(128, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4tr6l"]
-atlas = ExtResource("11_kmdsy")
-region = Rect2(192, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hs37i"]
-atlas = ExtResource("11_kmdsy")
-region = Rect2(256, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xojot"]
-atlas = ExtResource("11_kmdsy")
-region = Rect2(320, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8a5mc"]
-atlas = ExtResource("11_kmdsy")
-region = Rect2(384, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xxklx"]
-atlas = ExtResource("11_kmdsy")
-region = Rect2(448, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8nxi8"]
-atlas = ExtResource("11_kmdsy")
-region = Rect2(512, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_f4vit"]
-atlas = ExtResource("11_kmdsy")
-region = Rect2(576, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ool51"]
-atlas = ExtResource("11_kmdsy")
-region = Rect2(640, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wab24"]
-atlas = ExtResource("11_kmdsy")
-region = Rect2(704, 0, 64, 64)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_wuhj8"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nl3n0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7adc7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_or004")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ktgen")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fqdvc")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2b076")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_g4fyp")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dpub7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hnfw8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mv7gk")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lh61y")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nuuog")
-}],
-"loop": false,
-"name": &"curved",
-"speed": 60.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_cysrp")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nmatd")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wdxml")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4tr6l")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hs37i")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xojot")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8a5mc")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xxklx")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8nxi8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_f4vit")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ool51")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wab24")
-}],
-"loop": false,
-"name": &"straight",
-"speed": 60.0
-}]
-
 [node name="ventTrigger" type="Node2D" node_paths=PackedStringArray("entrance", "entranceSprite", "doorStop", "exit", "exitSprite", "TriggerKeySprite")]
 script = ExtResource("1_8urf8")
 entrance = NodePath("VentEntrance")
@@ -436,7 +253,7 @@ y_min_distance = -10
 time_to_form = 0.5
 
 [node name="VentExit" type="Node2D" parent="."]
-position = Vector2(192, -128)
+position = Vector2(64, 0)
 metadata/_edit_group_ = true
 
 [node name="Fronting" type="AnimatedSprite2D" parent="VentExit"]
@@ -444,19 +261,11 @@ z_index = 53
 z_as_relative = false
 sprite_frames = SubResource("SpriteFrames_lbpre")
 
-[node name="VentPath" type="Node2D" parent="."]
-
-[node name="Vent1" type="AnimatedSprite2D" parent="VentPath"]
-modulate = Color(1, 1, 1, 0.490196)
-position = Vector2(64, 0)
-sprite_frames = SubResource("SpriteFrames_wuhj8")
-animation = &"curved"
-
 [node name="TriggerKeySprite" parent="." instance=ExtResource("5_mkwp0")]
 position = Vector2(0, 60)
 animation = &"3"
 
 [connection signal="animation_finished" from="VentEntrance/Fronting" to="." method="onEntranceAnimationFinished"]
+[connection signal="frame_changed" from="VentEntrance/Fronting" to="." method="onEntranceSpriteFrameChanged"]
 [connection signal="body_entered" from="VentEntrance/ShutVentArea" to="." method="onShutVentAreaEntered"]
 [connection signal="body_entered" from="VentEntrance/InsideCheckVentArea" to="." method="onInsideCheckVentAreaEntered"]
-[connection signal="frame_changed" from="VentPath/Vent1" to="." method="onVentFrameChanged"]

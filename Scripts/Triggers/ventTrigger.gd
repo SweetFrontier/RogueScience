@@ -2,7 +2,7 @@ extends baseTrigger
 
 class_name ventTrigger
 
-@export var ventAnimSprites: Array[AnimatedSprite2D]
+@export var ventPathHolder: Node2D
 @export var ventExtranceDirection: Direction
 @export var ventExitDirection: Direction
 @export var entrance: Node2D
@@ -11,6 +11,7 @@ class_name ventTrigger
 @export var exit: Node2D
 @export var exitSprite: AnimatedSprite2D
 
+var ventAnimSprites: Array[AnimatedSprite2D]
 var rider_freeable = false
 var currState: VentState = VentState.CLOSED
 var currVentIndex = 0
@@ -49,8 +50,12 @@ func _ready():
 		exit.scale.x = 1
 	else:
 		exit.scale.x = -1
-	for child in $VentPath.get_children():
+	var newSphere = CircleShape2D.new()
+	newSphere.radius = 0
+	$VentEntrance/BallCollision/CollisionShape2D.shape = newSphere
+	for child in ventPathHolder.get_children():
 		ventAnimSprites.append(child as AnimatedSprite2D)
+		child.frame_changed.connect(onVentFrameChanged)
 	determineVentOrientations()
 	reset()
 

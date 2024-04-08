@@ -569,7 +569,7 @@ size = Vector2(112, 96)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cctyx"]
 size = Vector2(192, 96)
 
-[node name="4-6_FanyLevel2" type="Node2D" node_paths=PackedStringArray("cameraSpot", "player", "transitionField")]
+[node name="4-6_BouncyLevel2" type="Node2D" node_paths=PackedStringArray("cameraSpot", "player", "transitionField")]
 texture_filter = 1
 script = ExtResource("1_2lk3k")
 cameraSpot = NodePath("CenterPosition")

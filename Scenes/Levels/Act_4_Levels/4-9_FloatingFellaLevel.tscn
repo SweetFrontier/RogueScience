@@ -1,0 +1,472 @@
+[gd_scene load_steps=45 format=3 uid="uid://dy75gsun3qk8c"]
+
+[ext_resource type="Script" path="res://Scripts/levelController.gd" id="1_fklfs"]
+[ext_resource type="TileSet" uid="uid://bnpggr5480t5q" path="res://Art/TileSets/initialTileSet.tres" id="2_otcis"]
+[ext_resource type="PackedScene" uid="uid://dd6l6fhpuajke" path="res://Scenes/rigidPlayer.tscn" id="3_7004l"]
+[ext_resource type="PackedScene" uid="uid://dvbyxsl5e3ol8" path="res://Scenes/Triggers/Trigger_Helpers/TransitionField.tscn" id="4_eme8f"]
+[ext_resource type="PackedScene" uid="uid://dpeaoe3ad3ahy" path="res://Scenes/Triggers/Trigger_Helpers/brokenVat.tscn" id="5_tfusp"]
+[ext_resource type="PackedScene" uid="uid://b8japh5crdt7v" path="res://Scenes/Triggers/fanTrigger.tscn" id="6_i4y4s"]
+[ext_resource type="Script" path="res://Scripts/triggerHolder.gd" id="7_pkjqr"]
+[ext_resource type="PackedScene" uid="uid://biw5iomco5lst" path="res://Scenes/Triggers/ventTrigger.tscn" id="8_7js4u"]
+[ext_resource type="Texture2D" uid="uid://ljqhc6ud7t0p" path="res://Art/TriggerArt/Vent/plhVentCurved.png" id="9_h5sv7"]
+[ext_resource type="Texture2D" uid="uid://cguu570tipo33" path="res://Art/TriggerArt/Vent/plhVentStraight.png" id="10_obojs"]
+[ext_resource type="PackedScene" uid="uid://bmwdwlb5umkan" path="res://Scenes/Triggers/Trigger_Helpers/SecurityBall.tscn" id="11_66b64"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_el5lo"]
+size = Vector2(224, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1d7nh"]
+size = Vector2(192, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tiwdx"]
+size = Vector2(192, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mnj4l"]
+size = Vector2(256, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nl3n0"]
+atlas = ExtResource("9_h5sv7")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7adc7"]
+atlas = ExtResource("9_h5sv7")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_or004"]
+atlas = ExtResource("9_h5sv7")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ktgen"]
+atlas = ExtResource("9_h5sv7")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fqdvc"]
+atlas = ExtResource("9_h5sv7")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2b076"]
+atlas = ExtResource("9_h5sv7")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g4fyp"]
+atlas = ExtResource("9_h5sv7")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dpub7"]
+atlas = ExtResource("9_h5sv7")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hnfw8"]
+atlas = ExtResource("9_h5sv7")
+region = Rect2(512, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mv7gk"]
+atlas = ExtResource("9_h5sv7")
+region = Rect2(576, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lh61y"]
+atlas = ExtResource("9_h5sv7")
+region = Rect2(640, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nuuog"]
+atlas = ExtResource("9_h5sv7")
+region = Rect2(704, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cysrp"]
+atlas = ExtResource("10_obojs")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nmatd"]
+atlas = ExtResource("10_obojs")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wdxml"]
+atlas = ExtResource("10_obojs")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4tr6l"]
+atlas = ExtResource("10_obojs")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hs37i"]
+atlas = ExtResource("10_obojs")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xojot"]
+atlas = ExtResource("10_obojs")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8a5mc"]
+atlas = ExtResource("10_obojs")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xxklx"]
+atlas = ExtResource("10_obojs")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8nxi8"]
+atlas = ExtResource("10_obojs")
+region = Rect2(512, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f4vit"]
+atlas = ExtResource("10_obojs")
+region = Rect2(576, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ool51"]
+atlas = ExtResource("10_obojs")
+region = Rect2(640, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wab24"]
+atlas = ExtResource("10_obojs")
+region = Rect2(704, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8i4te"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nl3n0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7adc7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_or004")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ktgen")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fqdvc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2b076")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g4fyp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dpub7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hnfw8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mv7gk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lh61y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nuuog")
+}],
+"loop": false,
+"name": &"curved",
+"speed": 60.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cysrp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nmatd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wdxml")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4tr6l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hs37i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xojot")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8a5mc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xxklx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8nxi8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f4vit")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ool51")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wab24")
+}],
+"loop": false,
+"name": &"straight",
+"speed": 60.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gccr0"]
+size = Vector2(352, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_amutg"]
+size = Vector2(272.5, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ri3is"]
+size = Vector2(215.931, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bnfpb"]
+size = Vector2(240.167, 96)
+
+[node name="4-9_FloatingFella" type="Node2D" node_paths=PackedStringArray("cameraSpot", "player", "transitionField")]
+script = ExtResource("1_fklfs")
+cameraSpot = NodePath("CenterPosition")
+cameraSize = Vector2(992, 736)
+player = NodePath("rigidPlayer")
+transitionField = NodePath("TransitionField")
+DEBUG_MODE = true
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("2_otcis")
+format = 2
+layer_0/tile_data = PackedInt32Array(11, 65539, 1, 12, 65539, 1, 13, 65539, 1, 14, 65539, 1, 15, 65539, 1, 16, 65539, 1, 17, 65539, 1, 18, 65539, 1, 19, 65539, 1, 65547, 65539, 1, 65546, 65539, 1, 65545, 65539, 1, 65544, 65539, 1, 131080, 65539, 1, 131079, 65539, 1, 131078, 65539, 1, 196614, 65539, 1, 196613, 65539, 1, 196612, 65539, 1, 262148, 65539, 1, 262147, 65539, 1, 327683, 65539, 1, 327682, 65539, 1, 393218, 65539, 1, 458754, 65539, 1, 458753, 65539, 1, 524289, 65539, 1, 589825, 65539, 1, 589824, 65539, 1, 655360, 65539, 1, 720896, 65539, 1, 786432, 65539, 1, 851968, 65539, 1, 851969, 65539, 1, 917505, 65539, 1, 983041, 65539, 1, 983042, 65539, 1, 1048578, 65539, 1, 1114114, 65539, 1, 1179651, 65539, 1, 1179652, 65539, 1, 1245188, 65539, 1, 1245189, 65539, 1, 1245190, 65539, 1, 1310726, 65539, 1, 1310727, 65539, 1, 1310728, 65539, 1, 1376264, 65539, 1, 1376265, 65539, 1, 1376266, 65539, 1, 1376267, 65539, 1, 1441803, 65539, 1, 1441804, 65539, 1, 1441805, 65539, 1, 1441806, 65539, 1, 1441807, 65539, 1, 1441808, 65539, 1, 1441809, 65539, 1, 1441810, 65539, 1, 1441811, 65539, 1, 1376275, 65539, 1, 1376276, 65539, 1, 1376277, 65539, 1, 1376278, 65539, 1, 1310742, 65539, 1, 1310743, 65539, 1, 1310744, 65539, 1, 1245208, 65539, 1, 1245209, 65539, 1, 1245210, 65539, 1, 1179674, 65539, 1, 1179675, 65539, 1, 1114139, 65539, 1, 1114140, 65539, 1, 1048604, 65539, 1, 983068, 65539, 1, 983069, 65539, 1, 917533, 65539, 1, 851997, 65539, 1, 851998, 65539, 1, 786462, 65539, 1, 720926, 65539, 1, 655390, 65539, 1, 589854, 65539, 1, 589853, 65539, 1, 524317, 65539, 1, 458781, 65539, 1, 458780, 65539, 1, 393244, 65539, 1, 327708, 65539, 1, 327707, 65539, 1, 262171, 65539, 1, 262170, 65539, 1, 196634, 65539, 1, 196633, 65539, 1, 196632, 65539, 1, 131096, 65539, 1, 131095, 65539, 1, 131094, 65539, 1, 65558, 65539, 1, 65557, 65539, 1, 65556, 65539, 1, 65555, 65539, 1, 524310, 65539, 1, 65551, 65539, 1, 1376271, 65539, 1, 1245207, 65539, 1, 1179670, 65539, 1, 1114133, 65539, 1, 917521, 65539, 1, 851983, 65539, 1, 786446, 65539, 1, 720909, 65539, 1, 589835, 65539, 1, 589834, 65539, 1, 524297, 65539, 1, 458760, 65539, 1, 1245206, 65539, 1, 1179669, 524291, 2, 917520, 524291, 2, 851982, 524291, 2, 786445, 524291, 2, 720908, 524291, 2, 655371, 524291, 2, 589833, 65539, 1, 524296, 65539, 1, 458759, 65539, 1, 1179653, 65539, 1, 1179654, 65539, 1, 1179655, 65539, 1, 1179656, 65539, 1, 1179657, 65539, 1, 1179658, 65539, 1, 1179659, 65539, 1, 1245192, 65539, 1, 1245191, 65539, 1, 131091, 65539, 1, 196627, 65539, 1, 262163, 65539, 1, 327699, 65539, 1, 393235, 65539, 1, 458771, 65539, 1, 524307, 65539, 1, 589843, 65539, 1, 589844, 65539, 1, 589845, 65539, 1, 589846, 65539, 1, 458774, 65539, 1, 393223, 65539, 1, 1114120, 65539, 1, 1048584, 65539, 1, 983048, 65539, 1, 917512, 65539, 1, 851976, 65539, 1, 851975, 65539, 1, 851974, 65539, 1, 1114119, 65539, 1, 1048583, 65539, 1, 983047, 65539, 1, 917511, 65539, 1, 983046, 65539, 1, 983045, 65539, 1, 917509, 65539, 1, 917510, 65539, 1, 851973, 65539, 1, 589832, 65539, 1, 589831, 65539, 1, 655367, 65539, 1, 655366, 65539, 1, 655365, 65539, 1, 655364, 65539, 1, 655363, 65539, 1, 720899, 65539, 1, 720898, 65539, 1, 720897, 65539, 1, 917522, 65539, 1, 917523, 65539, 1, 1048596, 524291, 2, 1179671, 65539, 1, 1179672, 65539, 1, 983059, 524291, 2, 1179673, 65539, 1, 786447, 65539, 1, 720911, 65539, 1, 655375, 65539, 1, 589839, 65539, 1, 524303, 65539, 1, 458767, 65539, 1, 393231, 65539, 1, 327695, 65539, 1, 720910, 65539, 1, 655372, 65539, 1, 655373, 65539, 1, 655374, 65539, 1, 851984, 65539, 1, 851985, 65539, 1, 851986, 65539, 1, 262151, 65539, 1, 327687, 65539, 1, 196615, 65539, 1, 196616, 65539, 1, 262152, 65539, 1, 327688, 65539, 1, 393224, 65539, 1, 524295, 65539, 1, 655382, 65539, 1, 720918, 65539, 1, 786454, 65539, 1, 786455, 65539, 1, 786456, 196611, 4, 1048597, 65539, 1, 1048598, 524291, 1, 1114134, 65539, 1, 1114135, 524291, 1, 786461, 589827, 1, 851996, 589827, 1, 917531, 589827, 1, 983067, 65539, 1, 1048603, 65539, 1, 917532, 65539, 1, 983060, 3, 3, 983061, 65539, 3, 786457, 262147, 4, 1114123, 65539, 1, 1114122, 65539, 1, 1114121, 65539, 1)
+
+[node name="rigidPlayer" parent="." instance=ExtResource("3_7004l")]
+position = Vector2(320, 656)
+maxSingleFanVelocity = 120.0
+maxFanVelocity = 30.0
+
+[node name="CenterPosition" type="Marker2D" parent="."]
+position = Vector2(492, 368)
+
+[node name="TransitionField" parent="." instance=ExtResource("4_eme8f")]
+position = Vector2(672, 256)
+
+[node name="brokenVat" parent="." instance=ExtResource("5_tfusp")]
+position = Vector2(320, 640)
+
+[node name="fanTrigger" parent="." instance=ExtResource("6_i4y4s")]
+position = Vector2(432, 688)
+rotation = -1.5708
+
+[node name="TriggerKeySprite" parent="fanTrigger" index="1"]
+position = Vector2(-32, 0)
+
+[node name="CollisionShape2D" parent="fanTrigger/PushArea" index="0"]
+position = Vector2(128, 0)
+shape = SubResource("RectangleShape2D_el5lo")
+
+[node name="Wind32" parent="fanTrigger/PushArea" index="2"]
+position = Vector2(152, 0)
+
+[node name="Wind16" parent="fanTrigger/PushArea" index="3"]
+position = Vector2(232, 0)
+
+[node name="fanTrigger2" parent="." instance=ExtResource("6_i4y4s")]
+position = Vector2(560, 688)
+rotation = -1.5708
+
+[node name="TriggerKeySprite" parent="fanTrigger2" index="1"]
+position = Vector2(-32, -6.10352e-05)
+
+[node name="CollisionShape2D" parent="fanTrigger2/PushArea" index="0"]
+position = Vector2(112, 0)
+shape = SubResource("RectangleShape2D_1d7nh")
+
+[node name="Wind32" parent="fanTrigger2/PushArea" index="2"]
+position = Vector2(136, 0)
+
+[node name="Wind16" parent="fanTrigger2/PushArea" index="3"]
+position = Vector2(200, 0)
+
+[node name="fanTrigger3" parent="." instance=ExtResource("6_i4y4s")]
+position = Vector2(336, 560)
+rotation = -1.5708
+
+[node name="TriggerKeySprite" parent="fanTrigger3" index="1"]
+position = Vector2(-32, 0)
+
+[node name="CollisionShape2D" parent="fanTrigger3/PushArea" index="0"]
+position = Vector2(112, 0)
+shape = SubResource("RectangleShape2D_tiwdx")
+
+[node name="Wind32" parent="fanTrigger3/PushArea" index="2"]
+position = Vector2(136, 0)
+
+[node name="Wind16" parent="fanTrigger3/PushArea" index="3"]
+position = Vector2(200, 0)
+
+[node name="fanTrigger4" parent="." instance=ExtResource("6_i4y4s")]
+position = Vector2(432, 304)
+rotation = -1.5708
+
+[node name="TriggerKeySprite" parent="fanTrigger4" index="1"]
+position = Vector2(-32, 0)
+
+[node name="CollisionShape2D" parent="fanTrigger4/PushArea" index="0"]
+position = Vector2(144, 0)
+shape = SubResource("RectangleShape2D_mnj4l")
+
+[node name="Wind32" parent="fanTrigger4/PushArea" index="2"]
+position = Vector2(168, 0)
+
+[node name="Wind16" parent="fanTrigger4/PushArea" index="3"]
+position = Vector2(264, 0)
+
+[node name="VentSystem" type="Node2D" parent="."]
+position = Vector2(224, 544)
+script = ExtResource("7_pkjqr")
+
+[node name="ventTrigger" parent="VentSystem" node_paths=PackedStringArray("ventPathHolder") instance=ExtResource("8_7js4u")]
+ventPathHolder = NodePath("../VentPath")
+ventExitDirection = 1
+
+[node name="VentEntrance" parent="VentSystem/ventTrigger" index="0"]
+position = Vector2(-32, 0)
+metadata/_edit_group_ = true
+
+[node name="VentExit" parent="VentSystem/ventTrigger" index="1"]
+position = Vector2(96, -448)
+
+[node name="TriggerKeySprite" parent="VentSystem/ventTrigger" index="2"]
+position = Vector2(-24, 64)
+
+[node name="VentPath" type="Node2D" parent="VentSystem"]
+position = Vector2(-24, 0)
+
+[node name="Vent1" type="AnimatedSprite2D" parent="VentSystem/VentPath"]
+modulate = Color(1, 1, 1, 0.494118)
+position = Vector2(56, 0)
+sprite_frames = SubResource("SpriteFrames_8i4te")
+animation = &"curved"
+
+[node name="Vent2" type="AnimatedSprite2D" parent="VentSystem/VentPath"]
+modulate = Color(1, 1, 1, 0.494118)
+position = Vector2(56, -64)
+sprite_frames = SubResource("SpriteFrames_8i4te")
+animation = &"curved"
+
+[node name="Vent3" type="AnimatedSprite2D" parent="VentSystem/VentPath"]
+modulate = Color(1, 1, 1, 0.494118)
+position = Vector2(56, -128)
+sprite_frames = SubResource("SpriteFrames_8i4te")
+animation = &"curved"
+
+[node name="Vent4" type="AnimatedSprite2D" parent="VentSystem/VentPath"]
+modulate = Color(1, 1, 1, 0.494118)
+position = Vector2(56, -192)
+sprite_frames = SubResource("SpriteFrames_8i4te")
+animation = &"curved"
+
+[node name="Vent5" type="AnimatedSprite2D" parent="VentSystem/VentPath"]
+modulate = Color(1, 1, 1, 0.494118)
+position = Vector2(56, -256)
+sprite_frames = SubResource("SpriteFrames_8i4te")
+animation = &"curved"
+
+[node name="Vent6" type="AnimatedSprite2D" parent="VentSystem/VentPath"]
+modulate = Color(1, 1, 1, 0.494118)
+position = Vector2(56, -320)
+sprite_frames = SubResource("SpriteFrames_8i4te")
+animation = &"curved"
+
+[node name="Vent7" type="AnimatedSprite2D" parent="VentSystem/VentPath"]
+modulate = Color(1, 1, 1, 0.494118)
+position = Vector2(56, -384)
+sprite_frames = SubResource("SpriteFrames_8i4te")
+animation = &"curved"
+
+[node name="Vent8" type="AnimatedSprite2D" parent="VentSystem/VentPath"]
+modulate = Color(1, 1, 1, 0.494118)
+position = Vector2(56, -448)
+sprite_frames = SubResource("SpriteFrames_8i4te")
+animation = &"curved"
+
+[node name="fanTrigger5" parent="." instance=ExtResource("6_i4y4s")]
+position = Vector2(560, 400)
+rotation = -1.5708
+
+[node name="TriggerKeySprite" parent="fanTrigger5" index="1"]
+position = Vector2(-32, 0)
+
+[node name="CollisionShape2D" parent="fanTrigger5/PushArea" index="0"]
+position = Vector2(192, 0)
+shape = SubResource("RectangleShape2D_gccr0")
+
+[node name="Wind32" parent="fanTrigger5/PushArea" index="2"]
+position = Vector2(216, 0)
+
+[node name="Wind16" parent="fanTrigger5/PushArea" index="3"]
+position = Vector2(360, 0)
+
+[node name="fanTrigger6" parent="." instance=ExtResource("6_i4y4s")]
+position = Vector2(720, 552)
+rotation = -0.785398
+
+[node name="TriggerKeySprite" parent="fanTrigger6" index="1"]
+position = Vector2(-28.2843, 28.2842)
+
+[node name="CollisionShape2D" parent="fanTrigger6/PushArea" index="0"]
+position = Vector2(152.25, 0.00012207)
+shape = SubResource("RectangleShape2D_amutg")
+
+[node name="Wind32" parent="fanTrigger6/PushArea" index="2"]
+position = Vector2(176, -6.10352e-05)
+
+[node name="Wind16" parent="fanTrigger6/PushArea" index="3"]
+position = Vector2(280, -6.10352e-05)
+
+[node name="fanTrigger7" parent="." instance=ExtResource("6_i4y4s")]
+position = Vector2(936, 432)
+rotation = -2.35619
+
+[node name="TriggerKeySprite" parent="fanTrigger7" index="1"]
+position = Vector2(-33.9412, -33.9411)
+
+[node name="CollisionShape2D" parent="fanTrigger7/PushArea" index="0"]
+position = Vector2(123.966, -6.10352e-05)
+shape = SubResource("RectangleShape2D_ri3is")
+
+[node name="Wind32" parent="fanTrigger7/PushArea" index="2"]
+position = Vector2(144, 0)
+
+[node name="Wind16" parent="fanTrigger7/PushArea" index="3"]
+position = Vector2(224, 0)
+
+[node name="fanTrigger8" parent="." instance=ExtResource("6_i4y4s")]
+position = Vector2(784, 384)
+rotation = -1.5708
+
+[node name="TriggerKeySprite" parent="fanTrigger8" index="1"]
+position = Vector2(-16, -32)
+
+[node name="CollisionShape2D" parent="fanTrigger8/PushArea" index="0"]
+position = Vector2(135.917, 0)
+shape = SubResource("RectangleShape2D_bnfpb")
+
+[node name="Wind32" parent="fanTrigger8/PushArea" index="2"]
+position = Vector2(160, 0)
+
+[node name="Wind16" parent="fanTrigger8/PushArea" index="3"]
+position = Vector2(248, 0)
+
+[node name="SecurityBall" parent="." instance=ExtResource("11_66b64")]
+position = Vector2(464, 229)
+
+[node name="SecurityBall2" parent="." instance=ExtResource("11_66b64")]
+position = Vector2(592, 128)
+
+[node name="SecurityBall3" parent="." instance=ExtResource("11_66b64")]
+position = Vector2(792, 224)
+
+[node name="SecurityBall4" parent="." instance=ExtResource("11_66b64")]
+position = Vector2(568, 640)
+
+[editable path="fanTrigger"]
+[editable path="fanTrigger2"]
+[editable path="fanTrigger3"]
+[editable path="fanTrigger4"]
+[editable path="VentSystem/ventTrigger"]
+[editable path="fanTrigger5"]
+[editable path="fanTrigger6"]
+[editable path="fanTrigger7"]
+[editable path="fanTrigger8"]

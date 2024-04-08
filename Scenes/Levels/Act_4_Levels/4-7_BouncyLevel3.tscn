@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://dd6l6fhpuajke" path="res://Scenes/rigidPlayer.tscn" id="4_kfauh"]
 [ext_resource type="PackedScene" uid="uid://dpeaoe3ad3ahy" path="res://Scenes/Triggers/Trigger_Helpers/brokenVat.tscn" id="5_q52i6"]
 [ext_resource type="PackedScene" uid="uid://dgkh4na3ckdg2" path="res://Scenes/Triggers/BreakableBlocks/RightSlopebreakableBlock.tscn" id="6_4b0ew"]
-[ext_resource type="PackedScene" uid="uid://c0eghc3oa7752" path="res://Scenes/Triggers/Trigger_Helpers/movingObject.tscn" id="7_ftb3k"]
 [ext_resource type="PackedScene" uid="uid://psrem4kknlu8" path="res://Scenes/Triggers/BreakableBlocks/32x64breakableBlock.tscn" id="8_dcsjx"]
 [ext_resource type="PackedScene" uid="uid://djb81orxw62lt" path="res://Scenes/Triggers/BreakableBlocks/64x64breakableBlock.tscn" id="9_d0dyy"]
 [ext_resource type="PackedScene" uid="uid://ci05tj7j8an3w" path="res://Scenes/Triggers/BreakableBlocks/64x32breakableBlock.tscn" id="10_k0x2h"]
@@ -16,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://ljqhc6ud7t0p" path="res://Art/TriggerArt/Vent/plhVentCurved.png" id="14_hocwk"]
 [ext_resource type="Texture2D" uid="uid://cguu570tipo33" path="res://Art/TriggerArt/Vent/plhVentStraight.png" id="15_gwn4o"]
 [ext_resource type="PackedScene" uid="uid://by8l8mnrr610i" path="res://Scenes/Triggers/InvisibleBlocks/LeftSlopeInvisibleBlock.tscn" id="16_iv3qg"]
+[ext_resource type="PackedScene" uid="uid://bmwdwlb5umkan" path="res://Scenes/Triggers/Trigger_Helpers/SecurityBall.tscn" id="16_obj0o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4cmtd"]
 size = Vector2(544, 96)
@@ -423,11 +423,6 @@ shard_gravity = -40.0
 position = Vector2(62, -6)
 rotation = 3.14159
 
-[node name="movingObject" parent="." instance=ExtResource("7_ftb3k")]
-position = Vector2(93, 238)
-maxSingleFanVelocity = 120.0
-maxFanVelocity = 50.0
-
 [node name="32x64breakableBlock" parent="." instance=ExtResource("8_dcsjx")]
 position = Vector2(770, 160)
 
@@ -598,6 +593,9 @@ scale = Vector2(1, -1)
 [node name="TriggerKeySprite" parent="LeftSlopeInvisibleBlock2" index="1"]
 position = Vector2(0, -8)
 scale = Vector2(1, -1)
+
+[node name="SecurityBall" parent="." instance=ExtResource("16_obj0o")]
+position = Vector2(96, 240)
 
 [editable path="RightSlopebreakableBlock"]
 [editable path="64x64breakableBlock"]

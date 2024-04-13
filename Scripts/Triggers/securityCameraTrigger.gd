@@ -6,6 +6,8 @@ class_name securityCameraTrigger
 @export var cameraView: Area2D
 @export var cameraSprite: AnimatedSprite2D
 @export var gunSprite: AnimatedSprite2D
+@export var beepsound : AudioStreamPlayer2D
+@export var boomsound : AudioStreamPlayer2D
 
 var currState: SecurityCameraState = SecurityCameraState.INACTIVE
 var goalPivotRotation: float
@@ -112,6 +114,8 @@ func _on_camera_caught(body):
 	$CameraPivotPoint/CameraView/Polygon2D.visible = false
 	$GunSprite/Bullet.setTarget(body)
 	$GunSprite/Bullet.launch()
+	beepsound.play()
+	boomsound.play()
 	pivotProgress = 0
 	currState = SecurityCameraState.SHUTTINGDOWN
 

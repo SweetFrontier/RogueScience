@@ -11,6 +11,8 @@ class_name sodaTrigger
 @export var spewSprite: AnimatedSprite2D
 @export var sodaBall: SodaBall
 @export var SPLAT_PACKEDSCENE: PackedScene
+@export var sound : AudioStreamPlayer2D
+@export var soundbacup : AudioStreamPlayer2D
 
 var currState: SodaState = SodaState.FULL
 var startingPosition : Vector2
@@ -18,6 +20,18 @@ var shakeAmount: float = 0
 var shakeProgress: float = 0
 var splatList : Array = []
 var timeSinceReset : float = 0
+
+#sound vars
+var soundControllingBool = false
+var soundAlternator : bool = false
+var swishes = [preload("res://Sounds/Swishes/swish1.ogg"),
+				preload("res://Sounds/Swishes/swish2.ogg"),
+				preload("res://Sounds/Swishes/swish3.ogg"),
+				preload("res://Sounds/Swishes/swish4.ogg"),
+				preload("res://Sounds/Swishes/swish5.ogg"),
+				preload("res://Sounds/Swishes/swish6.ogg"),
+				preload("res://Sounds/Swishes/swish7.ogg"),
+				preload("res://Sounds/Swishes/pffff.ogg")]
 
 enum SodaState
 {
@@ -63,6 +77,8 @@ func react():
 		currState = SodaState.SPEWING
 		bottleSprite.animation = "spewing"
 		bottleSprite.play()
+		sound.set_stream(swishes[7])
+		sound.play()
 		spewSprite.visible = true
 		sodaBall.launch()
 
@@ -110,7 +126,17 @@ func _process(delta):
 			if(shakeAmount >= explosionThreshold):
 				react()
 			shakeProgress += delta * shakeAmount
-			bottleSprite.position = startingPosition + (Vector2(0,1) * sin(shakeProgress)).rotated(bottleSprite.rotation) * shakeAmount
+			var shakePos = sin(shakeProgress)
+			if (abs(shakePos) > 0.95 and soundControllingBool != (shakePos < 0)):
+				soundControllingBool = !soundControllingBool
+				soundAlternator = !soundAlternator
+				if (soundAlternator):
+					sound.set_stream(swishes[randi()%7])
+					sound.play()
+				else:
+					soundbacup.set_stream(swishes[randi()%7])
+					soundbacup.play()
+			bottleSprite.position = startingPosition + (Vector2(0,1) * shakePos).rotated(bottleSprite.rotation) * shakeAmount
 		SodaState.SPEWING:
 			shakeAmount = max(shakeAmount - shakeDecay*5, 0)
 			if(shakeAmount <= 0):

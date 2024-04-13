@@ -565,12 +565,20 @@ button = 51
 position = Vector2(880, 3088)
 rotation = -0.785398
 jump_force = 800.0
+startActivated = false
+one_shot = true
 button = 52
+button_fade_duration = 2.0
+moveRiderTime = 1.0
 
 [node name="trampolineTrigger2" parent="." instance=ExtResource("28_5i22p")]
 position = Vector2(144, 3280)
 rotation = 1.0472
+startActivated = false
+one_shot = true
 button = 74
+button_fade_duration = 2.0
+moveRiderTime = 1.0
 
 [node name="rigidPlayer" parent="." instance=ExtResource("32_iucd8")]
 position = Vector2(640, 3584)
@@ -583,27 +591,39 @@ volume_db = -80.0
 [node name="trampolineTrigger3" parent="." instance=ExtResource("28_5i22p")]
 position = Vector2(608, 3328)
 rotation = 0.785398
+startActivated = false
+one_shot = true
 button = 79
+button_fade_duration = 2.0
 moveRiderTime = 0.1
 
 [node name="trampolineTrigger4" parent="." instance=ExtResource("28_5i22p")]
 position = Vector2(1040, 3280)
 jump_force = 800.0
+startActivated = false
+one_shot = true
 button = 69
+button_fade_duration = 2.0
 moveRiderTime = 0.1
 
 [node name="trampolineTrigger5" parent="." instance=ExtResource("28_5i22p")]
 position = Vector2(1040, 3024)
 rotation = -0.785398
 jump_force = 800.0
+startActivated = false
+one_shot = true
 button = 89
+button_fade_duration = 2.0
 moveRiderTime = 0.1
 
 [node name="trampolineTrigger6" parent="." instance=ExtResource("28_5i22p")]
 position = Vector2(416, 3088)
 rotation = 0.698132
 jump_force = 500.0
+startActivated = false
+one_shot = true
 button = 57
+button_fade_duration = 2.0
 moveRiderTime = 0.1
 
 [node name="64x32breakableBlock" parent="." instance=ExtResource("33_eqycd")]

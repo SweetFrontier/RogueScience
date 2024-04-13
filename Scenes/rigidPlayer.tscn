@@ -3,10 +3,10 @@
 [ext_resource type="Script" path="res://Scripts/rigidPlayer.gd" id="1_tevo1"]
 [ext_resource type="SpriteFrames" uid="uid://uoxtfmfhh7ft" path="res://Art/SpriteFrames/fellaAnims.tres" id="2_b4cfh"]
 [ext_resource type="AudioStream" uid="uid://cof7uu71agsbj" path="res://Sounds/crawl.ogg" id="3_2cu8q"]
-[ext_resource type="Texture2D" uid="uid://cuo7640hvi8jb" path="res://Art/plhFellaShield.png" id="3_govog"]
+[ext_resource type="Texture2D" uid="uid://cuo7640hvi8jb" path="res://Art/Spritesheets/plhFellaShield.png" id="3_govog"]
 [ext_resource type="AudioStream" uid="uid://cbl8qb0gk6iiq" path="res://Sounds/hitsomething.ogg" id="4_h2nkj"]
 [ext_resource type="Script" path="res://Scripts/Triggers/Trigger_Helpers/explodeablePolygon.gd" id="5_57jm6"]
-[ext_resource type="Texture2D" uid="uid://du38jg7n11pol" path="res://Art/deadfella.png" id="5_ld6tc"]
+[ext_resource type="Texture2D" uid="uid://du38jg7n11pol" path="res://Art/Spritesheets/deadfella.png" id="5_ld6tc"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2kvdi"]
 friction = 0.15

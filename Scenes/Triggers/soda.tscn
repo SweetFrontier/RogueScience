@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://diaq1g0u7ny5d"]
+[gd_scene load_steps=21 format=3 uid="uid://diaq1g0u7ny5d"]
 
 [ext_resource type="PackedScene" uid="uid://cgjy5x05wbked" path="res://Scenes/Triggers/baseTrigger.tscn" id="1_ud7se"]
 [ext_resource type="Script" path="res://Scripts/Triggers/sodaTrigger.gd" id="2_w7a00"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://r0ah8shlqfvj" path="res://Art/TriggerArt/Soda/plhSodaExploding.png" id="5_gdniv"]
 [ext_resource type="Texture2D" uid="uid://cat53lsnivf36" path="res://Art/TriggerArt/Soda/plhSpew.png" id="6_myc4p"]
 [ext_resource type="PackedScene" uid="uid://jtv8ch5vvx1d" path="res://Scenes/Triggers/Trigger_Helpers/sodaBall.tscn" id="7_bn3nb"]
+[ext_resource type="AudioStream" uid="uid://cymcx2475y1sq" path="res://Sounds/Swishes/swish1.ogg" id="8_b2bir"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_arm8v"]
 atlas = ExtResource("3_rbrhq")
@@ -98,7 +99,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="sodaTrigger" node_paths=PackedStringArray("bottleSprite", "spewSprite", "sodaBall") instance=ExtResource("1_ud7se")]
+[node name="sodaTrigger" node_paths=PackedStringArray("bottleSprite", "spewSprite", "sodaBall", "sound", "soundbacup") instance=ExtResource("1_ud7se")]
 z_index = 40
 z_as_relative = false
 script = ExtResource("2_w7a00")
@@ -111,6 +112,8 @@ bottleSprite = NodePath("BottleSprite")
 spewSprite = NodePath("BottleSprite/SpewSprite")
 sodaBall = NodePath("SodaBall")
 SPLAT_PACKEDSCENE = ExtResource("3_n6q00")
+sound = NodePath("BottleSprite/sounds")
+soundbacup = NodePath("BottleSprite/soundbackup")
 
 [node name="BottleSprite" type="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_654dx")
@@ -121,6 +124,16 @@ visible = false
 z_index = -2
 position = Vector2(0, -40)
 sprite_frames = SubResource("SpriteFrames_jtjnx")
+
+[node name="sounds" type="AudioStreamPlayer2D" parent="BottleSprite" index="1"]
+stream = ExtResource("8_b2bir")
+max_polyphony = 3
+bus = &"Sound Effects"
+
+[node name="soundbackup" type="AudioStreamPlayer2D" parent="BottleSprite" index="2"]
+stream = ExtResource("8_b2bir")
+max_polyphony = 3
+bus = &"Sound Effects"
 
 [node name="SodaBall" parent="." index="1" instance=ExtResource("7_bn3nb")]
 LAUNCH_SPEED = 1000.0

@@ -115,7 +115,7 @@ position = Vector2(16, 16)
 rotation = -0.479966
 metadata/_edit_group_ = true
 
-[node name="Bullet" parent="securityCameraTrigger/GunSprite" index="0"]
+[node name="Bullet" parent="securityCameraTrigger/GunSprite" index="1"]
 MAX_ROTATION_SPEED = 180
 
 [node name="TriggerKeySprite" parent="securityCameraTrigger" index="3"]
@@ -210,7 +210,7 @@ position = Vector2(16, 16)
 rotation = -0.479966
 metadata/_edit_group_ = true
 
-[node name="Bullet" parent="securityCameraTrigger2/GunSprite" index="0"]
+[node name="Bullet" parent="securityCameraTrigger2/GunSprite" index="1"]
 MAX_ROTATION_SPEED = 180
 
 [node name="TriggerKeySprite" parent="securityCameraTrigger2" index="3"]
@@ -222,7 +222,7 @@ position = Vector2(672, 272)
 [node name="CameraPivotPoint" parent="securityCameraTrigger3" index="0"]
 rotation = -2.70526
 
-[node name="CameraLens" parent="securityCameraTrigger3/CameraPivotPoint/CameraSprite" index="0"]
+[node name="CameraLens" parent="securityCameraTrigger3/CameraPivotPoint/CameraSprite" index="1"]
 visible = true
 
 [node name="CollisionShape2D" parent="securityCameraTrigger3/CameraPivotPoint/CameraSprite/CameraLens" index="0"]
@@ -238,7 +238,7 @@ polygon = PackedVector2Array(-160.864, -76.4131, -218.868, -49.3656, -171.535, 5
 rotation = -2.35619
 metadata/_edit_group_ = true
 
-[node name="Bullet" parent="securityCameraTrigger3/GunSprite" index="0"]
+[node name="Bullet" parent="securityCameraTrigger3/GunSprite" index="1"]
 MAX_ROTATION_SPEED = 180
 
 [node name="TriggerKeySprite" parent="securityCameraTrigger3" index="3"]

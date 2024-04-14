@@ -165,7 +165,7 @@ polygon = PackedVector2Array(-135.48, -95.1519, -176.494, -70.2149, -159.869, -4
 position = Vector2(0, 32)
 rotation = -2.5953
 
-[node name="Bullet" parent="securityCameraTrigger/GunSprite" index="0"]
+[node name="Bullet" parent="securityCameraTrigger/GunSprite" index="1"]
 MAX_ROTATION_SPEED = 360
 BULLET_SPEED = 2000.0
 

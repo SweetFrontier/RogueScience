@@ -78,6 +78,8 @@ size = Vector2(64, 48)
 size = Vector2(64, 64)
 
 [node name="magnetTrigger" type="Node2D" node_paths=PackedStringArray("magnetSprite", "magneticSourcePoint", "TriggerKeySprite")]
+z_index = 60
+z_as_relative = false
 script = ExtResource("1_a4tog")
 strengthAmplitude = 10000.0
 startingPolarity = 1

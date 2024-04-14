@@ -127,11 +127,13 @@ sprite_frames = SubResource("SpriteFrames_jtjnx")
 
 [node name="sounds" type="AudioStreamPlayer2D" parent="BottleSprite" index="1"]
 stream = ExtResource("8_b2bir")
+volume_db = 8.0
 max_polyphony = 3
 bus = &"Sound Effects"
 
 [node name="soundbackup" type="AudioStreamPlayer2D" parent="BottleSprite" index="2"]
 stream = ExtResource("8_b2bir")
+volume_db = 8.0
 max_polyphony = 3
 bus = &"Sound Effects"
 

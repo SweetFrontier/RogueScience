@@ -65,6 +65,7 @@ func reset():
 	sprite.show()
 	deathExplosion.hide()
 	collisionShape.set_deferred("disabled", false)
+	soundPlayer.stream = load("res://Sounds/hitsomething.ogg")
 
 func destroy():
 	if(isShielded):
@@ -78,9 +79,8 @@ func destroy():
 	deathExplosion.explode()
 	collisionShape.set_deferred("disabled", true)
 	#play sound
-	#HitSounds.stream = load("res://Sounds/death.ogg")
-	#HitSounds.play()
-	#CrawlSounds.stop()
+	soundPlayer.stream = load("res://Sounds/hitsomething.ogg")
+	soundPlayer.play()
 
 func GiveSodaShield():
 	isShielded = true
@@ -138,13 +138,13 @@ func _integrate_forces(state):
 		state.set_linear_velocity(once_freed_linear_velocity * gravity_scale)
 		state.set_angular_velocity(once_freed_angular_velocity * gravity_scale)
 		#clear_freed_velocity()
-	
-	if (max(last_vel_x - linear_velocity.x, last_vel_y - linear_velocity.y) > 40):
-		if (linear_velocity.y > -600):
-			soundPlayer.volume_db = linear_to_db(max(last_vel_x - linear_velocity.x, last_vel_y - linear_velocity.y)/100)
-			soundPlayer.play()
-		last_vel_x = linear_velocity.x
-		last_vel_y = linear_velocity.y
+	elif (!destroyed):
+		if (max(last_vel_x - linear_velocity.x, last_vel_y - linear_velocity.y) > 40):
+			if (linear_velocity.y > -600):
+				soundPlayer.volume_db = min(linear_to_db(max(last_vel_x - linear_velocity.x, last_vel_y - linear_velocity.y)/100), 10)
+				soundPlayer.play()
+			last_vel_x = linear_velocity.x
+			last_vel_y = linear_velocity.y
 	if (!being_controlled):
 		last_vel_x = linear_velocity.x
 		last_vel_y = linear_velocity.y

@@ -93,3 +93,4 @@ func _on_body_entered(collider):
 		$SodaBallSprite.visible = false
 		$CollisionShape2D.set_deferred("disabled", true)
 		$Explosion.play()
+		$explosounds.play()

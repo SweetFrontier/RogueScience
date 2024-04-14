@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://jtv8ch5vvx1d"]
+[gd_scene load_steps=16 format=3 uid="uid://jtv8ch5vvx1d"]
 
 [ext_resource type="Script" path="res://Scripts/Triggers/Trigger_Helpers/sodaBall.gd" id="1_eo3ja"]
 [ext_resource type="Texture2D" uid="uid://xoywetyr51pd" path="res://Art/TriggerArt/Soda/plhSodaBall.png" id="2_u231g"]
 [ext_resource type="Texture2D" uid="uid://bmsh7ew73lmoi" path="res://Art/TriggerArt/SecurityCamera/Red Effect Bullet Impact Explosion 32x32.png" id="3_kxd6g"]
+[ext_resource type="AudioStream" uid="uid://dcv01p36l5suh" path="res://Sounds/Swishes/sodasplosion.ogg" id="4_e22ow"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gp5yx"]
 atlas = ExtResource("2_u231g")
@@ -99,5 +100,10 @@ shape = SubResource("CircleShape2D_tao6c")
 sprite_frames = SubResource("SpriteFrames_c4p4p")
 frame = 4
 frame_progress = 1.0
+
+[node name="explosounds" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_e22ow")
+volume_db = 5.0
+bus = &"Sound Effects"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

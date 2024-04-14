@@ -218,7 +218,7 @@ func _physics_process(delta):
 func GiveSodaShield():
 	isShielded = true
 	SodaShield.visible = true
-	HitSounds.set_stream(load("res://Sounds/Swishes/pffff.ogg"))
+	HitSounds.set_stream(load("res://Sounds/Swishes/shieldsshields.ogg"))
 	HitSounds.play()
 
 func killFella():
@@ -226,6 +226,8 @@ func killFella():
 		isShielded = false
 		SodaShield.visible = false
 		deathCounter = 0
+		HitSounds.set_stream(load("res://Sounds/Swishes/shieldsdown.ogg"))
+		HitSounds.play()
 		return
 	deathCounter = 0
 	dead = true

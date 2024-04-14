@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://diaq1g0u7ny5d"]
+[gd_scene load_steps=23 format=3 uid="uid://diaq1g0u7ny5d"]
 
 [ext_resource type="PackedScene" uid="uid://cgjy5x05wbked" path="res://Scenes/Triggers/baseTrigger.tscn" id="1_ud7se"]
 [ext_resource type="Script" path="res://Scripts/Triggers/sodaTrigger.gd" id="2_w7a00"]
@@ -99,7 +99,28 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="sodaTrigger" node_paths=PackedStringArray("bottleSprite", "spewSprite", "sodaBall", "sound", "soundbacup") instance=ExtResource("1_ud7se")]
+[sub_resource type="Animation" id="Animation_h5g2t"]
+resource_name = "push"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TriggerKeySprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(0.2, 1),
+"update": 0,
+"values": [Color(3.91, 3.91, 1, 1), Color(3.91, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vhhg6"]
+_data = {
+"push": SubResource("Animation_h5g2t")
+}
+
+[node name="sodaTrigger" node_paths=PackedStringArray("bottleSprite", "spewSprite", "sodaBall", "sound", "soundbacup", "triggerModulator") instance=ExtResource("1_ud7se")]
 z_index = 40
 z_as_relative = false
 script = ExtResource("2_w7a00")
@@ -114,6 +135,7 @@ sodaBall = NodePath("SodaBall")
 SPLAT_PACKEDSCENE = ExtResource("3_n6q00")
 sound = NodePath("BottleSprite/sounds")
 soundbacup = NodePath("BottleSprite/soundbackup")
+triggerModulator = NodePath("triggerModulator")
 
 [node name="BottleSprite" type="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_654dx")
@@ -143,6 +165,12 @@ SPLAT_INTERVAL = 2
 SPLAT_RADIUS = 3
 
 [node name="TriggerKeySprite" parent="." index="2"]
+modulate = Color(3.91, 1, 1, 1)
 position = Vector2(0, 64)
+
+[node name="triggerModulator" type="AnimationPlayer" parent="." index="3"]
+libraries = {
+"": SubResource("AnimationLibrary_vhhg6")
+}
 
 [connection signal="SPLATTED" from="SodaBall" to="." method="recieve_splat"]

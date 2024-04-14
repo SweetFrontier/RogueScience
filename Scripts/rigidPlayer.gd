@@ -51,6 +51,7 @@ var animBackwards = false
 var inSoda : int = 0
 var isShielded : bool = false
 var fansInRange : Array[fanTrigger]
+var timeToLastHit : float = 0
 
 func _ready():
 	last_y_velocity = 0
@@ -163,6 +164,7 @@ func _physics_process(delta):
 					else:
 						HitSounds.stream = load("res://Sounds/hitsomething.ogg")
 					last_y_velocity = 0
+					HitSounds.volume_db = 10
 					HitSounds.play()
 		elif movement_overrider == null || not movement_overrider is fellaBoxTrigger:
 			rotate_player_on_arc(delta)
@@ -182,6 +184,10 @@ func _physics_process(delta):
 			wallCast.scale *= -1
 			AnimatedSprite.offset.x += 8*PlayerCollision.scale.x
 			#play the sound
+			if (timeToLastHit < 0.1):
+				HitSounds.volume_db = 0
+			else:
+				HitSounds.volume_db = 10
 			HitSounds.stream = load("res://Sounds/hitsomething.ogg")
 			HitSounds.play()
 			#set wallcast to current direction
@@ -219,6 +225,7 @@ func GiveSodaShield():
 	isShielded = true
 	SodaShield.visible = true
 	HitSounds.set_stream(load("res://Sounds/Swishes/shieldsshields.ogg"))
+	HitSounds.volume_db = 10
 	HitSounds.play()
 
 func killFella():
@@ -227,6 +234,7 @@ func killFella():
 		SodaShield.visible = false
 		deathCounter = 0
 		HitSounds.set_stream(load("res://Sounds/Swishes/shieldsdown.ogg"))
+		HitSounds.volume_db = 10
 		HitSounds.play()
 		return
 	deathCounter = 0
@@ -237,6 +245,7 @@ func killFella():
 	set_process(PROCESS_MODE_DISABLED)
 	#play sound
 	HitSounds.stream = load("res://Sounds/death.ogg")
+	HitSounds.volume_db = 10
 	HitSounds.play()
 	CrawlSounds.stop()
 	emit_signal("player_death_signal")

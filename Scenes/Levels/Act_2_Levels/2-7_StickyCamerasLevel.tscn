@@ -59,7 +59,7 @@ polygon = PackedVector2Array(-151.24, -69.2731, -146.603, 67.3523, -1.84355, -1.
 position = Vector2(16, 80)
 rotation = 3.14159
 
-[node name="Bullet" parent="securityCameraTrigger/GunSprite" index="0"]
+[node name="Bullet" parent="securityCameraTrigger/GunSprite" index="1"]
 MAX_ROTATION_SPEED = 360
 
 [node name="TriggerKeySprite" parent="securityCameraTrigger" index="3"]
@@ -125,7 +125,7 @@ polygon = PackedVector2Array(-249.872, -96.1664, -244.215, -79.1959, -317.754, -
 [node name="GunSprite" parent="securityCameraTrigger2" index="2"]
 position = Vector2(-16, 96)
 
-[node name="Bullet" parent="securityCameraTrigger2/GunSprite" index="0"]
+[node name="Bullet" parent="securityCameraTrigger2/GunSprite" index="1"]
 MAX_ROTATION_SPEED = 360
 BULLET_SPEED = 3000.0
 

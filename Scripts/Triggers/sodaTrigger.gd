@@ -13,6 +13,7 @@ class_name sodaTrigger
 @export var SPLAT_PACKEDSCENE: PackedScene
 @export var sound : AudioStreamPlayer2D
 @export var soundbacup : AudioStreamPlayer2D
+@export var triggerModulator : AnimationPlayer
 
 var currState: SodaState = SodaState.FULL
 var startingPosition : Vector2
@@ -60,6 +61,7 @@ func _input(event):
 			shakeAmount = shakeStrength*2
 		shakeAmount += shakeStrength
 		currState = SodaState.SHAKING
+		triggerModulator.play("push")
 
 
 func react():

@@ -142,11 +142,12 @@ position = Vector2(176, -80)
 position = Vector2(176, -16)
 
 [node name="sodaTrigger" parent="." instance=ExtResource("12_fw1g5")]
-position = Vector2(544, -128)
-rotation = 3.14159
+position = Vector2(80, -16)
+rotation = 1.5708
 
 [node name="TriggerKeySprite" parent="sodaTrigger" index="2"]
-position = Vector2(-48, 0)
+position = Vector2(33, 35)
+rotation = -1.57149
 
 [node name="securityCameraTrigger" parent="." instance=ExtResource("13_njhpo")]
 position = Vector2(224, 288)

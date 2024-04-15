@@ -6,9 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://c48ci41kb3mnk" path="res://Art/TileSets/Act2BloodTileset.png" id="4_rasm5"]
 [ext_resource type="Texture2D" uid="uid://bcm6b1eoj8g56" path="res://Art/TileSets/Act2CracksTileset.png" id="5_srnno"]
 [ext_resource type="Texture2D" uid="uid://cbvu47xa2p3vc" path="res://Art/TileSets/Act2GooTileset.png" id="6_2uok2"]
-[ext_resource type="Texture2D" uid="uid://di3rhe8wy07hp" path="res://Art/TileSets/Act3BloodTileset.png" id="7_qptjo"]
-[ext_resource type="Texture2D" uid="uid://doan1ag54uhru" path="res://Art/TileSets/Act3CracksTileset.png" id="8_nc7t6"]
-[ext_resource type="Texture2D" uid="uid://ckdhvnaeu4api" path="res://Art/TileSets/Act3GooTileset.png" id="9_bwjj2"]
+[ext_resource type="Texture2D" uid="uid://bqop0cyqrwx58" path="res://Art/TileSets/Act3BloodTileset.png" id="7_qptjo"]
+[ext_resource type="Texture2D" uid="uid://dsu2jthmofoh7" path="res://Art/TileSets/Act3CracksTileset.png" id="8_nc7t6"]
+[ext_resource type="Texture2D" uid="uid://m1nhtcbaenqn" path="res://Art/TileSets/Act3GooTileset.png" id="9_bwjj2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4a0di"]
 texture = ExtResource("1_mhphp")

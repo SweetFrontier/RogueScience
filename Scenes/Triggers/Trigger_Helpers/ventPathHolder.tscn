@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bcev0by2bdfu0"]
+[gd_scene load_steps=28 format=3 uid="uid://dq1rmmby72qxc"]
 
 [ext_resource type="Texture2D" uid="uid://ljqhc6ud7t0p" path="res://Art/TriggerArt/Vent/plhVentCurved.png" id="1_tsoj4"]
 [ext_resource type="Texture2D" uid="uid://cguu570tipo33" path="res://Art/TriggerArt/Vent/plhVentStraight.png" id="2_bkqgo"]
@@ -189,150 +189,200 @@ position = Vector2(928, 448)
 
 [node name="Vent1" type="AnimatedSprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.494118)
+z_index = 11
+z_as_relative = false
 position = Vector2(64, 0)
 sprite_frames = SubResource("SpriteFrames_wuhj8")
 animation = &"straight"
 
 [node name="Vent2" type="AnimatedSprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.494118)
+z_index = 11
+z_as_relative = false
 position = Vector2(64, -64)
 sprite_frames = SubResource("SpriteFrames_wuhj8")
 animation = &"curved"
 
 [node name="Vent3" type="AnimatedSprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.494118)
+z_index = 11
+z_as_relative = false
 position = Vector2(128, -64)
 sprite_frames = SubResource("SpriteFrames_wuhj8")
 animation = &"curved"
 
 [node name="Vent4" type="AnimatedSprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.494118)
+z_index = 11
+z_as_relative = false
 position = Vector2(128, -128)
 sprite_frames = SubResource("SpriteFrames_wuhj8")
 animation = &"curved"
 
 [node name="Vent5" type="AnimatedSprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.494118)
+z_index = 11
+z_as_relative = false
 position = Vector2(64, -128)
 sprite_frames = SubResource("SpriteFrames_wuhj8")
 animation = &"curved"
 
 [node name="Vent6" type="AnimatedSprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.494118)
+z_index = 11
+z_as_relative = false
 position = Vector2(0, -128)
 sprite_frames = SubResource("SpriteFrames_wuhj8")
 animation = &"curved"
 
 [node name="Vent7" type="AnimatedSprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.494118)
+z_index = 11
+z_as_relative = false
 position = Vector2(-64, -128)
 sprite_frames = SubResource("SpriteFrames_wuhj8")
 animation = &"curved"
 
 [node name="Vent8" type="AnimatedSprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.494118)
+z_index = 11
+z_as_relative = false
 position = Vector2(-64, -64)
 sprite_frames = SubResource("SpriteFrames_wuhj8")
 animation = &"curved"
 
 [node name="Vent9" type="AnimatedSprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.494118)
+z_index = 11
+z_as_relative = false
 position = Vector2(-64, 0)
 sprite_frames = SubResource("SpriteFrames_wuhj8")
 animation = &"curved"
 
 [node name="Vent10" type="AnimatedSprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.494118)
+z_index = 11
+z_as_relative = false
 position = Vector2(-128, 0)
 sprite_frames = SubResource("SpriteFrames_wuhj8")
 animation = &"curved"
 
 [node name="Vent11" type="AnimatedSprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.494118)
+z_index = 11
+z_as_relative = false
 position = Vector2(-128, -64)
 sprite_frames = SubResource("SpriteFrames_wuhj8")
 animation = &"curved"
 
 [node name="Vent12" type="AnimatedSprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.494118)
+z_index = 11
+z_as_relative = false
 position = Vector2(-128, -128)
 sprite_frames = SubResource("SpriteFrames_wuhj8")
 animation = &"curved"
 
 [node name="Vent13" type="AnimatedSprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.494118)
+z_index = 11
+z_as_relative = false
 position = Vector2(-192, -128)
 sprite_frames = SubResource("SpriteFrames_wuhj8")
 animation = &"curved"
 
 [node name="Vent14" type="AnimatedSprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.494118)
+z_index = 11
+z_as_relative = false
 position = Vector2(-192, -192)
 sprite_frames = SubResource("SpriteFrames_wuhj8")
 animation = &"curved"
 
 [node name="Vent15" type="AnimatedSprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.494118)
+z_index = 11
+z_as_relative = false
 position = Vector2(-192, -256)
 sprite_frames = SubResource("SpriteFrames_wuhj8")
 animation = &"curved"
 
 [node name="Vent16" type="AnimatedSprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.494118)
+z_index = 11
+z_as_relative = false
 position = Vector2(-128, -256)
 sprite_frames = SubResource("SpriteFrames_wuhj8")
 animation = &"curved"
 
 [node name="Vent17" type="AnimatedSprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.494118)
+z_index = 11
+z_as_relative = false
 position = Vector2(-128, -192)
 sprite_frames = SubResource("SpriteFrames_wuhj8")
 animation = &"curved"
 
 [node name="Vent18" type="AnimatedSprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.494118)
+z_index = 11
+z_as_relative = false
 position = Vector2(-64, -192)
 sprite_frames = SubResource("SpriteFrames_wuhj8")
 animation = &"curved"
 
 [node name="Vent19" type="AnimatedSprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.494118)
+z_index = 11
+z_as_relative = false
 position = Vector2(-64, -256)
 sprite_frames = SubResource("SpriteFrames_wuhj8")
 animation = &"curved"
 
 [node name="Vent20" type="AnimatedSprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.494118)
+z_index = 11
+z_as_relative = false
 position = Vector2(-64, -320)
 sprite_frames = SubResource("SpriteFrames_wuhj8")
 animation = &"curved"
 
 [node name="Vent21" type="AnimatedSprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.494118)
+z_index = 11
+z_as_relative = false
 position = Vector2(-128, -320)
 sprite_frames = SubResource("SpriteFrames_wuhj8")
 animation = &"curved"
 
 [node name="Vent22" type="AnimatedSprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.494118)
+z_index = 11
+z_as_relative = false
 position = Vector2(-192, -320)
 sprite_frames = SubResource("SpriteFrames_wuhj8")
 animation = &"curved"
 
 [node name="Vent23" type="AnimatedSprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.494118)
+z_index = 11
+z_as_relative = false
 position = Vector2(-256, -320)
 sprite_frames = SubResource("SpriteFrames_wuhj8")
 animation = &"curved"
 
 [node name="Vent24" type="AnimatedSprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.494118)
+z_index = 11
+z_as_relative = false
 position = Vector2(-320, -320)
 sprite_frames = SubResource("SpriteFrames_wuhj8")
 animation = &"curved"
 
 [node name="Vent25" type="AnimatedSprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.494118)
+z_index = 11
+z_as_relative = false
 position = Vector2(-320, -256)
 sprite_frames = SubResource("SpriteFrames_wuhj8")
 animation = &"curved"

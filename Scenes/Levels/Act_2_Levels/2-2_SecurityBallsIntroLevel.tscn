@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://bts1gsv342vbj"]
+[gd_scene load_steps=14 format=3 uid="uid://bts1gsv342vbj"]
 
 [ext_resource type="Script" path="res://Scripts/levelController.gd" id="1_gnxax"]
 [ext_resource type="TileSet" uid="uid://bnpggr5480t5q" path="res://Art/TileSets/initialTileSet.tres" id="2_vrr1p"]
+[ext_resource type="Texture2D" uid="uid://07uroqboajom" path="res://Art/Backgrounds/Act2_BG.png" id="2_yw5gd"]
 [ext_resource type="PackedScene" uid="uid://dd6l6fhpuajke" path="res://Scenes/rigidPlayer.tscn" id="3_fci0s"]
 [ext_resource type="TileSet" uid="uid://bfybbk5ql7iod" path="res://Art/TileSets/effectsTileSet.tres" id="3_x5o01"]
 [ext_resource type="PackedScene" uid="uid://dvbyxsl5e3ol8" path="res://Scenes/Triggers/Trigger_Helpers/TransitionField.tscn" id="4_clpok"]
@@ -19,6 +20,12 @@ cameraSpot = NodePath("CenterPosition")
 cameraSize = Vector2(704, 448)
 player = NodePath("rigidPlayer")
 transitionField = NodePath("TransitionField")
+
+[node name="Act2Bg" type="Sprite2D" parent="."]
+z_index = -100
+z_as_relative = false
+position = Vector2(1504, 256)
+texture = ExtResource("2_yw5gd")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("2_vrr1p")
@@ -70,7 +77,7 @@ polygon = PackedVector2Array(-160, -104, -264, -104, -96, -40, -96, 8, -264, 56,
 position = Vector2(-16, 56)
 rotation = 0.785398
 
-[node name="Bullet" parent="securityCameraTrigger/GunSprite" index="0"]
+[node name="Bullet" parent="securityCameraTrigger/GunSprite" index="1"]
 MAX_ROTATION_SPEED = 180
 
 [node name="TriggerKeySprite" parent="securityCameraTrigger" index="3"]
@@ -93,7 +100,7 @@ polygon = PackedVector2Array(-160, -56, -224, -56, -256, -64, -256, -56, -264, -
 position = Vector2(16, 56)
 rotation = 2.35619
 
-[node name="Bullet" parent="securityCameraTrigger2/GunSprite" index="0"]
+[node name="Bullet" parent="securityCameraTrigger2/GunSprite" index="1"]
 MAX_ROTATION_SPEED = 180
 
 [node name="TriggerKeySprite" parent="securityCameraTrigger2" index="3"]

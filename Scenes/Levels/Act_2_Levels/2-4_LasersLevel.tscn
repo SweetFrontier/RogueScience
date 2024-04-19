@@ -1,7 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://dsixk1hdpya32"]
+[gd_scene load_steps=17 format=3 uid="uid://dsixk1hdpya32"]
 
 [ext_resource type="Script" path="res://Scripts/levelController.gd" id="1_6n505"]
 [ext_resource type="TileSet" uid="uid://bnpggr5480t5q" path="res://Art/TileSets/initialTileSet.tres" id="2_52fm5"]
+[ext_resource type="Texture2D" uid="uid://07uroqboajom" path="res://Art/Backgrounds/Act2_BG.png" id="2_inw4p"]
 [ext_resource type="PackedScene" uid="uid://dd6l6fhpuajke" path="res://Scenes/rigidPlayer.tscn" id="3_2j53a"]
 [ext_resource type="TileSet" uid="uid://bfybbk5ql7iod" path="res://Art/TileSets/effectsTileSet.tres" id="3_4ry5h"]
 [ext_resource type="PackedScene" uid="uid://dvbyxsl5e3ol8" path="res://Scenes/Triggers/Trigger_Helpers/TransitionField.tscn" id="4_yy7xw"]
@@ -22,6 +23,12 @@ cameraSpot = NodePath("CenterPosition")
 cameraSize = Vector2(800, 544)
 player = NodePath("rigidPlayer")
 transitionField = NodePath("TransitionField")
+
+[node name="Act2Bg" type="Sprite2D" parent="."]
+z_index = -100
+z_as_relative = false
+position = Vector2(1088, 128)
+texture = ExtResource("2_inw4p")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("2_52fm5")
@@ -128,7 +135,7 @@ polygon = PackedVector2Array(-76.1374, -14.6529, -96.7066, 9.86053, 0, 0)
 position = Vector2(48, 80)
 rotation = 0.785398
 
-[node name="Bullet" parent="securityCameraTrigger4/GunSprite" index="0"]
+[node name="Bullet" parent="securityCameraTrigger4/GunSprite" index="1"]
 MAX_ROTATION_SPEED = 360
 BULLET_SPEED = 2000.0
 

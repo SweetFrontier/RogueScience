@@ -1,7 +1,8 @@
-[gd_scene load_steps=142 format=3 uid="uid://wmyjivq5y5ev"]
+[gd_scene load_steps=143 format=3 uid="uid://wmyjivq5y5ev"]
 
 [ext_resource type="Script" path="res://Scripts/levelController.gd" id="1_tfjnn"]
 [ext_resource type="TileSet" uid="uid://bnpggr5480t5q" path="res://Art/TileSets/initialTileSet.tres" id="2_nihua"]
+[ext_resource type="TileSet" uid="uid://bfybbk5ql7iod" path="res://Art/TileSets/effectsTileSet.tres" id="3_33ly8"]
 [ext_resource type="PackedScene" uid="uid://dvbyxsl5e3ol8" path="res://Scenes/Triggers/Trigger_Helpers/TransitionField.tscn" id="3_rb402"]
 [ext_resource type="PackedScene" uid="uid://dd6l6fhpuajke" path="res://Scenes/rigidPlayer.tscn" id="4_qv8mc"]
 [ext_resource type="PackedScene" uid="uid://dnqoj4eg2l7le" path="res://Scenes/Triggers/trampolineTrigger.tscn" id="5_ooodl"]
@@ -934,7 +935,14 @@ DEBUG_MODE = true
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("2_nihua")
 format = 2
-layer_0/tile_data = PackedInt32Array(0, 3, 0, 65536, 196611, 1, 131072, 196611, 1, 196608, 196611, 1, 262144, 3, 1, 327680, 3, 1, 32, 65539, 0, 393216, 3, 1, 458752, 3, 1, 524288, 196611, 1, 589824, 196611, 1, 655360, 196611, 1, 720896, 196611, 1, 786432, 196611, 1, 851968, 65539, 1, 917504, 65539, 1, 983040, 65539, 1, 1048576, 65539, 1, 1114112, 65539, 1, 1179648, 65539, 1, 262145, 65539, 0, 262146, 65539, 0, 262147, 327683, 0, 262148, 327683, 0, 262149, 327683, 0, 262150, 327683, 0, 262151, 327683, 0, 262152, 327683, 0, 262153, 65539, 0, 262154, 65539, 0, 327690, 131075, 1, 393226, 196611, 1, 458762, 196611, 1, 524298, 3, 1, 786448, 65539, 0, 786449, 65539, 0, 524304, 262147, 0, 524305, 327683, 0, 524306, 65539, 0, 786450, 65539, 0, 786447, 65539, 4, 720910, 3, 3, 786446, 65539, 1, 655373, 393219, 1, 720909, 393219, 2, 655372, 65539, 1, 720908, 65539, 1, 786444, 524291, 2, 786445, 65539, 1, 327689, 524291, 2, 262155, 327683, 0, 262156, 327683, 0, 262157, 327683, 0, 262158, 327683, 0, 262159, 327683, 0, 851969, 3, 3, 851970, 65539, 3, 917507, 458755, 9, 1048583, 262147, 0, 1048584, 327683, 0, 393246, 327683, 0, 393247, 65539, 0, 327712, 196611, 1, 262176, 196611, 1, 196640, 196611, 1, 131104, 196611, 1, 65568, 196611, 1, 262163, 524291, 1, 327699, 65539, 1, 327700, 393219, 1, 327709, 131075, 0, 393245, 65539, 2, 393248, 131075, 1, 327708, 65539, 0, 327707, 65539, 0, 327706, 3, 0, 393237, 65539, 0, 393238, 65539, 0, 393239, 327683, 0, 393240, 327683, 0, 393241, 327683, 0, 393242, 65539, 2, 393236, 65539, 1, 393243, 65539, 2, 393244, 65539, 2, 262160, 393219, 0, 589844, 65539, 1, 589845, 65539, 1, 655381, 65539, 1, 655371, 65539, 1, 720907, 524291, 2, 589834, 3, 1, 655370, 524291, 2, 589835, 65539, 1, 720915, 458755, 1, 786451, 458755, 2, 720916, 65539, 1, 655380, 3, 1, 589842, 393219, 4, 589843, 458755, 4, 1245184, 3, 1, 458784, 131075, 1, 524320, 131075, 1, 589856, 131075, 1, 655392, 131075, 1, 720917, 589827, 2, 786456, 196611, 1, 720920, 196611, 0, 720922, 196611, 1, 720924, 196611, 0, 786460, 196611, 1, 655386, 196611, 0, 851992, 131075, 1, 786458, 196611, 1, 851994, 196611, 1, 851996, 196611, 1, 589846, 131075, 1, 524310, 131075, 1, 458774, 131075, 1, 655382, 131075, 2, 851990, 131075, 3, 917526, 131075, 4, 851991, 196611, 3, 917527, 65539, 1, 917525, 65539, 0, 917524, 393219, 2, 851987, 65539, 1, 917523, 65539, 1, 1179678, 65539, 1, 1441829, 131075, 4, 1441815, 65539, 0, 1441814, 65539, 0, 1441813, 65539, 0, 1441812, 65539, 0, 1441811, 65539, 0, 1441810, 65539, 0, 1441809, 65539, 0, 1441808, 65539, 0, 1441807, 65539, 0, 1441806, 65539, 0, 1441805, 65539, 0, 1441804, 65539, 0, 1441803, 65539, 0, 1441802, 65539, 0, 1441801, 65539, 0, 1441800, 65539, 0, 1441799, 65539, 0, 1441798, 65539, 0, 1441797, 65539, 0, 1441796, 65539, 0, 1441795, 65539, 4, 1310720, 3, 1, 1376256, 3, 1, 1441792, 3, 1, 1441793, 65539, 1, 1441794, 65539, 1, 1114141, 65539, 1, 1441816, 131075, 4, 1441817, 65539, 1, 1376282, 458755, 2, 1441818, 65539, 1, 1376283, 65539, 1, 1441819, 65539, 1, 1310748, 65539, 1, 1376284, 65539, 1, 1441820, 65539, 1, 1376280, 131075, 3, 1376281, 196611, 3, 1310746, 458755, 1, 1245211, 458755, 1, 1310747, 458755, 2, 1245212, 65539, 1, 1179676, 3, 1, 1114140, 3, 1, 1048604, 3, 1, 983068, 3, 1, 917532, 3, 1, 1376295, 131075, 1, 1310759, 196611, 1, 1245223, 196611, 1, 1179687, 196611, 1, 1441831, 131075, 1, 1441830, 65539, 1, 1441822, 65539, 1, 1441821, 65539, 1, 1507328, 65539, 1, 1507329, 65539, 1, 1507330, 65539, 1, 1507331, 65539, 1, 1507332, 65539, 1, 1507333, 65539, 1, 1507334, 65539, 1, 1507335, 65539, 1, 1507336, 65539, 1, 1507337, 65539, 1, 1507338, 65539, 1, 1507339, 65539, 1, 1507340, 65539, 1, 1507341, 65539, 1, 1507342, 65539, 1, 1507343, 65539, 1, 1507344, 65539, 1, 1507345, 65539, 1, 1507346, 65539, 1, 1507347, 65539, 1, 1507348, 65539, 1, 1507349, 65539, 1, 1507350, 65539, 1, 1507351, 65539, 1, 1507352, 65539, 1, 1507353, 65539, 1, 1507354, 65539, 1, 1507355, 65539, 1, 1507356, 65539, 1, 1507357, 65539, 1, 1507358, 65539, 1, 1507359, 65539, 1, 1507360, 65539, 1, 1507361, 65539, 1, 1507362, 65539, 1, 1507363, 65539, 1, 1507364, 65539, 1, 1507365, 65539, 1, 1507366, 65539, 1, 1179677, 65539, 1, 1245213, 65539, 1, 1310749, 65539, 1, 1376285, 65539, 1, 1245214, 65539, 1, 1310750, 65539, 1, 1376286, 65539, 1, 1507367, 65539, 1, 1114151, 196611, 1, 1048615, 196611, 1, 983079, 196611, 1, 917543, 196611, 1, 852007, 196611, 1, 786471, 196611, 1, 720935, 196611, 1, 655399, 196611, 1, 589863, 196611, 1, 524327, 196611, 1, 458791, 196611, 1, 393255, 196611, 1, 327719, 196611, 1, 262183, 196611, 1, 196647, 131075, 1, 393217, 262147, 3, 458753, 262147, 4, 393218, 196611, 4, 327683, 262147, 3, 393219, 262147, 4, 327684, 393219, 3, 393220, 393219, 4, 327685, 65539, 4, 327686, 3, 3, 327681, 65539, 1, 458760, 393219, 3, 524296, 393219, 4, 524297, 458755, 4, 393222, 393219, 3, 458758, 393219, 4, 458759, 458755, 4, 393221, 458755, 4, 393224, 3, 3, 393225, 65539, 3, 458761, 65539, 4, 327687, 65539, 3, 393223, 65539, 4, 327682, 65539, 1, 917506, 65539, 4, 917505, 65539, 1, 1245215, 65539, 1, 1310751, 65539, 1, 1376287, 65539, 1, 1441823, 65539, 1, 1310752, 65539, 1, 1376288, 65539, 1, 1441824, 65539, 1, 1376289, 65539, 1, 1441825, 65539, 1, 1376290, 65539, 1, 1441826, 65539, 1, 1441827, 65539, 1, 1441828, 65539, 1, 983042, 131075, 2, 983041, 65539, 2, 720911, 65539, 3, 851981, 524291, 2, 851982, 65539, 2, 851983, 65539, 2, 851984, 65539, 2, 851985, 65539, 2, 917522, 65539, 1, 851986, 65539, 1, 917530, 196611, 1, 983066, 196611, 1, 1048602, 196611, 1, 1114138, 196611, 1, 917528, 131075, 2, 1376258, 65539, 1, 1376259, 3, 3, 1310721, 65539, 1, 1376257, 65539, 1, 327692, 65539, 1, 327691, 65539, 1, 589836, 524291, 1, 524299, 524291, 1, 1179674, 589827, 2, 1245209, 589827, 2, 1310744, 262147, 4, 1245208, 196611, 3, 1179673, 589827, 3, 1310726, 262147, 5, 1310725, 393219, 4, 1245185, 524291, 1, 1310722, 524291, 1, 1376260, 65539, 3, 983043, 65539, 1, 1048579, 65539, 1, 1114115, 65539, 1, 1179652, 524291, 1, 1245188, 524291, 2, 1179651, 524291, 2, 1245189, 3, 3, 1245190, 65539, 3, 1245207, 131075, 3, 1310743, 196611, 4, 1310742, 65539, 1, 1310741, 65539, 1, 1310740, 65539, 1, 1310739, 65539, 1, 1310738, 65539, 1, 1310737, 65539, 1, 1310736, 65539, 1, 1310735, 65539, 1, 65535, 65539, 1, 131071, 65539, 1, 196607, 65539, 1, 262143, 65539, 1, 327679, 65539, 1, 393215, 65539, 1, 458751, 65539, 1, 524287, 65539, 1, 589823, 65539, 1, 655359, 65539, 1, 720895, 65539, 1, 786431, 65539, 1, 851967, 65539, 1, 917503, 65539, 1, 1179647, 65539, 1, 1114111, 65539, 1, 1048575, 65539, 1, 983039, 65539, 1, 1245183, 65539, 1, 1310719, 65539, 1, 1376255, 65539, 1, 1441791, 65539, 1, 1507327, 65539, 1, 1572863, 65539, 1, 1507368, 65539, 1, 1441832, 65539, 1, 1376296, 65539, 1, 1310760, 65539, 1, 1245224, 65539, 1, 1179688, 65539, 1, 1114152, 65539, 1, 1048616, 65539, 1, 983080, 65539, 1, 917544, 65539, 1, 852008, 65539, 1, 786472, 65539, 1, 720936, 65539, 1, 655400, 65539, 1, 589864, 65539, 1, 524328, 65539, 1, 458792, 65539, 1, 393256, 65539, 1, 327720, 65539, 1, 262184, 65539, 1, 196648, 65539, 1, 131112, 65539, 1, 65576, 65539, 1, 40, 65539, 1, -1, 65539, 1, -65536, 65539, 1, -65496, 65539, 1, 131111, 65539, 1, 65575, 65539, 1, 39, 65539, 1, -65497, 65539, 1, -65504, 65539, 1, -65503, 65539, 1, -65502, 65539, 1, -65501, 65539, 1, -65500, 65539, 1, -65499, 65539, 1, -65498, 65539, 1, 36, 524291, 2, 65573, 524291, 2, 131110, 524291, 2, 65574, 65539, 1, 38, 65539, 1, 37, 65539, 1, 33, 65539, 1, 65569, 65539, 1, 131105, 65539, 1, 196641, 65539, 1, 262177, 65539, 1, 327713, 65539, 1, 393249, 65539, 1, 458785, 65539, 1, 524321, 65539, 1, 589857, 65539, 1, 655393, 65539, 1, 720929, 65539, 1, 786465, 65539, 1, 852001, 65539, 1, 917537, 65539, 1, 983073, 65539, 1, 983072, 65539, 1, 917536, 65539, 1, 852000, 65539, 1, 786464, 65539, 1, 720928, 65539, 1, 983064, 65539, 1, 983063, 65539, 1, 983062, 65539, 1, 983061, 65539, 1, 983060, 65539, 1, 983059, 65539, 1, 983058, 65539, 1, -65535, 65539, 1, -65534, 65539, 1, -65533, 65539, 1, -65532, 65539, 1, -65531, 65539, 1, -65530, 65539, 1, -65529, 65539, 1, -65528, 65539, 1, -65527, 65539, 1, -65526, 65539, 1, -65525, 65539, 1, -65524, 65539, 1, -65523, 65539, 1, -65522, 65539, 1, -65521, 65539, 1, -65520, 65539, 1, -65519, 65539, 1, -65518, 65539, 1, -65517, 65539, 1, -65516, 65539, 1, -65515, 65539, 1, -65514, 65539, 1, -65513, 65539, 1, -65512, 65539, 1, -65511, 65539, 1, -65510, 65539, 1, -65509, 65539, 1, -65508, 65539, 1, -65507, 65539, 1, -65506, 65539, 1, -65505, 65539, 1, 1376291, 3, 3, 1310754, 393219, 1, 1245216, 3, 3, 1245217, 65539, 3, 1179679, 393219, 1, 1114142, 393219, 1, 1048605, 393219, 1, 1310753, 65539, 1, 1376292, 65539, 3, 458768, 65539, 1, 393232, 65539, 1, 327696, 65539, 1, 458773, 65539, 1, 524309, 65539, 1, 524308, 65539, 1, 524307, 65539, 1, 458771, 65539, 1, 458772, 65539, 1, 393235, 65539, 1, 458769, 65539, 3, 458770, 131075, 3)
+layer_0/tile_data = PackedInt32Array(0, 131078, 1, 65536, 131078, 1, 131072, 131078, 1, 196608, 131078, 1, 262144, 786438, 3, 327680, 65542, 1, 32, 6, 1, 393216, 65542, 1, 458752, 131078, 1, 524288, 131078, 1, 589824, 131078, 1, 655360, 131078, 1, 720896, 131078, 1, 786432, 131078, 1, 851968, 786438, 3, 917504, 65542, 1, 983040, 786438, 2, 1048576, 131078, 1, 1114112, 131078, 1, 1179648, 131078, 1, 262145, 65542, 0, 262146, 65542, 0, 262147, 65542, 0, 262148, 65542, 0, 262149, 327686, 0, 262150, 327686, 0, 262151, 327686, 0, 262152, 327686, 0, 262153, 720902, 0, 262154, 65542, 0, 327690, 851974, 5, 393226, 196614, 1, 458762, 196614, 1, 524298, 655366, 3, 786448, 65542, 0, 786449, 65542, 0, 524304, 786438, 1, 524305, 327686, 0, 524306, 720902, 0, 786450, 65542, 0, 786447, 65542, 4, 720910, 6, 3, 786446, 65542, 1, 655373, 393222, 1, 720909, 393222, 2, 655372, 393222, 2, 720908, 458758, 10, 786444, 458758, 11, 786445, 458758, 10, 327689, 458758, 11, 262155, 65542, 0, 262156, 655366, 0, 262157, 327686, 0, 262158, 327686, 0, 262159, 327686, 0, 851969, 6, 3, 851970, 65542, 3, 917507, 589830, 7, 1048583, 262147, 0, 1048584, 327683, 0, 393246, 327686, 0, 393247, 327686, 0, 327712, 6, 1, 262176, 6, 1, 196640, 6, 1, 131104, 6, 1, 65568, 6, 1, 262163, 524294, 3, 327699, 524294, 5, 327700, 393222, 1, 327709, 131078, 0, 393245, 655366, 1, 393248, 983046, 3, 327708, 65542, 0, 327707, 65542, 0, 327706, 6, 0, 393237, 65542, 0, 393238, 655366, 0, 393239, 327686, 0, 393240, 327686, 0, 393241, 327686, 0, 393242, 720902, 1, 393236, 393222, 2, 393243, 65542, 2, 393244, 65542, 2, 262160, 851974, 0, 589844, 458758, 10, 589845, 65542, 1, 655381, 327686, 10, 655371, 458758, 10, 720907, 458758, 11, 589834, 6, 1, 655370, 458758, 11, 589835, 393222, 2, 720915, 589830, 1, 786451, 65539, 1, 720916, 720902, 1, 655380, 6, 1, 589842, 393222, 4, 589843, 458758, 4, 1245184, 786438, 3, 458784, 6, 1, 524320, 6, 1, 589856, 6, 1, 655392, 6, 1, 720917, 327686, 11, 786456, 196614, 1, 720920, 196614, 0, 720922, 196614, 1, 720924, 196614, 0, 786460, 196614, 1, 655386, 196614, 0, 851992, 720902, 3, 786458, 196614, 1, 851994, 196614, 1, 851996, 196614, 1, 589846, 131078, 1, 524310, 131078, 1, 458774, 131078, 1, 655382, 131078, 2, 851990, 131078, 3, 917526, 131078, 4, 851991, 196614, 3, 917527, 65542, 1, 917525, 65542, 0, 917524, 65542, 0, 851987, 131078, 1, 917523, 786438, 3, 1179678, 393222, 2, 1441829, 65542, 0, 1441815, 65542, 0, 1441814, 65542, 0, 1441813, 65542, 0, 1441812, 65542, 0, 1441811, 65542, 0, 1441810, 65542, 0, 1441809, 65542, 0, 1441808, 65542, 0, 1441807, 65542, 0, 1441806, 65542, 0, 1441805, 65542, 0, 1441804, 65542, 0, 1441803, 65542, 0, 1441802, 65542, 0, 1441801, 65542, 0, 1441800, 65542, 0, 1441799, 65542, 0, 1441798, 65542, 0, 1441797, 65542, 0, 1441796, 65542, 4, 1441795, 65542, 1, 1310720, 65542, 1, 1376256, 65542, 1, 1441792, 65542, 1, 1441793, 65542, 1, 1441794, 65542, 1, 1114141, 393222, 2, 1441816, 131078, 4, 1441817, 65542, 1, 1376282, 458758, 2, 1441818, 65542, 1, 1376283, 65542, 1, 1441819, 65542, 1, 1310748, 65542, 1, 1376284, 65542, 1, 1441820, 65542, 1, 1376280, 131078, 3, 1376281, 196614, 3, 1310746, 196614, 10, 1245211, 196614, 10, 1310747, 458758, 2, 1245212, 851974, 3, 1179676, 6, 1, 1114140, 6, 1, 1048604, 655366, 3, 983068, 196614, 1, 917532, 196614, 1, 1376295, 6, 1, 1310759, 6, 1, 1245223, 6, 1, 1179687, 6, 1, 1441831, 851974, 3, 1441830, 65542, 0, 1441822, 65542, 1, 1441821, 65542, 1, 1507328, 65542, 1, 1507329, 65542, 1, 1507330, 65542, 1, 1507331, 65542, 1, 1507332, 65542, 1, 1507333, 65542, 1, 1507334, 65542, 1, 1507335, 65542, 1, 1507336, 65542, 1, 1507337, 65542, 1, 1507338, 65542, 1, 1507339, 65542, 1, 1507340, 65542, 1, 1507341, 65542, 1, 1507342, 65542, 1, 1507343, 65542, 1, 1507344, 65542, 1, 1507345, 65542, 1, 1507346, 65542, 1, 1507347, 65542, 1, 1507348, 65542, 1, 1507349, 65542, 1, 1507350, 65542, 1, 1507351, 65542, 1, 1507352, 65542, 1, 1507353, 65542, 1, 1507354, 65542, 1, 1507355, 65542, 1, 1507356, 65542, 1, 1507357, 65542, 1, 1507358, 65542, 1, 1507359, 65542, 1, 1507360, 65542, 1, 1507361, 65542, 1, 1507362, 65542, 1, 1507363, 65542, 1, 1507364, 65542, 1, 1507365, 65542, 1, 1507366, 65542, 1, 1179677, 65542, 1, 1245213, 65542, 1, 1310749, 65542, 1, 1376285, 65542, 1, 1245214, 65542, 1, 1310750, 65542, 1, 1376286, 65542, 1, 1507367, 65542, 1, 1114151, 6, 1, 1048615, 6, 1, 983079, 6, 1, 917543, 6, 1, 852007, 6, 1, 786471, 6, 1, 720935, 6, 1, 655399, 6, 1, 589863, 6, 1, 524327, 6, 1, 458791, 6, 1, 393255, 6, 1, 327719, 6, 1, 262183, 6, 1, 196647, 6, 1, 393217, 262150, 3, 458753, 262150, 4, 393218, 196614, 4, 327683, 262150, 3, 393219, 262150, 4, 327684, 393222, 3, 393220, 393222, 4, 327685, 65542, 4, 327686, 6, 3, 327681, 65542, 1, 458760, 393222, 3, 524296, 393222, 4, 524297, 458758, 4, 393222, 393222, 3, 458758, 393222, 4, 458759, 458758, 4, 393221, 458758, 4, 393224, 6, 3, 393225, 65542, 3, 458761, 65542, 4, 327687, 65542, 3, 393223, 65542, 4, 327682, 65542, 1, 917506, 65542, 4, 917505, 65542, 1, 1245215, 6, 11, 1310751, 65542, 1, 1376287, 65542, 1, 1441823, 65542, 1, 1310752, 65542, 1, 1376288, 65542, 1, 1441824, 65542, 1, 1376289, 65542, 1, 1441825, 65542, 1, 1376290, 6, 11, 1441826, 65542, 1, 1441827, 65542, 1, 1441828, 65542, 4, 983042, 65542, 2, 983041, 65542, 2, 720911, 65542, 3, 851981, 458758, 11, 851982, 65542, 2, 851983, 65542, 2, 851984, 65542, 2, 851985, 65542, 2, 917522, 6, 1, 851986, 851974, 2, 917530, 196614, 1, 983066, 196614, 1, 1048602, 196614, 1, 1114138, 196614, 1, 917528, 131078, 1, 1376258, 6, 11, 1376259, 6, 3, 1310721, 393222, 2, 1376257, 65542, 1, 327692, 131078, 2, 327691, 65542, 2, 589836, 393222, 1, 524299, 393222, 1, 1179674, 327686, 11, 1245209, 589830, 2, 1310744, 262150, 4, 1245208, 196614, 6, 1179673, 589830, 1, 1310726, 262150, 5, 1310725, 393222, 4, 1245185, 6, 10, 1310722, 6, 10, 1376260, 65542, 3, 983043, 720902, 2, 1048579, 196614, 1, 1114115, 196614, 1, 1179652, 524294, 1, 1245188, 524294, 2, 1179651, 458758, 11, 1245189, 458758, 6, 1245190, 65542, 3, 1245207, 131078, 3, 1310743, 262150, 6, 1310742, 327686, 0, 1310741, 327686, 0, 1310740, 327686, 0, 1310739, 327686, 0, 1310738, 327686, 0, 1310737, 327686, 0, 1310736, 327686, 0, 1310735, 262150, 0, 65535, 65542, 1, 131071, 65542, 1, 196607, 65542, 1, 262143, 65542, 1, 327679, 65542, 1, 393215, 65542, 1, 458751, 65542, 1, 524287, 65542, 1, 589823, 65542, 1, 655359, 65542, 1, 720895, 65542, 1, 786431, 65542, 1, 851967, 65542, 1, 917503, 65542, 1, 1179647, 65542, 1, 1114111, 65542, 1, 1048575, 65542, 1, 983039, 65542, 1, 1245183, 65542, 1, 1310719, 65542, 1, 1376255, 65542, 1, 1441791, 65542, 1, 1507327, 65542, 1, 1572863, 65542, 1, 1507368, 65542, 1, 1441832, 65542, 1, 1376296, 65542, 1, 1310760, 65542, 1, 1245224, 65542, 1, 1179688, 65542, 1, 1114152, 65542, 1, 1048616, 65542, 1, 983080, 65542, 1, 917544, 65542, 1, 852008, 65542, 1, 786472, 65542, 1, 720936, 65542, 1, 655400, 65542, 1, 589864, 65542, 1, 524328, 65542, 1, 458792, 65542, 1, 393256, 65542, 1, 327720, 65542, 1, 262184, 65542, 1, 196648, 65542, 1, 131112, 65542, 1, 65576, 65542, 1, 40, 65542, 1, -1, 65542, 1, -65536, 786438, 2, -65496, 65542, 1, 131111, 458758, 10, 65575, 65542, 1, 39, 65542, 1, -65497, 65542, 1, -65504, 851974, 2, -65503, 786438, 2, -65502, 65542, 2, -65501, 65542, 2, -65500, 458758, 10, -65499, 65542, 1, -65498, 65542, 1, 36, 458758, 11, 65573, 458758, 11, 131110, 458758, 11, 65574, 458758, 10, 38, 65542, 1, 37, 458758, 10, 33, 131078, 1, 65569, 131078, 1, 131105, 131078, 1, 196641, 131078, 1, 262177, 131078, 1, 327713, 131078, 1, 393249, 131078, 1, 458785, 131078, 1, 524321, 131078, 1, 589857, 131078, 1, 655393, 131078, 1, 720929, 131078, 1, 786465, 131078, 1, 852001, 131078, 1, 917537, 131078, 1, 983073, 131078, 2, 983072, 6, 2, 917536, 6, 1, 852000, 6, 1, 786464, 6, 1, 720928, 6, 1, 983064, 131078, 2, 983063, 65542, 2, 983062, 65542, 2, 983061, 65542, 2, 983060, 65542, 2, 983059, 65542, 2, 983058, 6, 2, -65535, 65542, 2, -65534, 65542, 2, -65533, 65542, 2, -65532, 65542, 2, -65531, 65542, 2, -65530, 65542, 2, -65529, 65542, 2, -65528, 65542, 2, -65527, 65542, 2, -65526, 65542, 2, -65525, 65542, 2, -65524, 65542, 2, -65523, 65542, 2, -65522, 65542, 2, -65521, 65542, 2, -65520, 65542, 2, -65519, 65542, 2, -65518, 65542, 2, -65517, 65542, 2, -65516, 65542, 2, -65515, 65542, 2, -65514, 65542, 2, -65513, 65542, 2, -65512, 65542, 2, -65511, 65542, 2, -65510, 65542, 2, -65509, 65542, 2, -65508, 65542, 2, -65507, 65542, 2, -65506, 65542, 2, -65505, 65542, 2, 1376291, 6, 3, 1310754, 6, 10, 1245216, 6, 3, 1245217, 65542, 3, 1179679, 6, 10, 1114142, 6, 10, 1048605, 6, 10, 1310753, 65542, 4, 1376292, 65542, 3, 458768, 196614, 1, 393232, 196614, 1, 327696, 196614, 1, 458773, 65542, 1, 524309, 65542, 1, 524308, 65542, 1, 524307, 851974, 3, 458771, 6, 1, 458772, 65542, 1, 393235, 6, 1, 458769, 65542, 3, 458770, 131078, 3, 131070, 65542, 1, 196606, 65542, 1, 655358, 65542, 1, 917502, 65542, 1, 1048574, 65542, 1, 1376254, 65542, 1, -2, 65542, 1, 65534, 65542, 1, 262142, 65542, 1, 327678, 65542, 1, 393214, 65542, 1, 458750, 65542, 1, 524286, 65542, 1, 589822, 65542, 1, 720894, 65542, 1, 786430, 65542, 1, 851966, 65542, 1, 983038, 65542, 1, 1114110, 65542, 1, 1179646, 65542, 1, 1245182, 65542, 1, 1310718, 65542, 1, 1441790, 65542, 1, 1507326, 65542, 1, 1572862, 65542, 1, -65495, 65542, 1, 41, 65542, 1, 65577, 65542, 1, 131113, 65542, 1, 196649, 65542, 1, 262185, 65542, 1, 327721, 65542, 1, 393257, 65542, 1, 458793, 65542, 1, 524329, 65542, 1, 589865, 65542, 1, 655401, 65542, 1, 720937, 65542, 1, 786473, 65542, 1, 852009, 65542, 1, 917545, 65542, 1, 983081, 65542, 1, 1048617, 65542, 1, 1114153, 65542, 1, 1179689, 65542, 1, 1245225, 65542, 1, 1310761, 65542, 1, 1376297, 65542, 1, 1441833, 65542, 1, 1507369, 65542, 1)
+
+[node name="EffectsMap" type="TileMap" parent="."]
+z_index = 1
+z_as_relative = false
+tile_set = ExtResource("3_33ly8")
+format = 2
+layer_0/tile_data = PackedInt32Array(262160, 655362, 0, 393232, 393226, 5, 393235, 786434, 0, 327699, 720898, 0, 327709, 131074, 0, 393245, 2, 1, 393248, 589826, 5, 262176, 851970, 2, 131104, 196610, 2, 131070, 851978, 0, 1310718, 524298, 13, 1376254, 1048586, 0, 524287, 196618, 13, 786431, 720906, 6, 1441791, 589834, 12, -65536, 65546, 11, 65536, 524298, 14, 262144, 327690, 11, 393216, 10, 1, 589824, 393226, 13, 786432, 786442, 13, 393217, 589834, 11, 655361, 458762, 6, 720897, 196618, 11, 851969, 851978, 1, 1310721, 262154, 5, 327682, 720906, 7, 458754, 720906, 13, 655362, 983050, 1, 1507330, 786442, 5, 720899, 786442, 0, 1310723, 65546, 11, 1507331, 327690, 0, -65532, 720906, 13, 458756, 589834, 11, 983044, 655370, 3, 1245188, 327690, 3, 1441796, 10, 11, 1507332, 720906, 10, -65531, 65546, 3, 262149, 327690, 13, 1245189, 131082, 14, 1376261, 262154, 5, -65530, 983050, 2, 851974, 655370, 2, -65529, 786442, 4, 589831, 10, 11, 1441799, 720906, 11, 327688, 458762, 4, 720904, 458762, 6, 1376264, 131082, 2, 589833, 851978, 0, 1376265, 393226, 6, 262154, 262154, 3, 589834, 589834, 5, 262155, 65546, 3, 524299, 196618, 8, 1310731, 262154, 13, 1376267, 589834, 2, -65524, 589834, 4, 327692, 196618, 0, 589836, 393226, 1, 1376269, 131082, 4, 720910, 786442, 0, 1376270, 524298, 4, 1441806, 327690, 3, -65520, 10, 11, 458768, 983050, 0, 262163, 393226, 1, 1310739, 10, 10, 1441811, 589834, 12, 327700, 524298, 14, 393236, 458762, 9, 589844, 1048586, 3, 655380, 131082, 1, 393237, 458762, 4, 917525, 10, 3, 983061, 65546, 0, 1376277, 393226, 6, 458774, 196618, 9, 655382, 65546, 13, 983062, 458762, 4, 1310743, 65546, 15, 1441815, 196618, 1, 1507351, 720906, 2, 786456, 327690, 0, 1441816, 786442, 3, 393241, 131082, 8, 327706, 262154, 4, 393242, 65546, 1, 786458, 524298, 4, 917530, 65546, 3, 1507354, 65546, 15, 1376283, 1048586, 2, 1310748, 131082, 1, 1441820, 786442, 11, 720925, 917514, 10, 983069, 196618, 7, 1376285, 851978, 6, 720926, 983050, 2, 786462, 196618, 10, 1310750, 131082, 11, 1376286, 851978, 1, 1507359, 655370, 12, -65504, 65546, 8, 32, 65546, 2, 65568, 983050, 2, 1048608, 10, 2, 1179680, 655370, 8, 1245216, 983050, 3, 65569, 131082, 8, 655393, 458762, 13, 720929, 983050, 1, 917537, 589834, 11, 1114145, 524298, 12, 1376289, 655370, 0, 1441825, 786442, 11, 524322, 851978, 3, 852002, 131082, 15, 983074, 65546, 4, 1114146, 720906, 0, 1310754, 393226, 4, 983075, 458762, 1, 327716, 589834, 11, 655396, 1048586, 3, 852004, 196618, 7, 1048612, 262154, 13, 1114148, 393226, 5, 1507364, 524298, 12, 65573, 786442, 3, 1507365, 10, 11, 38, 131082, 2, -65497, 786442, 10, 524327, 851978, 0, 1048615, 327690, 13, 1507367, 10, 14, 65576, 262154, 3, 720936, 720906, 1, 983080, 589834, 12, 1114152, 720906, 3, 41, 786442, 13, 589865, 65546, 3, 852009, 196618, 0, 917545, 720906, 2, 983081, 983050, 0, 1114153, 589834, 11, 1441833, 393226, 13)
 
 [node name="CenterPosition" type="Marker2D" parent="."]
 position = Vector2(640, 368)
@@ -1011,150 +1019,200 @@ position = Vector2(1152, 0)
 
 [node name="Vent1" type="AnimatedSprite2D" parent="VentSystem/VentPath"]
 modulate = Color(1, 1, 1, 0.494118)
+z_index = 11
+z_as_relative = false
 position = Vector2(64, 0)
 sprite_frames = SubResource("SpriteFrames_8i4te")
 animation = &"curved"
 
 [node name="Vent2" type="AnimatedSprite2D" parent="VentSystem/VentPath"]
 modulate = Color(1, 1, 1, 0.494118)
+z_index = 11
+z_as_relative = false
 position = Vector2(64, 64)
 sprite_frames = SubResource("SpriteFrames_8i4te")
 animation = &"curved"
 
 [node name="Vent3" type="AnimatedSprite2D" parent="VentSystem/VentPath"]
 modulate = Color(1, 1, 1, 0.494118)
+z_index = 11
+z_as_relative = false
 position = Vector2(0, 64)
 sprite_frames = SubResource("SpriteFrames_8i4te")
 animation = &"curved"
 
 [node name="Vent4" type="AnimatedSprite2D" parent="VentSystem/VentPath"]
 modulate = Color(1, 1, 1, 0.494118)
+z_index = 11
+z_as_relative = false
 position = Vector2(-64, 64)
 sprite_frames = SubResource("SpriteFrames_8i4te")
 animation = &"curved"
 
 [node name="Vent5" type="AnimatedSprite2D" parent="VentSystem/VentPath"]
 modulate = Color(1, 1, 1, 0.494118)
+z_index = 11
+z_as_relative = false
 position = Vector2(-128, 64)
 sprite_frames = SubResource("SpriteFrames_8i4te")
 animation = &"curved"
 
 [node name="Vent6" type="AnimatedSprite2D" parent="VentSystem/VentPath"]
 modulate = Color(1, 1, 1, 0.494118)
+z_index = 11
+z_as_relative = false
 position = Vector2(-192, 64)
 sprite_frames = SubResource("SpriteFrames_8i4te")
 animation = &"curved"
 
 [node name="Vent7" type="AnimatedSprite2D" parent="VentSystem/VentPath"]
 modulate = Color(1, 1, 1, 0.494118)
+z_index = 11
+z_as_relative = false
 position = Vector2(-256, 64)
 sprite_frames = SubResource("SpriteFrames_8i4te")
 animation = &"curved"
 
 [node name="Vent8" type="AnimatedSprite2D" parent="VentSystem/VentPath"]
 modulate = Color(1, 1, 1, 0.494118)
+z_index = 11
+z_as_relative = false
 position = Vector2(-320, 64)
 sprite_frames = SubResource("SpriteFrames_8i4te")
 animation = &"curved"
 
 [node name="Vent9" type="AnimatedSprite2D" parent="VentSystem/VentPath"]
 modulate = Color(1, 1, 1, 0.494118)
+z_index = 11
+z_as_relative = false
 position = Vector2(-385, 64)
 sprite_frames = SubResource("SpriteFrames_8i4te")
 animation = &"curved"
 
 [node name="Vent10" type="AnimatedSprite2D" parent="VentSystem/VentPath"]
 modulate = Color(1, 1, 1, 0.494118)
+z_index = 11
+z_as_relative = false
 position = Vector2(-448, 64)
 sprite_frames = SubResource("SpriteFrames_8i4te")
 animation = &"curved"
 
 [node name="Vent11" type="AnimatedSprite2D" parent="VentSystem/VentPath"]
 modulate = Color(1, 1, 1, 0.494118)
+z_index = 11
+z_as_relative = false
 position = Vector2(-512, 64)
 sprite_frames = SubResource("SpriteFrames_8i4te")
 animation = &"curved"
 
 [node name="Vent12" type="AnimatedSprite2D" parent="VentSystem/VentPath"]
 modulate = Color(1, 1, 1, 0.494118)
+z_index = 11
+z_as_relative = false
 position = Vector2(-576, 64)
 sprite_frames = SubResource("SpriteFrames_8i4te")
 animation = &"curved"
 
 [node name="Vent13" type="AnimatedSprite2D" parent="VentSystem/VentPath"]
 modulate = Color(1, 1, 1, 0.494118)
+z_index = 11
+z_as_relative = false
 position = Vector2(-640, 64)
 sprite_frames = SubResource("SpriteFrames_8i4te")
 animation = &"curved"
 
 [node name="Vent14" type="AnimatedSprite2D" parent="VentSystem/VentPath"]
 modulate = Color(1, 1, 1, 0.494118)
+z_index = 11
+z_as_relative = false
 position = Vector2(-704, 64)
 sprite_frames = SubResource("SpriteFrames_8i4te")
 animation = &"curved"
 
 [node name="Vent15" type="AnimatedSprite2D" parent="VentSystem/VentPath"]
 modulate = Color(1, 1, 1, 0.494118)
+z_index = 11
+z_as_relative = false
 position = Vector2(-768, 64)
 sprite_frames = SubResource("SpriteFrames_8i4te")
 animation = &"curved"
 
 [node name="Vent16" type="AnimatedSprite2D" parent="VentSystem/VentPath"]
 modulate = Color(1, 1, 1, 0.494118)
+z_index = 11
+z_as_relative = false
 position = Vector2(-832, 64)
 sprite_frames = SubResource("SpriteFrames_8i4te")
 animation = &"curved"
 
 [node name="Vent17" type="AnimatedSprite2D" parent="VentSystem/VentPath"]
 modulate = Color(1, 1, 1, 0.494118)
+z_index = 11
+z_as_relative = false
 position = Vector2(-896, 64)
 sprite_frames = SubResource("SpriteFrames_8i4te")
 animation = &"curved"
 
 [node name="Vent18" type="AnimatedSprite2D" parent="VentSystem/VentPath"]
 modulate = Color(1, 1, 1, 0.494118)
+z_index = 11
+z_as_relative = false
 position = Vector2(-960, 64)
 sprite_frames = SubResource("SpriteFrames_8i4te")
 animation = &"curved"
 
 [node name="Vent19" type="AnimatedSprite2D" parent="VentSystem/VentPath"]
 modulate = Color(1, 1, 1, 0.494118)
+z_index = 11
+z_as_relative = false
 position = Vector2(-1024, 64)
 sprite_frames = SubResource("SpriteFrames_8i4te")
 animation = &"curved"
 
 [node name="Vent20" type="AnimatedSprite2D" parent="VentSystem/VentPath"]
 modulate = Color(1, 1, 1, 0.494118)
+z_index = 11
+z_as_relative = false
 position = Vector2(-1088, 64)
 sprite_frames = SubResource("SpriteFrames_8i4te")
 animation = &"curved"
 
 [node name="Vent21" type="AnimatedSprite2D" parent="VentSystem/VentPath"]
 modulate = Color(1, 1, 1, 0.494118)
+z_index = 11
+z_as_relative = false
 position = Vector2(-1152, 64)
 sprite_frames = SubResource("SpriteFrames_8i4te")
 animation = &"curved"
 
 [node name="Vent22" type="AnimatedSprite2D" parent="VentSystem/VentPath"]
 modulate = Color(1, 1, 1, 0.494118)
+z_index = 11
+z_as_relative = false
 position = Vector2(-1216, 64)
 sprite_frames = SubResource("SpriteFrames_8i4te")
 animation = &"curved"
 
 [node name="Vent23" type="AnimatedSprite2D" parent="VentSystem/VentPath"]
 modulate = Color(1, 1, 1, 0.494118)
+z_index = 11
+z_as_relative = false
 position = Vector2(-1216, 0)
 sprite_frames = SubResource("SpriteFrames_8i4te")
 animation = &"curved"
 
 [node name="Vent24" type="AnimatedSprite2D" parent="VentSystem/VentPath"]
 modulate = Color(1, 1, 1, 0.494118)
+z_index = 11
+z_as_relative = false
 position = Vector2(-1216, -64)
 sprite_frames = SubResource("SpriteFrames_8i4te")
 animation = &"curved"
 
 [node name="Vent25" type="AnimatedSprite2D" parent="VentSystem/VentPath"]
 modulate = Color(1, 1, 1, 0.494118)
+z_index = 11
+z_as_relative = false
 position = Vector2(-1216, -128)
 sprite_frames = SubResource("SpriteFrames_8i4te")
 animation = &"curved"
@@ -1177,36 +1235,48 @@ position = Vector2(320, -128)
 
 [node name="Vent1" type="AnimatedSprite2D" parent="VentSystem2/VentPath"]
 modulate = Color(1, 1, 1, 0.494118)
+z_index = 11
+z_as_relative = false
 position = Vector2(64, 0)
 sprite_frames = SubResource("SpriteFrames_2afcu")
 animation = &"curved"
 
 [node name="Vent2" type="AnimatedSprite2D" parent="VentSystem2/VentPath"]
 modulate = Color(1, 1, 1, 0.494118)
+z_index = 11
+z_as_relative = false
 position = Vector2(64, -64)
 sprite_frames = SubResource("SpriteFrames_2afcu")
 animation = &"curved"
 
 [node name="Vent3" type="AnimatedSprite2D" parent="VentSystem2/VentPath"]
 modulate = Color(1, 1, 1, 0.494118)
+z_index = 11
+z_as_relative = false
 position = Vector2(128, -64)
 sprite_frames = SubResource("SpriteFrames_2afcu")
 animation = &"curved"
 
 [node name="Vent4" type="AnimatedSprite2D" parent="VentSystem2/VentPath"]
 modulate = Color(1, 1, 1, 0.494118)
+z_index = 11
+z_as_relative = false
 position = Vector2(192, -64)
 sprite_frames = SubResource("SpriteFrames_2afcu")
 animation = &"curved"
 
 [node name="Vent5" type="AnimatedSprite2D" parent="VentSystem2/VentPath"]
 modulate = Color(1, 1, 1, 0.494118)
+z_index = 11
+z_as_relative = false
 position = Vector2(192, -128)
 sprite_frames = SubResource("SpriteFrames_2afcu")
 animation = &"curved"
 
 [node name="Vent6" type="AnimatedSprite2D" parent="VentSystem2/VentPath"]
 modulate = Color(1, 1, 1, 0.494118)
+z_index = 11
+z_as_relative = false
 position = Vector2(256, -128)
 sprite_frames = SubResource("SpriteFrames_2afcu")
 animation = &"curved"
@@ -1227,84 +1297,112 @@ position = Vector2(448, -384)
 
 [node name="Vent1" type="AnimatedSprite2D" parent="VentSystem3/VentPath"]
 modulate = Color(1, 1, 1, 0.494118)
+z_index = 11
+z_as_relative = false
 position = Vector2(0, 64)
 sprite_frames = SubResource("SpriteFrames_cbck1")
 animation = &"curved"
 
 [node name="Vent2" type="AnimatedSprite2D" parent="VentSystem3/VentPath"]
 modulate = Color(1, 1, 1, 0.494118)
+z_index = 11
+z_as_relative = false
 position = Vector2(64, 64)
 sprite_frames = SubResource("SpriteFrames_cbck1")
 animation = &"curved"
 
 [node name="Vent3" type="AnimatedSprite2D" parent="VentSystem3/VentPath"]
 modulate = Color(1, 1, 1, 0.494118)
+z_index = 11
+z_as_relative = false
 position = Vector2(128, 64)
 sprite_frames = SubResource("SpriteFrames_cbck1")
 animation = &"curved"
 
 [node name="Vent4" type="AnimatedSprite2D" parent="VentSystem3/VentPath"]
 modulate = Color(1, 1, 1, 0.494118)
+z_index = 11
+z_as_relative = false
 position = Vector2(192, 64)
 sprite_frames = SubResource("SpriteFrames_cbck1")
 animation = &"curved"
 
 [node name="Vent5" type="AnimatedSprite2D" parent="VentSystem3/VentPath"]
 modulate = Color(1, 1, 1, 0.494118)
+z_index = 11
+z_as_relative = false
 position = Vector2(256, 64)
 sprite_frames = SubResource("SpriteFrames_cbck1")
 animation = &"curved"
 
 [node name="Vent6" type="AnimatedSprite2D" parent="VentSystem3/VentPath"]
 modulate = Color(1, 1, 1, 0.494118)
+z_index = 11
+z_as_relative = false
 position = Vector2(320, 64)
 sprite_frames = SubResource("SpriteFrames_cbck1")
 animation = &"curved"
 
 [node name="Vent7" type="AnimatedSprite2D" parent="VentSystem3/VentPath"]
 modulate = Color(1, 1, 1, 0.494118)
+z_index = 11
+z_as_relative = false
 position = Vector2(384, 64)
 sprite_frames = SubResource("SpriteFrames_cbck1")
 animation = &"curved"
 
 [node name="Vent8" type="AnimatedSprite2D" parent="VentSystem3/VentPath"]
 modulate = Color(1, 1, 1, 0.494118)
+z_index = 11
+z_as_relative = false
 position = Vector2(384, 0)
 sprite_frames = SubResource("SpriteFrames_cbck1")
 animation = &"curved"
 
 [node name="Vent9" type="AnimatedSprite2D" parent="VentSystem3/VentPath"]
 modulate = Color(1, 1, 1, 0.494118)
+z_index = 11
+z_as_relative = false
 position = Vector2(384, -64)
 sprite_frames = SubResource("SpriteFrames_cbck1")
 animation = &"curved"
 
 [node name="Vent10" type="AnimatedSprite2D" parent="VentSystem3/VentPath"]
 modulate = Color(1, 1, 1, 0.494118)
+z_index = 11
+z_as_relative = false
 position = Vector2(384, -128)
 sprite_frames = SubResource("SpriteFrames_cbck1")
 animation = &"curved"
 
 [node name="Vent11" type="AnimatedSprite2D" parent="VentSystem3/VentPath"]
 modulate = Color(1, 1, 1, 0.494118)
+z_index = 11
+z_as_relative = false
 position = Vector2(384, -192)
 sprite_frames = SubResource("SpriteFrames_cbck1")
 animation = &"curved"
 
 [node name="Vent12" type="AnimatedSprite2D" parent="VentSystem3/VentPath"]
 modulate = Color(1, 1, 1, 0.494118)
+z_index = 11
+z_as_relative = false
 position = Vector2(384, -256)
 sprite_frames = SubResource("SpriteFrames_cbck1")
 animation = &"curved"
 
 [node name="Vent13" type="AnimatedSprite2D" parent="VentSystem3/VentPath"]
 modulate = Color(1, 1, 1, 0.494118)
+z_index = 11
+z_as_relative = false
 position = Vector2(384, -321)
 sprite_frames = SubResource("SpriteFrames_cbck1")
 animation = &"curved"
 
 [node name="Vent14" type="AnimatedSprite2D" parent="VentSystem3/VentPath"]
 modulate = Color(1, 1, 1, 0.494118)
+z_index = 11
+z_as_relative = false
 position = Vector2(384, -384)
 sprite_frames = SubResource("SpriteFrames_cbck1")
 animation = &"curved"
@@ -1324,30 +1422,40 @@ position = Vector2(128, -263)
 
 [node name="Vent1" type="AnimatedSprite2D" parent="VentSystem4/VentPath"]
 modulate = Color(1, 1, 1, 0.494118)
+z_index = 11
+z_as_relative = false
 position = Vector2(64, 0)
 sprite_frames = SubResource("SpriteFrames_giiio")
 animation = &"curved"
 
 [node name="Vent2" type="AnimatedSprite2D" parent="VentSystem4/VentPath"]
 modulate = Color(1, 1, 1, 0.494118)
+z_index = 11
+z_as_relative = false
 position = Vector2(64, -64)
 sprite_frames = SubResource("SpriteFrames_giiio")
 animation = &"curved"
 
 [node name="Vent3" type="AnimatedSprite2D" parent="VentSystem4/VentPath"]
 modulate = Color(1, 1, 1, 0.494118)
+z_index = 11
+z_as_relative = false
 position = Vector2(64, -128)
 sprite_frames = SubResource("SpriteFrames_giiio")
 animation = &"curved"
 
 [node name="Vent4" type="AnimatedSprite2D" parent="VentSystem4/VentPath"]
 modulate = Color(1, 1, 1, 0.494118)
+z_index = 11
+z_as_relative = false
 position = Vector2(64, -192)
 sprite_frames = SubResource("SpriteFrames_giiio")
 animation = &"curved"
 
 [node name="Vent5" type="AnimatedSprite2D" parent="VentSystem4/VentPath"]
 modulate = Color(1, 1, 1, 0.494118)
+z_index = 11
+z_as_relative = false
 position = Vector2(64, -256)
 sprite_frames = SubResource("SpriteFrames_giiio")
 animation = &"curved"
@@ -1368,66 +1476,88 @@ position = Vector2(64, -576)
 
 [node name="Vent1" type="AnimatedSprite2D" parent="VentSystem5/VentPath"]
 modulate = Color(1, 1, 1, 0.494118)
+z_index = 11
+z_as_relative = false
 position = Vector2(-64, 0)
 sprite_frames = SubResource("SpriteFrames_h8tga")
 animation = &"curved"
 
 [node name="Vent2" type="AnimatedSprite2D" parent="VentSystem5/VentPath"]
 modulate = Color(1, 1, 1, 0.494118)
+z_index = 11
+z_as_relative = false
 position = Vector2(-64, -64)
 sprite_frames = SubResource("SpriteFrames_h8tga")
 animation = &"curved"
 
 [node name="Vent3" type="AnimatedSprite2D" parent="VentSystem5/VentPath"]
 modulate = Color(1, 1, 1, 0.494118)
+z_index = 11
+z_as_relative = false
 position = Vector2(-64, -128)
 sprite_frames = SubResource("SpriteFrames_h8tga")
 animation = &"curved"
 
 [node name="Vent4" type="AnimatedSprite2D" parent="VentSystem5/VentPath"]
 modulate = Color(1, 1, 1, 0.494118)
+z_index = 11
+z_as_relative = false
 position = Vector2(-64, -192)
 sprite_frames = SubResource("SpriteFrames_h8tga")
 animation = &"curved"
 
 [node name="Vent5" type="AnimatedSprite2D" parent="VentSystem5/VentPath"]
 modulate = Color(1, 1, 1, 0.494118)
+z_index = 11
+z_as_relative = false
 position = Vector2(-64, -256)
 sprite_frames = SubResource("SpriteFrames_h8tga")
 animation = &"curved"
 
 [node name="Vent6" type="AnimatedSprite2D" parent="VentSystem5/VentPath"]
 modulate = Color(1, 1, 1, 0.494118)
+z_index = 11
+z_as_relative = false
 position = Vector2(-64, -320)
 sprite_frames = SubResource("SpriteFrames_h8tga")
 animation = &"curved"
 
 [node name="Vent7" type="AnimatedSprite2D" parent="VentSystem5/VentPath"]
 modulate = Color(1, 1, 1, 0.494118)
+z_index = 11
+z_as_relative = false
 position = Vector2(-64, -384)
 sprite_frames = SubResource("SpriteFrames_h8tga")
 animation = &"curved"
 
 [node name="Vent8" type="AnimatedSprite2D" parent="VentSystem5/VentPath"]
 modulate = Color(1, 1, 1, 0.494118)
+z_index = 11
+z_as_relative = false
 position = Vector2(-64, -448)
 sprite_frames = SubResource("SpriteFrames_h8tga")
 animation = &"curved"
 
 [node name="Vent9" type="AnimatedSprite2D" parent="VentSystem5/VentPath"]
 modulate = Color(1, 1, 1, 0.494118)
+z_index = 11
+z_as_relative = false
 position = Vector2(-64, -513)
 sprite_frames = SubResource("SpriteFrames_h8tga")
 animation = &"curved"
 
 [node name="Vent10" type="AnimatedSprite2D" parent="VentSystem5/VentPath"]
 modulate = Color(1, 1, 1, 0.494118)
+z_index = 11
+z_as_relative = false
 position = Vector2(-64, -576)
 sprite_frames = SubResource("SpriteFrames_h8tga")
 animation = &"curved"
 
 [node name="Vent11" type="AnimatedSprite2D" parent="VentSystem5/VentPath"]
 modulate = Color(1, 1, 1, 0.494118)
+z_index = 11
+z_as_relative = false
 position = Vector2(0, -576)
 sprite_frames = SubResource("SpriteFrames_h8tga")
 animation = &"curved"

@@ -160,6 +160,8 @@ animations = [{
 size = Vector2(64, 64)
 
 [node name="fanTrigger" type="Node2D" node_paths=PackedStringArray("fanSprite", "pushArea", "windSprites", "TriggerKeySprite")]
+z_index = 45
+z_as_relative = false
 script = ExtResource("1_t8n4g")
 strengthAmplitude = 3000.0
 fanSprite = NodePath("FanSprite")
@@ -188,18 +190,24 @@ position = Vector2(104, 0)
 shape = SubResource("RectangleShape2D_b7p4s")
 
 [node name="Wind64" type="AnimatedSprite2D" parent="PushArea"]
+z_index = 5
+z_as_relative = false
 position = Vector2(48, 0)
 sprite_frames = SubResource("SpriteFrames_h0rwc")
 autoplay = "default"
 frame_progress = 0.179438
 
 [node name="Wind32" type="AnimatedSprite2D" parent="PushArea"]
+z_index = 5
+z_as_relative = false
 position = Vector2(128, 0)
 sprite_frames = SubResource("SpriteFrames_atu4c")
 autoplay = "default"
 frame_progress = 0.603033
 
 [node name="Wind16" type="AnimatedSprite2D" parent="PushArea"]
+z_index = 5
+z_as_relative = false
 position = Vector2(184, 0)
 sprite_frames = SubResource("SpriteFrames_06fah")
 autoplay = "default"

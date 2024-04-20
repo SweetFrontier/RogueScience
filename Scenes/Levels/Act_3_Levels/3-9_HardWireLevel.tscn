@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/levelController.gd" id="1_kdjjo"]
 [ext_resource type="TileSet" uid="uid://bnpggr5480t5q" path="res://Art/TileSets/initialTileSet.tres" id="2_4nd06"]
-[ext_resource type="Texture2D" uid="uid://c8m06ph5ti541" path="res://Art/Backgrounds/Act3_BG.png" id="2_yvxtb"]
+[ext_resource type="Texture2D" uid="uid://d34hymtsr1qlu" path="res://Art/Backgrounds/Act3_BG.png" id="2_yvxtb"]
 [ext_resource type="TileSet" uid="uid://bfybbk5ql7iod" path="res://Art/TileSets/effectsTileSet.tres" id="3_36oyn"]
 [ext_resource type="PackedScene" uid="uid://dd6l6fhpuajke" path="res://Scenes/rigidPlayer.tscn" id="3_dmwka"]
 [ext_resource type="PackedScene" uid="uid://dvbyxsl5e3ol8" path="res://Scenes/Triggers/Trigger_Helpers/TransitionField.tscn" id="4_5fcei"]

@@ -2,16 +2,16 @@
 
 [ext_resource type="Texture2D" uid="uid://ds48pkgnh20fc" path="res://Art/TileSets/Act1BloodTileset.png" id="1_mhphp"]
 [ext_resource type="Texture2D" uid="uid://cn2673e7rh1k3" path="res://Art/TileSets/Act1CracksTileset.png" id="2_0gykn"]
-[ext_resource type="Texture2D" uid="uid://c2jjkqmbu5m17" path="res://Art/TileSets/Act4BloodTileset.png" id="3_2wphj"]
+[ext_resource type="Texture2D" uid="uid://qb3mj685r7je" path="res://Art/TileSets/Act4BloodTileset.png" id="3_2wphj"]
 [ext_resource type="Texture2D" uid="uid://c8vhpqx0ks3t6" path="res://Art/TileSets/Act1GooTileset.png" id="3_yxog6"]
-[ext_resource type="Texture2D" uid="uid://bdtrb4cxt3ai1" path="res://Art/TileSets/Act4CracksTileset.png" id="4_8vxic"]
+[ext_resource type="Texture2D" uid="uid://cl1sp6fk3ygui" path="res://Art/TileSets/Act4CracksTileset.png" id="4_8vxic"]
 [ext_resource type="Texture2D" uid="uid://c48ci41kb3mnk" path="res://Art/TileSets/Act2BloodTileset.png" id="4_rasm5"]
-[ext_resource type="Texture2D" uid="uid://wqpfkffxa0x7" path="res://Art/TileSets/Act4GooTileset.png" id="5_3xdqv"]
+[ext_resource type="Texture2D" uid="uid://dqofldne3dm80" path="res://Art/TileSets/Act4GooTileset.png" id="5_3xdqv"]
 [ext_resource type="Texture2D" uid="uid://bcm6b1eoj8g56" path="res://Art/TileSets/Act2CracksTileset.png" id="5_srnno"]
 [ext_resource type="Texture2D" uid="uid://cbvu47xa2p3vc" path="res://Art/TileSets/Act2GooTileset.png" id="6_2uok2"]
-[ext_resource type="Texture2D" uid="uid://dewuvptdnqnfm" path="res://Art/TileSets/Act3BloodTileset.png" id="7_qptjo"]
-[ext_resource type="Texture2D" uid="uid://cmdd726emwox" path="res://Art/TileSets/Act3CracksTileset.png" id="8_nc7t6"]
-[ext_resource type="Texture2D" uid="uid://ng775nan3lcs" path="res://Art/TileSets/Act3GooTileset.png" id="9_bwjj2"]
+[ext_resource type="Texture2D" uid="uid://bqop0cyqrwx58" path="res://Art/TileSets/Act3BloodTileset.png" id="7_qptjo"]
+[ext_resource type="Texture2D" uid="uid://dsu2jthmofoh7" path="res://Art/TileSets/Act3CracksTileset.png" id="8_nc7t6"]
+[ext_resource type="Texture2D" uid="uid://m1nhtcbaenqn" path="res://Art/TileSets/Act3GooTileset.png" id="9_bwjj2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4a0di"]
 texture = ExtResource("1_mhphp")

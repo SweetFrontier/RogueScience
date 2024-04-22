@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/gameManager.gd" id="1_rlws3"]
 [ext_resource type="Texture2D" uid="uid://bh66sgahohr8e" path="res://Art/Backgrounds/newBackground.png" id="2_wacfr"]
-[ext_resource type="PackedScene" uid="uid://1xasoo80ygld" path="res://Scenes/Levels/baseLevel.tscn" id="3_ae2tp"]
+[ext_resource type="PackedScene" uid="uid://chdimhy523yjr" path="res://Scenes/Levels/baseLevel.tscn" id="3_gc0q1"]
 [ext_resource type="AudioStream" uid="uid://cmhm7pf614y6w" path="res://Sounds/Music/puzzle(calm).ogg" id="3_mfq2v"]
 [ext_resource type="PackedScene" uid="uid://bgd2mlm0piliu" path="res://Scenes/Levels/Act_1_Levels/1-1_BreakableIntroLevel.tscn" id="3_w85st"]
 [ext_resource type="PackedScene" uid="uid://2eumj2cn1hhv" path="res://Scenes/Levels/Act_1_Levels/1-2_InvisibleIntroLevel.tscn" id="4_23ue4"]
@@ -170,8 +170,8 @@ process_mode = 4
 
 [node name="TESTING" type="Node2D" parent="Levels"]
 
-[node name="baseLevel" parent="Levels/TESTING" instance=ExtResource("3_ae2tp")]
-position = Vector2(11, -1056)
+[node name="baseLevel" parent="Levels/TESTING" instance=ExtResource("3_gc0q1")]
+position = Vector2(-3424, -2208)
 
 [node name="Act_1" type="Node2D" parent="Levels"]
 

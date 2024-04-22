@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://dx47yma3wfoi6"]
+
+[ext_resource type="Texture2D" uid="uid://b6po2nrkyuixx" path="res://Art/Spritesheets/plhBossSheet.png" id="1_jlakm"]
+[ext_resource type="Script" path="res://Scripts/boss.gd" id="1_w8i4p"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fpgn4"]
+atlas = ExtResource("1_jlakm")
+region = Rect2(0, 0, 1024, 640)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nx4wp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fpgn4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f6stx"]
+radius = 7.99997
+height = 48.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1vypj"]
+size = Vector2(16, 160)
+
+[node name="Boss" type="CharacterBody2D"]
+script = ExtResource("1_w8i4p")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+sprite_frames = SubResource("SpriteFrames_nx4wp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(104, 72)
+rotation = -1.5708
+shape = SubResource("CapsuleShape2D_f6stx")
+
+[node name="FrontCollisionDetection" type="Area2D" parent="."]
+position = Vector2(112, 0)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FrontCollisionDetection"]
+position = Vector2(8, 0)
+shape = SubResource("RectangleShape2D_1vypj")

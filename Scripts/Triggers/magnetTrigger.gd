@@ -55,9 +55,15 @@ func react():
 
 func reset():
 	super.reset()
+	currState = startingPolarity
 	magnetSprite.animation = stateToAnimString[currState]
 	magnetSprite.frame = 0
-	currState = startingPolarity
-	strength = 0
+	match currState:
+		MagnetState.NEUTRALPUSH, MagnetState.NEUTRALPULL:
+			strength = 0
+		MagnetState.PULLING:
+			strength = -strengthAmplitude
+		MagnetState.PUSHING:
+			strength = strengthAmplitude
 	if startActivated:
 		react()

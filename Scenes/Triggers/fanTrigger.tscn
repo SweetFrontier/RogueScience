@@ -1,48 +1,48 @@
 [gd_scene load_steps=30 format=3 uid="uid://b8japh5crdt7v"]
 
 [ext_resource type="Script" path="res://Scripts/Triggers/fanTrigger.gd" id="1_t8n4g"]
-[ext_resource type="Texture2D" uid="uid://buqycbqj85rkk" path="res://Art/TriggerArt/Fan/plhFanHeadOff.png" id="2_g26xu"]
-[ext_resource type="Texture2D" uid="uid://cxbjt31vust1l" path="res://Art/TriggerArt/Fan/plhFanHeadOn.png" id="3_5ldck"]
+[ext_resource type="Texture2D" uid="uid://dmwsbpfbwbh0f" path="res://Art/TriggerArt/Fan/FanHeadOff.png" id="2_h20yh"]
+[ext_resource type="Texture2D" uid="uid://b2m24rarwn675" path="res://Art/TriggerArt/Fan/FanHeadOn.png" id="3_tf3be"]
 [ext_resource type="Texture2D" uid="uid://8yh8c5n7wkvu" path="res://Art/TriggerArt/Fan/plhWindVis64.png" id="5_qydgy"]
 [ext_resource type="Texture2D" uid="uid://cgtbmno20ljkx" path="res://Art/TriggerArt/Fan/plhWindVis32.png" id="6_acwrb"]
 [ext_resource type="Texture2D" uid="uid://c4jjgjswot180" path="res://Art/TriggerArt/Fan/plhWindVis16.png" id="7_5gqib"]
 [ext_resource type="PackedScene" uid="uid://djjr177758y2h" path="res://Scenes/Triggers/Trigger_Helpers/triggerKey.tscn" id="7_460pp"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vfynt"]
-atlas = ExtResource("2_g26xu")
+[sub_resource type="AtlasTexture" id="AtlasTexture_epcmq"]
+atlas = ExtResource("2_h20yh")
 region = Rect2(0, 0, 32, 96)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_20dws"]
-atlas = ExtResource("2_g26xu")
+[sub_resource type="AtlasTexture" id="AtlasTexture_6tlif"]
+atlas = ExtResource("2_h20yh")
 region = Rect2(32, 0, 32, 96)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gmwd8"]
-atlas = ExtResource("2_g26xu")
+[sub_resource type="AtlasTexture" id="AtlasTexture_y77ct"]
+atlas = ExtResource("2_h20yh")
 region = Rect2(64, 0, 32, 96)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qpkw6"]
-atlas = ExtResource("3_5ldck")
+[sub_resource type="AtlasTexture" id="AtlasTexture_5chor"]
+atlas = ExtResource("3_tf3be")
 region = Rect2(0, 0, 32, 96)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_sxrhg"]
-atlas = ExtResource("3_5ldck")
+[sub_resource type="AtlasTexture" id="AtlasTexture_aqpj2"]
+atlas = ExtResource("3_tf3be")
 region = Rect2(32, 0, 32, 96)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_s1ocf"]
-atlas = ExtResource("3_5ldck")
+[sub_resource type="AtlasTexture" id="AtlasTexture_xntr8"]
+atlas = ExtResource("3_tf3be")
 region = Rect2(64, 0, 32, 96)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_yup5f"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_vfynt")
+"texture": SubResource("AtlasTexture_epcmq")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_20dws")
+"texture": SubResource("AtlasTexture_6tlif")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_gmwd8")
+"texture": SubResource("AtlasTexture_y77ct")
 }],
 "loop": true,
 "name": &"off",
@@ -50,13 +50,13 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_qpkw6")
+"texture": SubResource("AtlasTexture_5chor")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_sxrhg")
+"texture": SubResource("AtlasTexture_aqpj2")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_s1ocf")
+"texture": SubResource("AtlasTexture_xntr8")
 }],
 "loop": true,
 "name": &"on",
@@ -172,7 +172,8 @@ TriggerKeySprite = NodePath("TriggerKeySprite")
 
 [node name="FanSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_yup5f")
-animation = &"off"
+animation = &"on"
+frame_progress = 0.146246
 
 [node name="StaticBody2D" type="StaticBody2D" parent="FanSprite"]
 

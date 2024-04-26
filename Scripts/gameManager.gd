@@ -30,27 +30,37 @@ var musicChangePoints = [9, 13, 18, 27]
 func _ready() -> void:
 	#Set the number of levels in the game to be the number of numbers in Main
 	GlobalVariables.numLevels = Levels.size()
+	
 	#set current level to global current level
 	#REMOVE THIS IF STATEMENT BEFORE UPLOAD TO ITCH. THIS IS FOR DEBUGGING PURPOSES ONLY
 	if current_level < 1:
 		current_level = GlobalVariables.currentLevel-1
 	#set music
-	if (current_level < musicChangePoints[0]):
-		musicPlayer.set_stream(load("res://Sounds/Music/puzzle(calm).ogg"))
-	elif (current_level < musicChangePoints[1]):
-		musicPlayer.set_stream(load("res://Sounds/Music/puzzle(midlevels).ogg"))
-	elif (current_level < musicChangePoints[2]):
-		musicPlayer.set_stream(load("res://Sounds/Music/puzzle(intense).ogg"))
-	elif (current_level < musicChangePoints[3]):
-		musicPlayer.set_stream(load("res://Sounds/Music/puzzle(act_three).ogg"))
-	else:
-		musicPlayer.set_stream(load("res://Sounds/Music/puzzle(act_four).ogg"))
+	match(current_level):
+		9:
+			musicPlayer.set_stream(load("res://Sounds/Music/boss1.ogg"))
+		9:
+			musicPlayer.set_stream(load("res://Sounds/Music/boss2.ogg"))
+		9:
+			musicPlayer.set_stream(load("res://Sounds/Music/boss3.ogg"))
+		_:
+			if (current_level < musicChangePoints[0]):
+				musicPlayer.set_stream(load("res://Sounds/Music/puzzle(calm).ogg"))
+			elif (current_level < musicChangePoints[1]):
+				musicPlayer.set_stream(load("res://Sounds/Music/puzzle(midlevels).ogg"))
+			elif (current_level < musicChangePoints[2]):
+				musicPlayer.set_stream(load("res://Sounds/Music/puzzle(intense).ogg"))
+			elif (current_level < musicChangePoints[3]):
+				musicPlayer.set_stream(load("res://Sounds/Music/puzzle(act_three).ogg"))
+			else:
+				musicPlayer.set_stream(load("res://Sounds/Music/puzzle(act_four).ogg"))
 	#play music
 	musicPlayer.play()
 	
 	resetWipeTransitionContoller.connect("screenCovered", screen_wipe_covered)
 	#movingStart = camera.global_position
 	#movingGoal = Levels[current_level].cameraSpot.global_position
+	current_level = clamp(current_level, 0, GlobalVariables.numLevels-1)
 	movingGoal = Levels[current_level].cameraSpot.global_position
 	movingStart = movingGoal
 	var min_zoom_size : Vector2 =  Levels[current_level].cameraSize

@@ -180,7 +180,7 @@ region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="Animation" id="Animation_k6vcr"]
 resource_name = "FadeFromBlack"
-length = 0.3
+length = 0.4
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -188,7 +188,7 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
+"times": PackedFloat32Array(0.1, 0.4),
 "transitions": PackedFloat32Array(1.51571, 1),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(-1280, 0)]
@@ -282,13 +282,13 @@ horizontal_alignment = 1
 
 [node name="GridContainer" type="GridContainer" parent="."]
 layout_mode = 0
-offset_left = 315.0
+offset_left = 230.0
 offset_top = 175.0
-offset_right = 965.0
-offset_bottom = 307.0
+offset_right = 1050.0
+offset_bottom = 323.0
 theme_override_constants/h_separation = 20
 theme_override_constants/v_separation = 20
-columns = 8
+columns = 10
 
 [node name="Level1" type="TextureButton" parent="GridContainer"]
 custom_minimum_size = Vector2(64, 64)
@@ -442,6 +442,174 @@ texture_hover = SubResource("AtlasTexture_a3uht")
 ignore_texture_size = true
 stretch_mode = 0
 
+[node name="Level20" type="TextureButton" parent="GridContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_dpdgh")
+texture_hover = SubResource("AtlasTexture_a3uht")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Level21" type="TextureButton" parent="GridContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_28rvt")
+texture_hover = SubResource("AtlasTexture_m3qfg")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Level22" type="TextureButton" parent="GridContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_dgvws")
+texture_hover = SubResource("AtlasTexture_7owb4")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Level23" type="TextureButton" parent="GridContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_5jsm2")
+texture_hover = SubResource("AtlasTexture_amn6n")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Level24" type="TextureButton" parent="GridContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_6wajl")
+texture_hover = SubResource("AtlasTexture_hugkq")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Level25" type="TextureButton" parent="GridContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_ptyhj")
+texture_hover = SubResource("AtlasTexture_7558w")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Level26" type="TextureButton" parent="GridContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_sl21k")
+texture_hover = SubResource("AtlasTexture_26gea")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Level27" type="TextureButton" parent="GridContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_8ow2n")
+texture_hover = SubResource("AtlasTexture_knxfr")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Level28" type="TextureButton" parent="GridContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_wed67")
+texture_hover = SubResource("AtlasTexture_2fkvg")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Level29" type="TextureButton" parent="GridContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_dpdgh")
+texture_hover = SubResource("AtlasTexture_a3uht")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Level30" type="TextureButton" parent="GridContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_dpdgh")
+texture_hover = SubResource("AtlasTexture_a3uht")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Level31" type="TextureButton" parent="GridContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_28rvt")
+texture_hover = SubResource("AtlasTexture_m3qfg")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Level32" type="TextureButton" parent="GridContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_dgvws")
+texture_hover = SubResource("AtlasTexture_7owb4")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Level33" type="TextureButton" parent="GridContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_5jsm2")
+texture_hover = SubResource("AtlasTexture_amn6n")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Level34" type="TextureButton" parent="GridContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_6wajl")
+texture_hover = SubResource("AtlasTexture_hugkq")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Level35" type="TextureButton" parent="GridContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_ptyhj")
+texture_hover = SubResource("AtlasTexture_7558w")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Level36" type="TextureButton" parent="GridContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_sl21k")
+texture_hover = SubResource("AtlasTexture_26gea")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Level37" type="TextureButton" parent="GridContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_8ow2n")
+texture_hover = SubResource("AtlasTexture_knxfr")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Level38" type="TextureButton" parent="GridContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_wed67")
+texture_hover = SubResource("AtlasTexture_2fkvg")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Level39" type="TextureButton" parent="GridContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_dpdgh")
+texture_hover = SubResource("AtlasTexture_a3uht")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Level40" type="TextureButton" parent="GridContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_dpdgh")
+texture_hover = SubResource("AtlasTexture_a3uht")
+ignore_texture_size = true
+stretch_mode = 0
+
 [node name="TransitionToBlack" type="ColorRect" parent="."]
 process_mode = 3
 layout_mode = 1
@@ -483,3 +651,24 @@ bus = &"Sound Effects"
 [connection signal="pressed" from="GridContainer/Level17" to="." method="_on_level_button_pressed" binds= [17]]
 [connection signal="pressed" from="GridContainer/Level18" to="." method="_on_level_button_pressed" binds= [18]]
 [connection signal="pressed" from="GridContainer/Level19" to="." method="_on_level_button_pressed" binds= [19]]
+[connection signal="pressed" from="GridContainer/Level20" to="." method="_on_level_button_pressed" binds= [20]]
+[connection signal="pressed" from="GridContainer/Level21" to="." method="_on_level_button_pressed" binds= [21]]
+[connection signal="pressed" from="GridContainer/Level22" to="." method="_on_level_button_pressed" binds= [22]]
+[connection signal="pressed" from="GridContainer/Level23" to="." method="_on_level_button_pressed" binds= [23]]
+[connection signal="pressed" from="GridContainer/Level24" to="." method="_on_level_button_pressed" binds= [24]]
+[connection signal="pressed" from="GridContainer/Level25" to="." method="_on_level_button_pressed" binds= [25]]
+[connection signal="pressed" from="GridContainer/Level26" to="." method="_on_level_button_pressed" binds= [26]]
+[connection signal="pressed" from="GridContainer/Level27" to="." method="_on_level_button_pressed" binds= [27]]
+[connection signal="pressed" from="GridContainer/Level28" to="." method="_on_level_button_pressed" binds= [28]]
+[connection signal="pressed" from="GridContainer/Level29" to="." method="_on_level_button_pressed" binds= [29]]
+[connection signal="pressed" from="GridContainer/Level30" to="." method="_on_level_button_pressed" binds= [30]]
+[connection signal="pressed" from="GridContainer/Level31" to="." method="_on_level_button_pressed" binds= [31]]
+[connection signal="pressed" from="GridContainer/Level32" to="." method="_on_level_button_pressed" binds= [32]]
+[connection signal="pressed" from="GridContainer/Level33" to="." method="_on_level_button_pressed" binds= [33]]
+[connection signal="pressed" from="GridContainer/Level34" to="." method="_on_level_button_pressed" binds= [34]]
+[connection signal="pressed" from="GridContainer/Level35" to="." method="_on_level_button_pressed" binds= [35]]
+[connection signal="pressed" from="GridContainer/Level36" to="." method="_on_level_button_pressed" binds= [36]]
+[connection signal="pressed" from="GridContainer/Level37" to="." method="_on_level_button_pressed" binds= [37]]
+[connection signal="pressed" from="GridContainer/Level38" to="." method="_on_level_button_pressed" binds= [38]]
+[connection signal="pressed" from="GridContainer/Level39" to="." method="_on_level_button_pressed" binds= [39]]
+[connection signal="pressed" from="GridContainer/Level40" to="." method="_on_level_button_pressed" binds= [40]]

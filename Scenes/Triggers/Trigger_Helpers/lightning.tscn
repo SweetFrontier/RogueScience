@@ -49,5 +49,4 @@ environment = SubResource("Environment_h1llk")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_tg7fi")
-volume_db = 4.0
 bus = &"Sound Effects"

@@ -1,12 +1,13 @@
-[gd_scene load_steps=30 format=3 uid="uid://b8japh5crdt7v"]
+[gd_scene load_steps=35 format=3 uid="uid://b8japh5crdt7v"]
 
 [ext_resource type="Script" path="res://Scripts/Triggers/fanTrigger.gd" id="1_t8n4g"]
-[ext_resource type="Texture2D" uid="uid://dmwsbpfbwbh0f" path="res://Art/TriggerArt/Fan/FanHeadOff.png" id="2_h20yh"]
-[ext_resource type="Texture2D" uid="uid://b2m24rarwn675" path="res://Art/TriggerArt/Fan/FanHeadOn.png" id="3_tf3be"]
+[ext_resource type="Texture2D" uid="uid://c0yh08dvrqsmt" path="res://Art/TriggerArt/Fan/FanHeadOff.png" id="2_h20yh"]
+[ext_resource type="Texture2D" uid="uid://bsl24e6d7blb8" path="res://Art/TriggerArt/Fan/FanHeadOn.png" id="3_tf3be"]
 [ext_resource type="Texture2D" uid="uid://8yh8c5n7wkvu" path="res://Art/TriggerArt/Fan/plhWindVis64.png" id="5_qydgy"]
 [ext_resource type="Texture2D" uid="uid://cgtbmno20ljkx" path="res://Art/TriggerArt/Fan/plhWindVis32.png" id="6_acwrb"]
 [ext_resource type="Texture2D" uid="uid://c4jjgjswot180" path="res://Art/TriggerArt/Fan/plhWindVis16.png" id="7_5gqib"]
 [ext_resource type="PackedScene" uid="uid://djjr177758y2h" path="res://Scenes/Triggers/Trigger_Helpers/triggerKey.tscn" id="7_460pp"]
+[ext_resource type="AudioStream" uid="uid://dauwddrk2nqmm" path="res://Sounds/fanswishy.ogg" id="8_1pgk3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_epcmq"]
 atlas = ExtResource("2_h20yh")
@@ -60,7 +61,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"on",
-"speed": 10.0
+"speed": 15.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ffuhi"]
@@ -159,13 +160,212 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eyows"]
 size = Vector2(64, 64)
 
-[node name="fanTrigger" type="Node2D" node_paths=PackedStringArray("fanSprite", "pushArea", "windSprites", "TriggerKeySprite")]
+[sub_resource type="Animation" id="Animation_qbgip"]
+resource_name = "on"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(0.3, 1),
+"update": 0,
+"values": [-80.0, -13.0]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../PushArea/Wind64:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.74902)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../PushArea/Wind32:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.1, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.74902)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../PushArea/Wind16:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.74902)]
+}
+
+[sub_resource type="Animation" id="Animation_rhbdn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-12.0]
+}
+
+[sub_resource type="Animation" id="Animation_bjkpe"]
+resource_name = "of"
+length = 0.8
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(3, 1),
+"update": 0,
+"values": [-13.0, -80.0]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../PushArea/Wind64:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.74902), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../PushArea/Wind32:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.05, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.74902), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../PushArea/Wind16:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.1, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.74902), Color(1, 1, 1, 0)]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../PushArea/Wind64")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"hide"
+}]
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../PushArea/Wind32")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"hide"
+}]
+}
+tracks/7/type = "method"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../PushArea/Wind16")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"hide"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cbfqr"]
+_data = {
+"RESET": SubResource("Animation_rhbdn"),
+"off": SubResource("Animation_bjkpe"),
+"on": SubResource("Animation_qbgip")
+}
+
+[node name="fanTrigger" type="Node2D" node_paths=PackedStringArray("fanSprite", "pushArea", "audio", "fanimator", "windSprites", "TriggerKeySprite")]
 z_index = 45
 z_as_relative = false
 script = ExtResource("1_t8n4g")
 strengthAmplitude = 3000.0
 fanSprite = NodePath("FanSprite")
 pushArea = NodePath("PushArea")
+audio = NodePath("fansounds")
+fanimator = NodePath("fanimator")
 windSprites = [NodePath("PushArea/Wind64"), NodePath("PushArea/Wind32"), NodePath("PushArea/Wind16")]
 one_shot = false
 TriggerKeySprite = NodePath("TriggerKeySprite")
@@ -191,14 +391,17 @@ position = Vector2(104, 0)
 shape = SubResource("RectangleShape2D_b7p4s")
 
 [node name="Wind64" type="AnimatedSprite2D" parent="PushArea"]
+modulate = Color(1, 1, 1, 0.74902)
 z_index = 5
 z_as_relative = false
 position = Vector2(48, 0)
 sprite_frames = SubResource("SpriteFrames_h0rwc")
 autoplay = "default"
-frame_progress = 0.179438
+frame = 1
+frame_progress = 0.728973
 
 [node name="Wind32" type="AnimatedSprite2D" parent="PushArea"]
+modulate = Color(1, 1, 1, 0.74902)
 z_index = 5
 z_as_relative = false
 position = Vector2(128, 0)
@@ -207,6 +410,7 @@ autoplay = "default"
 frame_progress = 0.603033
 
 [node name="Wind16" type="AnimatedSprite2D" parent="PushArea"]
+modulate = Color(1, 1, 1, 0.74902)
 z_index = 5
 z_as_relative = false
 position = Vector2(184, 0)
@@ -222,6 +426,19 @@ collision_mask = 64
 visible = false
 position = Vector2(8, 0)
 shape = SubResource("RectangleShape2D_eyows")
+
+[node name="fansounds" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_1pgk3")
+volume_db = -12.0
+pitch_scale = 0.71
+panning_strength = 1.5
+bus = &"Sound Effects"
+
+[node name="fanimator" type="AnimationPlayer" parent="."]
+root_node = NodePath("../fansounds")
+libraries = {
+"": SubResource("AnimationLibrary_cbfqr")
+}
 
 [connection signal="body_entered" from="PushArea" to="." method="onPushBodyEntered"]
 [connection signal="body_exited" from="PushArea" to="." method="onPushBodyExited"]

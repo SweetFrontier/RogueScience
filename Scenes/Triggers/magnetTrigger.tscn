@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dlkccgjxhbsdg"]
+[gd_scene load_steps=17 format=3 uid="uid://dlkccgjxhbsdg"]
 
 [ext_resource type="Script" path="res://Scripts/Triggers/magnetTrigger.gd" id="1_a4tog"]
 [ext_resource type="Texture2D" uid="uid://d4csp4htvaefl" path="res://Art/TriggerArt/Magnet/plhMagnetInactive.png" id="2_gejr7"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://budstx1r2ilne" path="res://Art/TriggerArt/Magnet/plhMagnetNeutralPush.png" id="4_wp8s7"]
 [ext_resource type="Texture2D" uid="uid://cbmvo7p83w266" path="res://Art/TriggerArt/Magnet/plhMagnetPushing.png" id="5_i0obu"]
 [ext_resource type="PackedScene" uid="uid://djjr177758y2h" path="res://Scenes/Triggers/Trigger_Helpers/triggerKey.tscn" id="5_nqqyp"]
+[ext_resource type="AudioStream" uid="uid://dt2npttmnl4ha" path="res://Sounds/magtivation.ogg" id="8_ma6tk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_45t3s"]
 atlas = ExtResource("2_gejr7")
@@ -77,7 +78,7 @@ size = Vector2(64, 48)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eyows"]
 size = Vector2(64, 64)
 
-[node name="magnetTrigger" type="Node2D" node_paths=PackedStringArray("magnetSprite", "magneticSourcePoint", "TriggerKeySprite")]
+[node name="magnetTrigger" type="Node2D" node_paths=PackedStringArray("magnetSprite", "magneticSourcePoint", "sounds", "TriggerKeySprite")]
 z_index = 60
 z_as_relative = false
 script = ExtResource("1_a4tog")
@@ -85,6 +86,7 @@ strengthAmplitude = 10000.0
 startingPolarity = 1
 magnetSprite = NodePath("MagnetSprite")
 magneticSourcePoint = NodePath("MagnetSprite/MagneticSourcePoint")
+sounds = NodePath("magnetSound")
 one_shot = false
 TriggerKeySprite = NodePath("TriggerKeySprite")
 
@@ -112,3 +114,8 @@ collision_mask = 64
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WireDetection"]
 visible = false
 shape = SubResource("RectangleShape2D_eyows")
+
+[node name="magnetSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_ma6tk")
+panning_strength = 1.5
+bus = &"Sound Effects"

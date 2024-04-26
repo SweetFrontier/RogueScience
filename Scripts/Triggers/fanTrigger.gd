@@ -5,6 +5,8 @@ class_name fanTrigger
 @export var strengthAmplitude: float
 @export var fanSprite: AnimatedSprite2D
 @export var pushArea: Area2D
+@export var audio: AudioStreamPlayer2D
+@export var fanimator: AnimationPlayer
 @export var windSprites: Array[AnimatedSprite2D]
 
 var currState: FanState
@@ -31,6 +33,7 @@ func _ready():
 	if !show_button:
 		TriggerKeySprite.modulate.a = 0
 	currState = FanState.OFF
+	audio.pitch_scale = randf_range(0.75, 1.25)
 	reset()
 
 func react():
@@ -41,12 +44,14 @@ func react():
 		pushArea.monitoring = true
 		for wind in windSprites:
 			wind.show()
+		fanimator.play("on")
 	else:
 		currState = FanState.OFF
 		strength = 0
 		pushArea.monitoring = false
-		for wind in windSprites:
-			wind.hide()
+		#for wind in windSprites:
+		#	wind.hide()
+		fanimator.play("off")
 	fanSprite.animation = stateToAnimString[currState]
 	fanSprite.frame = 0
 	fanSprite.play()
@@ -58,6 +63,8 @@ func reset():
 	fanSprite.frame = 0
 	pushArea.monitoring = false
 	fanSprite.play()
+	fanimator.stop()
+	audio.stop()
 	for wind in windSprites:
 			wind.hide()
 	strength = 0

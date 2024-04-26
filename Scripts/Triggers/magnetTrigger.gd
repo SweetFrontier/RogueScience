@@ -6,10 +6,14 @@ class_name magnetTrigger
 @export var startingPolarity: MagnetState
 @export var magnetSprite: AnimatedSprite2D
 @export var magneticSourcePoint: Marker2D
+@export var sounds: AudioStreamPlayer2D
 
 var currState: MagnetState
 var strength: float
 var location: Vector2
+
+var magtivationSound = preload("res://Sounds/magtivation.ogg")
+var demagtivationSound = preload("res://Sounds/demagtivation.ogg")
 
 enum MagnetState
 {
@@ -41,15 +45,20 @@ func react():
 		MagnetState.PULLING:
 			currState = MagnetState.NEUTRALPUSH
 			strength = 0
+			sounds.stream = demagtivationSound
 		MagnetState.NEUTRALPUSH:
 			currState = MagnetState.PUSHING
 			strength = strengthAmplitude
+			sounds.stream = magtivationSound
 		MagnetState.PUSHING:
 			currState = MagnetState.NEUTRALPULL
 			strength = 0
+			sounds.stream = demagtivationSound
 		MagnetState.NEUTRALPULL:
 			currState = MagnetState.PULLING
 			strength = -strengthAmplitude
+			sounds.stream = magtivationSound
+	sounds.play()
 	magnetSprite.animation = stateToAnimString[currState]
 	magnetSprite.frame = 0
 

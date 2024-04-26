@@ -24,6 +24,8 @@ var zoomingStart : Vector2
 var zoomingGoal : Vector2
 var deathTimer : float = -1
 
+var musicChangePoints = [9, 13, 18, 27]
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	#Set the number of levels in the game to be the number of numbers in Main
@@ -33,10 +35,16 @@ func _ready() -> void:
 	if current_level < 1:
 		current_level = GlobalVariables.currentLevel-1
 	#set music
-	if (current_level > 13):
-		musicPlayer.set_stream(load("res://Sounds/Music/puzzle(intense).ogg"))
-	elif (current_level > 7):
+	if (current_level < musicChangePoints[0]):
+		musicPlayer.set_stream(load("res://Sounds/Music/puzzle(calm).ogg"))
+	elif (current_level < musicChangePoints[1]):
 		musicPlayer.set_stream(load("res://Sounds/Music/puzzle(midlevels).ogg"))
+	elif (current_level < musicChangePoints[2]):
+		musicPlayer.set_stream(load("res://Sounds/Music/puzzle(intense).ogg"))
+	elif (current_level < musicChangePoints[3]):
+		musicPlayer.set_stream(load("res://Sounds/Music/puzzle(act_three).ogg"))
+	else:
+		musicPlayer.set_stream(load("res://Sounds/Music/puzzle(act_four).ogg"))
 	#play music
 	musicPlayer.play()
 	
@@ -125,10 +133,14 @@ func increase_level() -> void:
 	camera.set_zoom(Vector2(final_zoom_size, final_zoom_size))
 	
 	# set music
-	if (current_level == 8):
+	if (current_level == 9):
 		musicPlayer.changeMusic("midlevels");
-	elif (current_level == 14):
+	elif (current_level == 13):
 		musicPlayer.changeMusic("intense");
+	elif (current_level == 18):
+		musicPlayer.changeMusic("act_three");
+	elif (current_level == 27):
+		musicPlayer.changeMusic("act_four");
 	
 	Levels[current_level].process_mode = Node.PROCESS_MODE_PAUSABLE
 	pauseMenu.set_pausability(true)

@@ -15,6 +15,8 @@ class_name movingObject
 @export var soundPlayer: AudioStreamPlayer2D
 @export var deathExplosion : Polygon2D
 
+@export var hittingSound : Array[String] = ["hitsomething.ogg"]
+
 var levelPlayer : rigidPlayer
 
 var just_destroyed = false
@@ -65,7 +67,7 @@ func reset():
 	sprite.show()
 	deathExplosion.hide()
 	collisionShape.set_deferred("disabled", false)
-	soundPlayer.stream = load("res://Sounds/hitsomething.ogg")
+	soundPlayer.stream = load("res://Sounds/"+hittingSound[0])
 
 func destroy():
 	if(isShielded):
@@ -79,7 +81,7 @@ func destroy():
 	deathExplosion.explode()
 	collisionShape.set_deferred("disabled", true)
 	#play sound
-	soundPlayer.stream = load("res://Sounds/hitsomething.ogg")
+	soundPlayer.stream = load("res://Sounds/"+hittingSound[0])
 	soundPlayer.play()
 
 func GiveSodaShield():

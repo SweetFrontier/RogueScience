@@ -7,6 +7,7 @@ class_name trampolineTrigger
 @export var BlockSprite: AnimatedSprite2D
 @export var MoveToPosition: Node2D
 @export var Sound: AudioStreamPlayer2D
+@export var instantSetup: bool = false
 
 var rider_freeable = false
 
@@ -59,7 +60,7 @@ func _on_body_entered(body):
 		rider_freeable = false
 	elif activated and !occupied and body != self:
 		override_movement(body)
-		if abs(body.global_position.x-global_position.x) <= 5:
+		if abs(body.global_position.x-global_position.x) <= 5 or instantSetup:
 			body.set_body_pos(global_position)
 			riderReady()
 		else:

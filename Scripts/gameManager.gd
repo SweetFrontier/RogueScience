@@ -138,6 +138,11 @@ func increase_level() -> void:
 	#freeze prev level
 	Levels[current_level-1].process_mode = Node.PROCESS_MODE_DISABLED
 	
+	#If prev level was a boss level, regain control of the camera
+	if Levels[current_level-1].theBoss != null:
+		camera.enabled = true
+		Levels[current_level-1].player.get_node("Camera2D").enabled = false
+	
 	#move camera and change zoom
 	camera.position = Levels[current_level].cameraSpot.global_position
 	camera.set_zoom(Vector2(final_zoom_size, final_zoom_size))
@@ -155,6 +160,13 @@ func increase_level() -> void:
 	Levels[current_level].process_mode = Node.PROCESS_MODE_PAUSABLE
 	pauseMenu.set_pausability(true)
 	Levels[current_level].reset()
+	
+	#If the next level is a boss level, relinquish control of the camera
+	if Levels[current_level].theBoss != null:
+		camera.enabled = false
+		Levels[current_level].player.get_node("Camera2D").enabled = true
+	else:
+		camera.enabled = true
 	
 	#uncover screen
 	Transition.play("UncoverScreen");

@@ -6,7 +6,9 @@ class_name levelController
 @export var cameraSize : Vector2
 @export var player : rigidPlayer
 @export var transitionField : TransitionField
-@export var DEBUG_MODE:bool = false
+@export var DEBUG_MODE: bool = false
+@export var theBoss: boss
+@export var sequencePlayer : AnimationPlayer
 
 var triggerBlocks : Array[baseTrigger]
 var movingObjects : Array[movingObject]
@@ -75,6 +77,11 @@ func reset():
 	player.reset()
 	#show the player
 	player.show()
+	if theBoss != null:
+		theBoss.reset()
+	if sequencePlayer != null:
+		sequencePlayer.stop()
+		sequencePlayer.play("1-10_BossIntro")
 
 func levelEnded():
 	isCurrentLevel = false

@@ -117,5 +117,6 @@ shape = SubResource("RectangleShape2D_eyows")
 
 [node name="magnetSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_ma6tk")
+volume_db = 5.0
 panning_strength = 1.5
 bus = &"Sound Effects"

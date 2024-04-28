@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=3 uid="uid://d3j2g1u0h26i0"]
+[gd_scene load_steps=131 format=3 uid="uid://d3j2g1u0h26i0"]
 
 [ext_resource type="Script" path="res://Scripts/LevelSelect.gd" id="1_ceyu2"]
 [ext_resource type="Texture2D" uid="uid://ch7u0c5stgewm" path="res://Art/Backgrounds/background.png" id="2_0iocl"]
@@ -25,6 +25,27 @@
 [ext_resource type="Texture2D" uid="uid://bhwads6gr0wh0" path="res://Art/Keys/level17.png" id="22_1j5eo"]
 [ext_resource type="Texture2D" uid="uid://dlog6ftm8qryk" path="res://Art/Keys/level18.png" id="23_14chn"]
 [ext_resource type="Texture2D" uid="uid://c8h0fv3gj7jt1" path="res://Art/Keys/level19.png" id="24_6up8n"]
+[ext_resource type="Texture2D" uid="uid://bxbdtvinlg8it" path="res://Art/Keys/level20.png" id="25_i4uph"]
+[ext_resource type="Texture2D" uid="uid://2w4gjqumoml1" path="res://Art/Keys/level21.png" id="26_dpqnq"]
+[ext_resource type="Texture2D" uid="uid://ndjuw3b2ckwu" path="res://Art/Keys/level22.png" id="27_1e1kv"]
+[ext_resource type="Texture2D" uid="uid://b3s3ap4nh3ynh" path="res://Art/Keys/level23.png" id="28_c7fhf"]
+[ext_resource type="Texture2D" uid="uid://dpxn2r7ojg5j0" path="res://Art/Keys/level24.png" id="29_oe7yr"]
+[ext_resource type="Texture2D" uid="uid://ct6i4ww3l6ed4" path="res://Art/Keys/level25.png" id="30_afecp"]
+[ext_resource type="Texture2D" uid="uid://vtuhna1xw6w1" path="res://Art/Keys/level26.png" id="31_4r2eb"]
+[ext_resource type="Texture2D" uid="uid://bcawevr20xuta" path="res://Art/Keys/level27.png" id="32_e3ygd"]
+[ext_resource type="Texture2D" uid="uid://cm5d7jwog2shm" path="res://Art/Keys/level28.png" id="33_njjiq"]
+[ext_resource type="Texture2D" uid="uid://104ummhbj524" path="res://Art/Keys/level29.png" id="34_4t1wl"]
+[ext_resource type="Texture2D" uid="uid://bsh2qv0eg6yns" path="res://Art/Keys/level30.png" id="35_adt85"]
+[ext_resource type="Texture2D" uid="uid://co4jnwomtcxc8" path="res://Art/Keys/level31.png" id="36_nfexc"]
+[ext_resource type="Texture2D" uid="uid://cbu21tmxh4rk3" path="res://Art/Keys/level32.png" id="37_57fij"]
+[ext_resource type="Texture2D" uid="uid://d132oxbh17cxr" path="res://Art/Keys/level33.png" id="38_nppw4"]
+[ext_resource type="Texture2D" uid="uid://clnuebpdrwbi5" path="res://Art/Keys/level34.png" id="39_dhimv"]
+[ext_resource type="Texture2D" uid="uid://vs7fu5k5r5tp" path="res://Art/Keys/level35.png" id="40_gl7jg"]
+[ext_resource type="Texture2D" uid="uid://b3u2d2tqsigmi" path="res://Art/Keys/level36.png" id="41_f8vid"]
+[ext_resource type="Texture2D" uid="uid://by57pfhfgu4fq" path="res://Art/Keys/level37.png" id="42_7pnlo"]
+[ext_resource type="Texture2D" uid="uid://ky4msf57sd4n" path="res://Art/Keys/level38.png" id="43_2a35i"]
+[ext_resource type="Texture2D" uid="uid://bpaj0pr5yv31d" path="res://Art/Keys/level39.png" id="44_kvnsj"]
+[ext_resource type="Texture2D" uid="uid://bp5luyr2ucen3" path="res://Art/Keys/level40.png" id="45_e6sc2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xtv5u"]
 atlas = ExtResource("6_y4hf7")
@@ -176,6 +197,174 @@ region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a3uht"]
 atlas = ExtResource("24_6up8n")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0xeoc"]
+atlas = ExtResource("25_i4uph")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x83c1"]
+atlas = ExtResource("25_i4uph")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n0s5h"]
+atlas = ExtResource("26_dpqnq")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_apqpo"]
+atlas = ExtResource("26_dpqnq")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6cn7f"]
+atlas = ExtResource("27_1e1kv")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s1uae"]
+atlas = ExtResource("27_1e1kv")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hm1bm"]
+atlas = ExtResource("28_c7fhf")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r8k31"]
+atlas = ExtResource("28_c7fhf")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ptp7f"]
+atlas = ExtResource("29_oe7yr")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eec1d"]
+atlas = ExtResource("29_oe7yr")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jdkuy"]
+atlas = ExtResource("30_afecp")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gyclx"]
+atlas = ExtResource("30_afecp")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tlt02"]
+atlas = ExtResource("31_4r2eb")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gltm5"]
+atlas = ExtResource("31_4r2eb")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fjf33"]
+atlas = ExtResource("32_e3ygd")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_agsvc"]
+atlas = ExtResource("32_e3ygd")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kfxrw"]
+atlas = ExtResource("33_njjiq")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6pbq5"]
+atlas = ExtResource("33_njjiq")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cclny"]
+atlas = ExtResource("34_4t1wl")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5klld"]
+atlas = ExtResource("34_4t1wl")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n2fji"]
+atlas = ExtResource("35_adt85")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1hwte"]
+atlas = ExtResource("35_adt85")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_holy8"]
+atlas = ExtResource("36_nfexc")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_phwc7"]
+atlas = ExtResource("36_nfexc")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wxjkv"]
+atlas = ExtResource("37_57fij")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l0grf"]
+atlas = ExtResource("37_57fij")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0iyo7"]
+atlas = ExtResource("38_nppw4")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_74u0m"]
+atlas = ExtResource("38_nppw4")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eqy7p"]
+atlas = ExtResource("39_dhimv")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8qks3"]
+atlas = ExtResource("39_dhimv")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ivha8"]
+atlas = ExtResource("40_gl7jg")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t00c7"]
+atlas = ExtResource("40_gl7jg")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k3hrq"]
+atlas = ExtResource("41_f8vid")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mjc1q"]
+atlas = ExtResource("41_f8vid")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ujcg"]
+atlas = ExtResource("42_7pnlo")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cyd5h"]
+atlas = ExtResource("42_7pnlo")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h54vs"]
+atlas = ExtResource("43_2a35i")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ykk1e"]
+atlas = ExtResource("43_2a35i")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f54eu"]
+atlas = ExtResource("44_kvnsj")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v4qh2"]
+atlas = ExtResource("44_kvnsj")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_121bc"]
+atlas = ExtResource("45_e6sc2")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8vfax"]
+atlas = ExtResource("45_e6sc2")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="Animation" id="Animation_k6vcr"]
@@ -445,168 +634,168 @@ stretch_mode = 0
 [node name="Level20" type="TextureButton" parent="GridContainer"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-texture_normal = SubResource("AtlasTexture_dpdgh")
-texture_hover = SubResource("AtlasTexture_a3uht")
+texture_normal = SubResource("AtlasTexture_0xeoc")
+texture_hover = SubResource("AtlasTexture_x83c1")
 ignore_texture_size = true
 stretch_mode = 0
 
 [node name="Level21" type="TextureButton" parent="GridContainer"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-texture_normal = SubResource("AtlasTexture_28rvt")
-texture_hover = SubResource("AtlasTexture_m3qfg")
+texture_normal = SubResource("AtlasTexture_n0s5h")
+texture_hover = SubResource("AtlasTexture_apqpo")
 ignore_texture_size = true
 stretch_mode = 0
 
 [node name="Level22" type="TextureButton" parent="GridContainer"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-texture_normal = SubResource("AtlasTexture_dgvws")
-texture_hover = SubResource("AtlasTexture_7owb4")
+texture_normal = SubResource("AtlasTexture_6cn7f")
+texture_hover = SubResource("AtlasTexture_s1uae")
 ignore_texture_size = true
 stretch_mode = 0
 
 [node name="Level23" type="TextureButton" parent="GridContainer"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-texture_normal = SubResource("AtlasTexture_5jsm2")
-texture_hover = SubResource("AtlasTexture_amn6n")
+texture_normal = SubResource("AtlasTexture_hm1bm")
+texture_hover = SubResource("AtlasTexture_r8k31")
 ignore_texture_size = true
 stretch_mode = 0
 
 [node name="Level24" type="TextureButton" parent="GridContainer"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-texture_normal = SubResource("AtlasTexture_6wajl")
-texture_hover = SubResource("AtlasTexture_hugkq")
+texture_normal = SubResource("AtlasTexture_ptp7f")
+texture_hover = SubResource("AtlasTexture_eec1d")
 ignore_texture_size = true
 stretch_mode = 0
 
 [node name="Level25" type="TextureButton" parent="GridContainer"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-texture_normal = SubResource("AtlasTexture_ptyhj")
-texture_hover = SubResource("AtlasTexture_7558w")
+texture_normal = SubResource("AtlasTexture_jdkuy")
+texture_hover = SubResource("AtlasTexture_gyclx")
 ignore_texture_size = true
 stretch_mode = 0
 
 [node name="Level26" type="TextureButton" parent="GridContainer"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-texture_normal = SubResource("AtlasTexture_sl21k")
-texture_hover = SubResource("AtlasTexture_26gea")
+texture_normal = SubResource("AtlasTexture_tlt02")
+texture_hover = SubResource("AtlasTexture_gltm5")
 ignore_texture_size = true
 stretch_mode = 0
 
 [node name="Level27" type="TextureButton" parent="GridContainer"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-texture_normal = SubResource("AtlasTexture_8ow2n")
-texture_hover = SubResource("AtlasTexture_knxfr")
+texture_normal = SubResource("AtlasTexture_fjf33")
+texture_hover = SubResource("AtlasTexture_agsvc")
 ignore_texture_size = true
 stretch_mode = 0
 
 [node name="Level28" type="TextureButton" parent="GridContainer"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-texture_normal = SubResource("AtlasTexture_wed67")
-texture_hover = SubResource("AtlasTexture_2fkvg")
+texture_normal = SubResource("AtlasTexture_kfxrw")
+texture_hover = SubResource("AtlasTexture_6pbq5")
 ignore_texture_size = true
 stretch_mode = 0
 
 [node name="Level29" type="TextureButton" parent="GridContainer"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-texture_normal = SubResource("AtlasTexture_dpdgh")
-texture_hover = SubResource("AtlasTexture_a3uht")
+texture_normal = SubResource("AtlasTexture_cclny")
+texture_hover = SubResource("AtlasTexture_5klld")
 ignore_texture_size = true
 stretch_mode = 0
 
 [node name="Level30" type="TextureButton" parent="GridContainer"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-texture_normal = SubResource("AtlasTexture_dpdgh")
-texture_hover = SubResource("AtlasTexture_a3uht")
+texture_normal = SubResource("AtlasTexture_n2fji")
+texture_hover = SubResource("AtlasTexture_1hwte")
 ignore_texture_size = true
 stretch_mode = 0
 
 [node name="Level31" type="TextureButton" parent="GridContainer"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-texture_normal = SubResource("AtlasTexture_28rvt")
-texture_hover = SubResource("AtlasTexture_m3qfg")
+texture_normal = SubResource("AtlasTexture_holy8")
+texture_hover = SubResource("AtlasTexture_phwc7")
 ignore_texture_size = true
 stretch_mode = 0
 
 [node name="Level32" type="TextureButton" parent="GridContainer"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-texture_normal = SubResource("AtlasTexture_dgvws")
-texture_hover = SubResource("AtlasTexture_7owb4")
+texture_normal = SubResource("AtlasTexture_wxjkv")
+texture_hover = SubResource("AtlasTexture_l0grf")
 ignore_texture_size = true
 stretch_mode = 0
 
 [node name="Level33" type="TextureButton" parent="GridContainer"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-texture_normal = SubResource("AtlasTexture_5jsm2")
-texture_hover = SubResource("AtlasTexture_amn6n")
+texture_normal = SubResource("AtlasTexture_0iyo7")
+texture_hover = SubResource("AtlasTexture_74u0m")
 ignore_texture_size = true
 stretch_mode = 0
 
 [node name="Level34" type="TextureButton" parent="GridContainer"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-texture_normal = SubResource("AtlasTexture_6wajl")
-texture_hover = SubResource("AtlasTexture_hugkq")
+texture_normal = SubResource("AtlasTexture_eqy7p")
+texture_hover = SubResource("AtlasTexture_8qks3")
 ignore_texture_size = true
 stretch_mode = 0
 
 [node name="Level35" type="TextureButton" parent="GridContainer"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-texture_normal = SubResource("AtlasTexture_ptyhj")
-texture_hover = SubResource("AtlasTexture_7558w")
+texture_normal = SubResource("AtlasTexture_ivha8")
+texture_hover = SubResource("AtlasTexture_t00c7")
 ignore_texture_size = true
 stretch_mode = 0
 
 [node name="Level36" type="TextureButton" parent="GridContainer"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-texture_normal = SubResource("AtlasTexture_sl21k")
-texture_hover = SubResource("AtlasTexture_26gea")
+texture_normal = SubResource("AtlasTexture_k3hrq")
+texture_hover = SubResource("AtlasTexture_mjc1q")
 ignore_texture_size = true
 stretch_mode = 0
 
 [node name="Level37" type="TextureButton" parent="GridContainer"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-texture_normal = SubResource("AtlasTexture_8ow2n")
-texture_hover = SubResource("AtlasTexture_knxfr")
+texture_normal = SubResource("AtlasTexture_6ujcg")
+texture_hover = SubResource("AtlasTexture_cyd5h")
 ignore_texture_size = true
 stretch_mode = 0
 
 [node name="Level38" type="TextureButton" parent="GridContainer"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-texture_normal = SubResource("AtlasTexture_wed67")
-texture_hover = SubResource("AtlasTexture_2fkvg")
+texture_normal = SubResource("AtlasTexture_h54vs")
+texture_hover = SubResource("AtlasTexture_ykk1e")
 ignore_texture_size = true
 stretch_mode = 0
 
 [node name="Level39" type="TextureButton" parent="GridContainer"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-texture_normal = SubResource("AtlasTexture_dpdgh")
-texture_hover = SubResource("AtlasTexture_a3uht")
+texture_normal = SubResource("AtlasTexture_f54eu")
+texture_hover = SubResource("AtlasTexture_v4qh2")
 ignore_texture_size = true
 stretch_mode = 0
 
 [node name="Level40" type="TextureButton" parent="GridContainer"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-texture_normal = SubResource("AtlasTexture_dpdgh")
-texture_hover = SubResource("AtlasTexture_a3uht")
+texture_normal = SubResource("AtlasTexture_121bc")
+texture_hover = SubResource("AtlasTexture_8vfax")
 ignore_texture_size = true
 stretch_mode = 0
 
@@ -616,6 +805,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -1280.0
+offset_right = -1280.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)

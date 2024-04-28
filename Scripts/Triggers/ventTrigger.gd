@@ -10,11 +10,13 @@ class_name ventTrigger
 @export var doorStop: explodeablePolygon
 @export var exit: Node2D
 @export var exitSprite: AnimatedSprite2D
+@export var audio: AudioStreamPlayer2D
 
 var ventAnimSprites: Array[AnimatedSprite2D]
 var rider_freeable = false
 var currState: VentState = VentState.CLOSED
 var currVentIndex = 0
+var soundTimer = 0.08;
 
 enum VentState
 {
@@ -85,12 +87,18 @@ func reset():
 			button_fade_timer = 0
 			TriggerKeySprite.modulate.a = 0
 
+
 func _physics_process(delta):
 	super._physics_process(delta)
 	if !occupied:
 		return
 	if !riderInPosition:
 		moveRiderToStarting(delta)
+	soundTimer -= delta
+	if (soundTimer < 0):
+		soundTimer += 0.08
+		audio.pitch_scale -= 0.025
+		audio.play()
 
 func teleportRider():
 	ridingBody.set_body_pos(exit.global_position)
@@ -131,6 +139,9 @@ func onInsideCheckVentAreaEntered(body):
 		ridingBody.hide()
 		riderReady()
 		ventAnimSprites[0].play()
+		audio.position = position
+		audio.pitch_scale = 0.7+ventAnimSprites.size()*0.05
+		audio.play()
 
 func onEntranceAnimationFinished():
 	if entranceSprite.animation == stateToAnimString[VentState.OPENING]:
@@ -154,6 +165,9 @@ func onVentFrameChanged():
 			return
 		currVent = ventAnimSprites[currVentIndex]
 		currVent.play()
+		audio.position = currVent.position
+		#audio.pitch_scale -= 0.025
+		#audio.play()
 
 func determineVentOrientations():
 	var orientations = []

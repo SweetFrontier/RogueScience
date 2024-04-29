@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/puzzle(act_three).ogg-a466f317c5e04a1cd80d7e3
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

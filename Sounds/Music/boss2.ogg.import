@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/boss2.ogg-b9e771bd88a5060b999db014151451ad.og
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

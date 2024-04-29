@@ -24,7 +24,7 @@ var zoomingStart : Vector2
 var zoomingGoal : Vector2
 var deathTimer : float = -1
 
-var musicChangePoints = [9, 13, 18, 27]
+var musicChangePoints = [10, 14, 20, 30]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -39,9 +39,9 @@ func _ready() -> void:
 	match(current_level):
 		9:
 			musicPlayer.set_stream(load("res://Sounds/Music/boss1.ogg"))
-		9:
+		19:
 			musicPlayer.set_stream(load("res://Sounds/Music/boss2.ogg"))
-		9:
+		29:
 			musicPlayer.set_stream(load("res://Sounds/Music/boss3.ogg"))
 		_:
 			if (current_level < musicChangePoints[0]):
@@ -148,13 +148,22 @@ func increase_level() -> void:
 	camera.set_zoom(Vector2(final_zoom_size, final_zoom_size))
 	
 	# set music
-	if (current_level == 9):
+	if (current_level % 10 == 9):
+		#boss level
+		match(int(current_level+1 / 10)):
+			1:
+				musicPlayer.changeMusic("boss1");
+			2:
+				musicPlayer.changeMusic("boss2");
+			3:
+				musicPlayer.changeMusic("boss3");
+	elif (current_level == musicChangePoints[0]):
 		musicPlayer.changeMusic("midlevels");
-	elif (current_level == 13):
+	elif (current_level == musicChangePoints[1]):
 		musicPlayer.changeMusic("intense");
-	elif (current_level == 18):
+	elif (current_level == musicChangePoints[2]):
 		musicPlayer.changeMusic("act_three");
-	elif (current_level == 27):
+	elif (current_level == musicChangePoints[3]):
 		musicPlayer.changeMusic("act_four");
 	
 	Levels[current_level].process_mode = Node.PROCESS_MODE_PAUSABLE

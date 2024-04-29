@@ -15,7 +15,10 @@ func changeMusic(musicName : String):
 	animationPlayer.play('fadeOut')
 	await animationPlayer.animation_finished
 	volume_db = 0;
-	set_stream(load("res://Sounds/Music/puzzle("+musicName+").ogg"))
+	if (musicName.substr(0,3) == 'bos'):
+		set_stream(load("res://Sounds/Music/"+musicName+".ogg"))
+	else:
+		set_stream(load("res://Sounds/Music/puzzle("+musicName+").ogg"))
 	play()
 
 func fadeOut():

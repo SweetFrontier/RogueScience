@@ -61,6 +61,7 @@ func _ready() -> void:
 	#movingStart = camera.global_position
 	#movingGoal = Levels[current_level].cameraSpot.global_position
 	current_level = clamp(current_level, 0, GlobalVariables.numLevels-1)
+	resetLevel()
 	movingGoal = Levels[current_level].cameraSpot.global_position
 	movingStart = movingGoal
 	var min_zoom_size : Vector2 =  Levels[current_level].cameraSize
@@ -76,7 +77,6 @@ func _ready() -> void:
 	await(resetWipeTransition.animation_finished)
 	Levels[current_level].process_mode = Node.PROCESS_MODE_PAUSABLE
 	pauseMenu.set_pausability(true)
-	Levels[current_level].reset()
 
 func _process(delta):
 	if (moving):
@@ -159,14 +159,8 @@ func increase_level() -> void:
 	
 	Levels[current_level].process_mode = Node.PROCESS_MODE_PAUSABLE
 	pauseMenu.set_pausability(true)
-	Levels[current_level].reset()
-	
-	#If the next level is a boss level, relinquish control of the camera
-	if Levels[current_level].theBoss != null:
-		camera.enabled = false
-		Levels[current_level].player.get_node("Camera2D").enabled = true
-	else:
-		camera.enabled = true
+	resetLevel()
+	#Levels[current_level].reset()
 	
 	#uncover screen
 	Transition.play("UncoverScreen");
@@ -223,8 +217,16 @@ func decrease_level() -> void:
 	Transition.hide()
 
 func resetLevel() -> void:
+	#If the level is a boss level, relinquish control of the camera
+	if Levels[current_level].theBoss != null:
+		camera.enabled = false
+		Levels[current_level].player.get_node("Camera2D").enabled = true
+	else:
+		camera.enabled = true
+	
 	# Resets the entire current level
 	Levels[current_level].reset()
+	
 	get_tree().paused = false
 
 func player_death() -> void:

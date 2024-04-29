@@ -48,6 +48,7 @@ project/assembly_name="2023KickOffGamejam"
 2d_physics/layer_5="MovingObject"
 2d_physics/layer_6="SodaInteractable"
 2d_physics/layer_7="Conductive"
+2d_physics/layer_8="BossLayer"
 2d_physics/layer_9="Player"
 
 [rendering]

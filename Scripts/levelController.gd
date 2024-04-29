@@ -54,6 +54,8 @@ func _ready():
 		index += 1
 	if (DEBUG_MODE):
 		reset()
+		if theBoss != null:
+			player.get_node("Camera2D").enabled = true
 	else:
 		player.hide()
 	#Give each Magnetic Moving Object a reference to each Magnet in the scene
@@ -79,6 +81,7 @@ func reset():
 	player.show()
 	if theBoss != null:
 		theBoss.reset()
+		player.get_node("Camera2D").enabled = true
 	if sequencePlayer != null:
 		sequencePlayer.stop()
 		sequencePlayer.play("1-10_BossIntro")

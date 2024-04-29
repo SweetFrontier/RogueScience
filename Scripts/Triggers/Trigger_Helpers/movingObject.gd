@@ -36,6 +36,8 @@ var controlled_lin_vel: Vector2 = Vector2()
 var directPosControl: bool = false
 var last_vel_x : float = 0
 var last_vel_y : float = 0
+var startingCollLayer
+var startingCollMask
 var inSoda : int = 0
 var isShielded : bool = false
 var magnetTriggers : Array[magnetTrigger]
@@ -43,6 +45,8 @@ var fansInRange : Array[fanTrigger] = []
 
 func _ready():
 	starting_transform = get_global_transform()
+	startingCollLayer = collision_layer
+	startingCollMask = collision_mask
 	reset()
 
 func reset():
@@ -61,6 +65,8 @@ func reset():
 	inSoda = 0
 	isShielded = false
 	SodaShield.visible = false
+	collision_layer = startingCollLayer
+	collision_mask = startingCollMask
 	
 	just_destroyed = false
 	destroyed = false

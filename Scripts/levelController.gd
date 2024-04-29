@@ -9,6 +9,8 @@ class_name levelController
 @export var DEBUG_MODE: bool = false
 @export var theBoss: boss
 @export var sequencePlayer : AnimationPlayer
+@export var introAnimationName : String
+@export var endAnimationName : String
 
 var triggerBlocks : Array[baseTrigger]
 var movingObjects : Array[movingObject]
@@ -56,6 +58,7 @@ func _ready():
 		reset()
 		if theBoss != null:
 			player.get_node("Camera2D").enabled = true
+			transitionField.connect("start_end_sequence", startEndSequence)
 	else:
 		player.hide()
 	#Give each Magnetic Moving Object a reference to each Magnet in the scene
@@ -84,7 +87,7 @@ func reset():
 		player.get_node("Camera2D").enabled = true
 	if sequencePlayer != null:
 		sequencePlayer.stop()
-		sequencePlayer.play("1-10_BossIntro")
+		sequencePlayer.play(introAnimationName)
 
 func levelEnded():
 	isCurrentLevel = false
@@ -104,3 +107,6 @@ func randomize_block_keys():
 	availableKeys.shuffle()
 	for i in range(remainingTriggerBlocks.size()):
 		remainingTriggerBlocks[i].set_button(availableKeys[i])
+
+func startEndSequence():
+	sequencePlayer.play(endAnimationName)

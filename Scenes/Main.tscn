@@ -188,7 +188,6 @@ position = Vector2(11264, -768)
 
 [node name="Act_2" type="Node2D" parent="Levels"]
 position = Vector2(31, 2272)
-metadata/_edit_group_ = true
 
 [node name="2-1_SecurityCameraIntro" parent="Levels/Act_2" instance=ExtResource("13_k8ysv")]
 position = Vector2(192, 0)
@@ -219,7 +218,6 @@ position = Vector2(9472, 0)
 
 [node name="Act_3" type="Node2D" parent="Levels"]
 position = Vector2(0, 4704)
-metadata/_edit_group_ = true
 
 [node name="3-1_MagnetIntro" parent="Levels/Act_3" instance=ExtResource("22_viqh2")]
 
@@ -249,7 +247,6 @@ position = Vector2(9440, -64)
 
 [node name="Act_4" type="Node2D" parent="Levels"]
 position = Vector2(0, 7520)
-metadata/_edit_group_ = true
 
 [node name="4-1_VentInto" parent="Levels/Act_4" instance=ExtResource("31_up187")]
 

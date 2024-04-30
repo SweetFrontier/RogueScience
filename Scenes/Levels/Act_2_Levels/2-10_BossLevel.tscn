@@ -1,7 +1,7 @@
-[gd_scene load_steps=24 format=3 uid="uid://3e4you6s074d"]
+[gd_scene load_steps=18 format=3 uid="uid://3e4you6s074d"]
 
 [ext_resource type="Script" path="res://Scripts/levelController.gd" id="1_p6rvs"]
-[ext_resource type="Texture2D" uid="uid://co8uauh0qhq5a" path="res://Art/Backgrounds/Act1_BG.png" id="2_7yll3"]
+[ext_resource type="Texture2D" uid="uid://07uroqboajom" path="res://Art/Backgrounds/Act2_BG.png" id="2_x1vlq"]
 [ext_resource type="Texture2D" uid="uid://bxmlwrdj0dqnw" path="res://Art/TileSets/Act1Tileset.png" id="3_rw2ym"]
 [ext_resource type="Texture2D" uid="uid://diqvrvgk6lmkm" path="res://Art/TileSets/Act2Tileset.png" id="4_s31wx"]
 [ext_resource type="Texture2D" uid="uid://cx555vem8ufvb" path="res://Art/TileSets/Act3Tileset.png" id="5_j8kwi"]
@@ -12,12 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://dd6l6fhpuajke" path="res://Scenes/rigidPlayer.tscn" id="10_l2oa6"]
 [ext_resource type="PackedScene" uid="uid://dx47yma3wfoi6" path="res://Scenes/boss.tscn" id="11_r5ave"]
 [ext_resource type="PackedScene" uid="uid://dpeaoe3ad3ahy" path="res://Scenes/Triggers/Trigger_Helpers/brokenVat.tscn" id="12_ekn5j"]
-[ext_resource type="PackedScene" uid="uid://dnqoj4eg2l7le" path="res://Scenes/Triggers/trampolineTrigger.tscn" id="13_pilfj"]
-[ext_resource type="PackedScene" uid="uid://dgkh4na3ckdg2" path="res://Scenes/Triggers/BreakableBlocks/RightSlopebreakableBlock.tscn" id="14_sxs3s"]
-[ext_resource type="PackedScene" uid="uid://c0eghc3oa7752" path="res://Scenes/Triggers/Trigger_Helpers/movingObject.tscn" id="15_mdrdl"]
-[ext_resource type="PackedScene" uid="uid://b653ep4goj6pf" path="res://Scenes/Triggers/InvisibleBlocks/32x64InvisibleBlock.tscn" id="16_v1l1v"]
-[ext_resource type="PackedScene" uid="uid://dxkklnkpsn70w" path="res://Scenes/Triggers/BreakableBlocks/32x32breakableBlock.tscn" id="17_eb32o"]
-[ext_resource type="PackedScene" uid="uid://cl0g2o3284xxy" path="res://Scenes/Triggers/InvisibleBlocks/32x32InvisibleBlock.tscn" id="18_yr2o2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vytr0"]
 texture = ExtResource("3_rw2ym")
@@ -2435,20 +2429,11 @@ sequencePlayer = NodePath("SequencePlayer")
 introAnimationName = "1-10_BossIntro"
 endAnimationName = "1-10_BossEnd"
 
-[node name="Act1Bg" type="Sprite2D" parent="."]
+[node name="Act2Bg" type="Sprite2D" parent="."]
 z_index = -100
 z_as_relative = false
-position = Vector2(1472, 1000)
-texture = ExtResource("2_7yll3")
-
-[node name="Act1Bg2" type="Sprite2D" parent="Act1Bg"]
-z_index = -100
-z_as_relative = false
-position = Vector2(-1520, -424)
-scale = Vector2(1.59653, 1)
-texture = ExtResource("2_7yll3")
-region_enabled = true
-region_rect = Rect2(2969, 444, 31, 384)
+position = Vector2(1600, 800)
+texture = ExtResource("2_x1vlq")
 
 [node name="BossMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_cp65l")
@@ -2469,11 +2454,11 @@ libraries = {
 position = Vector2(240, 128)
 
 [node name="TransitionField" parent="." instance=ExtResource("9_xh86y")]
-position = Vector2(2688, 1536)
+position = Vector2(-272, 664)
 bossLevel = true
 
 [node name="rigidPlayer" parent="." instance=ExtResource("10_l2oa6")]
-position = Vector2(2688, 1536)
+position = Vector2(574, 752)
 metadata/_edit_group_ = true
 
 [node name="Camera2D" type="Camera2D" parent="rigidPlayer"]
@@ -2481,57 +2466,10 @@ enabled = false
 zoom = Vector2(3, 3)
 
 [node name="Boss" parent="." instance=ExtResource("11_r5ave")]
-position = Vector2(1856, 1488)
+position = Vector2(224, 688)
 speed = 8100.0
 lurchAmount = 300
 currState = 2
 
 [node name="brokenVat" parent="." instance=ExtResource("12_ekn5j")]
 position = Vector2(512, 736)
-
-[node name="trampolineTrigger" parent="." instance=ExtResource("13_pilfj")]
-position = Vector2(2112, 1152)
-rotation = -0.785398
-jump_force = 600.0
-instantSetup = true
-
-[node name="RightSlopebreakableBlock" parent="." instance=ExtResource("14_sxs3s")]
-position = Vector2(1216, 896)
-
-[node name="movingObject" parent="." instance=ExtResource("15_mdrdl")]
-position = Vector2(432, 752)
-
-[node name="invisibleBlock" parent="." instance=ExtResource("16_v1l1v")]
-position = Vector2(736, 704)
-
-[node name="32x32breakableBlock" parent="." instance=ExtResource("17_eb32o")]
-position = Vector2(1312, 1056)
-
-[node name="movingObject2" parent="." instance=ExtResource("15_mdrdl")]
-position = Vector2(1328, 1040)
-
-[node name="trampolineTrigger3" parent="." instance=ExtResource("13_pilfj")]
-position = Vector2(320, 1312)
-rotation = 0.785398
-jump_force = 600.0
-instantSetup = true
-
-[node name="invisibleBlock2" parent="." instance=ExtResource("18_yr2o2")]
-position = Vector2(960, 1088)
-
-[node name="trampolineTrigger4" parent="." instance=ExtResource("13_pilfj")]
-position = Vector2(1096, 1472)
-rotation = 0.785398
-jump_force = 500.0
-instantSetup = true
-
-[node name="trampolineTrigger5" parent="." instance=ExtResource("13_pilfj")]
-position = Vector2(384, 1128)
-jump_force = 300.0
-instantSetup = true
-
-[node name="trampolineTrigger6" parent="." instance=ExtResource("13_pilfj")]
-position = Vector2(1832, 1536)
-rotation = 0.785398
-jump_force = 1000.0
-instantSetup = true

@@ -1,8 +1,8 @@
 [gd_scene load_steps=47 format=3 uid="uid://dy75gsun3qk8c"]
 
 [ext_resource type="Script" path="res://Scripts/levelController.gd" id="1_fklfs"]
-[ext_resource type="Texture2D" uid="uid://3rgkgrhw8r0c" path="res://Art/Backgrounds/Act4/Act4-9_BG.png" id="2_i47bo"]
 [ext_resource type="TileSet" uid="uid://bnpggr5480t5q" path="res://Art/TileSets/initialTileSet.tres" id="2_otcis"]
+[ext_resource type="Texture2D" uid="uid://b1vh5hyx7gci0" path="res://Art/Backgrounds/Act4_BG.png" id="2_rf7ki"]
 [ext_resource type="PackedScene" uid="uid://dd6l6fhpuajke" path="res://Scenes/rigidPlayer.tscn" id="3_7004l"]
 [ext_resource type="TileSet" uid="uid://bfybbk5ql7iod" path="res://Art/TileSets/effectsTileSet.tres" id="3_nhg0j"]
 [ext_resource type="PackedScene" uid="uid://dvbyxsl5e3ol8" path="res://Scenes/Triggers/Trigger_Helpers/TransitionField.tscn" id="4_eme8f"]
@@ -227,11 +227,13 @@ player = NodePath("rigidPlayer")
 transitionField = NodePath("TransitionField")
 DEBUG_MODE = true
 
-[node name="Act4-9Bg" type="Sprite2D" parent="."]
+[node name="Act4Bg" type="Sprite2D" parent="."]
 z_index = -100
 z_as_relative = false
 position = Vector2(496, 368)
-texture = ExtResource("2_i47bo")
+texture = ExtResource("2_rf7ki")
+region_enabled = true
+region_rect = Rect2(512, 192, 1312, 736)
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("2_otcis")

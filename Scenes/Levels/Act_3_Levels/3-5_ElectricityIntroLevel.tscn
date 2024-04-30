@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://cdvq37b7ula4"]
 
 [ext_resource type="Script" path="res://Scripts/levelController.gd" id="1_chx7g"]
-[ext_resource type="Texture2D" uid="uid://c8m06ph5ti541" path="res://Art/Backgrounds/Act3_BG.png" id="2_htq1x"]
+[ext_resource type="Texture2D" uid="uid://d34hymtsr1qlu" path="res://Art/Backgrounds/Act3_BG.png" id="2_htq1x"]
 [ext_resource type="TileSet" uid="uid://bnpggr5480t5q" path="res://Art/TileSets/initialTileSet.tres" id="2_qxamy"]
 [ext_resource type="PackedScene" uid="uid://dd6l6fhpuajke" path="res://Scenes/rigidPlayer.tscn" id="3_lcspc"]
 [ext_resource type="TileSet" uid="uid://bfybbk5ql7iod" path="res://Art/TileSets/effectsTileSet.tres" id="3_mksaq"]
@@ -24,8 +24,10 @@ DEBUG_MODE = true
 [node name="Act3Bg" type="Sprite2D" parent="."]
 z_index = -100
 z_as_relative = false
-position = Vector2(832, -512)
+position = Vector2(177, 112)
 texture = ExtResource("2_htq1x")
+region_enabled = true
+region_rect = Rect2(608, 1248, 672, 352)
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("2_qxamy")

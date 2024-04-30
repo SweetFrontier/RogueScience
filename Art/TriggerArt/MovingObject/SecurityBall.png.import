@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bnjjpw10emw72"
-path="res://.godot/imported/Act1-4_BG.png-18a351cac0569557d9869235355f8310.ctex"
+uid="uid://ds1x4n3w52kkl"
+path="res://.godot/imported/SecurityBall.png-d1be90dcf87af7c21f488d6b4a372376.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Backgrounds/Act1/Act1-4_BG.png"
-dest_files=["res://.godot/imported/Act1-4_BG.png-18a351cac0569557d9869235355f8310.ctex"]
+source_file="res://Art/TriggerArt/MovingObject/SecurityBall.png"
+dest_files=["res://.godot/imported/SecurityBall.png-d1be90dcf87af7c21f488d6b4a372376.ctex"]
 
 [params]
 

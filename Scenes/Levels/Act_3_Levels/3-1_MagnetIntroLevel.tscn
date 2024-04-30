@@ -22,8 +22,10 @@ transitionField = NodePath("TransitionField")
 [node name="Act3Bg" type="Sprite2D" parent="."]
 z_index = -100
 z_as_relative = false
-position = Vector2(1328, 720)
+position = Vector2(256, 288)
 texture = ExtResource("2_uccm4")
+region_enabled = true
+region_rect = Rect2(112, 144, 832, 448)
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("2_if6x4")

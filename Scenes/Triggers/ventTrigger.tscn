@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bsdf7ttsg7sxt" path="res://Art/TriggerArt/Vent/plhVentExit.png" id="6_2suut"]
 [ext_resource type="Texture2D" uid="uid://br4nivuvvnump" path="res://Art/TriggerArt/Vent/plhVentBall.png" id="7_g8yn0"]
 [ext_resource type="Script" path="res://Scripts/Triggers/Trigger_Helpers/explodeablePolygon.gd" id="8_oousd"]
-[ext_resource type="AudioStream" uid="uid://c6n53pjh7dksb" path="res://Sounds/amogus.wav" id="11_8hbr7"]
+[ext_resource type="AudioStream" uid="uid://llkhffx3t5ci" path="res://Sounds/amogus.wav" id="11_8hbr7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y6fvi"]
 atlas = ExtResource("2_0bfpb")

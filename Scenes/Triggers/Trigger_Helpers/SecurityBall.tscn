@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://bmwdwlb5umkan"]
+[gd_scene load_steps=10 format=3 uid="uid://bmwdwlb5umkan"]
 
 [ext_resource type="Script" path="res://Scripts/Triggers/Trigger_Helpers/movingObject.gd" id="1_nietp"]
+[ext_resource type="Texture2D" uid="uid://ds1x4n3w52kkl" path="res://Art/TriggerArt/MovingObject/SecurityBall.png" id="2_7o0yq"]
 [ext_resource type="Texture2D" uid="uid://scu4r07x4qav" path="res://Art/TriggerArt/MovingObject/plhSecurityBall.png" id="2_idst8"]
 [ext_resource type="Texture2D" uid="uid://bctxuq8plm2r2" path="res://Art/TriggerArt/MovingObject/plhSodaShield.png" id="3_rehp2"]
 [ext_resource type="AudioStream" uid="uid://cbl8qb0gk6iiq" path="res://Sounds/hitsomething.ogg" id="4_qu31x"]
@@ -41,7 +42,7 @@ soundPlayer = NodePath("hittingSounds")
 deathExplosion = NodePath("DeathExplosion")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_idst8")
+texture = ExtResource("2_7o0yq")
 
 [node name="SodaShield" type="AnimatedSprite2D" parent="."]
 visible = false

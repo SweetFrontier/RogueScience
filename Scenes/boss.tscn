@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dx47yma3wfoi6"]
+[gd_scene load_steps=11 format=3 uid="uid://dx47yma3wfoi6"]
 
 [ext_resource type="Texture2D" uid="uid://b6po2nrkyuixx" path="res://Art/Spritesheets/plhBossSheet.png" id="1_jlakm"]
 [ext_resource type="Script" path="res://Scripts/boss.gd" id="1_w8i4p"]
@@ -56,9 +56,6 @@ animations = [{
 radius = 32.0
 height = 112.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1vypj"]
-size = Vector2(112, 120)
-
 [node name="Boss" type="CharacterBody2D" node_paths=PackedStringArray("spriteAnim", "collisionShape", "frontDetector")]
 z_index = 93
 z_as_relative = false
@@ -73,23 +70,23 @@ collisionShape = NodePath("CollisionShape2D")
 frontDetector = NodePath("FrontCollisionDetection")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 1)
 scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_nx4wp")
 animation = &"chasing"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(40, 48)
 rotation = -1.5708
 shape = SubResource("CapsuleShape2D_f6stx")
 
 [node name="FrontCollisionDetection" type="Area2D" parent="."]
 position = Vector2(56, 32)
+collision_mask = 129
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FrontCollisionDetection"]
-visible = false
-position = Vector2(0, -4)
-shape = SubResource("RectangleShape2D_1vypj")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FrontCollisionDetection"]
+polygon = PackedVector2Array(56, 56, -104, -72, -136, -72, -152, -32, -56, 56)
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="onAnimationFinished"]
+[connection signal="area_shape_entered" from="FrontCollisionDetection" to="." method="hitSomethingEatableArea"]
 [connection signal="body_entered" from="FrontCollisionDetection" to="." method="hitSomethingEatable"]

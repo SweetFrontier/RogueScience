@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://1xasoo80ygld"]
+[gd_scene load_steps=24 format=3 uid="uid://1xasoo80ygld"]
 
 [ext_resource type="Script" path="res://Scripts/levelController.gd" id="1_btnfb"]
 [ext_resource type="Texture2D" uid="uid://co8uauh0qhq5a" path="res://Art/Backgrounds/Act1_BG.png" id="2_g1juu"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dpeaoe3ad3ahy" path="res://Scenes/Triggers/Trigger_Helpers/brokenVat.tscn" id="7_njt5g"]
 [ext_resource type="TileSet" uid="uid://bfybbk5ql7iod" path="res://Art/TileSets/effectsTileSet.tres" id="7_sqseh"]
 [ext_resource type="PackedScene" uid="uid://dnqoj4eg2l7le" path="res://Scenes/Triggers/trampolineTrigger.tscn" id="8_oyr4h"]
+[ext_resource type="AnimationLibrary" uid="uid://boe0opwg5u6p7" path="res://Animations/globalAnimations.res" id="8_rxu7w"]
 [ext_resource type="PackedScene" uid="uid://c0eghc3oa7752" path="res://Scenes/Triggers/Trigger_Helpers/movingObject.tscn" id="9_2dsq1"]
 [ext_resource type="PackedScene" uid="uid://dgkh4na3ckdg2" path="res://Scenes/Triggers/BreakableBlocks/RightSlopebreakableBlock.tscn" id="10_d21uh"]
 [ext_resource type="PackedScene" uid="uid://b653ep4goj6pf" path="res://Scenes/Triggers/InvisibleBlocks/32x64InvisibleBlock.tscn" id="16_v1guw"]
@@ -2421,166 +2422,6 @@ sources/1 = SubResource("TileSetAtlasSource_6h3s8")
 sources/2 = SubResource("TileSetAtlasSource_m1871")
 sources/3 = SubResource("TileSetAtlasSource_tiowy")
 
-[sub_resource type="Animation" id="Animation_ryhsf"]
-resource_name = "1-10_BossIntro"
-length = 4.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("rigidPlayer/Camera2D:zoom")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(1, 2, 3),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(3, 3), Vector2(3, 3), Vector2(1.25, 1.25)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("rigidPlayer/Camera2D:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(1, 2, 2.9, 3.2, 4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(0, 0), Vector2(-378, -48), Vector2(-378, -48), Vector2(0, 0)]
-}
-tracks/2/type = "method"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("rigidPlayer")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(1, 2, 3.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"values": [{
-"args": [null],
-"method": &"movement_overwritten"
-}, {
-"args": [Vector2(-1, 0)],
-"method": &"changeDirection"
-}, {
-"args": [],
-"method": &"free_movement"
-}]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("rigidPlayer:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 1, 3.4, 3.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(574, 752), Vector2(602, 752), Vector2(602, 752), Vector2(602, 752)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Boss:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 1, 2.8, 2.9, 3, 3.1, 3.2, 3.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(224, 688), Vector2(224, 688), Vector2(224, 688), Vector2(232, 696), Vector2(208, 704), Vector2(200, 696), Vector2(224, 688), Vector2(248, 688)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Boss:currState")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0, 3.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [2, 0]
-}
-tracks/6/type = "method"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Boss")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": ["chasing"],
-"method": &"playAnimation"
-}]
-}
-
-[sub_resource type="Animation" id="Animation_23hp0"]
-resource_name = "1-10_BossEnd"
-length = 4.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Boss:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(1856, 1488), Vector2(2496, 1488), Vector2(2496, 1488), Vector2(2488, 1496), Vector2(2504, 1496), Vector2(2488, 1488), Vector2(2504, 1488), Vector2(2496, 1488)]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("rigidPlayer")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"hide"
-}]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("rigidPlayer:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(2688, 1536)]
-}
-tracks/3/type = "method"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("TransitionField")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(2.5),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"changeLevel"
-}]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_40ydq"]
-_data = {
-"1-10_BossEnd": SubResource("Animation_23hp0"),
-"1-10_BossIntro": SubResource("Animation_ryhsf")
-}
-
 [node name="1-10_BossLevel" type="Node2D" node_paths=PackedStringArray("cameraSpot", "player", "transitionField", "theBoss", "sequencePlayer")]
 texture_filter = 1
 script = ExtResource("1_btnfb")
@@ -2623,7 +2464,7 @@ layer_0/tile_data = PackedInt32Array(2031651, 1048578, 2, 1966114, 262146, 11, 1
 
 [node name="SequencePlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_40ydq")
+"": ExtResource("8_rxu7w")
 }
 
 [node name="CenterPosition" type="Marker2D" parent="."]

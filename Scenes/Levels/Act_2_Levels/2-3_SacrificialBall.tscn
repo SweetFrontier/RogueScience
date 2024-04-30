@@ -23,8 +23,10 @@ DEBUG_MODE = true
 [node name="Act2Bg" type="Sprite2D" parent="."]
 z_index = -100
 z_as_relative = false
-position = Vector2(1424, -256)
+position = Vector2(336, 208)
 texture = ExtResource("2_55mjc")
+region_enabled = true
+region_rect = Rect2(144, 1024, 736, 480)
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("2_f2cmb")

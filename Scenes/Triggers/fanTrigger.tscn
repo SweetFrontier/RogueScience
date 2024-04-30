@@ -1,13 +1,13 @@
 [gd_scene load_steps=35 format=3 uid="uid://b8japh5crdt7v"]
 
 [ext_resource type="Script" path="res://Scripts/Triggers/fanTrigger.gd" id="1_t8n4g"]
-[ext_resource type="Texture2D" uid="uid://c0yh08dvrqsmt" path="res://Art/TriggerArt/Fan/FanHeadOff.png" id="2_h20yh"]
-[ext_resource type="Texture2D" uid="uid://bsl24e6d7blb8" path="res://Art/TriggerArt/Fan/FanHeadOn.png" id="3_tf3be"]
+[ext_resource type="Texture2D" uid="uid://dmwsbpfbwbh0f" path="res://Art/TriggerArt/Fan/FanHeadOff.png" id="2_h20yh"]
+[ext_resource type="Texture2D" uid="uid://b2m24rarwn675" path="res://Art/TriggerArt/Fan/FanHeadOn.png" id="3_tf3be"]
 [ext_resource type="Texture2D" uid="uid://8yh8c5n7wkvu" path="res://Art/TriggerArt/Fan/plhWindVis64.png" id="5_qydgy"]
 [ext_resource type="Texture2D" uid="uid://cgtbmno20ljkx" path="res://Art/TriggerArt/Fan/plhWindVis32.png" id="6_acwrb"]
 [ext_resource type="Texture2D" uid="uid://c4jjgjswot180" path="res://Art/TriggerArt/Fan/plhWindVis16.png" id="7_5gqib"]
 [ext_resource type="PackedScene" uid="uid://djjr177758y2h" path="res://Scenes/Triggers/Trigger_Helpers/triggerKey.tscn" id="7_460pp"]
-[ext_resource type="AudioStream" uid="uid://dauwddrk2nqmm" path="res://Sounds/fanswishy.ogg" id="8_1pgk3"]
+[ext_resource type="AudioStream" uid="uid://bqhwj1jedidaj" path="res://Sounds/fanswishy.ogg" id="8_1pgk3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_epcmq"]
 atlas = ExtResource("2_h20yh")

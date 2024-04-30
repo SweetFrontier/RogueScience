@@ -105,7 +105,7 @@ func _process(delta):
 				currState = SecurityCameraState.INACTIVE
 
 func _on_camera_caught(body):
-	if !body is movingObject and !body is rigidPlayer:
+	if !body is movingObject and !body is rigidPlayer and !body is boss:
 		return
 	targetIdentified = true
 	cameraView.set_deferred("monitoring",false)

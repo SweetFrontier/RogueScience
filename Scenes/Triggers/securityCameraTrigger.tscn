@@ -1,11 +1,11 @@
 [gd_scene load_steps=10 format=3 uid="uid://dcf8fjp1cyb11"]
 
 [ext_resource type="Script" path="res://Scripts/Triggers/securityCameraTrigger.gd" id="2_trp4r"]
-[ext_resource type="AudioStream" uid="uid://bb2wgk8dwsn3t" path="res://Sounds/detecc.ogg" id="3_eqp7l"]
+[ext_resource type="AudioStream" uid="uid://dg5aqxpm41mnm" path="res://Sounds/detecc.ogg" id="3_eqp7l"]
 [ext_resource type="SpriteFrames" uid="uid://c8sqx1xvrnvlr" path="res://Art/SpriteFrames/securityCameraAnims.tres" id="3_fkkyl"]
 [ext_resource type="SpriteFrames" uid="uid://n6voywyb5m04" path="res://Art/SpriteFrames/securityGunAnims.tres" id="4_beff6"]
 [ext_resource type="PackedScene" uid="uid://djjr177758y2h" path="res://Scenes/Triggers/Trigger_Helpers/triggerKey.tscn" id="5_ehj48"]
-[ext_resource type="AudioStream" uid="uid://doaw1esfcynfc" path="res://Sounds/firingboom.ogg" id="5_m40ep"]
+[ext_resource type="AudioStream" uid="uid://bk2ycy6h18nty" path="res://Sounds/firingboom.ogg" id="5_m40ep"]
 [ext_resource type="PackedScene" uid="uid://bjl1j5sws2hp2" path="res://Scenes/Triggers/Trigger_Helpers/bullet.tscn" id="5_vit4w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w2cvd"]
@@ -52,7 +52,7 @@ z_index = 91
 z_as_relative = false
 position = Vector2(-16, 0)
 collision_layer = 0
-collision_mask = 272
+collision_mask = 400
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CameraPivotPoint/CameraView"]
 visible = false
@@ -83,6 +83,7 @@ bus = &"Sound Effects"
 [node name="Bullet" parent="GunSprite" instance=ExtResource("5_vit4w")]
 position = Vector2(-8, -1)
 rotation = -3.14159
+collision_layer = 128
 MAX_ROTATION_SPEED = 60
 BULLET_SPEED = 1500.0
 

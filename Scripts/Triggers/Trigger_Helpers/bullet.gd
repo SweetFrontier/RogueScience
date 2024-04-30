@@ -58,6 +58,12 @@ func _physics_process(delta):
 func explosionFinished():
 	bulletState = BulletState.EXPLODED
 
+func explode():
+	bulletState = BulletState.EXPLODING
+	$BulletSprite.visible = false
+	$CollisionShape2D.set_deferred("disabled", true)
+	$Explosion.play()
+
 func _on_body_entered(collider):
 	var colliderParent = collider.get_parent()
 	if collider is rigidPlayer:
@@ -72,7 +78,4 @@ func _on_body_entered(collider):
 	elif colliderParent and colliderParent is invisibleBlock:
 		var iBlock = colliderParent as invisibleBlock
 		iBlock.destroy()
-	bulletState = BulletState.EXPLODING
-	$BulletSprite.visible = false
-	$CollisionShape2D.set_deferred("disabled", true)
-	$Explosion.play()
+	explode()

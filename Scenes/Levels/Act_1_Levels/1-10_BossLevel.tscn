@@ -2429,7 +2429,6 @@ cameraSpot = NodePath("CenterPosition")
 cameraSize = Vector2(1920, 1080)
 player = NodePath("rigidPlayer")
 transitionField = NodePath("TransitionField")
-DEBUG_MODE = true
 theBoss = NodePath("Boss")
 sequencePlayer = NodePath("SequencePlayer")
 introAnimationName = "1-10_BossIntro"

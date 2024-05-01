@@ -2457,7 +2457,7 @@ libraries = {
 position = Vector2(240, 128)
 
 [node name="TransitionField" parent="." instance=ExtResource("9_xh86y")]
-position = Vector2(544, 1376)
+position = Vector2(1824, 512)
 bossLevel = true
 
 [node name="rigidPlayer" parent="." instance=ExtResource("10_l2oa6")]

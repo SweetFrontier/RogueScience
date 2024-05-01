@@ -13,6 +13,8 @@ class_name boss
 
 var currDirection = Vector2.RIGHT
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity") * 5
+var inSoda : int = 0
+var gravity_scale = 1
 
 var eatingCollision
 var eatingTarget 
@@ -33,23 +35,32 @@ func reset():
 	currDirection = Vector2.RIGHT
 	collisionShape.position.x = 56
 	frontDetector.position.x = 56
+	frontDetector.scale.x = 1
 	spriteAnim.flip_h = false
 	velocity = Vector2(0,0)
 	eatingTarget = null
 	eatingCollision = null
+	inSoda = 0
 
 func _physics_process(delta):
+	gravity_scale = 1.0
+	if inSoda < 0:
+		inSoda = 0
+	elif inSoda >= 1:
+		gravity_scale = stickyMultiplier
+	
 	if(currState == BossState.CHASING):
 		# Add the gravity.
 		if not is_on_floor():
-			velocity.y += gravity * delta
+			velocity.y += gravity * delta * gravity_scale
 		
 		if is_on_wall():
 			currDirection.x = -currDirection.x
 			collisionShape.position.x = -collisionShape.position.x
 			frontDetector.position.x = -frontDetector.position.x
+			frontDetector.scale.x = -frontDetector.scale.x
 			spriteAnim.flip_h = !spriteAnim.flip_h
-		velocity.x = currDirection.x * speed * delta
+		velocity.x = currDirection.x * speed * delta * gravity_scale
 		move_and_slide()
 	elif(currState == BossState.EATING):
 		if velocity.x > 0:
@@ -85,12 +96,14 @@ func hitSomethingEatable(body):
 	currState = BossState.EATING
 	velocity.x = lurchAmount * currDirection.x
 	
-func hitSomethingEatableArea(area_rid, area, area_shape_index, local_shape_index):
+func hitSomethingEatableArea(_area_rid, area, _area_shape_index, _local_shape_index):
 	hitSomethingEatable(area)
 
 func onAnimationFinished():
 	if spriteAnim.animation == "eating":
 		if eatingTarget is rigidPlayer:
+			eatingTarget.isShielded = false
+			eatingTarget.SodaShield.visible = false
 			eatingTarget.killFella()
 		elif eatingTarget is movingObject:
 			eatingTarget.destroy()

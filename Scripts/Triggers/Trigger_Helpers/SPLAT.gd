@@ -10,10 +10,10 @@ func _ready():
 
 
 func _on_area_2d_body_entered(collider):
-	if collider is rigidPlayer or collider is movingObject or collider is Bullet:
+	if collider is rigidPlayer or collider is movingObject or collider is Bullet or collider is boss:
 		collider.inSoda += 1
 
 
 func _on_area_2d_body_exited(collider):
-	if collider is rigidPlayer or collider is movingObject or collider is Bullet:
+	if collider is rigidPlayer or collider is movingObject or collider is Bullet or collider is boss:
 		collider.inSoda -= 1

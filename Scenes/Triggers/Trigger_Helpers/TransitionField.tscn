@@ -58,7 +58,6 @@ sprite_frames = SubResource("SpriteFrames_ur5bg")
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-visible = false
 polygon = PackedVector2Array(-32, -32, -32, 32, 32, 32, 32, -32, 29, -32, 29, 22, -29, 22, -29, -32)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

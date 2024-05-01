@@ -1,17 +1,17 @@
 [gd_scene load_steps=5 format=3 uid="uid://dctdthqv8shx3"]
 
 [ext_resource type="Script" path="res://Scripts/Triggers/Trigger_Helpers/SPLAT.gd" id="1_ntv8x"]
-[ext_resource type="Texture2D" uid="uid://bwnxv7183qn74" path="res://Art/TriggerArt/Soda/plhSPLAT.png" id="2_8our8"]
+[ext_resource type="Texture2D" uid="uid://bubft2ngjh3nf" path="res://Art/TriggerArt/Soda/SPLAT.png" id="2_h7p7d"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_cniky"]
-atlas = ExtResource("2_8our8")
-region = Rect2(0, 0, 64, 64)
+[sub_resource type="AtlasTexture" id="AtlasTexture_el5o2"]
+atlas = ExtResource("2_h7p7d")
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_q3gk8"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_cniky")
+"texture": SubResource("AtlasTexture_el5o2")
 }],
 "loop": true,
 "name": &"default",
@@ -24,11 +24,14 @@ z_as_relative = false
 script = ExtResource("1_ntv8x")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(9.53674e-07, 9.53674e-07)
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_q3gk8")
+frame_progress = 0.577031
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 0
-collision_mask = 273
+collision_mask = 401
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 

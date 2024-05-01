@@ -65,17 +65,17 @@ floor_snap_length = 2.0
 script = ExtResource("1_w8i4p")
 speed = 8000.0
 lurchAmount = 500
-spriteAnim = NodePath("AnimatedSprite2D")
-collisionShape = NodePath("CollisionShape2D")
+spriteAnim = NodePath("BossSprite")
+collisionShape = NodePath("BossCollisionShape")
 frontDetector = NodePath("FrontCollisionDetection")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, 1)
+[node name="BossSprite" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_nx4wp")
 animation = &"chasing"
+offset = Vector2(0, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="BossCollisionShape" type="CollisionShape2D" parent="."]
 position = Vector2(40, 48)
 rotation = -1.5708
 shape = SubResource("CapsuleShape2D_f6stx")
@@ -84,9 +84,9 @@ shape = SubResource("CapsuleShape2D_f6stx")
 position = Vector2(56, 32)
 collision_mask = 129
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FrontCollisionDetection"]
+[node name="FrontCollisionShape" type="CollisionPolygon2D" parent="FrontCollisionDetection"]
 polygon = PackedVector2Array(56, 56, -104, -72, -136, -72, -152, -32, -56, 56)
 
-[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="onAnimationFinished"]
+[connection signal="animation_finished" from="BossSprite" to="." method="onAnimationFinished"]
 [connection signal="area_shape_entered" from="FrontCollisionDetection" to="." method="hitSomethingEatableArea"]
 [connection signal="body_entered" from="FrontCollisionDetection" to="." method="hitSomethingEatable"]

@@ -6,7 +6,6 @@ class_name levelController
 @export var cameraSize : Vector2
 @export var player : rigidPlayer
 @export var transitionField : TransitionField
-@export var DEBUG_MODE: bool = false
 @export var theBoss: boss
 @export var sequencePlayer : AnimationPlayer
 @export var introAnimationName : String
@@ -54,13 +53,16 @@ func _ready():
 		elif child is triggerHolder:
 			children.append_array(child.get_children())
 		index += 1
-	if (DEBUG_MODE):
+	#If running independently, restart the level to begin
+	if get_tree().get_root() == get_parent():
 		reset()
 		if theBoss != null:
 			player.get_node("Camera2D").enabled = true
-			transitionField.connect("start_end_sequence", startEndSequence)
 	else:
 		player.hide()
+	
+	if theBoss != null:
+		transitionField.connect("start_end_sequence", startEndSequence)
 	#Give each Magnetic Moving Object a reference to each Magnet in the scene
 	for magneticObject in magneticMovingObjects:
 		magneticObject.magnetTriggers = magnetTriggers.duplicate()

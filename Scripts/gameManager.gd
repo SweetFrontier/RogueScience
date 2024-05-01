@@ -28,6 +28,7 @@ var musicChangePoints = [10, 14, 20, 30]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	
 	#Set the number of levels in the game to be the number of numbers in Main
 	GlobalVariables.numLevels = Levels.size()
 	

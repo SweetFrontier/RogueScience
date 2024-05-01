@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/Triggers/Trigger_Helpers/sodaBall.gd" id="1_eo3ja"]
 [ext_resource type="Texture2D" uid="uid://xoywetyr51pd" path="res://Art/TriggerArt/Soda/plhSodaBall.png" id="2_u231g"]
 [ext_resource type="Texture2D" uid="uid://bmsh7ew73lmoi" path="res://Art/TriggerArt/SecurityCamera/Red Effect Bullet Impact Explosion 32x32.png" id="3_kxd6g"]
-[ext_resource type="AudioStream" uid="uid://dcv01p36l5suh" path="res://Sounds/Swishes/sodasplosion.ogg" id="4_e22ow"]
+[ext_resource type="AudioStream" uid="uid://ik1iy0qkokre" path="res://Sounds/Swishes/sodasplosion.ogg" id="4_e22ow"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gp5yx"]
 atlas = ExtResource("2_u231g")
@@ -83,7 +83,7 @@ animations = [{
 [node name="SodaBall" type="Area2D"]
 z_index = 10
 z_as_relative = false
-collision_layer = 0
+collision_layer = 128
 collision_mask = 305
 script = ExtResource("1_eo3ja")
 

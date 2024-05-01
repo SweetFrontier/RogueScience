@@ -36,6 +36,7 @@ var being_controlled = false
 var just_started_control = false
 var positioning_finished = false
 var movement_overrider
+var STOP : bool = false
 var next_pos: Vector2
 var once_freed_angular_velocity: float
 var once_freed_linear_velocity: Vector2
@@ -103,8 +104,13 @@ func reset():
 	setBodyPos = false
 	last_y_velocity = 0
 	inSoda = 0
+	STOP = false
 
 func _integrate_forces(state):
+	#If STOPPED, don't MOVE
+	if STOP:
+		return
+	
 	#reset gravity scale
 	gravity_scale = 1.0
 	if inSoda < 0:
@@ -114,7 +120,6 @@ func _integrate_forces(state):
 			gravity_scale = controlledStickyMultiplier
 		else:
 			gravity_scale = stickyMultiplier
-	
 	
 	if just_reset:
 		#debug line, force to show again because of a glitch
@@ -149,7 +154,7 @@ func _integrate_forces(state):
 			clear_cont_vel()
 
 func _physics_process(delta):
-	if !dead:
+	if !dead and !STOP:
 		if is_on_floor():
 			rotate_player_on_slope(delta)
 			if !won_level:
@@ -279,12 +284,17 @@ func movement_overwritten(_movement_overrider):
 	AnimatedSprite.play("walkedIntoTrigger")
 	animBackwards = false
 	movement_overrider = _movement_overrider
+	if next_pos == Vector2.ZERO:
+		next_pos = global_position
 	
 func free_movement():
 	AnimatedSprite.play_backwards("walkedIntoTrigger")
 	animBackwards = true
 	being_controlled = false
 	movement_overrider = null
+
+func fellaSTOP():
+	STOP = true
 
 func player_anim_finished():
 	if AnimatedSprite.animation == "walkedIntoTrigger" and !being_controlled:

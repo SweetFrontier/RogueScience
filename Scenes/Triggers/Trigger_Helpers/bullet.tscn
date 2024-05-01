@@ -53,7 +53,7 @@ animations = [{
 [node name="Bullet" type="Area2D"]
 z_index = 88
 z_as_relative = false
-collision_layer = 0
+collision_layer = 128
 collision_mask = 273
 script = ExtResource("2_ucb8p")
 stickyMultiplier = 0.1

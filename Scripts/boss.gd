@@ -70,7 +70,7 @@ func _physics_process(delta):
 		move_and_slide()
 
 func hitSomethingEatable(body):
-	if not body is rigidPlayer and not body is movingObject and not body is Bullet:
+	if not body is rigidPlayer and not body is movingObject and not body is Bullet and not body is SodaBall:
 		var bodyParent = body.get_parent()
 		if not bodyParent is breakableBlocks and not bodyParent is invisibleBlock:
 			return
@@ -81,7 +81,6 @@ func hitSomethingEatable(body):
 	if body is rigidPlayer and body.dead == true:
 		return
 	spriteAnim.play("eating")
-	
 	eatingTarget = body
 	if eatingTarget is rigidPlayer or eatingTarget is movingObject:
 		eatingTarget.set_body_pos(eatingTarget.global_position)
@@ -93,6 +92,8 @@ func hitSomethingEatable(body):
 		eatingCollision.collision_mask = 0
 	elif eatingTarget is Bullet:
 		eatingTarget.explode()
+	elif eatingTarget is SodaBall:
+		eatingTarget.reset()
 	currState = BossState.EATING
 	velocity.x = lurchAmount * currDirection.x
 	

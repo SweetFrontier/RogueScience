@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://r0ah8shlqfvj" path="res://Art/TriggerArt/Soda/plhSodaExploding.png" id="5_gdniv"]
 [ext_resource type="Texture2D" uid="uid://cat53lsnivf36" path="res://Art/TriggerArt/Soda/plhSpew.png" id="6_myc4p"]
 [ext_resource type="PackedScene" uid="uid://jtv8ch5vvx1d" path="res://Scenes/Triggers/Trigger_Helpers/sodaBall.tscn" id="7_bn3nb"]
-[ext_resource type="AudioStream" uid="uid://cymcx2475y1sq" path="res://Sounds/Swishes/swish1.ogg" id="8_b2bir"]
+[ext_resource type="AudioStream" uid="uid://cy57p5i6r8ic4" path="res://Sounds/Swishes/swish1.ogg" id="8_b2bir"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_arm8v"]
 atlas = ExtResource("3_rbrhq")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://1xasoo80ygld"]
+[gd_scene load_steps=25 format=3 uid="uid://1xasoo80ygld"]
 
 [ext_resource type="Script" path="res://Scripts/levelController.gd" id="1_btnfb"]
 [ext_resource type="Texture2D" uid="uid://co8uauh0qhq5a" path="res://Art/Backgrounds/Act1_BG.png" id="2_g1juu"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://dnqoj4eg2l7le" path="res://Scenes/Triggers/trampolineTrigger.tscn" id="8_oyr4h"]
 [ext_resource type="AnimationLibrary" uid="uid://boe0opwg5u6p7" path="res://Animations/globalAnimations.res" id="8_rxu7w"]
 [ext_resource type="PackedScene" uid="uid://c0eghc3oa7752" path="res://Scenes/Triggers/Trigger_Helpers/movingObject.tscn" id="9_2dsq1"]
+[ext_resource type="AnimationLibrary" uid="uid://oxweusdybhnq" path="res://Animations/1-10.res" id="9_l4j8d"]
 [ext_resource type="PackedScene" uid="uid://dgkh4na3ckdg2" path="res://Scenes/Triggers/BreakableBlocks/RightSlopebreakableBlock.tscn" id="10_d21uh"]
 [ext_resource type="PackedScene" uid="uid://b653ep4goj6pf" path="res://Scenes/Triggers/InvisibleBlocks/32x64InvisibleBlock.tscn" id="16_v1guw"]
 [ext_resource type="PackedScene" uid="uid://dxkklnkpsn70w" path="res://Scenes/Triggers/BreakableBlocks/32x32breakableBlock.tscn" id="16_xo1r2"]
@@ -2431,8 +2432,8 @@ player = NodePath("rigidPlayer")
 transitionField = NodePath("TransitionField")
 theBoss = NodePath("Boss")
 sequencePlayer = NodePath("SequencePlayer")
-introAnimationName = "1-10_BossIntro"
-endAnimationName = "1-10_BossEnd"
+introAnimationName = "1-10/Begin"
+endAnimationName = "1-10/End"
 
 [node name="Act1Bg" type="Sprite2D" parent="."]
 z_index = -100
@@ -2463,7 +2464,8 @@ layer_0/tile_data = PackedInt32Array(2031651, 1048578, 2, 1966114, 262146, 11, 1
 
 [node name="SequencePlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": ExtResource("8_rxu7w")
+"": ExtResource("8_rxu7w"),
+"1-10": ExtResource("9_l4j8d")
 }
 
 [node name="CenterPosition" type="Marker2D" parent="."]
@@ -2482,13 +2484,13 @@ enabled = false
 zoom = Vector2(3, 3)
 
 [node name="Boss" parent="." instance=ExtResource("6_i6q2a")]
-position = Vector2(224, 688)
+position = Vector2(128, 688)
 speed = 8100.0
 lurchAmount = 300
 currState = 2
 
 [node name="brokenVat" parent="." instance=ExtResource("7_njt5g")]
-position = Vector2(512, 736)
+position = Vector2(480, 736)
 
 [node name="trampolineTrigger" parent="." instance=ExtResource("8_oyr4h")]
 position = Vector2(2112, 1152)
@@ -2500,7 +2502,7 @@ instantSetup = true
 position = Vector2(1216, 896)
 
 [node name="movingObject" parent="." instance=ExtResource("9_2dsq1")]
-position = Vector2(432, 752)
+position = Vector2(400, 752)
 
 [node name="invisibleBlock" parent="." instance=ExtResource("16_v1guw")]
 position = Vector2(736, 704)

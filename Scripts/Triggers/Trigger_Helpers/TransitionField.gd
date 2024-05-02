@@ -9,6 +9,8 @@ signal start_end_sequence
 
 func _on_body_entered(body: Node2D) -> void:
 	if (body is rigidPlayer):
+		if body.dead:
+			return
 		set_deferred("monitoring", false)
 		if !bossLevel:
 			changeLevel()

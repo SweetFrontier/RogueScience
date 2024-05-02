@@ -94,7 +94,7 @@ position = Vector2(112, 336)
 rotation = 1.5708
 
 [node name="WireRightAngle2" parent="." instance=ExtResource("10_7wuhv")]
-position = Vector2(112, 368)
+position = Vector2(112, 400)
 rotation = -1.5708
 
 [node name="Electrode2" parent="." instance=ExtResource("9_hb4p0")]
@@ -102,7 +102,7 @@ position = Vector2(92, 336)
 rotation = 1.5708
 
 [node name="Electrode3" parent="." instance=ExtResource("9_hb4p0")]
-position = Vector2(92, 368)
+position = Vector2(96, 400)
 rotation = 1.5708
 
 [node name="WireStraight" parent="." instance=ExtResource("14_6pp6i")]
@@ -125,6 +125,10 @@ position = Vector2(-64, 0)
 
 [node name="invisibleBlock" parent="." instance=ExtResource("15_l2aad")]
 position = Vector2(224, 320)
+
+[node name="WireStraight5" parent="." instance=ExtResource("14_6pp6i")]
+position = Vector2(112, 368)
+rotation = 1.5708
 
 [editable path="trampolineTrigger"]
 [editable path="magnetTrigger"]

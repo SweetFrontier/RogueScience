@@ -64,7 +64,7 @@ func _process(delta):
 
 func power(inputConn):
 	if currState == PowerState.OFF:
-		if not inputConn is electrode and not inputConn is magneticObject and not inputConn == wireConnection:
+		if not inputConn is electrode and not inputConn is magneticObject and not inputConn is boss and not inputConn == wireConnection:
 			print_debug("Unrelated wire trying to power electrode")
 			return
 		poweringConnection = inputConn
@@ -97,11 +97,12 @@ func outputElectrode():
 			cb.power(self)
 
 func onElectrodeSpriteFrameChanged():
-	if electrodeSprite.frame == 3 and electrodeSprite.animation == stateToAnimString[PowerState.ON]:
-		if (poweringConnection is electrode and wireConnection != poweringConnection) or poweringConnection is magneticObject:
-			outputWire()
-		else:
-			outputElectrode()
+	if electrodeSprite.animation == stateToAnimString[PowerState.ON]:
+		if electrodeSprite.frame == 3:
+			if (poweringConnection is electrode and wireConnection != poweringConnection) or poweringConnection is magneticObject or poweringConnection is boss:
+				outputWire()
+			else:
+				outputElectrode()
 
 func onElectrodeSpriteAnimationFinished():
 	if electrodeSprite.animation == stateToAnimString[PowerState.ON]:

@@ -1,8 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://dx47yma3wfoi6"]
+[gd_scene load_steps=22 format=3 uid="uid://dx47yma3wfoi6"]
 
 [ext_resource type="Texture2D" uid="uid://b6po2nrkyuixx" path="res://Art/Spritesheets/plhBossSheet.png" id="1_jlakm"]
 [ext_resource type="Script" path="res://Scripts/boss.gd" id="1_w8i4p"]
+[ext_resource type="PackedScene" uid="uid://bvxwld4fu1vc0" path="res://Scenes/Triggers/Trigger_Helpers/lightning.tscn" id="2_eft2h"]
 [ext_resource type="Texture2D" uid="uid://budx17kisu6ac" path="res://Art/Spritesheets/plhBossEat.png" id="3_x46po"]
+[ext_resource type="Texture2D" uid="uid://dkl68ahmpfn7x" path="res://Art/Spritesheets/plhBossLightning.png" id="4_e07uo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fpgn4"]
 atlas = ExtResource("1_jlakm")
@@ -56,7 +58,68 @@ animations = [{
 radius = 32.0
 height = 112.0
 
-[node name="Boss" type="CharacterBody2D" node_paths=PackedStringArray("spriteAnim", "collisionShape", "frontDetector")]
+[sub_resource type="AtlasTexture" id="AtlasTexture_1bo1s"]
+atlas = ExtResource("4_e07uo")
+region = Rect2(0, 0, 1024, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_642eo"]
+atlas = ExtResource("4_e07uo")
+region = Rect2(1024, 0, 1024, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3itik"]
+atlas = ExtResource("4_e07uo")
+region = Rect2(2048, 0, 1024, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hdnkf"]
+atlas = ExtResource("4_e07uo")
+region = Rect2(3072, 0, 1024, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nnvw4"]
+atlas = ExtResource("4_e07uo")
+region = Rect2(4096, 0, 1024, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ubspf"]
+atlas = ExtResource("4_e07uo")
+region = Rect2(5120, 0, 1024, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xa46g"]
+atlas = ExtResource("4_e07uo")
+region = Rect2(6144, 0, 1024, 640)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6exgw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1bo1s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_642eo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3itik")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hdnkf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nnvw4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ubspf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xa46g")
+}],
+"loop": true,
+"name": &"lightning",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4d42n"]
+radius = 128.0
+height = 320.0
+
+[node name="Boss" type="CharacterBody2D" node_paths=PackedStringArray("spriteAnim", "lightningAnim", "collisionShape", "frontDetector", "arcDetector")]
 z_index = 93
 z_as_relative = false
 collision_layer = 128
@@ -66,8 +129,11 @@ script = ExtResource("1_w8i4p")
 speed = 8000.0
 lurchAmount = 500
 spriteAnim = NodePath("BossSprite")
+lightningAnim = NodePath("BossLightning")
 collisionShape = NodePath("BossCollisionShape")
 frontDetector = NodePath("FrontCollisionDetection")
+arcDetector = NodePath("ArcDetection")
+lightningScene = ExtResource("2_eft2h")
 
 [node name="BossSprite" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.25, 0.25)
@@ -76,6 +142,7 @@ animation = &"chasing"
 offset = Vector2(0, 1)
 
 [node name="BossCollisionShape" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(40, 48)
 rotation = -1.5708
 shape = SubResource("CapsuleShape2D_f6stx")
@@ -85,8 +152,23 @@ position = Vector2(56, 32)
 collision_mask = 129
 
 [node name="FrontCollisionShape" type="CollisionPolygon2D" parent="FrontCollisionDetection"]
+visible = false
 polygon = PackedVector2Array(56, 56, -104, -72, -136, -72, -152, -32, -56, 56)
+
+[node name="BossLightning" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+sprite_frames = SubResource("SpriteFrames_6exgw")
+animation = &"lightning"
+
+[node name="ArcDetection" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 64
+
+[node name="ArcCollisionShape" type="CollisionShape2D" parent="ArcDetection"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_4d42n")
 
 [connection signal="animation_finished" from="BossSprite" to="." method="onAnimationFinished"]
 [connection signal="area_shape_entered" from="FrontCollisionDetection" to="." method="hitSomethingEatableArea"]
 [connection signal="body_entered" from="FrontCollisionDetection" to="." method="hitSomethingEatable"]
+[connection signal="frame_changed" from="BossLightning" to="." method="onLightningSpriteFrameChanged"]

@@ -8,8 +8,11 @@ class_name boss
 @export var currState : BossState
 
 @export var spriteAnim: AnimatedSprite2D
+@export var lightningAnim: AnimatedSprite2D
 @export var collisionShape: CollisionShape2D
 @export var frontDetector: Area2D
+@export var arcDetector: Area2D
+@export var lightningScene: PackedScene
 
 var currDirection = Vector2.RIGHT
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity") * 5
@@ -18,6 +21,15 @@ var gravity_scale = 1
 
 var eatingCollision
 var eatingTarget 
+
+#Electricity values
+var isCharged = false
+var makeLightning : bool = false
+@export var secPerStrike: float = 0.05
+var secSinceStrike : float = 0
+var inUseLightnings : Array[lightningBolt]
+var unusedLightnings : Array[lightningBolt]
+var conductiveBodies : Array[Node2D]
 
 enum BossState
 {
@@ -41,6 +53,7 @@ func reset():
 	eatingTarget = null
 	eatingCollision = null
 	inSoda = 0
+	setBossCharge(false)
 
 func _physics_process(delta):
 	gravity_scale = 1.0
@@ -68,6 +81,14 @@ func _physics_process(delta):
 		elif velocity.x < 0:
 			velocity.x = min(velocity.x + decayAmount * delta, 0)
 		move_and_slide()
+
+func _process(delta):
+	if(makeLightning):
+		secSinceStrike += delta
+		if secSinceStrike >= secPerStrike:
+			for l in inUseLightnings:
+				l.lightning_strike()
+			secSinceStrike = 0
 
 func hitSomethingEatable(body):
 	if not body is rigidPlayer and not body is movingObject and not body is Bullet and not body is SodaBall:
@@ -120,3 +141,59 @@ func onAnimationFinished():
 
 func playAnimation(animation):
 	spriteAnim.play(animation)
+
+#Power-based functions
+#Why yes, this was just ripped from Electrode.gd
+
+func setBossCharge(charged : bool = false):
+	isCharged = charged
+	if isCharged:
+		lightningAnim.play()
+		lightningAnim.show()
+	else:
+		lightningAnim.hide()
+
+func resetLightning():
+	for cb in conductiveBodies:
+		if cb is magneticObject:
+			cb.endEnergyChain()
+	conductiveBodies.clear()
+	for l in inUseLightnings:
+		l.hide_lightning()
+		unusedLightnings.append(l)
+	inUseLightnings.clear()
+	makeLightning = false
+
+func onLightningSpriteFrameChanged():
+	if lightningAnim.frame == 3:
+		outputElectrode()
+	elif lightningAnim.frame == 6:
+		resetLightning()
+
+func outputElectrode():
+	conductiveBodies = arcDetector.get_overlapping_bodies()
+	var cBodies = arcDetector.get_overlapping_bodies()
+	for cb in cBodies:
+		if cb == self:
+			continue
+		elif cb is electrode or cb is magneticObject:
+			if cb.currState == cb.PowerState.ON:
+				continue
+			conductiveBodies.append(cb)
+			var lightning = getFreeLightning()
+			lightning.toPos = cb
+			lightning.lightning_strike()
+			makeLightning = true
+			secSinceStrike = 0
+			lightning.show_lightning()
+			cb.power(self)
+
+func getFreeLightning():
+	var freeLightning = unusedLightnings.pop_back()
+	if !freeLightning:
+		freeLightning = lightningScene.instantiate()
+		freeLightning.fromPos = self
+		freeLightning.rotation = -rotation
+		add_child(freeLightning)
+	inUseLightnings.append(freeLightning)
+	return freeLightning	

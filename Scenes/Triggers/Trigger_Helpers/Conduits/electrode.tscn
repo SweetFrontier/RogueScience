@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://b7levwy0h2j7v"]
+[gd_scene load_steps=24 format=3 uid="uid://b7levwy0h2j7v"]
 
 [ext_resource type="Script" path="res://Scripts/Triggers/Trigger_Helpers/Electrode.gd" id="1_sqwjy"]
 [ext_resource type="Texture2D" uid="uid://mws3aojjykk3" path="res://Art/TriggerArt/Conduits/plhElectrodeOff.png" id="2_osq5r"]
@@ -17,17 +17,33 @@ region = Rect2(0, 0, 8, 8)
 atlas = ExtResource("3_3sysq")
 region = Rect2(0, 0, 8, 8)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_4prth"]
+atlas = ExtResource("3_3sysq")
+region = Rect2(8, 0, 8, 8)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_pp2xm"]
 atlas = ExtResource("3_3sysq")
 region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_smntm"]
+atlas = ExtResource("3_3sysq")
+region = Rect2(16, 0, 8, 8)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g2p1m"]
 atlas = ExtResource("3_3sysq")
 region = Rect2(16, 0, 8, 8)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_3pq77"]
+atlas = ExtResource("3_3sysq")
+region = Rect2(24, 0, 8, 8)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_a8pcl"]
 atlas = ExtResource("3_3sysq")
 region = Rect2(24, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8840k"]
+atlas = ExtResource("3_3sysq")
+region = Rect2(32, 0, 8, 8)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nae2p"]
 atlas = ExtResource("3_3sysq")
@@ -37,7 +53,15 @@ region = Rect2(32, 0, 8, 8)
 atlas = ExtResource("3_3sysq")
 region = Rect2(40, 0, 8, 8)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_mubxd"]
+atlas = ExtResource("3_3sysq")
+region = Rect2(40, 0, 8, 8)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_4oy6g"]
+atlas = ExtResource("3_3sysq")
+region = Rect2(48, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3i7wm"]
 atlas = ExtResource("3_3sysq")
 region = Rect2(48, 0, 8, 8)
 
@@ -59,13 +83,25 @@ animations = [{
 "texture": SubResource("AtlasTexture_gi5dn")
 }, {
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_4prth")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_pp2xm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_smntm")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_g2p1m")
 }, {
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_3pq77")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_a8pcl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8840k")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_nae2p")
@@ -74,11 +110,17 @@ animations = [{
 "texture": SubResource("AtlasTexture_g5fgn")
 }, {
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_mubxd")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_4oy6g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3i7wm")
 }],
 "loop": false,
 "name": &"on",
-"speed": 5.0
+"speed": 10.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_44efp"]
@@ -100,7 +142,7 @@ lightningScene = ExtResource("4_omhlq")
 
 [node name="ElectrodeSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_4wphf")
-animation = &"off"
+animation = &"on"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1)

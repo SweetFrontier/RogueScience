@@ -66,7 +66,7 @@ startState = 2
 position = Vector2(256, 128)
 
 [node name="WireStraight" parent="." instance=ExtResource("9_1tjuq")]
-position = Vector2(113, 144)
+position = Vector2(112, 144)
 
 [node name="WireStraight2" parent="." instance=ExtResource("9_1tjuq")]
 position = Vector2(144, 144)
@@ -81,7 +81,7 @@ position = Vector2(208, 144)
 position = Vector2(209, 112)
 
 [node name="WireStraight7" parent="." instance=ExtResource("9_1tjuq")]
-position = Vector2(113, 112)
+position = Vector2(112, 112)
 
 [node name="WireStraight8" parent="." instance=ExtResource("9_1tjuq")]
 position = Vector2(177, 80)
@@ -102,15 +102,19 @@ rotation = -3.14159
 
 [node name="WireStraight5" parent="." instance=ExtResource("9_1tjuq")]
 position = Vector2(208, 48)
+rotation = 3.14159
 
 [node name="WireStraight10" parent="." instance=ExtResource("9_1tjuq")]
 position = Vector2(176, 48)
+rotation = 3.14159
 
 [node name="WireStraight11" parent="." instance=ExtResource("9_1tjuq")]
 position = Vector2(144, 48)
+rotation = 3.14159
 
 [node name="WireStraight12" parent="." instance=ExtResource("9_1tjuq")]
 position = Vector2(112, 48)
+rotation = 3.14159
 
 [node name="WireRightAngle3" parent="." instance=ExtResource("10_d8jtr")]
 position = Vector2(80, 80)

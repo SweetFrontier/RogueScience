@@ -74,7 +74,7 @@ func power(inputConn):
 		wireSprite.play()
 
 func onWireSpriteFrameChanged():
-	if wireSprite.frame == 3 and wireSprite.animation == stateToAnimString[PowerState.ON]:
+	if wireSprite.frame == 4 and wireSprite.animation == stateToAnimString[PowerState.ON]:
 		for output in outputConnections:
 			if output is wire or output is electrode:
 				output.power(self)

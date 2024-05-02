@@ -112,36 +112,47 @@ rotation = -1.5708
 
 [node name="WireStraight10" parent="." instance=ExtResource("8_rndwv")]
 position = Vector2(432, 272)
+rotation = 3.14159
 
 [node name="WireStraight11" parent="." instance=ExtResource("8_rndwv")]
 position = Vector2(400, 272)
+rotation = 3.14159
 
 [node name="WireStraight12" parent="." instance=ExtResource("8_rndwv")]
 position = Vector2(368, 272)
+rotation = 3.14159
 
 [node name="WireStraight13" parent="." instance=ExtResource("8_rndwv")]
 position = Vector2(336, 272)
+rotation = 3.14159
 
 [node name="WireStraight14" parent="." instance=ExtResource("8_rndwv")]
 position = Vector2(304, 272)
+rotation = 3.14159
 
 [node name="WireStraight15" parent="." instance=ExtResource("8_rndwv")]
 position = Vector2(272, 272)
+rotation = 3.14159
 
 [node name="WireStraight16" parent="." instance=ExtResource("8_rndwv")]
 position = Vector2(240, 272)
+rotation = 3.14159
 
 [node name="WireStraight17" parent="." instance=ExtResource("8_rndwv")]
 position = Vector2(208, 272)
+rotation = 3.14159
 
 [node name="WireStraight18" parent="." instance=ExtResource("8_rndwv")]
 position = Vector2(176, 272)
+rotation = 3.14159
 
 [node name="WireStraight19" parent="." instance=ExtResource("8_rndwv")]
 position = Vector2(144, 272)
+rotation = 3.14159
 
 [node name="WireStraight20" parent="." instance=ExtResource("8_rndwv")]
 position = Vector2(112, 272)
+rotation = 3.14159
 
 [node name="WireRightAngle5" parent="." instance=ExtResource("9_3jtkt")]
 position = Vector2(80, 272)

@@ -70,7 +70,7 @@ func destroy():
 
 func changeState(newState : DoorState):
 	var startingFrame = 0
-	if currState == DoorState.CLOSING or currState == DoorState.OPENING:
+	if (currState == DoorState.CLOSING or currState == DoorState.OPENING) and (newState == DoorState.CLOSING or newState == DoorState.OPENING):
 		startingFrame = doorFrameCount-(doorSprite.frame+1)
 	currState = newState
 	doorSprite.animation = stateToAnimString[currState]

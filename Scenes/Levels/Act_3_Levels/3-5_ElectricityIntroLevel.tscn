@@ -67,30 +67,39 @@ position = Vector2(256, 128)
 
 [node name="WireStraight" parent="." instance=ExtResource("9_1tjuq")]
 position = Vector2(112, 144)
+rotation = 3.14159
 
 [node name="WireStraight2" parent="." instance=ExtResource("9_1tjuq")]
 position = Vector2(144, 144)
+rotation = 3.14159
 
 [node name="WireStraight3" parent="." instance=ExtResource("9_1tjuq")]
 position = Vector2(176, 144)
+rotation = 3.14159
 
 [node name="WireStraight4" parent="." instance=ExtResource("9_1tjuq")]
 position = Vector2(208, 144)
+rotation = 3.14159
 
 [node name="WireStraight6" parent="." instance=ExtResource("9_1tjuq")]
 position = Vector2(209, 112)
+rotation = 3.14159
 
 [node name="WireStraight7" parent="." instance=ExtResource("9_1tjuq")]
 position = Vector2(112, 112)
 
 [node name="WireStraight8" parent="." instance=ExtResource("9_1tjuq")]
 position = Vector2(177, 80)
+rotation = 3.14159
 
 [node name="WireStraight9" parent="." instance=ExtResource("9_1tjuq")]
 position = Vector2(209, 80)
+rotation = 3.14159
 
 [node name="WireRightAngle2" parent="." instance=ExtResource("10_d8jtr")]
 position = Vector2(80, 144)
+rotation = -1.5708
+scale = Vector2(1, -1)
 
 [node name="WireTSplit2" parent="." instance=ExtResource("11_qg0uo")]
 position = Vector2(240, 80)
@@ -125,4 +134,4 @@ rotation = 1.5708
 
 [node name="WireRightAngle5" parent="." instance=ExtResource("10_d8jtr")]
 position = Vector2(80, 112)
-rotation = 1.5708
+scale = Vector2(1, -1)

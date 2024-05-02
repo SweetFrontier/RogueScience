@@ -91,14 +91,16 @@ rotation = 1.5708
 
 [node name="WireRightAngle" parent="." instance=ExtResource("10_w2b76")]
 position = Vector2(464, 144)
-rotation = 3.14159
+rotation = 1.5708
+scale = Vector2(1, -1)
 
 [node name="WireRightAngle2" parent="." instance=ExtResource("10_w2b76")]
 position = Vector2(464, 208)
 
 [node name="WireRightAngle3" parent="." instance=ExtResource("10_w2b76")]
 position = Vector2(464, 272)
-rotation = 3.14159
+rotation = 1.5708
+scale = Vector2(1, -1)
 
 [node name="WireStraight5" parent="." instance=ExtResource("14_m7lfx")]
 position = Vector2(464, 304)
@@ -106,6 +108,7 @@ rotation = 1.5708
 
 [node name="WireTSplit" parent="." instance=ExtResource("13_sh0sg")]
 position = Vector2(496, 208)
+scale = Vector2(-1, 1)
 
 [node name="electricalDoor" parent="." instance=ExtResource("8_mhrhh")]
 position = Vector2(480, 352)
@@ -167,7 +170,8 @@ rotation = 1.5708
 
 [node name="WireRightAngle4" parent="." instance=ExtResource("10_w2b76")]
 position = Vector2(656, 144)
-rotation = 3.14159
+rotation = 1.5708
+scale = Vector2(1, -1)
 
 [node name="WireStraight7" parent="." instance=ExtResource("14_m7lfx")]
 position = Vector2(624, 144)
@@ -190,7 +194,8 @@ rotation = 1.5708
 
 [node name="WireRightAngle6" parent="." instance=ExtResource("10_w2b76")]
 position = Vector2(656, 240)
-rotation = -1.5708
+rotation = 3.14159
+scale = Vector2(1, -1)
 
 [node name="WireStraight11" parent="." instance=ExtResource("14_m7lfx")]
 position = Vector2(624, 304)
@@ -209,6 +214,7 @@ rotation = 1.5708
 
 [node name="WireTSplit2" parent="." instance=ExtResource("13_sh0sg")]
 position = Vector2(656, 272)
+scale = Vector2(-1, 1)
 
 [node name="securityCameraTrigger2" parent="." instance=ExtResource("14_63uut")]
 position = Vector2(624, 320)

@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://dir1eiogwy03f"]
+[gd_scene load_steps=12 format=3 uid="uid://dir1eiogwy03f"]
 
 [ext_resource type="PhysicsMaterial" uid="uid://0wv2kg3l0ugb" path="res://Scenes/Triggers/Trigger_Helpers/MagneticObjects/magneticPhysicsMaterial.tres" id="1_xlhlp"]
 [ext_resource type="Script" path="res://Scripts/Triggers/Trigger_Helpers/magneticObject.gd" id="2_6n1j1"]
 [ext_resource type="Texture2D" uid="uid://cjr2xan7up3fo" path="res://Art/TriggerArt/MovingObject/plhMagnetic32x96Block.png" id="2_fpcof"]
 [ext_resource type="Texture2D" uid="uid://bctxuq8plm2r2" path="res://Art/TriggerArt/MovingObject/plhSodaShield.png" id="3_0i1h2"]
+[ext_resource type="Texture2D" uid="uid://388hywtdlljf" path="res://Art/TriggerArt/MovingObject/Magnetic32x96Block.png" id="3_k3q2n"]
 [ext_resource type="AudioStream" uid="uid://cbl8qb0gk6iiq" path="res://Sounds/hitsomething.ogg" id="4_smfhy"]
 [ext_resource type="Script" path="res://Scripts/Triggers/Trigger_Helpers/explodeablePolygon.gd" id="5_dyufw"]
 
@@ -48,7 +49,7 @@ soundPlayer = NodePath("hittingSounds")
 deathExplosion = NodePath("DeathExplosion")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_fpcof")
+texture = ExtResource("3_k3q2n")
 
 [node name="SodaShield" type="AnimatedSprite2D" parent="."]
 visible = false

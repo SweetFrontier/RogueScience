@@ -80,7 +80,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"off",
-"speed": 5.0
+"speed": 20.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -151,10 +151,10 @@ wireSprite = NodePath("WireSprite")
 wireDetectors = [NodePath("LCollision"), NodePath("RCollision")]
 
 [node name="WireSprite" type="AnimatedSprite2D" parent="."]
+z_index = 2
+z_as_relative = false
 sprite_frames = SubResource("SpriteFrames_m6ktk")
 animation = &"on"
-frame = 15
-frame_progress = 1.0
 
 [node name="ULCollision" type="Area2D" parent="."]
 visible = false

@@ -90,6 +90,19 @@ func _process(delta):
 				l.lightning_strike()
 			secSinceStrike = 0
 
+func changeDirection(direction : Vector2):
+	currDirection = direction
+	if currDirection == Vector2.RIGHT:
+		collisionShape.position.x = 56
+		frontDetector.position.x = 56
+		frontDetector.scale.x = 1
+		spriteAnim.flip_h = false
+	if currDirection == Vector2.LEFT:
+		collisionShape.position.x = -56
+		frontDetector.position.x = -56
+		frontDetector.scale.x = -1
+		spriteAnim.flip_h = true
+
 func hitSomethingEatable(body):
 	if not body is rigidPlayer and not body is movingObject and not body is Bullet and not body is SodaBall:
 		var bodyParent = body.get_parent()
@@ -97,7 +110,6 @@ func hitSomethingEatable(body):
 			return
 		eatingCollision = body
 		body = bodyParent
-	
 	#If player is dead, don't eat them
 	if body is rigidPlayer and body.dead == true:
 		return

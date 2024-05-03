@@ -110,5 +110,13 @@ func randomize_block_keys():
 	for i in range(remainingTriggerBlocks.size()):
 		remainingTriggerBlocks[i].set_button(availableKeys[i])
 
+func startSequence(animationName):
+	sequencePlayer.play(animationName)
+
 func startEndSequence():
 	sequencePlayer.play(endAnimationName)
+
+func callSequence(body, animationName):
+	if not body is rigidPlayer:
+		return
+	startSequence(animationName)

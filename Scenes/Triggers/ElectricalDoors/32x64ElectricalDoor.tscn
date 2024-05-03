@@ -153,6 +153,7 @@ doorSprite = NodePath("doorSprite")
 staticBody = NodePath("StaticBody2D")
 collisionShape = NodePath("StaticBody2D/CollisionShape2D")
 soundChild = NodePath("AudioStreamPlayer2D")
+one_shot = false
 TriggerKeySprite = NodePath("TriggerKeySprite")
 
 [node name="doorSprite" type="AnimatedSprite2D" parent="."]
@@ -161,6 +162,8 @@ sprite_frames = SubResource("SpriteFrames_7y8ur")
 animation = &"opening"
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 129
+collision_mask = 129
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(16, 2)

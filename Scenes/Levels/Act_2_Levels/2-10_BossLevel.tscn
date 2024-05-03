@@ -2469,19 +2469,17 @@ metadata/_edit_group_ = true
 
 [node name="Camera2D" type="Camera2D" parent="rigidPlayer"]
 enabled = false
-zoom = Vector2(1.25, 1.25)
+zoom = Vector2(3, 3)
 
 [node name="Boss" parent="." instance=ExtResource("11_r5ave")]
-position = Vector2(248, 688)
+position = Vector2(224, 688)
 speed = 7500.0
 stickyMultiplier = 0.4
+currState = 2
 metadata/_edit_group_ = true
 
-[node name="BossSprite" parent="Boss" index="0"]
-position = Vector2(0, 1)
-
 [node name="brokenVat" parent="." instance=ExtResource("12_ekn5j")]
-position = Vector2(512, 736)
+position = Vector2(576, 736)
 
 [node name="securityCameraTrigger" parent="." instance=ExtResource("13_1tq37")]
 position = Vector2(1520, 512)

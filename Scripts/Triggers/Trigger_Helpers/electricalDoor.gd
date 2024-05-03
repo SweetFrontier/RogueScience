@@ -31,7 +31,6 @@ var stateToAnimString = {
 
 func _ready():
 	show_button = false
-	one_shot = false
 	super._ready()
 	doorHeight = doorSprite.sprite_frames.get_frame_texture("opening",0).get_height()
 	doorFrameCount = doorSprite.sprite_frames.get_frame_count("closing")
@@ -42,18 +41,19 @@ func _ready():
 # Override the baseTrigger's react method to toggle visibility and collision.
 func react():
 	super.react()
-	activated = true
-	match(currState):
-		DoorState.OPEN:
-			changeState(DoorState.CLOSING)
-		DoorState.CLOSING:
-			changeState(DoorState.OPENING)
-		DoorState.CLOSED:
-			changeState(DoorState.OPENING)
-		DoorState.OPENING:
-			changeState(DoorState.CLOSING)
-	#play the boom sound
-	soundChild.play()
+	if (activated and !one_shot) or !activated:
+		activated = true
+		match(currState):
+			DoorState.OPEN:
+				changeState(DoorState.CLOSING)
+			DoorState.CLOSING:
+				changeState(DoorState.OPENING)
+			DoorState.CLOSED:
+				changeState(DoorState.OPENING)
+			DoorState.OPENING:
+				changeState(DoorState.CLOSING)
+		#play the boom sound
+		soundChild.play()
 
 func reset():
 	super.reset()

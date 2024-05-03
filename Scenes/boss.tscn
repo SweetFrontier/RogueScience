@@ -165,6 +165,7 @@ collision_layer = 0
 collision_mask = 64
 
 [node name="ArcCollisionShape" type="CollisionShape2D" parent="ArcDetection"]
+visible = false
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_4d42n")
 

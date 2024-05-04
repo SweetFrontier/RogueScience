@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cdvq37b7ula4"]
+[gd_scene load_steps=14 format=3 uid="uid://cdvq37b7ula4"]
 
 [ext_resource type="Script" path="res://Scripts/levelController.gd" id="1_chx7g"]
 [ext_resource type="Texture2D" uid="uid://d34hymtsr1qlu" path="res://Art/Backgrounds/Act3_BG.png" id="2_htq1x"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bhlldrm76206b" path="res://Scenes/Triggers/powerTrigger.tscn" id="8_bwo7l"]
 [ext_resource type="PackedScene" uid="uid://blx73h3sy4dr8" path="res://Scenes/Triggers/Trigger_Helpers/Conduits/WireStraight.tscn" id="9_1tjuq"]
 [ext_resource type="PackedScene" uid="uid://bhxvnemhaxas4" path="res://Scenes/Triggers/Trigger_Helpers/Conduits/WireRightAngle.tscn" id="10_d8jtr"]
+[ext_resource type="Script" path="res://Scripts/triggerHolder.gd" id="10_v3o3w"]
 [ext_resource type="PackedScene" uid="uid://bd1gtx8upibdi" path="res://Scenes/Triggers/Trigger_Helpers/Conduits/WireTSplit.tscn" id="11_qg0uo"]
 
 [node name="3-5_ElectricityIntro" type="Node2D" node_paths=PackedStringArray("cameraSpot", "player", "transitionField")]
@@ -53,85 +54,103 @@ position = Vector2(160, 224)
 [node name="brokenVat" parent="." instance=ExtResource("5_uui2w")]
 position = Vector2(222, 0)
 
-[node name="electricalDoor" parent="." instance=ExtResource("7_ejm3x")]
+[node name="wirePuzzleHolder" type="Node2D" parent="."]
+script = ExtResource("10_v3o3w")
+
+[node name="powerTrigger" parent="wirePuzzleHolder" instance=ExtResource("8_bwo7l")]
+position = Vector2(256, 128)
+
+[node name="electricalDoor" parent="wirePuzzleHolder" instance=ExtResource("7_ejm3x")]
 position = Vector2(192, 96)
 rotation = 1.5708
 
-[node name="electricalDoor2" parent="." instance=ExtResource("7_ejm3x")]
+[node name="electricalDoor2" parent="wirePuzzleHolder" instance=ExtResource("7_ejm3x")]
 position = Vector2(96, 96)
 rotation = -1.5708
 startState = 2
 
-[node name="powerTrigger" parent="." instance=ExtResource("8_bwo7l")]
-position = Vector2(256, 128)
+[node name="strip" type="Node2D" parent="wirePuzzleHolder"]
+script = ExtResource("10_v3o3w")
 
-[node name="WireStraight" parent="." instance=ExtResource("9_1tjuq")]
-position = Vector2(112, 144)
+[node name="subStrip" type="Node2D" parent="wirePuzzleHolder/strip"]
+script = ExtResource("10_v3o3w")
+
+[node name="WireTSplit" parent="wirePuzzleHolder/strip/subStrip" instance=ExtResource("11_qg0uo")]
+position = Vector2(240, 80)
+rotation = 1.5708
+
+[node name="WireRightAngle" parent="wirePuzzleHolder/strip/subStrip" instance=ExtResource("10_d8jtr")]
+position = Vector2(240, 48)
+rotation = -3.14159
+
+[node name="WireStraight" parent="wirePuzzleHolder/strip/subStrip" instance=ExtResource("9_1tjuq")]
+position = Vector2(208, 48)
 rotation = 3.14159
 
-[node name="WireStraight2" parent="." instance=ExtResource("9_1tjuq")]
-position = Vector2(144, 144)
+[node name="WireStraight2" parent="wirePuzzleHolder/strip/subStrip" instance=ExtResource("9_1tjuq")]
+position = Vector2(176, 48)
 rotation = 3.14159
 
-[node name="WireStraight3" parent="." instance=ExtResource("9_1tjuq")]
-position = Vector2(176, 144)
+[node name="WireStraight3" parent="wirePuzzleHolder/strip/subStrip" instance=ExtResource("9_1tjuq")]
+position = Vector2(144, 48)
 rotation = 3.14159
 
-[node name="WireStraight4" parent="." instance=ExtResource("9_1tjuq")]
-position = Vector2(208, 144)
+[node name="WireStraight4" parent="wirePuzzleHolder/strip/subStrip" instance=ExtResource("9_1tjuq")]
+position = Vector2(112, 48)
 rotation = 3.14159
 
-[node name="WireStraight6" parent="." instance=ExtResource("9_1tjuq")]
-position = Vector2(209, 112)
-rotation = 3.14159
+[node name="WireRightAngle2" parent="wirePuzzleHolder/strip/subStrip" instance=ExtResource("10_d8jtr")]
+position = Vector2(80, 48)
+rotation = 1.5708
 
-[node name="WireStraight7" parent="." instance=ExtResource("9_1tjuq")]
-position = Vector2(112, 112)
+[node name="WireRightAngle3" parent="wirePuzzleHolder/strip/subStrip" instance=ExtResource("10_d8jtr")]
+position = Vector2(80, 80)
 
-[node name="WireStraight8" parent="." instance=ExtResource("9_1tjuq")]
-position = Vector2(177, 80)
-rotation = 3.14159
+[node name="subStrip2" type="Node2D" parent="wirePuzzleHolder/strip"]
+script = ExtResource("10_v3o3w")
 
-[node name="WireStraight9" parent="." instance=ExtResource("9_1tjuq")]
+[node name="WireStraight" parent="wirePuzzleHolder/strip/subStrip2" instance=ExtResource("9_1tjuq")]
 position = Vector2(209, 80)
 rotation = 3.14159
 
-[node name="WireRightAngle2" parent="." instance=ExtResource("10_d8jtr")]
+[node name="WireStraight2" parent="wirePuzzleHolder/strip/subStrip2" instance=ExtResource("9_1tjuq")]
+position = Vector2(177, 80)
+rotation = 3.14159
+
+[node name="strip2" type="Node2D" parent="wirePuzzleHolder"]
+script = ExtResource("10_v3o3w")
+
+[node name="WireStraight" parent="wirePuzzleHolder/strip2" instance=ExtResource("9_1tjuq")]
+position = Vector2(209, 112)
+rotation = 3.14159
+
+[node name="strip3" type="Node2D" parent="wirePuzzleHolder"]
+script = ExtResource("10_v3o3w")
+
+[node name="WireStraight" parent="wirePuzzleHolder/strip3" instance=ExtResource("9_1tjuq")]
+position = Vector2(208, 144)
+rotation = 3.14159
+
+[node name="WireStraight2" parent="wirePuzzleHolder/strip3" instance=ExtResource("9_1tjuq")]
+position = Vector2(176, 144)
+rotation = 3.14159
+
+[node name="WireStraight3" parent="wirePuzzleHolder/strip3" instance=ExtResource("9_1tjuq")]
+position = Vector2(144, 144)
+rotation = 3.14159
+
+[node name="WireStraight4" parent="wirePuzzleHolder/strip3" instance=ExtResource("9_1tjuq")]
+position = Vector2(112, 144)
+rotation = 3.14159
+
+[node name="WireRightAngle" parent="wirePuzzleHolder/strip3" instance=ExtResource("10_d8jtr")]
 position = Vector2(80, 144)
 rotation = -1.5708
 scale = Vector2(1, -1)
 
-[node name="WireTSplit2" parent="." instance=ExtResource("11_qg0uo")]
-position = Vector2(240, 80)
-rotation = 1.5708
-
-[node name="WireRightAngle" parent="." instance=ExtResource("10_d8jtr")]
-position = Vector2(240, 48)
-rotation = -3.14159
-
-[node name="WireStraight5" parent="." instance=ExtResource("9_1tjuq")]
-position = Vector2(208, 48)
-rotation = 3.14159
-
-[node name="WireStraight10" parent="." instance=ExtResource("9_1tjuq")]
-position = Vector2(176, 48)
-rotation = 3.14159
-
-[node name="WireStraight11" parent="." instance=ExtResource("9_1tjuq")]
-position = Vector2(144, 48)
-rotation = 3.14159
-
-[node name="WireStraight12" parent="." instance=ExtResource("9_1tjuq")]
-position = Vector2(112, 48)
-rotation = 3.14159
-
-[node name="WireRightAngle3" parent="." instance=ExtResource("10_d8jtr")]
-position = Vector2(80, 80)
-
-[node name="WireRightAngle4" parent="." instance=ExtResource("10_d8jtr")]
-position = Vector2(80, 48)
-rotation = 1.5708
-
-[node name="WireRightAngle5" parent="." instance=ExtResource("10_d8jtr")]
+[node name="WireRightAngle2" parent="wirePuzzleHolder/strip3" instance=ExtResource("10_d8jtr")]
 position = Vector2(80, 112)
 scale = Vector2(1, -1)
+
+[node name="WireStraight5" parent="wirePuzzleHolder/strip3" instance=ExtResource("9_1tjuq")]
+position = Vector2(112, 112)

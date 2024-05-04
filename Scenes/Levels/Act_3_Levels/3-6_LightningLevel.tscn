@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://b53dbav2hd5d"]
+[gd_scene load_steps=21 format=3 uid="uid://b53dbav2hd5d"]
 
 [ext_resource type="Script" path="res://Scripts/levelController.gd" id="1_d2em0"]
 [ext_resource type="TileSet" uid="uid://bnpggr5480t5q" path="res://Art/TileSets/initialTileSet.tres" id="2_dako4"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://dlkccgjxhbsdg" path="res://Scenes/Triggers/magnetTrigger.tscn" id="16_80fwb"]
 [ext_resource type="PackedScene" uid="uid://dcf8fjp1cyb11" path="res://Scenes/Triggers/securityCameraTrigger.tscn" id="17_0yhgs"]
 [ext_resource type="PackedScene" uid="uid://ir5lgtduwqki" path="res://Scenes/Triggers/Trigger_Helpers/MagneticObjects/Magnetic64x64Block.tscn" id="17_4coej"]
+[ext_resource type="Script" path="res://Scripts/triggerHolder.gd" id="17_sqaev"]
 [ext_resource type="PackedScene" uid="uid://bvijr68wg2fbf" path="res://Scenes/Triggers/InvisibleBlocks/64x64InvisibleBlock.tscn" id="18_kaohq"]
 
 [node name="3-6_Lightning" type="Node2D" node_paths=PackedStringArray("cameraSpot", "player", "transitionField")]
@@ -60,175 +61,189 @@ position = Vector2(256, 448)
 [node name="brokenVat" parent="." instance=ExtResource("5_gckm1")]
 position = Vector2(480, 384)
 
-[node name="Magnetic32x128Block" parent="." instance=ExtResource("6_ol5gh")]
+[node name="invisibleBlock" parent="." instance=ExtResource("18_kaohq")]
+position = Vector2(226, 352)
+startActivated = true
+
+[node name="wirePuzzleHolder" type="Node2D" parent="."]
+script = ExtResource("17_sqaev")
+
+[node name="magneticObjects" type="Node2D" parent="wirePuzzleHolder"]
+script = ExtResource("17_sqaev")
+
+[node name="Magnetic32x128Block" parent="wirePuzzleHolder/magneticObjects" instance=ExtResource("6_ol5gh")]
 position = Vector2(240, 192)
 
-[node name="Magnetic32x96Block" parent="." instance=ExtResource("7_2o28m")]
+[node name="Magnetic32x96Block" parent="wirePuzzleHolder/magneticObjects" instance=ExtResource("7_2o28m")]
 position = Vector2(312, 208)
 
-[node name="powerTrigger" parent="." instance=ExtResource("7_2smn0")]
-position = Vector2(64, 32)
-
-[node name="Electrode" parent="." instance=ExtResource("9_63hty")]
-position = Vector2(96, 48)
-rotation = -1.5708
-
-[node name="Electrode2" parent="." instance=ExtResource("9_63hty")]
-position = Vector2(160, 48)
-rotation = 1.5708
-
-[node name="WireStraight" parent="." instance=ExtResource("8_rndwv")]
-position = Vector2(176, 48)
-scale = Vector2(1, -1)
-
-[node name="WireRightAngle" parent="." instance=ExtResource("9_3jtkt")]
-position = Vector2(240, 48)
-rotation = 1.5708
-scale = Vector2(1, -1)
-
-[node name="WireStraight2" parent="." instance=ExtResource("8_rndwv")]
-position = Vector2(208, 48)
-scale = Vector2(1, -1)
-
-[node name="Electrode3" parent="." instance=ExtResource("9_63hty")]
-position = Vector2(240, 64)
-
-[node name="Magnetic32x32Ball2" parent="." instance=ExtResource("15_60x1y")]
+[node name="Magnetic32x32Ball" parent="wirePuzzleHolder/magneticObjects" instance=ExtResource("15_60x1y")]
 position = Vector2(368, 208)
 
-[node name="Magnetic32x32Block2" parent="." instance=ExtResource("12_vq2u1")]
+[node name="Magnetic32x32Block" parent="wirePuzzleHolder/magneticObjects" instance=ExtResource("12_vq2u1")]
 position = Vector2(400, 144)
 
-[node name="Electrode4" parent="." instance=ExtResource("9_63hty")]
-position = Vector2(496, 256)
-rotation = 3.14159
+[node name="Magnetic64x64Block" parent="wirePuzzleHolder/magneticObjects" instance=ExtResource("17_4coej")]
+position = Vector2(384, 64)
 
-[node name="magnetTrigger" parent="." instance=ExtResource("16_80fwb")]
+[node name="Magnetic32x128Block2" parent="wirePuzzleHolder/magneticObjects" instance=ExtResource("6_ol5gh")]
+position = Vector2(432, 16)
+rotation = 1.5708
+
+[node name="Magnetic32x32Ball2" parent="wirePuzzleHolder/magneticObjects" instance=ExtResource("15_60x1y")]
+position = Vector2(464, 48)
+
+[node name="Magnetic32x32Ball3" parent="wirePuzzleHolder/magneticObjects" instance=ExtResource("15_60x1y")]
+position = Vector2(464, 112)
+
+[node name="Magnetic32x32Ball4" parent="wirePuzzleHolder/magneticObjects" instance=ExtResource("15_60x1y")]
+position = Vector2(464, 176)
+
+[node name="powerTrigger" parent="wirePuzzleHolder" instance=ExtResource("7_2smn0")]
+position = Vector2(64, 32)
+
+[node name="magnetTrigger" parent="wirePuzzleHolder" instance=ExtResource("16_80fwb")]
 position = Vector2(96, 160)
 rotation = -1.5708
 startingPolarity = 3
 show_button = false
 
-[node name="WireRightAngle4" parent="." instance=ExtResource("9_3jtkt")]
+[node name="securityCameraTrigger" parent="wirePuzzleHolder" instance=ExtResource("17_0yhgs")]
+position = Vector2(176, 328)
+
+[node name="CameraPivotPoint" parent="wirePuzzleHolder/securityCameraTrigger" index="0"]
+rotation = -2.5953
+
+[node name="CollisionPolygon2D" parent="wirePuzzleHolder/securityCameraTrigger/CameraPivotPoint/CameraView" index="0"]
+polygon = PackedVector2Array(0, 0, -91.2387, -37.787, -159.595, 3.77457, -160, 64)
+
+[node name="Polygon2D" parent="wirePuzzleHolder/securityCameraTrigger/CameraPivotPoint/CameraView" index="1"]
+polygon = PackedVector2Array(-91.2387, -37.787, -159.595, 3.77457, -160, 64, 0, 0)
+
+[node name="GunSprite" parent="wirePuzzleHolder/securityCameraTrigger" index="2"]
+position = Vector2(96, -10)
+rotation = -1.58825
+
+[node name="TriggerKeySprite" parent="wirePuzzleHolder/securityCameraTrigger" index="3"]
+visible = false
+
+[node name="strip1" type="Node2D" parent="wirePuzzleHolder"]
+script = ExtResource("17_sqaev")
+
+[node name="Electrode" parent="wirePuzzleHolder/strip1" instance=ExtResource("9_63hty")]
+position = Vector2(96, 48)
+rotation = -1.5708
+
+[node name="Electrode2" parent="wirePuzzleHolder/strip1" instance=ExtResource("9_63hty")]
+position = Vector2(160, 48)
+rotation = 1.5708
+
+[node name="WireStraight" parent="wirePuzzleHolder/strip1" instance=ExtResource("8_rndwv")]
+position = Vector2(176, 48)
+scale = Vector2(1, -1)
+
+[node name="WireStraight2" parent="wirePuzzleHolder/strip1" instance=ExtResource("8_rndwv")]
+position = Vector2(208, 48)
+scale = Vector2(1, -1)
+
+[node name="WireRightAngle" parent="wirePuzzleHolder/strip1" instance=ExtResource("9_3jtkt")]
+position = Vector2(240, 48)
+rotation = 1.5708
+scale = Vector2(1, -1)
+
+[node name="Electrode3" parent="wirePuzzleHolder/strip1" instance=ExtResource("9_63hty")]
+position = Vector2(240, 64)
+
+[node name="strip2" type="Node2D" parent="wirePuzzleHolder"]
+script = ExtResource("17_sqaev")
+
+[node name="Electrode" parent="wirePuzzleHolder/strip2" instance=ExtResource("9_63hty")]
+position = Vector2(496, 256)
+rotation = 3.14159
+
+[node name="WireRightAngle" parent="wirePuzzleHolder/strip2" instance=ExtResource("9_3jtkt")]
 position = Vector2(496, 272)
 rotation = 3.14159
 scale = Vector2(1, -1)
 
-[node name="WireStraight8" parent="." instance=ExtResource("8_rndwv")]
+[node name="WireStraight" parent="wirePuzzleHolder/strip2" instance=ExtResource("8_rndwv")]
 position = Vector2(464, 272)
 rotation = 3.14159
 
-[node name="WireStraight10" parent="." instance=ExtResource("8_rndwv")]
+[node name="WireStraight1" parent="wirePuzzleHolder/strip2" instance=ExtResource("8_rndwv")]
 position = Vector2(432, 272)
 rotation = 3.14159
 
-[node name="WireStraight11" parent="." instance=ExtResource("8_rndwv")]
+[node name="WireStraight2" parent="wirePuzzleHolder/strip2" instance=ExtResource("8_rndwv")]
 position = Vector2(400, 272)
 rotation = 3.14159
 
-[node name="WireStraight12" parent="." instance=ExtResource("8_rndwv")]
+[node name="WireStraight3" parent="wirePuzzleHolder/strip2" instance=ExtResource("8_rndwv")]
 position = Vector2(368, 272)
 rotation = 3.14159
 
-[node name="WireStraight13" parent="." instance=ExtResource("8_rndwv")]
+[node name="WireStraight4" parent="wirePuzzleHolder/strip2" instance=ExtResource("8_rndwv")]
 position = Vector2(336, 272)
 rotation = 3.14159
 
-[node name="WireStraight14" parent="." instance=ExtResource("8_rndwv")]
+[node name="WireStraight5" parent="wirePuzzleHolder/strip2" instance=ExtResource("8_rndwv")]
 position = Vector2(304, 272)
 rotation = 3.14159
 
-[node name="WireStraight15" parent="." instance=ExtResource("8_rndwv")]
+[node name="WireStraight6" parent="wirePuzzleHolder/strip2" instance=ExtResource("8_rndwv")]
 position = Vector2(272, 272)
 rotation = 3.14159
 
-[node name="WireStraight16" parent="." instance=ExtResource("8_rndwv")]
+[node name="WireStraight7" parent="wirePuzzleHolder/strip2" instance=ExtResource("8_rndwv")]
 position = Vector2(240, 272)
 rotation = 3.14159
 
-[node name="WireStraight17" parent="." instance=ExtResource("8_rndwv")]
+[node name="WireStraight8" parent="wirePuzzleHolder/strip2" instance=ExtResource("8_rndwv")]
 position = Vector2(208, 272)
 rotation = 3.14159
 
-[node name="WireStraight18" parent="." instance=ExtResource("8_rndwv")]
+[node name="WireStraight9" parent="wirePuzzleHolder/strip2" instance=ExtResource("8_rndwv")]
 position = Vector2(176, 272)
 rotation = 3.14159
 
-[node name="WireStraight19" parent="." instance=ExtResource("8_rndwv")]
+[node name="WireStraight10" parent="wirePuzzleHolder/strip2" instance=ExtResource("8_rndwv")]
 position = Vector2(144, 272)
 rotation = 3.14159
 
-[node name="WireStraight20" parent="." instance=ExtResource("8_rndwv")]
+[node name="WireStraight11" parent="wirePuzzleHolder/strip2" instance=ExtResource("8_rndwv")]
 position = Vector2(112, 272)
 rotation = 3.14159
 
-[node name="WireRightAngle5" parent="." instance=ExtResource("9_3jtkt")]
+[node name="WireRightAngle2" parent="wirePuzzleHolder/strip2" instance=ExtResource("9_3jtkt")]
 position = Vector2(80, 272)
 rotation = -1.5708
 scale = Vector2(1, -1)
 
-[node name="WireStraight21" parent="." instance=ExtResource("8_rndwv")]
+[node name="WireStraight12" parent="wirePuzzleHolder/strip2" instance=ExtResource("8_rndwv")]
 position = Vector2(80, 240)
 rotation = -1.5708
 
-[node name="WireStraight22" parent="." instance=ExtResource("8_rndwv")]
+[node name="WireStraight13" parent="wirePuzzleHolder/strip2" instance=ExtResource("8_rndwv")]
 position = Vector2(80, 208)
 rotation = -1.5708
 
-[node name="Electrode5" parent="." instance=ExtResource("9_63hty")]
+[node name="strip3" type="Node2D" parent="wirePuzzleHolder"]
+script = ExtResource("17_sqaev")
+
+[node name="Electrode" parent="wirePuzzleHolder/strip3" instance=ExtResource("9_63hty")]
 position = Vector2(144, 256)
 rotation = 3.14159
 
-[node name="WireStraight23" parent="." instance=ExtResource("8_rndwv")]
+[node name="WireStraight" parent="wirePuzzleHolder/strip3" instance=ExtResource("8_rndwv")]
 position = Vector2(144, 272)
 rotation = 1.5708
 
-[node name="securityCameraTrigger" parent="." instance=ExtResource("17_0yhgs")]
-position = Vector2(176, 328)
-
-[node name="CameraPivotPoint" parent="securityCameraTrigger" index="0"]
-rotation = -2.5953
-
-[node name="CollisionPolygon2D" parent="securityCameraTrigger/CameraPivotPoint/CameraView" index="0"]
-polygon = PackedVector2Array(0, 0, -91.2387, -37.787, -159.595, 3.77457, -160, 64)
-
-[node name="Polygon2D" parent="securityCameraTrigger/CameraPivotPoint/CameraView" index="1"]
-polygon = PackedVector2Array(-91.2387, -37.787, -159.595, 3.77457, -160, 64, 0, 0)
-
-[node name="GunSprite" parent="securityCameraTrigger" index="2"]
-position = Vector2(96, -10)
-rotation = -1.58825
-metadata/_edit_group_ = true
-
-[node name="TriggerKeySprite" parent="securityCameraTrigger" index="3"]
-visible = false
-
-[node name="WireRightAngle2" parent="." instance=ExtResource("9_3jtkt")]
+[node name="WireRightAngle" parent="wirePuzzleHolder/strip3" instance=ExtResource("9_3jtkt")]
 position = Vector2(144, 304)
 
-[node name="WireRightAngle3" parent="." instance=ExtResource("9_3jtkt")]
+[node name="WireRightAngle2" parent="wirePuzzleHolder/strip3" instance=ExtResource("9_3jtkt")]
 position = Vector2(176, 304)
 rotation = 1.5708
 scale = Vector2(1, -1)
 
-[node name="invisibleBlock" parent="." instance=ExtResource("18_kaohq")]
-position = Vector2(226, 352)
-startActivated = true
-
-[node name="Magnetic64x64Block" parent="." instance=ExtResource("17_4coej")]
-position = Vector2(384, 64)
-
-[node name="Magnetic32x128Block2" parent="." instance=ExtResource("6_ol5gh")]
-position = Vector2(432, 16)
-rotation = 1.5708
-
-[node name="Magnetic32x32Ball" parent="." instance=ExtResource("15_60x1y")]
-position = Vector2(464, 176)
-
-[node name="Magnetic32x32Ball3" parent="." instance=ExtResource("15_60x1y")]
-position = Vector2(464, 112)
-
-[node name="Magnetic32x32Ball4" parent="." instance=ExtResource("15_60x1y")]
-position = Vector2(464, 48)
-
-[editable path="securityCameraTrigger"]
+[editable path="wirePuzzleHolder/securityCameraTrigger"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://dpob3en16yi3e"]
+[gd_scene load_steps=38 format=3 uid="uid://dpob3en16yi3e"]
 
 [ext_resource type="Script" path="res://Scripts/levelController.gd" id="1_ksx48"]
 [ext_resource type="Texture2D" uid="uid://d34hymtsr1qlu" path="res://Art/Backgrounds/Act3_BG.png" id="2_05s43"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://dd6l6fhpuajke" path="res://Scenes/rigidPlayer.tscn" id="11_suu7t"]
 [ext_resource type="PackedScene" uid="uid://dx47yma3wfoi6" path="res://Scenes/boss.tscn" id="12_ktcuj"]
 [ext_resource type="PackedScene" uid="uid://dpeaoe3ad3ahy" path="res://Scenes/Triggers/Trigger_Helpers/brokenVat.tscn" id="13_m10j5"]
+[ext_resource type="Script" path="res://Scripts/triggerHolder.gd" id="14_3bsyv"]
 [ext_resource type="PackedScene" uid="uid://b7levwy0h2j7v" path="res://Scenes/Triggers/Trigger_Helpers/Conduits/electrode.tscn" id="14_3r1oa"]
 [ext_resource type="PackedScene" uid="uid://dlkccgjxhbsdg" path="res://Scenes/Triggers/magnetTrigger.tscn" id="14_ha1aw"]
 [ext_resource type="PackedScene" uid="uid://bhxvnemhaxas4" path="res://Scenes/Triggers/Trigger_Helpers/Conduits/WireRightAngle.tscn" id="16_jib6v"]
@@ -2973,6 +2974,176 @@ metadata/_edit_group_ = true
 [node name="BossSprite" parent="Boss" index="0"]
 position = Vector2(0, 1)
 
+[node name="brokenVat" parent="." instance=ExtResource("13_m10j5")]
+position = Vector2(2656, 608)
+
+[node name="trapdoorPuzzle" type="Node2D" parent="."]
+script = ExtResource("14_3bsyv")
+
+[node name="powerTrigger" parent="trapdoorPuzzle" instance=ExtResource("21_3fi6o")]
+position = Vector2(2448, 448)
+metadata/_edit_group_ = true
+
+[node name="TriggerKeySprite" parent="trapdoorPuzzle/powerTrigger" index="3"]
+position = Vector2(-56, -16)
+
+[node name="electricalDoor" parent="trapdoorPuzzle" instance=ExtResource("17_ecptn")]
+position = Vector2(2528, 640)
+rotation = 1.5708
+startState = 2
+
+[node name="electricalDoor2" parent="trapdoorPuzzle" instance=ExtResource("17_ecptn")]
+position = Vector2(2528, 672)
+rotation = 1.5708
+startState = 2
+
+[node name="electricalDoor3" parent="trapdoorPuzzle" instance=ExtResource("17_ecptn")]
+position = Vector2(2368, 672)
+rotation = -1.5708
+startState = 2
+
+[node name="electricalDoor4" parent="trapdoorPuzzle" instance=ExtResource("17_ecptn")]
+position = Vector2(2368, 704)
+rotation = -1.5708
+startState = 2
+
+[node name="strip" type="Node2D" parent="trapdoorPuzzle"]
+script = ExtResource("14_3bsyv")
+
+[node name="WireStraight" parent="trapdoorPuzzle/strip" instance=ExtResource("18_vrsdl")]
+position = Vector2(2480, 464)
+
+[node name="WireStraight2" parent="trapdoorPuzzle/strip" instance=ExtResource("18_vrsdl")]
+position = Vector2(2512, 464)
+
+[node name="WireRightAngle" parent="trapdoorPuzzle/strip" instance=ExtResource("16_jib6v")]
+position = Vector2(2544, 464)
+rotation = 1.5708
+scale = Vector2(1, -1)
+
+[node name="WireStraight3" parent="trapdoorPuzzle/strip" instance=ExtResource("18_vrsdl")]
+position = Vector2(2544, 496)
+rotation = 1.5708
+
+[node name="WireStraight4" parent="trapdoorPuzzle/strip" instance=ExtResource("18_vrsdl")]
+position = Vector2(2544, 528)
+rotation = 1.5708
+
+[node name="WireStraight5" parent="trapdoorPuzzle/strip" instance=ExtResource("18_vrsdl")]
+position = Vector2(2544, 560)
+rotation = 1.5708
+
+[node name="WireStraight6" parent="trapdoorPuzzle/strip" instance=ExtResource("18_vrsdl")]
+position = Vector2(2544, 592)
+rotation = 1.5708
+
+[node name="WireStraight7" parent="trapdoorPuzzle/strip" instance=ExtResource("18_vrsdl")]
+position = Vector2(2544, 624)
+rotation = 1.5708
+
+[node name="WireTSplit" parent="trapdoorPuzzle/strip" instance=ExtResource("19_2bp4k")]
+position = Vector2(2544, 656)
+rotation = -1.5708
+scale = Vector2(1, -1)
+
+[node name="WireRightAngle2" parent="trapdoorPuzzle/strip" instance=ExtResource("16_jib6v")]
+position = Vector2(2544, 688)
+rotation = 3.14159
+scale = Vector2(1, -1)
+
+[node name="strip2" type="Node2D" parent="trapdoorPuzzle"]
+script = ExtResource("14_3bsyv")
+
+[node name="WireStraight" parent="trapdoorPuzzle/strip2" instance=ExtResource("18_vrsdl")]
+position = Vector2(2416, 464)
+rotation = -3.14159
+
+[node name="WireStraight2" parent="trapdoorPuzzle/strip2" instance=ExtResource("18_vrsdl")]
+position = Vector2(2384, 464)
+rotation = 3.14159
+
+[node name="WireRightAngle2" parent="trapdoorPuzzle/strip2" instance=ExtResource("16_jib6v")]
+position = Vector2(2352, 464)
+rotation = 1.5708
+
+[node name="WireStraight3" parent="trapdoorPuzzle/strip2" instance=ExtResource("18_vrsdl")]
+position = Vector2(2352, 496)
+rotation = 1.5708
+
+[node name="WireStraight4" parent="trapdoorPuzzle/strip2" instance=ExtResource("18_vrsdl")]
+position = Vector2(2352, 528)
+rotation = 1.5708
+
+[node name="WireStraight5" parent="trapdoorPuzzle/strip2" instance=ExtResource("18_vrsdl")]
+position = Vector2(2352, 560)
+rotation = 1.5708
+
+[node name="WireStraight6" parent="trapdoorPuzzle/strip2" instance=ExtResource("18_vrsdl")]
+position = Vector2(2352, 592)
+rotation = 1.5708
+
+[node name="WireStraight7" parent="trapdoorPuzzle/strip2" instance=ExtResource("18_vrsdl")]
+position = Vector2(2352, 624)
+rotation = 1.5708
+
+[node name="WireTSplit" parent="trapdoorPuzzle/strip2" instance=ExtResource("19_2bp4k")]
+position = Vector2(2352, 656)
+rotation = -1.5708
+
+[node name="WireRightAngle" parent="trapdoorPuzzle/strip2" instance=ExtResource("16_jib6v")]
+position = Vector2(2352, 688)
+
+[node name="fellavatorPuzzle" type="Node2D" parent="."]
+script = ExtResource("14_3bsyv")
+
+[node name="MagneticFellaBox" parent="fellavatorPuzzle" instance=ExtResource("16_kfsi0")]
+position = Vector2(2080, 608)
+
+[node name="magnetTrigger" parent="fellavatorPuzzle" instance=ExtResource("14_ha1aw")]
+position = Vector2(1680, 672)
+rotation = 3.14159
+startingPolarity = 2
+show_button = false
+
+[node name="magnetTrigger2" parent="fellavatorPuzzle" instance=ExtResource("14_ha1aw")]
+position = Vector2(1920, 320)
+
+[node name="magnetTrigger3" parent="fellavatorPuzzle" instance=ExtResource("14_ha1aw")]
+position = Vector2(1440, 320)
+
+[node name="electricalDoor" parent="fellavatorPuzzle" instance=ExtResource("17_ecptn")]
+position = Vector2(2112, 608)
+startState = 2
+one_shot = true
+
+[node name="electricalDoor2" parent="fellavatorPuzzle" instance=ExtResource("17_ecptn")]
+position = Vector2(1216, 576)
+startState = 2
+one_shot = true
+
+[node name="electricalDoor3" parent="fellavatorPuzzle" instance=ExtResource("17_ecptn")]
+position = Vector2(1536, 896)
+rotation = 3.14159
+startState = 2
+one_shot = true
+
+[node name="strip" type="Node2D" parent="fellavatorPuzzle"]
+script = ExtResource("14_3bsyv")
+
+[node name="Electrode" parent="fellavatorPuzzle/strip" instance=ExtResource("14_3r1oa")]
+position = Vector2(2128, 704)
+one_shot = true
+
+[node name="WireStraight" parent="fellavatorPuzzle/strip" instance=ExtResource("18_vrsdl")]
+position = Vector2(2128, 688)
+rotation = -1.5708
+
+[node name="strip2" type="Node2D" parent="fellavatorPuzzle"]
+script = ExtResource("14_3bsyv")
+
+[node name="Electrode" parent="fellavatorPuzzle/strip2" instance=ExtResource("14_3r1oa")]
+position = Vector2(1680, 704)
+
 [node name="StartNextSequence" type="Area2D" parent="."]
 position = Vector2(1376, 624)
 metadata/_edit_group_ = true
@@ -2980,6 +3151,15 @@ metadata/_edit_group_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StartNextSequence"]
 position = Vector2(0, -4)
 shape = SubResource("RectangleShape2D_yvvir")
+
+[node name="fallingSection" type="Node2D" parent="."]
+script = ExtResource("14_3bsyv")
+
+[node name="trampolineTrigger" parent="fallingSection" instance=ExtResource("22_ia8lw")]
+position = Vector2(800, 1016)
+rotation = 1.09083
+jump_force = 250.0
+instantSetup = true
 
 [node name="SlowTheBoss" type="Area2D" parent="."]
 position = Vector2(832, 1248)
@@ -2991,6 +3171,198 @@ metadata/_edit_group_ = true
 position = Vector2(0, -4)
 shape = SubResource("RectangleShape2D_yvvir")
 
+[node name="securityPuzzle" type="Node2D" parent="."]
+script = ExtResource("14_3bsyv")
+
+[node name="securityCameraTrigger" parent="securityPuzzle" instance=ExtResource("23_xj21f")]
+position = Vector2(1184, 976)
+show_button = false
+
+[node name="CameraPivotPoint" parent="securityPuzzle/securityCameraTrigger" index="0"]
+rotation = -2.35619
+
+[node name="CollisionPolygon2D" parent="securityPuzzle/securityCameraTrigger/CameraPivotPoint/CameraView" index="0"]
+polygon = PackedVector2Array(0, 0, -102.794, -39.598, -238.558, 96.1666)
+
+[node name="Polygon2D" parent="securityPuzzle/securityCameraTrigger/CameraPivotPoint/CameraView" index="1"]
+polygon = PackedVector2Array(-238.558, 96.1666, 0, 0, -102.794, -39.598)
+
+[node name="GunSprite" parent="securityPuzzle/securityCameraTrigger" index="2"]
+position = Vector2(-16, 16)
+rotation = -2.35619
+
+[node name="Bullet" parent="securityPuzzle/securityCameraTrigger/GunSprite" index="1"]
+MAX_ROTATION_SPEED = 180
+
+[node name="TriggerKeySprite" parent="securityPuzzle/securityCameraTrigger" index="3"]
+visible = false
+
+[node name="invisibleBlock" parent="securityPuzzle" instance=ExtResource("24_ytpi2")]
+position = Vector2(1248, 1024)
+
+[node name="strip" type="Node2D" parent="securityPuzzle"]
+script = ExtResource("14_3bsyv")
+
+[node name="Electrode" parent="securityPuzzle/strip" instance=ExtResource("14_3r1oa")]
+position = Vector2(944, 1184)
+one_shot = true
+
+[node name="WireStraight" parent="securityPuzzle/strip" instance=ExtResource("18_vrsdl")]
+position = Vector2(944, 1168)
+rotation = -1.5708
+
+[node name="WireRightAngle" parent="securityPuzzle/strip" instance=ExtResource("16_jib6v")]
+position = Vector2(944, 1136)
+scale = Vector2(1, -1)
+
+[node name="WireStraight2" parent="securityPuzzle/strip" instance=ExtResource("18_vrsdl")]
+position = Vector2(976, 1136)
+
+[node name="Electrode2" parent="securityPuzzle/strip" instance=ExtResource("14_3r1oa")]
+position = Vector2(992, 1136)
+rotation = -1.5708
+
+[node name="Electrode3" parent="securityPuzzle/strip" instance=ExtResource("14_3r1oa")]
+position = Vector2(1024, 1136)
+rotation = 1.5708
+
+[node name="WireStraight3" parent="securityPuzzle/strip" instance=ExtResource("18_vrsdl")]
+position = Vector2(1040, 1136)
+
+[node name="WireStraight4" parent="securityPuzzle/strip" instance=ExtResource("18_vrsdl")]
+position = Vector2(1072, 1136)
+
+[node name="Electrode4" parent="securityPuzzle/strip" instance=ExtResource("14_3r1oa")]
+position = Vector2(1088, 1136)
+rotation = -1.5708
+
+[node name="Electrode5" parent="securityPuzzle/strip" instance=ExtResource("14_3r1oa")]
+position = Vector2(1120, 1136)
+rotation = 1.5708
+
+[node name="WireStraight5" parent="securityPuzzle/strip" instance=ExtResource("18_vrsdl")]
+position = Vector2(1136, 1136)
+
+[node name="WireRightAngle2" parent="securityPuzzle/strip" instance=ExtResource("16_jib6v")]
+position = Vector2(1168, 1136)
+rotation = -1.5708
+
+[node name="WireStraight6" parent="securityPuzzle/strip" instance=ExtResource("18_vrsdl")]
+position = Vector2(1168, 1104)
+rotation = -1.5708
+
+[node name="WireStraight7" parent="securityPuzzle/strip" instance=ExtResource("18_vrsdl")]
+position = Vector2(1168, 1072)
+rotation = -1.5708
+
+[node name="WireStraight8" parent="securityPuzzle/strip" instance=ExtResource("18_vrsdl")]
+position = Vector2(1168, 1040)
+rotation = -1.5708
+
+[node name="WireStraight9" parent="securityPuzzle/strip" instance=ExtResource("18_vrsdl")]
+position = Vector2(1168, 1008)
+rotation = -1.5708
+
+[node name="WireRightAngle3" parent="securityPuzzle/strip" instance=ExtResource("16_jib6v")]
+position = Vector2(1168, 976)
+scale = Vector2(1, -1)
+
+[node name="gravityPuzzle" type="Node2D" parent="."]
+script = ExtResource("14_3bsyv")
+
+[node name="magnetTrigger" parent="gravityPuzzle" instance=ExtResource("14_ha1aw")]
+position = Vector2(1632, 960)
+startingPolarity = 3
+metadata/_edit_group_ = true
+
+[node name="TriggerKeySprite" parent="gravityPuzzle/magnetTrigger" index="1"]
+position = Vector2(64, 0)
+
+[node name="Magnetic32x32Ball" parent="gravityPuzzle" instance=ExtResource("23_31jsd")]
+position = Vector2(1632, 1136)
+
+[node name="electricalDoor" parent="gravityPuzzle" instance=ExtResource("17_ecptn")]
+position = Vector2(1760, 1120)
+rotation = -1.5708
+
+[node name="electricalDoor2" parent="gravityPuzzle" instance=ExtResource("17_ecptn")]
+position = Vector2(1760, 1152)
+rotation = -1.5708
+
+[node name="electricalDoor3" parent="gravityPuzzle" instance=ExtResource("17_ecptn")]
+position = Vector2(1760, 1184)
+rotation = -1.5708
+
+[node name="electricalDoor4" parent="gravityPuzzle" instance=ExtResource("17_ecptn")]
+position = Vector2(1856, 928)
+rotation = 1.5708
+startState = 2
+
+[node name="SecurityBall" parent="gravityPuzzle" instance=ExtResource("28_nubxg")]
+position = Vector2(1808, 912)
+
+[node name="strip" type="Node2D" parent="gravityPuzzle"]
+script = ExtResource("14_3bsyv")
+
+[node name="Electrode" parent="gravityPuzzle/strip" instance=ExtResource("14_3r1oa")]
+position = Vector2(1520, 1184)
+one_shot = true
+
+[node name="WireStraight" parent="gravityPuzzle/strip" instance=ExtResource("18_vrsdl")]
+position = Vector2(1520, 1168)
+rotation = -1.5708
+
+[node name="WireRightAngle" parent="gravityPuzzle/strip" instance=ExtResource("16_jib6v")]
+position = Vector2(1520, 1136)
+scale = Vector2(1, -1)
+
+[node name="WireStraight2" parent="gravityPuzzle/strip" instance=ExtResource("18_vrsdl")]
+position = Vector2(1552, 1136)
+
+[node name="Electrode2" parent="gravityPuzzle/strip" instance=ExtResource("14_3r1oa")]
+position = Vector2(1568, 1136)
+rotation = -1.5708
+
+[node name="strip2" type="Node2D" parent="gravityPuzzle"]
+script = ExtResource("14_3bsyv")
+
+[node name="Electrode" parent="gravityPuzzle/strip2" instance=ExtResource("14_3r1oa")]
+position = Vector2(1696, 1168)
+rotation = 1.5708
+
+[node name="WireStraight" parent="gravityPuzzle/strip2" instance=ExtResource("18_vrsdl")]
+position = Vector2(1712, 1168)
+
+[node name="WireStraight2" parent="gravityPuzzle/strip2" instance=ExtResource("18_vrsdl")]
+position = Vector2(1744, 1168)
+
+[node name="strip3" type="Node2D" parent="gravityPuzzle"]
+script = ExtResource("14_3bsyv")
+
+[node name="Electrode" parent="gravityPuzzle/strip3" instance=ExtResource("14_3r1oa")]
+position = Vector2(1696, 1104)
+rotation = 1.5708
+
+[node name="WireTSplit" parent="gravityPuzzle/strip3" instance=ExtResource("19_2bp4k")]
+position = Vector2(1712, 1104)
+rotation = -3.14159
+scale = Vector2(1, -1)
+
+[node name="subStrip" type="Node2D" parent="gravityPuzzle/strip3"]
+script = ExtResource("14_3bsyv")
+
+[node name="WireStraight" parent="gravityPuzzle/strip3/subStrip" instance=ExtResource("18_vrsdl")]
+position = Vector2(1744, 1104)
+
+[node name="subStrip2" type="Node2D" parent="gravityPuzzle/strip3"]
+script = ExtResource("14_3bsyv")
+
+[node name="WireRightAngle" parent="gravityPuzzle/strip3/subStrip2" instance=ExtResource("16_jib6v")]
+position = Vector2(1712, 1136)
+
+[node name="WireStraight" parent="gravityPuzzle/strip3/subStrip2" instance=ExtResource("18_vrsdl")]
+position = Vector2(1744, 1136)
+
 [node name="SlowTheBoss2" type="Area2D" parent="."]
 position = Vector2(1600, 1280)
 collision_layer = 0
@@ -3001,325 +3373,245 @@ metadata/_edit_group_ = true
 position = Vector2(0, -4)
 shape = SubResource("RectangleShape2D_yvvir")
 
-[node name="brokenVat" parent="." instance=ExtResource("13_m10j5")]
-position = Vector2(2656, 608)
+[node name="doorPuzzle" type="Node2D" parent="."]
+script = ExtResource("14_3bsyv")
 
-[node name="magnetTrigger" parent="." instance=ExtResource("14_ha1aw")]
-position = Vector2(1680, 672)
-rotation = 3.14159
-startingPolarity = 2
+[node name="powerTrigger" parent="doorPuzzle" instance=ExtResource("21_3fi6o")]
+position = Vector2(2096, 928)
+startLocked = true
+
+[node name="TriggerKeySprite" parent="doorPuzzle/powerTrigger" index="3"]
+position = Vector2(-64, -16)
+
+[node name="electricalDoor" parent="doorPuzzle" instance=ExtResource("17_ecptn")]
+position = Vector2(2016, 992)
+startState = 2
+
+[node name="electricalDoor2" parent="doorPuzzle" instance=ExtResource("17_ecptn")]
+position = Vector2(2048, 992)
+startState = 2
+
+[node name="electricalDoor3" parent="doorPuzzle" instance=ExtResource("17_ecptn")]
+position = Vector2(2080, 992)
+startState = 2
+
+[node name="electricalDoor4" parent="doorPuzzle" instance=ExtResource("17_ecptn")]
+position = Vector2(2112, 992)
+startState = 2
+
+[node name="electricalDoor5" parent="doorPuzzle" instance=ExtResource("17_ecptn")]
+position = Vector2(2144, 992)
+
+[node name="Magnetic32x64Block" parent="doorPuzzle" instance=ExtResource("26_6hfxi")]
+position = Vector2(2048, 1120)
+rotation = -1.5708
+
+[node name="Magnetic32x96Block" parent="doorPuzzle" instance=ExtResource("27_1hs1y")]
+position = Vector2(2128, 1120)
+rotation = -1.5708
+
+[node name="securityCameraTrigger" parent="doorPuzzle" instance=ExtResource("23_xj21f")]
+position = Vector2(1904, 960)
 show_button = false
 
-[node name="Electrode" parent="." instance=ExtResource("14_3r1oa")]
-position = Vector2(1680, 704)
-
-[node name="magnetTrigger2" parent="." instance=ExtResource("14_ha1aw")]
-position = Vector2(1920, 320)
-
-[node name="magnetTrigger3" parent="." instance=ExtResource("14_ha1aw")]
-position = Vector2(1440, 320)
-
-[node name="MagneticFellaBox" parent="." instance=ExtResource("16_kfsi0")]
-position = Vector2(2080, 608)
-
-[node name="electricalDoor" parent="." instance=ExtResource("17_ecptn")]
-position = Vector2(2112, 608)
-startState = 2
-one_shot = true
-
-[node name="Electrode2" parent="." instance=ExtResource("14_3r1oa")]
-position = Vector2(2128, 704)
-one_shot = true
-
-[node name="electricalDoor2" parent="." instance=ExtResource("17_ecptn")]
-position = Vector2(2528, 640)
-rotation = 1.5708
-startState = 2
-
-[node name="electricalDoor3" parent="." instance=ExtResource("17_ecptn")]
-position = Vector2(2368, 672)
-rotation = -1.5708
-startState = 2
-
-[node name="electricalDoor4" parent="." instance=ExtResource("17_ecptn")]
-position = Vector2(2368, 704)
-rotation = -1.5708
-startState = 2
-
-[node name="electricalDoor5" parent="." instance=ExtResource("17_ecptn")]
-position = Vector2(2528, 672)
-rotation = 1.5708
-startState = 2
-
-[node name="WireTSplit" parent="." instance=ExtResource("19_2bp4k")]
-position = Vector2(2352, 656)
+[node name="CameraPivotPoint" parent="doorPuzzle/securityCameraTrigger" index="0"]
 rotation = -1.5708
 
-[node name="WireTSplit2" parent="." instance=ExtResource("19_2bp4k")]
-position = Vector2(2544, 656)
-rotation = -1.5708
-scale = Vector2(1, -1)
+[node name="CollisionPolygon2D" parent="doorPuzzle/securityCameraTrigger/CameraPivotPoint/CameraView" index="0"]
+polygon = PackedVector2Array(0, 0, -112, -24, -112, 24)
 
-[node name="WireRightAngle" parent="." instance=ExtResource("16_jib6v")]
-position = Vector2(2352, 688)
+[node name="Polygon2D" parent="doorPuzzle/securityCameraTrigger/CameraPivotPoint/CameraView" index="1"]
+polygon = PackedVector2Array(-112, 24, 0, 0, -112, -24)
 
-[node name="WireRightAngle2" parent="." instance=ExtResource("16_jib6v")]
-position = Vector2(2544, 688)
-rotation = 3.14159
-scale = Vector2(1, -1)
-
-[node name="powerTrigger" parent="." instance=ExtResource("21_3fi6o")]
-position = Vector2(2448, 448)
-
-[node name="TriggerKeySprite" parent="powerTrigger" index="3"]
-position = Vector2(-56, -16)
-
-[node name="WireStraight2" parent="." instance=ExtResource("18_vrsdl")]
-position = Vector2(2352, 624)
-rotation = 1.5708
-
-[node name="WireStraight3" parent="." instance=ExtResource("18_vrsdl")]
-position = Vector2(2544, 624)
-rotation = 1.5708
-
-[node name="WireStraight4" parent="." instance=ExtResource("18_vrsdl")]
-position = Vector2(2352, 592)
-rotation = 1.5708
-
-[node name="WireStraight5" parent="." instance=ExtResource("18_vrsdl")]
-position = Vector2(2352, 560)
-rotation = 1.5708
-
-[node name="WireStraight6" parent="." instance=ExtResource("18_vrsdl")]
-position = Vector2(2352, 528)
-rotation = 1.5708
-
-[node name="WireStraight7" parent="." instance=ExtResource("18_vrsdl")]
-position = Vector2(2352, 496)
-rotation = 1.5708
-
-[node name="WireStraight8" parent="." instance=ExtResource("18_vrsdl")]
-position = Vector2(2544, 592)
-rotation = 1.5708
-
-[node name="WireStraight9" parent="." instance=ExtResource("18_vrsdl")]
-position = Vector2(2544, 560)
-rotation = 1.5708
-
-[node name="WireStraight10" parent="." instance=ExtResource("18_vrsdl")]
-position = Vector2(2544, 528)
-rotation = 1.5708
-
-[node name="WireStraight11" parent="." instance=ExtResource("18_vrsdl")]
-position = Vector2(2544, 496)
-rotation = 1.5708
-
-[node name="WireStraight12" parent="." instance=ExtResource("18_vrsdl")]
-position = Vector2(2512, 464)
-
-[node name="WireStraight13" parent="." instance=ExtResource("18_vrsdl")]
-position = Vector2(2384, 464)
-rotation = 3.14159
-
-[node name="WireRightAngle3" parent="." instance=ExtResource("16_jib6v")]
-position = Vector2(2352, 464)
-rotation = 1.5708
-
-[node name="WireRightAngle4" parent="." instance=ExtResource("16_jib6v")]
-position = Vector2(2544, 464)
-rotation = 1.5708
-scale = Vector2(1, -1)
-
-[node name="WireStraight14" parent="." instance=ExtResource("18_vrsdl")]
-position = Vector2(2480, 464)
-
-[node name="WireStraight15" parent="." instance=ExtResource("18_vrsdl")]
-position = Vector2(2416, 464)
-rotation = -3.14159
-
-[node name="electricalDoor6" parent="." instance=ExtResource("17_ecptn")]
-position = Vector2(1216, 576)
-startState = 2
-one_shot = true
-
-[node name="electricalDoor7" parent="." instance=ExtResource("17_ecptn")]
-position = Vector2(1536, 896)
-rotation = 3.14159
-startState = 2
-one_shot = true
-
-[node name="trampolineTrigger" parent="." instance=ExtResource("22_ia8lw")]
-position = Vector2(800, 1016)
-rotation = 1.09083
-jump_force = 250.0
-instantSetup = true
-
-[node name="Electrode3" parent="." instance=ExtResource("14_3r1oa")]
-position = Vector2(944, 1184)
-rotation = 1.5708
-one_shot = true
-
-[node name="WireStraight21" parent="." instance=ExtResource("18_vrsdl")]
-position = Vector2(2128, 688)
+[node name="GunSprite" parent="doorPuzzle/securityCameraTrigger" index="2"]
+position = Vector2(32, 0)
 rotation = -1.5708
 
-[node name="Electrode4" parent="." instance=ExtResource("14_3r1oa")]
-position = Vector2(992, 1136)
-rotation = -1.5708
-
-[node name="Electrode5" parent="." instance=ExtResource("14_3r1oa")]
-position = Vector2(1024, 1136)
-rotation = 1.5708
-
-[node name="WireStraight22" parent="." instance=ExtResource("18_vrsdl")]
-position = Vector2(1040, 1136)
-
-[node name="WireStraight23" parent="." instance=ExtResource("18_vrsdl")]
-position = Vector2(1072, 1136)
-
-[node name="WireRightAngle9" parent="." instance=ExtResource("16_jib6v")]
-position = Vector2(1168, 1136)
-rotation = -1.5708
-
-[node name="Electrode6" parent="." instance=ExtResource("14_3r1oa")]
-position = Vector2(1088, 1136)
-rotation = -1.5708
-
-[node name="Electrode7" parent="." instance=ExtResource("14_3r1oa")]
-position = Vector2(1120, 1136)
-rotation = 1.5708
-
-[node name="WireStraight24" parent="." instance=ExtResource("18_vrsdl")]
-position = Vector2(944, 1168)
-rotation = -1.5708
-
-[node name="WireStraight26" parent="." instance=ExtResource("18_vrsdl")]
-position = Vector2(976, 1136)
-
-[node name="WireStraight27" parent="." instance=ExtResource("18_vrsdl")]
-position = Vector2(1136, 1136)
-
-[node name="WireRightAngle7" parent="." instance=ExtResource("16_jib6v")]
-position = Vector2(944, 1136)
-scale = Vector2(1, -1)
-
-[node name="securityCameraTrigger" parent="." instance=ExtResource("23_xj21f")]
-position = Vector2(1184, 976)
-show_button = false
-
-[node name="CameraPivotPoint" parent="securityCameraTrigger" index="0"]
-rotation = -2.35619
-
-[node name="CollisionPolygon2D" parent="securityCameraTrigger/CameraPivotPoint/CameraView" index="0"]
-polygon = PackedVector2Array(0, 0, -102.794, -39.598, -238.558, 96.1666)
-
-[node name="Polygon2D" parent="securityCameraTrigger/CameraPivotPoint/CameraView" index="1"]
-polygon = PackedVector2Array(-238.558, 96.1666, 0, 0, -102.794, -39.598)
-
-[node name="GunSprite" parent="securityCameraTrigger" index="2"]
-position = Vector2(-16, 16)
-rotation = -2.35619
-
-[node name="Bullet" parent="securityCameraTrigger/GunSprite" index="1"]
+[node name="Bullet" parent="doorPuzzle/securityCameraTrigger/GunSprite" index="1"]
 MAX_ROTATION_SPEED = 180
+BULLET_SPEED = 1000.0
 
-[node name="TriggerKeySprite" parent="securityCameraTrigger" index="3"]
+[node name="TriggerKeySprite" parent="doorPuzzle/securityCameraTrigger" index="3"]
 visible = false
 
-[node name="WireStraight25" parent="." instance=ExtResource("18_vrsdl")]
-position = Vector2(1168, 1104)
-rotation = -1.5708
+[node name="strip" type="Node2D" parent="doorPuzzle"]
+script = ExtResource("14_3bsyv")
 
-[node name="WireStraight28" parent="." instance=ExtResource("18_vrsdl")]
-position = Vector2(1168, 1072)
-rotation = -1.5708
-
-[node name="WireStraight29" parent="." instance=ExtResource("18_vrsdl")]
-position = Vector2(1168, 1040)
-rotation = -1.5708
-
-[node name="WireStraight30" parent="." instance=ExtResource("18_vrsdl")]
-position = Vector2(1168, 1008)
-rotation = -1.5708
-
-[node name="WireRightAngle8" parent="." instance=ExtResource("16_jib6v")]
-position = Vector2(1168, 976)
-scale = Vector2(1, -1)
-
-[node name="invisibleBlock" parent="." instance=ExtResource("24_ytpi2")]
-position = Vector2(1248, 1024)
-
-[node name="magnetTrigger4" parent="." instance=ExtResource("14_ha1aw")]
-position = Vector2(1632, 960)
-startingPolarity = 3
-metadata/_edit_group_ = true
-
-[node name="TriggerKeySprite" parent="magnetTrigger4" index="1"]
-position = Vector2(64, 0)
-
-[node name="Electrode8" parent="." instance=ExtResource("14_3r1oa")]
-position = Vector2(1520, 1184)
+[node name="Electrode" parent="doorPuzzle/strip" instance=ExtResource("14_3r1oa")]
+position = Vector2(1872, 1184)
 one_shot = true
 
-[node name="electricalDoor8" parent="." instance=ExtResource("17_ecptn")]
-position = Vector2(1760, 1120)
-rotation = -1.5708
-
-[node name="electricalDoor9" parent="." instance=ExtResource("17_ecptn")]
-position = Vector2(1760, 1184)
-rotation = -1.5708
-
-[node name="Electrode9" parent="." instance=ExtResource("14_3r1oa")]
-position = Vector2(1568, 1136)
-rotation = -1.5708
-
-[node name="Magnetic32x32Ball" parent="." instance=ExtResource("23_31jsd")]
-position = Vector2(1632, 1136)
-
-[node name="Electrode10" parent="." instance=ExtResource("14_3r1oa")]
-position = Vector2(1696, 1168)
+[node name="WireTSplit" parent="doorPuzzle/strip" instance=ExtResource("19_2bp4k")]
+position = Vector2(1872, 1168)
 rotation = 1.5708
-
-[node name="Electrode11" parent="." instance=ExtResource("14_3r1oa")]
-position = Vector2(1696, 1104)
-rotation = 1.5708
-
-[node name="WireStraight31" parent="." instance=ExtResource("18_vrsdl")]
-position = Vector2(1520, 1168)
-rotation = -1.5708
-
-[node name="WireStraight33" parent="." instance=ExtResource("18_vrsdl")]
-position = Vector2(1552, 1136)
-
-[node name="WireRightAngle10" parent="." instance=ExtResource("16_jib6v")]
-position = Vector2(1520, 1136)
 scale = Vector2(1, -1)
 
-[node name="WireStraight34" parent="." instance=ExtResource("18_vrsdl")]
-position = Vector2(1712, 1168)
+[node name="subStrip" type="Node2D" parent="doorPuzzle/strip"]
+script = ExtResource("14_3bsyv")
 
-[node name="WireStraight35" parent="." instance=ExtResource("18_vrsdl")]
-position = Vector2(1744, 1104)
-
-[node name="electricalDoor10" parent="." instance=ExtResource("17_ecptn")]
-position = Vector2(1760, 1152)
+[node name="WireStraight" parent="doorPuzzle/strip/subStrip" instance=ExtResource("18_vrsdl")]
+position = Vector2(1872, 1136)
 rotation = -1.5708
 
-[node name="WireTSplit3" parent="." instance=ExtResource("19_2bp4k")]
-position = Vector2(1712, 1104)
+[node name="WireStraight2" parent="doorPuzzle/strip/subStrip" instance=ExtResource("18_vrsdl")]
+position = Vector2(1872, 1104)
+rotation = -1.5708
+
+[node name="WireStraight3" parent="doorPuzzle/strip/subStrip" instance=ExtResource("18_vrsdl")]
+position = Vector2(1872, 1072)
+rotation = -1.5708
+
+[node name="WireStraight4" parent="doorPuzzle/strip/subStrip" instance=ExtResource("18_vrsdl")]
+position = Vector2(1872, 1040)
+rotation = -1.5708
+
+[node name="WireStraight5" parent="doorPuzzle/strip/subStrip" instance=ExtResource("18_vrsdl")]
+position = Vector2(1872, 1008)
+rotation = -1.5708
+
+[node name="WireStraight6" parent="doorPuzzle/strip/subStrip" instance=ExtResource("18_vrsdl")]
+position = Vector2(1872, 976)
+rotation = -1.5708
+
+[node name="WireTSplit5" parent="doorPuzzle/strip/subStrip" instance=ExtResource("19_2bp4k")]
+position = Vector2(1872, 944)
+rotation = 1.5708
+
+[node name="WireRightAngle" parent="doorPuzzle/strip/subStrip" instance=ExtResource("16_jib6v")]
+position = Vector2(1872, 912)
+scale = Vector2(1, -1)
+
+[node name="WireRightAngle2" parent="doorPuzzle/strip/subStrip" instance=ExtResource("16_jib6v")]
+position = Vector2(1904, 912)
+rotation = 1.5708
+scale = Vector2(1, -1)
+
+[node name="WireStraight7" parent="doorPuzzle/strip/subStrip" instance=ExtResource("18_vrsdl")]
+position = Vector2(1904, 944)
+rotation = 1.5708
+
+[node name="subStrip2" type="Node2D" parent="doorPuzzle/strip"]
+script = ExtResource("14_3bsyv")
+
+[node name="WireStraight" parent="doorPuzzle/strip/subStrip2" instance=ExtResource("18_vrsdl")]
+position = Vector2(1904, 1168)
+
+[node name="WireStraight2" parent="doorPuzzle/strip/subStrip2" instance=ExtResource("18_vrsdl")]
+position = Vector2(1936, 1168)
+
+[node name="WireStraight3" parent="doorPuzzle/strip/subStrip2" instance=ExtResource("18_vrsdl")]
+position = Vector2(1968, 1168)
+
+[node name="WireStraight4" parent="doorPuzzle/strip/subStrip2" instance=ExtResource("18_vrsdl")]
+position = Vector2(2000, 1168)
+
+[node name="WireRightAngle" parent="doorPuzzle/strip/subStrip2" instance=ExtResource("16_jib6v")]
+position = Vector2(2032, 1168)
+rotation = -1.5708
+
+[node name="Electrode" parent="doorPuzzle/strip/subStrip2" instance=ExtResource("14_3r1oa")]
+position = Vector2(2032, 1152)
+rotation = -3.14159
+
+[node name="subStrip3" type="Node2D" parent="doorPuzzle/strip"]
+script = ExtResource("14_3bsyv")
+
+[node name="subStrip" type="Node2D" parent="doorPuzzle/strip/subStrip3"]
+script = ExtResource("14_3bsyv")
+
+[node name="Electrode" parent="doorPuzzle/strip/subStrip3/subStrip" instance=ExtResource("14_3r1oa")]
+position = Vector2(2032, 1088)
+
+[node name="WireStraight" parent="doorPuzzle/strip/subStrip3/subStrip" instance=ExtResource("18_vrsdl")]
+position = Vector2(2032, 1072)
+rotation = -1.5708
+
+[node name="subStrip2" type="Node2D" parent="doorPuzzle/strip/subStrip3"]
+script = ExtResource("14_3bsyv")
+
+[node name="Electrode" parent="doorPuzzle/strip/subStrip3/subStrip2" instance=ExtResource("14_3r1oa")]
+position = Vector2(2064, 1088)
+
+[node name="WireStraight" parent="doorPuzzle/strip/subStrip3/subStrip2" instance=ExtResource("18_vrsdl")]
+position = Vector2(2064, 1072)
+rotation = -1.5708
+
+[node name="subStrip3" type="Node2D" parent="doorPuzzle/strip/subStrip3"]
+script = ExtResource("14_3bsyv")
+
+[node name="Electrode" parent="doorPuzzle/strip/subStrip3/subStrip3" instance=ExtResource("14_3r1oa")]
+position = Vector2(2096, 1088)
+
+[node name="WireStraight" parent="doorPuzzle/strip/subStrip3/subStrip3" instance=ExtResource("18_vrsdl")]
+position = Vector2(2096, 1072)
+rotation = -1.5708
+
+[node name="subStrip4" type="Node2D" parent="doorPuzzle/strip/subStrip3"]
+script = ExtResource("14_3bsyv")
+
+[node name="Electrode" parent="doorPuzzle/strip/subStrip3/subStrip4" instance=ExtResource("14_3r1oa")]
+position = Vector2(2128, 1088)
+
+[node name="WireStraight" parent="doorPuzzle/strip/subStrip3/subStrip4" instance=ExtResource("18_vrsdl")]
+position = Vector2(2128, 1072)
+rotation = -1.5708
+
+[node name="subStrip5" type="Node2D" parent="doorPuzzle/strip/subStrip3"]
+script = ExtResource("14_3bsyv")
+
+[node name="Electrode" parent="doorPuzzle/strip/subStrip3/subStrip5" instance=ExtResource("14_3r1oa")]
+position = Vector2(2160, 1088)
+
+[node name="WireStraight" parent="doorPuzzle/strip/subStrip3/subStrip5" instance=ExtResource("18_vrsdl")]
+position = Vector2(2160, 1072)
+rotation = -1.5708
+
+[node name="subStrip4" type="Node2D" parent="doorPuzzle/strip"]
+script = ExtResource("14_3bsyv")
+
+[node name="WireStraight" parent="doorPuzzle/strip/subStrip4" instance=ExtResource("18_vrsdl")]
+position = Vector2(2128, 944)
+
+[node name="WireRightAngle" parent="doorPuzzle/strip/subStrip4" instance=ExtResource("16_jib6v")]
+position = Vector2(2160, 944)
+rotation = 1.5708
+scale = Vector2(1, -1)
+
+[node name="WireStraight2" parent="doorPuzzle/strip/subStrip4" instance=ExtResource("18_vrsdl")]
+position = Vector2(2160, 976)
+rotation = 1.5708
+
+[node name="subStrip5" type="Node2D" parent="doorPuzzle/strip"]
+script = ExtResource("14_3bsyv")
+
+[node name="WireStraight" parent="doorPuzzle/strip/subStrip5" instance=ExtResource("18_vrsdl")]
+position = Vector2(2064, 944)
+rotation = 3.14159
+
+[node name="WireRightAngle" parent="doorPuzzle/strip/subStrip5" instance=ExtResource("16_jib6v")]
+position = Vector2(2032, 944)
+rotation = 1.5708
+
+[node name="WireTSplit" parent="doorPuzzle/strip/subStrip5" instance=ExtResource("19_2bp4k")]
+position = Vector2(2032, 976)
+rotation = -1.5708
+
+[node name="WireTSplit2" parent="doorPuzzle/strip/subStrip5" instance=ExtResource("19_2bp4k")]
+position = Vector2(2064, 976)
 rotation = 3.14159
 scale = Vector2(1, -1)
 
-[node name="WireStraight36" parent="." instance=ExtResource("18_vrsdl")]
-position = Vector2(1744, 1136)
+[node name="WireTSplit3" parent="doorPuzzle/strip/subStrip5" instance=ExtResource("19_2bp4k")]
+position = Vector2(2096, 976)
+rotation = 3.14159
+scale = Vector2(1, -1)
 
-[node name="WireStraight37" parent="." instance=ExtResource("18_vrsdl")]
-position = Vector2(1744, 1168)
+[node name="WireRightAngle2" parent="doorPuzzle/strip/subStrip5" instance=ExtResource("16_jib6v")]
+position = Vector2(2128, 976)
+rotation = 1.5708
+scale = Vector2(1, -1)
 
-[node name="WireRightAngle11" parent="." instance=ExtResource("16_jib6v")]
-position = Vector2(1712, 1136)
-
-[node name="trampolineTrigger2" parent="." instance=ExtResource("22_ia8lw")]
+[node name="trampolineTrigger" parent="." instance=ExtResource("22_ia8lw")]
 position = Vector2(2368, 1056)
 rotation = 1.5708
 instantSetup = true
@@ -3327,221 +3619,13 @@ startActivated = true
 one_shot = false
 show_button = false
 
-[node name="electricalDoor11" parent="." instance=ExtResource("17_ecptn")]
-position = Vector2(2016, 992)
-startState = 2
-
-[node name="electricalDoor12" parent="." instance=ExtResource("17_ecptn")]
-position = Vector2(2144, 992)
-
-[node name="electricalDoor13" parent="." instance=ExtResource("17_ecptn")]
-position = Vector2(2080, 992)
-startState = 2
-
-[node name="Electrode12" parent="." instance=ExtResource("14_3r1oa")]
-position = Vector2(2032, 1088)
-
-[node name="Electrode13" parent="." instance=ExtResource("14_3r1oa")]
-position = Vector2(2096, 1088)
-
-[node name="Electrode14" parent="." instance=ExtResource("14_3r1oa")]
-position = Vector2(2160, 1088)
-
-[node name="Electrode15" parent="." instance=ExtResource("14_3r1oa")]
-position = Vector2(2032, 1152)
-rotation = 3.14159
-
-[node name="Electrode18" parent="." instance=ExtResource("14_3r1oa")]
-position = Vector2(1872, 1184)
-one_shot = true
-
-[node name="WireStraight38" parent="." instance=ExtResource("18_vrsdl")]
-position = Vector2(2096, 1072)
-rotation = -1.5708
-
-[node name="Magnetic32x64Block" parent="." instance=ExtResource("26_6hfxi")]
-position = Vector2(2048, 1120)
-rotation = -1.5708
-
-[node name="Magnetic32x96Block" parent="." instance=ExtResource("27_1hs1y")]
-position = Vector2(2128, 1120)
-rotation = -1.5708
-
-[node name="WireStraight40" parent="." instance=ExtResource("18_vrsdl")]
-position = Vector2(1936, 1168)
-
-[node name="WireStraight41" parent="." instance=ExtResource("18_vrsdl")]
-position = Vector2(1968, 1168)
-
-[node name="WireStraight42" parent="." instance=ExtResource("18_vrsdl")]
-position = Vector2(2000, 1168)
-
-[node name="WireRightAngle13" parent="." instance=ExtResource("16_jib6v")]
-position = Vector2(2032, 1168)
-rotation = -1.5708
-
-[node name="WireStraight43" parent="." instance=ExtResource("18_vrsdl")]
-position = Vector2(1904, 1168)
-
-[node name="powerTrigger2" parent="." instance=ExtResource("21_3fi6o")]
-position = Vector2(2096, 928)
-startLocked = true
-
-[node name="TriggerKeySprite" parent="powerTrigger2" index="3"]
-position = Vector2(-64, -16)
-
-[node name="WireStraight45" parent="." instance=ExtResource("18_vrsdl")]
-position = Vector2(2064, 944)
-rotation = -3.14159
-
-[node name="WireStraight46" parent="." instance=ExtResource("18_vrsdl")]
-position = Vector2(2160, 976)
-rotation = 1.5708
-
-[node name="WireRightAngle14" parent="." instance=ExtResource("16_jib6v")]
-position = Vector2(2032, 944)
-rotation = 1.5708
-
-[node name="WireRightAngle15" parent="." instance=ExtResource("16_jib6v")]
-position = Vector2(2160, 944)
-rotation = 1.5708
-scale = Vector2(1, -1)
-
-[node name="WireStraight47" parent="." instance=ExtResource("18_vrsdl")]
-position = Vector2(2128, 944)
-
-[node name="WireTSplit4" parent="." instance=ExtResource("19_2bp4k")]
-position = Vector2(1872, 1168)
-rotation = 1.5708
-scale = Vector2(1, -1)
-
-[node name="WireStraight49" parent="." instance=ExtResource("18_vrsdl")]
-position = Vector2(1872, 1104)
-rotation = -1.5708
-
-[node name="WireStraight50" parent="." instance=ExtResource("18_vrsdl")]
-position = Vector2(1872, 1072)
-rotation = -1.5708
-
-[node name="WireStraight51" parent="." instance=ExtResource("18_vrsdl")]
-position = Vector2(1872, 1040)
-rotation = -1.5708
-
-[node name="WireStraight52" parent="." instance=ExtResource("18_vrsdl")]
-position = Vector2(1872, 1008)
-rotation = -1.5708
-
-[node name="WireStraight53" parent="." instance=ExtResource("18_vrsdl")]
-position = Vector2(1872, 976)
-rotation = -1.5708
-
-[node name="WireRightAngle12" parent="." instance=ExtResource("16_jib6v")]
-position = Vector2(1904, 912)
-rotation = 1.5708
-scale = Vector2(1, -1)
-
-[node name="WireRightAngle16" parent="." instance=ExtResource("16_jib6v")]
-position = Vector2(1872, 912)
-scale = Vector2(1, -1)
-
-[node name="securityCameraTrigger2" parent="." instance=ExtResource("23_xj21f")]
-position = Vector2(1904, 960)
-show_button = false
-
-[node name="CameraPivotPoint" parent="securityCameraTrigger2" index="0"]
-rotation = -1.5708
-
-[node name="CollisionPolygon2D" parent="securityCameraTrigger2/CameraPivotPoint/CameraView" index="0"]
-polygon = PackedVector2Array(0, 0, -112, -24, -112, 24)
-
-[node name="Polygon2D" parent="securityCameraTrigger2/CameraPivotPoint/CameraView" index="1"]
-polygon = PackedVector2Array(-112, 24, 0, 0, -112, -24)
-
-[node name="GunSprite" parent="securityCameraTrigger2" index="2"]
-position = Vector2(32, 0)
-rotation = -1.5708
-
-[node name="Bullet" parent="securityCameraTrigger2/GunSprite" index="1"]
-MAX_ROTATION_SPEED = 180
-BULLET_SPEED = 1000.0
-
-[node name="TriggerKeySprite" parent="securityCameraTrigger2" index="3"]
-visible = false
-
-[node name="electricalDoor14" parent="." instance=ExtResource("17_ecptn")]
-position = Vector2(2048, 992)
-startState = 2
-
-[node name="electricalDoor15" parent="." instance=ExtResource("17_ecptn")]
-position = Vector2(2112, 992)
-startState = 2
-
-[node name="WireTSplit7" parent="." instance=ExtResource("19_2bp4k")]
-position = Vector2(2032, 976)
-rotation = -1.5708
-
-[node name="WireTSplit8" parent="." instance=ExtResource("19_2bp4k")]
-position = Vector2(2064, 976)
-scale = Vector2(-1, 1)
-
-[node name="WireTSplit9" parent="." instance=ExtResource("19_2bp4k")]
-position = Vector2(2096, 976)
-scale = Vector2(-1, 1)
-
-[node name="WireRightAngle19" parent="." instance=ExtResource("16_jib6v")]
-position = Vector2(2128, 976)
-rotation = 1.5708
-scale = Vector2(1, -1)
-
-[node name="Electrode16" parent="." instance=ExtResource("14_3r1oa")]
-position = Vector2(2064, 1088)
-
-[node name="Electrode19" parent="." instance=ExtResource("14_3r1oa")]
-position = Vector2(2128, 1088)
-
-[node name="WireStraight32" parent="." instance=ExtResource("18_vrsdl")]
-position = Vector2(2032, 1072)
-rotation = -1.5708
-
-[node name="WireStraight39" parent="." instance=ExtResource("18_vrsdl")]
-position = Vector2(2064, 1072)
-rotation = -1.5708
-
-[node name="WireStraight44" parent="." instance=ExtResource("18_vrsdl")]
-position = Vector2(2128, 1072)
-rotation = -1.5708
-
-[node name="WireStraight55" parent="." instance=ExtResource("18_vrsdl")]
-position = Vector2(2160, 1072)
-rotation = -1.5708
-
-[node name="WireStraight" parent="." instance=ExtResource("18_vrsdl")]
-position = Vector2(1872, 1136)
-rotation = -1.5708
-
-[node name="WireTSplit5" parent="." instance=ExtResource("19_2bp4k")]
-position = Vector2(1872, 944)
-rotation = 1.5708
-
-[node name="WireStraight17" parent="." instance=ExtResource("18_vrsdl")]
-position = Vector2(1904, 944)
-rotation = 1.5708
-
-[node name="electricalDoor16" parent="." instance=ExtResource("17_ecptn")]
-position = Vector2(1856, 928)
-rotation = 1.5708
-startState = 2
-
-[node name="SecurityBall" parent="." instance=ExtResource("28_nubxg")]
-position = Vector2(1808, 912)
-
 [connection signal="body_entered" from="StartNextSequence" to="." method="playerCallSequence" binds= ["3-10/ClearedFirstSection"]]
 [connection signal="body_entered" from="SlowTheBoss" to="." method="bossCallSequence" binds= ["3-10/SlowTheBoss"]]
 [connection signal="body_entered" from="SlowTheBoss2" to="." method="bossCallSequence" binds= ["3-10/SlowTheBoss2"]]
 
 [editable path="Boss"]
-[editable path="powerTrigger"]
-[editable path="securityCameraTrigger"]
-[editable path="magnetTrigger4"]
-[editable path="powerTrigger2"]
-[editable path="securityCameraTrigger2"]
+[editable path="trapdoorPuzzle/powerTrigger"]
+[editable path="securityPuzzle/securityCameraTrigger"]
+[editable path="gravityPuzzle/magnetTrigger"]
+[editable path="doorPuzzle/powerTrigger"]
+[editable path="doorPuzzle/securityCameraTrigger"]

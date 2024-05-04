@@ -277,20 +277,26 @@ func rotate_player_on_slope(delta):
 		var slope_angle = Vector2.UP.angle_to(floorCast.get_collision_normal())
 		AnimatedSprite.rotation += (slope_angle - AnimatedSprite.rotation) / time_to_rotate_slope * delta
 
-func movement_overwritten(_movement_overrider):
+func movement_overwritten(_movement_overrider, changePosition : bool = true):
 	being_controlled = true
 	just_started_control = true
-	positioning_finished = false
+	#positioning_finished = false
 	AnimatedSprite.play("walkedIntoTrigger")
 	animBackwards = false
 	movement_overrider = _movement_overrider
-	if next_pos == Vector2.ZERO:
-		next_pos = global_position
+	if changePosition:
+		positioning_finished = false
+		if next_pos == Vector2.ZERO:
+			next_pos = global_position
+	else:
+		positioning_finished = true
 	
 func free_movement():
 	AnimatedSprite.play_backwards("walkedIntoTrigger")
 	animBackwards = true
 	being_controlled = false
+	positioning_finished = true # new
+	directPosControl = false # new
 	movement_overrider = null
 
 func fellaSTOP():

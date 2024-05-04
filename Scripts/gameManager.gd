@@ -62,7 +62,7 @@ func _ready() -> void:
 	#movingStart = camera.global_position
 	#movingGoal = Levels[current_level].cameraSpot.global_position
 	current_level = clamp(current_level, 0, GlobalVariables.numLevels-1)
-	resetLevel()
+	#resetLevel()
 	movingGoal = Levels[current_level].cameraSpot.global_position
 	movingStart = movingGoal
 	var min_zoom_size : Vector2 =  Levels[current_level].cameraSize
@@ -77,6 +77,7 @@ func _ready() -> void:
 		level.player.connect("player_death_signal", player_death)
 	await(resetWipeTransition.animation_finished)
 	Levels[current_level].process_mode = Node.PROCESS_MODE_PAUSABLE
+	resetLevel()
 	pauseMenu.set_pausability(true)
 
 func _process(delta):

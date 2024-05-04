@@ -1,47 +1,47 @@
 [gd_scene load_steps=17 format=3 uid="uid://dlkccgjxhbsdg"]
 
 [ext_resource type="Script" path="res://Scripts/Triggers/magnetTrigger.gd" id="1_a4tog"]
-[ext_resource type="Texture2D" uid="uid://d4csp4htvaefl" path="res://Art/TriggerArt/Magnet/plhMagnetInactive.png" id="2_gejr7"]
-[ext_resource type="Texture2D" uid="uid://d1v133gy65m5i" path="res://Art/TriggerArt/Magnet/plhMagnetNeutralPull.png" id="3_uujtq"]
-[ext_resource type="Texture2D" uid="uid://06s1v5a1lpuf" path="res://Art/TriggerArt/Magnet/plhMagnetPulling.png" id="4_fbrop"]
-[ext_resource type="Texture2D" uid="uid://budstx1r2ilne" path="res://Art/TriggerArt/Magnet/plhMagnetNeutralPush.png" id="4_wp8s7"]
-[ext_resource type="Texture2D" uid="uid://cbmvo7p83w266" path="res://Art/TriggerArt/Magnet/plhMagnetPushing.png" id="5_i0obu"]
+[ext_resource type="Texture2D" uid="uid://8psdnyn8dxc5" path="res://Art/TriggerArt/Magnet/magnetInactive.png" id="2_04baj"]
+[ext_resource type="Texture2D" uid="uid://bc17cewrdfoq1" path="res://Art/TriggerArt/Magnet/magnetNeutralPull.png" id="3_d1uea"]
+[ext_resource type="Texture2D" uid="uid://ckx4vd65u6swk" path="res://Art/TriggerArt/Magnet/magnetNeutralPush.png" id="4_n1agc"]
+[ext_resource type="Texture2D" uid="uid://d1b0ptqrk6vyk" path="res://Art/TriggerArt/Magnet/magnetPulling.png" id="5_8c6qn"]
 [ext_resource type="PackedScene" uid="uid://djjr177758y2h" path="res://Scenes/Triggers/Trigger_Helpers/triggerKey.tscn" id="5_nqqyp"]
+[ext_resource type="Texture2D" uid="uid://bpjie4rh0y2hx" path="res://Art/TriggerArt/Magnet/magnetPushing.png" id="6_bus0d"]
 [ext_resource type="AudioStream" uid="uid://cad7pm3134hx5" path="res://Sounds/magtivation.ogg" id="8_ma6tk"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_45t3s"]
-atlas = ExtResource("2_gejr7")
+[sub_resource type="AtlasTexture" id="AtlasTexture_3o0av"]
+atlas = ExtResource("2_04baj")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gvb14"]
-atlas = ExtResource("3_uujtq")
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ow7m"]
+atlas = ExtResource("3_d1uea")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_kbcdv"]
-atlas = ExtResource("4_wp8s7")
+[sub_resource type="AtlasTexture" id="AtlasTexture_kxkua"]
+atlas = ExtResource("4_n1agc")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_duhsa"]
-atlas = ExtResource("4_fbrop")
+[sub_resource type="AtlasTexture" id="AtlasTexture_iljfq"]
+atlas = ExtResource("5_8c6qn")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_54at6"]
-atlas = ExtResource("5_i0obu")
+[sub_resource type="AtlasTexture" id="AtlasTexture_gjg1q"]
+atlas = ExtResource("6_bus0d")
 region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_yup5f"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_45t3s")
+"texture": SubResource("AtlasTexture_3o0av")
 }],
 "loop": true,
-"name": &"inactive",
+"name": &"locked",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_gvb14")
+"texture": SubResource("AtlasTexture_7ow7m")
 }],
 "loop": true,
 "name": &"neutralPull",
@@ -49,7 +49,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_kbcdv")
+"texture": SubResource("AtlasTexture_kxkua")
 }],
 "loop": true,
 "name": &"neutralPush",
@@ -57,7 +57,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_duhsa")
+"texture": SubResource("AtlasTexture_iljfq")
 }],
 "loop": true,
 "name": &"pulling",
@@ -65,7 +65,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_54at6")
+"texture": SubResource("AtlasTexture_gjg1q")
 }],
 "loop": true,
 "name": &"pushing",
@@ -92,7 +92,7 @@ TriggerKeySprite = NodePath("TriggerKeySprite")
 
 [node name="MagnetSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_yup5f")
-animation = &"pushing"
+animation = &"locked"
 
 [node name="StaticBody2D" type="StaticBody2D" parent="MagnetSprite"]
 

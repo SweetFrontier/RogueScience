@@ -72,7 +72,7 @@ position = Vector2(288, 448)
 rotation = -1.5708
 
 [node name="Electrode" parent="." instance=ExtResource("9_hb4p0")]
-position = Vector2(80, 412)
+position = Vector2(80, 416)
 rotation = -3.14159
 
 [node name="WireRightAngle" parent="." instance=ExtResource("10_7wuhv")]
@@ -100,11 +100,11 @@ position = Vector2(112, 400)
 rotation = -1.5708
 
 [node name="Electrode2" parent="." instance=ExtResource("9_hb4p0")]
-position = Vector2(92, 336)
+position = Vector2(96, 336)
 rotation = 1.5708
 
 [node name="Electrode3" parent="." instance=ExtResource("9_hb4p0")]
-position = Vector2(92, 400)
+position = Vector2(96, 400)
 rotation = 1.5708
 
 [node name="WireStraight" parent="." instance=ExtResource("14_6pp6i")]

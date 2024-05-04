@@ -60,11 +60,11 @@ position = Vector2(576, 448)
 position = Vector2(192, 384)
 
 [node name="Electrode" parent="." instance=ExtResource("6_d8a0k")]
-position = Vector2(388, 336)
+position = Vector2(384, 336)
 rotation = -1.5708
 
 [node name="Electrode2" parent="." instance=ExtResource("6_d8a0k")]
-position = Vector2(508, 336)
+position = Vector2(512, 336)
 rotation = 1.5708
 
 [node name="electricalDoor" parent="." instance=ExtResource("7_nlcnt")]
@@ -96,11 +96,11 @@ rotation = 3.14159
 position = Vector2(192, 256)
 
 [node name="Electrode3" parent="." instance=ExtResource("6_d8a0k")]
-position = Vector2(348, 240)
+position = Vector2(352, 240)
 rotation = 1.5708
 
 [node name="Electrode4" parent="." instance=ExtResource("6_d8a0k")]
-position = Vector2(228, 240)
+position = Vector2(224, 240)
 rotation = -1.5708
 
 [node name="LeftSlopeInvisibleBlock2" parent="." instance=ExtResource("11_6rhxx")]
@@ -180,11 +180,11 @@ position = Vector2(368, 208)
 rotation = -1.5708
 
 [node name="Electrode5" parent="." instance=ExtResource("6_d8a0k")]
-position = Vector2(388, 112)
+position = Vector2(384, 112)
 rotation = -1.5708
 
 [node name="Electrode6" parent="." instance=ExtResource("6_d8a0k")]
-position = Vector2(508, 112)
+position = Vector2(512, 112)
 rotation = 1.5708
 
 [node name="powerTrigger3" parent="." instance=ExtResource("10_7sc1t")]

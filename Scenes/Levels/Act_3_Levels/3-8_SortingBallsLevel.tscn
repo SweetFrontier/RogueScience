@@ -61,19 +61,19 @@ position = Vector2(832, 448)
 position = Vector2(352, 384)
 
 [node name="Electrode" parent="." instance=ExtResource("9_vdgpu")]
-position = Vector2(356, 208)
+position = Vector2(352, 208)
 rotation = -1.5708
 
 [node name="Electrode2" parent="." instance=ExtResource("9_vdgpu")]
-position = Vector2(516, 208)
+position = Vector2(512, 208)
 rotation = -1.5708
 
 [node name="Electrode3" parent="." instance=ExtResource("9_vdgpu")]
-position = Vector2(444, 144)
+position = Vector2(448, 144)
 rotation = 1.5708
 
 [node name="Electrode4" parent="." instance=ExtResource("9_vdgpu")]
-position = Vector2(444, 272)
+position = Vector2(448, 272)
 rotation = 1.5708
 
 [node name="Magnetic64x64Block" parent="." instance=ExtResource("7_36sis")]
@@ -133,7 +133,6 @@ polygon = PackedVector2Array(-136.735, -50.9117, -153.706, -33.9412, -85.8234, 3
 [node name="GunSprite" parent="securityCameraTrigger" index="2"]
 position = Vector2(16, 16)
 rotation = -0.479966
-metadata/_edit_group_ = true
 
 [node name="Bullet" parent="securityCameraTrigger/GunSprite" index="1"]
 MAX_ROTATION_SPEED = 180
@@ -161,11 +160,11 @@ rotation = 1.5708
 position = Vector2(568, 208)
 
 [node name="Electrode5" parent="." instance=ExtResource("9_vdgpu")]
-position = Vector2(604, 144)
+position = Vector2(608, 144)
 rotation = 1.5708
 
 [node name="Electrode6" parent="." instance=ExtResource("9_vdgpu")]
-position = Vector2(604, 272)
+position = Vector2(608, 272)
 rotation = 1.5708
 
 [node name="WireRightAngle4" parent="." instance=ExtResource("10_w2b76")]
@@ -231,7 +230,6 @@ polygon = PackedVector2Array(-123.138, -48.9949, -79.1385, 27.2154, 0, 0)
 [node name="GunSprite" parent="securityCameraTrigger2" index="2"]
 position = Vector2(16, 16)
 rotation = -0.479966
-metadata/_edit_group_ = true
 
 [node name="Bullet" parent="securityCameraTrigger2/GunSprite" index="1"]
 MAX_ROTATION_SPEED = 180
@@ -259,7 +257,6 @@ polygon = PackedVector2Array(-160.864, -76.4131, -218.868, -49.3656, -171.535, 5
 
 [node name="GunSprite" parent="securityCameraTrigger3" index="2"]
 rotation = -2.35619
-metadata/_edit_group_ = true
 
 [node name="Bullet" parent="securityCameraTrigger3/GunSprite" index="1"]
 MAX_ROTATION_SPEED = 180

@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://vwjnt2j2wbqk"]
+[gd_scene load_steps=56 format=3 uid="uid://vwjnt2j2wbqk"]
 
 [ext_resource type="Script" path="res://Scripts/gameManager.gd" id="1_rlws3"]
 [ext_resource type="AudioStream" uid="uid://cmhm7pf614y6w" path="res://Sounds/Music/puzzle(calm).ogg" id="3_mfq2v"]
@@ -38,6 +38,7 @@
 [ext_resource type="PackedScene" uid="uid://dojjch0xqh6hn" path="res://Scenes/Levels/Act_3_Levels/3-7_ShortCircuitLevel.tscn" id="28_wqpd5"]
 [ext_resource type="PackedScene" uid="uid://cg7o1kp2d4e4w" path="res://Scenes/Levels/Act_3_Levels/3-8_SortingBallsLevel.tscn" id="29_a3pem"]
 [ext_resource type="PackedScene" uid="uid://d2miuhaw75pfu" path="res://Scenes/Levels/Act_3_Levels/3-9_HardWireLevel.tscn" id="30_kl7rb"]
+[ext_resource type="PackedScene" uid="uid://dpob3en16yi3e" path="res://Scenes/Levels/Act_3_Levels/3-10_BossLevel.tscn" id="31_cb88j"]
 [ext_resource type="PackedScene" uid="uid://4ga4n5hvetb" path="res://Scenes/Levels/Act_4_Levels/4-1_VentIntroLevel.tscn" id="31_up187"]
 [ext_resource type="PackedScene" uid="uid://h4orunycmd2q" path="res://Scenes/Levels/Act_4_Levels/4-2_VentRace.tscn" id="32_adpgc"]
 [ext_resource type="PackedScene" uid="uid://b5vd1cnufw78t" path="res://Scenes/Levels/Act_4_Levels/4-3_CombinationLevel.tscn" id="33_8mkxw"]
@@ -143,7 +144,7 @@ _data = {
 
 [node name="Main" type="Node2D" node_paths=PackedStringArray("Levels", "camera", "pauseMenu", "musicPlayer", "Transition", "resetWipeTransition", "resetWipeTransitionContoller")]
 script = ExtResource("1_rlws3")
-Levels = [NodePath("Levels/Act_1/1-1_BreakableIntro"), NodePath("Levels/Act_1/1-2_InvisibleIntro"), NodePath("Levels/Act_1/1-3_BreakableSteps"), NodePath("Levels/Act_1/1-4_ThreeFallingEyesLevel"), NodePath("Levels/Act_1/1-5_FourFallingEyes"), NodePath("Levels/Act_1/1-6_JumpingPathLevel"), NodePath("Levels/Act_1/1-7_MultiEyeTrampoline"), NodePath("Levels/Act_1/1-8_bouncyLevel"), NodePath("Levels/Act_1/1-9_PowerfulTrampoline"), NodePath("Levels/Act_1/1-10_BossLevel"), NodePath("Levels/Act_2/2-1_SecurityCameraIntro"), NodePath("Levels/Act_2/2-2_SecurityBallsIntro"), NodePath("Levels/Act_2/2-3_SacrificialBall"), NodePath("Levels/Act_2/2-4_Lasers"), NodePath("Levels/Act_2/2-5_SodaIntro"), NodePath("Levels/Act_2/2-6_StickySecurityBalls"), NodePath("Levels/Act_2/2-7_StickyCameras"), NodePath("Levels/Act_2/2-8_StickyTiming"), NodePath("Levels/Act_2/2-9_HardInvisible"), NodePath("Levels/Act_2/2-10_BossLevel"), NodePath("Levels/Act_3/3-1_MagnetIntro"), NodePath("Levels/Act_3/3-2_ParkingLot"), NodePath("Levels/Act_3/3-3_Magnivator"), NodePath("Levels/Act_3/3-4_Fellavator"), NodePath("Levels/Act_3/3-5_ElectricityIntro"), NodePath("Levels/Act_3/3-6_Lightning"), NodePath("Levels/Act_3/3-7_ShortCircuit"), NodePath("Levels/Act_3/3-8_SortingBalls"), NodePath("Levels/Act_3/3-9_HardWire"), NodePath("Levels/Act_4/4-1_VentInto"), NodePath("Levels/Act_4/4-2_VentRace"), NodePath("Levels/Act_4/4-3_Combination"), NodePath("Levels/Act_4/4-4_FanIntro"), NodePath("Levels/Act_4/4-5_YeetTheBall"), NodePath("Levels/Act_4/4-6_BouncyLevel2"), NodePath("Levels/Act_4/4-7_BouncyLevel3"), NodePath("Levels/Act_4/4-8_BouncyLevel4"), NodePath("Levels/Act_4/4-9_FloatingFella")]
+Levels = [NodePath("Levels/Act_1/1-1_BreakableIntro"), NodePath("Levels/Act_1/1-2_InvisibleIntro"), NodePath("Levels/Act_1/1-3_BreakableSteps"), NodePath("Levels/Act_1/1-4_ThreeFallingEyesLevel"), NodePath("Levels/Act_1/1-5_FourFallingEyes"), NodePath("Levels/Act_1/1-6_JumpingPathLevel"), NodePath("Levels/Act_1/1-7_MultiEyeTrampoline"), NodePath("Levels/Act_1/1-8_bouncyLevel"), NodePath("Levels/Act_1/1-9_PowerfulTrampoline"), NodePath("Levels/Act_1/1-10_BossLevel"), NodePath("Levels/Act_2/2-1_SecurityCameraIntro"), NodePath("Levels/Act_2/2-2_SecurityBallsIntro"), NodePath("Levels/Act_2/2-3_SacrificialBall"), NodePath("Levels/Act_2/2-4_Lasers"), NodePath("Levels/Act_2/2-5_SodaIntro"), NodePath("Levels/Act_2/2-6_StickySecurityBalls"), NodePath("Levels/Act_2/2-7_StickyCameras"), NodePath("Levels/Act_2/2-8_StickyTiming"), NodePath("Levels/Act_2/2-9_HardInvisible"), NodePath("Levels/Act_2/2-10_BossLevel"), NodePath("Levels/Act_3/3-1_MagnetIntro"), NodePath("Levels/Act_3/3-2_ParkingLot"), NodePath("Levels/Act_3/3-3_Magnivator"), NodePath("Levels/Act_3/3-4_Fellavator"), NodePath("Levels/Act_3/3-5_ElectricityIntro"), NodePath("Levels/Act_3/3-6_Lightning"), NodePath("Levels/Act_3/3-7_ShortCircuit"), NodePath("Levels/Act_3/3-8_SortingBalls"), NodePath("Levels/Act_3/3-9_HardWire"), NodePath("Levels/Act_3/3-10_BossLevel"), NodePath("Levels/Act_4/4-1_VentInto"), NodePath("Levels/Act_4/4-2_VentRace"), NodePath("Levels/Act_4/4-3_Combination"), NodePath("Levels/Act_4/4-4_FanIntro"), NodePath("Levels/Act_4/4-5_YeetTheBall"), NodePath("Levels/Act_4/4-6_BouncyLevel2"), NodePath("Levels/Act_4/4-7_BouncyLevel3"), NodePath("Levels/Act_4/4-8_BouncyLevel4"), NodePath("Levels/Act_4/4-9_FloatingFella")]
 camera = NodePath("Camera2D")
 pauseMenu = NodePath("CanvasLayer/PauseMenu")
 musicPlayer = NodePath("MusicPlayer")
@@ -248,6 +249,9 @@ position = Vector2(7840, 0)
 
 [node name="3-9_HardWire" parent="Levels/Act_3" instance=ExtResource("30_kl7rb")]
 position = Vector2(9440, -64)
+
+[node name="3-10_BossLevel" parent="Levels/Act_3" instance=ExtResource("31_cb88j")]
+position = Vector2(11008, -512)
 
 [node name="Act_4" type="Node2D" parent="Levels"]
 position = Vector2(0, 7520)

@@ -2484,7 +2484,7 @@ enabled = false
 zoom = Vector2(3, 3)
 
 [node name="Boss" parent="." instance=ExtResource("6_i6q2a")]
-position = Vector2(224, 688)
+position = Vector2(128, 688)
 speed = 8100.0
 lurchAmount = 300
 currState = 2

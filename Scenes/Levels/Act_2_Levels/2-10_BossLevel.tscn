@@ -2464,7 +2464,7 @@ position = Vector2(544, 1376)
 bossLevel = true
 
 [node name="rigidPlayer" parent="." instance=ExtResource("10_l2oa6")]
-position = Vector2(574, 752)
+position = Vector2(544, 1360)
 metadata/_edit_group_ = true
 
 [node name="Camera2D" type="Camera2D" parent="rigidPlayer"]
@@ -2477,6 +2477,9 @@ speed = 7500.0
 stickyMultiplier = 0.4
 currState = 2
 metadata/_edit_group_ = true
+
+[node name="BossSprite" parent="Boss" index="0"]
+position = Vector2(0, 1)
 
 [node name="brokenVat" parent="." instance=ExtResource("12_ekn5j")]
 position = Vector2(576, 736)
@@ -2498,7 +2501,6 @@ polygon = PackedVector2Array(-228.213, -95.0367, -224.046, -71.4014, -181.418, -
 [node name="GunSprite" parent="securityCameraTrigger" index="2"]
 position = Vector2(32, 8)
 rotation = -1.39626
-metadata/_edit_group_ = true
 
 [node name="Bullet" parent="securityCameraTrigger/GunSprite" index="1"]
 MAX_ROTATION_SPEED = 180
@@ -2526,7 +2528,6 @@ polygon = PackedVector2Array(-192.532, -76.958, -192.532, -76.958, -167.526, 64.
 [node name="GunSprite" parent="securityCameraTrigger2" index="2"]
 position = Vector2(32, 8)
 rotation = -1.39626
-metadata/_edit_group_ = true
 
 [node name="Bullet" parent="securityCameraTrigger2/GunSprite" index="1"]
 MAX_ROTATION_SPEED = 180
@@ -2559,7 +2560,6 @@ polygon = PackedVector2Array(-148.049, -62.2253, -323.411, 113.137, 0, 0)
 [node name="GunSprite" parent="securityCameraTrigger3" index="2"]
 position = Vector2(8, -24)
 rotation = -2.35619
-metadata/_edit_group_ = true
 
 [node name="Bullet" parent="securityCameraTrigger3/GunSprite" index="1"]
 MAX_ROTATION_SPEED = 180

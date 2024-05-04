@@ -63,7 +63,7 @@ func power(inputConn):
 			if cb == self or cb == inputConn:
 				continue
 			elif cb is electrode or cb is magneticObject:
-				if cb.currState == PowerState.ON:
+				if cb.currState == PowerState.ON or (cb is electrode and (cb.locked or (cb.activated and cb.one_shot))):
 					continue
 				conductiveBodies.append(cb)
 				var lightning = getFreeLightning()

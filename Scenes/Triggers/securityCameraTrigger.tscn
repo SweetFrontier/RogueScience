@@ -75,6 +75,7 @@ z_as_relative = false
 position = Vector2(0, 24)
 sprite_frames = ExtResource("4_beff6")
 animation = &"shooting"
+metadata/_edit_group_ = true
 
 [node name="boom" type="AudioStreamPlayer2D" parent="GunSprite"]
 stream = ExtResource("5_m40ep")
@@ -83,7 +84,6 @@ bus = &"Sound Effects"
 [node name="Bullet" parent="GunSprite" instance=ExtResource("5_vit4w")]
 position = Vector2(-8, -1)
 rotation = -3.14159
-collision_layer = 128
 MAX_ROTATION_SPEED = 60
 BULLET_SPEED = 1500.0
 

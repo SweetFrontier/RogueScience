@@ -116,7 +116,12 @@ func startSequence(animationName):
 func startEndSequence():
 	sequencePlayer.play(endAnimationName)
 
-func callSequence(body, animationName):
+func playerCallSequence(body, animationName):
 	if not body is rigidPlayer:
+		return
+	startSequence(animationName)
+
+func bossCallSequence(body, animationName):
+	if not body is boss:
 		return
 	startSequence(animationName)

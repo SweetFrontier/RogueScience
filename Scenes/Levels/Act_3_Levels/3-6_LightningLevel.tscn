@@ -70,11 +70,11 @@ position = Vector2(312, 208)
 position = Vector2(64, 32)
 
 [node name="Electrode" parent="." instance=ExtResource("9_63hty")]
-position = Vector2(100, 48)
+position = Vector2(96, 48)
 rotation = -1.5708
 
 [node name="Electrode2" parent="." instance=ExtResource("9_63hty")]
-position = Vector2(156, 48)
+position = Vector2(160, 48)
 rotation = 1.5708
 
 [node name="WireStraight" parent="." instance=ExtResource("8_rndwv")]
@@ -91,7 +91,7 @@ position = Vector2(208, 48)
 scale = Vector2(1, -1)
 
 [node name="Electrode3" parent="." instance=ExtResource("9_63hty")]
-position = Vector2(240, 68)
+position = Vector2(240, 64)
 
 [node name="Magnetic32x32Ball2" parent="." instance=ExtResource("15_60x1y")]
 position = Vector2(368, 208)
@@ -100,7 +100,7 @@ position = Vector2(368, 208)
 position = Vector2(400, 144)
 
 [node name="Electrode4" parent="." instance=ExtResource("9_63hty")]
-position = Vector2(496, 252)
+position = Vector2(496, 256)
 rotation = 3.14159
 
 [node name="magnetTrigger" parent="." instance=ExtResource("16_80fwb")]
@@ -176,7 +176,7 @@ position = Vector2(80, 208)
 rotation = -1.5708
 
 [node name="Electrode5" parent="." instance=ExtResource("9_63hty")]
-position = Vector2(144, 252)
+position = Vector2(144, 256)
 rotation = 3.14159
 
 [node name="WireStraight23" parent="." instance=ExtResource("8_rndwv")]

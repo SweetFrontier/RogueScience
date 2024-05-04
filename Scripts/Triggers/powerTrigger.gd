@@ -4,18 +4,22 @@ class_name powerTrigger
 
 @export var powerSourceSprite: AnimatedSprite2D
 @export var exportConduits: Array[Node2D]
+@export var startLocked: bool = false
 
 var currState : PowerState = PowerState.OFF
+var locked : bool = false
 
 enum PowerState
 {
 	ON,
-	OFF
+	OFF,
+	LOCKED
 }
 
 var stateToAnimString = {
 	PowerState.ON: "on",
-	PowerState.OFF: "off"
+	PowerState.OFF: "off",
+	PowerState.LOCKED: "locked"
 }
 
 # Called when the node enters the scene tree for the first time.
@@ -33,20 +37,23 @@ func _input(event):
 		react()  # Call the react method when the button is pressed.
 
 func react():
+	if (activated and one_shot) or locked:
+		return
 	activated = true
 	if (currState == PowerState.OFF):
-		currState = PowerState.ON
-		powerSourceSprite.animation = stateToAnimString[currState]
-		powerSourceSprite.frame = 0
+		setState(PowerState.ON)
 		releasePower()
 
 func reset():
 	super.reset()
 	$WireDetection.monitoring = true
 	$WireDetection.monitorable = true
-	currState = PowerState.OFF
-	powerSourceSprite.animation = stateToAnimString[currState]
-	powerSourceSprite.frame = 0
+	
+	locked = false
+	
+	setState(PowerState.OFF)
+	if startLocked:
+		locked = true
 	if startActivated:
 		react()
 
@@ -56,8 +63,7 @@ func releasePower():
 			exportConduit.power(self)
 		elif exportConduit is baseTrigger:
 			exportConduit.react()
-	currState = PowerState.OFF
-	powerSourceSprite.animation = stateToAnimString[currState]
+	setState(PowerState.OFF)
 
 func onAdjacentConduitFound(_area_rid, area, _area_shape_index, _local_shape_index):
 	var areaParent = area.get_parent()
@@ -69,3 +75,16 @@ func onAdjacentConduitFound(_area_rid, area, _area_shape_index, _local_shape_ind
 			areaParent.show_button = false
 			areaParent.TriggerKeySprite.modulate.a = 0
 		exportConduits.append(areaParent)
+
+func setState(newState : PowerState):
+	currState = newState
+	powerSourceSprite.animation = stateToAnimString[currState]
+	powerSourceSprite.frame = 0
+
+func lock():
+	locked = true
+	setState(PowerState.LOCKED)
+
+func unlock():
+	locked = false
+	setState(PowerState.OFF)

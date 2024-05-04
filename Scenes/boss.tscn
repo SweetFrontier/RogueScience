@@ -142,6 +142,7 @@ animation = &"chasing"
 offset = Vector2(0, 1)
 
 [node name="BossCollisionShape" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(40, 48)
 rotation = -1.5708
 shape = SubResource("CapsuleShape2D_f6stx")
@@ -151,6 +152,7 @@ position = Vector2(56, 32)
 collision_mask = 129
 
 [node name="FrontCollisionShape" type="CollisionPolygon2D" parent="FrontCollisionDetection"]
+visible = false
 polygon = PackedVector2Array(56, 56, -104, -72, -136, -72, -152, -32, -56, 56)
 
 [node name="BossLightning" type="AnimatedSprite2D" parent="."]
@@ -163,6 +165,7 @@ collision_layer = 0
 collision_mask = 64
 
 [node name="ArcCollisionShape" type="CollisionShape2D" parent="ArcDetection"]
+visible = false
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_4d42n")
 

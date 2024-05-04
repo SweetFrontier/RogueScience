@@ -180,6 +180,7 @@ collision_layer = 64
 collision_mask = 64
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ArcDetection"]
+visible = false
 shape = SubResource("CircleShape2D_mo70v")
 
 [connection signal="animation_finished" from="ElectrodeSprite" to="." method="onElectrodeSpriteAnimationFinished"]

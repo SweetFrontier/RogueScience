@@ -2966,9 +2966,10 @@ enabled = false
 zoom = Vector2(1.25, 1.25)
 
 [node name="Boss" parent="." instance=ExtResource("12_ktcuj")]
-position = Vector2(2976, 560)
-speed = 10000.0
+position = Vector2(1680, 784)
+speed = 7500.0
 stickyMultiplier = 0.4
+currState = 2
 metadata/_edit_group_ = true
 
 [node name="BossSprite" parent="Boss" index="0"]

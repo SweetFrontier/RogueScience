@@ -1,33 +1,19 @@
-[gd_scene load_steps=16 format=3 uid="uid://jtv8ch5vvx1d"]
+[gd_scene load_steps=14 format=3 uid="uid://jtv8ch5vvx1d"]
 
 [ext_resource type="Script" path="res://Scripts/Triggers/Trigger_Helpers/sodaBall.gd" id="1_eo3ja"]
-[ext_resource type="Texture2D" uid="uid://xoywetyr51pd" path="res://Art/TriggerArt/Soda/plhSodaBall.png" id="2_u231g"]
+[ext_resource type="Texture2D" uid="uid://chrjegp60yilc" path="res://Art/TriggerArt/Soda/SodaBall.png" id="2_5a2tc"]
 [ext_resource type="Texture2D" uid="uid://bmsh7ew73lmoi" path="res://Art/TriggerArt/SecurityCamera/Red Effect Bullet Impact Explosion 32x32.png" id="3_kxd6g"]
 [ext_resource type="AudioStream" uid="uid://ik1iy0qkokre" path="res://Sounds/Swishes/sodasplosion.ogg" id="4_e22ow"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gp5yx"]
-atlas = ExtResource("2_u231g")
+[sub_resource type="AtlasTexture" id="AtlasTexture_oscvg"]
+atlas = ExtResource("2_5a2tc")
 region = Rect2(0, 0, 16, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_a21yi"]
-atlas = ExtResource("2_u231g")
-region = Rect2(16, 0, 16, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nl0sj"]
-atlas = ExtResource("2_u231g")
-region = Rect2(32, 0, 16, 24)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_nvmlt"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_gp5yx")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_a21yi")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nl0sj")
+"texture": SubResource("AtlasTexture_oscvg")
 }],
 "loop": true,
 "name": &"default",

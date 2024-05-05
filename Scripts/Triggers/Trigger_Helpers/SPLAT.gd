@@ -7,6 +7,7 @@ func _ready():
 	var collisionShape = CircleShape2D.new()
 	collisionShape.radius = 32
 	$Area2D/CollisionShape2D.set_deferred("shape", collisionShape)
+	rotation_degrees = randf_range(0,360)
 
 
 func _on_area_2d_body_entered(collider):

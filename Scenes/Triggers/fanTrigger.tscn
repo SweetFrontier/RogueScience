@@ -3,9 +3,9 @@
 [ext_resource type="Script" path="res://Scripts/Triggers/fanTrigger.gd" id="1_t8n4g"]
 [ext_resource type="Texture2D" uid="uid://dmwsbpfbwbh0f" path="res://Art/TriggerArt/Fan/FanHeadOff.png" id="2_h20yh"]
 [ext_resource type="Texture2D" uid="uid://b2m24rarwn675" path="res://Art/TriggerArt/Fan/FanHeadOn.png" id="3_tf3be"]
-[ext_resource type="Texture2D" uid="uid://8yh8c5n7wkvu" path="res://Art/TriggerArt/Fan/plhWindVis64.png" id="5_qydgy"]
-[ext_resource type="Texture2D" uid="uid://cgtbmno20ljkx" path="res://Art/TriggerArt/Fan/plhWindVis32.png" id="6_acwrb"]
-[ext_resource type="Texture2D" uid="uid://c4jjgjswot180" path="res://Art/TriggerArt/Fan/plhWindVis16.png" id="7_5gqib"]
+[ext_resource type="Texture2D" uid="uid://c3vrjnf6c2jum" path="res://Art/TriggerArt/Fan/WindVis64.png" id="5_rvais"]
+[ext_resource type="Texture2D" uid="uid://c2y3tupvmhqlm" path="res://Art/TriggerArt/Fan/WindVis32.png" id="6_3y02o"]
+[ext_resource type="Texture2D" uid="uid://cytmq8yoqoj8d" path="res://Art/TriggerArt/Fan/WindVis16.png" id="7_58igk"]
 [ext_resource type="PackedScene" uid="uid://djjr177758y2h" path="res://Scenes/Triggers/Trigger_Helpers/triggerKey.tscn" id="7_460pp"]
 [ext_resource type="AudioStream" uid="uid://bqhwj1jedidaj" path="res://Sounds/fanswishy.ogg" id="8_1pgk3"]
 
@@ -70,87 +70,87 @@ size = Vector2(16, 96)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b7p4s"]
 size = Vector2(176.333, 96)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_v80wv"]
-atlas = ExtResource("5_qydgy")
+[sub_resource type="AtlasTexture" id="AtlasTexture_d3b13"]
+atlas = ExtResource("5_rvais")
 region = Rect2(0, 0, 64, 96)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_l5foe"]
-atlas = ExtResource("5_qydgy")
+[sub_resource type="AtlasTexture" id="AtlasTexture_h26el"]
+atlas = ExtResource("5_rvais")
 region = Rect2(64, 0, 64, 96)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_26vbq"]
-atlas = ExtResource("5_qydgy")
+[sub_resource type="AtlasTexture" id="AtlasTexture_k88tn"]
+atlas = ExtResource("5_rvais")
 region = Rect2(128, 0, 64, 96)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_h0rwc"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_v80wv")
+"texture": SubResource("AtlasTexture_d3b13")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_l5foe")
+"texture": SubResource("AtlasTexture_h26el")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_26vbq")
+"texture": SubResource("AtlasTexture_k88tn")
 }],
 "loop": true,
 "name": &"default",
 "speed": 5.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ae3oj"]
-atlas = ExtResource("6_acwrb")
+[sub_resource type="AtlasTexture" id="AtlasTexture_2we3g"]
+atlas = ExtResource("6_3y02o")
 region = Rect2(0, 0, 32, 96)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_00ary"]
-atlas = ExtResource("6_acwrb")
+[sub_resource type="AtlasTexture" id="AtlasTexture_t7bd8"]
+atlas = ExtResource("6_3y02o")
 region = Rect2(32, 0, 32, 96)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7ane3"]
-atlas = ExtResource("6_acwrb")
+[sub_resource type="AtlasTexture" id="AtlasTexture_rigcx"]
+atlas = ExtResource("6_3y02o")
 region = Rect2(64, 0, 32, 96)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_atu4c"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ae3oj")
+"texture": SubResource("AtlasTexture_2we3g")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_00ary")
+"texture": SubResource("AtlasTexture_t7bd8")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_7ane3")
+"texture": SubResource("AtlasTexture_rigcx")
 }],
 "loop": true,
 "name": &"default",
 "speed": 5.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_24jid"]
-atlas = ExtResource("7_5gqib")
+[sub_resource type="AtlasTexture" id="AtlasTexture_fpv5o"]
+atlas = ExtResource("7_58igk")
 region = Rect2(0, 0, 16, 96)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_04c3t"]
-atlas = ExtResource("7_5gqib")
+[sub_resource type="AtlasTexture" id="AtlasTexture_bola3"]
+atlas = ExtResource("7_58igk")
 region = Rect2(16, 0, 16, 96)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2fumy"]
-atlas = ExtResource("7_5gqib")
+[sub_resource type="AtlasTexture" id="AtlasTexture_qi6h3"]
+atlas = ExtResource("7_58igk")
 region = Rect2(32, 0, 16, 96)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_06fah"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_24jid")
+"texture": SubResource("AtlasTexture_fpv5o")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_04c3t")
+"texture": SubResource("AtlasTexture_bola3")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_2fumy")
+"texture": SubResource("AtlasTexture_qi6h3")
 }],
 "loop": true,
 "name": &"default",
@@ -392,31 +392,30 @@ shape = SubResource("RectangleShape2D_b7p4s")
 
 [node name="Wind64" type="AnimatedSprite2D" parent="PushArea"]
 modulate = Color(1, 1, 1, 0.74902)
-z_index = 5
+z_index = -30
 z_as_relative = false
 position = Vector2(48, 0)
 sprite_frames = SubResource("SpriteFrames_h0rwc")
 autoplay = "default"
-frame = 1
-frame_progress = 0.728973
+frame_progress = 0.625691
 
 [node name="Wind32" type="AnimatedSprite2D" parent="PushArea"]
 modulate = Color(1, 1, 1, 0.74902)
-z_index = 5
+z_index = -30
 z_as_relative = false
 position = Vector2(128, 0)
 sprite_frames = SubResource("SpriteFrames_atu4c")
 autoplay = "default"
-frame_progress = 0.603033
+frame_progress = 0.26816
 
 [node name="Wind16" type="AnimatedSprite2D" parent="PushArea"]
 modulate = Color(1, 1, 1, 0.74902)
-z_index = 5
+z_index = -30
 z_as_relative = false
 position = Vector2(184, 0)
 sprite_frames = SubResource("SpriteFrames_06fah")
 autoplay = "default"
-frame_progress = 0.124541
+frame_progress = 0.0942346
 
 [node name="WireDetection" type="Area2D" parent="."]
 collision_layer = 64

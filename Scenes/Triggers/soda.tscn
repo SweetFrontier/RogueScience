@@ -1,52 +1,56 @@
-[gd_scene load_steps=23 format=3 uid="uid://diaq1g0u7ny5d"]
+[gd_scene load_steps=24 format=3 uid="uid://diaq1g0u7ny5d"]
 
 [ext_resource type="PackedScene" uid="uid://cgjy5x05wbked" path="res://Scenes/Triggers/baseTrigger.tscn" id="1_ud7se"]
 [ext_resource type="Script" path="res://Scripts/Triggers/sodaTrigger.gd" id="2_w7a00"]
 [ext_resource type="PackedScene" uid="uid://dctdthqv8shx3" path="res://Scenes/Triggers/Trigger_Helpers/SPLAT.tscn" id="3_n6q00"]
-[ext_resource type="Texture2D" uid="uid://b8rlls4rmtjge" path="res://Art/TriggerArt/Soda/plhSodaEmpty.png" id="3_rbrhq"]
-[ext_resource type="Texture2D" uid="uid://pqcefoadi06g" path="res://Art/TriggerArt/Soda/plhSodaFull.png" id="4_mf6rx"]
-[ext_resource type="Texture2D" uid="uid://r0ah8shlqfvj" path="res://Art/TriggerArt/Soda/plhSodaExploding.png" id="5_gdniv"]
+[ext_resource type="Texture2D" uid="uid://cqmvx1ogc7wkv" path="res://Art/TriggerArt/Soda/SodaEmpty.png" id="4_5kxcc"]
+[ext_resource type="Texture2D" uid="uid://bps7m368s3ouf" path="res://Art/TriggerArt/Soda/SodaFull.png" id="5_b8yvd"]
+[ext_resource type="Texture2D" uid="uid://dufi2jft87b0" path="res://Art/TriggerArt/Soda/SodaExploding.png" id="6_6vsdv"]
 [ext_resource type="Texture2D" uid="uid://cat53lsnivf36" path="res://Art/TriggerArt/Soda/plhSpew.png" id="6_myc4p"]
 [ext_resource type="PackedScene" uid="uid://jtv8ch5vvx1d" path="res://Scenes/Triggers/Trigger_Helpers/sodaBall.tscn" id="7_bn3nb"]
 [ext_resource type="AudioStream" uid="uid://cy57p5i6r8ic4" path="res://Sounds/Swishes/swish1.ogg" id="8_b2bir"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_arm8v"]
-atlas = ExtResource("3_rbrhq")
+[sub_resource type="AtlasTexture" id="AtlasTexture_8pjk5"]
+atlas = ExtResource("4_5kxcc")
 region = Rect2(0, 0, 32, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_l1yci"]
-atlas = ExtResource("4_mf6rx")
+[sub_resource type="AtlasTexture" id="AtlasTexture_mavgk"]
+atlas = ExtResource("5_b8yvd")
 region = Rect2(0, 0, 32, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_dukgx"]
-atlas = ExtResource("5_gdniv")
+[sub_resource type="AtlasTexture" id="AtlasTexture_3jand"]
+atlas = ExtResource("6_6vsdv")
 region = Rect2(0, 0, 32, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_yur6w"]
-atlas = ExtResource("5_gdniv")
+[sub_resource type="AtlasTexture" id="AtlasTexture_biga6"]
+atlas = ExtResource("6_6vsdv")
 region = Rect2(32, 0, 32, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_dpt56"]
-atlas = ExtResource("5_gdniv")
+[sub_resource type="AtlasTexture" id="AtlasTexture_rhcom"]
+atlas = ExtResource("6_6vsdv")
 region = Rect2(64, 0, 32, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ylk42"]
-atlas = ExtResource("5_gdniv")
+[sub_resource type="AtlasTexture" id="AtlasTexture_4u2d7"]
+atlas = ExtResource("6_6vsdv")
 region = Rect2(96, 0, 32, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_p1b4q"]
-atlas = ExtResource("5_gdniv")
+[sub_resource type="AtlasTexture" id="AtlasTexture_bxxdy"]
+atlas = ExtResource("6_6vsdv")
 region = Rect2(128, 0, 32, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_btwry"]
-atlas = ExtResource("5_gdniv")
+[sub_resource type="AtlasTexture" id="AtlasTexture_p3y2v"]
+atlas = ExtResource("6_6vsdv")
 region = Rect2(160, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tppbn"]
+atlas = ExtResource("6_6vsdv")
+region = Rect2(192, 0, 32, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_654dx"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_arm8v")
+"texture": SubResource("AtlasTexture_8pjk5")
 }],
 "loop": true,
 "name": &"empty",
@@ -54,7 +58,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_l1yci")
+"texture": SubResource("AtlasTexture_mavgk")
 }],
 "loop": true,
 "name": &"full",
@@ -62,22 +66,25 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_dukgx")
+"texture": SubResource("AtlasTexture_3jand")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_yur6w")
+"texture": SubResource("AtlasTexture_biga6")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_dpt56")
+"texture": SubResource("AtlasTexture_rhcom")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ylk42")
+"texture": SubResource("AtlasTexture_4u2d7")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_p1b4q")
+"texture": SubResource("AtlasTexture_bxxdy")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_btwry")
+"texture": SubResource("AtlasTexture_p3y2v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tppbn")
 }],
 "loop": false,
 "name": &"spewing",
@@ -139,7 +146,7 @@ triggerModulator = NodePath("triggerModulator")
 
 [node name="BottleSprite" type="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_654dx")
-animation = &"full"
+animation = &"empty"
 
 [node name="SpewSprite" type="AnimatedSprite2D" parent="BottleSprite" index="0"]
 visible = false

@@ -37,24 +37,20 @@ func _ready() -> void:
 	if current_level < 1:
 		current_level = GlobalVariables.currentLevel-1
 	#set music
-	match(current_level):
-		9:
-			musicPlayer.set_stream(load("res://Sounds/Music/boss1.ogg"))
-		19:
-			musicPlayer.set_stream(load("res://Sounds/Music/boss2.ogg"))
-		29:
-			musicPlayer.set_stream(load("res://Sounds/Music/boss3.ogg"))
-		_:
-			if (current_level < musicChangePoints[0]):
-				musicPlayer.set_stream(load("res://Sounds/Music/puzzle(calm).ogg"))
-			elif (current_level < musicChangePoints[1]):
-				musicPlayer.set_stream(load("res://Sounds/Music/puzzle(midlevels).ogg"))
-			elif (current_level < musicChangePoints[2]):
-				musicPlayer.set_stream(load("res://Sounds/Music/puzzle(intense).ogg"))
-			elif (current_level < musicChangePoints[3]):
-				musicPlayer.set_stream(load("res://Sounds/Music/puzzle(act_three).ogg"))
-			else:
-				musicPlayer.set_stream(load("res://Sounds/Music/puzzle(act_four).ogg"))
+	if (current_level % 10 == 9):
+		#boss level
+		var bossy = clamp(int((current_level+1) / 10), 1, 4)
+		musicPlayer.changeMusic("boss"+str(bossy));
+	elif (current_level < musicChangePoints[0]):
+		musicPlayer.set_stream(load("res://Sounds/Music/puzzle(calm).ogg"))
+	elif (current_level < musicChangePoints[1]):
+		musicPlayer.set_stream(load("res://Sounds/Music/puzzle(midlevels).ogg"))
+	elif (current_level < musicChangePoints[2]):
+		musicPlayer.set_stream(load("res://Sounds/Music/puzzle(intense).ogg"))
+	elif (current_level < musicChangePoints[3]):
+		musicPlayer.set_stream(load("res://Sounds/Music/puzzle(act_three).ogg"))
+	else:
+		musicPlayer.set_stream(load("res://Sounds/Music/puzzle(act_four).ogg"))
 	#play music
 	musicPlayer.play()
 	
@@ -152,13 +148,8 @@ func increase_level() -> void:
 	# set music
 	if (current_level % 10 == 9):
 		#boss level
-		match(int((current_level+1) / 10)):
-			1:
-				musicPlayer.changeMusic("boss1");
-			2:
-				musicPlayer.changeMusic("boss2");
-			3:
-				musicPlayer.changeMusic("boss3");
+		var bossy = clamp(int((current_level+1) / 10), 1, 4)
+		musicPlayer.changeMusic("boss"+str(bossy));
 	elif (current_level == musicChangePoints[0]):
 		musicPlayer.changeMusic("midlevels");
 	elif (current_level == musicChangePoints[1]):

@@ -10,6 +10,8 @@ class_name electrode
 @export var one_shot: bool = false
 @export var lightningScene: PackedScene
 
+signal striking
+
 var currState : PowerState = PowerState.OFF
 var poweringConnection : Node2D
 var wireConnection : Node2D

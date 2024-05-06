@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://c0152ok1uralk"]
+[gd_scene load_steps=44 format=3 uid="uid://c0152ok1uralk"]
 
 [ext_resource type="Script" path="res://Scripts/levelController.gd" id="1_of6c5"]
 [ext_resource type="TileSet" uid="uid://bnpggr5480t5q" path="res://Art/TileSets/initialTileSet.tres" id="2_puk5a"]
@@ -200,6 +200,9 @@ animations = [{
 "speed": 60.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ows0s"]
+size = Vector2(176, 96)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ojvx3"]
 size = Vector2(160, 96)
 
@@ -209,7 +212,6 @@ cameraSpot = NodePath("CenterPosition")
 cameraSize = Vector2(832, 512)
 player = NodePath("rigidPlayer")
 transitionField = NodePath("TransitionField")
-DEBUG_MODE = true
 
 [node name="Act4Bg" type="Sprite2D" parent="."]
 z_index = -100
@@ -472,6 +474,10 @@ metadata/_edit_group_ = true
 
 [node name="TriggerKeySprite" parent="fanTrigger2" index="1"]
 position = Vector2(-32, 0)
+
+[node name="CollisionShape2D" parent="fanTrigger2/PushArea" index="0"]
+position = Vector2(104, 1.52588e-05)
+shape = SubResource("RectangleShape2D_ows0s")
 
 [node name="SecurityBall" parent="." instance=ExtResource("14_uxi33")]
 position = Vector2(304, 304)

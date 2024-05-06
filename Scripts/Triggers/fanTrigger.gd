@@ -72,13 +72,13 @@ func reset():
 		react()
 
 func onPushBodyEntered(body):
-	if body is rigidPlayer or body is movingObject:
+	if body is rigidPlayer or body is movingObject or body is boss:
 		var bodyFans = body.fansInRange
 		if not self in bodyFans:
 			bodyFans.append(self)
 
 func onPushBodyExited(body):
-	if body is rigidPlayer or body is movingObject:
+	if body is rigidPlayer or body is movingObject or body is boss:
 		var bodyFans = body.fansInRange
 		var index = bodyFans.find(self)
 		if index != -1:

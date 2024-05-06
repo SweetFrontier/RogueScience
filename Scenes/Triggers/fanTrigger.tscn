@@ -68,7 +68,7 @@ animations = [{
 size = Vector2(16, 96)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b7p4s"]
-size = Vector2(176.333, 96)
+size = Vector2(176, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d3b13"]
 atlas = ExtResource("5_rvais")
@@ -376,6 +376,8 @@ animation = &"on"
 frame_progress = 0.146246
 
 [node name="StaticBody2D" type="StaticBody2D" parent="FanSprite"]
+collision_layer = 129
+collision_mask = 129
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FanSprite/StaticBody2D"]
 position = Vector2(8, 0)
@@ -385,6 +387,7 @@ shape = SubResource("RectangleShape2D_ffuhi")
 position = Vector2(0, 64)
 
 [node name="PushArea" type="Area2D" parent="."]
+collision_mask = 129
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PushArea"]
 position = Vector2(104, 0)

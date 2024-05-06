@@ -87,7 +87,6 @@ func reset():
 			button_fade_timer = 0
 			TriggerKeySprite.modulate.a = 0
 
-
 func _physics_process(delta):
 	super._physics_process(delta)
 	if !occupied:
@@ -102,16 +101,39 @@ func _physics_process(delta):
 
 func teleportRider():
 	ridingBody.set_body_pos(exit.global_position)
-	if ridingBody is rigidPlayer:
-		ridingBody.changeDirection(Vector2.LEFT if ventExitDirection == Direction.LEFT else Vector2.RIGHT)
-	ridingBody.show()
-	free_movement()
+	#ridingBody.set_collision_layer_value(1, true)
+	#ridingBody.set_collision_mask_value(1, true)
+	#if ridingBody is rigidPlayer:
+	#	#var playerCamera = ridingBody.get_node("Camera2D")
+	#	#if ridingBody.get_node("Camera2D"):
+	#		#playerCamera.position = Vector2(0,0)
+	#	ridingBody.set_collision_layer_value(9, true)
+	#	ridingBody.set_collision_mask_value(9, true)
+	#	ridingBody.changeDirection(Vector2.LEFT if ventExitDirection == Direction.LEFT else Vector2.RIGHT)
+	#else:
+	#	ridingBody.set_collision_layer_value(5, true)
+	#ridingBody.show()
+	#free_movement()
 
 func resetVenting():
 	currState = VentState.OPENING
 	entranceSprite.animation = stateToAnimString[currState]
 	entranceSprite.play()
 	currVentIndex = 0
+	
+	ridingBody.set_collision_layer_value(1, true)
+	ridingBody.set_collision_mask_value(1, true)
+	if ridingBody is rigidPlayer:
+		#var playerCamera = ridingBody.get_node("Camera2D")
+		#if ridingBody.get_node("Camera2D"):
+			#playerCamera.position = Vector2(0,0)
+		ridingBody.set_collision_layer_value(9, true)
+		ridingBody.set_collision_mask_value(9, true)
+		ridingBody.changeDirection(Vector2.LEFT if ventExitDirection == Direction.LEFT else Vector2.RIGHT)
+	else:
+		ridingBody.set_collision_layer_value(5, true)
+	ridingBody.show()
+	free_movement()
 
 func onShutVentAreaEntered(body):
 	if !body is rigidPlayer and !body is movingObject:
@@ -131,7 +153,16 @@ func onInsideCheckVentAreaEntered(body):
 	if currState == VentState.READYTOVENT and !occupied and body != self:
 		if body.movement_overrider != null:
 			body.movement_overrider.free_movement()
+		body.set_collision_layer_value(1, false)
+		body.set_collision_mask_value(1, false)
+		if body is rigidPlayer:
+			body.set_collision_layer_value(9, false)
+			body.set_collision_mask_value(9, false)
+		else:
+			body.set_collision_layer_value(5, false)
 		override_movement(body)
+		teleportRider()
+		#ridingBody.set_body_pos(ridingBody.global_position)
 		#Uncomment to keep momentum lol
 		#if body is movingObject:
 			#body.set_freed_vel(body.angular_velocity, body.linear_velocity)

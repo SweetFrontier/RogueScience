@@ -931,7 +931,6 @@ cameraSpot = NodePath("CenterPosition")
 cameraSize = Vector2(1344, 800)
 player = NodePath("rigidPlayer")
 transitionField = NodePath("TransitionField")
-DEBUG_MODE = true
 
 [node name="Act4Bg" type="Sprite2D" parent="."]
 z_index = -100

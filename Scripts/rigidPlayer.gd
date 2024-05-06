@@ -134,7 +134,6 @@ func _integrate_forces(state):
 	
 	#fan forces
 	state.set_linear_velocity(calc_fan_forces(fansInRange) + state.get_linear_velocity())
-	
 	if just_started_control:
 		just_started_control = false
 		state.set_linear_velocity(Vector2())

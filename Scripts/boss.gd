@@ -30,6 +30,12 @@ var secSinceStrike : float = 0
 var inUseLightnings : Array[lightningBolt]
 var unusedLightnings : Array[lightningBolt]
 var conductiveBodies : Array[Node2D]
+var fansInRange : Array[fanTrigger]
+
+#Fan Values
+@export var maxSingleFanVelocity: float = 100.0
+@export var maxFanVelocity: float = 20.0
+var fanConst = 350
 
 enum BossState
 {
@@ -74,6 +80,7 @@ func _physics_process(delta):
 			frontDetector.scale.x = -frontDetector.scale.x
 			spriteAnim.flip_h = !spriteAnim.flip_h
 		velocity.x = currDirection.x * speed * delta * gravity_scale
+		velocity += calc_fan_forces(fansInRange) * fanConst * delta * gravity_scale
 		move_and_slide()
 	elif(currState == BossState.EATING):
 		if velocity.x > 0:
@@ -210,3 +217,14 @@ func getFreeLightning():
 		add_child(freeLightning)
 	inUseLightnings.append(freeLightning)
 	return freeLightning	
+
+#Fan functions
+
+func calc_fan_forces(fans:Array[fanTrigger]):
+	var fan_linear_velocity = Vector2()
+	for fan in fans:
+		var distance = global_position.distance_to(fan.global_position)
+		var force = fan.strength/distance
+		fan_linear_velocity += (fan.direction * force).clamp(Vector2(-maxSingleFanVelocity,-maxSingleFanVelocity), Vector2(maxSingleFanVelocity,maxSingleFanVelocity))
+	fan_linear_velocity = fan_linear_velocity.clamp(Vector2(-maxFanVelocity,-maxFanVelocity), Vector2(maxFanVelocity,maxFanVelocity))
+	return fan_linear_velocity

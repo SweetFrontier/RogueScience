@@ -65,7 +65,7 @@ position = Vector2(-64, -192)
 [node name="VentPath" type="Node2D" parent="VentSystem"]
 
 [node name="Vent1" type="AnimatedSprite2D" parent="VentSystem/VentPath"]
-modulate = Color(1, 1, 1, 0.490196)
+modulate = Color(1, 1, 1, 0.803922)
 z_index = 11
 z_as_relative = false
 position = Vector2(64, 0)
@@ -73,7 +73,7 @@ sprite_frames = ExtResource("10_sqn54")
 animation = &"curved"
 
 [node name="Vent2" type="AnimatedSprite2D" parent="VentSystem/VentPath"]
-modulate = Color(1, 1, 1, 0.490196)
+modulate = Color(1, 1, 1, 0.803922)
 z_index = 11
 z_as_relative = false
 position = Vector2(64, -64)
@@ -81,7 +81,7 @@ sprite_frames = ExtResource("10_sqn54")
 animation = &"curved"
 
 [node name="Vent3" type="AnimatedSprite2D" parent="VentSystem/VentPath"]
-modulate = Color(1, 1, 1, 0.490196)
+modulate = Color(1, 1, 1, 0.803922)
 z_index = 11
 z_as_relative = false
 position = Vector2(0, -64)
@@ -89,7 +89,7 @@ sprite_frames = ExtResource("10_sqn54")
 animation = &"curved"
 
 [node name="Vent4" type="AnimatedSprite2D" parent="VentSystem/VentPath"]
-modulate = Color(1, 1, 1, 0.490196)
+modulate = Color(1, 1, 1, 0.803922)
 z_index = 11
 z_as_relative = false
 position = Vector2(-64, -64)
@@ -97,7 +97,7 @@ sprite_frames = ExtResource("10_sqn54")
 animation = &"curved"
 
 [node name="Vent5" type="AnimatedSprite2D" parent="VentSystem/VentPath"]
-modulate = Color(1, 1, 1, 0.490196)
+modulate = Color(1, 1, 1, 0.803922)
 z_index = 11
 z_as_relative = false
 position = Vector2(-128, -64)
@@ -105,7 +105,7 @@ sprite_frames = ExtResource("10_sqn54")
 animation = &"curved"
 
 [node name="Vent6" type="AnimatedSprite2D" parent="VentSystem/VentPath"]
-modulate = Color(1, 1, 1, 0.490196)
+modulate = Color(1, 1, 1, 0.803922)
 z_index = 11
 z_as_relative = false
 position = Vector2(-192, -64)
@@ -113,7 +113,7 @@ sprite_frames = ExtResource("10_sqn54")
 animation = &"curved"
 
 [node name="Vent7" type="AnimatedSprite2D" parent="VentSystem/VentPath"]
-modulate = Color(1, 1, 1, 0.490196)
+modulate = Color(1, 1, 1, 0.803922)
 z_index = 11
 z_as_relative = false
 position = Vector2(-256, -64)
@@ -121,7 +121,7 @@ sprite_frames = ExtResource("10_sqn54")
 animation = &"curved"
 
 [node name="Vent8" type="AnimatedSprite2D" parent="VentSystem/VentPath"]
-modulate = Color(1, 1, 1, 0.490196)
+modulate = Color(1, 1, 1, 0.803922)
 z_index = 11
 z_as_relative = false
 position = Vector2(-256, -128)
@@ -129,7 +129,7 @@ sprite_frames = ExtResource("10_sqn54")
 animation = &"curved"
 
 [node name="Vent9" type="AnimatedSprite2D" parent="VentSystem/VentPath"]
-modulate = Color(1, 1, 1, 0.490196)
+modulate = Color(1, 1, 1, 0.803922)
 z_index = 11
 z_as_relative = false
 position = Vector2(-256, -192)
@@ -137,7 +137,7 @@ sprite_frames = ExtResource("10_sqn54")
 animation = &"curved"
 
 [node name="Vent10" type="AnimatedSprite2D" parent="VentSystem/VentPath"]
-modulate = Color(1, 1, 1, 0.490196)
+modulate = Color(1, 1, 1, 0.803922)
 z_index = 11
 z_as_relative = false
 position = Vector2(-192, -192)
@@ -145,7 +145,7 @@ sprite_frames = ExtResource("10_sqn54")
 animation = &"curved"
 
 [node name="Vent11" type="AnimatedSprite2D" parent="VentSystem/VentPath"]
-modulate = Color(1, 1, 1, 0.490196)
+modulate = Color(1, 1, 1, 0.803922)
 z_index = 11
 z_as_relative = false
 position = Vector2(-128, -192)
@@ -167,7 +167,7 @@ position = Vector2(0, 256)
 position = Vector2(128, 0)
 
 [node name="Vent1" type="AnimatedSprite2D" parent="VentSystem2/VentPath"]
-modulate = Color(1, 1, 1, 0.490196)
+modulate = Color(1, 1, 1, 0.803922)
 z_index = 11
 z_as_relative = false
 position = Vector2(-192, 0)
@@ -175,7 +175,7 @@ sprite_frames = ExtResource("10_sqn54")
 animation = &"curved"
 
 [node name="Vent2" type="AnimatedSprite2D" parent="VentSystem2/VentPath"]
-modulate = Color(1, 1, 1, 0.490196)
+modulate = Color(1, 1, 1, 0.803922)
 z_index = 11
 z_as_relative = false
 position = Vector2(-192, 64)
@@ -183,7 +183,7 @@ sprite_frames = ExtResource("10_sqn54")
 animation = &"curved"
 
 [node name="Vent3" type="AnimatedSprite2D" parent="VentSystem2/VentPath"]
-modulate = Color(1, 1, 1, 0.490196)
+modulate = Color(1, 1, 1, 0.803922)
 z_index = 11
 z_as_relative = false
 position = Vector2(-128, 64)
@@ -191,7 +191,7 @@ sprite_frames = ExtResource("10_sqn54")
 animation = &"curved"
 
 [node name="Vent4" type="AnimatedSprite2D" parent="VentSystem2/VentPath"]
-modulate = Color(1, 1, 1, 0.490196)
+modulate = Color(1, 1, 1, 0.803922)
 z_index = 11
 z_as_relative = false
 position = Vector2(-128, 128)
@@ -199,7 +199,7 @@ sprite_frames = ExtResource("10_sqn54")
 animation = &"curved"
 
 [node name="Vent5" type="AnimatedSprite2D" parent="VentSystem2/VentPath"]
-modulate = Color(1, 1, 1, 0.490196)
+modulate = Color(1, 1, 1, 0.803922)
 z_index = 11
 z_as_relative = false
 position = Vector2(-128, 192)
@@ -207,7 +207,7 @@ sprite_frames = ExtResource("10_sqn54")
 animation = &"curved"
 
 [node name="Vent6" type="AnimatedSprite2D" parent="VentSystem2/VentPath"]
-modulate = Color(1, 1, 1, 0.490196)
+modulate = Color(1, 1, 1, 0.803922)
 z_index = 11
 z_as_relative = false
 position = Vector2(-64, 192)
@@ -215,7 +215,7 @@ sprite_frames = ExtResource("10_sqn54")
 animation = &"curved"
 
 [node name="Vent7" type="AnimatedSprite2D" parent="VentSystem2/VentPath"]
-modulate = Color(1, 1, 1, 0.490196)
+modulate = Color(1, 1, 1, 0.803922)
 z_index = 11
 z_as_relative = false
 position = Vector2(-64, 256)
@@ -236,7 +236,7 @@ position = Vector2(-128, -256)
 [node name="VentPath" type="Node2D" parent="VentSystem3"]
 
 [node name="Vent1" type="AnimatedSprite2D" parent="VentSystem3/VentPath"]
-modulate = Color(1, 1, 1, 0.490196)
+modulate = Color(1, 1, 1, 0.803922)
 z_index = 11
 z_as_relative = false
 position = Vector2(64, 0)
@@ -244,7 +244,7 @@ sprite_frames = ExtResource("10_sqn54")
 animation = &"curved"
 
 [node name="Vent2" type="AnimatedSprite2D" parent="VentSystem3/VentPath"]
-modulate = Color(1, 1, 1, 0.490196)
+modulate = Color(1, 1, 1, 0.803922)
 z_index = 11
 z_as_relative = false
 position = Vector2(64, -64)
@@ -252,7 +252,7 @@ sprite_frames = ExtResource("10_sqn54")
 animation = &"curved"
 
 [node name="Vent3" type="AnimatedSprite2D" parent="VentSystem3/VentPath"]
-modulate = Color(1, 1, 1, 0.490196)
+modulate = Color(1, 1, 1, 0.803922)
 z_index = 11
 z_as_relative = false
 position = Vector2(0, -64)
@@ -260,7 +260,7 @@ sprite_frames = ExtResource("10_sqn54")
 animation = &"curved"
 
 [node name="Vent4" type="AnimatedSprite2D" parent="VentSystem3/VentPath"]
-modulate = Color(1, 1, 1, 0.490196)
+modulate = Color(1, 1, 1, 0.803922)
 z_index = 11
 z_as_relative = false
 position = Vector2(0, -128)
@@ -268,7 +268,7 @@ sprite_frames = ExtResource("10_sqn54")
 animation = &"curved"
 
 [node name="Vent5" type="AnimatedSprite2D" parent="VentSystem3/VentPath"]
-modulate = Color(1, 1, 1, 0.490196)
+modulate = Color(1, 1, 1, 0.803922)
 z_index = 11
 z_as_relative = false
 position = Vector2(0, -192)
@@ -276,7 +276,7 @@ sprite_frames = ExtResource("10_sqn54")
 animation = &"curved"
 
 [node name="Vent6" type="AnimatedSprite2D" parent="VentSystem3/VentPath"]
-modulate = Color(1, 1, 1, 0.490196)
+modulate = Color(1, 1, 1, 0.803922)
 z_index = 11
 z_as_relative = false
 position = Vector2(0, -256)
@@ -284,7 +284,7 @@ sprite_frames = ExtResource("10_sqn54")
 animation = &"curved"
 
 [node name="Vent7" type="AnimatedSprite2D" parent="VentSystem3/VentPath"]
-modulate = Color(1, 1, 1, 0.490196)
+modulate = Color(1, 1, 1, 0.803922)
 z_index = 11
 z_as_relative = false
 position = Vector2(-64, -256)

@@ -48,7 +48,7 @@
 [ext_resource type="PackedScene" uid="uid://d3n4nj2xwu2md" path="res://Scenes/Levels/Act_4_Levels/4-7_BouncyLevel3.tscn" id="37_g81cn"]
 [ext_resource type="PackedScene" uid="uid://wmyjivq5y5ev" path="res://Scenes/Levels/Act_4_Levels/4-8_BouncyLevel4.tscn" id="38_lmje3"]
 [ext_resource type="PackedScene" uid="uid://dy75gsun3qk8c" path="res://Scenes/Levels/Act_4_Levels/4-9_FloatingFellaLevel.tscn" id="39_kodwu"]
-[ext_resource type="PackedScene" path="res://Scenes/Levels/Act_4_Levels/4-10_BossLevel.tscn" id="41_80h12"]
+[ext_resource type="PackedScene" uid="uid://4m3btc50e1js" path="res://Scenes/Levels/Act_4_Levels/4-10_BossLevel.tscn" id="41_80h12"]
 [ext_resource type="AudioStream" uid="uid://hq53ucrdfmk0" path="res://Sounds/Music/boss42.ogg" id="44_x5mc4"]
 
 [sub_resource type="Animation" id="Animation_gwjdm"]
@@ -74,6 +74,22 @@ tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/path = NodePath(".:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(2.2974, 1),
+"update": 0,
+"values": [-0.319028, -80.0]
+}
+
+[sub_resource type="Animation" id="Animation_eaap1"]
+resource_name = "fastFadeFlopBoss"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("bossyfloppo:volume_db")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -124,22 +140,6 @@ tracks/2/keys = {
 "args": [0.0],
 "method": &"play"
 }]
-}
-
-[sub_resource type="Animation" id="Animation_eaap1"]
-resource_name = "fastFadeFlopBoss"
-length = 0.4
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("bossyfloppo:volume_db")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(2.2974, 1),
-"update": 0,
-"values": [-0.319028, -80.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_c5a32"]

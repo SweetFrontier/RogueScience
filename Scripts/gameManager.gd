@@ -152,7 +152,7 @@ func increase_level() -> void:
 	# set music
 	if (current_level % 10 == 9):
 		#boss level
-		match(int(current_level+1 / 10)):
+		match(int((current_level+1) / 10)):
 			1:
 				musicPlayer.changeMusic("boss1");
 			2:

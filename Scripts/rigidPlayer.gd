@@ -352,6 +352,8 @@ func calc_fan_forces(fans:Array[fanTrigger]):
 	return fan_linear_velocity
 
 func set_body_pos(pos):
+	if pos == null:
+		pos = Vector2.ZERO
 	next_pos = pos
 	setBodyPos = true
 

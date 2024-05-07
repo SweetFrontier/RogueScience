@@ -13,7 +13,7 @@ ventPathHolder = NodePath("../VentPath")
 [node name="VentPath" type="Node2D" parent="."]
 
 [node name="Vent1" type="AnimatedSprite2D" parent="VentPath"]
-modulate = Color(1, 1, 1, 0.494118)
+modulate = Color(1, 1, 1, 0.803922)
 z_index = 11
 z_as_relative = false
 position = Vector2(64, 0)

@@ -100,6 +100,7 @@ func _on_body_entered(body):
 		else:
 			setupMoveToStart()
 		rider_freeable = false
+		doorSprite.play()
 	
 func setupMoveToStart():
 	super.setupMoveToStart()

@@ -42,7 +42,7 @@ func react():
 	activated = true
 	if (currState == PowerState.OFF):
 		setState(PowerState.ON)
-		releasePower()
+		#releasePower()
 
 func reset():
 	super.reset()
@@ -80,6 +80,7 @@ func setState(newState : PowerState):
 	currState = newState
 	powerSourceSprite.animation = stateToAnimString[currState]
 	powerSourceSprite.frame = 0
+	powerSourceSprite.play()
 
 func lock():
 	locked = true
@@ -88,3 +89,8 @@ func lock():
 func unlock():
 	locked = false
 	setState(PowerState.OFF)
+
+func onPowerSourceSpriteFrameChanged():
+	if powerSourceSprite.animation == stateToAnimString[PowerState.ON]:
+		if powerSourceSprite.frame == 3:
+			releasePower()

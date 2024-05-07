@@ -1,27 +1,51 @@
-[gd_scene load_steps=10 format=3 uid="uid://sega43ibokvc"]
+[gd_scene load_steps=16 format=3 uid="uid://sega43ibokvc"]
 
 [ext_resource type="Script" path="res://Scripts/Triggers/fellaBoxTrigger.gd" id="1_qxyma"]
-[ext_resource type="Texture2D" uid="uid://cin483kgy7yjg" path="res://Art/TriggerArt/MovingObject/plhFellaBox.png" id="2_eq3rl"]
+[ext_resource type="Texture2D" uid="uid://d2fj8k2j0csrs" path="res://Art/TriggerArt/MovingObject/FellaBoxClosed.png" id="2_436if"]
 [ext_resource type="PackedScene" uid="uid://djjr177758y2h" path="res://Scenes/Triggers/Trigger_Helpers/triggerKey.tscn" id="3_ghxpk"]
-[ext_resource type="Texture2D" uid="uid://slclgmxem4ba" path="res://Art/TriggerArt/MovingObject/plhFellaBoxOpen.png" id="4_lypgx"]
+[ext_resource type="Texture2D" uid="uid://cji4dvdvsgvyb" path="res://Art/TriggerArt/MovingObject/FellaBoxClosing.png" id="3_gnx2m"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_amwmb"]
-atlas = ExtResource("2_eq3rl")
+[sub_resource type="AtlasTexture" id="AtlasTexture_g658i"]
+atlas = ExtResource("2_436if")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_i3sox"]
-atlas = ExtResource("4_lypgx")
+[sub_resource type="AtlasTexture" id="AtlasTexture_5wxsj"]
+atlas = ExtResource("3_gnx2m")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_114bo"]
-atlas = ExtResource("2_eq3rl")
+[sub_resource type="AtlasTexture" id="AtlasTexture_q02ip"]
+atlas = ExtResource("3_gnx2m")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r3ttb"]
+atlas = ExtResource("3_gnx2m")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i78vr"]
+atlas = ExtResource("3_gnx2m")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_71bw2"]
+atlas = ExtResource("3_gnx2m")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_smtvl"]
+atlas = ExtResource("3_gnx2m")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h7oo3"]
+atlas = ExtResource("3_gnx2m")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4lxbo"]
+atlas = ExtResource("2_436if")
 region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_upsld"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_amwmb")
+"texture": SubResource("AtlasTexture_g658i")
 }],
 "loop": true,
 "name": &"exploded",
@@ -29,15 +53,33 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_i3sox")
+"texture": SubResource("AtlasTexture_5wxsj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q02ip")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r3ttb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i78vr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_71bw2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_smtvl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h7oo3")
 }],
-"loop": true,
+"loop": false,
 "name": &"open",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_114bo")
+"texture": SubResource("AtlasTexture_4lxbo")
 }],
 "loop": true,
 "name": &"riding",
@@ -55,7 +97,7 @@ TriggerKeySprite = NodePath("TriggerKeySprite")
 
 [node name="DoorSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_upsld")
-animation = &"open"
+animation = &"riding"
 
 [node name="BoxArea" type="Area2D" parent="."]
 collision_layer = 256

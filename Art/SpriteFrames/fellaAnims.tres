@@ -239,7 +239,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_qoe80")
 }],
-"loop": false,
+"loop": true,
 "name": &"chillinInTrigger",
 "speed": 12.0
 }, {

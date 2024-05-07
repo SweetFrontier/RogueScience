@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=3 uid="uid://d3n4nj2xwu2md"]
+[gd_scene load_steps=18 format=3 uid="uid://d3n4nj2xwu2md"]
 
 [ext_resource type="Script" path="res://Scripts/levelController.gd" id="1_v7qup"]
 [ext_resource type="TileSet" uid="uid://bnpggr5480t5q" path="res://Art/TileSets/initialTileSet.tres" id="2_5i7vi"]
@@ -14,374 +14,11 @@
 [ext_resource type="PackedScene" uid="uid://b8japh5crdt7v" path="res://Scenes/Triggers/fanTrigger.tscn" id="11_3k61f"]
 [ext_resource type="Script" path="res://Scripts/triggerHolder.gd" id="12_t864k"]
 [ext_resource type="PackedScene" uid="uid://biw5iomco5lst" path="res://Scenes/Triggers/ventTrigger.tscn" id="13_hfcce"]
-[ext_resource type="Texture2D" uid="uid://ljqhc6ud7t0p" path="res://Art/TriggerArt/Vent/plhVentCurved.png" id="14_hocwk"]
-[ext_resource type="Texture2D" uid="uid://cguu570tipo33" path="res://Art/TriggerArt/Vent/plhVentStraight.png" id="15_gwn4o"]
+[ext_resource type="SpriteFrames" uid="uid://icuxxqgcpr0s" path="res://Art/SpriteFrames/ventSystem.tres" id="15_jf534"]
 [ext_resource type="PackedScene" uid="uid://bmwdwlb5umkan" path="res://Scenes/Triggers/Trigger_Helpers/SecurityBall.tscn" id="16_obj0o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4cmtd"]
 size = Vector2(544, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nl3n0"]
-atlas = ExtResource("14_hocwk")
-region = Rect2(0, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7adc7"]
-atlas = ExtResource("14_hocwk")
-region = Rect2(64, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_or004"]
-atlas = ExtResource("14_hocwk")
-region = Rect2(128, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ktgen"]
-atlas = ExtResource("14_hocwk")
-region = Rect2(192, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fqdvc"]
-atlas = ExtResource("14_hocwk")
-region = Rect2(256, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2b076"]
-atlas = ExtResource("14_hocwk")
-region = Rect2(320, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_g4fyp"]
-atlas = ExtResource("14_hocwk")
-region = Rect2(384, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dpub7"]
-atlas = ExtResource("14_hocwk")
-region = Rect2(448, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hnfw8"]
-atlas = ExtResource("14_hocwk")
-region = Rect2(512, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mv7gk"]
-atlas = ExtResource("14_hocwk")
-region = Rect2(576, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lh61y"]
-atlas = ExtResource("14_hocwk")
-region = Rect2(640, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nuuog"]
-atlas = ExtResource("14_hocwk")
-region = Rect2(704, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_cysrp"]
-atlas = ExtResource("15_gwn4o")
-region = Rect2(0, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nmatd"]
-atlas = ExtResource("15_gwn4o")
-region = Rect2(64, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wdxml"]
-atlas = ExtResource("15_gwn4o")
-region = Rect2(128, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4tr6l"]
-atlas = ExtResource("15_gwn4o")
-region = Rect2(192, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hs37i"]
-atlas = ExtResource("15_gwn4o")
-region = Rect2(256, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xojot"]
-atlas = ExtResource("15_gwn4o")
-region = Rect2(320, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8a5mc"]
-atlas = ExtResource("15_gwn4o")
-region = Rect2(384, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xxklx"]
-atlas = ExtResource("15_gwn4o")
-region = Rect2(448, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8nxi8"]
-atlas = ExtResource("15_gwn4o")
-region = Rect2(512, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_f4vit"]
-atlas = ExtResource("15_gwn4o")
-region = Rect2(576, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ool51"]
-atlas = ExtResource("15_gwn4o")
-region = Rect2(640, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wab24"]
-atlas = ExtResource("15_gwn4o")
-region = Rect2(704, 0, 64, 64)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_8i4te"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nl3n0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7adc7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_or004")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ktgen")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fqdvc")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2b076")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_g4fyp")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dpub7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hnfw8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mv7gk")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lh61y")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nuuog")
-}],
-"loop": false,
-"name": &"curved",
-"speed": 60.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_cysrp")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nmatd")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wdxml")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4tr6l")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hs37i")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xojot")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8a5mc")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xxklx")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8nxi8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_f4vit")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ool51")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wab24")
-}],
-"loop": false,
-"name": &"straight",
-"speed": 60.0
-}]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_75ne5"]
-atlas = ExtResource("14_hocwk")
-region = Rect2(0, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_d6ub0"]
-atlas = ExtResource("14_hocwk")
-region = Rect2(64, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7g5kf"]
-atlas = ExtResource("14_hocwk")
-region = Rect2(128, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_281ep"]
-atlas = ExtResource("14_hocwk")
-region = Rect2(192, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_p4jby"]
-atlas = ExtResource("14_hocwk")
-region = Rect2(256, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wlx8k"]
-atlas = ExtResource("14_hocwk")
-region = Rect2(320, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ppqn8"]
-atlas = ExtResource("14_hocwk")
-region = Rect2(384, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8u5u0"]
-atlas = ExtResource("14_hocwk")
-region = Rect2(448, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bkmfu"]
-atlas = ExtResource("14_hocwk")
-region = Rect2(512, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6ua0t"]
-atlas = ExtResource("14_hocwk")
-region = Rect2(576, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_cfv0j"]
-atlas = ExtResource("14_hocwk")
-region = Rect2(640, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_w0iq7"]
-atlas = ExtResource("14_hocwk")
-region = Rect2(704, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0o1pt"]
-atlas = ExtResource("15_gwn4o")
-region = Rect2(0, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_sck1i"]
-atlas = ExtResource("15_gwn4o")
-region = Rect2(64, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_r4xrt"]
-atlas = ExtResource("15_gwn4o")
-region = Rect2(128, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kpx1t"]
-atlas = ExtResource("15_gwn4o")
-region = Rect2(192, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_un5wi"]
-atlas = ExtResource("15_gwn4o")
-region = Rect2(256, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ee42q"]
-atlas = ExtResource("15_gwn4o")
-region = Rect2(320, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0uyp7"]
-atlas = ExtResource("15_gwn4o")
-region = Rect2(384, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_huobe"]
-atlas = ExtResource("15_gwn4o")
-region = Rect2(448, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_t226f"]
-atlas = ExtResource("15_gwn4o")
-region = Rect2(512, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_uogh0"]
-atlas = ExtResource("15_gwn4o")
-region = Rect2(576, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kmfc5"]
-atlas = ExtResource("15_gwn4o")
-region = Rect2(640, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3j3or"]
-atlas = ExtResource("15_gwn4o")
-region = Rect2(704, 0, 64, 64)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_c7b0h"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_75ne5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_d6ub0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7g5kf")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_281ep")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_p4jby")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wlx8k")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ppqn8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8u5u0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bkmfu")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6ua0t")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_cfv0j")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_w0iq7")
-}],
-"loop": false,
-"name": &"curved",
-"speed": 60.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0o1pt")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_sck1i")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_r4xrt")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kpx1t")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_un5wi")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ee42q")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0uyp7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_huobe")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_t226f")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_uogh0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kmfc5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3j3or")
-}],
-"loop": false,
-"name": &"straight",
-"speed": 60.0
-}]
 
 [node name="4-7_BouncyLevel3" type="Node2D" node_paths=PackedStringArray("cameraSpot", "player", "transitionField")]
 texture_filter = 1
@@ -390,7 +27,6 @@ cameraSpot = NodePath("CenterPosition")
 cameraSize = Vector2(992, 640)
 player = NodePath("rigidPlayer")
 transitionField = NodePath("TransitionField")
-DEBUG_MODE = true
 
 [node name="Act4Bg" type="Sprite2D" parent="."]
 z_index = -100
@@ -493,91 +129,91 @@ position = Vector2(-256, 64)
 [node name="VentPath" type="Node2D" parent="VentSystem"]
 
 [node name="Vent1" type="AnimatedSprite2D" parent="VentSystem/VentPath"]
-modulate = Color(1, 1, 1, 0.494118)
+modulate = Color(1, 1, 1, 0.803922)
 z_index = 11
 z_as_relative = false
 position = Vector2(-224, -32)
-sprite_frames = SubResource("SpriteFrames_8i4te")
+sprite_frames = ExtResource("15_jf534")
 animation = &"curved"
 
 [node name="Vent2" type="AnimatedSprite2D" parent="VentSystem/VentPath"]
-modulate = Color(1, 1, 1, 0.494118)
+modulate = Color(1, 1, 1, 0.803922)
 z_index = 11
 z_as_relative = false
 position = Vector2(-160, -32)
-sprite_frames = SubResource("SpriteFrames_8i4te")
+sprite_frames = ExtResource("15_jf534")
 animation = &"curved"
 
 [node name="Vent3" type="AnimatedSprite2D" parent="VentSystem/VentPath"]
-modulate = Color(1, 1, 1, 0.494118)
+modulate = Color(1, 1, 1, 0.803922)
 z_index = 11
 z_as_relative = false
 position = Vector2(-96, -32)
-sprite_frames = SubResource("SpriteFrames_8i4te")
+sprite_frames = ExtResource("15_jf534")
 animation = &"curved"
 
 [node name="Vent4" type="AnimatedSprite2D" parent="VentSystem/VentPath"]
-modulate = Color(1, 1, 1, 0.494118)
+modulate = Color(1, 1, 1, 0.803922)
 z_index = 11
 z_as_relative = false
 position = Vector2(-32, -32)
-sprite_frames = SubResource("SpriteFrames_8i4te")
+sprite_frames = ExtResource("15_jf534")
 animation = &"curved"
 
 [node name="Vent5" type="AnimatedSprite2D" parent="VentSystem/VentPath"]
-modulate = Color(1, 1, 1, 0.494118)
+modulate = Color(1, 1, 1, 0.803922)
 z_index = 11
 z_as_relative = false
 position = Vector2(32, -32)
-sprite_frames = SubResource("SpriteFrames_8i4te")
+sprite_frames = ExtResource("15_jf534")
 animation = &"curved"
 
 [node name="Vent6" type="AnimatedSprite2D" parent="VentSystem/VentPath"]
-modulate = Color(1, 1, 1, 0.494118)
+modulate = Color(1, 1, 1, 0.803922)
 z_index = 11
 z_as_relative = false
 position = Vector2(96, -32)
-sprite_frames = SubResource("SpriteFrames_8i4te")
+sprite_frames = ExtResource("15_jf534")
 animation = &"curved"
 
 [node name="Vent7" type="AnimatedSprite2D" parent="VentSystem/VentPath"]
-modulate = Color(1, 1, 1, 0.494118)
+modulate = Color(1, 1, 1, 0.803922)
 z_index = 11
 z_as_relative = false
 position = Vector2(96, 32)
-sprite_frames = SubResource("SpriteFrames_8i4te")
+sprite_frames = ExtResource("15_jf534")
 animation = &"curved"
 
 [node name="Vent8" type="AnimatedSprite2D" parent="VentSystem/VentPath"]
-modulate = Color(1, 1, 1, 0.494118)
+modulate = Color(1, 1, 1, 0.803922)
 z_index = 11
 z_as_relative = false
 position = Vector2(96, 96)
-sprite_frames = SubResource("SpriteFrames_8i4te")
+sprite_frames = ExtResource("15_jf534")
 animation = &"curved"
 
 [node name="Vent9" type="AnimatedSprite2D" parent="VentSystem/VentPath"]
-modulate = Color(1, 1, 1, 0.494118)
+modulate = Color(1, 1, 1, 0.803922)
 z_index = 11
 z_as_relative = false
 position = Vector2(96, 160)
-sprite_frames = SubResource("SpriteFrames_8i4te")
+sprite_frames = ExtResource("15_jf534")
 animation = &"curved"
 
 [node name="Vent10" type="AnimatedSprite2D" parent="VentSystem/VentPath"]
-modulate = Color(1, 1, 1, 0.494118)
+modulate = Color(1, 1, 1, 0.803922)
 z_index = 11
 z_as_relative = false
 position = Vector2(96, 224)
-sprite_frames = SubResource("SpriteFrames_8i4te")
+sprite_frames = ExtResource("15_jf534")
 animation = &"curved"
 
 [node name="Vent11" type="AnimatedSprite2D" parent="VentSystem/VentPath"]
-modulate = Color(1, 1, 1, 0.494118)
+modulate = Color(1, 1, 1, 0.803922)
 z_index = 11
 z_as_relative = false
 position = Vector2(96, 288)
-sprite_frames = SubResource("SpriteFrames_8i4te")
+sprite_frames = ExtResource("15_jf534")
 animation = &"curved"
 
 [node name="VentSystem2" type="Node2D" parent="."]
@@ -602,67 +238,67 @@ position = Vector2(242, 26)
 [node name="VentPath" type="Node2D" parent="VentSystem2"]
 
 [node name="Vent0" type="AnimatedSprite2D" parent="VentSystem2/VentPath"]
-modulate = Color(1, 1, 1, 0.494118)
+modulate = Color(1, 1, 1, 0.803922)
 z_index = 11
 z_as_relative = false
 position = Vector2(128, 0)
-sprite_frames = SubResource("SpriteFrames_c7b0h")
+sprite_frames = ExtResource("15_jf534")
 animation = &"curved"
 
 [node name="Vent1" type="AnimatedSprite2D" parent="VentSystem2/VentPath"]
-modulate = Color(1, 1, 1, 0.494118)
+modulate = Color(1, 1, 1, 0.803922)
 z_index = 11
 z_as_relative = false
 position = Vector2(128, -64)
-sprite_frames = SubResource("SpriteFrames_c7b0h")
+sprite_frames = ExtResource("15_jf534")
 animation = &"curved"
 
 [node name="Vent2" type="AnimatedSprite2D" parent="VentSystem2/VentPath"]
-modulate = Color(1, 1, 1, 0.494118)
+modulate = Color(1, 1, 1, 0.803922)
 z_index = 11
 z_as_relative = false
 position = Vector2(64, -64)
-sprite_frames = SubResource("SpriteFrames_c7b0h")
+sprite_frames = ExtResource("15_jf534")
 animation = &"curved"
 
 [node name="Vent3" type="AnimatedSprite2D" parent="VentSystem2/VentPath"]
-modulate = Color(1, 1, 1, 0.494118)
+modulate = Color(1, 1, 1, 0.803922)
 z_index = 11
 z_as_relative = false
 position = Vector2(64, -128)
-sprite_frames = SubResource("SpriteFrames_c7b0h")
+sprite_frames = ExtResource("15_jf534")
 animation = &"curved"
 
 [node name="Vent4" type="AnimatedSprite2D" parent="VentSystem2/VentPath"]
-modulate = Color(1, 1, 1, 0.494118)
+modulate = Color(1, 1, 1, 0.803922)
 z_index = 11
 z_as_relative = false
 position = Vector2(64, -192)
-sprite_frames = SubResource("SpriteFrames_c7b0h")
+sprite_frames = ExtResource("15_jf534")
 animation = &"curved"
 
 [node name="Vent5" type="AnimatedSprite2D" parent="VentSystem2/VentPath"]
-modulate = Color(1, 1, 1, 0.494118)
+modulate = Color(1, 1, 1, 0.803922)
 z_index = 11
 z_as_relative = false
 position = Vector2(64, -256)
-sprite_frames = SubResource("SpriteFrames_c7b0h")
+sprite_frames = ExtResource("15_jf534")
 animation = &"curved"
 
 [node name="Vent6" type="AnimatedSprite2D" parent="VentSystem2/VentPath"]
-modulate = Color(1, 1, 1, 0.494118)
+modulate = Color(1, 1, 1, 0.803922)
 z_index = 11
 z_as_relative = false
 position = Vector2(128, -256)
-sprite_frames = SubResource("SpriteFrames_c7b0h")
+sprite_frames = ExtResource("15_jf534")
 animation = &"curved"
 
 [node name="Vent7" type="AnimatedSprite2D" parent="VentSystem2/VentPath"]
-modulate = Color(1, 1, 1, 0.494118)
+modulate = Color(1, 1, 1, 0.803922)
 z_index = 11
 z_as_relative = false
 position = Vector2(192, -256)
-sprite_frames = SubResource("SpriteFrames_c7b0h")
+sprite_frames = ExtResource("15_jf534")
 animation = &"curved"
 
 [node name="SecurityBall" parent="." instance=ExtResource("16_obj0o")]

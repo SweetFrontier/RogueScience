@@ -161,7 +161,7 @@ lightningScene = ExtResource("4_omhlq")
 [node name="ElectrodeSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, 4)
 sprite_frames = SubResource("SpriteFrames_4wphf")
-animation = &"locked"
+animation = &"on"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 3)

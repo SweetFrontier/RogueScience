@@ -1,27 +1,39 @@
-[gd_scene load_steps=11 format=3 uid="uid://bhlldrm76206b"]
+[gd_scene load_steps=14 format=3 uid="uid://bhlldrm76206b"]
 
 [ext_resource type="Script" path="res://Scripts/Triggers/powerTrigger.gd" id="1_mjjyn"]
-[ext_resource type="Texture2D" uid="uid://dhxujgdhvharw" path="res://Art/TriggerArt/PowerSource/plhPowerSourceOff.png" id="2_18ql1"]
-[ext_resource type="Texture2D" uid="uid://c3fwwq7g3flaw" path="res://Art/TriggerArt/PowerSource/plhPowerSourceOn.png" id="3_tg7rd"]
+[ext_resource type="Texture2D" uid="uid://76b2g3aap4t5" path="res://Art/TriggerArt/PowerSource/PowerSourceOff.png" id="2_xc4hs"]
+[ext_resource type="Texture2D" uid="uid://de7gccklglw06" path="res://Art/TriggerArt/PowerSource/PowerSourceOn.png" id="3_487w1"]
 [ext_resource type="PackedScene" uid="uid://djjr177758y2h" path="res://Scenes/Triggers/Trigger_Helpers/triggerKey.tscn" id="7_mfrf3"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1b4r5"]
-atlas = ExtResource("2_18ql1")
+[sub_resource type="AtlasTexture" id="AtlasTexture_xtfu7"]
+atlas = ExtResource("2_xc4hs")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_un80p"]
-atlas = ExtResource("2_18ql1")
+[sub_resource type="AtlasTexture" id="AtlasTexture_luylr"]
+atlas = ExtResource("2_xc4hs")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4eofh"]
-atlas = ExtResource("3_tg7rd")
+[sub_resource type="AtlasTexture" id="AtlasTexture_ouewd"]
+atlas = ExtResource("3_487w1")
 region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ff8g7"]
+atlas = ExtResource("3_487w1")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fsdfo"]
+atlas = ExtResource("3_487w1")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_acibc"]
+atlas = ExtResource("3_487w1")
+region = Rect2(192, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5ygn1"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_1b4r5")
+"texture": SubResource("AtlasTexture_xtfu7")
 }],
 "loop": true,
 "name": &"locked",
@@ -29,7 +41,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_un80p")
+"texture": SubResource("AtlasTexture_luylr")
 }],
 "loop": true,
 "name": &"off",
@@ -37,11 +49,20 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4eofh")
+"texture": SubResource("AtlasTexture_ouewd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ff8g7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fsdfo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_acibc")
 }],
-"loop": true,
+"loop": false,
 "name": &"on",
-"speed": 5.0
+"speed": 20.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ffuhi"]
@@ -61,6 +82,8 @@ z_index = 3
 z_as_relative = false
 sprite_frames = SubResource("SpriteFrames_5ygn1")
 animation = &"on"
+frame = 3
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_ffuhi")
@@ -75,4 +98,5 @@ shape = SubResource("RectangleShape2D_tjonp")
 [node name="TriggerKeySprite" parent="." instance=ExtResource("7_mfrf3")]
 position = Vector2(0, 64)
 
+[connection signal="frame_changed" from="PowerSourceSprite" to="." method="onPowerSourceSpriteFrameChanged"]
 [connection signal="area_shape_entered" from="WireDetection" to="." method="onAdjacentConduitFound"]

@@ -24,7 +24,6 @@ func changeLevel():
 
 func shrinkPlayerCollisionEntered(body):
 	if (body is rigidPlayer):
-		body as rigidPlayer
 		if body.dead:
 			return
 		body.z_index = -40

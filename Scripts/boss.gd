@@ -13,6 +13,7 @@ class_name boss
 @export var frontDetector: Area2D
 @export var arcDetector: Area2D
 @export var lightningScene: PackedScene
+@export var bossSounds : AudioStreamPlayer2D
 @export var zappySound : AudioStreamPlayer2D
 
 var currDirection = Vector2.RIGHT
@@ -44,6 +45,9 @@ enum BossState
 	EATING,
 	BEINGCONTROLLED
 }
+
+const rawr = preload("res://Sounds/boss/rawr.ogg")
+const munch = preload("res://Sounds/boss/swollow.ogg")
 
 func _ready():
 	currState = BossState.BEINGCONTROLLED
@@ -136,6 +140,9 @@ func hitSomethingEatable(body):
 		eatingTarget.reset()
 	currState = BossState.EATING
 	velocity.x = lurchAmount * currDirection.x
+	bossSounds.stream = munch
+	bossSounds.volume_db = 5
+	bossSounds.play()
 	
 func hitSomethingEatableArea(_area_rid, area, _area_shape_index, _local_shape_index):
 	hitSomethingEatable(area)
@@ -229,3 +236,10 @@ func calc_fan_forces(fans:Array[fanTrigger]):
 		fan_linear_velocity += (fan.direction * force).clamp(Vector2(-maxSingleFanVelocity,-maxSingleFanVelocity), Vector2(maxSingleFanVelocity,maxSingleFanVelocity))
 	fan_linear_velocity = fan_linear_velocity.clamp(Vector2(-maxFanVelocity,-maxFanVelocity), Vector2(maxFanVelocity,maxFanVelocity))
 	return fan_linear_velocity
+
+
+func do_the_roar(pitch:float=1.0):
+	bossSounds.stream = rawr
+	bossSounds.pitch_scale = pitch
+	bossSounds.volume_db = 0
+	bossSounds.play()

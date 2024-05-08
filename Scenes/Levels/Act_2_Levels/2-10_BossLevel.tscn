@@ -9,7 +9,7 @@
 [ext_resource type="TileSet" uid="uid://bfybbk5ql7iod" path="res://Art/TileSets/effectsTileSet.tres" id="7_h041y"]
 [ext_resource type="AnimationLibrary" uid="uid://boe0opwg5u6p7" path="res://Animations/globalAnimations.res" id="8_wrydg"]
 [ext_resource type="PackedScene" uid="uid://dvbyxsl5e3ol8" path="res://Scenes/Triggers/Trigger_Helpers/TransitionField.tscn" id="9_xh86y"]
-[ext_resource type="AnimationLibrary" uid="uid://c5by4jkw2sbuc" path="res://Animations/2-10.res" id="9_xry0t"]
+[ext_resource type="AnimationLibrary" path="res://Animations/2-10.res" id="9_xry0t"]
 [ext_resource type="PackedScene" uid="uid://dd6l6fhpuajke" path="res://Scenes/rigidPlayer.tscn" id="10_l2oa6"]
 [ext_resource type="PackedScene" uid="uid://dx47yma3wfoi6" path="res://Scenes/boss.tscn" id="11_r5ave"]
 [ext_resource type="PackedScene" uid="uid://dpeaoe3ad3ahy" path="res://Scenes/Triggers/Trigger_Helpers/brokenVat.tscn" id="12_ekn5j"]
@@ -2472,7 +2472,7 @@ enabled = false
 zoom = Vector2(3, 3)
 
 [node name="Boss" parent="." instance=ExtResource("11_r5ave")]
-position = Vector2(128, 688)
+position = Vector2(224, 688)
 speed = 7500.0
 stickyMultiplier = 0.4
 currState = 2

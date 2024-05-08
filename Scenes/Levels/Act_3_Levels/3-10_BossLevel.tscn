@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://dpob3en16yi3e"]
+[gd_scene load_steps=39 format=3 uid="uid://dpob3en16yi3e"]
 
 [ext_resource type="Script" path="res://Scripts/levelController.gd" id="1_ksx48"]
 [ext_resource type="Texture2D" uid="uid://d34hymtsr1qlu" path="res://Art/Backgrounds/Act3_BG.png" id="2_05s43"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://dpeaoe3ad3ahy" path="res://Scenes/Triggers/Trigger_Helpers/brokenVat.tscn" id="13_m10j5"]
 [ext_resource type="Script" path="res://Scripts/triggerHolder.gd" id="14_3bsyv"]
 [ext_resource type="PackedScene" uid="uid://b7levwy0h2j7v" path="res://Scenes/Triggers/Trigger_Helpers/Conduits/electrode.tscn" id="14_3r1oa"]
+[ext_resource type="AudioStream" uid="uid://bdqnimjnnhpqg" path="res://Sounds/boss/rawr.ogg" id="14_afw66"]
 [ext_resource type="AudioStream" uid="uid://dt8j5wewaihi3" path="res://Sounds/teleportation.ogg" id="14_aur3l"]
 [ext_resource type="PackedScene" uid="uid://dlkccgjxhbsdg" path="res://Scenes/Triggers/magnetTrigger.tscn" id="14_ha1aw"]
 [ext_resource type="PackedScene" uid="uid://bhxvnemhaxas4" path="res://Scenes/Triggers/Trigger_Helpers/Conduits/WireRightAngle.tscn" id="16_jib6v"]
@@ -2503,7 +2504,7 @@ position = Vector2(2816, 1312)
 bossLevel = true
 
 [node name="rigidPlayer" parent="." instance=ExtResource("11_suu7t")]
-position = Vector2(2656, 624)
+position = Vector2(2643, 624)
 metadata/_edit_group_ = true
 
 [node name="Camera2D" type="Camera2D" parent="rigidPlayer"]
@@ -2520,6 +2521,10 @@ metadata/_edit_group_ = true
 
 [node name="BossSprite" parent="Boss" index="0"]
 position = Vector2(0, 1)
+
+[node name="bosssounds" parent="Boss" index="5"]
+stream = ExtResource("14_afw66")
+pitch_scale = 2.0
 
 [node name="zappysound" type="AudioStreamPlayer2D" parent="Boss"]
 stream = ExtResource("14_aur3l")

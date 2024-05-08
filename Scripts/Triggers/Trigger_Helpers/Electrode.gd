@@ -9,6 +9,7 @@ class_name electrode
 @export var startLocked: bool = false
 @export var one_shot: bool = false
 @export var lightningScene: PackedScene
+@export var Sound: AudioStreamPlayer2D
 
 signal striking
 
@@ -114,6 +115,8 @@ func outputElectrode():
 			secSinceStrike = 0
 			lightning.show_lightning()
 			cb.power(self)
+			Sound.play()
+			emit_signal("striking")
 
 func onElectrodeSpriteFrameChanged():
 	if electrodeSprite.animation == stateToAnimString[PowerState.ON]:

@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://bvxwld4fu1vc0"]
+[gd_scene load_steps=3 format=3 uid="uid://bvxwld4fu1vc0"]
 
 [ext_resource type="Script" path="res://Scripts/Triggers/Trigger_Helpers/lightning.gd" id="1_p7c6a"]
-[ext_resource type="AudioStream" uid="uid://dt8j5wewaihi3" path="res://Sounds/teleportation.ogg" id="2_tg7fi"]
 
 [sub_resource type="Environment" id="Environment_h1llk"]
 background_mode = 3
@@ -11,13 +10,12 @@ glow_strength = 1.46
 glow_blend_mode = 0
 glow_hdr_threshold = 2.0
 
-[node name="lightning" type="Node2D" node_paths=PackedStringArray("boltsArray", "Sound")]
+[node name="lightning" type="Node2D" node_paths=PackedStringArray("boltsArray")]
 modulate = Color(1.4, 1.4, 1.4, 1)
 z_index = 75
 z_as_relative = false
 script = ExtResource("1_p7c6a")
 boltsArray = [NodePath("Bolt"), NodePath("Bolt2"), NodePath("Bolt3"), NodePath("Bolt4"), NodePath("Bolt5")]
-Sound = NodePath("AudioStreamPlayer2D")
 jaggedness_max = 6
 jaggedness_min = 3
 jaggedness_scale = 2
@@ -46,7 +44,3 @@ texture_mode = 2
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_h1llk")
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("2_tg7fi")
-bus = &"electricity"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://dpob3en16yi3e"]
+[gd_scene load_steps=38 format=3 uid="uid://dpob3en16yi3e"]
 
 [ext_resource type="Script" path="res://Scripts/levelController.gd" id="1_ksx48"]
 [ext_resource type="Texture2D" uid="uid://d34hymtsr1qlu" path="res://Art/Backgrounds/Act3_BG.png" id="2_05s43"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://dpeaoe3ad3ahy" path="res://Scenes/Triggers/Trigger_Helpers/brokenVat.tscn" id="13_m10j5"]
 [ext_resource type="Script" path="res://Scripts/triggerHolder.gd" id="14_3bsyv"]
 [ext_resource type="PackedScene" uid="uid://b7levwy0h2j7v" path="res://Scenes/Triggers/Trigger_Helpers/Conduits/electrode.tscn" id="14_3r1oa"]
+[ext_resource type="AudioStream" uid="uid://dt8j5wewaihi3" path="res://Sounds/teleportation.ogg" id="14_aur3l"]
 [ext_resource type="PackedScene" uid="uid://dlkccgjxhbsdg" path="res://Scenes/Triggers/magnetTrigger.tscn" id="14_ha1aw"]
 [ext_resource type="PackedScene" uid="uid://bhxvnemhaxas4" path="res://Scenes/Triggers/Trigger_Helpers/Conduits/WireRightAngle.tscn" id="16_jib6v"]
 [ext_resource type="PackedScene" uid="uid://cb4i64k02myvh" path="res://Scenes/Triggers/Trigger_Helpers/MagneticObjects/MagneticFellaBox.tscn" id="16_kfsi0"]
@@ -2509,15 +2510,20 @@ metadata/_edit_group_ = true
 enabled = false
 zoom = Vector2(3, 3)
 
-[node name="Boss" parent="." instance=ExtResource("12_ktcuj")]
+[node name="Boss" parent="." node_paths=PackedStringArray("zappySound") instance=ExtResource("12_ktcuj")]
 position = Vector2(2976, 560)
 speed = 10000.0
 stickyMultiplier = 0.4
 currState = 2
+zappySound = NodePath("zappysound")
 metadata/_edit_group_ = true
 
 [node name="BossSprite" parent="Boss" index="0"]
 position = Vector2(0, 1)
+
+[node name="zappysound" type="AudioStreamPlayer2D" parent="Boss"]
+stream = ExtResource("14_aur3l")
+bus = &"electricity"
 
 [node name="brokenVat" parent="." instance=ExtResource("13_m10j5")]
 position = Vector2(2656, 608)

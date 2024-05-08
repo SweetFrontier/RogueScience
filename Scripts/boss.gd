@@ -13,6 +13,7 @@ class_name boss
 @export var frontDetector: Area2D
 @export var arcDetector: Area2D
 @export var lightningScene: PackedScene
+@export var zappySound : AudioStreamPlayer2D
 
 var currDirection = Vector2.RIGHT
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity") * 5
@@ -203,6 +204,7 @@ func outputElectrode():
 			lightning.toPos = cb
 			lightning.lightning_strike()
 			makeLightning = true
+			zappySound.play()
 			secSinceStrike = 0
 			lightning.show_lightning()
 			cb.power(self)

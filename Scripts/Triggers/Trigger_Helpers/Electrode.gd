@@ -116,7 +116,7 @@ func outputElectrode():
 			lightning.show_lightning()
 			cb.power(self)
 			Sound.play()
-			emit_signal("striking")
+			#emit_signal("striking")
 
 func onElectrodeSpriteFrameChanged():
 	if electrodeSprite.animation == stateToAnimString[PowerState.ON]:

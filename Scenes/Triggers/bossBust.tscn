@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://y8dfhgu6weto"]
+
+[ext_resource type="Script" path="res://Scripts/Triggers/BossBust.gd" id="1_2bpef"]
+[ext_resource type="Texture2D" uid="uid://cc20uydlwbe8d" path="res://Art/TriggerArt/GoldenHead/BossBust.png" id="2_8tfr4"]
+[ext_resource type="PackedScene" uid="uid://djjr177758y2h" path="res://Scenes/Triggers/Trigger_Helpers/triggerKey.tscn" id="3_lkj5t"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pqbev"]
+atlas = ExtResource("2_8tfr4")
+region = Rect2(0, 0, 192, 168)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0kf0a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pqbev")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="BossBust" type="Node2D" node_paths=PackedStringArray("bustSprite", "TriggerKeySprite")]
+script = ExtResource("1_2bpef")
+shakeStrength = 5.0
+crushThreshold = 5
+bustSprite = NodePath("BossBust")
+TriggerKeySprite = NodePath("TriggerKeySprite")
+
+[node name="BossBust" type="AnimatedSprite2D" parent="."]
+z_index = 97
+z_as_relative = false
+scale = Vector2(1.33333, 1.33333)
+sprite_frames = SubResource("SpriteFrames_0kf0a")
+
+[node name="TriggerKeySprite" parent="." instance=ExtResource("3_lkj5t")]
+modulate = Color(5, 3.3, 1, 1)
+position = Vector2(0, 144)

@@ -16,7 +16,6 @@
 [ext_resource type="Texture2D" uid="uid://jpu527egq8o1" path="res://Art/TriggerArt/GooVat/GooTank64x64.png" id="12_wgb53"]
 [ext_resource type="Script" path="res://Scripts/Triggers/Trigger_Helpers/explodeablePolygon.gd" id="13_8mf58"]
 [ext_resource type="PackedScene" uid="uid://dpeaoe3ad3ahy" path="res://Scenes/Triggers/Trigger_Helpers/brokenVat.tscn" id="13_hanh6"]
-[ext_resource type="Texture2D" uid="uid://cc20uydlwbe8d" path="res://Art/TriggerArt/GoldenHead/BossBust.png" id="15_hs71m"]
 [ext_resource type="SpriteFrames" uid="uid://uoxtfmfhh7ft" path="res://Art/SpriteFrames/fellaAnims.tres" id="15_nib1r"]
 [ext_resource type="Script" path="res://Scripts/triggerHolder.gd" id="15_peput"]
 [ext_resource type="PackedScene" uid="uid://b8japh5crdt7v" path="res://Scenes/Triggers/fanTrigger.tscn" id="16_j5yrn"]
@@ -24,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://dnqoj4eg2l7le" path="res://Scenes/Triggers/trampolineTrigger.tscn" id="23_j6p43"]
 [ext_resource type="PackedScene" uid="uid://djb81orxw62lt" path="res://Scenes/Triggers/BreakableBlocks/64x64breakableBlock.tscn" id="23_xussc"]
 [ext_resource type="PackedScene" uid="uid://biw5iomco5lst" path="res://Scenes/Triggers/ventTrigger.tscn" id="24_supnx"]
+[ext_resource type="PackedScene" uid="uid://y8dfhgu6weto" path="res://Scenes/Triggers/bossBust.tscn" id="25_ctv4r"]
 [ext_resource type="SpriteFrames" uid="uid://icuxxqgcpr0s" path="res://Art/SpriteFrames/ventSystem.tres" id="25_wqqbp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vytr0"]
@@ -2480,7 +2480,7 @@ player = NodePath("rigidPlayer")
 transitionField = NodePath("TransitionField")
 theBoss = NodePath("Boss")
 sequencePlayer = NodePath("SequencePlayer")
-introAnimationName = "4-10/Begin"
+introAnimationName = "4-10/Beginn"
 endAnimationName = "4-10/End"
 
 [node name="Act4Bg" type="Sprite2D" parent="."]
@@ -2518,12 +2518,9 @@ position = Vector2(-160, 128)
 [node name="TransitionField" parent="." instance=ExtResource("10_fnun8")]
 position = Vector2(1648, 1056)
 bossLevel = true
-metadata/_edit_lock_ = true
-
-[node name="VatFrame" parent="TransitionField" index="1"]
-visible = false
 
 [node name="Polygon2D" type="Polygon2D" parent="TransitionField"]
+visible = false
 z_index = 20
 z_as_relative = false
 texture_filter = 1
@@ -2546,21 +2543,23 @@ y_min_distance = -10
 time_to_form = 0.5
 
 [node name="rigidPlayer" parent="." instance=ExtResource("11_x8vlb")]
-position = Vector2(2688, 1552)
+position = Vector2(544, 1060)
 metadata/_edit_group_ = true
 
 [node name="Camera2D" type="Camera2D" parent="rigidPlayer"]
 enabled = false
-zoom = Vector2(3, 3)
 position_smoothing_speed = 30.0
 
 [node name="Boss" parent="." instance=ExtResource("12_i30kf")]
-position = Vector2(2368, 1488)
+position = Vector2(864, 1200)
 speed = 6100.0
 stickyMultiplier = 0.4
 lurchAmount = 300
 currState = 2
 metadata/_edit_group_ = true
+
+[node name="BossLightning" parent="Boss" index="3"]
+metadata/_edit_lock_ = true
 
 [node name="brokenVat" parent="." instance=ExtResource("13_hanh6")]
 position = Vector2(2688, 1536)
@@ -3645,7 +3644,6 @@ position = Vector2(512, 896)
 [node name="trampolineTrigger" parent="SidePuzzle" instance=ExtResource("23_j6p43")]
 position = Vector2(704, 1072)
 rotation = 0.479966
-scale = Vector2(1, 1)
 jump_force = 1165.0
 instantSetup = true
 
@@ -3659,10 +3657,9 @@ scale = Vector2(4, 4)
 sprite_frames = ExtResource("15_nib1r")
 animation = &"chillinInTrigger"
 
-[node name="BossBust" type="Sprite2D" parent="BugSquash"]
+[node name="BossBust" parent="BugSquash" instance=ExtResource("25_ctv4r")]
 position = Vector2(2016, 944)
-scale = Vector2(1.33333, 1.33333)
-texture = ExtResource("15_hs71m")
+dropAnimationName = "4-10/BossCrush"
 
 [connection signal="body_entered" from="FlyingUpPuzzle/VentSystem/ventTrigger/VentEntrance/InsideCheckVentArea" to="." method="playerCallSequence" binds= ["4-10/VentCameraSequence"]]
 [connection signal="body_entered" from="FlyingUpPuzzle/FakeBossFan" to="." method="bossCallSequence" binds= ["4-10/FakeBossFan"]]
@@ -3702,3 +3699,4 @@ texture = ExtResource("15_hs71m")
 [editable path="SidePuzzle/fanTrigger"]
 [editable path="SidePuzzle/fanTrigger2"]
 [editable path="SidePuzzle/fanTrigger3"]
+[editable path="BugSquash/BossBust"]

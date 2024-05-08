@@ -72,7 +72,6 @@ func _physics_process(delta):
 		# Add the gravity.
 		if not is_on_floor():
 			velocity.y += gravity * delta * gravity_scale
-		
 		if is_on_wall():
 			currDirection.x = -currDirection.x
 			collisionShape.position.x = -collisionShape.position.x

@@ -34,6 +34,8 @@ func _ready():
 			child.connect("randomize_block_keys_signal", randomize_block_keys)
 			if child is magnetTrigger:
 				magnetTriggers.append(child)
+			elif child is bossBust:
+				child.connect("drop_boss_bust_signal", startSequence)
 		elif child is movingObject:
 			child.hide()
 			movingObjects.append(child)

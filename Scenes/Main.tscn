@@ -218,8 +218,10 @@ metadata/_edit_lock_ = true
 
 [node name="Levels" type="Node2D" parent="."]
 process_mode = 4
+position = Vector2(-6656, -3641)
 
 [node name="Act_1" type="Node2D" parent="Levels"]
+position = Vector2(-1, -7)
 
 [node name="1-1_BreakableIntro" parent="Levels/Act_1" instance=ExtResource("3_w85st")]
 position = Vector2(0, 160)
@@ -346,10 +348,9 @@ position = Vector2(8128, 32)
 position = Vector2(9984, 0)
 
 [node name="4-10_BossLevel" parent="Levels/Act_4" instance=ExtResource("41_80h12")]
-position = Vector2(11584, -608)
+position = Vector2(11406, -384)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(164, -103)
 zoom = Vector2(2.667, 2.875)
 position_smoothing_speed = 0.8
 

@@ -114,16 +114,29 @@ func increase_level() -> void:
 		GlobalVariables.unlockedLevel = current_level
 		GlobalVariables.give_free_cookies()
 	
+	print("called")
 	if(current_level >= Levels.size()):
 		pauseMenu.set_pausability(false)
 		musicPlayer.fadeOut()
-		resetWipeTransitionContoller.cover_screen()
+		Transition.modulate = Color(4,1.5,1)
+		
+		GlobalVariables.finishedTheGame = true
+		
+		Transition.show()
+		Transition.play("CoverScreen")
+		Transition.get_child(0).play()
+		
+		await(Transition.animation_finished)
+		print("to credits")
+		screen_wipe_covered()
+		#resetWipeTransitionContoller.cover_screen()
 		return
 	var min_zoom_size : Vector2 =  Levels[current_level].cameraSize
 	var final_zoom_size = minf(1280/min_zoom_size.x,736/min_zoom_size.y)
 	
 	pauseMenu.set_pausability(false)
 	
+	Transition.modulate = Color(1,1,1)
 	Transition.show()
 	Transition.play("CoverScreen")
 	Transition.get_child(0).play()
@@ -169,55 +182,6 @@ func increase_level() -> void:
 	await(Transition.animation_finished)
 	Transition.hide()
 
-func decrease_level() -> void:
-	if current_level == 0:
-		return
-	#tell player to be silent
-	Levels[current_level].player.won_level_silence()
-	#Next level
-	current_level -= 1
-	GlobalVariables.currentLevel = current_level-1
-	#set global unlocked levels to up to this one
-	if (GlobalVariables.unlockedLevel > current_level):
-		GlobalVariables.unlockedLevel = current_level
-		GlobalVariables.give_free_cookies()
-	
-	var min_zoom_size : Vector2 =  Levels[current_level].cameraSize
-	var final_zoom_size = minf(1280/min_zoom_size.x,736/min_zoom_size.y)
-	
-	pauseMenu.set_pausability(false)
-	
-	Transition.show()
-	Transition.play("CoverScreen")
-	Transition.get_child(0).play()
-	
-	await(Transition.animation_finished)
-	
-	#tell last level it ended
-	Levels[current_level+1].levelEnded()
-	
-	#freeze last level
-	Levels[current_level+1].process_mode = Node.PROCESS_MODE_DISABLED
-	
-	#move camera and change zoom
-	camera.position = Levels[current_level].cameraSpot.global_position
-	camera.set_zoom(Vector2(final_zoom_size, final_zoom_size))
-	
-	# set music
-	if (current_level == 8):
-		musicPlayer.changeMusic("midlevels");
-	elif (current_level == 14):
-		musicPlayer.changeMusic("intense");
-	
-	Levels[current_level].process_mode = Node.PROCESS_MODE_PAUSABLE
-	pauseMenu.set_pausability(true)
-	Levels[current_level].reset()
-	
-	#uncover screen
-	Transition.play("UncoverScreen");
-	await(Transition.animation_finished)
-	Transition.hide()
-
 func resetLevel() -> void:
 	#If the level is a boss level, relinquish control of the camera
 	if Levels[current_level].theBoss != null:
@@ -250,5 +214,3 @@ func _input(event):
 	if event is InputEventKey and event.is_released() and event.shift_pressed:
 		if event.keycode == KEY_PERIOD:
 			increase_level()
-		elif event.keycode == KEY_SLASH:
-			decrease_level()

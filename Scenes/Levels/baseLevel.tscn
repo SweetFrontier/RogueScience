@@ -1,89 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://chdimhy523yjr"]
+[gd_scene load_steps=8 format=3 uid="uid://chdimhy523yjr"]
 
 [ext_resource type="Script" path="res://Scripts/levelController.gd" id="1_sq30v"]
 [ext_resource type="Texture2D" uid="uid://co8uauh0qhq5a" path="res://Art/Backgrounds/Act1_BG.png" id="2_5a8wq"]
 [ext_resource type="TileSet" uid="uid://bnpggr5480t5q" path="res://Art/TileSets/initialTileSet.tres" id="3_300e8"]
 [ext_resource type="PackedScene" uid="uid://dvbyxsl5e3ol8" path="res://Scenes/Triggers/Trigger_Helpers/TransitionField.tscn" id="4_2dgv3"]
 [ext_resource type="PackedScene" uid="uid://dd6l6fhpuajke" path="res://Scenes/rigidPlayer.tscn" id="5_e3vkr"]
-[ext_resource type="Texture2D" uid="uid://b6po2nrkyuixx" path="res://Art/Spritesheets/plhBossSheet.png" id="6_4cwu5"]
 [ext_resource type="PackedScene" uid="uid://dpeaoe3ad3ahy" path="res://Scenes/Triggers/Trigger_Helpers/brokenVat.tscn" id="7_7gvg2"]
-
-[sub_resource type="Animation" id="Animation_ryhsf"]
-resource_name = "1-10_BossIntro"
-length = 3.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("rigidPlayer/Camera2D:zoom")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1, 2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(3, 3), Vector2(3, 3), Vector2(1.25, 1.25)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("rigidPlayer/Camera2D:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1, 1.9, 2.2, 3),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(0, 0), Vector2(-378, -48), Vector2(-378, -48), Vector2(0, 0)]
-}
-tracks/2/type = "method"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("rigidPlayer")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 1, 2.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"values": [{
-"args": [null],
-"method": &"movement_overwritten"
-}, {
-"args": [Vector2(-1, 0)],
-"method": &"changeDirection"
-}, {
-"args": [],
-"method": &"free_movement"
-}]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("rigidPlayer:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 2.4, 2.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(602, 752), Vector2(602, 752), Vector2(602, 752)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("PlhBossSheet:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 1.8, 1.9, 2, 2.1, 2.2, 2.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(224, 688), Vector2(224, 688), Vector2(216, 688), Vector2(232, 680), Vector2(216, 704), Vector2(200, 680), Vector2(224, 688)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_40ydq"]
-_data = {
-"1-10_BossIntro": SubResource("Animation_ryhsf")
-}
+[ext_resource type="PackedScene" uid="uid://y8dfhgu6weto" path="res://Scenes/Triggers/bossBust.tscn" id="7_rpmg7"]
 
 [node name="baseLevel" type="Node2D" node_paths=PackedStringArray("cameraSpot", "player", "transitionField")]
 texture_filter = 1
@@ -92,7 +15,6 @@ cameraSpot = NodePath("CenterPosition")
 cameraSize = Vector2(1920, 1080)
 player = NodePath("rigidPlayer")
 transitionField = NodePath("TransitionField")
-DEBUG_MODE = true
 
 [node name="Act1Bg" type="Sprite2D" parent="."]
 z_index = -100
@@ -105,7 +27,7 @@ z_index = -95
 z_as_relative = false
 tile_set = ExtResource("3_300e8")
 format = 2
-layer_0/tile_data = PackedInt32Array(720925, 65537, 1, 655390, 65537, 1, 589855, 65537, 1, 655388, 65537, 1, 589853, 65537, 1, 524318, 65537, 1, 524316, 65537, 1, 458781, 65537, 1, 393246, 65537, 1, 589851, 65537, 1, 524314, 65537, 1, 458779, 65537, 1, 393244, 65537, 1, 327709, 65537, 1, 262174, 65537, 1, 196637, 65537, 1, 262172, 65537, 1, 327707, 65537, 1, 393242, 65537, 1, 458777, 65537, 1, 393240, 65537, 1, 327705, 65537, 1, 262170, 65537, 1, 196635, 65537, 1, 131100, 65537, 1, 65563, 65537, 1, 131098, 65537, 1, 196633, 65537, 1, 262168, 65537, 1, 327703, 65537, 1, 393238, 65537, 1, 458775, 65537, 1, 524312, 65537, 1, 589849, 65537, 1, 655386, 65537, 1, 720923, 65537, 1, 786460, 65537, 1, 851995, 65537, 1, 786458, 65537, 1, 720921, 65537, 1, 655384, 65537, 1, 589847, 65537, 1, 524310, 65537, 1, 458773, 65537, 1, 851993, 65537, 1, 786456, 65537, 1, 720919, 65537, 1, 655382, 65537, 1, 589845, 65537, 1, 524308, 65537, 1, 458771, 65537, 1, 393236, 65537, 1, 327699, 65537, 1, 262164, 65537, 1, 327701, 65537, 1, 196629, 65537, 1, 262166, 65537, 1, 131094, 65537, 1, 196631, 65537, 1, 131096, 65537, 1, 65559, 65537, 1, 65561, 65537, 1, 24, 65537, 1, -65511, 65537, 1, 26, 65537, 1, 393234, 65537, 1, 851991, 65537, 1, 786454, 65537, 1, 720917, 65537, 1, 786452, 65537, 1, 720915, 65537, 1, 655380, 65537, 1, 655378, 65537, 1, 720913, 65537, 1, 589843, 65537, 1, 524306, 65537, 1, 589841, 65537, 1, 655376, 65537, 1, 458769, 65537, 1, 524304, 65537, 1, 589839, 65537, 1, 589837, 65537, 1, 524302, 65537, 1, 458767, 65537, 1, 393232, 65537, 1, 327697, 65537, 1, 262162, 65537, 1, 196627, 65537, 1, 131092, 65537, 1, 65557, 65537, 1, 22, 65537, 1, -65513, 65537, 1, -131048, 65537, 1)
+layer_0/tile_data = PackedInt32Array(720925, 65537, 1, 655390, 65537, 1, 589855, 65537, 1, 655388, 65537, 1, 589853, 65537, 1, 524318, 65537, 1, 524316, 65537, 1, 458781, 65537, 1, 393246, 65537, 1, 589851, 65537, 1, 524314, 65537, 1, 458779, 65537, 1, 393244, 65537, 1, 327709, 65537, 1, 262174, 65537, 1, 196637, 65537, 1, 262172, 65537, 1, 327707, 65537, 1, 393242, 65537, 1, 458777, 65537, 1, 393240, 65537, 1, 327705, 65537, 1, 262170, 65537, 1, 196635, 65537, 1, 131100, 65537, 1, 65563, 65537, 1, 131098, 65537, 1, 196633, 65537, 1, 262168, 65537, 1, 327703, 65537, 1, 393238, 65537, 1, 458775, 65537, 1, 524312, 65537, 1, 589849, 65537, 1, 655386, 65537, 1, 720923, 65537, 1, 786460, 65537, 1, 851995, 65537, 1, 786458, 65537, 1, 720921, 65537, 1, 655384, 65537, 1, 589847, 65537, 1, 524310, 65537, 1, 458773, 65537, 1, 851993, 65537, 1, 786456, 65537, 1, 720919, 65537, 1, 655382, 65537, 1, 589845, 65537, 1, 524308, 65537, 1, 458771, 65537, 1, 393236, 65537, 1, 327699, 65537, 1, 262164, 65537, 1, 327701, 65537, 1, 196629, 65537, 1, 262166, 65537, 1, 131094, 65537, 1, 196631, 65537, 1, 131096, 65537, 1, 65559, 65537, 1, 65561, 65537, 1, 24, 65537, 1, -65511, 65537, 1, 26, 65537, 1, 393234, 65537, 1, 851991, 65537, 1, 786454, 65537, 1, 720917, 65537, 1, 786452, 65537, 1, 720915, 65537, 1, 655380, 65537, 1, 655378, 65537, 1, 720913, 65537, 1, 589843, 65537, 1, 524306, 65537, 1, 589841, 65537, 1, 655376, 65537, 1, 458769, 65537, 1, 524304, 65537, 1, 589839, 65537, 1, 589837, 65537, 1, 524302, 65537, 1, 458767, 65537, 1, 393232, 65537, 1, 327697, 65537, 1, 262162, 65537, 1, 196627, 65537, 1, 131092, 65537, 1, 65557, 65537, 1, 22, 65537, 1, -65513, 65537, 1, -131048, 65537, 1, 1507348, 458755, 0, 1507343, 458755, 0)
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("3_300e8")
@@ -122,18 +44,10 @@ position = Vector2(-104, 424)
 position = Vector2(602, 752)
 
 [node name="Camera2D" type="Camera2D" parent="rigidPlayer"]
-zoom = Vector2(3, 3)
-
-[node name="PlhBossSheet" type="Sprite2D" parent="."]
-position = Vector2(224, 688)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("6_4cwu5")
+zoom = Vector2(1.25, 1.25)
 
 [node name="brokenVat" parent="." instance=ExtResource("7_7gvg2")]
 position = Vector2(576, 736)
 
-[node name="SequencePlayer" type="AnimationPlayer" parent="."]
-autoplay = "1-10_BossIntro"
-libraries = {
-"": SubResource("AnimationLibrary_40ydq")
-}
+[node name="BossBust" parent="." instance=ExtResource("7_rpmg7")]
+position = Vector2(832, 688)

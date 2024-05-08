@@ -4,8 +4,10 @@ extends Node
 var currentLevel : int = 1
 var unlockedLevel : int = 0
 var numLevels : int = 40
+var finishedTheGame : bool = false
 
 func _ready():
+	finishedTheGame = false
 	var save_file = FileAccess.open("user://rogue_science.save", FileAccess.READ)
 	if (save_file != null):
 		unlockedLevel = save_file.get_as_text().to_int()

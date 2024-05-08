@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/fanswishy.ogg-cb8c9e7b2b4311ed3c010497b851c80
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

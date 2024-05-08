@@ -2553,10 +2553,9 @@ position_smoothing_speed = 30.0
 
 [node name="Boss" parent="." instance=ExtResource("12_i30kf")]
 position = Vector2(2368, 1488)
-speed = 6100.0
+speed = 7450.0
 stickyMultiplier = 0.4
 lurchAmount = 300
-currState = 2
 metadata/_edit_group_ = true
 
 [node name="BossLightning" parent="Boss" index="3"]
@@ -3578,7 +3577,7 @@ position = Vector2(152, 0)
 position = Vector2(232, 0)
 
 [node name="HiddenFalseFloor" type="StaticBody2D" parent="SidePuzzle"]
-position = Vector2(512, 512)
+position = Vector2(704, 512)
 collision_layer = 128
 collision_mask = 128
 metadata/_edit_group_ = true

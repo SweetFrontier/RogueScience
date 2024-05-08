@@ -150,6 +150,7 @@ func hitSomethingEatableArea(_area_rid, area, _area_shape_index, _local_shape_in
 	hitSomethingEatable(area)
 
 func onAnimationFinished():
+	print(spriteAnim.animation)
 	if spriteAnim.animation == "eating":
 		if eatingTarget is rigidPlayer:
 			eatingTarget.isShielded = false
@@ -166,6 +167,9 @@ func onAnimationFinished():
 		
 		playAnimation("chasing")
 		currState = BossState.CHASING
+	elif spriteAnim.animation == "growling":
+		playAnimation("chasing")
+		currState = BossState.CHASING
 
 func playAnimation(animation):
 	spriteAnim.play(animation)
@@ -173,9 +177,10 @@ func playAnimation(animation):
 #Power-based functions
 #Why yes, this was just ripped from Electrode.gd
 
-func setBossCharge(charged : bool = false):
+func setBossCharge(charged : bool = false, frame : int = 0):
 	isCharged = charged
 	if isCharged:
+		lightningAnim.frame = frame
 		lightningAnim.play()
 		lightningAnim.show()
 	else:

@@ -2509,11 +2509,11 @@ metadata/_edit_group_ = true
 
 [node name="Camera2D" type="Camera2D" parent="rigidPlayer"]
 enabled = false
-zoom = Vector2(3, 3)
+zoom = Vector2(1.25, 1.25)
 
 [node name="Boss" parent="." node_paths=PackedStringArray("zappySound") instance=ExtResource("12_ktcuj")]
-position = Vector2(2976, 560)
-speed = 10000.0
+position = Vector2(1680, 784)
+speed = 7500.0
 stickyMultiplier = 0.4
 currState = 2
 zappySound = NodePath("zappysound")
@@ -2535,6 +2535,46 @@ position = Vector2(2656, 608)
 
 [node name="trapdoorPuzzle" type="Node2D" parent="."]
 script = ExtResource("14_3bsyv")
+
+[node name="Electrode" parent="trapdoorPuzzle" instance=ExtResource("14_3r1oa")]
+visible = false
+position = Vector2(2904, 488)
+one_shot = true
+
+[node name="Electrode2" parent="trapdoorPuzzle" instance=ExtResource("14_3r1oa")]
+visible = false
+position = Vector2(2944, 480)
+one_shot = true
+
+[node name="Electrode3" parent="trapdoorPuzzle" instance=ExtResource("14_3r1oa")]
+visible = false
+position = Vector2(2976, 480)
+one_shot = true
+
+[node name="Electrode4" parent="trapdoorPuzzle" instance=ExtResource("14_3r1oa")]
+visible = false
+position = Vector2(3000, 480)
+one_shot = true
+
+[node name="Electrode5" parent="trapdoorPuzzle" instance=ExtResource("14_3r1oa")]
+visible = false
+position = Vector2(3064, 488)
+one_shot = true
+
+[node name="Electrode6" parent="trapdoorPuzzle" instance=ExtResource("14_3r1oa")]
+visible = false
+position = Vector2(3032, 480)
+one_shot = true
+
+[node name="Electrode7" parent="trapdoorPuzzle" instance=ExtResource("14_3r1oa")]
+visible = false
+position = Vector2(3096, 512)
+one_shot = true
+
+[node name="Electrode8" parent="trapdoorPuzzle" instance=ExtResource("14_3r1oa")]
+visible = false
+position = Vector2(2872, 512)
+one_shot = true
 
 [node name="powerTrigger" parent="trapdoorPuzzle" instance=ExtResource("21_3fi6o")]
 position = Vector2(2448, 448)

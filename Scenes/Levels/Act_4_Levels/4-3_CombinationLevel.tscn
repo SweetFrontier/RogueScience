@@ -14,7 +14,7 @@
 [ext_resource type="Script" path="res://Scripts/triggerHolder.gd" id="10_f0v3e"]
 [ext_resource type="PackedScene" uid="uid://biw5iomco5lst" path="res://Scenes/Triggers/ventTrigger.tscn" id="11_81wbe"]
 [ext_resource type="SpriteFrames" uid="uid://icuxxqgcpr0s" path="res://Art/SpriteFrames/ventSystem.tres" id="14_jde3v"]
-[ext_resource type="PackedScene" uid="uid://bmwdwlb5umkan" path="res://Scenes/Triggers/Trigger_Helpers/SecurityBall.tscn" id="22_tu5dd"]
+[ext_resource type="PackedScene" uid="uid://drp881xq0trao" path="res://Scenes/Triggers/Trigger_Helpers/StressBall.tscn" id="15_dpw8s"]
 
 [node name="4-3_Combination" type="Node2D" node_paths=PackedStringArray("cameraSpot", "player", "transitionField")]
 script = ExtResource("1_cbnof")
@@ -436,7 +436,7 @@ position = Vector2(-64, -384)
 sprite_frames = ExtResource("14_jde3v")
 animation = &"curved"
 
-[node name="SecurityBall3" parent="." instance=ExtResource("22_tu5dd")]
+[node name="StressBall" parent="." instance=ExtResource("15_dpw8s")]
 position = Vector2(864, 176)
 
 [editable path="VentSystem/ventTrigger"]

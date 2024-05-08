@@ -10,9 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://ci05tj7j8an3w" path="res://Scenes/Triggers/BreakableBlocks/64x32breakableBlock.tscn" id="6_v3gpt"]
 [ext_resource type="Script" path="res://Scripts/triggerHolder.gd" id="8_v1ma7"]
 [ext_resource type="PackedScene" uid="uid://biw5iomco5lst" path="res://Scenes/Triggers/ventTrigger.tscn" id="9_cyymn"]
+[ext_resource type="PackedScene" uid="uid://drp881xq0trao" path="res://Scenes/Triggers/Trigger_Helpers/StressBall.tscn" id="9_glgdy"]
 [ext_resource type="SpriteFrames" uid="uid://icuxxqgcpr0s" path="res://Art/SpriteFrames/ventSystem.tres" id="12_vyeo3"]
 [ext_resource type="PackedScene" uid="uid://psrem4kknlu8" path="res://Scenes/Triggers/BreakableBlocks/32x64breakableBlock.tscn" id="12_wex0v"]
-[ext_resource type="PackedScene" uid="uid://bmwdwlb5umkan" path="res://Scenes/Triggers/Trigger_Helpers/SecurityBall.tscn" id="19_w03r3"]
 
 [node name="4-2_VentRace" type="Node2D" node_paths=PackedStringArray("cameraSpot", "player", "transitionField")]
 script = ExtResource("1_fsxkc")
@@ -56,7 +56,7 @@ position = Vector2(64, 128)
 [node name="64x32breakableBlock" parent="." instance=ExtResource("6_v3gpt")]
 position = Vector2(224, 192)
 
-[node name="SecurityBall" parent="." instance=ExtResource("19_w03r3")]
+[node name="StressBall" parent="." instance=ExtResource("9_glgdy")]
 position = Vector2(256, 48)
 
 [node name="VentSystem" type="Node2D" parent="."]

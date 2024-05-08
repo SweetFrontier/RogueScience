@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dvbyxsl5e3ol8" path="res://Scenes/Triggers/Trigger_Helpers/TransitionField.tscn" id="4_bkf36"]
 [ext_resource type="PackedScene" uid="uid://dpeaoe3ad3ahy" path="res://Scenes/Triggers/Trigger_Helpers/brokenVat.tscn" id="7_mm07j"]
 [ext_resource type="SpriteFrames" uid="uid://icuxxqgcpr0s" path="res://Art/SpriteFrames/ventSystem.tres" id="10_sqn54"]
-[ext_resource type="PackedScene" uid="uid://bmwdwlb5umkan" path="res://Scenes/Triggers/Trigger_Helpers/SecurityBall.tscn" id="11_ydxu2"]
+[ext_resource type="PackedScene" uid="uid://drp881xq0trao" path="res://Scenes/Triggers/Trigger_Helpers/StressBall.tscn" id="11_hlmb4"]
 [ext_resource type="Script" path="res://Scripts/triggerHolder.gd" id="19_bminb"]
 [ext_resource type="PackedScene" uid="uid://biw5iomco5lst" path="res://Scenes/Triggers/ventTrigger.tscn" id="20_rt1np"]
 
@@ -291,7 +291,7 @@ position = Vector2(-64, -256)
 sprite_frames = ExtResource("10_sqn54")
 animation = &"curved"
 
-[node name="SecurityBall" parent="." instance=ExtResource("11_ydxu2")]
+[node name="StressBall" parent="." instance=ExtResource("11_hlmb4")]
 position = Vector2(-64, 24)
 
 [editable path="VentSystem/ventTrigger"]

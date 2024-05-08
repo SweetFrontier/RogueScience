@@ -13,7 +13,7 @@
 [ext_resource type="Script" path="res://Scripts/triggerHolder.gd" id="11_v13f2"]
 [ext_resource type="PackedScene" uid="uid://biw5iomco5lst" path="res://Scenes/Triggers/ventTrigger.tscn" id="12_4xjqm"]
 [ext_resource type="SpriteFrames" uid="uid://icuxxqgcpr0s" path="res://Art/SpriteFrames/ventSystem.tres" id="13_xn4yy"]
-[ext_resource type="PackedScene" uid="uid://bmwdwlb5umkan" path="res://Scenes/Triggers/Trigger_Helpers/SecurityBall.tscn" id="14_uxi33"]
+[ext_resource type="PackedScene" uid="uid://drp881xq0trao" path="res://Scenes/Triggers/Trigger_Helpers/StressBall.tscn" id="14_av7aa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bcimw"]
 size = Vector2(160, 96)
@@ -297,10 +297,6 @@ position = Vector2(-32, 0)
 position = Vector2(104, 1.52588e-05)
 shape = SubResource("RectangleShape2D_ows0s")
 
-[node name="SecurityBall" parent="." instance=ExtResource("14_uxi33")]
-position = Vector2(304, 304)
-maxFanVelocity = 40.0
-
 [node name="fanTrigger3" parent="." instance=ExtResource("11_ucfa3")]
 position = Vector2(208, 208)
 rotation = -1.5708
@@ -317,6 +313,9 @@ position = Vector2(120, 0)
 
 [node name="Wind16" parent="fanTrigger3/PushArea" index="3"]
 position = Vector2(168, 1.52588e-05)
+
+[node name="StressBall" parent="." instance=ExtResource("14_av7aa")]
+position = Vector2(304, 304)
 
 [editable path="fanTrigger"]
 [editable path="VentSystem/ventTrigger"]

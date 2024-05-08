@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://dx47yma3wfoi6"]
+[gd_scene load_steps=24 format=3 uid="uid://dx47yma3wfoi6"]
 
 [ext_resource type="Texture2D" uid="uid://b6po2nrkyuixx" path="res://Art/Spritesheets/plhBossSheet.png" id="1_jlakm"]
 [ext_resource type="Script" path="res://Scripts/boss.gd" id="1_w8i4p"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dk6ccimxw84lq" path="res://Art/Spritesheets/BossWalk.png" id="3_ql66d"]
 [ext_resource type="Texture2D" uid="uid://dkl68ahmpfn7x" path="res://Art/Spritesheets/plhBossLightning.png" id="4_e07uo"]
 [ext_resource type="Texture2D" uid="uid://dv4fou5ljqcds" path="res://Art/Spritesheets/BossEat.png" id="4_eqs8h"]
+[ext_resource type="Texture2D" uid="uid://cqonfn0jn8e4k" path="res://Art/Spritesheets/BossGrowl.png" id="5_a2r5b"]
 [ext_resource type="Script" path="res://Scripts/Triggers/Trigger_Helpers/explodeablePolygon.gd" id="7_1ay5b"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_86kcp"]
@@ -35,6 +36,18 @@ region = Rect2(2048, 0, 1024, 800)
 [sub_resource type="AtlasTexture" id="AtlasTexture_xtai3"]
 atlas = ExtResource("4_eqs8h")
 region = Rect2(3072, 0, 1024, 800)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vf11d"]
+atlas = ExtResource("5_a2r5b")
+region = Rect2(0, 0, 1024, 800)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_trxni"]
+atlas = ExtResource("5_a2r5b")
+region = Rect2(1024, 0, 1024, 800)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_swfp8"]
+atlas = ExtResource("5_a2r5b")
+region = Rect2(2048, 0, 1024, 800)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_nx4wp"]
 animations = [{
@@ -68,63 +81,53 @@ animations = [{
 "loop": false,
 "name": &"eating",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vf11d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_trxni")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_swfp8")
+}],
+"loop": true,
+"name": &"growling",
+"speed": 5.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f6stx"]
 radius = 32.0
 height = 112.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1bo1s"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_l1y8u"]
 atlas = ExtResource("4_e07uo")
-region = Rect2(0, 0, 1024, 640)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_642eo"]
-atlas = ExtResource("4_e07uo")
-region = Rect2(1024, 0, 1024, 640)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3itik"]
-atlas = ExtResource("4_e07uo")
-region = Rect2(2048, 0, 1024, 640)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hdnkf"]
-atlas = ExtResource("4_e07uo")
-region = Rect2(3072, 0, 1024, 640)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nnvw4"]
-atlas = ExtResource("4_e07uo")
-region = Rect2(4096, 0, 1024, 640)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ubspf"]
-atlas = ExtResource("4_e07uo")
-region = Rect2(5120, 0, 1024, 640)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xa46g"]
-atlas = ExtResource("4_e07uo")
-region = Rect2(6144, 0, 1024, 640)
+region = Rect2(7168, 0, 1024, 640)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6exgw"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_1bo1s")
+"texture": SubResource("AtlasTexture_l1y8u")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_642eo")
+"texture": SubResource("AtlasTexture_l1y8u")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3itik")
+"texture": SubResource("AtlasTexture_l1y8u")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_hdnkf")
+"texture": SubResource("AtlasTexture_l1y8u")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_nnvw4")
+"texture": SubResource("AtlasTexture_l1y8u")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ubspf")
+"texture": SubResource("AtlasTexture_l1y8u")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_xa46g")
+"texture": SubResource("AtlasTexture_l1y8u")
 }],
 "loop": true,
 "name": &"lightning",
@@ -156,10 +159,12 @@ bossSounds = NodePath("bosssounds")
 [node name="BossSprite" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_nx4wp")
-animation = &"eating"
+animation = &"growling"
+frame_progress = 0.812212
 offset = Vector2(0, -76)
 
 [node name="BossCollisionShape" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(40, 48)
 rotation = -1.5708
 shape = SubResource("CapsuleShape2D_f6stx")
@@ -173,6 +178,7 @@ visible = false
 polygon = PackedVector2Array(56, 56, -104, -72, -136, -72, -152, -32, -56, 56)
 
 [node name="BossLightning" type="AnimatedSprite2D" parent="."]
+visible = false
 scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_6exgw")
 animation = &"lightning"

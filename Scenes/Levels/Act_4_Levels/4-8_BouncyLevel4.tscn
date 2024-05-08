@@ -15,8 +15,8 @@
 [ext_resource type="PackedScene" uid="uid://dxkklnkpsn70w" path="res://Scenes/Triggers/BreakableBlocks/32x32breakableBlock.tscn" id="13_yw03h"]
 [ext_resource type="Script" path="res://Scripts/triggerHolder.gd" id="14_0nj46"]
 [ext_resource type="PackedScene" uid="uid://biw5iomco5lst" path="res://Scenes/Triggers/ventTrigger.tscn" id="15_aj7fx"]
-[ext_resource type="PackedScene" uid="uid://bmwdwlb5umkan" path="res://Scenes/Triggers/Trigger_Helpers/SecurityBall.tscn" id="16_w7v0g"]
 [ext_resource type="SpriteFrames" uid="uid://icuxxqgcpr0s" path="res://Art/SpriteFrames/ventSystem.tres" id="17_hah2u"]
+[ext_resource type="PackedScene" uid="uid://drp881xq0trao" path="res://Scenes/Triggers/Trigger_Helpers/StressBall.tscn" id="17_l0rml"]
 
 [node name="4-8_BouncyLevel4" type="Node2D" node_paths=PackedStringArray("cameraSpot", "player", "transitionField")]
 texture_filter = 1
@@ -100,9 +100,6 @@ position = Vector2(512, 64)
 
 [node name="LeftSlopebreakableBlock" parent="." instance=ExtResource("11_7e87m")]
 position = Vector2(143, 473)
-
-[node name="SecurityBall" parent="." instance=ExtResource("16_w7v0g")]
-position = Vector2(48, 336)
 
 [node name="VentSystem" type="Node2D" parent="."]
 position = Vector2(64, 672)
@@ -663,6 +660,9 @@ z_as_relative = false
 position = Vector2(0, -576)
 sprite_frames = ExtResource("17_hah2u")
 animation = &"curved"
+
+[node name="StressBall" parent="." instance=ExtResource("17_l0rml")]
+position = Vector2(48, 336)
 
 [editable path="RightSlopebreakableBlock"]
 [editable path="LeftSlopebreakableBlock3"]

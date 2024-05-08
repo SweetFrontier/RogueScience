@@ -348,7 +348,7 @@ position = Vector2(8128, 32)
 position = Vector2(9984, 0)
 
 [node name="4-10_BossLevel" parent="Levels/Act_4" instance=ExtResource("41_80h12")]
-position = Vector2(11406, -384)
+position = Vector2(11680, -359)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2.667, 2.875)

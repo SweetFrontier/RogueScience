@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://biw5iomco5lst" path="res://Scenes/Triggers/ventTrigger.tscn" id="8_7js4u"]
 [ext_resource type="Texture2D" uid="uid://ljqhc6ud7t0p" path="res://Art/TriggerArt/Vent/plhVentCurved.png" id="9_h5sv7"]
 [ext_resource type="Texture2D" uid="uid://cguu570tipo33" path="res://Art/TriggerArt/Vent/plhVentStraight.png" id="10_obojs"]
-[ext_resource type="PackedScene" uid="uid://bmwdwlb5umkan" path="res://Scenes/Triggers/Trigger_Helpers/SecurityBall.tscn" id="11_66b64"]
+[ext_resource type="PackedScene" uid="uid://drp881xq0trao" path="res://Scenes/Triggers/Trigger_Helpers/StressBall.tscn" id="13_tkich"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_el5lo"]
 size = Vector2(224, 96)
@@ -463,17 +463,17 @@ position = Vector2(160, 0)
 [node name="Wind16" parent="fanTrigger8/PushArea" index="3"]
 position = Vector2(248, 0)
 
-[node name="SecurityBall" parent="." instance=ExtResource("11_66b64")]
+[node name="StressBall" parent="." instance=ExtResource("13_tkich")]
+position = Vector2(568, 640)
+
+[node name="StressBall2" parent="." instance=ExtResource("13_tkich")]
 position = Vector2(464, 229)
 
-[node name="SecurityBall2" parent="." instance=ExtResource("11_66b64")]
+[node name="StressBall3" parent="." instance=ExtResource("13_tkich")]
 position = Vector2(592, 128)
 
-[node name="SecurityBall3" parent="." instance=ExtResource("11_66b64")]
+[node name="StressBall4" parent="." instance=ExtResource("13_tkich")]
 position = Vector2(792, 224)
-
-[node name="SecurityBall4" parent="." instance=ExtResource("11_66b64")]
-position = Vector2(568, 640)
 
 [editable path="fanTrigger"]
 [editable path="fanTrigger2"]

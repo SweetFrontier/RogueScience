@@ -15,7 +15,7 @@
 [ext_resource type="Script" path="res://Scripts/triggerHolder.gd" id="14_oahng"]
 [ext_resource type="SpriteFrames" uid="uid://icuxxqgcpr0s" path="res://Art/SpriteFrames/ventSystem.tres" id="15_ogqa2"]
 [ext_resource type="PackedScene" uid="uid://biw5iomco5lst" path="res://Scenes/Triggers/ventTrigger.tscn" id="15_vp805"]
-[ext_resource type="PackedScene" uid="uid://bmwdwlb5umkan" path="res://Scenes/Triggers/Trigger_Helpers/SecurityBall.tscn" id="16_bmi5m"]
+[ext_resource type="PackedScene" uid="uid://drp881xq0trao" path="res://Scenes/Triggers/Trigger_Helpers/StressBall.tscn" id="17_3421e"]
 [ext_resource type="PackedScene" uid="uid://b8japh5crdt7v" path="res://Scenes/Triggers/fanTrigger.tscn" id="17_sdgto"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6amrk"]
@@ -488,9 +488,8 @@ position = Vector2(136, 0)
 [node name="Wind16" parent="fanTrigger3/PushArea" index="3"]
 position = Vector2(200, 0)
 
-[node name="SecurityBall" parent="." instance=ExtResource("16_bmi5m")]
+[node name="StressBall" parent="." instance=ExtResource("17_3421e")]
 position = Vector2(880, 496)
-maxFanVelocity = 40.0
 
 [editable path="VentSystem/ventTrigger"]
 [editable path="VentSystem2/ventTrigger"]

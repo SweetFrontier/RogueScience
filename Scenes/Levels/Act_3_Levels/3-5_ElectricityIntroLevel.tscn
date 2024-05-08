@@ -99,11 +99,18 @@ rotation = 3.14159
 position = Vector2(112, 48)
 rotation = 3.14159
 
-[node name="WireRightAngle2" parent="wirePuzzleHolder/strip/subStrip" instance=ExtResource("10_d8jtr")]
+[node name="WireStraight5" parent="wirePuzzleHolder/strip/subStrip" instance=ExtResource("9_1tjuq")]
 position = Vector2(80, 48)
+rotation = -3.14159
+
+[node name="WireRightAngle2" parent="wirePuzzleHolder/strip/subStrip" instance=ExtResource("10_d8jtr")]
+position = Vector2(48, 48)
 rotation = 1.5708
 
 [node name="WireRightAngle3" parent="wirePuzzleHolder/strip/subStrip" instance=ExtResource("10_d8jtr")]
+position = Vector2(48, 80)
+
+[node name="WireStraight6" parent="wirePuzzleHolder/strip/subStrip" instance=ExtResource("9_1tjuq")]
 position = Vector2(80, 80)
 
 [node name="subStrip2" type="Node2D" parent="wirePuzzleHolder/strip"]

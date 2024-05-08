@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://dnqoj4eg2l7le" path="res://Scenes/Triggers/trampolineTrigger.tscn" id="8_oyr4h"]
 [ext_resource type="AnimationLibrary" uid="uid://boe0opwg5u6p7" path="res://Animations/globalAnimations.res" id="8_rxu7w"]
 [ext_resource type="PackedScene" uid="uid://c0eghc3oa7752" path="res://Scenes/Triggers/Trigger_Helpers/movingObject.tscn" id="9_2dsq1"]
-[ext_resource type="AnimationLibrary" path="res://Animations/1-10.res" id="9_l4j8d"]
+[ext_resource type="AnimationLibrary" uid="uid://oxweusdybhnq" path="res://Animations/1-10.res" id="9_l4j8d"]
 [ext_resource type="PackedScene" uid="uid://dgkh4na3ckdg2" path="res://Scenes/Triggers/BreakableBlocks/RightSlopebreakableBlock.tscn" id="10_d21uh"]
 [ext_resource type="PackedScene" uid="uid://b653ep4goj6pf" path="res://Scenes/Triggers/InvisibleBlocks/32x64InvisibleBlock.tscn" id="16_v1guw"]
 [ext_resource type="PackedScene" uid="uid://dxkklnkpsn70w" path="res://Scenes/Triggers/BreakableBlocks/32x32breakableBlock.tscn" id="16_xo1r2"]

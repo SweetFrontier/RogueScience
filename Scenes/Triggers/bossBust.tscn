@@ -19,11 +19,13 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="BossBust" type="Node2D" node_paths=PackedStringArray("bustSprite", "TriggerKeySprite")]
+[node name="BossBust" type="Node2D" node_paths=PackedStringArray("bustSprite", "keySound", "brokeSound", "TriggerKeySprite")]
 script = ExtResource("1_2bpef")
 shakeStrength = 5.0
 crushThreshold = 5
 bustSprite = NodePath("BossBust")
+keySound = NodePath("keySound")
+brokeSound = NodePath("brokeSound")
 TriggerKeySprite = NodePath("TriggerKeySprite")
 
 [node name="BossBust" type="AnimatedSprite2D" parent="."]
@@ -35,3 +37,9 @@ sprite_frames = SubResource("SpriteFrames_0kf0a")
 [node name="TriggerKeySprite" parent="." instance=ExtResource("3_lkj5t")]
 modulate = Color(5, 3.3, 1, 1)
 position = Vector2(0, 144)
+
+[node name="keySound" type="AudioStreamPlayer2D" parent="."]
+bus = &"Sound Effects"
+
+[node name="brokeSound" type="AudioStreamPlayer2D" parent="."]
+bus = &"Sound Effects"

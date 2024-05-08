@@ -1,53 +1,69 @@
-[gd_scene load_steps=22 format=3 uid="uid://dx47yma3wfoi6"]
+[gd_scene load_steps=26 format=3 uid="uid://dx47yma3wfoi6"]
 
 [ext_resource type="Texture2D" uid="uid://b6po2nrkyuixx" path="res://Art/Spritesheets/plhBossSheet.png" id="1_jlakm"]
 [ext_resource type="Script" path="res://Scripts/boss.gd" id="1_w8i4p"]
 [ext_resource type="PackedScene" uid="uid://bvxwld4fu1vc0" path="res://Scenes/Triggers/Trigger_Helpers/lightning.tscn" id="2_eft2h"]
-[ext_resource type="Texture2D" uid="uid://budx17kisu6ac" path="res://Art/Spritesheets/plhBossEat.png" id="3_x46po"]
+[ext_resource type="Texture2D" uid="uid://dk6ccimxw84lq" path="res://Art/Spritesheets/BossWalk.png" id="3_ql66d"]
 [ext_resource type="Texture2D" uid="uid://dkl68ahmpfn7x" path="res://Art/Spritesheets/plhBossLightning.png" id="4_e07uo"]
+[ext_resource type="Texture2D" uid="uid://dv4fou5ljqcds" path="res://Art/Spritesheets/BossEat.png" id="4_eqs8h"]
+[ext_resource type="Script" path="res://Scripts/Triggers/Trigger_Helpers/explodeablePolygon.gd" id="7_1ay5b"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fpgn4"]
-atlas = ExtResource("1_jlakm")
-region = Rect2(0, 0, 1024, 640)
+[sub_resource type="AtlasTexture" id="AtlasTexture_86kcp"]
+atlas = ExtResource("3_ql66d")
+region = Rect2(0, 0, 1024, 800)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_j2neg"]
-atlas = ExtResource("3_x46po")
-region = Rect2(0, 0, 1024, 640)
+[sub_resource type="AtlasTexture" id="AtlasTexture_knwww"]
+atlas = ExtResource("3_ql66d")
+region = Rect2(1024, 0, 1024, 800)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gms11"]
-atlas = ExtResource("3_x46po")
-region = Rect2(1024, 0, 1024, 640)
+[sub_resource type="AtlasTexture" id="AtlasTexture_td48a"]
+atlas = ExtResource("3_ql66d")
+region = Rect2(2048, 0, 1024, 800)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_47naf"]
-atlas = ExtResource("3_x46po")
-region = Rect2(2048, 0, 1024, 640)
+[sub_resource type="AtlasTexture" id="AtlasTexture_mxsgb"]
+atlas = ExtResource("4_eqs8h")
+region = Rect2(0, 0, 1024, 800)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_cuf5c"]
-atlas = ExtResource("3_x46po")
-region = Rect2(3072, 0, 1024, 640)
+[sub_resource type="AtlasTexture" id="AtlasTexture_1hgjw"]
+atlas = ExtResource("4_eqs8h")
+region = Rect2(1024, 0, 1024, 800)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n86fy"]
+atlas = ExtResource("4_eqs8h")
+region = Rect2(2048, 0, 1024, 800)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xtai3"]
+atlas = ExtResource("4_eqs8h")
+region = Rect2(3072, 0, 1024, 800)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_nx4wp"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_fpgn4")
+"texture": SubResource("AtlasTexture_86kcp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_knwww")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_td48a")
 }],
 "loop": true,
 "name": &"chasing",
-"speed": 5.0
+"speed": 7.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_j2neg")
+"texture": SubResource("AtlasTexture_mxsgb")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_gms11")
+"texture": SubResource("AtlasTexture_1hgjw")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_47naf")
+"texture": SubResource("AtlasTexture_n86fy")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_cuf5c")
+"texture": SubResource("AtlasTexture_xtai3")
 }],
 "loop": false,
 "name": &"eating",
@@ -119,7 +135,7 @@ animations = [{
 radius = 80.0
 height = 256.0
 
-[node name="Boss" type="CharacterBody2D" node_paths=PackedStringArray("spriteAnim", "lightningAnim", "collisionShape", "frontDetector", "arcDetector", "bossSounds")]
+[node name="Boss" type="CharacterBody2D" node_paths=PackedStringArray("explodablePolygon", "spriteAnim", "lightningAnim", "collisionShape", "frontDetector", "arcDetector", "bossSounds")]
 z_index = 93
 z_as_relative = false
 collision_layer = 128
@@ -128,6 +144,7 @@ floor_snap_length = 2.0
 script = ExtResource("1_w8i4p")
 speed = 8000.0
 lurchAmount = 500
+explodablePolygon = NodePath("BossPolygon")
 spriteAnim = NodePath("BossSprite")
 lightningAnim = NodePath("BossLightning")
 collisionShape = NodePath("BossCollisionShape")
@@ -139,8 +156,8 @@ bossSounds = NodePath("bosssounds")
 [node name="BossSprite" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_nx4wp")
-animation = &"chasing"
-offset = Vector2(0, 1)
+animation = &"eating"
+offset = Vector2(0, -76)
 
 [node name="BossCollisionShape" type="CollisionShape2D" parent="."]
 position = Vector2(40, 48)
@@ -171,6 +188,28 @@ shape = SubResource("CapsuleShape2D_4d42n")
 
 [node name="bosssounds" type="AudioStreamPlayer2D" parent="."]
 bus = &"Sound Effects"
+
+[node name="BossPolygon" type="Polygon2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(-128, -80)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_jlakm")
+polygon = PackedVector2Array(0, 0, 1024, 0, 1024, 640, 0, 640)
+script = ExtResource("7_1ay5b")
+shard_count = 64
+shard_shrink_rate = 0.99
+min_shard_size = 0.05
+x_init_velocity = 20
+y_init_velocity = 40
+shard_speed = 3.0
+rotation_speed = 0.1
+shard_gravity = 40.0
+x_max_distance = 10
+x_min_distance = -10
+y_max_distance = 10
+y_min_distance = -10
+time_to_form = 0.5
 
 [connection signal="animation_finished" from="BossSprite" to="." method="onAnimationFinished"]
 [connection signal="area_shape_entered" from="FrontCollisionDetection" to="." method="hitSomethingEatableArea"]

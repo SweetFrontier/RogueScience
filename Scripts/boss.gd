@@ -6,6 +6,7 @@ class_name boss
 @export var lurchAmount = 2000
 @export var decayAmount = 1000
 @export var currState : BossState
+@export var explodablePolygon : explodeablePolygon
 
 @export var spriteAnim: AnimatedSprite2D
 @export var lightningAnim: AnimatedSprite2D
@@ -48,6 +49,7 @@ enum BossState
 
 const rawr = preload("res://Sounds/boss/rawr.ogg")
 const munch = preload("res://Sounds/boss/swollow.ogg")
+const crushed = preload("res://Sounds/death.ogg")
 
 func _ready():
 	currState = BossState.BEINGCONTROLLED
@@ -237,9 +239,16 @@ func calc_fan_forces(fans:Array[fanTrigger]):
 	fan_linear_velocity = fan_linear_velocity.clamp(Vector2(-maxFanVelocity,-maxFanVelocity), Vector2(maxFanVelocity,maxFanVelocity))
 	return fan_linear_velocity
 
+#Sound functions
 
 func do_the_roar(pitch:float=1.0):
 	bossSounds.stream = rawr
 	bossSounds.pitch_scale = pitch
 	bossSounds.volume_db = 0
+	bossSounds.play()
+
+func play_crushed_sound(pitch:float=1.0):
+	bossSounds.stream = crushed
+	bossSounds.pitch_scale = pitch
+	bossSounds.volume_db = 20
 	bossSounds.play()

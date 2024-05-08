@@ -8,10 +8,15 @@ signal drop_boss_bust_signal(animationName : String)
 @export var crushThreshold : int
 @export var dropAnimationName : String
 @export var bustSprite: AnimatedSprite2D
+@export var keySound : AudioStreamPlayer2D
+@export var brokeSound : AudioStreamPlayer2D
 
 var startingPosition : Vector2
 var shakeAmount : float = 0
 var shakeProgress: float = 0
+
+const buttonPressed = preload("res://Sounds/blockbreak.ogg")
+const bustFall = preload("res://Sounds/firingboom.ogg")
 
 func _ready():
 	TriggerKeySprite.rotation_degrees = -rotation_degrees
@@ -27,6 +32,10 @@ func react():
 	
 	activated = false
 	
+	brokeSound.stream = bustFall
+	brokeSound.volume_db = 10
+	brokeSound.play()
+	
 	emit_signal("drop_boss_bust_signal", dropAnimationName)
 
 func reset():
@@ -40,6 +49,9 @@ func reset():
 func _input(event):
 	# Check if the associated button is pressed and the trigger is active.
 	if event is InputEventKey and event.keycode == button and event.pressed and activated and event.echo == false:
+		keySound.stream = buttonPressed
+		keySound.volume_db = 10
+		keySound.play()
 		shakeAmount += 1
 		
 func _process(delta):

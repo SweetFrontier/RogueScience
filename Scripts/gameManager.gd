@@ -213,3 +213,9 @@ func _input(event):
 	if event is InputEventKey and event.is_released() and event.shift_pressed:
 		if event.keycode == KEY_PERIOD:
 			increase_level()
+
+func fadeOutMusic():
+	musicPlayer.fadeOut()
+	
+func fadeInMusic():
+	musicPlayer.fadeIn()

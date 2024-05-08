@@ -109,21 +109,27 @@ rotation = -1.5708
 position = Vector2(288, 96)
 
 [node name="Magnetic32x32Ball" parent="wirePuzzleHolder" instance=ExtResource("16_73txf")]
-position = Vector2(448, 112)
+position = Vector2(448, 96)
 
 [node name="invisWall" type="StaticBody2D" parent="wirePuzzleHolder"]
 position = Vector2(418, 208)
-metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="wirePuzzleHolder/invisWall"]
 shape = SubResource("RectangleShape2D_3firv")
 
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="wirePuzzleHolder/invisWall"]
+position = Vector2(22, -120)
+polygon = PackedVector2Array(0, -8, -24, 16, -24, 0)
+
 [node name="invisWall2" type="StaticBody2D" parent="wirePuzzleHolder"]
 position = Vector2(478, 208)
-metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="wirePuzzleHolder/invisWall2"]
 shape = SubResource("RectangleShape2D_3firv")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="wirePuzzleHolder/invisWall2"]
+position = Vector2(22, -120)
+polygon = PackedVector2Array(-44, -8, -24, 16, -24, 0)
 
 [node name="strip" type="Node2D" parent="wirePuzzleHolder"]
 script = ExtResource("8_3vvdu")

@@ -61,6 +61,7 @@ func _ready():
 	reset()
 
 func reset():
+	z_index = 50
 	set_collision_layer_value(1, true)
 	set_collision_layer_value(9, true)
 	set_collision_mask_value(1, true)

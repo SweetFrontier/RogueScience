@@ -13,9 +13,18 @@ func _on_body_entered(body: Node2D) -> void:
 			return
 		set_deferred("monitoring", false)
 		if !bossLevel:
+			body.AnimatedSprite.hide()
+			body.STOP = true
 			changeLevel()
 		else:
 			emit_signal("start_end_sequence")
 
 func changeLevel():
 	emit_signal("increase_level_signal")
+
+func shrinkPlayerCollisionEntered(body):
+	if (body is rigidPlayer):
+		body as rigidPlayer
+		if body.dead:
+			return
+		body.z_index = -40

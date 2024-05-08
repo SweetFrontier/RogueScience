@@ -70,7 +70,6 @@ polygon = PackedVector2Array(-128.25, -48.0833, -97.1371, 45.2549, 0, 0)
 [node name="GunSprite" parent="securityCameraTrigger" index="2"]
 position = Vector2(-144, -16)
 rotation = -2.35619
-metadata/_edit_group_ = true
 
 [node name="Bullet" parent="securityCameraTrigger/GunSprite" index="1"]
 MAX_ROTATION_SPEED = 180
@@ -95,7 +94,6 @@ polygon = PackedVector2Array(-142.392, -45.2549, -153.706, -33.9411, -125.421, 5
 [node name="GunSprite" parent="securityCameraTrigger2" index="2"]
 position = Vector2(-144, -16)
 rotation = -2.35619
-metadata/_edit_group_ = true
 
 [node name="Bullet" parent="securityCameraTrigger2/GunSprite" index="1"]
 MAX_ROTATION_SPEED = 180
@@ -120,7 +118,6 @@ polygon = PackedVector2Array(-136.735, -50.9117, -176.333, -11.3137, -153.706, 5
 [node name="GunSprite" parent="securityCameraTrigger3" index="2"]
 position = Vector2(-16, -48)
 rotation = -0.785398
-metadata/_edit_group_ = true
 
 [node name="Bullet" parent="securityCameraTrigger3/GunSprite" index="1"]
 MAX_ROTATION_SPEED = 180
@@ -139,6 +136,7 @@ position = Vector2(-32, -7.62939e-06)
 
 [node name="sodaTrigger2" parent="." instance=ExtResource("7_l5nue")]
 position = Vector2(160, 416)
+splat = false
 
 [node name="movingObject" parent="." instance=ExtResource("8_jer6q")]
 position = Vector2(528, 112)
@@ -177,7 +175,6 @@ polygon = PackedVector2Array(-136.735, -50.9117, -198.96, 11.3137, -181.99, 62.2
 [node name="GunSprite" parent="securityCameraTrigger4" index="2"]
 position = Vector2(-16, -48)
 rotation = -0.785398
-metadata/_edit_group_ = true
 
 [node name="Bullet" parent="securityCameraTrigger4/GunSprite" index="1"]
 MAX_ROTATION_SPEED = 180

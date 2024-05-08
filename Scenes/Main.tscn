@@ -394,6 +394,7 @@ bus = &"Sound Effects"
 [node name="AnimatedTransition" parent="CanvasLayer" instance=ExtResource("12_gan4l")]
 visible = false
 position = Vector2(640, 368)
+animation = &"UncoverScreen"
 autoplay = ""
 frame = 0
 frame_progress = 0.0

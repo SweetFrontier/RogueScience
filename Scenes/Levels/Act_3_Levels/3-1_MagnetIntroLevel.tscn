@@ -41,7 +41,6 @@ layer_0/tile_data = PackedInt32Array(851968, 131074, 3, 917504, 65538, 14, 10485
 
 [node name="rigidPlayer" parent="." instance=ExtResource("3_stw6n")]
 position = Vector2(352, 176)
-starting_direction = Vector2(-1, 0)
 
 [node name="CenterPosition" type="Marker2D" parent="."]
 position = Vector2(256, 288)

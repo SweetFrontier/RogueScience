@@ -1,8 +1,8 @@
 [gd_scene load_steps=16 format=3 uid="uid://c57nbuyl2p4e"]
 
 [ext_resource type="Script" path="res://Scripts/Triggers/Trigger_Helpers/Wire.gd" id="1_ii2qb"]
-[ext_resource type="Texture2D" uid="uid://bl0fs2fmm3wat" path="res://Art/TriggerArt/Conduits/Wires/plhWiresOff.png" id="2_87u60"]
-[ext_resource type="Texture2D" uid="uid://038npk5756sl" path="res://Art/TriggerArt/Conduits/Wires/plhWiresOn.png" id="3_h8smc"]
+[ext_resource type="Texture2D" uid="uid://bl0fs2fmm3wat" path="res://Art/TriggerArt/Wires/plhWiresOff.png" id="2_87u60"]
+[ext_resource type="Texture2D" uid="uid://038npk5756sl" path="res://Art/TriggerArt/Wires/plhWiresOn.png" id="3_h8smc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_24mxl"]
 atlas = ExtResource("2_87u60")

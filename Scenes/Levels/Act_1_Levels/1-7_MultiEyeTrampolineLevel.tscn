@@ -21,6 +21,8 @@ player = NodePath("rigidPlayer")
 transitionField = NodePath("TransitionField")
 
 [node name="Act1Bg" type="Sprite2D" parent="."]
+z_index = -100
+z_as_relative = false
 position = Vector2(288, 256)
 texture = ExtResource("2_ghh8b")
 region_enabled = true
@@ -74,3 +76,5 @@ position = Vector2(416, 304)
 
 [node name="trampolineTrigger" parent="." instance=ExtResource("10_o0tku")]
 position = Vector2(256, 400)
+
+[editable path="TransitionField"]

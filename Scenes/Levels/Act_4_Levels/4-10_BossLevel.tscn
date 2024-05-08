@@ -2480,7 +2480,7 @@ player = NodePath("rigidPlayer")
 transitionField = NodePath("TransitionField")
 theBoss = NodePath("Boss")
 sequencePlayer = NodePath("SequencePlayer")
-introAnimationName = "4-10/Beginn"
+introAnimationName = "4-10/Begin"
 endAnimationName = "4-10/End"
 
 [node name="Act4Bg" type="Sprite2D" parent="."]
@@ -2543,15 +2543,16 @@ y_min_distance = -10
 time_to_form = 0.5
 
 [node name="rigidPlayer" parent="." instance=ExtResource("11_x8vlb")]
-position = Vector2(544, 1060)
+position = Vector2(2688, 1552)
 metadata/_edit_group_ = true
 
 [node name="Camera2D" type="Camera2D" parent="rigidPlayer"]
 enabled = false
+zoom = Vector2(3, 3)
 position_smoothing_speed = 30.0
 
 [node name="Boss" parent="." instance=ExtResource("12_i30kf")]
-position = Vector2(864, 1200)
+position = Vector2(2368, 1488)
 speed = 6100.0
 stickyMultiplier = 0.4
 lurchAmount = 300

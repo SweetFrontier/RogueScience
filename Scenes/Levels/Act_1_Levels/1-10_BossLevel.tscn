@@ -2469,7 +2469,7 @@ libraries = {
 }
 
 [node name="CenterPosition" type="Marker2D" parent="."]
-position = Vector2(240, 128)
+position = Vector2(574, 752)
 
 [node name="TransitionField" parent="." instance=ExtResource("4_go5s3")]
 position = Vector2(2688, 1536)

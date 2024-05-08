@@ -71,9 +71,10 @@ func _ready() -> void:
 	for level in Levels:
 		level.transitionField.connect("increase_level_signal", increase_level)
 		level.player.connect("player_death_signal", player_death)
-	await(resetWipeTransition.animation_finished)
+	#await(resetWipeTransition.animation_finished)
 	Levels[current_level].process_mode = Node.PROCESS_MODE_PAUSABLE
 	resetLevel()
+	await(resetWipeTransition.animation_finished)
 	pauseMenu.set_pausability(true)
 
 func _process(delta):
@@ -114,7 +115,6 @@ func increase_level() -> void:
 		GlobalVariables.unlockedLevel = current_level
 		GlobalVariables.give_free_cookies()
 	
-	print("called")
 	if(current_level >= Levels.size()):
 		pauseMenu.set_pausability(false)
 		musicPlayer.fadeOut()
@@ -127,7 +127,6 @@ func increase_level() -> void:
 		Transition.get_child(0).play()
 		
 		await(Transition.animation_finished)
-		print("to credits")
 		screen_wipe_covered()
 		#resetWipeTransitionContoller.cover_screen()
 		return

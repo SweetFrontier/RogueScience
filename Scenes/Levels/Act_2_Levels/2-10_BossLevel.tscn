@@ -2464,12 +2464,13 @@ position = Vector2(544, 1376)
 bossLevel = true
 
 [node name="rigidPlayer" parent="." instance=ExtResource("10_l2oa6")]
-position = Vector2(544, 1360)
+position = Vector2(576, 752)
 metadata/_edit_group_ = true
 
 [node name="Camera2D" type="Camera2D" parent="rigidPlayer"]
+position = Vector2(-94.4999, -12)
 enabled = false
-zoom = Vector2(3, 3)
+zoom = Vector2(2.68889, 2.68889)
 
 [node name="Boss" parent="." instance=ExtResource("11_r5ave")]
 position = Vector2(224, 688)

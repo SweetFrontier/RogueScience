@@ -2504,16 +2504,16 @@ position = Vector2(2816, 1312)
 bossLevel = true
 
 [node name="rigidPlayer" parent="." instance=ExtResource("11_suu7t")]
-position = Vector2(2643, 624)
+position = Vector2(2656, 624)
 metadata/_edit_group_ = true
 
 [node name="Camera2D" type="Camera2D" parent="rigidPlayer"]
 enabled = false
-zoom = Vector2(1.25, 1.25)
+zoom = Vector2(3, 3)
 
 [node name="Boss" parent="." node_paths=PackedStringArray("zappySound") instance=ExtResource("12_ktcuj")]
-position = Vector2(1680, 784)
-speed = 7500.0
+position = Vector2(2976, 560)
+speed = 10000.0
 stickyMultiplier = 0.4
 currState = 2
 zappySound = NodePath("zappysound")

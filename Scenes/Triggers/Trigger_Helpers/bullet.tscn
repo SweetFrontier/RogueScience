@@ -1,27 +1,36 @@
-[gd_scene load_steps=11 format=3 uid="uid://bjl1j5sws2hp2"]
+[gd_scene load_steps=14 format=3 uid="uid://bjl1j5sws2hp2"]
 
 [ext_resource type="SpriteFrames" uid="uid://bc6sgulgn2k5" path="res://Art/SpriteFrames/bulletAnims.tres" id="1_wu2f4"]
 [ext_resource type="Script" path="res://Scripts/Triggers/Trigger_Helpers/bullet.gd" id="2_ucb8p"]
+[ext_resource type="Texture2D" uid="uid://ddisv3nwqat1d" path="res://Art/TriggerArt/SecurityCamera/bulletExplosion.png" id="3_gcwv3"]
 [ext_resource type="Texture2D" uid="uid://bmsh7ew73lmoi" path="res://Art/TriggerArt/SecurityCamera/Red Effect Bullet Impact Explosion 32x32.png" id="3_rfjv7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_u0vxs"]
 radius = 4.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_pnfm5"]
-atlas = ExtResource("3_rfjv7")
-region = Rect2(512, 384, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_b5awc"]
+atlas = ExtResource("3_gcwv3")
+region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_dhutx"]
-atlas = ExtResource("3_rfjv7")
-region = Rect2(544, 384, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_l44yw"]
+atlas = ExtResource("3_gcwv3")
+region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_poleq"]
-atlas = ExtResource("3_rfjv7")
-region = Rect2(576, 384, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_vg6b0"]
+atlas = ExtResource("3_gcwv3")
+region = Rect2(64, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xaux3"]
-atlas = ExtResource("3_rfjv7")
-region = Rect2(608, 384, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_s57wt"]
+atlas = ExtResource("3_gcwv3")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ttu31"]
+atlas = ExtResource("3_gcwv3")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sgo4n"]
+atlas = ExtResource("3_gcwv3")
+region = Rect2(160, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6wmgc"]
 atlas = ExtResource("3_rfjv7")
@@ -31,16 +40,22 @@ region = Rect2(0, 480, 32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_pnfm5")
+"texture": SubResource("AtlasTexture_b5awc")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_dhutx")
+"texture": SubResource("AtlasTexture_l44yw")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_poleq")
+"texture": SubResource("AtlasTexture_vg6b0")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_xaux3")
+"texture": SubResource("AtlasTexture_s57wt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ttu31")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sgo4n")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_6wmgc")
@@ -73,7 +88,7 @@ shape = SubResource("CircleShape2D_u0vxs")
 
 [node name="Explosion" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_i1i5g")
-frame = 4
+frame = 6
 frame_progress = 1.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

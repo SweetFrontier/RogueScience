@@ -2480,12 +2480,11 @@ position = Vector2(574, 752)
 metadata/_edit_group_ = true
 
 [node name="Camera2D" type="Camera2D" parent="rigidPlayer"]
-position = Vector2(-218.4, -27.7333)
 enabled = false
-zoom = Vector2(2.125, 2.125)
+zoom = Vector2(3, 3)
 
 [node name="Boss" parent="." instance=ExtResource("6_i6q2a")]
-position = Vector2(224, 688)
+position = Vector2(128, 688)
 speed = 8100.0
 lurchAmount = 300
 currState = 2

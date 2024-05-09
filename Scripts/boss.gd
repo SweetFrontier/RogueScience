@@ -150,7 +150,6 @@ func hitSomethingEatableArea(_area_rid, area, _area_shape_index, _local_shape_in
 	hitSomethingEatable(area)
 
 func onAnimationFinished():
-	print(spriteAnim.animation)
 	if spriteAnim.animation == "eating":
 		if eatingTarget is rigidPlayer:
 			eatingTarget.isShielded = false

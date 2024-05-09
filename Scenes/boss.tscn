@@ -91,8 +91,20 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_swfp8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_trxni")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_swfp8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_trxni")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_swfp8")
 }],
-"loop": true,
+"loop": false,
 "name": &"growling",
 "speed": 5.0
 }]
@@ -160,7 +172,8 @@ bossSounds = NodePath("bosssounds")
 scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_nx4wp")
 animation = &"growling"
-frame_progress = 0.812212
+frame = 2
+frame_progress = 1.0
 offset = Vector2(0, -76)
 
 [node name="BossCollisionShape" type="CollisionShape2D" parent="."]

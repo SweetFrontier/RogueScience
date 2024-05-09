@@ -63,7 +63,6 @@ func releasePower():
 			exportConduit.power(self)
 		elif exportConduit is baseTrigger:
 			exportConduit.react()
-	setState(PowerState.OFF)
 
 func onAdjacentConduitFound(_area_rid, area, _area_shape_index, _local_shape_index):
 	var areaParent = area.get_parent()
@@ -92,5 +91,7 @@ func unlock():
 
 func onPowerSourceSpriteFrameChanged():
 	if powerSourceSprite.animation == stateToAnimString[PowerState.ON]:
-		if powerSourceSprite.frame == 3:
+		if powerSourceSprite.frame == 4:
 			releasePower()
+		if powerSourceSprite.frame == 8:
+			setState(PowerState.OFF)

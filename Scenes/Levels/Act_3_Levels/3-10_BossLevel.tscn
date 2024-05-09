@@ -2508,8 +2508,9 @@ position = Vector2(2656, 624)
 metadata/_edit_group_ = true
 
 [node name="Camera2D" type="Camera2D" parent="rigidPlayer"]
+position = Vector2(276.978, -43.7333)
 enabled = false
-zoom = Vector2(3, 3)
+zoom = Vector2(1.775, 1.775)
 
 [node name="Boss" parent="." node_paths=PackedStringArray("zappySound") instance=ExtResource("12_ktcuj")]
 position = Vector2(2976, 560)

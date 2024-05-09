@@ -2553,14 +2553,17 @@ position = Vector2(2688, 1552)
 metadata/_edit_group_ = true
 
 [node name="Camera2D" type="Camera2D" parent="rigidPlayer"]
+position = Vector2(-126, -16)
 enabled = false
+zoom = Vector2(2.475, 2.475)
 position_smoothing_speed = 2.0
 
 [node name="Boss" parent="." instance=ExtResource("12_i30kf")]
 position = Vector2(2368, 1488)
-speed = 7500.0
+speed = 6100.0
 stickyMultiplier = 0.4
 lurchAmount = 300
+currState = 2
 metadata/_edit_group_ = true
 
 [node name="BossLightning" parent="Boss" index="3"]

@@ -2481,8 +2481,8 @@ player = NodePath("rigidPlayer")
 transitionField = NodePath("TransitionField")
 theBoss = NodePath("Boss")
 sequencePlayer = NodePath("SequencePlayer")
-introAnimationName = "4-10/Begin"
-endAnimationName = "4-10/End"
+introAnimationName = "4-10/1-Begin"
+endAnimationName = "4-10/12-End"
 
 [node name="Act4Bg" type="Sprite2D" parent="."]
 z_index = -100
@@ -2554,15 +2554,13 @@ metadata/_edit_group_ = true
 
 [node name="Camera2D" type="Camera2D" parent="rigidPlayer"]
 enabled = false
-zoom = Vector2(3, 3)
-position_smoothing_speed = 30.0
+position_smoothing_speed = 2.0
 
 [node name="Boss" parent="." instance=ExtResource("12_i30kf")]
 position = Vector2(2368, 1488)
-speed = 6100.0
+speed = 7500.0
 stickyMultiplier = 0.4
 lurchAmount = 300
-currState = 2
 metadata/_edit_group_ = true
 
 [node name="BossLightning" parent="Boss" index="3"]
@@ -3666,23 +3664,23 @@ animation = &"chillinInTrigger"
 
 [node name="BossBust" parent="BugSquash" instance=ExtResource("25_ctv4r")]
 position = Vector2(2016, 944)
-dropAnimationName = "4-10/BossCrush"
+dropAnimationName = "4-10/13-BossCrush"
 
-[connection signal="body_entered" from="FlyingUpPuzzle/VentSystem/ventTrigger/VentEntrance/InsideCheckVentArea" to="." method="playerCallSequence" binds= ["4-10/VentCameraSequence"]]
-[connection signal="body_entered" from="FlyingUpPuzzle/FakeBossFan" to="." method="bossCallSequence" binds= ["4-10/FakeBossFan"]]
-[connection signal="body_entered" from="TopVents/stopBoss" to="." method="bossCallSequence" binds= ["4-10/StopBoss"]]
-[connection signal="body_entered" from="TopVents/VentSystem/ventTrigger/VentEntrance/InsideCheckVentArea" to="." method="playerCallSequence" binds= ["4-10/VentCameraSequence_2"]]
-[connection signal="body_entered" from="TopVents/StartNextSequence" to="." method="playerCallSequence" binds= ["4-10/ResumeBossChase"]]
-[connection signal="body_entered" from="TopVents/VentSystem2/ventTrigger/VentEntrance/InsideCheckVentArea" to="." method="playerCallSequence" binds= ["4-10/TopVent1"]]
-[connection signal="body_entered" from="TopVents/VentSystem3/ventTrigger/VentEntrance/InsideCheckVentArea" to="." method="playerCallSequence" binds= ["4-10/TopVent1"]]
-[connection signal="body_entered" from="TopVents/VentSystem4/ventTrigger/VentEntrance/InsideCheckVentArea" to="." method="playerCallSequence" binds= ["4-10/TopVent1"]]
-[connection signal="body_entered" from="TopVents/VentSystem5/ventTrigger/VentEntrance/InsideCheckVentArea" to="." method="playerCallSequence" binds= ["4-10/TopVent1"]]
-[connection signal="body_entered" from="TopVents/VentSystem6/ventTrigger/VentEntrance/InsideCheckVentArea" to="." method="playerCallSequence" binds= ["4-10/TopVent2.7"]]
-[connection signal="body_entered" from="TopVents/VentSystem7/ventTrigger/VentEntrance/InsideCheckVentArea" to="." method="playerCallSequence" binds= ["4-10/TopVent2.7"]]
-[connection signal="body_entered" from="TopVents/stopBoss2" to="." method="bossCallSequence" binds= ["4-10/TopVentStopBoss"]]
-[connection signal="body_entered" from="TopVents/StartNextSequence2" to="." method="playerCallSequence" binds= ["4-10/ResumeBossChase"]]
-[connection signal="body_entered" from="TopVents/stopBoss3" to="." method="bossCallSequence" binds= ["4-10/TopVentStopBoss_2"]]
-[connection signal="body_entered" from="SidePuzzle/StartNextSequence2" to="." method="playerCallSequence" binds= ["4-10/TurnOffFan"]]
+[connection signal="body_entered" from="FlyingUpPuzzle/VentSystem/ventTrigger/VentEntrance/InsideCheckVentArea" to="." method="playerCallSequence" binds= ["4-10/3-VentCameraSequence"]]
+[connection signal="body_entered" from="FlyingUpPuzzle/FakeBossFan" to="." method="bossCallSequence" binds= ["4-10/2-FakeBossFan"]]
+[connection signal="body_entered" from="TopVents/stopBoss" to="." method="bossCallSequence" binds= ["4-10/5-StopBoss"]]
+[connection signal="body_entered" from="TopVents/VentSystem/ventTrigger/VentEntrance/InsideCheckVentArea" to="." method="playerCallSequence" binds= ["4-10/4-VentCameraSequence_2"]]
+[connection signal="body_entered" from="TopVents/StartNextSequence" to="." method="playerCallSequence" binds= ["4-10/6-ResumeBossChase"]]
+[connection signal="body_entered" from="TopVents/VentSystem2/ventTrigger/VentEntrance/InsideCheckVentArea" to="." method="playerCallSequence" binds= ["4-10/7-TopVent1"]]
+[connection signal="body_entered" from="TopVents/VentSystem3/ventTrigger/VentEntrance/InsideCheckVentArea" to="." method="playerCallSequence" binds= ["4-10/7-TopVent1"]]
+[connection signal="body_entered" from="TopVents/VentSystem4/ventTrigger/VentEntrance/InsideCheckVentArea" to="." method="playerCallSequence" binds= ["4-10/7-TopVent1"]]
+[connection signal="body_entered" from="TopVents/VentSystem5/ventTrigger/VentEntrance/InsideCheckVentArea" to="." method="playerCallSequence" binds= ["4-10/7-TopVent1"]]
+[connection signal="body_entered" from="TopVents/VentSystem6/ventTrigger/VentEntrance/InsideCheckVentArea" to="." method="playerCallSequence" binds= ["4-10/8-TopVent2.7"]]
+[connection signal="body_entered" from="TopVents/VentSystem7/ventTrigger/VentEntrance/InsideCheckVentArea" to="." method="playerCallSequence" binds= ["4-10/8-TopVent2.7"]]
+[connection signal="body_entered" from="TopVents/stopBoss2" to="." method="bossCallSequence" binds= ["4-10/9-TopVentStopBoss"]]
+[connection signal="body_entered" from="TopVents/StartNextSequence2" to="." method="playerCallSequence" binds= ["4-10/6-ResumeBossChase"]]
+[connection signal="body_entered" from="TopVents/stopBoss3" to="." method="bossCallSequence" binds= ["4-10/10-TopVentStopBoss_2"]]
+[connection signal="body_entered" from="SidePuzzle/StartNextSequence2" to="." method="playerCallSequence" binds= ["4-10/11-TurnOffFan"]]
 
 [editable path="TransitionField"]
 [editable path="Boss"]

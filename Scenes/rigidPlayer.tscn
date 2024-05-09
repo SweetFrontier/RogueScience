@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/rigidPlayer.gd" id="1_tevo1"]
 [ext_resource type="SpriteFrames" uid="uid://uoxtfmfhh7ft" path="res://Art/SpriteFrames/fellaAnims.tres" id="2_b4cfh"]
 [ext_resource type="AudioStream" uid="uid://cof7uu71agsbj" path="res://Sounds/crawl.ogg" id="3_2cu8q"]
-[ext_resource type="Texture2D" uid="uid://cuo7640hvi8jb" path="res://Art/Spritesheets/plhFellaShield.png" id="3_govog"]
+[ext_resource type="Texture2D" uid="uid://26r2f6rd3w21" path="res://Art/Spritesheets/FellaShield.png" id="3_xmie8"]
 [ext_resource type="AudioStream" uid="uid://cbl8qb0gk6iiq" path="res://Sounds/hitsomething.ogg" id="4_h2nkj"]
 [ext_resource type="Script" path="res://Scripts/Triggers/Trigger_Helpers/explodeablePolygon.gd" id="5_57jm6"]
 [ext_resource type="Texture2D" uid="uid://du38jg7n11pol" path="res://Art/Spritesheets/deadfella.png" id="5_ld6tc"]
@@ -11,15 +11,15 @@
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2kvdi"]
 friction = 0.15
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_g07l5"]
-atlas = ExtResource("3_govog")
+[sub_resource type="AtlasTexture" id="AtlasTexture_p0ia7"]
+atlas = ExtResource("3_xmie8")
 region = Rect2(0, 0, 72, 40)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_rrdhf"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_g07l5")
+"texture": SubResource("AtlasTexture_p0ia7")
 }],
 "loop": true,
 "name": &"default",
@@ -54,15 +54,19 @@ deathExplosion = NodePath("Polygon2D")
 
 [node name="PlayerAnimatedSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("2_b4cfh")
-animation = &"rising"
+animation = &"crawl"
 autoplay = "crawl"
 offset = Vector2(4, 0)
 
 [node name="SodaShield" type="AnimatedSprite2D" parent="PlayerAnimatedSprite"]
 visible = false
+modulate = Color(1, 1, 1, 0.627451)
+position = Vector2(6, -2)
 sprite_frames = SubResource("SpriteFrames_rrdhf")
+frame_progress = 0.874695
 
 [node name="PlayerCollision" type="CollisionPolygon2D" parent="."]
+visible = false
 polygon = PackedVector2Array(-26, 8, -8, -4, 8, -4, 26, 8, 13, 15, 10, 16, -10, 16, -13, 15)
 
 [node name="floorCollisionArea" type="Area2D" parent="."]

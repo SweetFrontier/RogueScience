@@ -2,20 +2,20 @@
 
 [ext_resource type="Script" path="res://Scripts/Triggers/Trigger_Helpers/movingObject.gd" id="1_qtqtv"]
 [ext_resource type="Texture2D" uid="uid://be344ylsg0vln" path="res://Art/TriggerArt/MovingObject/StressBall.PNG" id="2_g4v1o"]
-[ext_resource type="Texture2D" uid="uid://bctxuq8plm2r2" path="res://Art/TriggerArt/MovingObject/plhSodaShield.png" id="3_ass13"]
+[ext_resource type="Texture2D" uid="uid://b0icvrglibx27" path="res://Art/Spritesheets/BallShield.png" id="3_7bhor"]
 [ext_resource type="AudioStream" uid="uid://cbl8qb0gk6iiq" path="res://Sounds/hitsomething.ogg" id="4_kpe3a"]
 [ext_resource type="Texture2D" uid="uid://scu4r07x4qav" path="res://Art/TriggerArt/MovingObject/plhSecurityBall.png" id="5_g2mp7"]
 [ext_resource type="Script" path="res://Scripts/Triggers/Trigger_Helpers/explodeablePolygon.gd" id="6_b0ncy"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_m0v1t"]
-atlas = ExtResource("3_ass13")
-region = Rect2(0, 0, 38, 38)
+[sub_resource type="AtlasTexture" id="AtlasTexture_da5uo"]
+atlas = ExtResource("3_7bhor")
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qe4re"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_m0v1t")
+"texture": SubResource("AtlasTexture_da5uo")
 }],
 "loop": true,
 "name": &"default",

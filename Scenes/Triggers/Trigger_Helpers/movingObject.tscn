@@ -2,19 +2,19 @@
 
 [ext_resource type="Script" path="res://Scripts/Triggers/Trigger_Helpers/movingObject.gd" id="1_kg8bi"]
 [ext_resource type="Texture2D" uid="uid://d07soj2hvu8u3" path="res://Art/TriggerArt/MovingObject/MovingEye.png" id="2_6v5ui"]
+[ext_resource type="Texture2D" uid="uid://b0icvrglibx27" path="res://Art/Spritesheets/BallShield.png" id="3_24pfq"]
 [ext_resource type="AudioStream" uid="uid://cbl8qb0gk6iiq" path="res://Sounds/hitsomething.ogg" id="3_lawhx"]
-[ext_resource type="Texture2D" uid="uid://bctxuq8plm2r2" path="res://Art/TriggerArt/MovingObject/plhSodaShield.png" id="3_p14n0"]
 [ext_resource type="Script" path="res://Scripts/Triggers/Trigger_Helpers/explodeablePolygon.gd" id="4_dtmf2"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_m0v1t"]
-atlas = ExtResource("3_p14n0")
-region = Rect2(0, 0, 38, 38)
+[sub_resource type="AtlasTexture" id="AtlasTexture_6pyue"]
+atlas = ExtResource("3_24pfq")
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qe4re"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_m0v1t")
+"texture": SubResource("AtlasTexture_6pyue")
 }],
 "loop": true,
 "name": &"default",
@@ -47,6 +47,7 @@ texture = ExtResource("2_6v5ui")
 visible = false
 z_index = 9
 sprite_frames = SubResource("SpriteFrames_qe4re")
+frame_progress = 0.166872
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false

@@ -3,20 +3,20 @@
 [ext_resource type="PhysicsMaterial" uid="uid://0wv2kg3l0ugb" path="res://Scenes/Triggers/Trigger_Helpers/MagneticObjects/magneticPhysicsMaterial.tres" id="1_gxrjm"]
 [ext_resource type="Script" path="res://Scripts/Triggers/Trigger_Helpers/magneticObject.gd" id="2_603u6"]
 [ext_resource type="Texture2D" uid="uid://b1hx8lndst1of" path="res://Art/TriggerArt/MovingObject/plhMagnetic32x32Ball.png" id="2_lwmgf"]
-[ext_resource type="Texture2D" uid="uid://bctxuq8plm2r2" path="res://Art/TriggerArt/MovingObject/plhSodaShield.png" id="3_3wp1y"]
 [ext_resource type="Texture2D" uid="uid://cqi2h5ma4khd1" path="res://Art/TriggerArt/MovingObject/Magnetic32x32Ball.png" id="3_h8aut"]
+[ext_resource type="Texture2D" uid="uid://b0icvrglibx27" path="res://Art/Spritesheets/BallShield.png" id="4_jojve"]
 [ext_resource type="AudioStream" uid="uid://cbl8qb0gk6iiq" path="res://Sounds/hitsomething.ogg" id="4_tkdmi"]
 [ext_resource type="Script" path="res://Scripts/Triggers/Trigger_Helpers/explodeablePolygon.gd" id="5_4fx0u"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_m0v1t"]
-atlas = ExtResource("3_3wp1y")
-region = Rect2(0, 0, 38, 38)
+[sub_resource type="AtlasTexture" id="AtlasTexture_0iqa5"]
+atlas = ExtResource("4_jojve")
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qe4re"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_m0v1t")
+"texture": SubResource("AtlasTexture_0iqa5")
 }],
 "loop": true,
 "name": &"default",
@@ -55,6 +55,7 @@ texture = ExtResource("3_h8aut")
 visible = false
 z_index = 9
 sprite_frames = SubResource("SpriteFrames_qe4re")
+frame_progress = 0.328536
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_pygtm")

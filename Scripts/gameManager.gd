@@ -114,28 +114,33 @@ func increase_level() -> void:
 	if (GlobalVariables.unlockedLevel < current_level):
 		GlobalVariables.unlockedLevel = current_level
 		GlobalVariables.give_free_cookies()
-	
-	if(current_level >= Levels.size()):
+	Transition.modulate = Color(1,1,1)
+	if(current_level == Levels.size()-1):
 		pauseMenu.set_pausability(false)
-		musicPlayer.fadeOut()
+		#musicPlayer.fadeOut()
 		Transition.modulate = Color(4,1.5,1)
 		
-		GlobalVariables.finishedTheGame = true
+		#GlobalVariables.finishedTheGame = true
 		
-		Transition.show()
-		Transition.play("CoverScreen")
-		Transition.get_child(0).play()
+		#Transition.show()
+		#Transition.play("CoverScreen")
+		#Transition.get_child(0).play()
 		
-		await(Transition.animation_finished)
-		screen_wipe_covered()
+		#await(Transition.animation_finished)
+		#screen_wipe_covered()
 		#resetWipeTransitionContoller.cover_screen()
+		#return
+	elif (current_level >= Levels.size()):
+		pauseMenu.set_pausability(false)
+		musicPlayer.fadeOut()
+		resetWipeTransitionContoller.cover_screen()
 		return
 	var min_zoom_size : Vector2 =  Levels[current_level].cameraSize
 	var final_zoom_size = minf(1280/min_zoom_size.x,736/min_zoom_size.y)
 	
 	pauseMenu.set_pausability(false)
 	
-	Transition.modulate = Color(1,1,1)
+	#Transition.modulate = Color(1,1,1)
 	Transition.show()
 	Transition.play("CoverScreen")
 	Transition.get_child(0).play()

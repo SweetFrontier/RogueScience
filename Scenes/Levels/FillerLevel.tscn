@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://vptxmss2uf3o"]
+
+[ext_resource type="Script" path="res://Scripts/levelController.gd" id="1_k8s1o"]
+[ext_resource type="PackedScene" uid="uid://dvbyxsl5e3ol8" path="res://Scenes/Triggers/Trigger_Helpers/TransitionField.tscn" id="4_3k0a3"]
+[ext_resource type="PackedScene" uid="uid://dd6l6fhpuajke" path="res://Scenes/rigidPlayer.tscn" id="5_2h8s2"]
+
+[node name="FillerLevel" type="Node2D" node_paths=PackedStringArray("cameraSpot", "player", "transitionField")]
+texture_filter = 1
+script = ExtResource("1_k8s1o")
+cameraSpot = NodePath("CenterPosition")
+cameraSize = Vector2(64, 64)
+player = NodePath("rigidPlayer")
+transitionField = NodePath("TransitionField")
+
+[node name="CenterPosition" type="Marker2D" parent="."]
+position = Vector2(656, 352)
+
+[node name="TransitionField" parent="." instance=ExtResource("4_3k0a3")]
+position = Vector2(608, 448)
+
+[node name="rigidPlayer" parent="." instance=ExtResource("5_2h8s2")]
+position = Vector2(608, -480)
+starting_direction = Vector2(0, 0)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = 4096
+z_as_relative = false
+offset_right = 1312.0
+offset_bottom = 832.0
+color = Color(0, 0, 0, 1)
